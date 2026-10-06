@@ -241,7 +241,7 @@ def check_code() -> list[str]:
     ps_items: list[tuple[str, str]] = []
 
     def add_bash(label: str, code: str) -> None:
-        result = subprocess.run(["bash", "-n"], input=code, text=True, capture_output=True)
+        result = subprocess.run(["bash", "-n"], input=code, text=True, encoding="utf-8", capture_output=True)
         if result.returncode:
             problems.append(f"{label}: bash: {result.stderr.strip()}")
 
@@ -272,7 +272,7 @@ def check_code() -> list[str]:
         elif script.suffix == ".sh":
             add_bash(rel, script.read_text(encoding="utf-8"))
             if shellcheck:
-                result = subprocess.run([shellcheck, "-S", "warning", str(script)], text=True, capture_output=True)
+                result = subprocess.run([shellcheck, "-S", "warning", str(script)], text=True, encoding="utf-8", capture_output=True)
                 if result.returncode:
                     problems.append(f"{rel}: shellcheck:\n{result.stdout.strip()}")
         elif script.suffix == ".py":
@@ -298,7 +298,7 @@ def check_code() -> list[str]:
                 "[void][System.Management.Automation.Language.Parser]::ParseFile($f,[ref]$t,[ref]$e);"
                 "foreach($x in $e){ \"$l (line $($x.Extent.StartLineNumber)): $($x.Message)\" } }"
             )
-            result = subprocess.run([pwsh, "-NoProfile", "-NonInteractive", "-Command", parser], text=True, capture_output=True)
+            result = subprocess.run([pwsh, "-NoProfile", "-NonInteractive", "-Command", parser], text=True, encoding="utf-8", capture_output=True)
             for line in result.stdout.splitlines():
                 if line.strip():
                     problems.append(f"powershell: {line.strip()}")

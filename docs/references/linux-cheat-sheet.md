@@ -126,8 +126,8 @@ sudo visudo -c
 
 ## Related
 
-- [Linux Services with systemd](../../platforms/linux/systemd.md)
-- [Linux Networking and DNS](../../platforms/linux/networking.md)
-- [Linux Troubleshooting Commands](../../platforms/linux/troubleshooting.md)
+- [Linux Services with systemd](../platforms/linux/systemd.md)
+- [Linux Networking and DNS](../platforms/linux/networking.md)
+- [Linux Troubleshooting Commands](../platforms/linux/troubleshooting.md)
 - [Sysadmin Quick Reference](sysadmin-cheat-sheet.md)
 - [Cross-Platform Equivalents](equivalents.md)

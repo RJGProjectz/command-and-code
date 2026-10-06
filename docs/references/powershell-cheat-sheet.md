@@ -119,7 +119,7 @@ Invoke-Command -ComputerName 'SRV-APP-01' -ScriptBlock { Restart-Service -Name '
 
 ## Related
 
-- [PowerShell Fundamentals and Pitfalls](../../languages/powershell/fundamentals.md)
-- [PowerShell Automation and Remoting](../../languages/powershell/automation.md)
+- [PowerShell Fundamentals and Pitfalls](../languages/powershell/fundamentals.md)
+- [PowerShell Automation and Remoting](../languages/powershell/automation.md)
 - [Sysadmin Quick Reference](sysadmin-cheat-sheet.md)
 - [Cross-Platform Equivalents](equivalents.md)

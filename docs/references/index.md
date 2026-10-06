@@ -24,7 +24,10 @@ Lookup tables and conventions.
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Cross-Platform Equivalents](equivalents.md) | Reference | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting, Administration |
+| [Linux Sysadmin Speed Dial Cheat Sheet](linux-cheat-sheet.md) | Reference | Linux | Bash | Administration, Troubleshooting, Investigation |
 | [MITRE ATT&CK Mapping](../detection/mitre-attack/index.md) | Reference | Windows, Linux, Microsoft 365 | MITRE ATT&CK | Detection Engineering, Threat Hunting, Incident Response |
+| [PowerShell Admin One-Liners Cheat Sheet](powershell-cheat-sheet.md) | Reference | Windows, Windows Server | PowerShell | Administration, Investigation, Automation |
+| [Sysadmin Quick Reference Cheat Sheet](sysadmin-cheat-sheet.md) | Reference | Windows, Windows Server, Linux, Microsoft 365, Entra ID | PowerShell, Bash, Windows CLI | Administration, Troubleshooting, Investigation |
 | [Windows Event ID Reference](windows-event-ids.md) | Reference | Windows, Windows Server | PowerShell, SPL, KQL | Investigation, Incident Response, Detection Engineering, Forensics |
 
 <!-- /cc:index -->

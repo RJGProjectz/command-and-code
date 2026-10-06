@@ -21,6 +21,7 @@ Hypervisor commands for inventory, evidence preservation and containment.
 <!-- cc:index platforms="Hyper-V|VMware|Proxmox" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Backup and Recovery Operations](../../tasks/administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
 | [Hyper-V](hyper-v.md) | Entry | Hyper-V, Windows Server | PowerShell | Administration, Incident Response, Forensics |
 | [Proxmox VE](proxmox.md) | Entry | Proxmox, Linux | Bash | Administration, Incident Response, Forensics |
 | [VMware vSphere and ESXi](vmware.md) | Entry | VMware | PowerShell, Bash | Administration, Incident Response, Forensics |
