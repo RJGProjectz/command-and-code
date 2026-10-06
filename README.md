@@ -7,7 +7,6 @@
 <p align="center">
   <a href="https://rjgprojectz.github.io/command-and-code/"><img src="https://img.shields.io/badge/Live_Site-GitHub_Pages-2563eb?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Site"></a>
   <a href="https://github.com/RJGProjectz/command-and-code/actions/workflows/deploy.yml"><img src="https://img.shields.io/badge/Build_%26_Deploy-Automated-10b981?style=for-the-badge&logo=githubactions&logoColor=white" alt="Build Status"></a>
-  <a href="#-interactive-themes"><img src="https://img.shields.io/badge/Themes-3_Toggleable-8b5cf6?style=for-the-badge&logo=palette&logoColor=white" alt="Themes"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge" alt="License"></a>
 </p>
 
@@ -49,20 +48,6 @@ Task      ──┘
 * **[User Lifecycle Management](https://rjgprojectz.github.io/command-and-code/tasks/administration/user-lifecycle-management/)**: Onboarding, group role elevation, emergency offboarding, and cloud session revocation.
 * **[System Maintenance & Updates](https://rjgprojectz.github.io/command-and-code/tasks/administration/system-maintenance-updates/)**: Patch management, pending reboot audits, and safe reboot sequencing.
 * **[Cross-Platform Equivalents](https://rjgprojectz.github.io/command-and-code/references/equivalents/)**: The same task across PowerShell, Bash, KQL, SPL, and S1QL.
-
----
-
-## 🎨 Interactive Themes
-
-The live documentation site includes a built-in theme engine with **3 instant, toggleable visual experiences** accessible directly from the top navigation bar:
-
-| Theme | Aesthetic | Color Highlights |
-| :--- | :--- | :--- |
-| 🛡️ **Classic** *(Default)* | Calm & Professional Field Manual | Slate `#0f1318` · Amber `#c98a1a` · Steel `#5b7a99` |
-| 🔮 **Nexus Cyber** | Cyberpunk Synthwave & Neon Mesh | Deep Violet `#0c0617` · Neon Cyan `#00f3ff` · Magenta `#ff007f` |
-| ⚡ **Electric Cyber** | High-Voltage Obsidian & Neon Grid | Obsidian Carbon `#07090e` · Electric Orange `#ff5e00` · Electric Cyan `#00b2ff` |
-
-*Theme selections are saved in `localStorage` with zero-flicker instant loading.*
 
 ---
 
