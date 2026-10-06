@@ -33,9 +33,6 @@ Press ++s++ or ++slash++ to search, or try:
 
 </div>
 
-!!! tip "Interactive Themes Available"
-    Customize your field manual view in the top header: choose between 🛡️ **Classic** (Field Manual), 🔮 **Nexus Cyber** (Cyberpunk Synthwave), or ⚡ **Electric Cyber** (High-Voltage Grid).
-
 ## Fast-Track & Cheat Sheets
 
 <div class="grid cards" markdown>

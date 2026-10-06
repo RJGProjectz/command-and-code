@@ -17,6 +17,12 @@
   z-index: 100;
 }
 
+/* Suppress native MkDocs light/dark palette toggle */
+[data-md-component="palette"],
+.md-header__option {
+  display: none !important;
+}
+
 .cc-theme-switcher-btn {
   display: inline-flex;
   align-items: center;
@@ -45,6 +51,12 @@
 .cc-theme-icon {
   font-size: 0.85rem;
   line-height: 1;
+}
+
+.cc-theme-prefix {
+  font-weight: 500;
+  opacity: 0.72;
+  margin-right: 0.1rem;
 }
 
 .cc-theme-chevron {

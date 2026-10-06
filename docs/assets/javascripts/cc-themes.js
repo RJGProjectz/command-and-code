@@ -74,10 +74,10 @@
     button.className = 'cc-theme-switcher-btn';
     button.setAttribute('aria-expanded', 'false');
     button.setAttribute('aria-haspopup', 'true');
-    button.setAttribute('title', 'Change Theme');
     button.innerHTML = [
       '<span class="cc-theme-icon">🎨</span>',
-      '<span class="cc-theme-current-label">Theme</span>',
+      '<span class="cc-theme-prefix">Themes:</span>',
+      '<span class="cc-theme-current-label">Classic</span>',
       '<svg class="cc-theme-chevron" viewBox="0 0 24 24" width="14" height="14">',
       '  <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>',
       '</svg>'
