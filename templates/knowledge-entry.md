@@ -4,14 +4,28 @@ platforms: [Windows]                       # from tools/vocabulary.yml
 languages: [PowerShell]                    # from tools/vocabulary.yml
 tasks: [Incident Response, Troubleshooting]
 category: Networking                       # one free-text category
+security_domain: Network                    # Identity | Endpoint | Network | Cloud | Application | Operations | Governance | Intelligence
+author: RJGProjectz
+date_created: 2026-10-06
+last_updated: 2026-10-06
 tags: [tag-one, tag-two]
 aliases: [other phrase people search for, command name]
 difficulty: basic                          # basic | intermediate | advanced
 verified: false                            # set true only after checking against vendor docs / testing
-# last_verified: 2026-10-05                # required when verified: true
+# last_verified: 2026-10-06                # required when verified: true
 ---
 
 # Verb the Thing
+> **Created**: 2026-10-06T02:45:00Z
+> **Last Modified**: 2026-10-06T02:45:00Z
+> **Author**: RJGProjectz
+
+> [!CAUTION]
+> **SECURITY WARNING: VALIDATE BEFORE EXECUTION**
+> This article contains technical commands. Before running any script:
+> 1. Ensure you are in a `Test` or `Dev` environment.
+> 2. Validate commands with `-WhatIf` / `--whatif` where supported.
+> 3. Never run unverified commands directly in production.
 
 !!! danger "VERIFY BEFORE PRODUCTION USE"
     Remove this block when `verified: true`.
@@ -76,6 +90,6 @@ Version differences, permissions required, performance caveats, false positives.
 - [Workflow that uses this](../../tasks/incident-response/workflow.md)
 - [Detection query](../../detection/kql/page.md)
 
-## Sources
+## External Resources & White Papers
 
 - [Official documentation title](https://learn.microsoft.com/...)

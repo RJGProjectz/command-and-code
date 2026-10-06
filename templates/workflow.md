@@ -5,14 +5,28 @@ platforms: [Windows]
 languages: [PowerShell, KQL]
 tasks: [Incident Response, Investigation]
 category: Workflow
+security_domain: Operations                  # Identity | Endpoint | Network | Cloud | Application | Operations | Governance | Intelligence
+author: RJGProjectz
+date_created: 2026-10-06
+last_updated: 2026-10-06
 tags: [workflow, topic]
 aliases: [phrases an analyst would search with]
 difficulty: intermediate
 verified: false
-# last_verified: 2026-10-05
+# last_verified: 2026-10-06
 ---
 
 # Investigate the Situation
+> **Created**: 2026-10-06T02:45:00Z
+> **Last Modified**: 2026-10-06T02:45:00Z
+> **Author**: RJGProjectz
+
+> [!CAUTION]
+> **SECURITY WARNING: VALIDATE BEFORE EXECUTION**
+> This workflow contains incident investigation steps. Before running any action:
+> 1. Ensure you have authorized scope and change-control approval.
+> 2. Validate state-changing actions with `-WhatIf` / `--whatif`.
+> 3. Document all findings in the incident ticket.
 
 **Trigger:** the alert or observation that starts this workflow.
 
@@ -46,3 +60,7 @@ What to establish and why.
 ## Related
 
 - [Other workflow](other-workflow.md)
+
+## External Resources & White Papers
+
+- [Incident Response Guidance](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
