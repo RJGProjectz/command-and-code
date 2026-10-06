@@ -33,6 +33,39 @@ Press ++s++ or ++slash++ to search, or try:
 
 </div>
 
+!!! tip "Interactive Themes Available"
+    Customize your field manual view in the top header: choose between 🛡️ **Classic** (Field Manual), 🔮 **Nexus Flow** (Cyberpunk Neon), or ⚡ **Electric Xtra** (High-Voltage Sci-Fi).
+
+## Fast-Track & Cheat Sheets
+
+<div class="grid cards" markdown>
+
+-   :material-lightning-bolt:{ .lg } **[Sysadmin Quick Reference](references/sysadmin-cheat-sheet.md)**
+
+    ---
+
+    Side-by-side Windows vs. Linux lookup for host identity, services, storage, networking, and reboot recipes.
+
+-   :material-powershell:{ .lg } **[PowerShell One-Liners](references/powershell-cheat-sheet.md)**
+
+    ---
+
+    High-yield one-liners for inventory, Active Directory, CIM hardware queries, event log audits, and PSRemoting.
+
+-   :material-bash:{ .lg } **[Linux Speed Dial](references/linux-cheat-sheet.md)**
+
+    ---
+
+    Essential commands for systemd units, journalctl time filters, disk space, open socket inspection, and SUID checks.
+
+-   :material-compare-horizontal:{ .lg } **[Cross-Platform Equivalents](references/equivalents.md)**
+
+    ---
+
+    Translate the same operational task across PowerShell, Bash, KQL, SPL, and S1QL.
+
+</div>
+
 ## Browse by Platform
 
 <div class="grid cards" markdown>

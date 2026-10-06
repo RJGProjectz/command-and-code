@@ -64,6 +64,7 @@ ALLOWED_PUBLIC_DOMAINS = {
     "c2pa.org",
     "chrony-project.org",
     "system.net",
+    "shields.io",
 }
 
 # Standard loopback and bind addresses

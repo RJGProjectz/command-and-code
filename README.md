@@ -1,164 +1,98 @@
 # Command & Code
 
-> **Command & Code — The practical security operations field manual.**
+<p align="center">
+  <strong>The Practical Security Operations & Systems Administration Field Manual</strong>
+</p>
 
-A version-controlled knowledge base of **commands, code, queries, configuration locations, investigation procedures, detections and automation** for security operations — written so an analyst can go from *"how do I…?"* to a copy-ready answer in seconds.
-
-The repository is the product. The website is a generated view of it.
+<p align="center">
+  <a href="https://rjgprojectz.github.io/command-and-code/"><img src="https://img.shields.io/badge/Live_Site-GitHub_Pages-2563eb?style=for-the-badge&logo=githubpages&logoColor=white" alt="Live Site"></a>
+  <a href="https://github.com/RJGProjectz/command-and-code/actions/workflows/deploy.yml"><img src="https://img.shields.io/badge/Build_%26_Deploy-Automated-10b981?style=for-the-badge&logo=githubactions&logoColor=white" alt="Build Status"></a>
+  <a href="#-interactive-themes"><img src="https://img.shields.io/badge/Themes-3_Toggleable-8b5cf6?style=for-the-badge&logo=palette&logoColor=white" alt="Themes"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge" alt="License"></a>
+</p>
 
 ---
 
-## Why it exists
+## 📖 Explore the Live Manual
+🌐 **[rjgprojectz.github.io/command-and-code](https://rjgprojectz.github.io/command-and-code/)**
 
-Security work depends on hundreds of small, precise facts: the right `Get-WinEvent` filter, the Linux equivalent of a PowerShell command, the KQL table that holds registry events, the GPO path for command-line auditing, the event ID for a new service. They are usually scattered across browser bookmarks, old tickets and memory.
+**Command & Code** is an engineering-grade, copy-ready knowledge base of commands, code, queries, configuration locations, investigation workflows, detections, and automation for security operations and systems administration.
 
-Command & Code puts them in one place that is:
+Written for analysts, engineers, and administrators who need to go from *"how do I…?"* to an exact, copy-ready answer in seconds.
 
-- **Searchable** — think of a problem, search, copy the answer.
-- **Connected** — every entry is reachable by **Platform**, **Language/Technology** and **Task**, and workflows link to the entries instead of duplicating them.
-- **Honest about accuracy** — every page declares whether it is verified; unverified content says so on the page.
-- **Portable** — plain Markdown and scripts in Git. Useful offline, in VS Code, on GitHub, or as the generated site.
+---
 
-## Intended users
-
-Security analysts, incident responders, threat hunters, detection engineers and security administrators working across Windows, Linux, Microsoft 365, Splunk and SentinelOne.
-
-## Information architecture
+## ⚡ What's Inside
 
 ```text
 Platform  ──┐
-Language  ──┼──▶  one entry, discoverable three ways
+Language  ──┼──▶  One connected entry, discoverable three ways
 Task      ──┘
 ```
 
-| Dimension | Examples |
-| --- | --- |
-| Platform | Windows · Linux · Microsoft 365 (Defender, Entra, Intune, Exchange) · Virtualization |
-| Language / Technology | PowerShell · Bash · Python · Windows CLI · KQL · SPL · S1QL · Sigma · MITRE ATT&CK |
-| Task | Incident Response · Threat Hunting · Investigation · Troubleshooting · Administration · Detection Engineering · Hardening · Forensics · Automation |
+### 1. 🖥️ Multi-Platform Coverage
+* **Windows & Windows Server**: Processes, services, networking, event logs, registry persistence, firewall, scheduled tasks, and Defender.
+* **Linux**: Processes, systemd, networking, logs, cron, SSH hardening, user permissions, and package management.
+* **Microsoft 365 & Cloud Identity**: Defender XDR, Entra ID, Conditional Access, Intune, and Exchange Online.
+* **Virtualization**: VMware vSphere & ESXi, Microsoft Hyper-V, and Proxmox VE.
 
-Each page lives in **one** place (usually under its platform or detection language). Front matter declares its other dimensions, and the browse pages for every language and task are **generated** from that metadata — so nothing is duplicated.
+### 2. 🔍 Detection & Hunting Languages
+* **KQL**: Endpoint process, network, file, registry, and sign-in queries for Microsoft Defender XDR and Sentinel.
+* **SPL**: Optimized Splunk queries for Windows Security Event logs, PowerShell auditing, and Network traffic.
+* **S1QL**: Hunting queries for SentinelOne Deep Visibility.
+* **Sigma & MITRE ATT&CK**: Universal detection rules and mapped behavioral tactics.
 
-Content types:
+### 3. 🛠️ Sysadmin Workflows & Cheat Sheets
+* **[Sysadmin Quick Reference](https://rjgprojectz.github.io/command-and-code/references/sysadmin-cheat-sheet/)**: Side-by-side Windows vs. Linux rapid lookup matrix.
+* **[PowerShell Admin One-Liners](https://rjgprojectz.github.io/command-and-code/references/powershell-cheat-sheet/)**: Copy-ready one-liners for inventory, AD, WMI/CIM, events, and remoting.
+* **[Linux Sysadmin Speed Dial](https://rjgprojectz.github.io/command-and-code/references/linux-cheat-sheet/)**: Essential commands for systemd, journalctl, disks, processes, and network sockets.
+* **[User Lifecycle Management](https://rjgprojectz.github.io/command-and-code/tasks/administration/user-lifecycle-management/)**: Onboarding, group role elevation, emergency offboarding, and cloud session revocation.
+* **[System Maintenance & Updates](https://rjgprojectz.github.io/command-and-code/tasks/administration/system-maintenance-updates/)**: Patch management, pending reboot audits, and safe reboot sequencing.
+* **[Cross-Platform Equivalents](https://rjgprojectz.github.io/command-and-code/references/equivalents/)**: The same task across PowerShell, Bash, KQL, SPL, and S1QL.
 
-| Type | What it is |
-| --- | --- |
-| `entry` | Reference knowledge: commands, queries, configuration locations — each with *why*, options, output and what to look for |
-| `workflow` | Ordered field procedure (e.g. *Suspicious PowerShell Investigation*) that links to entries |
-| `tool` | Documentation for a script in `scripts/` |
-| `reference` | Lookup tables (event IDs, cross-platform equivalents, ATT&CK mapping) |
+---
 
-## Repository structure
+## 🎨 Interactive Themes
 
-```text
-command-and-code/
-├── docs/                      Knowledge base (Markdown + YAML front matter)
-│   ├── index.md               Homepage
-│   ├── platforms/             Windows, Linux, Microsoft 365, Virtualization
-│   ├── languages/             PowerShell, Bash, Python, Windows CLI
-│   ├── detection/             KQL, SPL, S1QL, Sigma, MITRE ATT&CK
-│   ├── tasks/                 Workflows and generated task indexes
-│   ├── toolbox/               Documentation for scripts/
-│   ├── references/            Event IDs, equivalents, metadata conventions, tags
-│   └── roadmap.md
-├── scripts/                   Reusable tools (PowerShell, Bash, Python)
-├── snippets/                  Raw query/code fragments for use outside the docs
-├── templates/                 knowledge-entry.md, query.md, workflow.md
-├── tools/
-│   ├── cc.py                  Validator, browse-table generator, code-block syntax checker
-│   └── vocabulary.yml         Controlled vocabulary for platforms / languages / tasks
-├── hooks/cc_meta.py           MkDocs hook: metadata chips, script downloads
-├── .github/workflows/         build.yml (PR validation), deploy.yml (GitHub Pages)
-├── mkdocs.yml
-└── requirements.txt
-```
+The live documentation site includes a built-in theme engine with **3 instant, toggleable visual experiences** accessible directly from the top navigation bar:
 
-## Local development
+| Theme | Aesthetic | Color Highlights |
+| :--- | :--- | :--- |
+| 🛡️ **Classic** *(Default)* | Calm & Professional Field Manual | Slate `#0f1318` · Amber `#c98a1a` · Steel `#5b7a99` |
+| 🔮 **Nexus Flow** | Cyberpunk Neon & Ambient Mesh | Deep Violet `#0c0617` · Neon Cyan `#00f3ff` · Magenta `#ff007f` |
+| ⚡ **Electric Xtra** | High-Voltage Sci-Fi Tech Grid | Obsidian Carbon `#08090b` · Electric Orange `#ff5e00` · Electric Cyan `#00b2ff` |
 
-```bash
-git clone https://github.com/YOUR-GITHUB-USER/command-and-code.git
-cd command-and-code
-python -m venv .venv
-```
+*Theme selections are saved in `localStorage` with zero-flicker instant loading.*
 
-Windows:
+---
 
-```powershell
-.venv\Scripts\activate
-```
+## 🚀 Quick Navigation
 
-Linux / macOS:
+| Section | Focus Area | Quick Link |
+| :--- | :--- | :--- |
+| **Platforms** | OS & Cloud Platforms | [Windows](https://rjgprojectz.github.io/command-and-code/platforms/windows/) · [Linux](https://rjgprojectz.github.io/command-and-code/platforms/linux/) · [M365](https://rjgprojectz.github.io/command-and-code/platforms/microsoft-365/) · [Virtualization](https://rjgprojectz.github.io/command-and-code/platforms/virtualization/) |
+| **Languages** | Code & Command Reference | [PowerShell](https://rjgprojectz.github.io/command-and-code/languages/powershell/) · [Bash](https://rjgprojectz.github.io/command-and-code/languages/bash/) · [Python](https://rjgprojectz.github.io/command-and-code/languages/python/) · [Windows CLI](https://rjgprojectz.github.io/command-and-code/languages/windows-cli/) |
+| **Detection** | SIEM & EDR Queries | [KQL](https://rjgprojectz.github.io/command-and-code/detection/kql/) · [SPL](https://rjgprojectz.github.io/command-and-code/detection/spl/) · [S1QL](https://rjgprojectz.github.io/command-and-code/detection/s1ql/) · [ATT&CK](https://rjgprojectz.github.io/command-and-code/detection/mitre-attack/) |
+| **Tasks** | Operational Procedures | [Incident Response](https://rjgprojectz.github.io/command-and-code/tasks/incident-response/) · [Administration](https://rjgprojectz.github.io/command-and-code/tasks/administration/) · [Hunting](https://rjgprojectz.github.io/command-and-code/tasks/threat-hunting/) |
+| **References** | Lookups & Cheat Sheets | [Sysadmin Cheat Sheet](https://rjgprojectz.github.io/command-and-code/references/sysadmin-cheat-sheet/) · [Equivalents](https://rjgprojectz.github.io/command-and-code/references/equivalents/) · [Event IDs](https://rjgprojectz.github.io/command-and-code/references/windows-event-ids/) |
 
-```bash
-source .venv/bin/activate
-```
+---
 
-Then:
+## 🔒 Security & Verification Standards
 
-```bash
-pip install -r requirements.txt
-mkdocs serve
-```
+* **Honest Verification**: Every page clearly indicates whether it has been verified against vendor documentation (`verified: true`) or requires environment-specific testing.
+* **Identifier Scrubbing**: Fully sanitized against corporate data leaks, internal hostnames, and private IPs via automated repository scanners.
+* **Safe by Default**: State-changing commands and scripts emphasize `-WhatIf` / `--whatif` validation prior to execution.
 
-Open <http://127.0.0.1:8000>. The site reloads as you edit.
+---
 
-### Checks (the same ones CI runs)
+## 🛠️ Development & Contributions
 
-```bash
-python tools/cc.py check          # front matter + browse tables up to date
-python tools/cc.py code           # parse every PowerShell/Bash/Python/YAML block and script (PowerShell needs pwsh on PATH)
-mkdocs build --strict             # any warning, broken link or broken anchor fails
-```
+* For repository maintainers and local environment setup, see the **[Internal Maintenance Guide](DEVELOPMENT.md)**.
+* For guidelines on contributing new entries or workflows, see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
-## Adding entries
+---
 
-1. Copy a template from `templates/` into the right folder under `docs/`.
-2. Fill in the front matter using values from `tools/vocabulary.yml`.
-3. Write task-phrased headings (*Find listening ports*) — they become link anchors and search hits.
-4. Add the page to `nav` in `mkdocs.yml`.
-5. Run `python tools/cc.py index` to refresh the generated browse tables.
-6. Run the checks above, then open a pull request.
+## 📄 License
 
-Full conventions: [`docs/references/metadata.md`](docs/references/metadata.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
-## Verification expectations
-
-Accuracy matters more than volume. Nothing in this repository should be invented.
-
-| Front matter | Meaning |
-| --- | --- |
-| `verified: true` + `last_verified` | Checked against vendor documentation; code blocks pass `tools/cc.py code`. Still test in your environment. |
-| `verified: false` | Not yet confirmed (vendor syntax that varies by version, environment-specific field names). The page shows **VERIFY BEFORE PRODUCTION USE**. |
-
-In V1, **S1QL** pages and the environment-dependent **SPL** pages are marked unverified until tested against real consoles and indexes.
-
-## GitHub Pages deployment
-
-1. Push the repository to GitHub.
-2. Replace `YOUR-GITHUB-USER` in `mkdocs.yml` (`site_url`, `repo_url`) and in this README.
-3. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
-4. Push to `main`. `deploy.yml` validates, builds and publishes the site.
-
-`build.yml` runs on every pull request and push: metadata validation, code-block syntax checks, PSScriptAnalyzer, and a strict MkDocs build. Protect `main` with a required status check on **Build** to block broken docs from merging.
-
-## Contribution process
-
-Branch → add or edit content from a template → run the checks → pull request → `Build` passes → merge → `Deploy` publishes. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
-
-## Roadmap
-
-| Phase | Status |
-| --- | --- |
-| 1. Foundation — structure, site, search, metadata, initial content, CI | 🟡 In progress |
-| 2. Knowledge expansion — coverage, decision trees, ATT&CK relationships | 🔵 Planned |
-| 3. Automation & tooling integration — existing scripts as documented tools | 🔵 Planned |
-| 4. API & platform integration — Graph, Defender, Entra, Intune, Splunk, SentinelOne | 🔵 Planned |
-| 5. Operational playbooks | 🔵 Planned |
-| 6. Intelligent search & local AI (Ollama, grounded in this repo) | ⚪ Future |
-| 7. Operational security toolkit | ⚪ Future |
-
-Details: [`docs/roadmap.md`](docs/roadmap.md).
-
-## License
-
-[MIT](LICENSE)
+This project is licensed under the [MIT License](LICENSE).
