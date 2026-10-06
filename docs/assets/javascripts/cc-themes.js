@@ -32,10 +32,10 @@
       colors: ['#07090e', '#ff5e00', '#00b2ff']
     },
     {
-      id: 'matrix',
-      name: 'Matrix',
-      subtitle: 'Digital Phosphor',
-      icon: '🟢',
+      id: 'catrix',
+      name: 'Catrix',
+      subtitle: 'Digital Phosphor Cats',
+      icon: '🐾',
       colors: ['#030a05', '#00ff66', '#003b14']
     }
   ];
@@ -47,8 +47,8 @@
       var saved = localStorage.getItem(STORAGE_KEY);
       if (saved === 'nexus-flow' || saved === 'nexus-cyber') return 'nexus';
       if (saved === 'electric-xtra' || saved === 'electric-cyber') return 'high-voltage';
-      if (saved === 'matrix-green') return 'matrix';
-      if (saved && (saved === 'classic' || saved === 'nexus' || saved === 'high-voltage' || saved === 'matrix')) {
+      if (saved === 'matrix' || saved === 'matrix-green') return 'catrix';
+      if (saved && (saved === 'classic' || saved === 'nexus' || saved === 'high-voltage' || saved === 'catrix')) {
         return saved;
       }
     } catch (e) {
@@ -66,7 +66,7 @@
     }
     updateSwitcherUI(themeId);
 
-    if (themeId === 'matrix' || themeId === 'matrix-green') {
+    if (themeId === 'catrix' || themeId === 'matrix' || themeId === 'matrix-green') {
       startMatrixCatRain();
     } else {
       stopMatrixCatRain();
@@ -408,7 +408,7 @@
 
   function checkAndInitMatrix() {
     var current = getStoredTheme();
-    if (current === 'matrix' || current === 'matrix-green') {
+    if (current === 'catrix' || current === 'matrix' || current === 'matrix-green') {
       startMatrixCatRain();
     }
   }

@@ -573,37 +573,37 @@ body:not(.cc-breakout-mode) .cc-poster-deck {
   color: #ff5e00;
 }
 
-/* Matrix Theme */
-:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-speed-dial-hud {
+/* Catrix Theme */
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-speed-dial-hud {
   background: rgba(4, 18, 8, 0.88);
   border-color: rgba(0, 255, 102, 0.35);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 102, 0.15);
 }
-:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-hud-badge {
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-hud-badge {
   background: rgba(0, 255, 102, 0.18);
   color: #00ff66;
   border-color: rgba(0, 255, 102, 0.45);
   box-shadow: 0 0 10px rgba(0, 255, 102, 0.35);
 }
-:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-hud-pill:hover {
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-hud-pill:hover {
   border-color: #00ff66;
   color: #00ff66 !important;
   box-shadow: 0 0 12px rgba(0, 255, 102, 0.45);
 }
-:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-param-tailored {
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-param-tailored {
   border-bottom-color: #00ff66;
   background: rgba(0, 255, 102, 0.18);
   color: #00ff88 !important;
   text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
 }
-:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card {
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card {
   background: rgba(4, 18, 8, 0.85);
   border-color: rgba(0, 255, 102, 0.24);
 }
-:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card:hover {
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card:hover {
   border-color: #00ff66;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 102, 0.3);
 }
-:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card h2::before {
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card h2::before {
   color: #00ff66;
 }
