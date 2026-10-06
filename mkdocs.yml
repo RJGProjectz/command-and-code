@@ -1,0 +1,226 @@
+site_name: Command & Code
+site_description: The practical security operations field manual.
+site_author: Command & Code
+# Set these to your GitHub repository before deploying.
+site_url: https://YOUR-GITHUB-USER.github.io/command-and-code/
+repo_url: https://github.com/YOUR-GITHUB-USER/command-and-code
+repo_name: command-and-code
+edit_uri: edit/main/docs/
+copyright: Command & Code — The practical security operations field manual.
+
+theme:
+  name: material
+  # No web fonts: the site stays fast and fully usable offline.
+  font: false
+  icon:
+    logo: material/console-line
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.svg
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+
+extra_css:
+  - assets/stylesheets/cc.css
+
+hooks:
+  - hooks/cc_meta.py
+
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - tags
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets:
+      base_path: [scripts]
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Platforms:
+      - platforms/index.md
+      - Windows:
+          - platforms/windows/index.md
+          - System Information: platforms/windows/system-information.md
+          - Windows 10/11: platforms/windows/windows-10-11.md
+          - Windows Server: platforms/windows/windows-server.md
+          - Processes: platforms/windows/processes.md
+          - Services: platforms/windows/services.md
+          - Networking & DNS: platforms/windows/networking.md
+          - Firewall: platforms/windows/firewall.md
+          - Event Logs: platforms/windows/event-logs.md
+          - Registry & Run Keys: platforms/windows/registry.md
+          - Scheduled Tasks: platforms/windows/scheduled-tasks.md
+          - Users & Groups: platforms/windows/users-groups.md
+          - Files & Permissions: platforms/windows/files-directories.md
+          - Installed Software: platforms/windows/software.md
+          - Microsoft Defender Antivirus: platforms/windows/defender.md
+          - Troubleshooting: platforms/windows/troubleshooting.md
+      - Linux:
+          - platforms/linux/index.md
+          - System Information: platforms/linux/system-information.md
+          - Processes: platforms/linux/processes.md
+          - Services (systemd): platforms/linux/systemd.md
+          - Networking & DNS: platforms/linux/networking.md
+          - Users & Permissions: platforms/linux/users-permissions.md
+          - Logs: platforms/linux/logs.md
+          - Cron & Timers: platforms/linux/cron.md
+          - SSH: platforms/linux/ssh.md
+          - Filesystem: platforms/linux/filesystem.md
+          - Packages: platforms/linux/packages.md
+          - Troubleshooting: platforms/linux/troubleshooting.md
+      - Microsoft 365:
+          - platforms/microsoft-365/index.md
+          - Defender XDR: platforms/microsoft-365/defender.md
+          - Entra ID: platforms/microsoft-365/entra.md
+          - Conditional Access: platforms/microsoft-365/conditional-access.md
+          - Intune: platforms/microsoft-365/intune.md
+          - Exchange Online: platforms/microsoft-365/exchange.md
+      - Virtualization:
+          - platforms/virtualization/index.md
+          - Hyper-V: platforms/virtualization/hyper-v.md
+          - VMware: platforms/virtualization/vmware.md
+          - Proxmox: platforms/virtualization/proxmox.md
+  - Languages:
+      - languages/index.md
+      - PowerShell:
+          - languages/powershell/index.md
+          - Fundamentals & Pitfalls: languages/powershell/fundamentals.md
+          - JSON & CSV: languages/powershell/json-csv.md
+          - REST APIs: languages/powershell/rest-apis.md
+          - Error Handling: languages/powershell/error-handling.md
+          - Automation & Remoting: languages/powershell/automation.md
+      - Bash:
+          - languages/bash/index.md
+          - Text Processing: languages/bash/text-processing.md
+          - Scripting & Automation: languages/bash/automation.md
+      - Python:
+          - languages/python/index.md
+          - HTTP & APIs: languages/python/http-apis.md
+          - JSON & CSV: languages/python/json-csv.md
+          - Subprocess & Filesystem: languages/python/subprocess-filesystem.md
+          - Logging & Automation: languages/python/logging-automation.md
+      - Windows CLI: languages/windows-cli/index.md
+  - Detection:
+      - detection/index.md
+      - KQL:
+          - detection/kql/index.md
+          - Fundamentals: detection/kql/fundamentals.md
+          - Process Events: detection/kql/process-events.md
+          - Network Events: detection/kql/network-events.md
+          - File & Registry Events: detection/kql/file-registry-events.md
+          - Logons & Identity: detection/kql/logon-identity.md
+      - SPL:
+          - detection/spl/index.md
+          - Fundamentals & Optimization: detection/spl/fundamentals.md
+          - Windows Security Events: detection/spl/windows-events.md
+          - PowerShell: detection/spl/powershell.md
+          - Network & DNS: detection/spl/network-dns.md
+      - S1QL:
+          - detection/s1ql/index.md
+          - Fundamentals: detection/s1ql/fundamentals.md
+          - Hunting Queries: detection/s1ql/hunting.md
+      - Sigma:
+          - detection/sigma/index.md
+          - Rule Examples: detection/sigma/examples.md
+      - MITRE ATT&CK: detection/mitre-attack/index.md
+  - Tasks:
+      - tasks/index.md
+      - Incident Response:
+          - tasks/incident-response/index.md
+          - Endpoint Triage: tasks/incident-response/endpoint-triage.md
+          - Suspicious PowerShell: tasks/incident-response/suspicious-powershell.md
+          - Suspicious Process: tasks/incident-response/suspicious-process.md
+          - Malware Triage: tasks/incident-response/malware-triage.md
+          - Account Compromise: tasks/incident-response/account-compromise.md
+      - Investigation:
+          - tasks/investigation/index.md
+          - Suspicious Service: tasks/investigation/suspicious-service.md
+          - Scheduled Task Investigation: tasks/investigation/scheduled-task-investigation.md
+          - Registry Persistence: tasks/investigation/registry-persistence.md
+          - Failed Authentication: tasks/investigation/failed-authentication.md
+          - Network Investigation: tasks/investigation/network-investigation.md
+          - Suspicious Outbound Connection: tasks/investigation/suspicious-outbound-connection.md
+      - Threat Hunting:
+          - tasks/threat-hunting/index.md
+          - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
+      - Troubleshooting:
+          - tasks/troubleshooting/index.md
+          - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
+          - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
+      - Administration: tasks/administration/index.md
+      - Detection Engineering: tasks/detection-engineering/index.md
+      - Hardening: tasks/hardening/index.md
+      - Forensics: tasks/forensics/index.md
+      - Automation: tasks/automation/index.md
+  - Toolbox:
+      - toolbox/index.md
+      - PowerShell Tools: toolbox/powershell.md
+      - Bash Tools: toolbox/bash.md
+      - Python Tools: toolbox/python.md
+  - References:
+      - references/index.md
+      - Cross-Platform Equivalents: references/equivalents.md
+      - Windows Event IDs: references/windows-event-ids.md
+      - Metadata Conventions: references/metadata.md
+      - Tags: references/tags.md
+  - Roadmap: roadmap.md

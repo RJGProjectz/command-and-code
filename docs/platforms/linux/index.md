@@ -1,0 +1,57 @@
+---
+title: Linux
+type: index
+---
+
+# Linux
+
+Commands and investigation techniques for common Linux distributions. Where Debian/Ubuntu and RHEL-family systems differ, both are shown.
+
+## Quick answers
+
+| I need to… | Go to |
+| --- | --- |
+| Find listening ports | [Networking → Find listening ports](networking.md#find-listening-ports) |
+| Find a process from a PID | [Processes → Find a process by PID](processes.md#find-a-process-by-pid) |
+| Find processes running from deleted binaries | [Processes](processes.md#processes-running-from-deleted-or-temporary-binaries) |
+| List every user's crontab | [Cron](cron.md#list-every-users-crontab) |
+| Find SSH authorized keys | [SSH](ssh.md#find-authorized-keys) |
+| See failed SSH logins | [Logs](logs.md#failed-ssh-logins) |
+| Hunt systemd persistence | [systemd](systemd.md#hunt-for-systemd-persistence) |
+
+## All Linux entries
+
+<!-- cc:index platforms="Linux" -->
+| Entry | Type | Platforms | Languages | Tasks |
+| --- | --- | --- | --- | --- |
+| [Endpoint Triage](../../tasks/incident-response/endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
+| [Failed Authentication Investigation](../../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
+| [Linux Service Failure Troubleshooting](../../tasks/troubleshooting/linux-service-failure.md) | Workflow | Linux | Bash | Troubleshooting, Administration |
+| [Malware Triage](../../tasks/incident-response/malware-triage.md) | Workflow | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Forensics |
+| [Network Investigation](../../tasks/investigation/network-investigation.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
+| [Suspicious Outbound Connection](../../tasks/investigation/suspicious-outbound-connection.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Threat Hunting |
+| [Suspicious Process Investigation](../../tasks/incident-response/suspicious-process.md) | Workflow | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Investigation |
+| [Bash Scripting and Automation](../../languages/bash/automation.md) | Entry | Linux | Bash | Automation, Administration, Incident Response |
+| [Bash Text Processing](../../languages/bash/text-processing.md) | Entry | Linux | Bash | Investigation, Automation, Threat Hunting |
+| [Linux Cron and Scheduled Jobs](cron.md) | Entry | Linux | Bash | Incident Response, Investigation, Threat Hunting, Administration |
+| [Linux Filesystem](filesystem.md) | Entry | Linux | Bash | Incident Response, Investigation, Forensics, Troubleshooting |
+| [Linux Installed Packages](packages.md) | Entry | Linux | Bash | Investigation, Administration, Forensics |
+| [Linux Logs](logs.md) | Entry | Linux | Bash | Incident Response, Investigation, Troubleshooting, Forensics |
+| [Linux Networking and DNS](networking.md) | Entry | Linux | Bash | Incident Response, Investigation, Troubleshooting, Administration |
+| [Linux Processes](processes.md) | Entry | Linux | Bash | Incident Response, Investigation, Troubleshooting, Forensics |
+| [Linux Services with systemd](systemd.md) | Entry | Linux | Bash | Administration, Troubleshooting, Incident Response, Investigation |
+| [Linux SSH](ssh.md) | Entry | Linux | Bash | Incident Response, Investigation, Hardening, Administration |
+| [Linux System Information](system-information.md) | Entry | Linux | Bash | Incident Response, Administration, Troubleshooting |
+| [Linux Troubleshooting Commands](troubleshooting.md) | Entry | Linux | Bash | Troubleshooting, Administration |
+| [Linux Users and Permissions](users-permissions.md) | Entry | Linux | Bash | Incident Response, Investigation, Administration, Hardening |
+| [Proxmox VE](../virtualization/proxmox.md) | Entry | Proxmox, Linux | Bash | Administration, Incident Response, Forensics |
+| [Python JSON and CSV](../../languages/python/json-csv.md) | Entry | Linux, Windows | Python | Automation, Investigation |
+| [Python Logging and Automation](../../languages/python/logging-automation.md) | Entry | Linux, Windows | Python | Automation |
+| [Python Subprocess and Filesystem](../../languages/python/subprocess-filesystem.md) | Entry | Linux, Windows | Python | Automation, Forensics, Incident Response |
+| [S1QL Hunting Queries](../../detection/s1ql/hunting.md) | Entry | SentinelOne, Windows, Linux | S1QL | Threat Hunting, Incident Response, Investigation |
+| [Bash Toolbox](../../toolbox/bash.md) | Tool | Linux | Bash | Automation, Incident Response, Forensics, Investigation |
+| [Python Toolbox](../../toolbox/python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
+| [Cross-Platform Equivalents](../../references/equivalents.md) | Reference | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting, Administration |
+| [MITRE ATT&CK Mapping](../../detection/mitre-attack/index.md) | Reference | Windows, Linux, Microsoft 365 | MITRE ATT&CK | Detection Engineering, Threat Hunting, Incident Response |
+
+<!-- /cc:index -->

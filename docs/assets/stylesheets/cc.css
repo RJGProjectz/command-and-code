@@ -1,0 +1,99 @@
+/* Command & Code — theme overrides for Material for MkDocs.
+   Goal: a calm, professional field manual. No neon, no gimmicks. */
+
+:root {
+  --cc-ink: #121820;
+  --cc-amber: #c98a1a;
+  --cc-amber-soft: rgba(201, 138, 26, 0.14);
+  --cc-steel: #5b7a99;
+  --cc-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --cc-mono: "Cascadia Mono", "Cascadia Code", "JetBrains Mono", "SF Mono", Consolas, "Liberation Mono", monospace;
+  --md-text-font-family: var(--cc-sans);
+  --md-code-font-family: var(--cc-mono);
+}
+
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: var(--cc-ink);
+  --md-primary-fg-color--light: #1d2631;
+  --md-primary-fg-color--dark: #0b0f14;
+  --md-primary-bg-color: #e8edf2;
+  --md-primary-bg-color--light: rgba(232, 237, 242, 0.7);
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: var(--cc-amber);
+  --md-accent-fg-color--transparent: var(--cc-amber-soft);
+  --md-accent-bg-color: #fff;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 212;
+  --md-default-bg-color: #0f1318;
+  --md-default-fg-color--light: rgba(226, 232, 240, 0.72);
+  --md-code-bg-color: #161c23;
+  --md-code-fg-color: #d5dde6;
+  --md-typeset-a-color: #8fb4d9;
+  --md-footer-bg-color: #0b0f14;
+  --md-footer-bg-color--dark: #080b0f;
+}
+
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #2b5d8a;
+  --md-code-bg-color: #f3f5f8;
+}
+
+body, input { font-family: var(--cc-sans); }
+code, kbd, pre { font-family: var(--cc-mono); font-variant-ligatures: none; }
+
+.md-header { box-shadow: none; border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+.md-tabs { background-color: var(--md-primary-fg-color--dark); }
+.md-tabs__link--active, .md-tabs__item--active .md-tabs__link { color: var(--cc-amber); }
+
+.md-typeset h1 { font-weight: 650; letter-spacing: -0.01em; margin-bottom: 0.6em; }
+.md-typeset h2 { font-weight: 600; border-bottom: 1px solid var(--md-default-fg-color--lightest); padding-bottom: 0.25em; }
+.md-typeset h3 { font-weight: 600; }
+.md-typeset pre > code { border-radius: 6px; border: 1px solid var(--md-default-fg-color--lightest); }
+.md-typeset table:not([class]) { font-size: 0.72rem; }
+.md-typeset table:not([class]) th { background: var(--md-code-bg-color); }
+
+/* Metadata strip under each entry title (rendered by hooks/cc_meta.py) */
+.md-typeset .cc-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: -0.4rem 0 1.4rem; }
+.md-typeset .cc-chip {
+  display: inline-block; font-size: 0.62rem; line-height: 1.5; padding: 0.05rem 0.55rem;
+  border-radius: 999px; border: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light); text-decoration: none; white-space: nowrap;
+}
+.md-typeset a.cc-chip:hover { border-color: var(--cc-amber); color: var(--cc-amber); }
+.md-typeset .cc-platform::before { content: "▣ "; opacity: 0.6; }
+.md-typeset .cc-language::before { content: "‹› "; opacity: 0.6; }
+.md-typeset .cc-task::before { content: "▸ "; opacity: 0.6; }
+.md-typeset .cc-verified { border-color: rgba(76, 175, 120, 0.5); color: #4caf78; }
+.md-typeset .cc-unverified { border-color: rgba(214, 120, 60, 0.6); color: #d6783c; }
+
+.md-typeset .cc-aliases { font-size: 0.66rem; color: var(--md-default-fg-color--lighter); margin: -1rem 0 1.4rem; }
+
+/* Homepage */
+.cc-hero { padding: 1.2rem 0 0.4rem; }
+.md-typeset .cc-hero h1 { font-size: 2.3rem; margin: 0 0 0.3rem; }
+.md-typeset .cc-tagline { font-size: 1.05rem; color: var(--md-default-fg-color--light); margin: 0 0 1rem; }
+.md-typeset .cc-kicker { font-family: var(--cc-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cc-amber); margin: 0; }
+.md-typeset .cc-searches a {
+  display: inline-block; font-family: var(--cc-mono); font-size: 0.66rem; margin: 0 0.3rem 0.4rem 0;
+  padding: 0.15rem 0.6rem; border-radius: 4px; background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest); color: var(--md-default-fg-color);
+}
+.md-typeset .cc-searches a:hover { border-color: var(--cc-amber); color: var(--cc-amber); }
+.md-typeset .grid.cards > ul > li, .md-typeset .grid > .card {
+  border-radius: 8px; border-color: var(--md-default-fg-color--lightest);
+}
+.md-typeset .grid.cards > ul > li:hover { border-color: var(--cc-amber); box-shadow: none; }
+.md-typeset .grid.cards .lg { color: var(--cc-amber); }
+
+/* Roadmap */
+.md-typeset .cc-phase { border-left: 3px solid var(--md-default-fg-color--lightest); padding: 0.1rem 0 0.1rem 1rem; margin: 1.2rem 0; }
+.md-typeset .cc-phase.cc-active { border-left-color: var(--cc-amber); }
+.md-typeset .cc-flow { font-family: var(--cc-mono); font-size: 0.72rem; line-height: 1.9; }
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .cc-hero h1 { font-size: 1.8rem; }
+}

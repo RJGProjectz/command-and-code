@@ -1,0 +1,12 @@
+site/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.cache/
+.DS_Store
+Thumbs.db
+# Triage output written by scripts/ when run from the repo
+triage-*/
+*.log
+scratch/

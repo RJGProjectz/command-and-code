@@ -1,0 +1,37 @@
+---
+title: SPL
+type: index
+---
+
+# SPL — Splunk Search Processing Language
+
+| Page | Covers |
+| --- | --- |
+| [Fundamentals and optimization](fundamentals.md) | search shape, speed rules, common commands, `tstats`, first-seen |
+| [Windows security events](windows-events.md) | authentication, process creation, services, tasks, account changes, log clearing, Defender |
+| [PowerShell](powershell.md) | 4104 script blocks, encoded commands, downgrade |
+| [Network and DNS](network-dns.md) | CIM network traffic, rare destinations, DNS, beaconing |
+
+!!! note "Environment-specific"
+    Splunk field names depend on the add-ons and rendering mode you deploy. Detection pages are marked **Unverified** until checked against your indexes — update `verified` and `last_verified` once tested.
+
+## Everything tagged SPL
+
+<!-- cc:index languages="SPL" -->
+| Entry | Type | Platforms | Languages | Tasks |
+| --- | --- | --- | --- | --- |
+| [Failed Authentication Investigation](../../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
+| [Network Investigation](../../tasks/investigation/network-investigation.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
+| [Possible Lateral Movement](../../tasks/threat-hunting/lateral-movement.md) | Workflow | Windows, Windows Server, Microsoft Defender, Splunk | PowerShell, KQL, SPL | Threat Hunting, Incident Response, Investigation |
+| [Scheduled Task Investigation](../../tasks/investigation/scheduled-task-investigation.md) | Workflow | Windows, Microsoft Defender, Splunk, SentinelOne | PowerShell, Windows CLI, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
+| [Suspicious Outbound Connection](../../tasks/investigation/suspicious-outbound-connection.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Threat Hunting |
+| [Suspicious PowerShell Investigation](../../tasks/incident-response/suspicious-powershell.md) | Workflow | Windows, Microsoft Defender, Splunk, SentinelOne | PowerShell, KQL, SPL, S1QL | Incident Response, Investigation |
+| [Suspicious Service Investigation](../../tasks/investigation/suspicious-service.md) | Workflow | Windows, Windows Server, Microsoft Defender, Splunk | PowerShell, Windows CLI, KQL, SPL | Investigation, Incident Response |
+| [SPL Fundamentals and Search Optimization](fundamentals.md) | Entry | Splunk | SPL | Threat Hunting, Detection Engineering, Investigation |
+| [SPL Network and DNS Hunting](network-dns.md) | Entry | Splunk | SPL | Threat Hunting, Investigation, Detection Engineering |
+| [SPL PowerShell Hunting](powershell.md) | Entry | Splunk, Windows | SPL | Threat Hunting, Detection Engineering, Incident Response |
+| [SPL Windows Security Events](windows-events.md) | Entry | Splunk, Windows | SPL | Threat Hunting, Detection Engineering, Investigation, Incident Response |
+| [Cross-Platform Equivalents](../../references/equivalents.md) | Reference | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting, Administration |
+| [Windows Event ID Reference](../../references/windows-event-ids.md) | Reference | Windows, Windows Server | PowerShell, SPL, KQL | Investigation, Incident Response, Detection Engineering, Forensics |
+
+<!-- /cc:index -->

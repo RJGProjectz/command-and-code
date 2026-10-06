@@ -1,0 +1,7 @@
+// docs/detection/kql/process-events.md#encoded-powershell
+DeviceProcessEvents
+| where Timestamp > ago(7d)
+| where FileName in~ ("powershell.exe", "pwsh.exe")
+| where ProcessCommandLine matches regex @"(?i)\s[-/]e[a-z]*\s+[a-z0-9+/=]{20,}"
+| project Timestamp, DeviceName, AccountName, ProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc

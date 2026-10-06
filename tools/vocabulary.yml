@@ -1,0 +1,57 @@
+# Controlled vocabulary for Command & Code front matter.
+#
+# Every value used in `platforms`, `languages` or `tasks` must appear here.
+# The value on the right is the page (relative to docs/) that the site links
+# to when that value is shown as a chip under a page title.
+#
+# Add a term here first, then use it in a page. `python tools/cc.py check`
+# fails on any term that is not listed.
+
+platforms:
+  Windows: platforms/windows/index.md
+  Windows Server: platforms/windows/windows-server.md
+  Linux: platforms/linux/index.md
+  Microsoft 365: platforms/microsoft-365/index.md
+  Microsoft Defender: platforms/microsoft-365/defender.md
+  Entra ID: platforms/microsoft-365/entra.md
+  Intune: platforms/microsoft-365/intune.md
+  Exchange Online: platforms/microsoft-365/exchange.md
+  Hyper-V: platforms/virtualization/hyper-v.md
+  VMware: platforms/virtualization/vmware.md
+  Proxmox: platforms/virtualization/proxmox.md
+  SentinelOne: detection/s1ql/index.md
+  Splunk: detection/spl/index.md
+
+languages:
+  PowerShell: languages/powershell/index.md
+  Bash: languages/bash/index.md
+  Python: languages/python/index.md
+  Windows CLI: languages/windows-cli/index.md
+  KQL: detection/kql/index.md
+  SPL: detection/spl/index.md
+  S1QL: detection/s1ql/index.md
+  Sigma: detection/sigma/index.md
+  MITRE ATT&CK: detection/mitre-attack/index.md
+
+tasks:
+  Incident Response: tasks/incident-response/index.md
+  Threat Hunting: tasks/threat-hunting/index.md
+  Investigation: tasks/investigation/index.md
+  Troubleshooting: tasks/troubleshooting/index.md
+  Administration: tasks/administration/index.md
+  Detection Engineering: tasks/detection-engineering/index.md
+  Hardening: tasks/hardening/index.md
+  Forensics: tasks/forensics/index.md
+  Automation: tasks/automation/index.md
+
+types:
+  - entry      # reference knowledge: commands, queries, configuration locations
+  - workflow   # ordered operational procedure that links to entries
+  - tool       # documentation for a script in scripts/
+  - reference  # lookup tables (event IDs, equivalents)
+  - index      # landing / browse pages
+
+difficulty:
+  - basic
+  - intermediate
+  - advanced
