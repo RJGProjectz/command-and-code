@@ -156,6 +156,35 @@ nav:
           - Subprocess & Filesystem: languages/python/subprocess-filesystem.md
           - Logging & Automation: languages/python/logging-automation.md
       - Windows CLI: languages/windows-cli/index.md
+  - APIs:
+      - apis/index.md
+      - Microsoft Defender:
+          - apis/microsoft-defender/get-alerts.md
+          - apis/microsoft-defender/antivirus-scan.md
+      - Microsoft Graph:
+          - apis/microsoft-graph/conditional-access.md
+          - apis/microsoft-graph/sign-in-logs.md
+          - apis/microsoft-graph/user-auth-methods.md
+      - SentinelOne:
+          - apis/sentinelone/threats.md
+          - apis/sentinelone/isolate-host.md
+      - Splunk:
+          - apis/splunk/management-jobs.md
+      - Authentication:
+          - apis/authentication/bearer-tokens.md
+      - Webhooks:
+          - apis/webhooks/slack-teams-webhooks.md
+  - Fundamentals:
+      - fundamentals/index.md
+      - Protocols & Networking:
+          - DNS Mechanics & Security: fundamentals/dns.md
+          - Kerberos Authentication: fundamentals/kerberos.md
+          - SMB Protocol & Shares: fundamentals/smb.md
+      - AI & LLM Systems:
+          - LLM Architecture & Inference: fundamentals/ai-llm-architecture.md
+          - RAG Architecture: fundamentals/rag-architecture.md
+          - Agentic AI & Tool Execution: fundamentals/agentic-ai.md
+          - OWASP Top 10 for LLMs: fundamentals/owasp-llm-top-10.md
   - Detection:
       - detection/index.md
       - KQL:
@@ -171,6 +200,9 @@ nav:
           - Windows Security Events: detection/spl/windows-events.md
           - PowerShell: detection/spl/powershell.md
           - Network & DNS: detection/spl/network-dns.md
+          - AMSI Bypass: detection/spl/amsi-bypass.md
+          - DNS Tunneling: detection/spl/dns-tunneling.md
+          - Azure RBAC Modification: detection/spl/azure-rbac-modification.md
       - S1QL:
           - detection/s1ql/index.md
           - Fundamentals: detection/s1ql/fundamentals.md
@@ -188,6 +220,11 @@ nav:
           - Suspicious Process: tasks/incident-response/suspicious-process.md
           - Malware Triage: tasks/incident-response/malware-triage.md
           - Account Compromise: tasks/incident-response/account-compromise.md
+          - Azure Resource Hijacking: tasks/incident-response/azure-resource-hijacking.md
+          - Compromised Service Principal: tasks/incident-response/compromised-service-principal.md
+          - SMB Lateral Movement: tasks/incident-response/smb-lateral-movement.md
+          - Phishing Email Triage: tasks/incident-response/phishing-email-triage.md
+          - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
       - Investigation:
           - tasks/investigation/index.md
           - Suspicious Service: tasks/investigation/suspicious-service.md
@@ -210,10 +247,22 @@ nav:
           - Network Services Management: tasks/administration/network-services-management.md
           - Backup & Recovery Operations: tasks/administration/backup-and-recovery.md
           - Certificate & PKI Management: tasks/administration/certificate-and-pki-management.md
+          - BitLocker Key Recovery: tasks/administration/bitlocker-recovery.md
+          - Group Policy Force Refresh: tasks/administration/group-policy-update.md
+          - Remote Service Restart: tasks/administration/remote-service-restart.md
+          - Disk Capacity Audit: tasks/administration/disk-space-audit.md
+          - Temporary File Purging: tasks/administration/temp-file-cleanup.md
       - Detection Engineering: tasks/detection-engineering/index.md
       - Hardening: tasks/hardening/index.md
       - Forensics: tasks/forensics/index.md
       - Automation: tasks/automation/index.md
+      - Assurance:
+          - tasks/assurance/index.md
+          - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
+          - Active Directory STIG: tasks/assurance/ad-stig-compliance.md
+          - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md
+          - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
+          - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
   - Toolbox:
       - toolbox/index.md
       - PowerShell Tools: toolbox/powershell.md

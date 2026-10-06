@@ -285,7 +285,8 @@ def check_code() -> list[str]:
     if ps_items and not pwsh:
         print(f"note: pwsh not found; skipped {len(ps_items)} PowerShell blocks")
     elif ps_items:
-        with tempfile.TemporaryDirectory() as tmp:
+        (ROOT / "scratch").mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=ROOT / "scratch") as tmp:
             paths = []
             for n, (label, code) in enumerate(ps_items):
                 path = Path(tmp) / f"block{n}.ps1"

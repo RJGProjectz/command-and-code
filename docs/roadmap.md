@@ -15,13 +15,13 @@ Command & Code grows from real operational material, one phase at a time:
 <div class="cc-flow" markdown>
 
 ```text
-FOUNDATION            🟡  ← you are here
+FOUNDATION            ✅  ← Completed
     ↓
-KNOWLEDGE EXPANSION   🔵
+KNOWLEDGE EXPANSION   🟡  ← Active In Progress
     ↓
-AUTOMATION & TOOLING  🔵
+AUTOMATION & TOOLING  🟡  ← Active In Progress (66+ production scripts cataloged)
     ↓
-API INTEGRATION       🔵
+API INTEGRATION       🟡  ← Active In Progress (docs/apis/ operational)
     ↓
 OPERATIONAL PLAYBOOKS 🔵
     ↓
@@ -34,11 +34,11 @@ SECURITY TOOLKIT      ⚪
 
 **Status key:** ✅ Complete · 🟡 In progress · 🔵 Planned · ⚪ Future
 
-<div class="cc-phase cc-active" markdown>
+<div class="cc-phase" markdown>
 
 ## Phase 1 — Foundation
 
-**Status:** 🟡 In progress (V1)
+**Status:** ✅ Complete
 
 **Objective:** a highly organised, searchable knowledge base with consistent metadata and CI.
 
@@ -53,24 +53,24 @@ SECURITY TOOLKIT      ⚪
 - [x] KQL, SPL, S1QL and Sigma detection content; ATT&CK mapping
 - [x] Incident-response, investigation, hunting and troubleshooting workflows
 - [x] Initial toolbox scripts with documentation
-- [ ] Verify S1QL and environment-specific SPL content in production consoles
-- [ ] Publish to GitHub Pages
+- [x] Verify S1QL and environment-specific SPL content in production consoles
+- [x] Publish to GitHub Pages
 
 **Repository areas:** `docs/`, `scripts/`, `templates/`, `tools/`, `.github/workflows/`
 
 </div>
 
-<div class="cc-phase" markdown>
+<div class="cc-phase cc-active" markdown>
 
 ## Phase 2 — Knowledge Expansion
 
-**Status:** 🔵 Planned
+**Status:** 🟡 In progress
 
 **Objective:** move from *"what command do I use?"* to *"what am I trying to accomplish, what telemetry do I need, what query should I run, and what do I do with the result?"*
 
 **Key capabilities:** broader command and query coverage · more configuration references · troubleshooting decision trees · expanded IR and hunting workflows · deeper ATT&CK relationships · more cross-platform equivalents · environment/version notes.
 
-**Repository areas:** `docs/platforms/`, `docs/detection/`, `docs/tasks/`, `docs/references/`
+**Repository areas:** `docs/platforms/`, `docs/detection/`, `docs/tasks/`, `docs/references/`, `docs/fundamentals/`
 
 </div>
 
@@ -78,11 +78,11 @@ SECURITY TOOLKIT      ⚪
 
 ## Phase 3 — Automation & Tooling Integration
 
-**Status:** 🔵 Planned
+**Status:** 🟡 In progress
 
 **Objective:** progressively import existing PowerShell, Bash and Python automation as documented, connected tools — not a dump of files.
 
-**Key capabilities:** every significant tool documents purpose, problem, requirements, inputs, outputs, dependencies, usage, security considerations, example, and related commands/APIs/workflows, and links to its source.
+**Key capabilities:** every significant tool documents purpose, problem, requirements, inputs, outputs, dependencies, usage, security considerations, example, and related commands/APIs/workflows, and links to its source. 66+ production scripts now cataloged in `scripts/powershell/` and `docs/toolbox/`.
 
 **Repository areas:** `scripts/`, `docs/toolbox/`
 
@@ -92,11 +92,11 @@ SECURITY TOOLKIT      ⚪
 
 ## Phase 4 — API & Platform Integration
 
-**Status:** 🔵 Planned
+**Status:** 🟡 In progress
 
 **Objective:** practical, tested examples for security APIs, organised by the same Platform / Technology / Task model.
 
-**Key capabilities:** Microsoft Graph, Defender, Entra, Intune and Sentinel APIs · Splunk and SentinelOne APIs · authentication patterns · JSON processing · reporting.
+**Key capabilities:** Microsoft Graph, Defender, Entra, Intune and Sentinel APIs · Splunk and SentinelOne APIs · authentication patterns · JSON processing · reporting. First-class `docs/apis/` directory active.
 
 ```text
 Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Automation → Workflow

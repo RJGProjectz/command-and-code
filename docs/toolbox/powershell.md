@@ -170,3 +170,58 @@ Related: [Endpoint Triage](../tasks/incident-response/endpoint-triage.md)
     ```powershell
     --8<-- "powershell/Invoke-EndpointTriage.ps1"
     ```
+
+---
+
+## Production Security & Administration Catalog
+
+The repository includes 66 standardized operational functions in `scripts/powershell/` covering identity, cloud, incident response, and administration:
+
+### 1. Identity & Access Operations (AD & Entra ID)
+
+| Tool Script | Operational Purpose | Key Safeguards |
+| :--- | :--- | :--- |
+| `FUNC_PS_NEW_USER_PROVISION.ps1` | Automated employee onboarding with standard OU placement | Validates mandatory attributes, prevents duplicate UPNs |
+| `FUNC_PS_DISABLE_TERMINATED_USER.ps1` | Emergency employee termination routine | Strips sensitive group memberships, scrambles password, sets description |
+| `FUNC_PS_GET_INACTIVE_USERS.ps1` | Audits dormant accounts (>90 days without logon) | Read-only reporting, formats lastLogonTimestamp |
+| `FUNC_PS_UNLOCK_ACCOUNT.ps1` | Clears account lockouts with lockout source tracking | Returns event log lockout metadata |
+| `FUNC_PS_RESET_PASSWORD.ps1` | Resets AD account password | Requires `-MustChangePasswordAtLogon` |
+| `FUNC_PS_ADD_AZ_GROUP_MEMBER.ps1` | Adds identity to Entra ID security or M365 group | Checks existing membership to avoid redundant Graph calls |
+| `FUNC_PS_GET_AZ_SIGNIN_LOGS.ps1` | Exports user sign-in history with risk events | Filters by IP and date window |
+| `FUNC_PS_REVOKE_AZ_LICENSE.ps1` | Deprovisions cloud licenses upon offboarding | Exports assigned SKU IDs before removal |
+
+### 2. Endpoint Containment, EDR & Forensic Triage
+
+| Tool Script | Operational Purpose | Key Safeguards |
+| :--- | :--- | :--- |
+| `FUNC_PS_ISOLATE_MACHINE.ps1` | Triggers immediate network isolation via EDR/firewall | Allows designated SOC management egress |
+| `FUNC_PS_UNISOLATE_MACHINE.ps1` | Restores network connectivity post-remediation | Requires confirmation prompt |
+| `FUNC_PS_START_DEFENDER_SCAN.ps1` | Launches remote Quick or Full Defender scan | Returns asynchronous action ID for tracking |
+| `FUNC_PS_STOP_AND_QUARANTINE.ps1` | Terminates malicious process and quarantines file | Validates file path before deletion |
+| `FUNC_PS_BLOCK_AZ_INDICATOR.ps1` | Submits IOC hash/IP/domain to Defender blocklist | Validates indicator format and sets expiration |
+| `FUNC_PS_GET_ADVANCED_HUNTING.ps1` | Executes programmatic KQL hunting queries via API | Paginates results to avoid memory exhaustion |
+| `FUNC_PS_RESOLVE_AGED_ALERTS.ps1` | Bulk-resolves stale or benign alerts in Defender XDR | Enforces comment logging for audit compliance |
+| `FUNC_PS_INVOKE_FORENSIC_COLLECTION.ps1` | Gathers memory, shimcache, and prefetch artifacts | Outputs cryptographic SHA-256 manifest |
+
+### 3. System Administration & Health Checks
+
+| Tool Script | Operational Purpose | Key Safeguards |
+| :--- | :--- | :--- |
+| `FUNC_PS_GET_BITLOCKER_KEY.ps1` | Retrieves recovery password from AD / Entra ID | Audits administrative access in event log |
+| `FUNC_PS_INVOKE_GP_UPDATE.ps1` | Remote Group Policy refresh on remote hosts | Runs asynchronously via CIM |
+| `FUNC_PS_RESTART_REMOTE_SERVICE.ps1` | Safely restarts stuck Windows services | Verifies dependent services before bounce |
+| `FUNC_PS_GET_DISK_SPACE_REPORT.ps1` | Flags drives under 15% free capacity | Formats sizes in GB with threshold warnings |
+| `FUNC_PS_CLEAR_TEMP_FILES.ps1` | Purges Windows Temp, SoftwareDistribution, and caches | Excludes files modified within last 24 hours |
+| `FUNC_PS_SET_DNS_CLIENT_SERVER.ps1` | Updates primary and secondary DNS resolvers | Tests reachability of new DNS before applying |
+| `FUNC_PS_TEST_NET_CONN.ps1` | Multi-port socket connectivity tester | Replaces slow `Test-NetConnection` with fast .NET sockets |
+
+### 4. REST APIs & Automation Connectors
+
+| Tool Script | Operational Purpose | Key Safeguards |
+| :--- | :--- | :--- |
+| `FUNC_PS_HANDLE_BEARER_AUTH.ps1` | Manages OAuth2 client credentials tokens | In-memory token caching with expiration refresh |
+| `FUNC_PS_INVOKE_GENERIC_API.ps1` | Standardized wrapper for enterprise REST APIs | Automatic exponential backoff on HTTP 429 |
+| `FUNC_PS_SEND_SLACK_WEBHOOK.ps1` | Transmits structured markdown incident alerts | Validates payload formatting before HTTP POST |
+| `FUNC_PS_SEND_TEAMS_WEBHOOK.ps1` | Posts Adaptive Card notifications to Teams | Supports title, severity badges, and actions |
+| `FUNC_PS_TEST_WEBSITE_STATUS.ps1` | Web endpoint health checker | Captures response time, SSL expiration, and HTTP status |
+

@@ -21,6 +21,8 @@ platforms:
   Proxmox: platforms/virtualization/proxmox.md
   SentinelOne: detection/s1ql/index.md
   Splunk: detection/spl/index.md
+  Azure: platforms/microsoft-365/index.md
+  Active Directory: platforms/windows/index.md
 
 languages:
   PowerShell: languages/powershell/index.md
@@ -32,6 +34,8 @@ languages:
   S1QL: detection/s1ql/index.md
   Sigma: detection/sigma/index.md
   MITRE ATT&CK: detection/mitre-attack/index.md
+  REST API: languages/index.md
+  HTTP: languages/index.md
 
 tasks:
   Incident Response: tasks/incident-response/index.md
@@ -43,6 +47,7 @@ tasks:
   Hardening: tasks/hardening/index.md
   Forensics: tasks/forensics/index.md
   Automation: tasks/automation/index.md
+  Assurance: tasks/assurance/index.md
 
 types:
   - entry      # reference knowledge: commands, queries, configuration locations
