@@ -2,8 +2,9 @@
    Command & Code — Multi-Theme Style System
    Themes:
      1. classic      : Original Field Manual (Slate / Amber)
-     2. nexus-cyber   : Cyberpunk Synthwave Neon (Deep Violet / Cyan & Pink) (Deep Violet / Neon Cyan & Pink)
-     3. electric-cyber: High-Voltage Grid (Obsidian / Neon Orange & Cyan) (Obsidian / Electric Orange & Cyan)
+     2. nexus        : Cyberpunk Synthwave Neon (Deep Violet / Cyan & Pink)
+     3. high-voltage : High-Voltage Grid (Obsidian / Neon Orange & Cyan)
+     4. matrix       : Digital Phosphor Terminal (Obsidian / Matrix Green)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -253,9 +254,9 @@ a.headerlink,
 
 
 /* ==========================================================================
-   1. NEXUS CYBER THEME (Cyberpunk Synthwave Neon)
+   1. NEXUS THEME (Cyberpunk Synthwave Neon)
    ========================================================================== */
-[data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"] {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) {
   --cc-ink: #0c0617;
   --cc-purple: #7c3aed;
   --cc-purple-deep: #160b2b;
@@ -287,20 +288,15 @@ a.headerlink,
   --md-footer-bg-color--dark: #05010b;
 }
 
-[data-cc-theme="nexus-cyber"] .md-container,
-[data-cc-theme="nexus-flow"] .md-container,
-[data-cc-theme="nexus-cyber"] .md-main,
-[data-cc-theme="nexus-flow"] .md-main,
-[data-cc-theme="nexus-cyber"] .md-main__inner,
-[data-cc-theme="nexus-flow"] .md-main__inner,
-[data-cc-theme="nexus-cyber"] .md-content,
-[data-cc-theme="nexus-flow"] .md-content {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-container,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-main,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-main__inner,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-content {
   background: transparent !important;
 }
 
 /* Ambient cyber gradient mesh */
-[data-cc-theme="nexus-cyber"] body::before,
-[data-cc-theme="nexus-flow"] body::before {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) body::before {
   content: "";
   position: fixed;
   top: -50%;
@@ -323,39 +319,39 @@ a.headerlink,
   100% { transform: rotate(360deg); }
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-header {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-header {
   background: rgba(18, 7, 39, 0.88);
   border-bottom: 1px solid rgba(0, 243, 255, 0.22);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-tabs {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-tabs {
   background: #090314;
   border-bottom: 1px solid rgba(255, 0, 127, 0.2);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-tabs__link--active,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-tabs__item--active .md-tabs__link {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-tabs__link--active,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-tabs__item--active .md-tabs__link {
   color: #00f3ff;
   text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset h1 {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset h1 {
   background: linear-gradient(135deg, #00f3ff 0%, #ff007f 60%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 25px rgba(0, 243, 255, 0.25);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset h2 {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset h2 {
   color: #f1f5f9;
   border-bottom: 1px solid rgba(0, 243, 255, 0.2);
 }
 
-/* Nexus Flow Syntax Highlighting for all code & languages */
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset pre > code {
+/* Nexus Syntax Highlighting for all code & languages */
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset pre > code {
   background: #110822 !important;
   color: #f1f5f9 !important;
   border: 1px solid rgba(0, 243, 255, 0.28) !important;
@@ -363,71 +359,71 @@ a.headerlink,
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(124, 58, 237, 0.1) !important;
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .k,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kd,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kn,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kp,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kr,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kc {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .k,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kd,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kn,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kp,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kr,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .kc {
   color: #ff007f !important;
   font-weight: 600;
 } /* Hot Pink keywords */
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .nf,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .fm,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .nb,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .bp {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .nf,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .fm,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .nb,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .bp {
   color: #00f3ff !important;
   font-weight: 600;
 } /* Neon Cyan functions */
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .s,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .s1,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .s2,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .sa,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .sb,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .sc {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .s,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .s1,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .s2,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .sa,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .sb,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .sc {
   color: #00ffa3 !important;
 } /* Neon Mint strings */
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .nv,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .na,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .vi,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .vc,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .vg {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .nv,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .na,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .vi,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .vc,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .vg {
   color: #ffe600 !important;
 } /* Lemon Yellow variables */
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .m,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .mi,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .mf {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .m,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .mi,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .mf {
   color: #d946ef !important;
 } /* Orchid numbers */
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .c,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .c1,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .ch,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .cm {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .c,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .c1,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .ch,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .cm {
   color: #8b7bb0 !important;
   font-style: italic;
 } /* Dreamy Purple comments */
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .o,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .ow {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .o,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .ow {
   color: #ff007f !important;
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .p {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .highlight .p {
   color: #c4b5fd !important;
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset code {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset code {
   background: rgba(0, 243, 255, 0.12) !important;
   color: #00f3ff !important;
   border: 1px solid rgba(0, 243, 255, 0.28) !important;
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .cc-chip {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .cc-chip {
   background: rgba(22, 11, 46, 0.8);
   border: 1px solid rgba(0, 243, 255, 0.35);
   color: #00f3ff;
@@ -435,21 +431,21 @@ a.headerlink,
   transition: all 0.2s ease;
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset a.cc-chip:hover {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset a.cc-chip:hover {
   border-color: #ff007f;
   color: #ff007f;
   box-shadow: 0 0 12px rgba(255, 0, 127, 0.4);
   transform: translateY(-1px);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .cc-kicker {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .cc-kicker {
   color: #ff007f;
   letter-spacing: 0.16em;
   text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid.cards > ul > li,
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid > .card {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid.cards > ul > li,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid > .card {
   background: rgba(20, 9, 43, 0.65);
   border: 1px solid rgba(0, 243, 255, 0.2);
   backdrop-filter: blur(12px);
@@ -458,27 +454,27 @@ a.headerlink,
   transition: all 0.25s ease;
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid.cards > ul > li:hover {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid.cards > ul > li:hover {
   border-color: #00f3ff;
   box-shadow: 0 0 25px rgba(0, 243, 255, 0.28), 0 8px 30px rgba(0, 0, 0, 0.5);
   transform: translateY(-3px);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid.cards .lg {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .grid.cards .lg {
   color: #00f3ff;
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .cc-phase.cc-active {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-typeset .cc-phase.cc-active {
   border-left-color: #00f3ff;
   box-shadow: -2px 0 12px rgba(0, 243, 255, 0.35);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-theme-menu {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-theme-menu {
   background: #160b2b;
   border-color: rgba(0, 243, 255, 0.3);
 }
 
-:is([data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-theme-switcher-btn {
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-theme-switcher-btn {
   border-color: rgba(0, 243, 255, 0.4);
   background: rgba(0, 243, 255, 0.1);
   color: #00f3ff;
@@ -486,9 +482,9 @@ a.headerlink,
 
 
 /* ==========================================================================
-   2. ELECTRIC CYBER THEME (High-Voltage Obsidian & Neon Grid)
+   2. HIGH VOLTAGE THEME (Obsidian & Electric Neon Grid)
    ========================================================================== */
-[data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"] {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) {
   --cc-ink: #07090e;
   --cc-obsidian: #040507;
   --cc-orange: #ff5e00;
@@ -520,20 +516,20 @@ a.headerlink,
   --md-footer-bg-color--dark: #020304;
 }
 
-/* Ensure containers are transparent so Electric Cyber background shines through */
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-container,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-main,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-main__inner,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-content {
+/* Ensure containers are transparent so High Voltage background shines through */
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-container,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-main,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-main__inner,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-content {
   background: transparent !important;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) body {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) body {
   background-color: #07090e !important;
 }
 
 /* Ambient high-voltage electric cyber gradient mesh */
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) body::before {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) body::before {
   content: "";
   position: fixed;
   top: -50%;
@@ -559,7 +555,7 @@ a.headerlink,
   100% { transform: rotate(360deg); }
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-header {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-header {
   background: rgba(10, 13, 20, 0.92);
   border-bottom: 1px solid rgba(255, 94, 0, 0.35);
   box-shadow: 0 4px 24px rgba(255, 94, 0, 0.1);
@@ -567,18 +563,18 @@ a.headerlink,
   -webkit-backdrop-filter: blur(14px);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-tabs {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-tabs {
   background: #05070a;
   border-bottom: 2px solid rgba(255, 94, 0, 0.3);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-tabs__link--active,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-tabs__item--active .md-tabs__link {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-tabs__link--active,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-tabs__item--active .md-tabs__link {
   color: #ff5e00;
   text-shadow: 0 0 12px rgba(255, 94, 0, 0.7);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset h1 {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset h1 {
   background: linear-gradient(45deg, #ff5e00 0%, #ff8b3d 45%, #00b2ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -586,14 +582,14 @@ a.headerlink,
   text-shadow: 0 0 30px rgba(255, 94, 0, 0.35);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset h2 {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset h2 {
   color: #f8fafc;
   border-bottom: 1px solid rgba(255, 94, 0, 0.3);
 }
 
-/* Electric Cyber Syntax Highlighting for all code & languages */
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset pre > code {
+/* High Voltage Syntax Highlighting for all code & languages */
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset pre > code {
   background: #090c12 !important;
   color: #e2e8f0 !important;
   border: 1px solid rgba(255, 94, 0, 0.28) !important;
@@ -601,71 +597,71 @@ a.headerlink,
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(255, 94, 0, 0.1) !important;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .k,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kd,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kn,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kp,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kr,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kc {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .k,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kd,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kn,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kp,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kr,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .kc {
   color: #ff5e00 !important;
   font-weight: 600;
 } /* Electric Neon Orange keywords */
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .nf,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .fm,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .nb,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .bp {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .nf,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .fm,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .nb,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .bp {
   color: #00b2ff !important;
   font-weight: 600;
 } /* Electric Cyan functions & cmdlets */
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .s,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .s1,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .s2,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .sa,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .sb,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .sc {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .s,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .s1,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .s2,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .sa,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .sb,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .sc {
   color: #10b981 !important;
 } /* Emerald Lime strings */
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .nv,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .na,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .vi,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .vc,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .vg {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .nv,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .na,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .vi,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .vc,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .vg {
   color: #38bdf8 !important;
 } /* Sky Cyan variables & parameters */
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .m,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .mi,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .mf {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .m,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .mi,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .mf {
   color: #fb923c !important;
 } /* Radiant Tangerine numbers */
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .c,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .c1,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .ch,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .cm {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .c,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .c1,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .ch,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .cm {
   color: #64748b !important;
   font-style: italic;
 } /* Slate comments */
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .o,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .ow {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .o,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .ow {
   color: #ff8b3d !important;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .p {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .highlight .p {
   color: #94a3b8 !important;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset code {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset code {
   background: rgba(255, 94, 0, 0.12) !important;
   color: #ff8b3d !important;
   border: 1px solid rgba(255, 94, 0, 0.28) !important;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .cc-chip {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .cc-chip {
   background: rgba(16, 21, 30, 0.85);
   border: 1px solid rgba(255, 94, 0, 0.35);
   color: #ff8b3d;
@@ -673,21 +669,21 @@ a.headerlink,
   transition: all 0.2s ease;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset a.cc-chip:hover {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset a.cc-chip:hover {
   border-color: #00b2ff;
   color: #00b2ff;
   box-shadow: 0 0 12px rgba(0, 178, 255, 0.4);
   transform: translateY(-1px);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .cc-kicker {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .cc-kicker {
   color: #ff5e00;
   letter-spacing: 0.14em;
   text-shadow: 0 0 8px rgba(255, 94, 0, 0.5);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid.cards > ul > li,
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid > .card {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid.cards > ul > li,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid > .card {
   background: rgba(14, 18, 26, 0.82);
   border: 1px solid rgba(255, 94, 0, 0.22);
   border-radius: 8px;
@@ -697,29 +693,269 @@ a.headerlink,
   transition: all 0.25s ease;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid.cards > ul > li:hover {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid.cards > ul > li:hover {
   border-color: #ff5e00;
   box-shadow: 0 0 24px rgba(255, 94, 0, 0.25), 0 8px 30px rgba(0, 0, 0, 0.6);
   transform: translateY(-2px);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid.cards .lg {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .grid.cards .lg {
   color: #ff5e00;
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .cc-phase.cc-active {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-typeset .cc-phase.cc-active {
   border-left-color: #ff5e00;
   box-shadow: -2px 0 10px rgba(255, 94, 0, 0.4);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-theme-menu {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-theme-menu {
   background: #0f141d;
   border-color: rgba(255, 94, 0, 0.35);
 }
 
-:is([data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-theme-switcher-btn {
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-theme-switcher-btn {
   border-color: rgba(255, 94, 0, 0.4);
   background: rgba(255, 94, 0, 0.1);
   color: #ff5e00;
+}
+
+
+/* ==========================================================================
+   3. MATRIX THEME (Digital Phosphor Green Terminal)
+   ========================================================================== */
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) {
+  --cc-ink: #020704;
+  --cc-matrix-green: #00ff66;
+  --cc-matrix-glow: #00ff88;
+  --cc-matrix-deep: #00290e;
+  --cc-matrix-mint: #6ee7b7;
+  --cc-matrix-lime: #a3e635;
+
+  /* Material token overrides */
+  --md-primary-fg-color: #041208;
+  --md-primary-fg-color--light: #07200e;
+  --md-primary-fg-color--dark: #020704;
+  --md-accent-fg-color: #00ff66;
+  --md-accent-fg-color--transparent: rgba(0, 255, 102, 0.18);
+
+  --md-default-bg-color: #020704;
+  --md-default-bg-color--light: #06150a;
+  --md-default-bg-color--lighter: #0a2110;
+  --md-default-bg-color--lightest: rgba(0, 255, 102, 0.18);
+
+  --md-default-fg-color: #ecfdf5;
+  --md-default-fg-color--light: rgba(236, 253, 245, 0.78);
+  --md-default-fg-color--lighter: rgba(236, 253, 245, 0.48);
+
+  --md-code-bg-color: #041408;
+  --md-code-fg-color: #6ee7b7;
+  --md-typeset-a-color: #00ff66;
+
+  --md-footer-bg-color: #020704;
+  --md-footer-bg-color--dark: #010402;
+}
+
+/* Ensure containers are transparent so Matrix background shines through */
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-container,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-main,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-main__inner,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-content {
+  background: transparent !important;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) body {
+  background-color: #020704 !important;
+}
+
+/* Ambient phosphor matrix scanline & green glow mesh */
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(0, 255, 102, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(0, 255, 136, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(5, 150, 105, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 65% 20%, rgba(163, 230, 53, 0.08) 0%, transparent 40%),
+    linear-gradient(rgba(0, 255, 102, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 102, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+  pointer-events: none;
+  z-index: -1;
+  animation: matrixAmbientDrift 45s linear infinite;
+}
+
+@keyframes matrixAmbientDrift {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg); }
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-header {
+  background: rgba(4, 18, 8, 0.92);
+  border-bottom: 1px solid rgba(0, 255, 102, 0.32);
+  box-shadow: 0 4px 24px rgba(0, 255, 102, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-tabs {
+  background: #020704;
+  border-bottom: 2px solid rgba(0, 255, 102, 0.3);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-tabs__link--active,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-tabs__item--active .md-tabs__link {
+  color: #00ff66;
+  text-shadow: 0 0 12px rgba(0, 255, 102, 0.7);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset h1 {
+  background: linear-gradient(135deg, #00ff66 0%, #34d399 50%, #a3e635 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.015em;
+  text-shadow: 0 0 28px rgba(0, 255, 102, 0.35);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset h2 {
+  color: #ecfdf5;
+  border-bottom: 1px solid rgba(0, 255, 102, 0.28);
+}
+
+/* Matrix Syntax Highlighting for all code & languages */
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset pre > code {
+  background: #041408 !important;
+  color: #ecfdf5 !important;
+  border: 1px solid rgba(0, 255, 102, 0.28) !important;
+  border-left: 3px solid #00ff66 !important;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6), inset 0 0 16px rgba(0, 255, 102, 0.08) !important;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .k,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .kd,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .kn,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .kp,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .kr,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .kc {
+  color: #00ff66 !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(0, 255, 102, 0.4);
+} /* Phosphor green keywords */
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .nf,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .fm,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .nb,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .bp {
+  color: #34d399 !important;
+  font-weight: 600;
+} /* Emerald mint functions & cmdlets */
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .s,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .s1,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .s2,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .sa,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .sb,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .sc {
+  color: #6ee7b7 !important;
+} /* Soft mint strings */
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .nv,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .na,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .vi,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .vc,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .vg {
+  color: #a3e635 !important;
+} /* Lime phosphor variables */
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .m,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .mi,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .mf {
+  color: #22c55e !important;
+} /* Bright green numbers */
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .c,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .c1,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .ch,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .cm {
+  color: #3b694b !important;
+  font-style: italic;
+} /* Muted dark phosphor comments */
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .o,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .ow {
+  color: #00ff88 !important;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .highlight .p {
+  color: #86efac !important;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset code {
+  background: rgba(0, 255, 102, 0.12) !important;
+  color: #00ff66 !important;
+  border: 1px solid rgba(0, 255, 102, 0.3) !important;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset .cc-chip {
+  background: rgba(4, 20, 10, 0.85);
+  border: 1px solid rgba(0, 255, 102, 0.35);
+  color: #00ff66;
+  box-shadow: 0 0 6px rgba(0, 255, 102, 0.15);
+  transition: all 0.2s ease;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset a.cc-chip:hover {
+  border-color: #00ff88;
+  color: #00ff88;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.45);
+  transform: translateY(-1px);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset .cc-kicker {
+  color: #00ff66;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset .grid.cards > ul > li,
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset .grid > .card {
+  background: rgba(4, 18, 8, 0.85);
+  border: 1px solid rgba(0, 255, 102, 0.22);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset .grid.cards > ul > li:hover {
+  border-color: #00ff66;
+  box-shadow: 0 0 24px rgba(0, 255, 102, 0.25), 0 8px 30px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset .grid.cards .lg {
+  color: #00ff66;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .md-typeset .cc-phase.cc-active {
+  border-left-color: #00ff66;
+  box-shadow: -2px 0 10px rgba(0, 255, 102, 0.4);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-theme-menu {
+  background: #041408;
+  border-color: rgba(0, 255, 102, 0.35);
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-theme-switcher-btn {
+  border-color: rgba(0, 255, 102, 0.4);
+  background: rgba(0, 255, 102, 0.1);
+  color: #00ff66;
 }
 

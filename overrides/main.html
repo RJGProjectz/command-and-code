@@ -6,8 +6,9 @@
     (function () {
       try {
         var t = localStorage.getItem('cc-theme') || 'classic';
-        if (t === 'nexus-flow') t = 'nexus-cyber';
-        if (t === 'electric-xtra') t = 'electric-cyber';
+        if (t === 'nexus-flow' || t === 'nexus-cyber') t = 'nexus';
+        if (t === 'electric-xtra' || t === 'electric-cyber') t = 'high-voltage';
+        if (t === 'matrix-green') t = 'matrix';
         document.documentElement.setAttribute('data-cc-theme', t);
       } catch (e) {}
     })();

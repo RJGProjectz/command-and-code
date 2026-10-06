@@ -18,18 +18,25 @@
       colors: ['#0f1318', '#c98a1a', '#5b7a99']
     },
     {
-      id: 'nexus-cyber',
-      name: 'Nexus Cyber',
+      id: 'nexus',
+      name: 'Nexus',
       subtitle: 'Neon Synthwave',
       icon: '🔮',
       colors: ['#0f051a', '#00f3ff', '#ff007f']
     },
     {
-      id: 'electric-cyber',
-      name: 'Electric Cyber',
-      subtitle: 'High-Voltage Grid',
+      id: 'high-voltage',
+      name: 'High Voltage',
+      subtitle: 'Electric Grid',
       icon: '⚡',
       colors: ['#07090e', '#ff5e00', '#00b2ff']
+    },
+    {
+      id: 'matrix',
+      name: 'Matrix',
+      subtitle: 'Digital Phosphor',
+      icon: '🟢',
+      colors: ['#030a05', '#00ff66', '#003b14']
     }
   ];
 
@@ -38,9 +45,10 @@
   function getStoredTheme() {
     try {
       var saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === 'nexus-flow') return 'nexus-cyber';
-      if (saved === 'electric-xtra') return 'electric-cyber';
-      if (saved && (saved === 'classic' || saved === 'nexus-cyber' || saved === 'electric-cyber')) {
+      if (saved === 'nexus-flow' || saved === 'nexus-cyber') return 'nexus';
+      if (saved === 'electric-xtra' || saved === 'electric-cyber') return 'high-voltage';
+      if (saved === 'matrix-green') return 'matrix';
+      if (saved && (saved === 'classic' || saved === 'nexus' || saved === 'high-voltage' || saved === 'matrix')) {
         return saved;
       }
     } catch (e) {
