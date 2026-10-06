@@ -35,6 +35,7 @@ Each tool page explains purpose, the problem it solves, inputs, outputs, depende
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Bash Toolbox](bash.md) | Tool | Linux | Bash | Automation, Incident Response, Forensics, Investigation |
+| [Command & Code CLI Lookup Utility](lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
 | [PowerShell Toolbox](powershell.md) | Tool | Windows, Windows Server | PowerShell | Automation, Incident Response, Forensics, Investigation |
 | [Python Toolbox](python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
 

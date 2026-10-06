@@ -183,6 +183,7 @@ nav:
           - apis/authentication/bearer-tokens.md
       - Webhooks:
           - apis/webhooks/slack-teams-webhooks.md
+          - Jira & ServiceNow: apis/webhooks/jira-servicenow-incident-creation.md
   - Fundamentals:
       - fundamentals/index.md
       - Networking & Protocols:
@@ -263,6 +264,7 @@ nav:
           - SMB Lateral Movement: tasks/incident-response/smb-lateral-movement.md
           - Phishing Email Triage: tasks/incident-response/phishing-email-triage.md
           - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
+          - Automated Containment: tasks/incident-response/automated-containment.md
       - Investigation:
           - tasks/investigation/index.md
           - Suspicious Service: tasks/investigation/suspicious-service.md
@@ -282,6 +284,9 @@ nav:
           - tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
           - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
+          - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
+          - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
+          - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
       - Administration:
           - tasks/administration/index.md
           - User Lifecycle Management: tasks/administration/user-lifecycle-management.md
@@ -311,6 +316,7 @@ nav:
       - PowerShell Tools: toolbox/powershell.md
       - Bash Tools: toolbox/bash.md
       - Python Tools: toolbox/python.md
+      - CLI Lookup Utility: toolbox/lookup.md
   - References:
       - references/index.md
       - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
