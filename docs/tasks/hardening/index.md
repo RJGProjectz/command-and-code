@@ -13,6 +13,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Certificate and PKI Management](../administration/certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
 | [User Lifecycle Management](../administration/user-lifecycle-management.md) | Workflow | Windows, Windows Server, Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
 | [Assurance Check — Active Directory STIG Compliance](../assurance/ad-stig-compliance.md) | Entry | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
+| [Assurance Check — Azure External Guest Access & Permissions](../assurance/azure-guest-access-audit.md) | Entry | Entra ID, Azure, Microsoft 365 | PowerShell | Assurance, Hardening, Administration |
 | [Assurance Check — Azure Network Security Group Compliance](../assurance/azure-nsg-compliance.md) | Entry | Azure | PowerShell | Assurance, Hardening |
 | [Assurance Check — Host Firewall Default Deny Stance](../assurance/firewall-default-deny.md) | Entry | Windows, Linux | PowerShell, Bash | Assurance, Hardening |
 | [Assurance Check — Linux Sudoers File Integrity](../assurance/linux-sudoers-integrity.md) | Entry | Linux | Bash | Assurance, Hardening |

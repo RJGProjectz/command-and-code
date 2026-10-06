@@ -237,6 +237,10 @@ nav:
           - AMSI Bypass: detection/spl/amsi-bypass.md
           - DNS Tunneling: detection/spl/dns-tunneling.md
           - Azure RBAC Modification: detection/spl/azure-rbac-modification.md
+          - Brute Force: detection/spl/brute-force.md
+          - SMB Lateral Movement: detection/spl/lateral-movement-smb.md
+          - Agent Tampering: detection/spl/agent-tampering.md
+          - MFA Method Deletion: detection/spl/mfa-deletion.md
       - S1QL:
           - detection/s1ql/index.md
           - Fundamentals: detection/s1ql/fundamentals.md
@@ -267,9 +271,13 @@ nav:
           - Failed Authentication: tasks/investigation/failed-authentication.md
           - Network Investigation: tasks/investigation/network-investigation.md
           - Suspicious Outbound Connection: tasks/investigation/suspicious-outbound-connection.md
+          - Suspicious IP Analysis (Splunk): tasks/investigation/investigate-ip-splunk.md
+          - Compromised Host Forensics (Splunk): tasks/investigation/investigate-device-splunk.md
+          - User Identity Triage (Splunk): tasks/investigation/investigate-user-splunk.md
       - Threat Hunting:
           - tasks/threat-hunting/index.md
           - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
+          - Hypothesis-Driven Hunting (Splunk): tasks/threat-hunting/splunk-threat-hunting.md
       - Troubleshooting:
           - tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
@@ -297,6 +305,7 @@ nav:
           - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md
           - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
           - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
+          - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
   - Toolbox:
       - toolbox/index.md
       - PowerShell Tools: toolbox/powershell.md

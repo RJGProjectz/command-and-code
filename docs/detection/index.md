@@ -49,6 +49,7 @@ More side-by-side comparisons: [Cross-platform equivalents](../references/equiva
 <!-- cc:index tasks="Detection Engineering" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Threat Hunting — Hypothesis-Driven SIEM Hunting in Splunk](../tasks/threat-hunting/splunk-threat-hunting.md) | Workflow | Splunk, Windows, Linux | SPL | Threat Hunting, Detection Engineering |
 | [Fundamentals — Sysmon Telemetry & Endpoint Monitoring](../fundamentals/systems/sysmon.md) | Entry | Windows, Linux | PowerShell, Bash | Threat Hunting, Detection Engineering |
 | [KQL File, Registry and Persistence Hunting](kql/file-registry-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Detection Engineering, Investigation |
 | [KQL Fundamentals](kql/fundamentals.md) | Entry | Microsoft Defender, Microsoft 365 | KQL | Threat Hunting, Detection Engineering, Investigation |
@@ -63,8 +64,12 @@ More side-by-side comparisons: [Cross-platform equivalents](../references/equiva
 | [SPL PowerShell Hunting](spl/powershell.md) | Entry | Splunk, Windows | SPL | Threat Hunting, Detection Engineering, Incident Response |
 | [SPL Windows Security Events](spl/windows-events.md) | Entry | Splunk, Windows | SPL | Threat Hunting, Detection Engineering, Investigation, Incident Response |
 | [Splunk Detection — AMSI Bypass Attempts](spl/amsi-bypass.md) | Entry | Windows, Splunk | SPL, PowerShell | Detection Engineering, Threat Hunting |
+| [Splunk Detection — Brute Force Success Correlation](spl/brute-force.md) | Entry | Windows, Windows Server, Splunk | SPL | Detection Engineering, Threat Hunting |
+| [Splunk Detection — Security Agent Tampering & EDR Impairment](spl/agent-tampering.md) | Entry | Windows, Linux, SentinelOne, Splunk | SPL | Detection Engineering, Incident Response |
 | [Splunk Detection — Suspicious Azure RBAC Modification](spl/azure-rbac-modification.md) | Entry | Azure, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Splunk Detection — Suspicious DNS Tunneling Signatures](spl/dns-tunneling.md) | Entry | Splunk | SPL | Detection Engineering, Threat Hunting |
+| [Splunk Detection — Suspicious MFA Authentication Method Deletion](spl/mfa-deletion.md) | Entry | Entra ID, Microsoft 365, Splunk | SPL | Detection Engineering, Threat Hunting |
+| [Splunk Detection — Suspicious SMB Administrative Share Access](spl/lateral-movement-smb.md) | Entry | Windows, Windows Server, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [MITRE ATT&CK Mapping](mitre-attack/index.md) | Reference | Windows, Linux, Microsoft 365 | MITRE ATT&CK | Detection Engineering, Threat Hunting, Incident Response |
 | [Windows Event ID Reference](../references/windows-event-ids.md) | Reference | Windows, Windows Server | PowerShell, SPL, KQL | Investigation, Incident Response, Detection Engineering, Forensics |
 

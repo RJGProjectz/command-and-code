@@ -17,6 +17,7 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Assurance Check — Active Directory STIG Compliance](ad-stig-compliance.md) | Entry | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
+| [Assurance Check — Azure External Guest Access & Permissions](azure-guest-access-audit.md) | Entry | Entra ID, Azure, Microsoft 365 | PowerShell | Assurance, Hardening, Administration |
 | [Assurance Check — Azure Network Security Group Compliance](azure-nsg-compliance.md) | Entry | Azure | PowerShell | Assurance, Hardening |
 | [Assurance Check — Endpoint EDR Agent Health Status](endpoint-edr-status.md) | Entry | Windows, Linux | PowerShell | Assurance, Incident Response |
 | [Assurance Check — Host Firewall Default Deny Stance](firewall-default-deny.md) | Entry | Windows, Linux | PowerShell, Bash | Assurance, Hardening |
