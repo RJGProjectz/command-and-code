@@ -2,8 +2,8 @@ site_name: Command & Code
 site_description: The practical security operations field manual.
 site_author: Command & Code
 # Set these to your GitHub repository before deploying.
-site_url: https://YOUR-GITHUB-USER.github.io/command-and-code/
-repo_url: https://github.com/YOUR-GITHUB-USER/command-and-code
+site_url: https://rjgprojectz.github.io/command-and-code/
+repo_url: https://github.com/RJGProjectz/command-and-code
 repo_name: command-and-code
 edit_uri: edit/main/docs/
 copyright: Command & Code — The practical security operations field manual.

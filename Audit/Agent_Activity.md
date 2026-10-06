@@ -1,10 +1,11 @@
 # Agent Activity Log
 > **Created**: 2026-10-06T02:44:00Z
-> **Last Modified**: 2026-10-06T02:48:00Z
+> **Last Modified**: 2026-10-06T13:54:04Z
 > **Author**: RJGProjectz
 
 | Date | Time | Category | Activity Description | Compliance / NIST REF |
 | --- | --- | --- | --- | --- |
+| 2026-10-06 | 13:54:04Z | Deployment | Configure MkDocs site_url and repo_url for GitHub Pages deployment | [ALIGNED: NIST CSF 2.0 / PR.PS-06] |
 | 2026-10-06 | 02:48:00Z | Standards | Align templates (knowledge-entry, query, workflow) and add safety warning, PSSA settings, and AGENTS.md | [ALIGNED: NIST CSF 2.0 / PR.PS-06] |
 | 2026-10-06 | 02:44:00Z | Governance | Establish Golden Standards compliance, standards bridge, and audit ledgers | [ALIGNED: NIST CSF 2.0 / GV.OC-01] |
 | 2026-10-06 | 02:39:00Z | Configuration | Enforce VS Code multi-repo isolation and private GitHub publishing defaults | [ALIGNED: NIST CSF 2.0 / PR.AC-01] |
