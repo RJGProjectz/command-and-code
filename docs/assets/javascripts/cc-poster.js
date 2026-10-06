@@ -1,414 +1,326 @@
 /**
- * Command & Code — Interactive Command & Syntax Poster Wall Engine
- * Transforms static cheat sheets into rich, interactive command poster decks
- * with live filtering, instant one-click copy, and real-time parameter injection.
+ * Command & Code — Cheat Sheet Speed Dial & Tailor HUD Engine
+ * Enhances standard markdown cheat sheets with a high-yield Heads-Up Display (HUD):
+ *   - Topic Speed Dial: Quick jump pills to all sections with glowing target pulses
+ *   - Live Parameter Tailor: In-place dynamic injection for <USER>, <HOST>, <SERVICE>, etc.
+ *   - Fast In-Page Filter: Real-time search highlighting across commands and tables
+ *   - Widescreen Terminal Mode: Expandable reading canvas for long admin one-liners
+ *
+ * Fully preserves MkDocs default webpage layout, TOC, navigation, and deep linking.
  */
 (function () {
   'use strict';
 
   function isCheatSheetPage() {
-    var p = window.location.pathname.toLowerCase();
-    return p.indexOf('cheat-sheet') !== -1 || document.querySelector('.cc-interactive-poster');
+    var path = window.location.pathname.toLowerCase();
+    return path.indexOf('cheat-sheet') !== -1 ||
+           path.indexOf('/references/') !== -1 ||
+           document.querySelector('.cc-interactive-poster');
   }
 
-  function initPoster() {
+  function initHud() {
     if (!isCheatSheetPage()) return;
 
     var content = document.querySelector('.md-content__inner');
     if (!content) return;
 
     // Avoid double initialization
-    if (content.querySelector('.cc-poster-deck')) return;
+    if (content.querySelector('.cc-speed-dial-hud')) return;
 
-    // Parse commands and sections from the markdown DOM
-    var sections = [];
-    var currentSection = null;
-    var rawNodes = Array.from(content.children);
+    var h2Elements = Array.from(content.querySelectorAll('h2')).filter(function (h2) {
+      var txt = h2.textContent.toLowerCase();
+      return txt.indexOf('related') === -1 && txt.indexOf('sources') === -1;
+    });
 
-    var h2Elements = content.querySelectorAll('h2');
     if (h2Elements.length === 0) return;
 
-    // Extract categories, commands, and code blocks
-    rawNodes.forEach(function (node) {
-      if (node.tagName === 'H2') {
-        var title = node.textContent.replace(/^[0-9.]+\s*/, '').trim();
-        // Skip 'Related' or 'Sources' sections from poster grid
-        if (title.toLowerCase().indexOf('related') !== -1 || title.toLowerCase().indexOf('sources') !== -1) {
-          currentSection = null;
-          return;
-        }
-        currentSection = {
-          name: title,
-          tiles: []
-        };
-        sections.push(currentSection);
-      } else if (currentSection) {
-        if (node.tagName === 'PRE' || node.classList.contains('highlight')) {
-          var codeEl = node.querySelector('code');
-          if (codeEl) {
-            var rawText = codeEl.textContent;
-            var parsedTiles = parseCodeBlockIntoTiles(rawText, currentSection.name);
-            currentSection.tiles = currentSection.tiles.concat(parsedTiles);
-          }
-        } else if (node.tagName === 'TABLE') {
-          // Parse table comparison rows into poster tiles
-          var rows = node.querySelectorAll('tbody tr');
-          rows.forEach(function (tr) {
-            var cells = Array.from(tr.querySelectorAll('td'));
-            if (cells.length >= 2) {
-              var obj = cells[0].textContent.trim();
-              for (var i = 1; i < cells.length; i++) {
-                var codeTag = cells[i].querySelector('code');
-                var cmdText = codeTag ? codeTag.textContent : cells[i].textContent.trim();
-                if (cmdText) {
-                  currentSection.tiles.push({
-                    category: currentSection.name,
-                    title: obj,
-                    command: cmdText,
-                    badge: determineBadge(cmdText, obj),
-                    flags: extractFlags(cmdText)
-                  });
-                }
-              }
-            }
-          });
-        }
+    // Cache original HTML of all code blocks and table codes for live tailoring
+    var codeElements = Array.from(content.querySelectorAll('.highlight pre > code, table code'));
+    codeElements.forEach(function (el) {
+      if (!el.dataset.ccOriginalHtml) {
+        el.dataset.ccOriginalHtml = el.innerHTML;
       }
     });
 
-    var allTiles = [];
-    sections.forEach(function (sec) {
-      allTiles = allTiles.concat(sec.tiles);
+    // Detect placeholders on the page
+    var pageText = content.textContent;
+    var hasUser = /<USER>|<user_name>|<username>/i.test(pageText);
+    var hasService = /<service_name>|<SERVICE_NAME>/i.test(pageText);
+    var hasHost = /<TARGET_HOST>|<target_host>|<host>/i.test(pageText);
+    var hasPort = /<PORT>|<port>/i.test(pageText);
+
+    // Build the HUD container
+    var hud = document.createElement('div');
+    hud.className = 'cc-speed-dial-hud';
+
+    // Header strip with title, match counter, and controls
+    var topRow = document.createElement('div');
+    topRow.className = 'cc-hud-top-row';
+
+    var titleBox = document.createElement('div');
+    titleBox.className = 'cc-hud-title-box';
+    titleBox.innerHTML =
+      '<span class="cc-hud-badge">HUD</span>' +
+      '<span class="cc-hud-title">Command Speed Dial &amp; Live Tailor</span>';
+
+    var controlsBox = document.createElement('div');
+    controlsBox.className = 'cc-hud-controls';
+
+    // Search / Fast Filter Box
+    var searchWrap = document.createElement('div');
+    searchWrap.className = 'cc-hud-search-wrap';
+    searchWrap.innerHTML =
+      '<span class="cc-hud-search-icon">🔍</span>' +
+      '<input type="text" class="cc-hud-search-input" placeholder="Fast filter commands (e.g. systemctl, pkill, port)..." aria-label="Fast filter commands">' +
+      '<span class="cc-hud-match-count cc-hidden">0 matches</span>';
+
+    // Widescreen Toggle
+    var wideBtn = document.createElement('button');
+    wideBtn.className = 'cc-hud-btn cc-hud-wide-btn';
+    wideBtn.type = 'button';
+    wideBtn.title = 'Toggle widescreen reading mode for long terminal commands';
+    wideBtn.innerHTML = '<span class="cc-hud-btn-icon">⛶</span> Widescreen';
+
+    controlsBox.appendChild(searchWrap);
+    controlsBox.appendChild(wideBtn);
+
+    topRow.appendChild(titleBox);
+    topRow.appendChild(controlsBox);
+    hud.appendChild(topRow);
+
+    // 1. Topic Speed Dial Navigator (Pills)
+    var navRow = document.createElement('div');
+    navRow.className = 'cc-hud-nav-row';
+
+    var navLabel = document.createElement('span');
+    navLabel.className = 'cc-hud-nav-label';
+    navLabel.textContent = 'Topic Jump:';
+    navRow.appendChild(navLabel);
+
+    var pillsWrap = document.createElement('div');
+    pillsWrap.className = 'cc-hud-pills-wrap';
+
+    h2Elements.forEach(function (h2) {
+      var raw = h2.textContent.trim();
+      var clean = raw.replace(/^[0-9.]+\s*/, '').trim();
+      var icon = determineSectionIcon(raw);
+
+      var pill = document.createElement('a');
+      pill.className = 'cc-hud-pill';
+      pill.href = '#' + (h2.id || encodeURIComponent(clean.toLowerCase().replace(/\s+/g, '-')));
+      pill.innerHTML = '<span class="cc-hud-pill-icon">' + icon + '</span> ' + escapeHtml(clean);
+
+      pill.addEventListener('click', function (e) {
+        e.preventDefault();
+        h2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        highlightSection(h2);
+        try {
+          history.pushState(null, null, '#' + h2.id);
+        } catch (err) {}
+      });
+
+      pillsWrap.appendChild(pill);
     });
 
-    if (allTiles.length === 0) return;
+    navRow.appendChild(pillsWrap);
+    hud.appendChild(navRow);
 
-    // Create the Interactive Poster Container
-    var deckContainer = document.createElement('div');
-    deckContainer.className = 'cc-poster-deck';
+    // 2. Live Parameter Tailor Bar
+    var tailorRow = document.createElement('div');
+    tailorRow.className = 'cc-hud-tailor-row';
 
-    // Top Toolbar
-    var toolbar = document.createElement('div');
-    toolbar.className = 'cc-poster-toolbar';
+    var tailorLabel = document.createElement('span');
+    tailorLabel.className = 'cc-hud-tailor-label';
+    tailorLabel.innerHTML = '⚡ <strong>Live Parameter Tailor:</strong>';
+    tailorRow.appendChild(tailorLabel);
 
-    // View Mode Toggle (Poster Wall vs Document View)
-    var toggleWrap = document.createElement('div');
-    toggleWrap.className = 'cc-poster-view-toggle';
-    toggleWrap.innerHTML =
-      '<button class="cc-poster-toggle-btn cc-active" data-view="poster" title="Interactive Bento Poster View">▦ Poster Grid</button>' +
-      '<button class="cc-poster-toggle-btn" data-view="doc" title="Standard Markdown Manual View">📄 Linear Doc</button>';
+    var paramsWrap = document.createElement('div');
+    paramsWrap.className = 'cc-hud-params-wrap';
 
-    // Live Search Input
-    var searchBox = document.createElement('div');
-    searchBox.className = 'cc-poster-search-box';
-    searchBox.innerHTML =
-      '<span class="cc-poster-search-icon">🔍</span>' +
-      '<input type="text" class="cc-poster-search-input" placeholder="Live filter commands (e.g. systemctl, journalctl, pkill)..." aria-label="Filter commands">';
+    var defaultParams = [];
+    if (hasService || (!hasUser && !hasHost)) {
+      defaultParams.push({ id: 'SERVICE', label: 'Service', defaultVal: 'nginx', placeholder: 'nginx' });
+    }
+    if (hasUser || (!hasService && !hasHost)) {
+      defaultParams.push({ id: 'USER', label: 'User', defaultVal: 'admin', placeholder: 'admin' });
+    }
+    if (hasHost) {
+      defaultParams.push({ id: 'HOST', label: 'Host', defaultVal: 'srv-app-01', placeholder: 'srv-app-01' });
+    }
+    if (hasPort) {
+      defaultParams.push({ id: 'PORT', label: 'Port', defaultVal: '8080', placeholder: '8080' });
+    }
 
-    toolbar.appendChild(toggleWrap);
-    toolbar.appendChild(searchBox);
-    deckContainer.appendChild(toolbar);
-
-    // Filter Chips
-    var filterBar = document.createElement('div');
-    filterBar.className = 'cc-poster-filter-bar';
-
-    var allChip = document.createElement('button');
-    allChip.className = 'cc-poster-filter-chip cc-active';
-    allChip.setAttribute('data-category', 'all');
-    allChip.innerHTML = 'All Commands <span class="cc-poster-filter-count">' + allTiles.length + '</span>';
-    filterBar.appendChild(allChip);
-
-    sections.forEach(function (sec) {
-      if (sec.tiles.length === 0) return;
-      var chip = document.createElement('button');
-      chip.className = 'cc-poster-filter-chip';
-      chip.setAttribute('data-category', sec.name);
-      chip.innerHTML = sec.name + ' <span class="cc-poster-filter-count">' + sec.tiles.length + '</span>';
-      filterBar.appendChild(chip);
-    });
-    deckContainer.appendChild(filterBar);
-
-    // Live Parameter Customizer Strip
-    var paramStrip = document.createElement('div');
-    paramStrip.className = 'cc-poster-param-strip';
-    paramStrip.innerHTML =
-      '<div class="cc-poster-param-label">⚡ Live Parameter Injection:</div>' +
-      '<div class="cc-poster-param-fields">' +
-        '<div class="cc-poster-param-group"><label>User:</label><input type="text" class="cc-poster-param-input" data-param="USER" value="admin"></div>' +
-        '<div class="cc-poster-param-group"><label>Service:</label><input type="text" class="cc-poster-param-input" data-param="SERVICE" value="nginx"></div>' +
-        '<div class="cc-poster-param-group"><label>Host:</label><input type="text" class="cc-poster-param-input" data-param="HOST" value="srv-app-01"></div>' +
-      '</div>';
-    deckContainer.appendChild(paramStrip);
-
-    // Bento Poster Wall Grid
-    var wall = document.createElement('div');
-    wall.className = 'cc-poster-wall';
-
-    allTiles.forEach(function (tile, idx) {
-      var tileEl = document.createElement('div');
-      tileEl.className = 'cc-poster-tile';
-      tileEl.setAttribute('data-category', tile.category);
-      tileEl.setAttribute('data-index', idx);
-
-      var flagsHtml = '';
-      if (tile.flags && tile.flags.length > 0) {
-        flagsHtml = '<div class="cc-poster-explainer-bar">' +
-          tile.flags.map(function (f) {
-            return '<span class="cc-poster-pill"><strong>' + escapeHtml(f.flag) + '</strong> ' + escapeHtml(f.desc) + '</span>';
-          }).join('') +
-          '</div>';
-      }
-
-      tileEl.innerHTML =
-        '<div>' +
-          '<div class="cc-poster-tile-top">' +
-            '<span class="cc-poster-category-tag">' + escapeHtml(tile.category) + '</span>' +
-            '<span class="cc-poster-badge cc-badge-' + tile.badge.type + '">' + escapeHtml(tile.badge.label) + '</span>' +
-          '</div>' +
-          '<div class="cc-poster-tile-title">' + escapeHtml(tile.title) + '</div>' +
-          '<div class="cc-poster-code-wrap">' +
-            '<code class="cc-poster-code-text" data-original="' + escapeAttr(tile.command) + '">' + escapeHtml(tile.command) + '</code>' +
-            '<button class="cc-poster-copy-btn" title="Copy command to clipboard">' +
-              '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>' +
-            '</button>' +
-          '</div>' +
-        '</div>' +
-        flagsHtml;
-
-      wall.appendChild(tileEl);
+    defaultParams.forEach(function (p) {
+      var group = document.createElement('div');
+      group.className = 'cc-hud-param-group';
+      group.innerHTML =
+        '<label class="cc-hud-param-lbl">' + escapeHtml(p.label) + ':</label>' +
+        '<input type="text" class="cc-hud-param-input" data-param-id="' + p.id + '" value="' + escapeAttr(p.defaultVal) + '" placeholder="' + escapeAttr(p.placeholder) + '">';
+      paramsWrap.appendChild(group);
     });
 
-    deckContainer.appendChild(wall);
+    var resetBtn = document.createElement('button');
+    resetBtn.className = 'cc-hud-reset-btn';
+    resetBtn.type = 'button';
+    resetBtn.title = 'Reset to original template placeholders';
+    resetBtn.innerHTML = '↺ Reset';
+    paramsWrap.appendChild(resetBtn);
 
-    // Insert deck at top of content (after h1 and meta)
+    tailorRow.appendChild(paramsWrap);
+    hud.appendChild(tailorRow);
+
+    // Insert HUD right beneath page title / meta strip
     var h1 = content.querySelector('h1');
     var metaStrip = content.querySelector('.cc-meta') || content.querySelector('.cc-aliases');
     var insertTarget = metaStrip ? metaStrip.nextSibling : (h1 ? h1.nextSibling : content.firstChild);
-    content.insertBefore(deckContainer, insertTarget);
+    content.insertBefore(hud, insertTarget);
 
-    // Identify standard document blocks to toggle visibility
-    var docElements = [];
-    var sibling = deckContainer.nextSibling;
-    while (sibling) {
-      if (sibling.nodeType === 1) {
-        docElements.push(sibling);
+    // Check saved widescreen mode
+    try {
+      if (localStorage.getItem('cc-widescreen') === 'true') {
+        document.body.classList.add('cc-widescreen-mode');
+        wideBtn.classList.add('cc-active');
       }
-      sibling = sibling.nextSibling;
-    }
+    } catch (e) {}
 
-    // Default to Poster Grid View
-    function applyView(mode) {
-      if (mode === 'doc') {
-        wall.classList.add('cc-doc-hidden');
-        paramStrip.classList.add('cc-doc-hidden');
-        filterBar.classList.add('cc-doc-hidden');
-        docElements.forEach(function (el) { el.classList.remove('cc-doc-hidden'); });
-        toggleWrap.querySelector('[data-view="poster"]').classList.remove('cc-active');
-        toggleWrap.querySelector('[data-view="doc"]').classList.add('cc-active');
-      } else {
-        wall.classList.remove('cc-doc-hidden');
-        paramStrip.classList.remove('cc-doc-hidden');
-        filterBar.classList.remove('cc-doc-hidden');
-        docElements.forEach(function (el) { el.classList.add('cc-doc-hidden'); });
-        toggleWrap.querySelector('[data-view="poster"]').classList.add('cc-active');
-        toggleWrap.querySelector('[data-view="doc"]').classList.remove('cc-active');
-      }
-    }
-
-    applyView('poster');
-
-    // View toggle event listeners
-    toggleWrap.querySelectorAll('.cc-poster-toggle-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var view = this.getAttribute('data-view');
-        applyView(view);
-      });
-    });
-
-    // Category filter event listeners
-    filterBar.querySelectorAll('.cc-poster-filter-chip').forEach(function (chip) {
-      chip.addEventListener('click', function () {
-        filterBar.querySelectorAll('.cc-poster-filter-chip').forEach(function (c) { c.classList.remove('cc-active'); });
-        this.classList.add('cc-active');
-        filterTiles();
-      });
-    });
-
-    // Search input listener
-    var searchInput = searchBox.querySelector('.cc-poster-search-input');
-    searchInput.addEventListener('input', function () {
-      filterTiles();
-    });
-
-    function filterTiles() {
-      var activeCat = filterBar.querySelector('.cc-poster-filter-chip.cc-active').getAttribute('data-category');
-      var q = searchInput.value.toLowerCase().trim();
-
-      wall.querySelectorAll('.cc-poster-tile').forEach(function (tile) {
-        var cat = tile.getAttribute('data-category');
-        var text = tile.textContent.toLowerCase();
-
-        var matchesCat = (activeCat === 'all' || cat === activeCat);
-        var matchesQuery = (q === '' || text.indexOf(q) !== -1);
-
-        if (matchesCat && matchesQuery) {
-          tile.classList.remove('cc-tile-hidden');
-        } else {
-          tile.classList.add('cc-tile-hidden');
-        }
-      });
-    }
-
-    // Parameter live injection listener
-    var paramInputs = paramStrip.querySelectorAll('.cc-poster-param-input');
-    function updateParameters() {
-      var userVal = paramStrip.querySelector('[data-param="USER"]').value || 'admin';
-      var servVal = paramStrip.querySelector('[data-param="SERVICE"]').value || 'nginx';
-      var hostVal = paramStrip.querySelector('[data-param="HOST"]').value || 'srv-app-01';
-
-      wall.querySelectorAll('.cc-poster-code-text').forEach(function (code) {
-        var orig = code.getAttribute('data-original');
-        var replaced = orig
-          .replace(/<USER>/g, userVal)
-          .replace(/<service_name>/g, servVal)
-          .replace(/<TARGET_HOST>/g, hostVal)
-          .replace(/<ADMIN_USER>/g, userVal);
-        code.textContent = replaced;
-      });
-    }
-
-    paramInputs.forEach(function (inp) {
-      inp.addEventListener('input', updateParameters);
-    });
-    updateParameters();
-
-    // Quick Copy button handlers
-    wall.querySelectorAll('.cc-poster-copy-btn').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var codeEl = this.parentElement.querySelector('.cc-poster-code-text');
-        var textToCopy = codeEl ? codeEl.textContent : '';
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(textToCopy).then(function () {
-            showCopiedState(btn);
-          }).catch(function () {
-            fallbackCopy(textToCopy, btn);
-          });
-        } else {
-          fallbackCopy(textToCopy, btn);
-        }
-      });
-    });
-
-    function showCopiedState(btn) {
-      btn.classList.add('cc-copied');
-      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-      setTimeout(function () {
-        btn.classList.remove('cc-copied');
-        btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>';
-      }, 1800);
-    }
-
-    function fallbackCopy(text, btn) {
-      var textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
+    // Event: Widescreen Toggle
+    wideBtn.addEventListener('click', function () {
+      var isWide = document.body.classList.toggle('cc-widescreen-mode');
+      wideBtn.classList.toggle('cc-active', isWide);
       try {
-        document.execCommand('copy');
-        showCopiedState(btn);
+        localStorage.setItem('cc-widescreen', isWide ? 'true' : 'false');
       } catch (e) {}
-      document.body.removeChild(textarea);
-    }
-  }
+    });
 
-  function parseCodeBlockIntoTiles(rawText, category) {
-    var tiles = [];
-    var lines = rawText.split(/\r?\n/);
-    var currentComment = '';
-    var currentCommandLines = [];
+    // Event: Live Search / Filter
+    var searchInput = searchWrap.querySelector('.cc-hud-search-input');
+    var countBadge = searchWrap.querySelector('.cc-hud-match-count');
+    var matchesList = [];
+    var currentMatchIdx = -1;
 
-    lines.forEach(function (line) {
-      var trimmed = line.trim();
-      if (!trimmed) {
-        if (currentCommandLines.length > 0) {
-          tiles.push(createTileObj(category, currentComment, currentCommandLines.join('\n')));
-          currentComment = '';
-          currentCommandLines = [];
-        }
+    searchInput.addEventListener('input', function () {
+      var q = searchInput.value.toLowerCase().trim();
+      matchesList = [];
+      currentMatchIdx = -1;
+
+      var allBlocks = Array.from(content.querySelectorAll('.highlight, table tbody tr'));
+
+      if (!q) {
+        allBlocks.forEach(function (el) {
+          el.classList.remove('cc-hud-match', 'cc-hud-dimmed', 'cc-hud-active-match');
+        });
+        countBadge.classList.add('cc-hidden');
         return;
       }
 
-      if (trimmed.startsWith('#')) {
-        if (currentCommandLines.length > 0) {
-          tiles.push(createTileObj(category, currentComment, currentCommandLines.join('\n')));
-          currentComment = '';
-          currentCommandLines = [];
+      allBlocks.forEach(function (el) {
+        var text = el.textContent.toLowerCase();
+        if (text.indexOf(q) !== -1) {
+          el.classList.add('cc-hud-match');
+          el.classList.remove('cc-hud-dimmed');
+          matchesList.push(el);
+        } else {
+          el.classList.remove('cc-hud-match', 'cc-hud-active-match');
+          el.classList.add('cc-hud-dimmed');
         }
-        currentComment = (currentComment ? currentComment + ' ' : '') + trimmed.replace(/^#\s*/, '').replace(/^[0-9.]+\s*/, '');
-      } else {
-        currentCommandLines.push(line);
+      });
+
+      countBadge.textContent = matchesList.length + (matchesList.length === 1 ? ' match' : ' matches');
+      countBadge.classList.remove('cc-hidden');
+    });
+
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' && matchesList.length > 0) {
+        e.preventDefault();
+        currentMatchIdx = (currentMatchIdx + 1) % matchesList.length;
+        matchesList.forEach(function (el, idx) {
+          el.classList.toggle('cc-hud-active-match', idx === currentMatchIdx);
+        });
+        matchesList[currentMatchIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (e.key === 'Escape') {
+        searchInput.value = '';
+        searchInput.dispatchEvent(new Event('input'));
+        searchInput.blur();
       }
     });
 
-    if (currentCommandLines.length > 0) {
-      tiles.push(createTileObj(category, currentComment, currentCommandLines.join('\n')));
+    // Event: Parameter Tailoring
+    function applyTailor() {
+      var inputs = Array.from(paramsWrap.querySelectorAll('.cc-hud-param-input'));
+      var values = {};
+      inputs.forEach(function (inp) {
+        values[inp.dataset.paramId] = inp.value.trim();
+      });
+
+      codeElements.forEach(function (el) {
+        var baseHtml = el.dataset.ccOriginalHtml;
+        if (!baseHtml) return;
+
+        var modified = baseHtml;
+
+        if (values.SERVICE) {
+          var sVal = '<span class="cc-param-tailored">' + escapeHtml(values.SERVICE) + '</span>';
+          modified = modified.replace(/&lt;service_name&gt;|<service_name>|&lt;SERVICE_NAME&gt;|<SERVICE_NAME>/g, sVal);
+        }
+        if (values.USER) {
+          var uVal = '<span class="cc-param-tailored">' + escapeHtml(values.USER) + '</span>';
+          modified = modified.replace(/&lt;USER&gt;|<USER>|&lt;user_name&gt;|<user_name>|&lt;username&gt;|<username>/g, uVal);
+        }
+        if (values.HOST) {
+          var hVal = '<span class="cc-param-tailored">' + escapeHtml(values.HOST) + '</span>';
+          modified = modified.replace(/&lt;TARGET_HOST&gt;|<TARGET_HOST>|&lt;target_host&gt;|<target_host>/g, hVal);
+        }
+        if (values.PORT) {
+          var pVal = '<span class="cc-param-tailored">' + escapeHtml(values.PORT) + '</span>';
+          modified = modified.replace(/&lt;PORT&gt;|<PORT>/g, pVal);
+        }
+
+        el.innerHTML = modified;
+      });
     }
 
-    return tiles;
-  }
-
-  function createTileObj(category, comment, cmd) {
-    var title = comment || cmd.split('\n')[0].substring(0, 48) + '...';
-    return {
-      category: category,
-      title: title,
-      command: cmd,
-      badge: determineBadge(cmd, title),
-      flags: extractFlags(cmd)
-    };
-  }
-
-  function determineBadge(cmd, title) {
-    var lower = (cmd + ' ' + title).toLowerCase();
-    if (lower.indexOf('reboot') !== -1 || lower.indexOf('shutdown') !== -1 || lower.indexOf('kill -9') !== -1 || lower.indexOf('force') !== -1 || lower.indexOf('stop-computer') !== -1) {
-      return { type: 'emergency', label: 'Emergency / Action' };
-    }
-    if (lower.indexOf('sudo') !== -1 || lower.indexOf('visudo') !== -1 || lower.indexOf('chage') !== -1 || lower.indexOf('usermod') !== -1 || lower.indexOf('runas') !== -1 || lower.indexOf('unlock-') !== -1 || lower.indexOf('disable-') !== -1) {
-      return { type: 'elevated', label: 'Elevated / Sudo' };
-    }
-    if (lower.indexOf('get-') !== -1 || lower.indexOf('status') !== -1 || lower.indexOf('journalctl') !== -1 || lower.indexOf('grep') !== -1 || lower.indexOf('ss ') !== -1 || lower.indexOf('top') !== -1 || lower.indexOf('ps ') !== -1 || lower.indexOf('vmstat') !== -1 || lower.indexOf('iostat') !== -1) {
-      return { type: 'diagnostic', label: 'Diagnostic' };
-    }
-    return { type: 'safe', label: 'Safe / Read' };
-  }
-
-  function extractFlags(cmd) {
-    var flags = [];
-    var common = [
-      { f: '-u', d: 'Unit / Service filter' },
-      { f: '-f', d: 'Follow tail live' },
-      { f: '-b', d: 'Current boot only' },
-      { f: '-p err', d: 'Error priority filter' },
-      { f: '-Identity', d: 'Target identity' },
-      { f: '-Filter', d: 'AD query expression' },
-      { f: '-ComputerName', d: 'Remote host list' },
-      { f: '-Force', d: 'Bypass confirmation' },
-      { f: '--failed', d: 'Show only failed units' },
-      { f: '-tulpn', d: 'TCP/UDP listening numeric' },
-      { f: '-r', d: 'Reboot after shutdown' }
-    ];
-
-    common.forEach(function (item) {
-      if (cmd.indexOf(item.f) !== -1) {
-        flags.push({ flag: item.f, desc: item.d });
-      }
+    paramsWrap.querySelectorAll('.cc-hud-param-input').forEach(function (inp) {
+      inp.addEventListener('input', applyTailor);
     });
 
-    return flags.slice(0, 3);
+    resetBtn.addEventListener('click', function () {
+      paramsWrap.querySelectorAll('.cc-hud-param-input').forEach(function (inp) {
+        inp.value = '';
+      });
+      codeElements.forEach(function (el) {
+        if (el.dataset.ccOriginalHtml) {
+          el.innerHTML = el.dataset.ccOriginalHtml;
+        }
+      });
+    });
+
+    // Run initial tailoring with defaults
+    applyTailor();
+  }
+
+  function highlightSection(heading) {
+    heading.classList.remove('cc-heading-focus');
+    // Trigger reflow for animation restart
+    void heading.offsetWidth;
+    heading.classList.add('cc-heading-focus');
+    setTimeout(function () {
+      heading.classList.remove('cc-heading-focus');
+    }, 2000);
+  }
+
+  function determineSectionIcon(title) {
+    var lower = title.toLowerCase();
+    if (lower.indexOf('service') !== -1 || lower.indexOf('daemon') !== -1 || lower.indexOf('systemd') !== -1) return '⚡';
+    if (lower.indexOf('log') !== -1 || lower.indexOf('journal') !== -1 || lower.indexOf('event') !== -1) return '📜';
+    if (lower.indexOf('perf') !== -1 || lower.indexOf('cpu') !== -1 || lower.indexOf('memory') !== -1) return '📊';
+    if (lower.indexOf('net') !== -1 || lower.indexOf('port') !== -1 || lower.indexOf('socket') !== -1) return '🌐';
+    if (lower.indexOf('disk') !== -1 || lower.indexOf('storage') !== -1 || lower.indexOf('filesystem') !== -1) return '💾';
+    if (lower.indexOf('user') !== -1 || lower.indexOf('active directory') !== -1 || lower.indexOf('identity') !== -1) return '👤';
+    if (lower.indexOf('firewall') !== -1 || lower.indexOf('security') !== -1 || lower.indexOf('lock') !== -1) return '🛡️';
+    if (lower.indexOf('emergency') !== -1 || lower.indexOf('triage') !== -1 || lower.indexOf('incident') !== -1) return '🚨';
+    if (lower.indexOf('process') !== -1 || lower.indexOf('kill') !== -1) return '⚙️';
+    return '📌';
   }
 
   function escapeHtml(str) {
@@ -426,13 +338,13 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initPoster);
+    document.addEventListener('DOMContentLoaded', initHud);
   } else {
-    initPoster();
+    initHud();
   }
 
-  // Handle client-side navigation in MkDocs Material
+  // MkDocs Material SPA page navigation subscription
   if (typeof app !== 'undefined' && app.document$) {
-    app.document$.subscribe(initPoster);
+    app.document$.subscribe(initHud);
   }
 })();

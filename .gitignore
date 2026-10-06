@@ -11,3 +11,4 @@ triage-*/
 *.log
 scratch/
 WebsiteThemeSource/
+tmp*/
