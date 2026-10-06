@@ -1488,7 +1488,7 @@ Save as `.github/copilot-instructions.md`, `CLAUDE.md`, `AGENTS.md`, or the agen
 | String interpolation of properties | `"Id: $alert.id"` | `"Id: $($alert.id)"` |
 | Comparing with `$null` on the right | `if ($value -eq $null)` | `if ($null -eq $value)` |
 | `-match` against `IEX` catching words | `$c -match 'IEX'` | `$c -match '\b(Invoke-Expression\|iex)\b'` |
-| Hardcoded user paths | `"c:\Users\rgeorge\AntiG\..."` | `Join-Path -Path $PSScriptRoot -ChildPath '..'` |
+| Hardcoded user paths | `"c:\Users\<user>\AntiG\..."` | `Join-Path -Path $PSScriptRoot -ChildPath '..'` |
 | PSSA flags `Write-Log` as overriding a built-in (`PSAvoidOverwritingBuiltInCmdlets`) | Rename the helper or disable the rule globally | Keep the mandated name; add `[Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidOverwritingBuiltInCmdlets', '')]` to the function |
 | Non-ASCII characters (em dashes, arrows) in `.ps1` saved without BOM — mangled under Windows PowerShell 5.1 | `# Stage 1 — parse` | ASCII only in code, or save as UTF-8 with BOM |
 | Aliases | `gci \| ? { }` | `Get-ChildItem \| Where-Object { }` |
@@ -1531,7 +1531,7 @@ Save as `.github/copilot-instructions.md`, `CLAUDE.md`, `AGENTS.md`, or the agen
 | A9 | Bash strictness | `Script_Standard`: `set -euo pipefail`; `KB-Fund-043`: `set -e` where appropriate; template: none | `set -euo pipefail` (§5.2) |
 | A10 | Write-Host | `Script_Standard`: only in `Write-Log`; PSSA settings: rule disabled; CloudEvents module: direct `Write-Host` | Only in logging helpers (`Write-Log`, `Write-CloudEvent`) (§5.1) |
 | A11 | Output streams | Scripts: `Write-Output` allowed; DefenderTriage playbooks: never `Write-Output`, use `Write-Information` | Tools may return/`Write-Output` objects; playbooks return one object + `Write-Information` only (§5.1, §8) |
-| A12 | Agent paths | `SOP-Agentic-Standards`: absolute `c:\Users\Admin\AGP\...\Templates\Prod\...`; DefenderTriage: repo-local only | Repo-relative only (§3.7) |
+| A12 | Agent paths | `SOP-Agentic-Standards`: absolute `c:\Users\<user>\AGP\...\Templates\Prod\...`; DefenderTriage: repo-local only | Repo-relative only (§3.7) |
 | A13 | Missing change log | Root gate: FAIL; DefenderTriage gate: WARN | FAIL for standard repos; projects may downgrade via documented override (§0 precedence) |
 | A14 | Agent tool names | `SOP_LLM`: `task_boundary`, `notify_user` (Antigravity) | Tool-agnostic equivalents with mapping (§2.1) |
 | A15 | Template file names | Root: `Script-Template.ps1`, `Check-Standards.ps1`; DefenderTriage: `FUNC_PS_SCRIPT_TEMPLATE.ps1`, `FUNC_PS_CHECK_STANDARDS.ps1` | Either is valid inside `Templates/`; new projects SHOULD use the `FUNC_*` names for naming-standard consistency |
@@ -1590,9 +1590,9 @@ Save as `.github/copilot-instructions.md`, `CLAUDE.md`, `AGENTS.md`, or the agen
 | `Tests/Template.Tests.ps1` | Pester 4 syntax (`Should Exist`, `Should Not Throw` on a value rather than a scriptblock) — fails/false-passes on Pester 5 | §10.4 |
 | `Templates/PSScriptAnalyzerSettings.psd1` | Boolean values under `Rules` are not valid rule config; `PSAvoidUsingWriteHost = $false` does not disable the rule | `ExcludeRules` (§10.13) |
 | `Templates/CloudEventsValidator.psm1` | Assigns `$Event` (automatic variable) | `$cloudEvent` (§10.11) |
-| `Templates/Generate-KBGraph.ps1` | Uses `$1` / `$2` (not PowerShell syntax — keys/values come out empty) and assigns `$matches` (clobbers automatic `$Matches`); hardcoded `c:\Users\Admin\...` defaults | Use `[regex]::Match(...).Groups[n]`, rename variable, `$PSScriptRoot`-relative defaults |
+| `Templates/Generate-KBGraph.ps1` | Uses `$1` / `$2` (not PowerShell syntax — keys/values come out empty) and assigns `$matches` (clobbers automatic `$Matches`); hardcoded `c:\Users\<user>\...` defaults | Use `[regex]::Match(...).Groups[n]`, rename variable, `$PSScriptRoot`-relative defaults |
 | `Templates/Check-Standards.ps1` (root) | Analyzer settings path `Templates\Prod\...` doesn't exist; `RepoRoot` default `..\..` points above the repo; prints `[PASS]` even after later checks fail; `$Failed` counts failures, not scripts; Check 1 `continue` skips all other checks | Use the DefenderTriage variant's path logic; track a per-script failure flag |
-| `Templates/Update-DailyAudit.ps1`, `Templates/Refactor-Naming.ps1` | Hardcoded `c:\Users\rgeorge\AntiG\...` paths; `Refactor-Naming` has no header, `TargetEnvironment`, or `-WhatIf` | Repo-relative paths; bring to §10.1 |
+| `Templates/Update-DailyAudit.ps1`, `Templates/Refactor-Naming.ps1` | Hardcoded `c:\Users\<user>\AntiG\...` paths; `Refactor-Naming` has no header, `TargetEnvironment`, or `-WhatIf` | Repo-relative paths; bring to §10.1 |
 | `Templates/SOP-Agentic-Standards.md` (root) | `file:///c:/.../Templates/Prod/...` links — folder doesn't exist | Relative links |
 | `DefenderTriage/docs/SECURE-SECRETS-HOWTO.md` §1 | Credential-construction one-liner is convoluted and yields the wrong username | `Get-Credential` pattern (§4.9) |
 | Several scripts/changelogs | Unapproved-verb function names (`Isolate-`, `Unisolate-`, `Handle-`, `Review-`, `Verify-`) | Rename functions per §11.1; file names unchanged |
