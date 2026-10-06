@@ -21,7 +21,10 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | [Assurance Check — Endpoint EDR Agent Health Status](endpoint-edr-status.md) | Entry | Windows, Linux | PowerShell | Assurance, Incident Response |
 | [Assurance Check — Host Firewall Default Deny Stance](firewall-default-deny.md) | Entry | Windows, Linux | PowerShell, Bash | Assurance, Hardening |
 | [Assurance Check — Linux Sudoers File Integrity](linux-sudoers-integrity.md) | Entry | Linux | Bash | Assurance, Hardening |
+| [Fundamentals — Azure Policy & Governance Baselines](../../fundamentals/cloud/azure-policy.md) | Entry | Azure | PowerShell | Assurance, Hardening |
 | [Fundamentals — OWASP Top 10 for Large Language Models](../../fundamentals/owasp-llm-top-10.md) | Entry | Linux | Python | Hardening, Assurance |
+| [Fundamentals — UEFI Boot Sequence & Secure Boot Mechanics](../../fundamentals/systems/uefi-secure-boot.md) | Entry | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
+| [Fundamentals — Zero Trust Network Microsegmentation](../../fundamentals/networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
 | [Microsoft Graph API — Conditional Access Policies](../../apis/microsoft-graph/conditional-access.md) | Entry | Entra ID, Microsoft 365 | PowerShell, REST API | Administration, Hardening, Assurance |
 
 <!-- /cc:index -->

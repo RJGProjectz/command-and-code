@@ -117,8 +117,13 @@ nav:
           - Processes: platforms/linux/processes.md
           - Services (systemd): platforms/linux/systemd.md
           - Networking & DNS: platforms/linux/networking.md
+          - Firewalls & nftables: platforms/linux/firewalls-nftables.md
+          - Storage & LVM: platforms/linux/storage-lvm.md
           - Users & Permissions: platforms/linux/users-permissions.md
+          - Security & MAC (SELinux/AppArmor): platforms/linux/selinux-apparmor.md
+          - Auditd & Kernel Auditing: platforms/linux/auditd.md
           - Logs: platforms/linux/logs.md
+          - Kernel Tuning (sysctl): platforms/linux/kernel-tuning.md
           - Cron & Timers: platforms/linux/cron.md
           - SSH: platforms/linux/ssh.md
           - Filesystem: platforms/linux/filesystem.md
@@ -147,7 +152,11 @@ nav:
           - Automation & Remoting: languages/powershell/automation.md
       - Bash:
           - languages/bash/index.md
+          - Defensive Scripting: languages/bash/defensive-scripting.md
+          - Error Handling & Traps: languages/bash/error-handling-traps.md
           - Text Processing: languages/bash/text-processing.md
+          - Networking & Sockets: languages/bash/networking-sockets.md
+          - Modern CLI Tools Ecosystem: languages/bash/cli-tools-ecosystem.md
           - Scripting & Automation: languages/bash/automation.md
       - Python:
           - languages/python/index.md
@@ -155,7 +164,7 @@ nav:
           - JSON & CSV: languages/python/json-csv.md
           - Subprocess & Filesystem: languages/python/subprocess-filesystem.md
           - Logging & Automation: languages/python/logging-automation.md
-      - Windows CLI: languages/windows-cli/index.md
+      - CMD: languages/windows-cli/index.md
   - APIs:
       - apis/index.md
       - Microsoft Defender:
@@ -176,14 +185,39 @@ nav:
           - apis/webhooks/slack-teams-webhooks.md
   - Fundamentals:
       - fundamentals/index.md
-      - Protocols & Networking:
+      - Networking & Protocols:
           - DNS Mechanics & Security: fundamentals/dns.md
-          - Kerberos Authentication: fundamentals/kerberos.md
+          - DHCP Mechanics & Allocation: fundamentals/networking/dhcp.md
+          - HTTP & HTTPS Protocols: fundamentals/networking/http-https.md
+          - TLS & SSL Cryptography: fundamentals/networking/tls-ssl.md
           - SMB Protocol & Shares: fundamentals/smb.md
+          - SMTP & Mail Routing: fundamentals/networking/smtp.md
+          - VPN Architectures: fundamentals/networking/vpn.md
+          - Microsegmentation: fundamentals/networking/microsegmentation.md
+      - Identity & Access:
+          - Kerberos Authentication: fundamentals/kerberos.md
+          - LDAP & Active Directory: fundamentals/identity/ldap.md
+          - OAuth 2.0 & OIDC: fundamentals/identity/oauth2.md
+          - Public Key Infrastructure (PKI): fundamentals/identity/pki.md
+          - SSH Key Mechanics: fundamentals/identity/ssh-keys.md
+      - Systems & OS Architecture:
+          - Windows Process Internals: fundamentals/systems/windows-processes.md
+          - Memory Internals & Paging: fundamentals/systems/memory-internals.md
+          - UEFI & Secure Boot: fundamentals/systems/uefi-secure-boot.md
+          - AppLocker & Application Control: fundamentals/systems/applocker.md
+          - Sysmon Architecture & Telemetry: fundamentals/systems/sysmon.md
+      - Cloud Infrastructure:
+          - Entra ID Fundamentals: fundamentals/cloud/entra-id-fundamentals.md
+          - Azure VNet Security: fundamentals/cloud/azure-vnet-security.md
+          - Azure Policy & Governance: fundamentals/cloud/azure-policy.md
       - AI & LLM Systems:
           - LLM Architecture & Inference: fundamentals/ai-llm-architecture.md
+          - Tokenization & Embeddings: fundamentals/ai-systems/tokenization-embeddings.md
+          - Vector Databases & Indexing: fundamentals/ai-systems/vector-databases.md
           - RAG Architecture: fundamentals/rag-architecture.md
+          - Prompt Engineering & Context Windows: fundamentals/ai-systems/prompt-engineering.md
           - Agentic AI & Tool Execution: fundamentals/agentic-ai.md
+          - Self-Hosted Models & Local Inference: fundamentals/ai-systems/self-hosted-models.md
           - OWASP Top 10 for LLMs: fundamentals/owasp-llm-top-10.md
   - Detection:
       - detection/index.md

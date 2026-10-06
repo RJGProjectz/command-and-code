@@ -29,6 +29,7 @@ languages:
   Bash: languages/bash/index.md
   Python: languages/python/index.md
   Windows CLI: languages/windows-cli/index.md
+  CMD: languages/windows-cli/index.md
   KQL: detection/kql/index.md
   SPL: detection/spl/index.md
   S1QL: detection/s1ql/index.md

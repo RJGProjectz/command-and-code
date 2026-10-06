@@ -50,18 +50,41 @@ Every node provides:
 | [Assurance Check — Azure Network Security Group Compliance](../tasks/assurance/azure-nsg-compliance.md) | Entry | Azure | PowerShell | Assurance, Hardening |
 | [Assurance Check — Host Firewall Default Deny Stance](../tasks/assurance/firewall-default-deny.md) | Entry | Windows, Linux | PowerShell, Bash | Assurance, Hardening |
 | [Assurance Check — Linux Sudoers File Integrity](../tasks/assurance/linux-sudoers-integrity.md) | Entry | Linux | Bash | Assurance, Hardening |
+| [Bash Pure Networking & /dev/tcp Socket Mechanics](../languages/bash/networking-sockets.md) | Entry | Linux | Bash | Troubleshooting, Investigation |
 | [Bash Scripting and Automation](../languages/bash/automation.md) | Entry | Linux | Bash | Automation, Administration, Incident Response |
 | [Bash Text Processing](../languages/bash/text-processing.md) | Entry | Linux | Bash | Investigation, Automation, Threat Hunting |
 | [Conditional Access](../platforms/microsoft-365/conditional-access.md) | Entry | Microsoft 365, Entra ID | PowerShell, KQL | Administration, Hardening, Investigation, Troubleshooting |
+| [Defensive Bash Scripting & Enterprise Boilerplate](../languages/bash/defensive-scripting.md) | Entry | Linux | Bash | Automation, Hardening |
 | [Entra ID](../platforms/microsoft-365/entra.md) | Entry | Microsoft 365, Entra ID | PowerShell | Incident Response, Investigation, Administration |
 | [Exchange Online](../platforms/microsoft-365/exchange.md) | Entry | Microsoft 365, Exchange Online | PowerShell | Incident Response, Investigation, Administration |
 | [Fundamentals — Agentic AI Architectures & Tool Execution](agentic-ai.md) | Entry | Linux | Python | Automation, Hardening |
+| [Fundamentals — AppLocker & Application Control Baselines](systems/applocker.md) | Entry | Windows, Windows Server | PowerShell | Hardening, Administration |
+| [Fundamentals — Azure Policy & Governance Baselines](cloud/azure-policy.md) | Entry | Azure | PowerShell | Assurance, Hardening |
+| [Fundamentals — Azure Virtual Network (VNet) Security](cloud/azure-vnet-security.md) | Entry | Azure | PowerShell | Hardening, Administration |
+| [Fundamentals — DHCP Protocol Mechanics & IP Allocation](networking/dhcp.md) | Entry | Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Fundamentals — DNS Protocol Mechanics & Security](dns.md) | Entry | Windows Server, Linux | PowerShell, Bash | Investigation, Hardening |
+| [Fundamentals — Enterprise Prompt Engineering & Guardrails](ai-systems/prompt-engineering.md) | Entry | Linux | Python | Hardening, Automation |
+| [Fundamentals — HTTP/HTTPS Protocol Mechanics & Headers](networking/http-https.md) | Entry | Linux, Windows Server | Bash, PowerShell | Investigation, Troubleshooting |
 | [Fundamentals — Kerberos Authentication Protocol](kerberos.md) | Entry | Windows, Active Directory | PowerShell | Investigation, Hardening |
+| [Fundamentals — LDAP Protocol, Directory Trees & LDAPS](identity/ldap.md) | Entry | Windows Server, Linux, Active Directory | PowerShell, Bash | Administration, Investigation |
 | [Fundamentals — LLM Architecture & Inference Engineering](ai-llm-architecture.md) | Entry | Linux | Python | Hardening, Automation |
+| [Fundamentals — Microsoft Entra ID Architecture & Hybrid Identity](cloud/entra-id-fundamentals.md) | Entry | Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
+| [Fundamentals — OAuth 2.0 Authorization & OIDC Mechanics](identity/oauth2.md) | Entry | Entra ID, Microsoft 365 | PowerShell | Automation, Investigation |
 | [Fundamentals — OWASP Top 10 for Large Language Models](owasp-llm-top-10.md) | Entry | Linux | Python | Hardening, Assurance |
+| [Fundamentals — Public Key Infrastructure (PKI), CAs & Revocation](identity/pki.md) | Entry | Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Fundamentals — Retrieval-Augmented Generation (RAG) Architecture](rag-architecture.md) | Entry | Linux | Python | Automation, Investigation |
+| [Fundamentals — Self-Hosted & Air-Gapped AI Model Runtimes](ai-systems/self-hosted-models.md) | Entry | Linux | Bash, Python | Hardening, Automation |
 | [Fundamentals — SMB Protocol & Network Share Security](smb.md) | Entry | Windows, Windows Server, Linux | PowerShell | Investigation, Hardening |
+| [Fundamentals — SMTP Protocol, Relays & Email Authentication](networking/smtp.md) | Entry | Linux, Microsoft 365 | PowerShell, Bash | Investigation, Hardening |
+| [Fundamentals — SSH Key Architecture & Cryptographic Baselines](identity/ssh-keys.md) | Entry | Linux | Bash | Hardening, Administration |
+| [Fundamentals — TLS Handshake & Cipher Suite Mechanics](networking/tls-ssl.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Investigation |
+| [Fundamentals — Tokenization & Vector Embeddings in AI](ai-systems/tokenization-embeddings.md) | Entry | Linux | Python | Automation, Investigation |
+| [Fundamentals — UEFI Boot Sequence & Secure Boot Mechanics](systems/uefi-secure-boot.md) | Entry | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
+| [Fundamentals — Vector Databases & Approximate Nearest Neighbors (ANN)](ai-systems/vector-databases.md) | Entry | Linux | Python | Automation, Investigation |
+| [Fundamentals — Virtual Memory, Paging, Stack & Heap](systems/memory-internals.md) | Entry | Windows, Linux | PowerShell, Bash | Forensics, Investigation |
+| [Fundamentals — VPN Protocols (IPsec vs SSL/TLS)](networking/vpn.md) | Entry | Windows, Linux | PowerShell, Bash | Troubleshooting, Hardening |
+| [Fundamentals — Windows Process Architecture, Tokens & Handles](systems/windows-processes.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Investigation, Forensics |
+| [Fundamentals — Zero Trust Network Microsegmentation](networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
 | [Hyper-V](../platforms/virtualization/hyper-v.md) | Entry | Hyper-V, Windows Server | PowerShell | Administration, Incident Response, Forensics |
 | [Intune](../platforms/microsoft-365/intune.md) | Entry | Microsoft 365, Intune, Windows | PowerShell, Windows CLI | Administration, Troubleshooting, Incident Response |
 | [KQL File, Registry and Persistence Hunting](../detection/kql/file-registry-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Detection Engineering, Investigation |
@@ -71,12 +94,16 @@ Every node provides:
 | [KQL Process Event Hunting](../detection/kql/process-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Detection Engineering, Investigation, Incident Response |
 | [Linux Cron and Scheduled Jobs](../platforms/linux/cron.md) | Entry | Linux | Bash | Incident Response, Investigation, Threat Hunting, Administration |
 | [Linux Filesystem](../platforms/linux/filesystem.md) | Entry | Linux | Bash | Incident Response, Investigation, Forensics, Troubleshooting |
+| [Linux Firewalls — nftables, iptables & UFW Defense](../platforms/linux/firewalls-nftables.md) | Entry | Linux | Bash | Hardening, Administration |
 | [Linux Installed Packages](../platforms/linux/packages.md) | Entry | Linux | Bash | Investigation, Administration, Forensics |
+| [Linux Kernel Tuning & sysctl Runtime Optimization](../platforms/linux/kernel-tuning.md) | Entry | Linux | Bash | Hardening, Troubleshooting |
 | [Linux Logs](../platforms/linux/logs.md) | Entry | Linux | Bash | Incident Response, Investigation, Troubleshooting, Forensics |
+| [Linux Mandatory Access Control — SELinux & AppArmor](../platforms/linux/selinux-apparmor.md) | Entry | Linux | Bash | Hardening, Troubleshooting |
 | [Linux Networking and DNS](../platforms/linux/networking.md) | Entry | Linux | Bash | Incident Response, Investigation, Troubleshooting, Administration |
 | [Linux Processes](../platforms/linux/processes.md) | Entry | Linux | Bash | Incident Response, Investigation, Troubleshooting, Forensics |
 | [Linux Services with systemd](../platforms/linux/systemd.md) | Entry | Linux | Bash | Administration, Troubleshooting, Incident Response, Investigation |
 | [Linux SSH](../platforms/linux/ssh.md) | Entry | Linux | Bash | Incident Response, Investigation, Hardening, Administration |
+| [Linux Storage, Partitioning & Logical Volume Management (LVM)](../platforms/linux/storage-lvm.md) | Entry | Linux | Bash | Administration, Troubleshooting |
 | [Linux System Information](../platforms/linux/system-information.md) | Entry | Linux | Bash | Incident Response, Administration, Troubleshooting |
 | [Linux Troubleshooting Commands](../platforms/linux/troubleshooting.md) | Entry | Linux | Bash | Troubleshooting, Administration |
 | [Linux Users and Permissions](../platforms/linux/users-permissions.md) | Entry | Linux | Bash | Incident Response, Investigation, Administration, Hardening |
@@ -85,6 +112,7 @@ Every node provides:
 | [Microsoft Graph API — Audit Sign-In Logs](../apis/microsoft-graph/sign-in-logs.md) | Entry | Entra ID, Microsoft 365 | PowerShell, REST API | Investigation, Threat Hunting, Incident Response |
 | [Microsoft Graph API — Conditional Access Policies](../apis/microsoft-graph/conditional-access.md) | Entry | Entra ID, Microsoft 365 | PowerShell, REST API | Administration, Hardening, Assurance |
 | [Microsoft Graph API — User Authentication Methods](../apis/microsoft-graph/user-auth-methods.md) | Entry | Entra ID, Microsoft 365 | PowerShell, REST API | Administration, Incident Response, Hardening |
+| [Modern Sysadmin CLI Toolkit — jq, yq, ripgrep & fzf](../languages/bash/cli-tools-ecosystem.md) | Entry | Linux | Bash | Administration, Investigation |
 | [OAuth 2.0 Bearer Token Authentication Flow](../apis/authentication/bearer-tokens.md) | Entry | Entra ID, Microsoft 365 | PowerShell, Bash, REST API | Automation, Administration |
 | [PowerShell Automation and Remoting](../languages/powershell/automation.md) | Entry | Windows, Windows Server | PowerShell | Automation, Incident Response, Administration |
 | [PowerShell Fundamentals and Pitfalls](../languages/powershell/fundamentals.md) | Entry | Windows, Windows Server | PowerShell | Automation, Administration |
