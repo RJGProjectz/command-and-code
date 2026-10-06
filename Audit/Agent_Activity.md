@@ -1,10 +1,11 @@
 # Agent Activity Log
 > **Created**: 2026-10-06T02:44:00Z
-> **Last Modified**: 2026-10-06T19:30:45Z
+> **Last Modified**: 2026-10-06T19:35:30Z
 > **Author**: RJGProjectz
 
 | Date | Time | Category | Activity Description | Compliance / NIST REF |
 | --- | --- | --- | --- | --- | --- |
+| 2026-10-06 | 19:35:30Z | UI/UX | Disable toc permalink in mkdocs.yml to eliminate pilcrow symbol, rename themes to Nexus Cyber and Electric Cyber with seamless legacy migration | [ALIGNED: NIST CSF 2.0 / PR.PS-06] |
 | 2026-10-06 | 19:30:45Z | UI/UX | Build full-page interactive command & syntax poster wall (cc-poster.js/css) with live parameter injection, suppress headerlink icons, theme all languages, and add radiant gradient background to Electric Xtra | [ALIGNED: NIST CSF 2.0 / PR.PS-06] |
 | 2026-10-06 | 19:20:15Z | CI/CD | Upgrade GitHub Actions workflows to Node 24 versions (checkout@v7, setup-python@v7, upload-pages-artifact@v5, deploy-pages@v5) and pin runner to ubuntu-24.04 | [ALIGNED: NIST CSF 2.0 / PR.PS-06] |
 | 2026-10-06 | 19:16:45Z | CI/CD | Quote unquoted placeholder values in code blocks to pass bash/PowerShell syntax check (tools/cc.py code) | [ALIGNED: NIST CSF 2.0 / PR.PS-06] |

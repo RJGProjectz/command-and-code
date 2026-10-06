@@ -59,8 +59,8 @@ The live documentation site includes a built-in theme engine with **3 instant, t
 | Theme | Aesthetic | Color Highlights |
 | :--- | :--- | :--- |
 | 🛡️ **Classic** *(Default)* | Calm & Professional Field Manual | Slate `#0f1318` · Amber `#c98a1a` · Steel `#5b7a99` |
-| 🔮 **Nexus Flow** | Cyberpunk Neon & Ambient Mesh | Deep Violet `#0c0617` · Neon Cyan `#00f3ff` · Magenta `#ff007f` |
-| ⚡ **Electric Xtra** | High-Voltage Sci-Fi Tech Grid | Obsidian Carbon `#08090b` · Electric Orange `#ff5e00` · Electric Cyan `#00b2ff` |
+| 🔮 **Nexus Cyber** | Cyberpunk Synthwave & Neon Mesh | Deep Violet `#0c0617` · Neon Cyan `#00f3ff` · Magenta `#ff007f` |
+| ⚡ **Electric Cyber** | High-Voltage Obsidian & Neon Grid | Obsidian Carbon `#07090e` · Electric Orange `#ff5e00` · Electric Cyan `#00b2ff` |
 
 *Theme selections are saved in `localStorage` with zero-flicker instant loading.*
 

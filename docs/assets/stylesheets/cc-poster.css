@@ -408,67 +408,67 @@
 }
 
 /* Nexus Flow Theme Poster */
-[data-cc-theme="nexus-flow"] .cc-poster-deck {
+[data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"] .cc-poster-deck {
   background: rgba(19, 9, 41, 0.75);
   border-color: rgba(0, 243, 255, 0.3);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 243, 255, 0.12);
 }
 
-[data-cc-theme="nexus-flow"] .cc-poster-tile {
+[data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"] .cc-poster-tile {
   background: rgba(21, 10, 46, 0.85);
   border-color: rgba(0, 243, 255, 0.22);
 }
 
-[data-cc-theme="nexus-flow"] .cc-poster-tile:hover {
+[data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"] .cc-poster-tile:hover {
   border-color: #00f3ff;
   box-shadow: 0 0 24px rgba(0, 243, 255, 0.25), 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
-[data-cc-theme="nexus-flow"] .cc-poster-tile-title {
+[data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"] .cc-poster-tile-title {
   color: #f1f5f9;
 }
 
-[data-cc-theme="nexus-flow"] .cc-poster-toggle-btn.cc-active {
+[data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"] .cc-poster-toggle-btn.cc-active {
   background: linear-gradient(135deg, #00f3ff, #ff007f);
   color: #fff;
   box-shadow: 0 0 12px rgba(0, 243, 255, 0.5);
 }
 
-[data-cc-theme="nexus-flow"] .cc-poster-category-tag {
+[data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"] .cc-poster-category-tag {
   background: rgba(0, 243, 255, 0.12);
   color: #00f3ff;
 }
 
 /* Electric Xtra Theme Poster */
-[data-cc-theme="electric-xtra"] .cc-poster-deck {
+[data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"] .cc-poster-deck {
   background: rgba(12, 16, 22, 0.85);
   border-color: rgba(255, 94, 0, 0.35);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 94, 0, 0.15);
 }
 
-[data-cc-theme="electric-xtra"] .cc-poster-tile {
+[data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"] .cc-poster-tile {
   background: rgba(13, 17, 24, 0.9);
   border: 1px solid rgba(255, 94, 0, 0.25);
   border-top: 2px solid #ff5e00;
 }
 
-[data-cc-theme="electric-xtra"] .cc-poster-tile:hover {
+[data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"] .cc-poster-tile:hover {
   border-color: #ff5e00;
   box-shadow: 0 0 28px rgba(255, 94, 0, 0.28), 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
-[data-cc-theme="electric-xtra"] .cc-poster-toggle-btn.cc-active {
+[data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"] .cc-poster-toggle-btn.cc-active {
   background: linear-gradient(135deg, #ff5e00, #ff8b3d);
   color: #fff;
   box-shadow: 0 0 14px rgba(255, 94, 0, 0.5);
 }
 
-[data-cc-theme="electric-xtra"] .cc-poster-category-tag {
+[data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"] .cc-poster-category-tag {
   background: rgba(255, 94, 0, 0.15);
   color: #ff8b3d;
 }
 
-[data-cc-theme="electric-xtra"] .cc-poster-code-wrap {
+[data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"] .cc-poster-code-wrap {
   border-color: rgba(0, 178, 255, 0.25);
   border-left: 2px solid #00b2ff;
 }
