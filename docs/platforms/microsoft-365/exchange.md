@@ -16,7 +16,7 @@ last_verified: 2026-10-05
 Uses the **ExchangeOnlineManagement** module (`Install-Module ExchangeOnlineManagement`).
 
 ```powershell
-Connect-ExchangeOnline -UserPrincipalName <ADMIN_USER>@<DOMAIN>
+Connect-ExchangeOnline -UserPrincipalName '<ADMIN_USER>@<DOMAIN>'
 ```
 
 ## Inbox rules on a mailbox

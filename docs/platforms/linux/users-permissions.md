@@ -19,7 +19,7 @@ last_verified: 2026-10-05
 getent passwd                                     # local + directory users
 awk -F: '$3 == 0 {print $1}' /etc/passwd          # every UID-0 account (should be only root)
 grep -vE '(nologin|false)$' /etc/passwd           # accounts with a login shell
-id <USER>
+id '<USER>'
 ```
 
 ## Groups and sudo rights
@@ -28,7 +28,7 @@ id <USER>
 getent group sudo wheel                           # admin group (Debian: sudo, RHEL: wheel)
 sudo cat /etc/sudoers
 sudo ls -la /etc/sudoers.d/
-sudo -l -U <USER>                                   # what <USER> may run
+sudo -l -U '<USER>'                               # what <USER> may run
 sudo visudo -c                                    # syntax-check sudoers files
 ```
 

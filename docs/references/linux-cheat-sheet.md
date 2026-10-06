@@ -24,7 +24,7 @@ Practical, high-yield commands for Linux systems administration, performance tro
 
 ```bash
 # Check status of a specific service with recent log tail
-systemctl status <service_name> --lines=20 --no-pager
+systemctl status '<service_name>' --lines=20 --no-pager
 
 # List all failed units on the system
 systemctl --failed
@@ -46,7 +46,7 @@ systemd-analyze critical-chain
 
 ```bash
 # Follow logs for a specific service in real time
-journalctl -u <service_name> -f
+journalctl -u '<service_name>' -f
 
 # Show logs from the current boot only with error priority or higher
 journalctl -b -p err..emerg --no-pager
@@ -110,10 +110,10 @@ vmstat 1 5
 getent passwd | awk -F: '$3 >= 1000 && $3 < 65534 {print $1, $3, $6, $7}'
 
 # Check group memberships for a user
-id <USER>
+id '<USER>'
 
 # Lock user account and expire shell access immediately
-sudo usermod -L -s /usr/sbin/nologin <USER>
+sudo usermod -L -s /usr/sbin/nologin '<USER>'
 
 # Find all files with SUID bit set (potential privilege escalation targets)
 find / -perm -4000 -type f 2>/dev/null

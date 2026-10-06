@@ -113,7 +113,7 @@ sudo iptables -I OUTPUT -d '<TARGET_IP>' -j DROP
 
 ```bash
 nc -zv '<TARGET_HOST>' 443
-curl -sv https://<TARGET_HOST>/ -o /dev/null
+curl -sv 'https://<TARGET_HOST>/' -o /dev/null
 tracepath '<TARGET_HOST>'
 ```
 

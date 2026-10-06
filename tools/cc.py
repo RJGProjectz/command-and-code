@@ -241,9 +241,10 @@ def check_code() -> list[str]:
     ps_items: list[tuple[str, str]] = []
 
     def add_bash(label: str, code: str) -> None:
-        result = subprocess.run(["bash", "-n"], input=code, text=True, encoding="utf-8", capture_output=True)
+        code_bytes = code.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+        result = subprocess.run(["bash", "-n"], input=code_bytes, capture_output=True)
         if result.returncode:
-            problems.append(f"{label}: bash: {result.stderr.strip()}")
+            problems.append(f"{label}: bash: {result.stderr.decode('utf-8', errors='replace').strip()}")
 
     for page in all_pages():
         for lang, code, line in _code_blocks(page.path.read_text(encoding="utf-8")):
