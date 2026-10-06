@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('cc-theme') || 'classic';
+        document.documentElement.setAttribute('data-cc-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+{% endblock %}

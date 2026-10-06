@@ -90,7 +90,7 @@ Get-ChildItem -Path HKU:\ |
     ForEach-Object { Get-ItemProperty -Path "HKU:\$($_.PSChildName)\Software\Microsoft\Windows\CurrentVersion\Run" -ErrorAction SilentlyContinue }
 ```
 
-Users who are not logged on have their hive in `C:\Users\<name>\NTUSER.DAT` — load it with `reg load HKU\Offline C:\Users\name\NTUSER.DAT` (elevated), inspect, then `reg unload HKU\Offline`.
+Users who are not logged on have their hive in `C:\Users\<name>\NTUSER.DAT` — load it with `reg load HKU\Offline C:\Users\<USER>\NTUSER.DAT` (elevated), inspect, then `reg unload HKU\Offline`.
 
 ## What to look for
 

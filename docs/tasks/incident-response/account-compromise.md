@@ -37,7 +37,7 @@ Hosting provider / VPN / anonymiser ASNs, and whether other users signed in from
 ```kql
 SigninLogs
 | where TimeGenerated > ago(14d)
-| where IPAddress in ("203.0.113.10")
+| where IPAddress in ("<TARGET_IP>")
 | summarize Users = make_set(UserPrincipalName), Results = make_set(ResultType) by IPAddress
 ```
 

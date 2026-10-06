@@ -80,7 +80,7 @@ Get-NetNeighbor -AddressFamily IPv4 | Where-Object State -ne 'Unreachable'
 ```powershell
 Resolve-DnsName -Name example.com -Type A
 Resolve-DnsName -Name example.com -Type MX -Server 1.1.1.1
-Resolve-DnsName -Name 203.0.113.10 -Type PTR
+Resolve-DnsName -Name '<TARGET_IP>' -Type PTR
 ```
 
 `-Server` bypasses the configured resolver — useful for comparing internal and public answers.
@@ -107,11 +107,11 @@ A modified `hosts` file redirecting security or update domains is a classic tamp
 ## Test connectivity to a port
 
 ```powershell
-Test-NetConnection -ComputerName server01 -Port 443
-Test-NetConnection -ComputerName server01 -TraceRoute
+Test-NetConnection -ComputerName '<TARGET_HOST>' -Port 443
+Test-NetConnection -ComputerName '<TARGET_HOST>' -TraceRoute
 ```
 
-`TcpTestSucceeded : True` means a TCP handshake completed. In PowerShell 7 `Test-Connection -TargetName server01 -TcpPort 443` is a faster alternative.
+`TcpTestSucceeded : True` means a TCP handshake completed. In PowerShell 7 `Test-Connection -TargetName '<TARGET_HOST>' -TcpPort 443` is a faster alternative.
 
 ## SMB shares, sessions and connections
 

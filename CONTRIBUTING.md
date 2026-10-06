@@ -32,7 +32,7 @@ See [`docs/references/metadata.md`](docs/references/metadata.md). Platform, lang
 
 - Headings are tasks phrased the way someone would search: *Find a process by PID*, not *Win32_Process*.
 - Show PowerShell that runs on **Windows PowerShell 5.1** unless the entry says *PowerShell 7+*.
-- Use realistic placeholders that still parse: `1234` for a PID, `203.0.113.10` / `198.51.100.7` for IPs (documentation ranges), `contoso.com` for domains, `jdoe` for users. Avoid `<angle-bracket>` placeholders inside PowerShell and Bash blocks — they break the syntax checker and the shell.
+- Use realistic placeholders that still parse: `1234` for a PID, `<TARGET_IP>` / `<SECONDARY_IP>` for IPs (documentation ranges), `<DOMAIN>` for domains, `<USER>` for users. Avoid `<angle-bracket>` placeholders inside PowerShell and Bash blocks — they break the syntax checker and the shell.
 - Never use `$pid`, `$host`, `$input`, `$args`, `$error`, `$matches` or `$event` as variable names in PowerShell.
 - Prefer `Get-CimInstance` over `Get-WmiObject` and `wmic`.
 - Label code fences with the correct language (`powershell`, `bash`, `python`, `kql`, `spl`, `yaml`, `text`). S1QL uses `text` (no highlighter).

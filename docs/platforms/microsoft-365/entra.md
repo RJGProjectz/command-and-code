@@ -27,7 +27,7 @@ Request only the scopes the task needs. Write actions need write scopes (e.g. `U
 ## Look up a user
 
 ```powershell
-Get-MgUser -UserId 'jdoe@contoso.com' -Property Id, DisplayName, AccountEnabled, CreatedDateTime, SignInActivity, OnPremisesSyncEnabled |
+Get-MgUser -UserId '<USER>@<DOMAIN>' -Property Id, DisplayName, AccountEnabled, CreatedDateTime, SignInActivity, OnPremisesSyncEnabled |
     Select-Object DisplayName, AccountEnabled, CreatedDateTime, OnPremisesSyncEnabled,
         @{ Name = 'LastSignIn'; Expression = { $_.SignInActivity.LastSignInDateTime } }
 ```
@@ -37,8 +37,8 @@ Get-MgUser -UserId 'jdoe@contoso.com' -Property Id, DisplayName, AccountEnabled,
 ## Contain a compromised account
 
 ```powershell
-Update-MgUser -UserId 'jdoe@contoso.com' -AccountEnabled:$false
-Revoke-MgUserSignInSession -UserId 'jdoe@contoso.com'
+Update-MgUser -UserId '<USER>@<DOMAIN>' -AccountEnabled:$false
+Revoke-MgUserSignInSession -UserId '<USER>@<DOMAIN>'
 ```
 
 Revoking invalidates refresh tokens; access tokens already issued remain valid until they expire (typically up to about an hour, unless Continuous Access Evaluation applies). For hybrid accounts (`OnPremisesSyncEnabled = True`), disable in on-premises AD as well or the next sync can re-enable the account.
@@ -48,7 +48,7 @@ Revoking invalidates refresh tokens; access tokens already issued remain valid u
 ## Review authentication methods
 
 ```powershell
-Get-MgUserAuthenticationMethod -UserId 'jdoe@contoso.com' |
+Get-MgUserAuthenticationMethod -UserId '<USER>@<DOMAIN>' |
     Select-Object Id, @{ Name = 'Type'; Expression = { $_.AdditionalProperties['@odata.type'] } }
 ```
 
@@ -57,7 +57,7 @@ An attacker-registered MFA method (new phone, authenticator app) is a persistenc
 ## Sign-in logs
 
 ```powershell
-Get-MgAuditLogSignIn -Filter "userPrincipalName eq 'jdoe@contoso.com'" -Top 50 |
+Get-MgAuditLogSignIn -Filter "userPrincipalName eq '<USER>@<DOMAIN>'" -Top 50 |
     Select-Object CreatedDateTime, AppDisplayName, IPAddress, ClientAppUsed,
         @{ Name = 'Result'; Expression = { $_.Status.ErrorCode } },
         @{ Name = 'City'; Expression = { $_.Location.City } },

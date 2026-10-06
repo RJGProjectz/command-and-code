@@ -21,8 +21,8 @@ Work from the bottom of the stack up, and test from **both ends**.
 ## 1. Does the name resolve correctly?
 
 ```powershell
-Resolve-DnsName -Name server01.contoso.local
-Resolve-DnsName -Name server01.contoso.local -Server 10.0.0.10
+Resolve-DnsName -Name '<TARGET_HOST>.<INTERNAL_DOMAIN>'
+Resolve-DnsName -Name '<TARGET_HOST>.<INTERNAL_DOMAIN>' -Server '<DNS_SERVER_IP>'
 ```
 
 Compare with `hosts` and the DNS cache. → [DNS lookups](../../platforms/windows/networking.md#dns-lookups)
@@ -30,14 +30,14 @@ Compare with `hosts` and the DNS cache. → [DNS lookups](../../platforms/window
 ## 2. Is there a route?
 
 ```powershell
-Test-NetConnection -ComputerName server01 -TraceRoute
+Test-NetConnection -ComputerName '<TARGET_HOST>' -TraceRoute
 Get-NetRoute -AddressFamily IPv4 | Sort-Object RouteMetric
 ```
 
 ## 3. Is the port open from the client?
 
 ```powershell
-Test-NetConnection -ComputerName server01 -Port 443
+Test-NetConnection -ComputerName '<TARGET_HOST>' -Port 443
 ```
 
 `TcpTestSucceeded : False` with ping succeeding → firewall or service problem.

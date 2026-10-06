@@ -1308,7 +1308,7 @@ UC-[Category]-[Platform]-[###]
 
 ## Known False Positives & Tuning
 - **Known FPs**: [e.g., admin maintenance script at 2 AM]
-- **Filtering**: `NOT (user="service_account" AND src_ip="10.1.1.5")`
+- **Filtering**: `NOT (user="service_account" AND src_ip="<INTERNAL_IP>")`
 
 ## Validation
 **Trigger scenario**:

@@ -47,8 +47,8 @@ Timestamps can be altered (timestomping, [T1070.006](https://attack.mitre.org/te
 Files downloaded by browsers and many mail clients carry a `Zone.Identifier` alternate data stream:
 
 ```powershell
-Get-Item -Path 'C:\Users\jdoe\Downloads\invoice.zip' -Stream *
-Get-Content -Path 'C:\Users\jdoe\Downloads\invoice.zip' -Stream Zone.Identifier
+Get-Item -Path 'C:\Users\<USER>\Downloads\invoice.zip' -Stream *
+Get-Content -Path 'C:\Users\<USER>\Downloads\invoice.zip' -Stream Zone.Identifier
 ```
 
 ```text

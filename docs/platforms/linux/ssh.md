@@ -25,7 +25,7 @@ sudo sh -c 'awk "{print FILENAME\": \"\$0}" /root/.ssh/authorized_keys /home/*/.
 Fingerprints (to compare with `Accepted publickey ... SHA256:...` log lines):
 
 ```bash
-ssh-keygen -lf /home/jdoe/.ssh/authorized_keys
+ssh-keygen -lf '/home/<USER>/.ssh/authorized_keys'
 ```
 
 `sshd` can be configured to read keys from elsewhere — check the effective `AuthorizedKeysFile`.

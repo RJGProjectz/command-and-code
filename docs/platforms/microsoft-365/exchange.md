@@ -16,7 +16,7 @@ last_verified: 2026-10-05
 Uses the **ExchangeOnlineManagement** module (`Install-Module ExchangeOnlineManagement`).
 
 ```powershell
-Connect-ExchangeOnline -UserPrincipalName admin@contoso.com
+Connect-ExchangeOnline -UserPrincipalName <ADMIN_USER>@<DOMAIN>
 ```
 
 ## Inbox rules on a mailbox
@@ -24,7 +24,7 @@ Connect-ExchangeOnline -UserPrincipalName admin@contoso.com
 Malicious rules that forward, delete or hide mail are the most common business-email-compromise persistence ([T1564.008](https://attack.mitre.org/techniques/T1564/008/)).
 
 ```powershell
-Get-InboxRule -Mailbox 'jdoe@contoso.com' |
+Get-InboxRule -Mailbox '<USER>@<DOMAIN>' |
     Select-Object Name, Enabled, Priority, From, SubjectContainsWords, BodyContainsWords,
                   ForwardTo, ForwardAsAttachmentTo, RedirectTo, DeleteMessage, MoveToFolder, MarkAsRead
 ```
@@ -34,8 +34,8 @@ Get-InboxRule -Mailbox 'jdoe@contoso.com' |
 Remove after documenting:
 
 ```powershell
-Get-InboxRule -Mailbox 'jdoe@contoso.com' -Identity 'RuleName' | Format-List * | Out-File C:\Cases\rule.txt
-Remove-InboxRule -Mailbox 'jdoe@contoso.com' -Identity 'RuleName' -Confirm:$false
+Get-InboxRule -Mailbox '<USER>@<DOMAIN>' -Identity 'RuleName' | Format-List * | Out-File C:\Cases\rule.txt
+Remove-InboxRule -Mailbox '<USER>@<DOMAIN>' -Identity 'RuleName' -Confirm:$false
 ```
 
 ## Mailbox-level forwarding
@@ -49,15 +49,15 @@ Get-Mailbox -ResultSize Unlimited |
 ## Mailbox permissions
 
 ```powershell
-Get-MailboxPermission -Identity 'jdoe@contoso.com' |
+Get-MailboxPermission -Identity '<USER>@<DOMAIN>' |
     Where-Object { $_.User -notlike 'NT AUTHORITY\SELF' -and -not $_.IsInherited }
-Get-RecipientPermission -Identity 'jdoe@contoso.com' | Where-Object Trustee -ne 'NT AUTHORITY\SELF'
+Get-RecipientPermission -Identity '<USER>@<DOMAIN>' | Where-Object Trustee -ne 'NT AUTHORITY\SELF'
 ```
 
 ## Message trace
 
 ```powershell
-Get-MessageTraceV2 -SenderAddress 'attacker@example.com' -StartDate (Get-Date).AddDays(-5) -EndDate (Get-Date) |
+Get-MessageTraceV2 -SenderAddress '<ATTACKER>@<DOMAIN>' -StartDate (Get-Date).AddDays(-5) -EndDate (Get-Date) |
     Select-Object Received, SenderAddress, RecipientAddress, Subject, Status
 ```
 
@@ -67,7 +67,7 @@ Get-MessageTraceV2 -SenderAddress 'attacker@example.com' -StartDate (Get-Date).A
 
 ```powershell
 Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date) `
-    -UserIds 'jdoe@contoso.com' -Operations 'New-InboxRule', 'Set-InboxRule', 'UpdateInboxRules' -ResultSize 5000 |
+    -UserIds '<USER>@<DOMAIN>' -Operations 'New-InboxRule', 'Set-InboxRule', 'UpdateInboxRules' -ResultSize 5000 |
     Select-Object CreationDate, UserIds, Operations, @{ Name = 'Detail'; Expression = { $_.AuditData } }
 ```
 
@@ -76,7 +76,7 @@ Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date) `
 ## Block a sender tenant-wide
 
 ```powershell
-New-TenantAllowBlockListItems -ListType Sender -Block -Entries 'attacker@example.com' -NoExpiration
+New-TenantAllowBlockListItems -ListType Sender -Block -Entries '<ATTACKER>@<DOMAIN>' -NoExpiration
 ```
 
 ## Related

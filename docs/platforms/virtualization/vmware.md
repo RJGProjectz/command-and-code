@@ -18,7 +18,7 @@ last_verified: 2026-10-05
 Broadcom publishes PowerCLI as **VCF.PowerCLI** (version 9 onward); earlier releases are **VMware.PowerCLI**. Cmdlet names are unchanged.
 
 ```powershell
-Connect-VIServer -Server vcsa01.contoso.local
+Connect-VIServer -Server vcsa01.<INTERNAL_DOMAIN>
 Get-VM | Select-Object Name, PowerState, NumCpu, MemoryGB, VMHost | Sort-Object Name
 Get-VM -Name 'APP01' | Get-NetworkAdapter | Select-Object Name, NetworkName, MacAddress, ConnectionState
 ```

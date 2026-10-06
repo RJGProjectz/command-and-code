@@ -100,7 +100,7 @@ SigninLogs
 ```kql
 SigninLogs
 | where TimeGenerated > ago(14d)
-| where UserPrincipalName =~ "jdoe@contoso.com"
+| where UserPrincipalName =~ "<USER>@<DOMAIN>"
 | project TimeGenerated, ResultType, ResultDescription, AppDisplayName, ClientAppUsed, IPAddress,
           Country = tostring(LocationDetails.countryOrRegion), Device = tostring(DeviceDetail.displayName),
           ConditionalAccessStatus, AuthenticationRequirement

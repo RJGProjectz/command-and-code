@@ -75,8 +75,8 @@ Get-Volume | Where-Object DriveLetter |
 ## WinRM / PowerShell remoting
 
 ```powershell
-Test-WSMan -ComputerName server01
-Test-NetConnection -ComputerName server01 -Port 5985
+Test-WSMan -ComputerName '<TARGET_HOST>'
+Test-NetConnection -ComputerName '<TARGET_HOST>' -Port 5985
 ```
 
 Enable on a target (elevated): `Enable-PSRemoting -Force`.

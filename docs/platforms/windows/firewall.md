@@ -79,11 +79,11 @@ Get-NetFirewallRule -Enabled True -Direction Inbound -Action Allow |
 ## Block an IP during containment
 
 ```powershell
-New-NetFirewallRule -DisplayName 'IR-Block-203.0.113.10' -Direction Outbound -RemoteAddress 203.0.113.10 -Action Block
-New-NetFirewallRule -DisplayName 'IR-Block-203.0.113.10-In' -Direction Inbound -RemoteAddress 203.0.113.10 -Action Block
+New-NetFirewallRule -DisplayName 'IR-Block-<TARGET_IP>' -Direction Outbound -RemoteAddress '<TARGET_IP>' -Action Block
+New-NetFirewallRule -DisplayName 'IR-Block-<TARGET_IP>-In' -Direction Inbound -RemoteAddress '<TARGET_IP>' -Action Block
 ```
 
-Remove later with `Remove-NetFirewallRule -DisplayName 'IR-Block-203.0.113.10*'`. Use a consistent `IR-` prefix so containment rules are easy to find and clean up. Block rules take precedence over allow rules. If a GPO sets **Apply local firewall rules = No**, locally created rules (including these) are ignored — contain through GPO or your EDR's network isolation instead.
+Remove later with `Remove-NetFirewallRule -DisplayName 'IR-Block-<TARGET_IP>*'`. Use a consistent `IR-` prefix so containment rules are easy to find and clean up. Block rules take precedence over allow rules. If a GPO sets **Apply local firewall rules = No**, locally created rules (including these) are ignored — contain through GPO or your EDR's network isolation instead.
 
 ## Enable firewall logging
 

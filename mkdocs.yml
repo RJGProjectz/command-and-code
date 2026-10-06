@@ -10,6 +10,7 @@ copyright: Command & Code — The practical security operations field manual.
 
 theme:
   name: material
+  custom_dir: overrides
   # No web fonts: the site stays fast and fully usable offline.
   font: false
   icon:
@@ -50,6 +51,10 @@ theme:
 
 extra_css:
   - assets/stylesheets/cc.css
+  - assets/stylesheets/cc-themes.css
+
+extra_javascript:
+  - assets/javascripts/cc-themes.js
 
 hooks:
   - hooks/cc_meta.py

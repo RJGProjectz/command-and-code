@@ -41,7 +41,7 @@ DeviceNetworkEvents
 ## Connections to an indicator
 
 ```kql
-let iocs = dynamic(["203.0.113.10", "198.51.100.7"]);
+let iocs = dynamic(["<TARGET_IP>", "<SECONDARY_IP>"]);
 DeviceNetworkEvents
 | where Timestamp > ago(30d)
 | where RemoteIP in (iocs)

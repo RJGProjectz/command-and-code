@@ -53,7 +53,7 @@ event.type = 'Process Creation'
 ### Connections to an indicator
 
 ```text
-event.type = 'IP Connect' and dst.ip.address in ('203.0.113.10', '198.51.100.7')
+event.type = 'IP Connect' and dst.ip.address in ('<TARGET_IP>', '<SECONDARY_IP>')
 | group connections = count() by endpoint.name, src.process.name, dst.ip.address, dst.port.number
 | sort -connections
 ```

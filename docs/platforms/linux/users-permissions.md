@@ -19,7 +19,7 @@ last_verified: 2026-10-05
 getent passwd                                     # local + directory users
 awk -F: '$3 == 0 {print $1}' /etc/passwd          # every UID-0 account (should be only root)
 grep -vE '(nologin|false)$' /etc/passwd           # accounts with a login shell
-id jdoe
+id <USER>
 ```
 
 ## Groups and sudo rights
@@ -28,7 +28,7 @@ id jdoe
 getent group sudo wheel                           # admin group (Debian: sudo, RHEL: wheel)
 sudo cat /etc/sudoers
 sudo ls -la /etc/sudoers.d/
-sudo -l -U jdoe                                   # what jdoe may run
+sudo -l -U <USER>                                   # what <USER> may run
 sudo visudo -c                                    # syntax-check sudoers files
 ```
 
@@ -45,19 +45,19 @@ last -n 20 -a
 ## Password and account state
 
 ```bash
-sudo chage -l jdoe
-sudo passwd -S jdoe
+sudo chage -l '<USER>'
+sudo passwd -S '<USER>'
 ```
 
 ## Lock an account
 
 ```bash
-sudo usermod -L jdoe                       # lock password
-sudo usermod -s /usr/sbin/nologin jdoe     # remove shell
-sudo chage -E 0 jdoe                       # expire account
+sudo usermod -L '<USER>'                       # lock password
+sudo usermod -s /usr/sbin/nologin '<USER>'     # remove shell
+sudo chage -E 0 '<USER>'                       # expire account
 ```
 
-Locking the password does **not** stop SSH key logins — also review [`authorized_keys`](ssh.md#find-authorized-keys) and existing sessions (`pkill -KILL -u jdoe`).
+Locking the password does **not** stop SSH key logins — also review [`authorized_keys`](ssh.md#find-authorized-keys) and existing sessions (`pkill -KILL -u '<USER>'`).
 
 ## Read permissions
 

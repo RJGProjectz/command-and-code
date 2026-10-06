@@ -54,7 +54,7 @@ Disable-LocalUser -Name 'suspect'
 ## Active Directory (RSAT ActiveDirectory module)
 
 ```powershell
-Get-ADUser -Identity jdoe -Properties Enabled, LastLogonDate, PasswordLastSet, LockedOut, MemberOf, whenCreated
+Get-ADUser -Identity '<USER>' -Properties Enabled, LastLogonDate, PasswordLastSet, LockedOut, MemberOf, whenCreated
 Get-ADGroupMember -Identity 'Domain Admins' -Recursive | Select-Object Name, SamAccountName, objectClass
 Search-ADAccount -LockedOut | Select-Object Name, SamAccountName, LastLogonDate
 Get-ADUser -Filter 'Enabled -eq $true' -Properties LastLogonDate |
@@ -75,11 +75,11 @@ Get-ADUser -Filter 'whenCreated -ge $since' -Properties whenCreated | Select-Obj
 Disable and contain:
 
 ```powershell
-Disable-ADAccount -Identity jdoe
-Unlock-ADAccount -Identity jdoe
+Disable-ADAccount -Identity '<USER>'
+Unlock-ADAccount -Identity '<USER>'
 ```
 
-**Windows CLI:** `net user jdoe /domain`, `net group "Domain Admins" /domain`.
+**Windows CLI:** `net user <USER> /domain`, `net group "Domain Admins" /domain`.
 
 ## Account-management events
 

@@ -19,7 +19,7 @@ verified: false
 
 ```spl
 | tstats count, min(_time) AS first, max(_time) AS last FROM datamodel=Network_Traffic
-    WHERE All_Traffic.dest IN ("203.0.113.10", "198.51.100.7")
+    WHERE All_Traffic.dest IN ("<TARGET_IP>", "<SECONDARY_IP>")
     BY All_Traffic.src, All_Traffic.dest, All_Traffic.dest_port
 | rename All_Traffic.* AS *
 | convert ctime(first) ctime(last)

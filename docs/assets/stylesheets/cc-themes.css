@@ -1,0 +1,481 @@
+/* ==========================================================================
+   Command & Code — Multi-Theme Style System
+   Themes:
+     1. classic      : Original Field Manual (Slate / Amber)
+     2. nexus-flow   : TemplateMo 594 Cyberpunk Neon (Deep Violet / Neon Cyan & Pink)
+     3. electric-xtra: TemplateMo 596 High Voltage Sci-Fi (Obsidian / Electric Orange & Cyan)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Interactive Theme Switcher UI Component
+   -------------------------------------------------------------------------- */
+.cc-theme-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.4rem;
+  z-index: 100;
+}
+
+.cc-theme-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
+  font-family: var(--md-code-font-family, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color, #e2e8f0);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.cc-theme-switcher-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--md-accent-fg-color, #c98a1a);
+  transform: translateY(-1px);
+}
+
+.cc-theme-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.cc-theme-chevron {
+  transition: transform 0.2s ease;
+  opacity: 0.75;
+}
+
+.cc-theme-switcher-btn[aria-expanded="true"] .cc-theme-chevron {
+  transform: rotate(180deg);
+}
+
+.cc-theme-menu {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  width: 250px;
+  padding: 0.45rem;
+  background: #141a22;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 1000;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  animation: ccMenuIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes ccMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cc-theme-menu.cc-menu-open {
+  display: flex;
+}
+
+.cc-theme-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #e2e8f0;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.cc-theme-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cc-theme-option.cc-option-active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cc-option-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cc-option-icon {
+  font-size: 1rem;
+}
+
+.cc-option-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cc-option-name {
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.cc-option-desc {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  line-height: 1.2;
+}
+
+.cc-option-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.cc-swatches {
+  display: flex;
+  gap: 2px;
+}
+
+.cc-swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.cc-check-mark {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: transparent;
+  width: 12px;
+}
+
+.cc-theme-option.cc-option-active .cc-check-mark {
+  color: var(--md-accent-fg-color, #c98a1a);
+}
+
+/* Floating fallback on mobile */
+.cc-switcher-floating {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  margin: 0;
+  z-index: 9999;
+}
+
+
+/* ==========================================================================
+   1. NEXUS FLOW THEME (TemplateMo 594 Inspired — Cyberpunk Neon)
+   ========================================================================== */
+[data-cc-theme="nexus-flow"] {
+  --cc-ink: #0c0617;
+  --cc-purple: #7c3aed;
+  --cc-purple-deep: #160b2b;
+  --cc-cyan: #00f3ff;
+  --cc-pink: #ff007f;
+  --cc-orange: #f97316;
+
+  /* Material token overrides */
+  --md-primary-fg-color: #120727;
+  --md-primary-fg-color--light: #1d0e3d;
+  --md-primary-fg-color--dark: #090314;
+  --md-accent-fg-color: #00f3ff;
+  --md-accent-fg-color--transparent: rgba(0, 243, 255, 0.16);
+
+  --md-default-bg-color: #0c0617;
+  --md-default-bg-color--light: #140b25;
+  --md-default-bg-color--lighter: #1b0f33;
+  --md-default-bg-color--lightest: rgba(0, 243, 255, 0.18);
+
+  --md-default-fg-color: #f1f5f9;
+  --md-default-fg-color--light: rgba(241, 245, 249, 0.75);
+  --md-default-fg-color--lighter: rgba(241, 245, 249, 0.48);
+
+  --md-code-bg-color: #130826;
+  --md-code-fg-color: #e0f2fe;
+  --md-typeset-a-color: #00f3ff;
+
+  --md-footer-bg-color: #090314;
+  --md-footer-bg-color--dark: #05010b;
+}
+
+/* Ambient cyber gradient mesh */
+[data-cc-theme="nexus-flow"] body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(0, 243, 255, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 82% 75%, rgba(255, 0, 127, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(124, 58, 237, 0.09) 0%, transparent 50%),
+    radial-gradient(circle at 70% 20%, rgba(249, 115, 22, 0.06) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+  animation: nexusAmbientRotate 45s linear infinite;
+}
+
+@keyframes nexusAmbientRotate {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg); }
+}
+
+[data-cc-theme="nexus-flow"] .md-header {
+  background: rgba(18, 7, 39, 0.88);
+  border-bottom: 1px solid rgba(0, 243, 255, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+[data-cc-theme="nexus-flow"] .md-tabs {
+  background: #090314;
+  border-bottom: 1px solid rgba(255, 0, 127, 0.2);
+}
+
+[data-cc-theme="nexus-flow"] .md-tabs__link--active,
+[data-cc-theme="nexus-flow"] .md-tabs__item--active .md-tabs__link {
+  color: #00f3ff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset h1 {
+  background: linear-gradient(135deg, #00f3ff 0%, #ff007f 60%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px rgba(0, 243, 255, 0.25);
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset h2 {
+  color: #f1f5f9;
+  border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset pre > code {
+  background: #130826;
+  border: 1px solid rgba(0, 243, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(124, 58, 237, 0.08);
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset .cc-chip {
+  background: rgba(22, 11, 46, 0.8);
+  border: 1px solid rgba(0, 243, 255, 0.35);
+  color: #00f3ff;
+  box-shadow: 0 0 8px rgba(0, 243, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset a.cc-chip:hover {
+  border-color: #ff007f;
+  color: #ff007f;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.4);
+  transform: translateY(-1px);
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset .cc-kicker {
+  color: #ff007f;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset .grid.cards > ul > li,
+[data-cc-theme="nexus-flow"] .md-typeset .grid > .card {
+  background: rgba(20, 9, 43, 0.65);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset .grid.cards > ul > li:hover {
+  border-color: #00f3ff;
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.28), 0 8px 30px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset .grid.cards .lg {
+  color: #00f3ff;
+}
+
+[data-cc-theme="nexus-flow"] .md-typeset .cc-phase.cc-active {
+  border-left-color: #00f3ff;
+  box-shadow: -2px 0 12px rgba(0, 243, 255, 0.35);
+}
+
+[data-cc-theme="nexus-flow"] .cc-theme-menu {
+  background: #160b2b;
+  border-color: rgba(0, 243, 255, 0.3);
+}
+
+[data-cc-theme="nexus-flow"] .cc-theme-switcher-btn {
+  border-color: rgba(0, 243, 255, 0.4);
+  background: rgba(0, 243, 255, 0.1);
+  color: #00f3ff;
+}
+
+
+/* ==========================================================================
+   2. ELECTRIC XTRA THEME (TemplateMo 596 Inspired — High-Voltage Sci-Fi)
+   ========================================================================== */
+[data-cc-theme="electric-xtra"] {
+  --cc-ink: #08090b;
+  --cc-obsidian: #050608;
+  --cc-orange: #ff5e00;
+  --cc-cyan: #00b2ff;
+
+  /* Material token overrides */
+  --md-primary-fg-color: #0a0c10;
+  --md-primary-fg-color--light: #141820;
+  --md-primary-fg-color--dark: #040507;
+  --md-accent-fg-color: #ff5e00;
+  --md-accent-fg-color--transparent: rgba(255, 94, 0, 0.16);
+
+  --md-default-bg-color: #08090b;
+  --md-default-bg-color--light: #101318;
+  --md-default-bg-color--lighter: #171b22;
+  --md-default-bg-color--lightest: rgba(255, 94, 0, 0.2);
+
+  --md-default-fg-color: #f8fafc;
+  --md-default-fg-color--light: rgba(248, 250, 252, 0.75);
+  --md-default-fg-color--lighter: rgba(248, 250, 252, 0.45);
+
+  --md-code-bg-color: #0b0e13;
+  --md-code-fg-color: #e2e8f0;
+  --md-typeset-a-color: #ff5e00;
+
+  --md-footer-bg-color: #050608;
+  --md-footer-bg-color--dark: #020304;
+}
+
+/* Geometric sci-fi background pattern */
+[data-cc-theme="electric-xtra"] body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 25% 25%, transparent 2%, rgba(255, 94, 0, 0.04) 2%, rgba(255, 94, 0, 0.04) 3%, transparent 3%),
+    radial-gradient(circle at 75% 75%, transparent 2%, rgba(0, 178, 255, 0.04) 2%, rgba(0, 178, 255, 0.04) 3%, transparent 3%);
+  background-size: 64px 64px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+[data-cc-theme="electric-xtra"] .md-header {
+  background: rgba(10, 12, 16, 0.92);
+  border-bottom: 1px solid rgba(255, 94, 0, 0.32);
+  box-shadow: 0 4px 20px rgba(255, 94, 0, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-cc-theme="electric-xtra"] .md-tabs {
+  background: #060709;
+  border-bottom: 2px solid rgba(255, 94, 0, 0.25);
+}
+
+[data-cc-theme="electric-xtra"] .md-tabs__link--active,
+[data-cc-theme="electric-xtra"] .md-tabs__item--active .md-tabs__link {
+  color: #ff5e00;
+  text-shadow: 0 0 12px rgba(255, 94, 0, 0.7);
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset h1 {
+  background: linear-gradient(45deg, #ff5e00 0%, #ff8b3d 45%, #00b2ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.015em;
+  text-shadow: 0 0 30px rgba(255, 94, 0, 0.3);
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset h2 {
+  color: #f8fafc;
+  border-bottom: 1px solid rgba(255, 94, 0, 0.25);
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset pre > code {
+  background: #0b0e13;
+  border: 1px solid rgba(255, 94, 0, 0.25);
+  border-top: 2px solid #ff5e00;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset .cc-chip {
+  background: rgba(16, 19, 24, 0.85);
+  border: 1px solid rgba(255, 94, 0, 0.35);
+  color: #ff8b3d;
+  box-shadow: 0 0 6px rgba(255, 94, 0, 0.12);
+  transition: all 0.2s ease;
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset a.cc-chip:hover {
+  border-color: #00b2ff;
+  color: #00b2ff;
+  box-shadow: 0 0 12px rgba(0, 178, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset .cc-kicker {
+  color: #ff5e00;
+  letter-spacing: 0.14em;
+  text-shadow: 0 0 8px rgba(255, 94, 0, 0.5);
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset .grid.cards > ul > li,
+[data-cc-theme="electric-xtra"] .md-typeset .grid > .card {
+  background: rgba(14, 17, 22, 0.8);
+  border: 1px solid rgba(255, 94, 0, 0.2);
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset .grid.cards > ul > li:hover {
+  border-color: #ff5e00;
+  box-shadow: 0 0 24px rgba(255, 94, 0, 0.25), 0 8px 30px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset .grid.cards .lg {
+  color: #ff5e00;
+}
+
+[data-cc-theme="electric-xtra"] .md-typeset .cc-phase.cc-active {
+  border-left-color: #ff5e00;
+  box-shadow: -2px 0 10px rgba(255, 94, 0, 0.4);
+}
+
+[data-cc-theme="electric-xtra"] .cc-theme-menu {
+  background: #0f1217;
+  border-color: rgba(255, 94, 0, 0.35);
+}
+
+[data-cc-theme="electric-xtra"] .cc-theme-switcher-btn {
+  border-color: rgba(255, 94, 0, 0.4);
+  background: rgba(255, 94, 0, 0.1);
+  color: #ff5e00;
+}

@@ -76,7 +76,7 @@ ip neigh
 ```bash
 dig example.com +short
 dig @1.1.1.1 example.com A
-dig -x 203.0.113.10 +short
+dig -x '<TARGET_IP>' +short
 getent hosts example.com
 ```
 
@@ -105,23 +105,23 @@ sudo firewall-cmd --list-all         # RHEL/Fedora firewalld, active zone
 Block an IP during containment (iptables syntax; not persistent across reboot):
 
 ```bash
-sudo iptables -I INPUT -s 203.0.113.10 -j DROP
-sudo iptables -I OUTPUT -d 203.0.113.10 -j DROP
+sudo iptables -I INPUT -s '<TARGET_IP>' -j DROP
+sudo iptables -I OUTPUT -d '<TARGET_IP>' -j DROP
 ```
 
 ## Test connectivity
 
 ```bash
-nc -zv server01 443
-curl -sv https://server01/ -o /dev/null
-tracepath server01
+nc -zv '<TARGET_HOST>' 443
+curl -sv https://<TARGET_HOST>/ -o /dev/null
+tracepath '<TARGET_HOST>'
 ```
 
 ## Capture packets
 
 ```bash
 sudo tcpdump -i any -nn -c 100 port 53
-sudo tcpdump -i eth0 -nn host 203.0.113.10 -w /tmp/case-203.0.113.10.pcap
+sudo tcpdump -i eth0 -nn host '<TARGET_IP>' -w /tmp/case-target-ip.pcap
 ```
 
 ## Related

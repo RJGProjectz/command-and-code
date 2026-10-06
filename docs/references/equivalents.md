@@ -60,9 +60,9 @@ The same question asked on each platform. Follow the links for options, output i
 
     | Language | Query |
     | --- | --- |
-    | KQL | `DeviceNetworkEvents \| where RemoteIP == "203.0.113.10"` |
-    | SPL | `\| tstats count FROM datamodel=Network_Traffic WHERE All_Traffic.dest="203.0.113.10" BY All_Traffic.src` |
-    | S1QL | `event.type = 'IP Connect' and dst.ip.address = '203.0.113.10'` |
+    | KQL | `DeviceNetworkEvents \| where RemoteIP == "<TARGET_IP>"` |
+    | SPL | `\| tstats count FROM datamodel=Network_Traffic WHERE All_Traffic.dest="<TARGET_IP>" BY All_Traffic.src` |
+    | S1QL | `event.type = 'IP Connect' and dst.ip.address = '<TARGET_IP>'` |
 
 === "Failed logons"
 
