@@ -56,6 +56,21 @@ code, kbd, pre { font-family: var(--cc-mono); font-variant-ligatures: none; }
 .md-typeset table:not([class]) { font-size: 0.72rem; }
 .md-typeset table:not([class]) th { background: var(--md-code-bg-color); }
 
+/* Suppress permanent anchor link icon next to headers on hover/focus */
+.headerlink,
+a.headerlink,
+.md-typeset :hover > .headerlink,
+.md-typeset :focus-within > .headerlink,
+.md-typeset h1:hover .headerlink,
+.md-typeset h2:hover .headerlink,
+.md-typeset h3:hover .headerlink,
+.md-typeset h4:hover .headerlink {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* Metadata strip under each entry title (rendered by hooks/cc_meta.py) */
 .md-typeset .cc-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: -0.4rem 0 1.4rem; }
 .md-typeset .cc-chip {
