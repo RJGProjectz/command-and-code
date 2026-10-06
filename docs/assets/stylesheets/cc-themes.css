@@ -767,7 +767,24 @@ a.headerlink,
   background-color: #020704 !important;
 }
 
-/* Ambient phosphor matrix scanline & green glow mesh */
+/* Matrix Cat Rainfall Canvas — full-viewport fixed background */
+.cc-matrix-cat-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.36;
+  display: none;
+}
+
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-matrix-cat-canvas {
+  display: block;
+}
+
+/* Subtle ambient phosphor glow (grid removed in favor of falling ASCII cats) */
 :is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) body::before {
   content: "";
   position: fixed;
@@ -776,16 +793,13 @@ a.headerlink,
   width: 200%;
   height: 200%;
   background:
-    radial-gradient(circle at 20% 25%, rgba(0, 255, 102, 0.16) 0%, transparent 45%),
-    radial-gradient(circle at 80% 75%, rgba(0, 255, 136, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(5, 150, 105, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 65% 20%, rgba(163, 230, 53, 0.08) 0%, transparent 40%),
-    linear-gradient(rgba(0, 255, 102, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 102, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    radial-gradient(circle at 20% 25%, rgba(0, 255, 102, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(0, 255, 136, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(5, 150, 105, 0.10) 0%, transparent 50%),
+    radial-gradient(circle at 65% 20%, rgba(163, 230, 53, 0.06) 0%, transparent 40%);
   pointer-events: none;
   z-index: -1;
-  animation: matrixAmbientDrift 45s linear infinite;
+  animation: matrixAmbientDrift 50s linear infinite;
 }
 
 @keyframes matrixAmbientDrift {

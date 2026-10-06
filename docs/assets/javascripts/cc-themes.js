@@ -65,6 +65,12 @@
       // ignore storage error
     }
     updateSwitcherUI(themeId);
+
+    if (themeId === 'matrix' || themeId === 'matrix-green') {
+      startMatrixCatRain();
+    } else {
+      stopMatrixCatRain();
+    }
   }
 
   // Apply immediately on script load to prevent flicker
@@ -213,6 +219,198 @@
     }
 
     updateSwitcherUI(getStoredTheme());
+    checkAndInitMatrix();
+  }
+
+  // =========================================================================
+  // Matrix Cat Rain Engine (Pseudo Matrix Rainfall with Falling ASCII Cats)
+  // =========================================================================
+  var CAT_ASCII = [
+    '(=^･ω･^=)',
+    'ฅ^•ﻌ•^ฅ',
+    '(=^･^=)',
+    '(=^-ω-^=)',
+    '(^._.^)ﾉ',
+    'ฅ/ᐠ. ̫ .ᐟ\\ฅ',
+    '(=`ω´=)',
+    '(=^‥^=)',
+    'ﾐ^._.^ﾐ',
+    '(=ｘェｘ=)',
+    '(=ΦｴΦ=)',
+    '~(=^‥^)',
+    '(=;ェ;=)',
+    'ฅ(≈>ܫ<≈)ฅ',
+    '(=^･ｪ･^=)',
+    '(^・x・^)',
+    '(=^-人-^=)',
+    'ᓚᘏᗢ',
+    '/\\_/\\',
+    '( o.o )',
+    '> ^ <',
+    '/\\___/\\',
+    "( ='.'= )",
+    '(")_(")',
+    '(\\__/)',
+    '( •x• )',
+    'c[_]',
+    '🐾',
+    '🐾🐾',
+    'MEOW',
+    'NYA~',
+    'PURR',
+    'CATRIX',
+    ':3',
+    'ฅ',
+    '^._.^'
+  ];
+
+  var MULTI_CATS = [
+    ['/\\_/\\', '( o.o )', '> ^ <'],
+    ['/\\___/\\', "( ='.'= )", '(")_(")'],
+    ['(\\__/)', '( •x• )', '(")_(")'],
+    ['/\\_/\\', '(=^.^=)', '(")_(")']
+  ];
+
+  var catCanvas = null;
+  var catCtx = null;
+  var rainFrameId = null;
+  var rainColumns = [];
+  var lastRainTick = 0;
+  var RAIN_TICK_INTERVAL = 44; // ms between rainfall steps (~23 fps)
+
+  function getOrCreateCatCanvas() {
+    if (!catCanvas) {
+      catCanvas = document.getElementById('cc-matrix-cat-canvas');
+      if (!catCanvas) {
+        catCanvas = document.createElement('canvas');
+        catCanvas.id = 'cc-matrix-cat-canvas';
+        catCanvas.className = 'cc-matrix-cat-canvas';
+        catCanvas.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(catCanvas);
+      }
+      catCtx = catCanvas.getContext('2d');
+    }
+    return catCanvas;
+  }
+
+  function resizeCatCanvas() {
+    if (!catCanvas) return;
+    var w = window.innerWidth || document.documentElement.clientWidth || 800;
+    var h = window.innerHeight || document.documentElement.clientHeight || 600;
+    catCanvas.width = w;
+    catCanvas.height = h;
+
+    // Reset columns: spacing ~48px
+    var colWidth = 48;
+    var numCols = Math.max(10, Math.floor(w / colWidth));
+    rainColumns = [];
+    for (var i = 0; i < numCols; i++) {
+      rainColumns.push({
+        x: i * colWidth + colWidth / 2,
+        y: Math.floor(Math.random() * -30),
+        sequence: null,
+        seqIndex: 0
+      });
+    }
+
+    if (catCtx) {
+      catCtx.fillStyle = '#020704';
+      catCtx.fillRect(0, 0, w, h);
+    }
+  }
+
+  function stepMatrixCatRain(now) {
+    if (!rainFrameId) return;
+
+    if (!now || now - lastRainTick >= RAIN_TICK_INTERVAL) {
+      lastRainTick = now;
+
+      var w = catCanvas.width;
+      var h = catCanvas.height;
+
+      // Dark translucent wash to create authentic Matrix trailing fade
+      catCtx.fillStyle = 'rgba(2, 7, 4, 0.085)';
+      catCtx.fillRect(0, 0, w, h);
+
+      catCtx.font = '13px monospace';
+      catCtx.textAlign = 'center';
+
+      for (var i = 0; i < rainColumns.length; i++) {
+        var col = rainColumns[i];
+        var yPos = col.y * 22;
+
+        var token;
+        if (col.sequence) {
+          token = col.sequence[col.seqIndex++];
+          if (col.seqIndex >= col.sequence.length) {
+            col.sequence = null;
+          }
+        } else {
+          if (Math.random() < 0.08) {
+            col.sequence = MULTI_CATS[Math.floor(Math.random() * MULTI_CATS.length)];
+            col.seqIndex = 0;
+            token = col.sequence[col.seqIndex++];
+          } else {
+            token = CAT_ASCII[Math.floor(Math.random() * CAT_ASCII.length)];
+          }
+        }
+
+        if (yPos >= -10 && yPos <= h + 30) {
+          // Glow head in radiant white-mint phosphor
+          catCtx.fillStyle = '#f0fdf4';
+          catCtx.shadowColor = '#00ff66';
+          catCtx.shadowBlur = 9;
+          catCtx.fillText(token, col.x, yPos);
+          catCtx.shadowBlur = 0;
+        }
+
+        col.y++;
+
+        // Reset column when it passes bottom with randomized stagger
+        if (yPos > h + 30 && Math.random() > 0.95) {
+          col.y = Math.floor(Math.random() * -15);
+        }
+      }
+    }
+
+    rainFrameId = requestAnimationFrame(stepMatrixCatRain);
+  }
+
+  function startMatrixCatRain() {
+    getOrCreateCatCanvas();
+    if (!catCanvas || !catCtx) return;
+
+    if (!rainColumns.length || catCanvas.width !== window.innerWidth) {
+      resizeCatCanvas();
+    }
+
+    if (!rainFrameId) {
+      lastRainTick = 0;
+      rainFrameId = requestAnimationFrame(stepMatrixCatRain);
+    }
+  }
+
+  function stopMatrixCatRain() {
+    if (rainFrameId) {
+      cancelAnimationFrame(rainFrameId);
+      rainFrameId = null;
+    }
+    if (catCtx && catCanvas) {
+      catCtx.clearRect(0, 0, catCanvas.width, catCanvas.height);
+    }
+  }
+
+  window.addEventListener('resize', function () {
+    if (rainFrameId) {
+      resizeCatCanvas();
+    }
+  });
+
+  function checkAndInitMatrix() {
+    var current = getStoredTheme();
+    if (current === 'matrix' || current === 'matrix-green') {
+      startMatrixCatRain();
+    }
   }
 
   if (document.readyState === 'loading') {
@@ -227,6 +425,7 @@
       if (!document.querySelector('.cc-theme-switcher')) {
         mountSwitcher();
       }
+      checkAndInitMatrix();
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }
