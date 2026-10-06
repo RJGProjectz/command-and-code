@@ -74,12 +74,12 @@
       '<input type="text" class="cc-hud-search-input" placeholder="Fast filter commands (e.g. systemctl, pkill, port)..." aria-label="Fast filter commands">' +
       '<span class="cc-hud-match-count cc-hidden">0 matches</span>';
 
-    // Widescreen Toggle
+    // Breakout Command Wall Toggle
     var wideBtn = document.createElement('button');
     wideBtn.className = 'cc-hud-btn cc-hud-wide-btn';
     wideBtn.type = 'button';
-    wideBtn.title = 'Toggle widescreen reading mode for long terminal commands';
-    wideBtn.innerHTML = '<span class="cc-hud-btn-icon">⛶</span> Widescreen';
+    wideBtn.title = 'Break out of standard page format into full-canvas Command Poster Wall';
+    wideBtn.innerHTML = '<span class="cc-hud-btn-icon">⛶</span> Breakout Wall [ON]';
 
     controlsBox.appendChild(searchWrap);
     controlsBox.appendChild(wideBtn);
@@ -176,20 +176,34 @@
     var insertTarget = metaStrip ? metaStrip.nextSibling : (h1 ? h1.nextSibling : content.firstChild);
     content.insertBefore(hud, insertTarget);
 
-    // Check saved widescreen mode
+    // Build the responsive multi-column Poster Deck from markdown sections
+    buildPosterDeck(content, h2Elements);
+
+    // Breakout Mode: defaults to ON for reference cheat sheets
+    var savedBreakout = null;
     try {
-      if (localStorage.getItem('cc-widescreen') === 'true') {
-        document.body.classList.add('cc-widescreen-mode');
-        wideBtn.classList.add('cc-active');
-      }
+      savedBreakout = localStorage.getItem('cc-breakout');
     } catch (e) {}
 
-    // Event: Widescreen Toggle
+    var isBreakoutActive = savedBreakout !== 'false';
+    if (isBreakoutActive) {
+      document.body.classList.add('cc-breakout-mode');
+      wideBtn.classList.add('cc-active');
+      wideBtn.innerHTML = '<span class="cc-hud-btn-icon">⛶</span> Breakout Wall [ON]';
+    } else {
+      document.body.classList.remove('cc-breakout-mode');
+      wideBtn.classList.remove('cc-active');
+      wideBtn.innerHTML = '<span class="cc-hud-btn-icon">⛶</span> Breakout Wall';
+    }
+
     wideBtn.addEventListener('click', function () {
-      var isWide = document.body.classList.toggle('cc-widescreen-mode');
-      wideBtn.classList.toggle('cc-active', isWide);
+      var active = document.body.classList.toggle('cc-breakout-mode');
+      wideBtn.classList.toggle('cc-active', active);
+      wideBtn.innerHTML = active
+        ? '<span class="cc-hud-btn-icon">⛶</span> Breakout Wall [ON]'
+        : '<span class="cc-hud-btn-icon">⛶</span> Breakout Wall';
       try {
-        localStorage.setItem('cc-widescreen', isWide ? 'true' : 'false');
+        localStorage.setItem('cc-breakout', active ? 'true' : 'false');
       } catch (e) {}
     });
 
@@ -205,10 +219,14 @@
       currentMatchIdx = -1;
 
       var allBlocks = Array.from(content.querySelectorAll('.highlight, table tbody tr'));
+      var allCards = Array.from(content.querySelectorAll('.cc-poster-card'));
 
       if (!q) {
         allBlocks.forEach(function (el) {
           el.classList.remove('cc-hud-match', 'cc-hud-dimmed', 'cc-hud-active-match');
+        });
+        allCards.forEach(function (card) {
+          card.classList.remove('cc-card-dimmed');
         });
         countBadge.classList.add('cc-hidden');
         return;
@@ -224,6 +242,11 @@
           el.classList.remove('cc-hud-match', 'cc-hud-active-match');
           el.classList.add('cc-hud-dimmed');
         }
+      });
+
+      allCards.forEach(function (card) {
+        var hasMatch = card.querySelector('.cc-hud-match');
+        card.classList.toggle('cc-card-dimmed', !hasMatch);
       });
 
       countBadge.textContent = matchesList.length + (matchesList.length === 1 ? ' match' : ' matches');
@@ -304,9 +327,63 @@
     // Trigger reflow for animation restart
     void heading.offsetWidth;
     heading.classList.add('cc-heading-focus');
+
+    var parentCard = heading.closest('.cc-poster-card');
+    if (parentCard) {
+      parentCard.classList.remove('cc-card-focus');
+      void parentCard.offsetWidth;
+      parentCard.classList.add('cc-card-focus');
+    }
+
     setTimeout(function () {
       heading.classList.remove('cc-heading-focus');
+      if (parentCard) parentCard.classList.remove('cc-card-focus');
     }, 2000);
+  }
+
+  function buildPosterDeck(content, h2List) {
+    if (content.querySelector('.cc-poster-deck')) return;
+    if (!h2List || h2List.length === 0) return;
+
+    var deck = document.createElement('div');
+    deck.className = 'cc-poster-deck';
+
+    var firstH2 = h2List[0];
+    var parent = firstH2.parentNode;
+
+    var sectionsData = [];
+    for (var i = 0; i < h2List.length; i++) {
+      var curH2 = h2List[i];
+      var nextH2 = h2List[i + 1] || null;
+      var nodes = [curH2];
+      var sib = curH2.nextSibling;
+
+      while (sib && sib !== nextH2) {
+        var next = sib.nextSibling;
+        if (sib.nodeType === 1 && sib.tagName.toLowerCase() === 'hr') {
+          sib.parentNode.removeChild(sib);
+        } else {
+          nodes.push(sib);
+        }
+        sib = next;
+      }
+      sectionsData.push({ h2: curH2, nodes: nodes });
+    }
+
+    parent.insertBefore(deck, firstH2);
+
+    sectionsData.forEach(function (sec, idx) {
+      var card = document.createElement('section');
+      card.className = 'cc-poster-card';
+      var slug = sec.h2.id || ('sec-' + idx);
+      card.setAttribute('data-section-id', slug);
+
+      sec.nodes.forEach(function (n) {
+        card.appendChild(n);
+      });
+
+      deck.appendChild(card);
+    });
   }
 
   function determineSectionIcon(title) {

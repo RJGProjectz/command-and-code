@@ -340,22 +340,141 @@
 }
 
 /* --------------------------------------------------------------------------
-   6. Widescreen Terminal Reading Mode
+   6. Breakout Command Wall Mode (Reference Pages Full Canvas)
    -------------------------------------------------------------------------- */
-@media screen and (min-width: 1220px) {
-  body.cc-widescreen-mode .md-grid {
-    max-width: 1540px !important;
-  }
-  body.cc-widescreen-mode .md-content {
-    max-width: none !important;
-  }
-  body.cc-widescreen-mode .md-content__inner {
-    max-width: none !important;
+body.cc-breakout-mode .md-sidebar--primary,
+body.cc-breakout-mode .md-sidebar--secondary {
+  display: none !important;
+}
+
+body.cc-breakout-mode .md-main__inner.md-grid {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0.8rem 2.2rem 3.5rem !important;
+  margin: 0 !important;
+}
+
+body.cc-breakout-mode .md-content {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.cc-breakout-mode .md-content__inner {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Poster Wall Deck (Multi-Column Command Modules) */
+.cc-poster-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  gap: 1.35rem;
+  align-items: stretch;
+  margin-top: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 992px) {
+  .cc-poster-deck {
+    grid-template-columns: 1fr;
   }
 }
 
+/* Non-breakout fallback: 1 clean column */
+body:not(.cc-breakout-mode) .cc-poster-deck {
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+/* Poster Card Module */
+.cc-poster-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 1.4rem;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  overflow: hidden;
+}
+
+.cc-poster-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--md-accent-fg-color, #00f3ff);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 243, 255, 0.15);
+}
+
+.cc-poster-card h2 {
+  margin: 0 0 0.85rem 0 !important;
+  padding-bottom: 0.5rem !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cc-poster-card h2::before {
+  content: "▸";
+  color: var(--md-accent-fg-color, #00f3ff);
+  font-size: 0.95rem;
+}
+
+.cc-poster-card p {
+  font-size: 0.82rem;
+  opacity: 0.88;
+  margin-top: 0;
+  margin-bottom: 0.65rem;
+  line-height: 1.45;
+}
+
+.cc-poster-card .highlight {
+  margin: 0.5rem 0 !important;
+  border-radius: 6px;
+  flex-grow: 1;
+}
+
+.cc-poster-card table {
+  margin: 0.5rem 0 !important;
+  font-size: 0.8rem;
+  width: 100% !important;
+  display: table !important;
+}
+
+.cc-poster-card table th,
+.cc-poster-card table td {
+  padding: 0.45rem 0.6rem !important;
+}
+
+/* Card Search Dimming & Focus Pulse */
+.cc-card-dimmed {
+  opacity: 0.25 !important;
+  filter: grayscale(70%);
+  transform: scale(0.99);
+}
+
+@keyframes ccCardPulse {
+  0% {
+    border-color: var(--md-accent-fg-color, #00f3ff);
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.55);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.cc-card-focus {
+  animation: ccCardPulse 1.8s ease-out forwards;
+}
+
 /* --------------------------------------------------------------------------
-   7. Theme Variants for Speed Dial HUD
+   7. Theme Variants for Speed Dial HUD & Poster Cards
    -------------------------------------------------------------------------- */
 /* Classic Theme */
 [data-cc-theme="classic"] .cc-speed-dial-hud {
@@ -371,6 +490,17 @@
 [data-cc-theme="classic"] .cc-hud-pill:hover {
   border-color: #c98a1a;
   box-shadow: 0 0 8px rgba(201, 138, 26, 0.3);
+}
+[data-cc-theme="classic"] .cc-poster-card {
+  background: rgba(15, 19, 24, 0.85);
+  border-color: rgba(201, 138, 26, 0.22);
+}
+[data-cc-theme="classic"] .cc-poster-card:hover {
+  border-color: #c98a1a;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 16px rgba(201, 138, 26, 0.22);
+}
+[data-cc-theme="classic"] .cc-poster-card h2::before {
+  color: #c98a1a;
 }
 
 /* Nexus Theme */
@@ -396,6 +526,17 @@
   color: #00f3ff !important;
   text-shadow: 0 0 8px rgba(0, 243, 255, 0.6);
 }
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-poster-card {
+  background: rgba(18, 9, 38, 0.78);
+  border-color: rgba(0, 243, 255, 0.22);
+}
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-poster-card:hover {
+  border-color: #00f3ff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 243, 255, 0.22);
+}
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-poster-card h2::before {
+  color: #00f3ff;
+}
 
 /* High Voltage Theme */
 :is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-speed-dial-hud {
@@ -420,6 +561,17 @@
   color: #ff8b3d !important;
   text-shadow: 0 0 8px rgba(255, 94, 0, 0.6);
 }
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-poster-card {
+  background: rgba(10, 13, 20, 0.85);
+  border-color: rgba(255, 94, 0, 0.24);
+}
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-poster-card:hover {
+  border-color: #ff5e00;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 94, 0, 0.25);
+}
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-poster-card h2::before {
+  color: #ff5e00;
+}
 
 /* Matrix Theme */
 :is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-speed-dial-hud {
@@ -443,4 +595,15 @@
   background: rgba(0, 255, 102, 0.18);
   color: #00ff88 !important;
   text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+}
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card {
+  background: rgba(4, 18, 8, 0.85);
+  border-color: rgba(0, 255, 102, 0.24);
+}
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card:hover {
+  border-color: #00ff66;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 102, 0.3);
+}
+:is([data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card h2::before {
+  color: #00ff66;
 }
