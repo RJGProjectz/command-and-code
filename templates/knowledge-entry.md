@@ -30,31 +30,70 @@ verified: false                            # set true only after checking agains
 !!! danger "VERIFY BEFORE PRODUCTION USE"
     Remove this block when `verified: true`.
 
-One or two sentences: what this answers and why an analyst needs it.
+One or two sentences: what this answers and why an analyst or sysadmin needs it.
 
-## Do the main task
+<!-- =========================================================================
+     OPERATIONAL METHODOLOGY BLUEPRINT (FOR SERVICES, DAEMONS & PROTOCOLS):
+     For any service, daemon, or operational component (e.g. SSH, Nginx, Cron,
+     SMB, DNS, Systemd, AD), always present information in this beginner-friendly,
+     systematic progression:
+
+     1. Check Process, Service & Socket State (Is it running? PID? Listening port?)
+     2. Known Locations & Key Filesystem Paths (Where do binaries, configs, and logs live?)
+     3. Configuration Inspection & Syntax Testing (Live runtime config & pre-flight syntax check)
+     4. Operational Diagnostics & Key/Session Inspection (Who is connected? Keys, active state)
+     5. Hardening, Remediation & Advanced Operations (Security baseline, safe reload, client debug)
+     ========================================================================= -->
+
+## 1. Check Process, Service & Socket State
+
+Establish whether the target process or daemon is actively running and identify its listening interfaces/ports:
 
 ```powershell
-Get-Something -Parameter Value
+# Check service status and process state
+Get-Service -Name '<ServiceName>'
+Get-CimInstance Win32_Service -Filter "Name = '<ServiceName>'" | Select-Object Name, State, StartMode, ProcessId
+
+# Verify listening network ports and sockets
+Get-NetTCPConnection -State Listen | Where-Object LocalPort -eq 443
 ```
 
-**What the output tells you:** key columns/fields and how to read them.
+*(Linux equivalent: `systemctl status <service>`, `pgrep -a <process>`, `sudo ss -tulpn | grep ':<port>\b'`)*
 
-**What to look for:** the suspicious or broken values.
+## 2. Known Locations & Key Filesystem Paths
 
-## Useful variant
+Reference table of critical filesystem locations (binaries, config directories, drop-ins, and log targets):
+
+| Component | Standard Path | Purpose / Description |
+| :--- | :--- | :--- |
+| **Daemon Binary** | `C:\Path\To\binary.exe` or `/usr/sbin/daemon` | Primary executable |
+| **Configuration** | `C:\ProgramData\App\config.json` or `/etc/app/config.conf` | Active configuration |
+| **Config Drop-ins** | `/etc/app/conf.d/*.conf` | Modular configuration overrides |
+| **Log Targets** | Event Log / `/var/log/app/` | Service execution and audit logs |
+
+## 3. Configuration Inspection & Syntax Testing
+
+Inspect effective configuration settings and test syntax prior to restarting:
 
 ```powershell
-Get-Something -Parameter Value | Where-Object Property -eq 'x' | Select-Object A, B, C
+# Inspect active configuration
+Get-Content -Path 'C:\Path\To\config.json'
 ```
 
-## Important options
+*(Linux equivalent: `sudo <daemon> -T` for live config, `sudo <daemon> -t` or `configtest` for syntax check)*
 
-| Option | Effect |
-| --- | --- |
-| `-Option` | what it changes |
+## 4. Operational Diagnostics & Component Inspection
 
-## Where is the setting?  <!-- configuration entries only; delete otherwise -->
+Perform component-specific audits (keys, certificates, active user sessions, execution logs):
+
+```powershell
+# Audit active sessions, connections, or recent log entries
+Get-WinEvent -FilterHashtable @{ LogName='Security'; Id=4624 } -MaxEvents 10
+```
+
+## 5. Hardening Baseline & Safe Maintenance
+
+Production hardening rules and safe reload/restart procedures that avoid dropping active connections.
 
 === "GUI"
 

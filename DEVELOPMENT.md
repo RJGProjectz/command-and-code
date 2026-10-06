@@ -109,7 +109,31 @@ python tools/sanitize.py --run
 
 ---
 
-## 4. Content Authoring Protocol
+## 4. Content Authoring Protocol & Engineering Methodology
+
+### The "Process & Service First" Investigation Methodology
+
+To keep documentation beginner-friendly, structured, and operationally rigorous, **all component, daemon, and service documentation must follow a 5-stage progression**:
+
+```text
+[Stage 1: Process & Service State]  ───► Is it running? (systemctl status, pgrep, ss -tulpn)
+                │
+[Stage 2: Known Locations & Paths]  ───► Where does it live? (Binaries, configs, drop-ins, logs)
+                │
+[Stage 3: Config & Syntax Testing]  ───► How is it configured? (Live config -T, test syntax -t)
+                │
+[Stage 4: Operational Diagnostics]  ───► Who/what is using it? (Keys, active sessions, events)
+                │
+[Stage 5: Hardening & Remediation]  ───► How to secure & maintain? (Baselines, safe reloads)
+```
+
+1. **Stage 1 — Process, Service & Socket State**: Always begin by establishing whether the daemon/service is currently running, its PID/unit state, and its listening ports/sockets before touching files.
+2. **Stage 2 — Known Locations & Key Filesystem Paths**: Provide a clear reference table of standard paths (binaries, config directories, drop-in `.d/` folders, user stores, and log targets).
+3. **Stage 3 — Configuration Inspection & Pre-Flight Syntax Check**: Inspect active runtime configuration (`-T`) and always demonstrate pre-flight syntax testing (`-t`, `configtest`) before restarting.
+4. **Stage 4 — Operational Diagnostics & Identity/Key Auditing**: Inspect authorized keys, certificates, active user sessions (`who`, `w`, established connections), and recent log events.
+5. **Stage 5 — Hardening Baselines & Safe Operations**: Present recommended production security baselines and safe reload procedures that prevent service interruption or admin lockout.
+
+### Authoring Steps
 
 1. Copy the appropriate template:
    - Workflows: `templates/workflow.md`
