@@ -9,6 +9,9 @@ Lookup tables and conventions.
 
 | Reference | Use it for |
 | --- | --- |
+| [Sysadmin Quick Reference](sysadmin-cheat-sheet.md) | Multi-domain rapid lookup for Windows, Linux, AD, network, and storage |
+| [PowerShell Admin One-Liners](powershell-cheat-sheet.md) | Essential one-liners for inventory, AD, WMI/CIM, events, and remoting |
+| [Linux Sysadmin Speed Dial](linux-cheat-sheet.md) | High-yield commands for systemd, journalctl, disks, processes, and network |
 | [Cross-Platform Equivalents](equivalents.md) | The same task in PowerShell, Bash, KQL, SPL and S1QL |
 | [Windows Event IDs](windows-event-ids.md) | Event IDs, logon types, Kerberos/NTLM, Sysmon |
 | [MITRE ATT&CK Mapping](../detection/mitre-attack/index.md) | Techniques ↔ investigation and detection content |

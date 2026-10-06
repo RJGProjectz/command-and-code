@@ -212,7 +212,13 @@ nav:
           - tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
           - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
-      - Administration: tasks/administration/index.md
+      - Administration:
+          - tasks/administration/index.md
+          - User Lifecycle Management: tasks/administration/user-lifecycle-management.md
+          - System Maintenance & Updates: tasks/administration/system-maintenance-updates.md
+          - Network Services Management: tasks/administration/network-services-management.md
+          - Backup & Recovery Operations: tasks/administration/backup-and-recovery.md
+          - Certificate & PKI Management: tasks/administration/certificate-and-pki-management.md
       - Detection Engineering: tasks/detection-engineering/index.md
       - Hardening: tasks/hardening/index.md
       - Forensics: tasks/forensics/index.md
@@ -224,6 +230,9 @@ nav:
       - Python Tools: toolbox/python.md
   - References:
       - references/index.md
+      - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
+      - PowerShell Admin One-Liners: references/powershell-cheat-sheet.md
+      - Linux Sysadmin Speed Dial: references/linux-cheat-sheet.md
       - Cross-Platform Equivalents: references/equivalents.md
       - Windows Event IDs: references/windows-event-ids.md
       - Metadata Conventions: references/metadata.md

@@ -5,7 +5,19 @@ type: index
 
 # Administration
 
-Day-to-day security administration: accounts, services, configuration and platform management.
+Day-to-day systems and security administration: accounts, services, configuration, patching, hypervisors, and platform management.
+
+## Core Administration Workflows
+
+| Workflow | Scope | Platforms | Languages |
+| :--- | :--- | :--- | :--- |
+| **[User Lifecycle Management](user-lifecycle-management.md)** | Onboarding, role elevation, offboarding & session revocation | Windows Server, Entra ID, Microsoft 365 | PowerShell |
+| **[System Maintenance & Updates](system-maintenance-updates.md)** | Patch management, pending reboot audit & safe rebooting | Windows Server, Linux | PowerShell, Bash |
+| **[Network Services Management](network-services-management.md)** | DNS records, DHCP reservations & host firewall rules | Windows Server, Linux | PowerShell, Bash |
+| **[Backup & Recovery Operations](backup-and-recovery.md)** | VM snapshot cleanup, hypervisor backup audit & LVM | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash |
+| **[Certificate & PKI Management](certificate-and-pki-management.md)** | SSL/TLS expiration audit, IIS PFX import & Certbot | Windows Server, Linux | PowerShell, Bash |
+
+## All Administration Entries
 
 <!-- cc:index tasks="Administration" -->
 | Entry | Type | Platforms | Languages | Tasks |
