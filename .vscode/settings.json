@@ -1,0 +1,6 @@
+{
+  "github.publish.default": "private",
+  "git.autoRepositoryDetection": "subFolders",
+  "git.repositoryScanMaxDepth": 3,
+  "git.openRepositoryInParentFolders": "never"
+}
