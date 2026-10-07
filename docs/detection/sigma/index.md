@@ -66,7 +66,9 @@ Backend and pipeline names change between pySigma releases — `sigma list targe
 <!-- cc:index languages="Sigma" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Detection Development Lifecycle (DDLC) and Testing](../../tasks/detection-engineering/detection-development-lifecycle.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL, Sigma, PowerShell | Detection Engineering, Threat Hunting, Incident Response |
 | [Sigma Rule Examples](examples.md) | Entry | Windows | Sigma | Detection Engineering, Threat Hunting |
+| [Sigma Rules for Cloud Identity and Entra ID Attacks](cloud-identity-rules.md) | Entry | Entra ID, Microsoft 365, Azure | Sigma | Detection Engineering, Threat Hunting |
 
 <!-- /cc:index -->
 

@@ -144,11 +144,13 @@ nav:
           - Conditional Access: platforms/microsoft-365/conditional-access.md
           - Intune: platforms/microsoft-365/intune.md
           - Exchange Online: platforms/microsoft-365/exchange.md
+          - Audit Log (UAL) Investigation: platforms/microsoft-365/audit-log-investigation.md
       - Virtualization:
           - Overview: platforms/virtualization/index.md
           - Hyper-V: platforms/virtualization/hyper-v.md
           - VMware: platforms/virtualization/vmware.md
           - Proxmox: platforms/virtualization/proxmox.md
+          - ESXi Forensics & Hardening: platforms/virtualization/esxi-forensics-hardening.md
   - Shells & Scripting:
       - Overview: languages/index.md
       - PowerShell:
@@ -262,6 +264,7 @@ nav:
           - Network Events: detection/kql/network-events.md
           - File & Registry Events: detection/kql/file-registry-events.md
           - Logons & Identity: detection/kql/logon-identity.md
+          - Credential Access: detection/kql/credential-access.md
       - SPL:
           - Overview: detection/spl/index.md
           - Fundamentals & Optimization: detection/spl/fundamentals.md
@@ -279,9 +282,11 @@ nav:
           - Overview: detection/s1ql/index.md
           - Fundamentals: detection/s1ql/fundamentals.md
           - Hunting Queries: detection/s1ql/hunting.md
+          - Defense Evasion: detection/s1ql/defense-evasion.md
       - Sigma:
           - Overview: detection/sigma/index.md
           - Rule Examples: detection/sigma/examples.md
+          - Cloud Identity Rules: detection/sigma/cloud-identity-rules.md
       - MITRE ATT&CK: detection/mitre-attack/index.md
   - Tasks:
       - Overview: tasks/index.md
@@ -313,6 +318,9 @@ nav:
           - Overview: tasks/threat-hunting/index.md
           - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
           - Hypothesis-Driven Hunting (Splunk): tasks/threat-hunting/splunk-threat-hunting.md
+          - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md
+          - LOLBins Execution Hunting: tasks/threat-hunting/lolbins-execution-hunting.md
+          - Cloud Identity Persistence: tasks/threat-hunting/cloud-identity-persistence-hunting.md
       - Troubleshooting:
           - Overview: tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
@@ -344,14 +352,24 @@ nav:
           - Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
           - Performance & Resource Auditing: tasks/administration/performance-resource-auditing.md
           - Azure Cloud Resource Management: tasks/administration/cloud-azure-resource-management.md
-      - Detection Engineering: tasks/detection-engineering/index.md
+      - Detection Engineering:
+          - Overview: tasks/detection-engineering/index.md
+          - Detection Development Lifecycle: tasks/detection-engineering/detection-development-lifecycle.md
+          - Alert Tuning & False Positives: tasks/detection-engineering/alert-tuning-false-positive-management.md
       - Hardening:
           - Overview: tasks/hardening/index.md
           - Windows Security Baseline (CIS/NIST): tasks/hardening/windows-security-baseline.md
           - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
           - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
-      - Forensics: tasks/forensics/index.md
-      - Automation: tasks/automation/index.md
+      - Forensics:
+          - Overview: tasks/forensics/index.md
+          - Memory Acquisition & Volatility: tasks/forensics/memory-acquisition-analysis.md
+          - Windows Disk Artifacts Triage: tasks/forensics/windows-disk-artifacts.md
+          - Linux Live Response Forensics: tasks/forensics/linux-live-response-forensics.md
+      - Automation:
+          - Overview: tasks/automation/index.md
+          - Automated IoC Enrichment: tasks/automation/automated-ioc-enrichment.md
+          - Automated Identity Containment: tasks/automation/automated-account-containment.md
       - Assurance:
           - Overview: tasks/assurance/index.md
           - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
