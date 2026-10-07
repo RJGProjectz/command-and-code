@@ -93,7 +93,7 @@ nav:
   - Home: index.md
   - Executive Summary: executive-summary.md
   - Systems & OS:
-      - platforms/index.md
+      - Overview: platforms/index.md
       - Windows:
           - Overview: platforms/windows/index.md
           - System Information: platforms/windows/system-information.md
@@ -150,7 +150,7 @@ nav:
           - VMware: platforms/virtualization/vmware.md
           - Proxmox: platforms/virtualization/proxmox.md
   - Shells & Scripting:
-      - languages/index.md
+      - Overview: languages/index.md
       - PowerShell:
           - Overview: languages/powershell/index.md
           - Fundamentals & Pitfalls: languages/powershell/fundamentals.md
@@ -180,7 +180,7 @@ nav:
           - Error Handling & Exit Codes: languages/windows-cli/error-handling.md
           - System32 Native Executables: languages/windows-cli/system32-toolkit.md
   - APIs:
-      - apis/index.md
+      - Overview: apis/index.md
       - Microsoft Defender:
           - apis/microsoft-defender/get-alerts.md
           - apis/microsoft-defender/antivirus-scan.md
@@ -199,7 +199,7 @@ nav:
           - apis/webhooks/slack-teams-webhooks.md
           - Jira & ServiceNow: apis/webhooks/jira-servicenow-incident-creation.md
   - Fundamentals:
-      - fundamentals/index.md
+      - Overview: fundamentals/index.md
       - Operating System & Kernel Architecture:
           - Windows Process Internals: fundamentals/systems/windows-processes.md
           - Memory Internals & Paging: fundamentals/systems/memory-internals.md
@@ -253,10 +253,8 @@ nav:
           - NIST Cybersecurity Framework (CSF) 2.0: fundamentals/grc/nist-csf-2.md
           - CIS Controls & Benchmarks: fundamentals/grc/cis-benchmarks.md
           - Regulatory Compliance & Cross-Walk: fundamentals/grc/regulatory-frameworks.md
-
-
   - Detection:
-      - detection/index.md
+      - Overview: detection/index.md
       - KQL:
           - Overview: detection/kql/index.md
           - Fundamentals: detection/kql/fundamentals.md
@@ -286,7 +284,7 @@ nav:
           - Rule Examples: detection/sigma/examples.md
       - MITRE ATT&CK: detection/mitre-attack/index.md
   - Tasks:
-      - tasks/index.md
+      - Overview: tasks/index.md
       - Incident Response:
           - Overview: tasks/incident-response/index.md
           - Endpoint Triage: tasks/incident-response/endpoint-triage.md
@@ -364,13 +362,13 @@ nav:
           - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
           - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
   - Toolbox:
-      - toolbox/index.md
+      - Overview: toolbox/index.md
       - PowerShell Tools: toolbox/powershell.md
       - Bash Tools: toolbox/bash.md
       - Python Tools: toolbox/python.md
       - CLI Lookup Utility: toolbox/lookup.md
   - References:
-      - references/index.md
+      - Overview: references/index.md
       - Knowledge Graph Coverage Matrix: references/coverage-matrix.md
       - MITRE ATT&CK Matrix & Navigator: references/mitre-attack-matrix.md
       - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
