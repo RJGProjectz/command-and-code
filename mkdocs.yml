@@ -355,6 +355,7 @@ nav:
   - References:
       - references/index.md
       - Knowledge Graph Coverage Matrix: references/coverage-matrix.md
+      - MITRE ATT&CK Matrix & Navigator: references/mitre-attack-matrix.md
       - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
       - PowerShell Admin One-Liners: references/powershell-cheat-sheet.md
       - Linux Sysadmin Speed Dial: references/linux-cheat-sheet.md

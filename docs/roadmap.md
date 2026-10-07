@@ -27,6 +27,8 @@ OPERATIONAL PLAYBOOKS ✅  ← Completed (10 IR playbooks, 10 investigation work
     ↓
 LOCAL AI & SEARCH     🟡  ← Active (Local AI indexer tools/ai_indexer.py, offline lookup.py, RAG grounding)
     ↓
+VALIDATION & GRC      🟡  ← Active (MITRE ATT&CK STIX validator, OpenAPI specs, CISA SCuBA, CIS benchmarks)
+    ↓
 SECURITY TOOLKIT      ⚪  ← Future (Interactive command speed dial & query builders)
 ```
 
@@ -162,9 +164,31 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
+<div class="cc-phase cc-active" markdown>
+
+## Phase 7 — Authoritative Validation & Compliance Benchmarking
+
+**Status:** 🟡 In progress
+
+**Objective:** continuously validate operational coverage, query syntax, and hardening recommendations against authoritative external industry frameworks (MITRE ATT&CK STIX 2.1, OpenAPI/Swagger specifications, CIS Benchmarks Level 1/2, CISA SCuBA, and DISA STIGs).
+
+**Key capabilities**
+
+- [x] MITRE ATT&CK STIX 2.1 automated coverage engine (`tools/validate_mitre.py`)
+- [x] Automated MITRE ATT&CK Navigator Layer generation (`site/mitre_attack_coverage.json`)
+- [x] Cross-platform ATT&CK technique reference matrix (`docs/references/mitre-attack-matrix.md`)
+- [ ] Automated OpenAPI / Swagger schema validator for Graph, Defender, SentinelOne, and Splunk REST APIs
+- [ ] CISA SCuBA / ScubaGear compliance cross-walk for Microsoft 365 and Azure tenants
+- [ ] CIS Controls v8 / Benchmarks scoring audit integration
+- [ ] LOLBAS & GTFOBins binary telemetry coverage auditor
+
+**Repository areas:** `tools/validate_mitre.py`, `site/mitre_attack_coverage.json`, `docs/references/mitre-attack-matrix.md`, `docs/references/coverage-matrix.md`
+
+</div>
+
 <div class="cc-phase" markdown>
 
-## Phase 7 — Operational Security Toolkit
+## Phase 8 — Operational Security Toolkit
 
 **Status:** ⚪ Future
 
