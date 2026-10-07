@@ -103,6 +103,7 @@ a.headerlink,
   outline: none;
   vertical-align: middle;
   line-height: normal;
+  text-decoration: none;
   transition: all 0.15s ease-in-out;
 }
 .md-typeset .cc-searches a:hover,

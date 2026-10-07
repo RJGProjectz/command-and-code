@@ -812,6 +812,9 @@
       setTimeout(function () {
         executeSearch(q);
       }, 150);
+      setTimeout(function () {
+        executeSearch(q);
+      }, 500);
     }
   }
 
