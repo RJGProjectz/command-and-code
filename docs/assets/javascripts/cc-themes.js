@@ -79,6 +79,12 @@
     } else {
       stopMatrixCatRain();
     }
+
+    if (themeId === 'high-voltage' || themeId === 'electric-cyber' || themeId === 'electric-xtra') {
+      startElectricTrace();
+    } else {
+      stopElectricTrace();
+    }
   }
 
   // Apply immediately on script load to prevent flicker
@@ -227,7 +233,7 @@
     }
 
     updateSwitcherUI(getStoredTheme());
-    checkAndInitMatrix();
+    checkAndInitActiveThemeEffects();
   }
 
   // =========================================================================
@@ -408,16 +414,305 @@
     }
   }
 
+  // =========================================================================
+  // High Voltage Electrical Trace Engine (Single Wandering Circuit Spark)
+  // =========================================================================
+  var sparkCanvas = null;
+  var sparkCtx = null;
+  var sparkFrameId = null;
+
+  var SPARK_GRID = 50; // Aligns 1:1 with CSS background-size: 50px 50px
+  var SPARK_SPEED = 3.5; // Pixels per frame
+  var SPARK_TRAIL_LENGTH = 32; // Number of historical trail segments
+
+  // Spark state
+  var spark = {
+    x: 0,
+    y: 0,
+    currGridX: 0,
+    currGridY: 0,
+    nextGridX: 0,
+    nextGridY: 0,
+    destGridX: 0,
+    destGridY: 0,
+    dx: 0,
+    dy: 0,
+    trail: [],
+    particles: []
+  };
+
+  function getOrCreateSparkCanvas() {
+    if (sparkCanvas && document.body.contains(sparkCanvas)) {
+      return;
+    }
+    sparkCanvas = document.querySelector('.cc-electric-spark-canvas');
+    if (!sparkCanvas) {
+      sparkCanvas = document.createElement('canvas');
+      sparkCanvas.className = 'cc-electric-spark-canvas';
+      sparkCanvas.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(sparkCanvas);
+    }
+    sparkCtx = sparkCanvas.getContext('2d');
+  }
+
+  function resizeSparkCanvas() {
+    if (!sparkCanvas) return;
+    sparkCanvas.width = window.innerWidth;
+    sparkCanvas.height = window.innerHeight;
+  }
+
+  function getRandomGridPoint(w, h) {
+    var cols = Math.max(2, Math.floor(w / SPARK_GRID));
+    var rows = Math.max(2, Math.floor(h / SPARK_GRID));
+    var gx = Math.floor(Math.random() * cols) * SPARK_GRID;
+    var gy = Math.floor(Math.random() * rows) * SPARK_GRID;
+    return { x: gx, y: gy };
+  }
+
+  function initSparkState() {
+    var w = window.innerWidth || 1200;
+    var h = window.innerHeight || 800;
+
+    var start = getRandomGridPoint(w, h);
+    var end = getRandomGridPoint(w, h);
+    while (end.x === start.x && end.y === start.y) {
+      end = getRandomGridPoint(w, h);
+    }
+
+    spark.x = start.x;
+    spark.y = start.y;
+    spark.currGridX = start.x;
+    spark.currGridY = start.y;
+    spark.destGridX = end.x;
+    spark.destGridY = end.y;
+    spark.trail = [{ x: start.x, y: start.y }];
+    spark.particles = [];
+
+    chooseNextGridStep();
+  }
+
+  function chooseNextGridStep() {
+    var currX = spark.currGridX;
+    var currY = spark.currGridY;
+    var destX = spark.destGridX;
+    var destY = spark.destGridY;
+
+    var w = window.innerWidth || 1200;
+    var h = window.innerHeight || 800;
+
+    if (currX === destX && currY === destY) {
+      createSparkBurst(currX, currY);
+      var newDest = getRandomGridPoint(w, h);
+      spark.destGridX = newDest.x;
+      spark.destGridY = newDest.y;
+      destX = newDest.x;
+      destY = newDest.y;
+    }
+
+    var options = [
+      { gx: currX + SPARK_GRID, gy: currY, dx: 1, dy: 0 },
+      { gx: currX - SPARK_GRID, gy: currY, dx: -1, dy: 0 },
+      { gx: currX, gy: currY + SPARK_GRID, dx: 0, dy: 1 },
+      { gx: currX, gy: currY - SPARK_GRID, dx: 0, dy: -1 }
+    ];
+
+    var valid = options.filter(function (opt) {
+      return opt.gx >= 0 && opt.gx <= w + SPARK_GRID && opt.gy >= 0 && opt.gy <= h + SPARK_GRID;
+    });
+
+    if (!valid.length) {
+      valid = options;
+    }
+
+    if (valid.length > 1 && (spark.dx !== 0 || spark.dy !== 0)) {
+      var filtered = valid.filter(function (opt) {
+        return !(opt.dx === -spark.dx && opt.dy === -spark.dy);
+      });
+      if (filtered.length) {
+        valid = filtered;
+      }
+    }
+
+    var currentDist = Math.abs(destX - currX) + Math.abs(destY - currY);
+    var pool = [];
+
+    valid.forEach(function (opt) {
+      var dist = Math.abs(destX - opt.gx) + Math.abs(destY - opt.gy);
+      if (dist < currentDist) {
+        pool.push(opt, opt, opt, opt);
+      } else {
+        pool.push(opt);
+      }
+    });
+
+    var chosen = pool[Math.floor(Math.random() * pool.length)] || valid[0];
+    spark.nextGridX = chosen.gx;
+    spark.nextGridY = chosen.gy;
+    spark.dx = chosen.dx;
+    spark.dy = chosen.dy;
+  }
+
+  function createSparkBurst(x, y) {
+    for (var i = 0; i < 8; i++) {
+      var angle = Math.random() * Math.PI * 2;
+      var speed = 1.2 + Math.random() * 2.5;
+      spark.particles.push({
+        x: x,
+        y: y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1.0,
+        decay: 0.04 + Math.random() * 0.04
+      });
+    }
+  }
+
+  function stepElectricTrace() {
+    if (!sparkCanvas || !sparkCtx) return;
+
+    var w = sparkCanvas.width;
+    var h = sparkCanvas.height;
+
+    sparkCtx.clearRect(0, 0, w, h);
+
+    var toNextX = spark.nextGridX - spark.x;
+    var toNextY = spark.nextGridY - spark.y;
+    var dist = Math.hypot(toNextX, toNextY);
+
+    if (dist <= SPARK_SPEED) {
+      spark.x = spark.nextGridX;
+      spark.y = spark.nextGridY;
+      spark.currGridX = spark.nextGridX;
+      spark.currGridY = spark.nextGridY;
+      chooseNextGridStep();
+    } else {
+      spark.x += spark.dx * SPARK_SPEED;
+      spark.y += spark.dy * SPARK_SPEED;
+    }
+
+    spark.trail.push({ x: spark.x, y: spark.y });
+    if (spark.trail.length > SPARK_TRAIL_LENGTH) {
+      spark.trail.shift();
+    }
+
+    // Draw trail (neon light blue gradient fade)
+    if (spark.trail.length > 1) {
+      for (var i = 1; i < spark.trail.length; i++) {
+        var pPrev = spark.trail[i - 1];
+        var pCurr = spark.trail[i];
+        var progress = i / spark.trail.length;
+        var alpha = progress * progress * 0.95;
+        var lineWidth = 1.0 + progress * 2.5;
+
+        sparkCtx.beginPath();
+        sparkCtx.moveTo(pPrev.x, pPrev.y);
+        sparkCtx.lineTo(pCurr.x, pCurr.y);
+        sparkCtx.strokeStyle = 'rgba(56, 189, 248, ' + alpha + ')'; // Neon light blue
+        sparkCtx.lineWidth = lineWidth;
+        sparkCtx.lineCap = 'round';
+        sparkCtx.shadowColor = '#00f3ff';
+        sparkCtx.shadowBlur = 8 * progress;
+        sparkCtx.stroke();
+      }
+    }
+
+    // Draw spark head
+    var headX = spark.x;
+    var headY = spark.y;
+
+    sparkCtx.save();
+    sparkCtx.beginPath();
+    sparkCtx.arc(headX, headY, 5, 0, Math.PI * 2);
+    sparkCtx.fillStyle = 'rgba(0, 243, 255, 0.4)';
+    sparkCtx.shadowColor = '#00f3ff';
+    sparkCtx.shadowBlur = 18;
+    sparkCtx.fill();
+
+    sparkCtx.beginPath();
+    sparkCtx.arc(headX, headY, 2.5, 0, Math.PI * 2);
+    sparkCtx.fillStyle = '#ffffff';
+    sparkCtx.shadowColor = '#38bdf8';
+    sparkCtx.shadowBlur = 10;
+    sparkCtx.fill();
+
+    if (Math.random() < 0.6) {
+      var arcAngle = Math.random() * Math.PI * 2;
+      var arcLen = 3 + Math.random() * 5;
+      sparkCtx.beginPath();
+      sparkCtx.moveTo(headX, headY);
+      sparkCtx.lineTo(headX + Math.cos(arcAngle) * arcLen, headY + Math.sin(arcAngle) * arcLen);
+      sparkCtx.strokeStyle = '#e0f2fe';
+      sparkCtx.lineWidth = 1.5;
+      sparkCtx.shadowColor = '#00f3ff';
+      sparkCtx.shadowBlur = 6;
+      sparkCtx.stroke();
+    }
+    sparkCtx.restore();
+
+    // Draw burst particles
+    for (var j = spark.particles.length - 1; j >= 0; j--) {
+      var pt = spark.particles[j];
+      pt.x += pt.vx;
+      pt.y += pt.vy;
+      pt.life -= pt.decay;
+
+      if (pt.life <= 0) {
+        spark.particles.splice(j, 1);
+      } else {
+        sparkCtx.save();
+        sparkCtx.beginPath();
+        sparkCtx.arc(pt.x, pt.y, 1.8 * pt.life, 0, Math.PI * 2);
+        sparkCtx.fillStyle = 'rgba(0, 243, 255, ' + pt.life + ')';
+        sparkCtx.shadowColor = '#00f3ff';
+        sparkCtx.shadowBlur = 8;
+        sparkCtx.fill();
+        sparkCtx.restore();
+      }
+    }
+
+    sparkFrameId = requestAnimationFrame(stepElectricTrace);
+  }
+
+  function startElectricTrace() {
+    getOrCreateSparkCanvas();
+    if (!sparkCanvas || !sparkCtx) return;
+
+    if (sparkCanvas.width !== window.innerWidth || sparkCanvas.height !== window.innerHeight) {
+      resizeSparkCanvas();
+    }
+
+    if (!sparkFrameId) {
+      initSparkState();
+      sparkFrameId = requestAnimationFrame(stepElectricTrace);
+    }
+  }
+
+  function stopElectricTrace() {
+    if (sparkFrameId) {
+      cancelAnimationFrame(sparkFrameId);
+      sparkFrameId = null;
+    }
+    if (sparkCtx && sparkCanvas) {
+      sparkCtx.clearRect(0, 0, sparkCanvas.width, sparkCanvas.height);
+    }
+  }
+
   window.addEventListener('resize', function () {
     if (rainFrameId) {
       resizeCatCanvas();
     }
+    if (sparkFrameId) {
+      resizeSparkCanvas();
+    }
   });
 
-  function checkAndInitMatrix() {
+  function checkAndInitActiveThemeEffects() {
     var current = getStoredTheme();
     if (current === 'catrix' || current === 'matrix' || current === 'matrix-green') {
       startMatrixCatRain();
+    }
+    if (current === 'high-voltage' || current === 'electric-cyber' || current === 'electric-xtra') {
+      startElectricTrace();
     }
   }
 
@@ -433,7 +728,7 @@
       if (!document.querySelector('.cc-theme-switcher')) {
         mountSwitcher();
       }
-      checkAndInitMatrix();
+      checkAndInitActiveThemeEffects();
     });
     observer.observe(document.documentElement, { childList: true, subtree: true });
   }

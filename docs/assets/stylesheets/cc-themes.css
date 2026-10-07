@@ -540,31 +540,49 @@ a.headerlink,
   background-color: #07090e !important;
 }
 
-/* Ambient high-voltage electric cyber gradient mesh */
+/* Ambient high-voltage electric cyber gradient & static circuit grid */
 :is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) body::before {
   content: "";
   position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   background:
     radial-gradient(circle at 18% 22%, rgba(255, 94, 0, 0.16) 0%, transparent 45%),
     radial-gradient(circle at 82% 78%, rgba(0, 178, 255, 0.16) 0%, transparent 48%),
     radial-gradient(circle at 50% 18%, rgba(255, 119, 0, 0.10) 0%, transparent 40%),
     radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.10) 0%, transparent 42%),
-    linear-gradient(rgba(255, 94, 0, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 178, 255, 0.035) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 52px 52px, 52px 52px;
+    linear-gradient(rgba(255, 94, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 178, 255, 0.045) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50px 50px, 50px 50px;
   pointer-events: none;
   z-index: -1;
-  animation: electricAmbientDrift 45s linear infinite;
+  animation: electricPulse 18s ease-in-out infinite alternate;
 }
 
-@keyframes electricAmbientDrift {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg) scale(1.05); }
-  100% { transform: rotate(360deg); }
+@keyframes electricPulse {
+  0% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+/* High Voltage Electric Spark Trace Canvas */
+.cc-electric-spark-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  display: none;
+}
+
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-electric-spark-canvas {
+  display: block;
 }
 
 :is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .md-header {
