@@ -103,31 +103,39 @@ nav:
           - Services: platforms/windows/services.md
           - Networking & DNS: platforms/windows/networking.md
           - Firewall: platforms/windows/firewall.md
+          - Storage & Disks: platforms/windows/storage-disks.md
           - Event Logs: platforms/windows/event-logs.md
+          - Audit Policy & SACLs: platforms/windows/audit-policy.md
           - Registry & Run Keys: platforms/windows/registry.md
           - Scheduled Tasks: platforms/windows/scheduled-tasks.md
+          - Remote Access (WinRM & OpenSSH): platforms/windows/winrm-openssh.md
           - Users & Groups: platforms/windows/users-groups.md
           - Files & Permissions: platforms/windows/files-directories.md
           - Installed Software: platforms/windows/software.md
           - Microsoft Defender Antivirus: platforms/windows/defender.md
+          - WDAC & Exploit Protection: platforms/windows/wdac-exploit-guard.md
+          - Kernel & TCP/IP Tuning: platforms/windows/kernel-tuning.md
           - Troubleshooting: platforms/windows/troubleshooting.md
       - Linux:
           - platforms/linux/index.md
           - System Information: platforms/linux/system-information.md
+          - Distributions & Releases: platforms/linux/distros.md
           - Processes: platforms/linux/processes.md
           - Services (systemd): platforms/linux/systemd.md
           - Networking & DNS: platforms/linux/networking.md
           - Firewalls & nftables: platforms/linux/firewalls-nftables.md
           - Storage & LVM: platforms/linux/storage-lvm.md
-          - Users & Permissions: platforms/linux/users-permissions.md
-          - Security & MAC (SELinux/AppArmor): platforms/linux/selinux-apparmor.md
-          - Auditd & Kernel Auditing: platforms/linux/auditd.md
           - Logs: platforms/linux/logs.md
-          - Kernel Tuning (sysctl): platforms/linux/kernel-tuning.md
+          - Auditd & Kernel Auditing: platforms/linux/auditd.md
+          - Startup Persistence & Autostart: platforms/linux/persistence.md
           - Cron & Timers: platforms/linux/cron.md
           - SSH: platforms/linux/ssh.md
+          - Users & Permissions: platforms/linux/users-permissions.md
           - Filesystem: platforms/linux/filesystem.md
           - Packages: platforms/linux/packages.md
+          - Antivirus & EDR: platforms/linux/antivirus-edr.md
+          - Security & MAC (SELinux/AppArmor): platforms/linux/selinux-apparmor.md
+          - Kernel Tuning (sysctl): platforms/linux/kernel-tuning.md
           - Troubleshooting: platforms/linux/troubleshooting.md
       - Microsoft 365:
           - platforms/microsoft-365/index.md

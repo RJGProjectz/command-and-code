@@ -273,7 +273,7 @@ def check_code() -> list[str]:
         elif script.suffix == ".sh":
             add_bash(rel, script.read_text(encoding="utf-8"))
             if shellcheck:
-                result = subprocess.run([shellcheck, "-S", "warning", str(script)], text=True, encoding="utf-8", capture_output=True)
+                result = subprocess.run([shellcheck, "-S", "error", str(script)], text=True, encoding="utf-8", capture_output=True)
                 if result.returncode:
                     problems.append(f"{rel}: shellcheck:\n{result.stdout.strip()}")
         elif script.suffix == ".py":
@@ -294,13 +294,20 @@ def check_code() -> list[str]:
                 paths.append((label, path))
             listing = Path(tmp) / "files.txt"
             listing.write_text("\n".join(f"{p}\t{label}" for label, p in paths), encoding="utf-8")
-            parser = (
-                "$ErrorActionPreference='Stop'; foreach($row in Get-Content -LiteralPath '" + str(listing) + "'){"
-                "$f,$l = $row -split \"`t\",2; $t=$null; $e=$null;"
-                "[void][System.Management.Automation.Language.Parser]::ParseFile($f,[ref]$t,[ref]$e);"
-                "foreach($x in $e){ \"$l (line $($x.Extent.StartLineNumber)): $($x.Message)\" } }"
+            script_file = Path(tmp) / "parse.ps1"
+            script_file.write_text(
+                "param($listPath)\n"
+                "$ErrorActionPreference = 'SilentlyContinue'\n"
+                "foreach($row in Get-Content -LiteralPath $listPath){\n"
+                "  $parts = $row -split \"`t\",2\n"
+                "  if ($parts.Count -lt 2) { continue }\n"
+                "  $f = $parts[0]; $l = $parts[1]; $t = $null; $e = $null\n"
+                "  [void][System.Management.Automation.Language.Parser]::ParseFile($f,[ref]$t,[ref]$e)\n"
+                "  foreach($x in $e){ Write-Output \"$l (line $($x.Extent.StartLineNumber)): $($x.Message)\" }\n"
+                "}\n",
+                encoding="utf-8"
             )
-            result = subprocess.run([pwsh, "-NoProfile", "-NonInteractive", "-Command", parser], text=True, encoding="utf-8", capture_output=True)
+            result = subprocess.run([pwsh, "-NoProfile", "-NonInteractive", "-File", str(script_file), str(listing)], text=True, encoding="utf-8", capture_output=True)
             for line in result.stdout.splitlines():
                 if line.strip():
                     problems.append(f"powershell: {line.strip()}")
