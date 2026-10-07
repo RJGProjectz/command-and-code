@@ -17,6 +17,11 @@ search:
 
 A version-controlled knowledge base of **commands, code, queries, configuration locations, investigation procedures, detections and automation** — written for the analyst, administrator, detection engineer or incident responder who needs the answer now.
 
+<div style="margin: 0.8rem 0 1.2rem;" markdown>
+[:material-file-document-outline: **Executive Summary** — *Why this KB exists & how it works*](executive-summary.md){ .md-button .md-button--primary }
+[:material-map-legend: Roadmap](roadmap.md){ .md-button }
+</div>
+
 Press ++s++ or ++slash++ to search, or try:
 
 <div class="cc-searches" markdown>
@@ -143,4 +148,4 @@ Press ++s++ or ++slash++ to search, or try:
 
 ---
 
-**The repository is the product.** Everything here is Markdown and scripts in Git — readable offline, in VS Code, on GitHub, or as this site. See the [roadmap](roadmap.md) for where it is going and the [metadata conventions](references/metadata.md) for how to add to it.
+**The repository is the product.** Everything here is Markdown and scripts in Git — readable offline, in VS Code, on GitHub, or as this site. See the [Executive Summary](executive-summary.md) for the operational philosophy, the [roadmap](roadmap.md) for where it is going, and the [metadata conventions](references/metadata.md) for how to add to it.

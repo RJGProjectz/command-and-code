@@ -91,6 +91,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Executive Summary: executive-summary.md
   - Systems & OS:
       - platforms/index.md
       - Windows:
