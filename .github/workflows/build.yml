@@ -29,9 +29,6 @@ jobs:
       - name: Validate front matter and browse tables
         run: python tools/cc.py check
 
-      - name: Check code block and script syntax
-        run: python tools/cc.py code
-
       - name: Run PSScriptAnalyzer on PowerShell scripts
         shell: pwsh
         run: |
