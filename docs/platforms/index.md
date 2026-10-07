@@ -1,11 +1,11 @@
 ---
-title: Platforms
+title: Systems & OS
 type: index
 ---
 
-# Browse by Platform
+# Systems & Operating Systems
 
-Start from the system you are working on.
+Start from the target operating system or enterprise environment you are managing.
 
 <div class="grid cards" markdown>
 

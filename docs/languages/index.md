@@ -1,11 +1,11 @@
 ---
-title: Languages and Technologies
+title: Shells & Scripting
 type: index
 ---
 
-# Browse by Language / Technology
+# Shells & Scripting Engines
 
-Start from the tool you want to use.
+Start from the administrative shell, query language, or automation engine you are executing.
 
 <div class="grid cards" markdown>
 

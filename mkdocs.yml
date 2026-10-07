@@ -91,7 +91,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Platforms:
+  - Systems & OS:
       - platforms/index.md
       - Windows:
           - Overview: platforms/windows/index.md
@@ -148,7 +148,7 @@ nav:
           - Hyper-V: platforms/virtualization/hyper-v.md
           - VMware: platforms/virtualization/vmware.md
           - Proxmox: platforms/virtualization/proxmox.md
-  - Languages:
+  - Shells & Scripting:
       - languages/index.md
       - PowerShell:
           - Overview: languages/powershell/index.md

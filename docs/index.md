@@ -63,7 +63,7 @@ Press ++s++ or ++slash++ to search, or try:
 
 </div>
 
-## Browse by Platform
+## Systems & OS
 
 <div class="grid cards" markdown>
 
@@ -93,15 +93,15 @@ Press ++s++ or ++slash++ to search, or try:
 
 </div>
 
-## Browse by Language / Technology
+## Shells & Scripting
 
 <div class="grid cards" markdown>
 
--   :material-powershell:{ .lg } **[PowerShell](languages/powershell/index.md)** · **[Bash](languages/bash/index.md)** · **[Python](languages/python/index.md)**
+-   :material-powershell:{ .lg } **[PowerShell](languages/powershell/index.md)** · **[Bash](languages/bash/index.md)** · **[CMD](languages/windows-cli/index.md)** · **[Python](languages/python/index.md)**
 
     ---
 
-    Commands, data handling, APIs, error handling and automation — including the pitfalls that break scripts.
+    Commands, batch and shell scripting, APIs, text processing, error handling and automation.
 
 -   :material-magnify-scan:{ .lg } **[KQL](detection/kql/index.md)** · **[SPL](detection/spl/index.md)** · **[S1QL](detection/s1ql/index.md)**
 
