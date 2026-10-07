@@ -5,6 +5,7 @@
      2. nexus        : Cyberpunk Synthwave Neon (Deep Violet / Cyan & Pink)
      3. high-voltage : High-Voltage Grid (Obsidian / Neon Orange & Cyan)
      4. catrix       : Digital Phosphor Cats (Obsidian / Phosphor Green & Falling ASCII Cats)
+     5. crimson      : Crimson Alert / SOC War Room (Carbon Obsidian / Alert Crimson & Amber)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -295,28 +296,39 @@ a.headerlink,
   background: transparent !important;
 }
 
-/* Ambient cyber gradient mesh */
+/* Ambient cyber gradient wave moving smoothly from right to left across viewport */
 :is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) body::before {
   content: "";
   position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
   background:
-    radial-gradient(circle at 18% 25%, rgba(0, 243, 255, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 82% 75%, rgba(255, 0, 127, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 50% 80%, rgba(124, 58, 237, 0.14) 0%, transparent 50%),
-    radial-gradient(circle at 70% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 40%);
+    linear-gradient(
+      90deg,
+      rgba(15, 5, 26, 0.94) 0%,
+      rgba(0, 243, 255, 0.16) 18%,
+      rgba(124, 58, 237, 0.22) 36%,
+      rgba(255, 0, 127, 0.18) 54%,
+      rgba(0, 243, 255, 0.16) 72%,
+      rgba(124, 58, 237, 0.22) 90%,
+      rgba(15, 5, 26, 0.94) 100%
+    ),
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(0, 243, 255, 0.14), transparent 70%),
+    radial-gradient(ellipse 90% 55% at 50% 110%, rgba(255, 0, 127, 0.14), transparent 70%);
+  background-size: 200% 100%, 100% 100%, 100% 100%;
   pointer-events: none;
   z-index: -1;
-  animation: nexusAmbientRotate 45s linear infinite;
+  animation: nexusWaveRightToLeft 25s linear infinite;
 }
 
-@keyframes nexusAmbientRotate {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(180deg) scale(1.05); }
-  100% { transform: rotate(360deg); }
+@keyframes nexusWaveRightToLeft {
+  0% {
+    background-position: 200% 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 0% 0, 0 0, 0 0;
+  }
 }
 
 :is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-header {
@@ -972,4 +984,244 @@ a.headerlink,
   background: rgba(0, 255, 102, 0.1);
   color: #00ff66;
 }
+
+/* ==========================================================================
+   5. CRIMSON ALERT THEME (Tactical Red Cell / SOC War Room)
+   ========================================================================== */
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) {
+  --cc-ink: #070305;
+  --cc-crimson-core: #ff1744;
+  --cc-crimson-bright: #ff3366;
+  --cc-crimson-glow: rgba(255, 23, 68, 0.45);
+  --cc-crimson-amber: #ff9100;
+  --cc-crimson-rose: #fca5a5;
+
+  /* Material token overrides */
+  --md-primary-fg-color: #120408;
+  --md-primary-fg-color--light: #1c080e;
+  --md-primary-fg-color--dark: #070305;
+  --md-accent-fg-color: #ff1744;
+  --md-accent-fg-color--transparent: rgba(255, 23, 68, 0.18);
+
+  --md-default-bg-color: #080406;
+  --md-default-bg-color--light: #12060a;
+  --md-default-bg-color--lighter: #1a0a10;
+  --md-default-bg-color--lightest: rgba(255, 23, 68, 0.16);
+
+  --md-default-fg-color: #fff1f2;
+  --md-default-fg-color--light: rgba(255, 241, 242, 0.82);
+  --md-default-fg-color--lighter: rgba(255, 241, 242, 0.52);
+
+  --md-code-bg-color: #120509;
+  --md-code-fg-color: #fecdd3;
+  --md-typeset-a-color: #ff1744;
+
+  --md-footer-bg-color: #070305;
+  --md-footer-bg-color--dark: #040102;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-container,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-main,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-main__inner,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-content {
+  background: transparent !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) body {
+  background-color: #080406 !important;
+}
+
+/* Ambient Tactical Radar & Scanline Alert Mesh */
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(255, 23, 68, 0.16) 0%, transparent 65%),
+    radial-gradient(circle at 85% 85%, rgba(255, 145, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 15% 75%, rgba(255, 23, 68, 0.09) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 23, 68, 0.02) 0px,
+      rgba(255, 23, 68, 0.02) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  pointer-events: none;
+  z-index: -1;
+  animation: crimsonPulse 14s ease-in-out infinite alternate;
+}
+
+@keyframes crimsonPulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1.0;
+    transform: scale(1.02);
+  }
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-header {
+  background: rgba(18, 6, 10, 0.92);
+  border-bottom: 1px solid rgba(255, 23, 68, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-tabs {
+  background: #0d0407;
+  border-bottom: 1px solid rgba(255, 23, 68, 0.25);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-tabs__link--active,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-tabs__item--active .md-tabs__link {
+  color: #ff1744;
+  text-shadow: 0 0 10px rgba(255, 23, 68, 0.65);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset h1 {
+  background: linear-gradient(135deg, #ff1744 0%, #ff5252 50%, #ff9100 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 25px rgba(255, 23, 68, 0.3);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset h2 {
+  color: #fff1f2;
+  border-bottom: 1px solid rgba(255, 23, 68, 0.3);
+}
+
+/* Crimson Alert Syntax Highlighting */
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset pre > code {
+  background: #100508 !important;
+  border: 1px solid rgba(255, 23, 68, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .k,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .kd,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .kn,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .kp,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .kr,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .kc {
+  color: #ff1744 !important;
+  font-weight: 700;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .nf,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .fm,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .nb,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .bp {
+  color: #ff5252 !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .s,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .s1,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .s2,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .sa,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .sb,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .sc {
+  color: #ffb74d !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .nv,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .na,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .vi,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .vc,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .vg {
+  color: #fca5a5 !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .m,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .mi,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .mf {
+  color: #ff9100 !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .c,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .c1,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .ch,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .cm {
+  color: #7f3b4d !important;
+  font-style: italic;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .o,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .ow {
+  color: #ff3366 !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .highlight .p {
+  color: #fecdd3 !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset code {
+  background: rgba(255, 23, 68, 0.14) !important;
+  color: #ff5252 !important;
+  border: 1px solid rgba(255, 23, 68, 0.35) !important;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset .cc-chip {
+  background: rgba(18, 6, 10, 0.85);
+  border: 1px solid rgba(255, 23, 68, 0.35);
+  color: #ff5252;
+  box-shadow: 0 0 6px rgba(255, 23, 68, 0.15);
+  transition: all 0.2s ease;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset a.cc-chip:hover {
+  border-color: #ff1744;
+  color: #ff1744;
+  box-shadow: 0 0 14px rgba(255, 23, 68, 0.45);
+  transform: translateY(-1px);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset .cc-kicker {
+  color: #ff1744;
+  letter-spacing: 0.16em;
+  text-shadow: 0 0 8px rgba(255, 23, 68, 0.5);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset .grid.cards > ul > li,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset .grid > .card {
+  background: rgba(18, 6, 10, 0.85);
+  border: 1px solid rgba(255, 23, 68, 0.25);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset .grid.cards > ul > li:hover {
+  border-color: #ff1744;
+  box-shadow: 0 0 24px rgba(255, 23, 68, 0.28), 0 8px 30px rgba(0, 0, 0, 0.65);
+  transform: translateY(-2px);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset .grid.cards .lg {
+  color: #ff1744;
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .md-typeset .cc-phase.cc-active {
+  border-left-color: #ff1744;
+  box-shadow: -2px 0 10px rgba(255, 23, 68, 0.4);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-theme-menu {
+  background: #140509;
+  border-color: rgba(255, 23, 68, 0.4);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-theme-switcher-btn {
+  border-color: rgba(255, 23, 68, 0.45);
+  background: rgba(255, 23, 68, 0.12);
+  color: #ff5252;
+}
+
 

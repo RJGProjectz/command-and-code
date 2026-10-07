@@ -37,6 +37,13 @@
       subtitle: 'Digital Phosphor Cats',
       icon: '🐾',
       colors: ['#030a05', '#00ff66', '#003b14']
+    },
+    {
+      id: 'crimson',
+      name: 'Crimson Alert',
+      subtitle: 'SOC War Room',
+      icon: '🚨',
+      colors: ['#080406', '#ff1744', '#ff9100']
     }
   ];
 
@@ -48,7 +55,8 @@
       if (saved === 'nexus-flow' || saved === 'nexus-cyber') return 'nexus';
       if (saved === 'electric-xtra' || saved === 'electric-cyber') return 'high-voltage';
       if (saved === 'matrix' || saved === 'matrix-green') return 'catrix';
-      if (saved && (saved === 'classic' || saved === 'nexus' || saved === 'high-voltage' || saved === 'catrix')) {
+      if (saved === 'crimson-alert' || saved === 'war-room' || saved === 'red-cell') return 'crimson';
+      if (saved && (saved === 'classic' || saved === 'nexus' || saved === 'high-voltage' || saved === 'catrix' || saved === 'crimson')) {
         return saved;
       }
     } catch (e) {

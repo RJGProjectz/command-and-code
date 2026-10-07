@@ -607,3 +607,39 @@ body:not(.cc-breakout-mode) .cc-poster-deck {
 :is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-poster-card h2::before {
   color: #00ff66;
 }
+
+/* Crimson Alert Theme */
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-speed-dial-hud {
+  background: rgba(18, 6, 10, 0.90);
+  border-color: rgba(255, 23, 68, 0.38);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 23, 68, 0.18);
+}
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-hud-badge {
+  background: rgba(255, 23, 68, 0.22);
+  color: #ff1744;
+  border-color: rgba(255, 23, 68, 0.5);
+  box-shadow: 0 0 10px rgba(255, 23, 68, 0.35);
+}
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-hud-pill:hover {
+  border-color: #ff1744;
+  color: #ff1744 !important;
+  box-shadow: 0 0 12px rgba(255, 23, 68, 0.45);
+}
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-param-tailored {
+  border-bottom-color: #ff1744;
+  background: rgba(255, 23, 68, 0.22);
+  color: #ff5252 !important;
+  text-shadow: 0 0 8px rgba(255, 23, 68, 0.6);
+}
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-poster-card {
+  background: rgba(18, 6, 10, 0.88);
+  border-color: rgba(255, 23, 68, 0.26);
+}
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-poster-card:hover {
+  border-color: #ff1744;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 23, 68, 0.35);
+}
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-poster-card h2::before {
+  color: #ff1744;
+}
+
