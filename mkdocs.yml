@@ -194,7 +194,13 @@ nav:
           - Jira & ServiceNow: apis/webhooks/jira-servicenow-incident-creation.md
   - Fundamentals:
       - fundamentals/index.md
-      - Networking & Protocols:
+      - Operating System & Kernel Architecture:
+          - Windows Process Internals: fundamentals/systems/windows-processes.md
+          - Memory Internals & Paging: fundamentals/systems/memory-internals.md
+          - UEFI & Secure Boot: fundamentals/systems/uefi-secure-boot.md
+          - AppLocker & Application Control: fundamentals/systems/applocker.md
+          - Sysmon Architecture & Telemetry: fundamentals/systems/sysmon.md
+      - Networking & Transport Protocols:
           - DNS Mechanics & Security: fundamentals/dns.md
           - DHCP Mechanics & Allocation: fundamentals/networking/dhcp.md
           - HTTP & HTTPS Protocols: fundamentals/networking/http-https.md
@@ -203,18 +209,27 @@ nav:
           - SMTP & Mail Routing: fundamentals/networking/smtp.md
           - VPN Architectures: fundamentals/networking/vpn.md
           - Microsegmentation: fundamentals/networking/microsegmentation.md
-      - Identity & Access:
+      - Identity, Access & Cryptography:
           - Kerberos Authentication: fundamentals/kerberos.md
           - LDAP & Active Directory: fundamentals/identity/ldap.md
           - OAuth 2.0 & OIDC: fundamentals/identity/oauth2.md
           - Public Key Infrastructure (PKI): fundamentals/identity/pki.md
           - SSH Key Mechanics: fundamentals/identity/ssh-keys.md
-      - Systems & OS Architecture:
-          - Windows Process Internals: fundamentals/systems/windows-processes.md
-          - Memory Internals & Paging: fundamentals/systems/memory-internals.md
-          - UEFI & Secure Boot: fundamentals/systems/uefi-secure-boot.md
-          - AppLocker & Application Control: fundamentals/systems/applocker.md
-          - Sysmon Architecture & Telemetry: fundamentals/systems/sysmon.md
+      - API & Integration Engineering:
+          - REST Architecture & HTTP Semantics: fundamentals/apis/rest-architecture.md
+          - Authentication & Token Lifecycles: fundamentals/apis/auth-tokens.md
+          - Rate Limiting & Backoff: fundamentals/apis/rate-limiting-backoff.md
+          - Pagination & High-Volume Ingestion: fundamentals/apis/pagination.md
+          - Webhooks & Event-Driven Architecture: fundamentals/apis/webhooks-events.md
+          - API Security & Error Handling: fundamentals/apis/security-error-handling.md
+      - Web Applications & OWASP:
+          - OWASP Top 10 for Web Applications: fundamentals/web-apps/owasp-web-top-10.md
+          - SQL Injection & Parameterization: fundamentals/web-apps/sql-injection.md
+          - Cross-Site Scripting (XSS) & CSP: fundamentals/web-apps/xss-defense.md
+          - Cross-Site Request Forgery (CSRF): fundamentals/web-apps/csrf-defense.md
+          - Server-Side Request Forgery (SSRF): fundamentals/web-apps/ssrf-defense.md
+          - HTTP Security Headers: fundamentals/web-apps/http-security-headers.md
+          - Session Management & Cookies: fundamentals/web-apps/session-management.md
       - Cloud Infrastructure:
           - Entra ID Fundamentals: fundamentals/cloud/entra-id-fundamentals.md
           - Azure VNet Security: fundamentals/cloud/azure-vnet-security.md
@@ -228,13 +243,11 @@ nav:
           - Agentic AI & Tool Execution: fundamentals/agentic-ai.md
           - Self-Hosted Models & Local Inference: fundamentals/ai-systems/self-hosted-models.md
           - OWASP Top 10 for LLMs: fundamentals/owasp-llm-top-10.md
-      - API & Integration Engineering:
-          - REST Architecture & HTTP Semantics: fundamentals/apis/rest-architecture.md
-          - Authentication & Token Lifecycles: fundamentals/apis/auth-tokens.md
-          - Rate Limiting & Backoff: fundamentals/apis/rate-limiting-backoff.md
-          - Pagination & High-Volume Ingestion: fundamentals/apis/pagination.md
-          - Webhooks & Event-Driven Architecture: fundamentals/apis/webhooks-events.md
-          - API Security & Error Handling: fundamentals/apis/security-error-handling.md
+      - Governance, Risk & Compliance (GRC):
+          - NIST Cybersecurity Framework (CSF) 2.0: fundamentals/grc/nist-csf-2.md
+          - CIS Controls & Benchmarks: fundamentals/grc/cis-benchmarks.md
+          - Regulatory Compliance & Cross-Walk: fundamentals/grc/regulatory-frameworks.md
+
 
   - Detection:
       - detection/index.md

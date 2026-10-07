@@ -49,6 +49,8 @@ tasks:
   Forensics: tasks/forensics/index.md
   Automation: tasks/automation/index.md
   Assurance: tasks/assurance/index.md
+  Compliance: tasks/assurance/index.md
+  Governance: tasks/assurance/index.md
 
 types:
   - entry      # reference knowledge: commands, queries, configuration locations

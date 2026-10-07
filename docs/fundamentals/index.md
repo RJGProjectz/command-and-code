@@ -1,21 +1,33 @@
 ---
-title: Systems, Protocols & AI Fundamentals
+title: "Fundamentals — Systems, Networks, Web, AI & GRC Architecture"
 type: index
 hide:
   - toc
 ---
 
-# Systems, Protocols & AI Fundamentals
+# Systems, Networks, Web, AI & GRC Fundamentals
 
-Core conceptual foundations, networking mechanics, operating system internals, and modern AI/LLM engineering standards.
+Core conceptual foundations structured progressively from the **hardware/kernel boundary outward** through network transport, identity planes, web application security, cloud environments, generative AI runtimes, and enterprise governance frameworks:
 
-Every node provides:
-- Protocol mechanics, standard ports, and packet/request flow
+```
+[Layer 8] Governance, Risk & Compliance (GRC)      <- NIST CSF 2.0, CIS Controls & Benchmarks, ISO/SOC2
+[Layer 7] AI & LLM Systems                         <- Architectures, Vector DBs, RAG, OWASP LLM Top 10
+[Layer 6] Cloud Infrastructure & Virtualization     <- Entra ID, Azure VNets, Azure Policy & Governance
+[Layer 5] Web Applications & OWASP                 <- OWASP Web Top 10, SQLi, XSS, CSRF, SSRF, Headers
+[Layer 4] API & Integration Engineering            <- REST, OAuth Tokens, Rate Limits, Webhooks, OWASP API
+[Layer 3] Identity, Access & Cryptography          <- Kerberos, LDAP, OAuth2/OIDC, PKI, SSH Keys
+[Layer 2] Networking & Transport Protocols         <- DHCP, DNS, SMB, HTTP/S, TLS/SSL, SMTP, VPN, Microsegmentation
+[Layer 1] OS & Kernel Architecture                 <- UEFI/Secure Boot, Process Internals, Virtual Memory, Sysmon
+```
+
+Every fundamental node provides:
+- Protocol and architectural mechanics, execution sequences, and packet/request flow
 - Security implications, adversary exploitation vectors, and MITRE ATT&CK techniques
-- Copy-ready diagnostic and auditing commands (PowerShell, Bash, Wireshark)
-- Hardened baseline recommendations
+- Copy-ready diagnostic, auditing, and hardening commands (PowerShell, Bash, Python, KQL, SPL)
+- Direct cross-references to operational platform tasks and detection rules
 
 ---
+
 
 ## Knowledge Nodes
 
@@ -70,24 +82,34 @@ Every node provides:
 | [Fundamentals — Authentication & Token Lifecycles](apis/auth-tokens.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |
 | [Fundamentals — Azure Policy & Governance Baselines](cloud/azure-policy.md) | Entry | Azure | PowerShell | Assurance, Hardening |
 | [Fundamentals — Azure Virtual Network (VNet) Security](cloud/azure-vnet-security.md) | Entry | Azure | PowerShell | Hardening, Administration |
+| [Fundamentals — CIS Critical Security Controls & Benchmarks](grc/cis-benchmarks.md) | Entry | Windows, Windows Server, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
+| [Fundamentals — Cross-Site Request Forgery (CSRF) & State Defense](web-apps/csrf-defense.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
+| [Fundamentals — Cross-Site Scripting (XSS) & Content Security Policy](web-apps/xss-defense.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
 | [Fundamentals — DHCP Protocol Mechanics & IP Allocation](networking/dhcp.md) | Entry | Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Fundamentals — DNS Protocol Mechanics & Security](dns.md) | Entry | Windows Server, Linux | PowerShell, Bash | Investigation, Hardening |
 | [Fundamentals — Enterprise Prompt Engineering & Guardrails](ai-systems/prompt-engineering.md) | Entry | Linux | Python | Hardening, Automation |
+| [Fundamentals — HTTP Security Headers & Transport Hardening](web-apps/http-security-headers.md) | Entry | Linux, Windows | HTTP, PowerShell, Bash | Hardening, Assurance, Troubleshooting |
 | [Fundamentals — HTTP/HTTPS Protocol Mechanics & Headers](networking/http-https.md) | Entry | Linux, Windows Server | Bash, PowerShell | Investigation, Troubleshooting |
 | [Fundamentals — Kerberos Authentication Protocol](kerberos.md) | Entry | Windows, Active Directory | PowerShell | Investigation, Hardening |
 | [Fundamentals — LDAP Protocol, Directory Trees & LDAPS](identity/ldap.md) | Entry | Windows Server, Linux, Active Directory | PowerShell, Bash | Administration, Investigation |
 | [Fundamentals — LLM Architecture & Inference Engineering](ai-llm-architecture.md) | Entry | Linux | Python | Hardening, Automation |
 | [Fundamentals — Microsoft Entra ID Architecture & Hybrid Identity](cloud/entra-id-fundamentals.md) | Entry | Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
+| [Fundamentals — NIST Cybersecurity Framework (CSF) 2.0](grc/nist-csf-2.md) | Entry | Windows, Linux, Microsoft 365, Azure | PowerShell, Bash, Python | Assurance, Hardening, Administration, Incident Response |
 | [Fundamentals — OAuth 2.0 Authorization & OIDC Mechanics](identity/oauth2.md) | Entry | Entra ID, Microsoft 365 | PowerShell | Automation, Investigation |
 | [Fundamentals — OWASP Top 10 for Large Language Models](owasp-llm-top-10.md) | Entry | Linux | Python | Hardening, Assurance |
+| [Fundamentals — OWASP Top 10 for Web Applications](web-apps/owasp-web-top-10.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
 | [Fundamentals — Pagination & High-Volume Ingestion](apis/pagination.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Investigation |
 | [Fundamentals — Public Key Infrastructure (PKI), CAs & Revocation](identity/pki.md) | Entry | Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Fundamentals — Rate Limiting & Exponential Backoff](apis/rate-limiting-backoff.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
+| [Fundamentals — Regulatory Compliance & Framework Cross-Walk](grc/regulatory-frameworks.md) | Entry | Windows, Linux, Azure, Microsoft 365 | PowerShell, Bash, Python | Assurance, Hardening, Administration |
 | [Fundamentals — REST Architecture & HTTP Semantics](apis/rest-architecture.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
 | [Fundamentals — Retrieval-Augmented Generation (RAG) Architecture](rag-architecture.md) | Entry | Linux | Python | Automation, Investigation |
 | [Fundamentals — Self-Hosted & Air-Gapped AI Model Runtimes](ai-systems/self-hosted-models.md) | Entry | Linux | Bash, Python | Hardening, Automation |
+| [Fundamentals — Server-Side Request Forgery (SSRF) & Egress Defense](web-apps/ssrf-defense.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
+| [Fundamentals — Session Management & Cookie Security](web-apps/session-management.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Administration, Investigation |
 | [Fundamentals — SMB Protocol & Network Share Security](smb.md) | Entry | Windows, Windows Server, Linux | PowerShell | Investigation, Hardening |
 | [Fundamentals — SMTP Protocol, Relays & Email Authentication](networking/smtp.md) | Entry | Linux, Microsoft 365 | PowerShell, Bash | Investigation, Hardening |
+| [Fundamentals — SQL Injection & Parameterized Defense](web-apps/sql-injection.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
 | [Fundamentals — SSH Key Architecture & Cryptographic Baselines](identity/ssh-keys.md) | Entry | Linux | Bash | Hardening, Administration |
 | [Fundamentals — TLS Handshake & Cipher Suite Mechanics](networking/tls-ssl.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Investigation |
 | [Fundamentals — Tokenization & Vector Embeddings in AI](ai-systems/tokenization-embeddings.md) | Entry | Linux | Python | Automation, Investigation |
