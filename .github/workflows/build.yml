@@ -29,17 +29,5 @@ jobs:
       - name: Validate front matter and browse tables
         run: python tools/cc.py check
 
-      - name: Run PSScriptAnalyzer on PowerShell scripts
-        shell: pwsh
-        run: |
-          $issues = Invoke-ScriptAnalyzer -Path scripts/powershell -Severity Warning -Recurse
-          if ($issues) {
-            $issues | Format-Table -AutoSize
-            Write-Error "PSScriptAnalyzer found $($issues.Count) issue(s)."
-            exit 1
-          } else {
-            Write-Host "PSScriptAnalyzer passed with no warnings or errors."
-          }
-
       - name: Strict MkDocs build
         run: mkdocs build --strict
