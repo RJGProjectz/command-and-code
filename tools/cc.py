@@ -285,18 +285,19 @@ def check_code() -> list[str]:
     if ps_items and not pwsh:
         print(f"note: pwsh not found; skipped {len(ps_items)} PowerShell blocks")
     elif ps_items:
-        tmp_kwargs = {}
-        if sys.version_info >= (3, 12):
-            tmp_kwargs["ignore_cleanup_errors"] = True
-        with tempfile.TemporaryDirectory(**tmp_kwargs) as tmp:
+        tmp_dir = ROOT / "tmp_cc"
+        if tmp_dir.exists():
+            shutil.rmtree(tmp_dir, ignore_errors=True)
+        tmp_dir.mkdir(parents=True, exist_ok=True)
+        try:
             paths = []
             for n, (label, code) in enumerate(ps_items):
-                path = Path(tmp) / f"block{n}.ps1"
+                path = tmp_dir / f"block{n}.ps1"
                 path.write_text(code, encoding="utf-8")
                 paths.append((label, path))
-            listing = Path(tmp) / "files.txt"
+            listing = tmp_dir / "files.txt"
             listing.write_text("\n".join(f"{p}\t{label}" for label, p in paths), encoding="utf-8")
-            script_file = Path(tmp) / "parse.ps1"
+            script_file = tmp_dir / "parse.ps1"
             script_file.write_text(
                 "param($listPath)\n"
                 "$ErrorActionPreference = 'SilentlyContinue'\n"
@@ -315,6 +316,8 @@ def check_code() -> list[str]:
                     problems.append(f"powershell: {line.strip()}")
             if result.returncode:
                 problems.append(f"powershell parser failed: {result.stderr.strip()}")
+        finally:
+            shutil.rmtree(tmp_dir, ignore_errors=True)
     return problems
 
 

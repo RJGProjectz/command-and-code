@@ -328,8 +328,14 @@ nav:
           - Remote Service Restart: tasks/administration/remote-service-restart.md
           - Disk Capacity Audit: tasks/administration/disk-space-audit.md
           - Temporary File Purging: tasks/administration/temp-file-cleanup.md
+          - Finding Files & Content: tasks/administration/file-search-discovery.md
+          - Remote File Transfer (SCP/rsync): tasks/administration/remote-file-transfer.md
       - Detection Engineering: tasks/detection-engineering/index.md
-      - Hardening: tasks/hardening/index.md
+      - Hardening:
+          - tasks/hardening/index.md
+          - Windows Security Baseline (CIS/NIST): tasks/hardening/windows-security-baseline.md
+          - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
+          - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
       - Forensics: tasks/forensics/index.md
       - Automation: tasks/automation/index.md
       - Assurance:
@@ -348,6 +354,7 @@ nav:
       - CLI Lookup Utility: toolbox/lookup.md
   - References:
       - references/index.md
+      - Knowledge Graph Coverage Matrix: references/coverage-matrix.md
       - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
       - PowerShell Admin One-Liners: references/powershell-cheat-sheet.md
       - Linux Sysadmin Speed Dial: references/linux-cheat-sheet.md
