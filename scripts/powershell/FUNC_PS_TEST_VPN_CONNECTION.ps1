@@ -163,8 +163,8 @@ if ($GPService) {
 
 # 2. Certificate Check (Enhanced Logic)
 $ClientAuthOID = "1.3.6.1.5.5.7.3.2"
-$DeviceCertTemplate = "Servus Computer SHA2 - Wi-Fi"
-$UserCertTemplate = "Servus User SHA2 - Wi-Fi"
+$DeviceCertTemplate = "Enterprise Computer SHA2 - Wi-Fi"
+$UserCertTemplate = "Enterprise User SHA2 - Wi-Fi"
 
 Write-Host "[*] Checking Device Certificate..." -NoNewline
 $DeviceCerts = Get-ChildItem Cert:\LocalMachine\My | Where-Object { 

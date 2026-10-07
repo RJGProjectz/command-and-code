@@ -21,7 +21,7 @@
     'Test' simulates. 'Prod' executes.
 
 .EXAMPLE
-    .\Block-AzIndicator.ps1 -Value "1.2.3.4" -IndicatorType IpAddress -Comment "Known C2" -TargetEnvironment Test
+    .\Block-AzIndicator.ps1 -Value "203.0.113.50" -IndicatorType IpAddress -Comment "Known C2" -TargetEnvironment Test
 
 .NOTES
     Security Domain: Endpoint
