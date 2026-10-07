@@ -355,6 +355,7 @@ nav:
           - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
           - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
           - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
+          - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
   - Toolbox:
       - toolbox/index.md
       - PowerShell Tools: toolbox/powershell.md

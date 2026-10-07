@@ -25,7 +25,7 @@ API INTEGRATION       ✅  ← Completed (docs/apis/ operational across Graph, D
     ↓
 OPERATIONAL PLAYBOOKS ✅  ← Completed (10 IR playbooks, 10 investigation workflows, automated containment)
     ↓
-LOCAL AI & SEARCH     🟡  ← Active (Local AI indexer tools/ai_indexer.py, offline lookup.py, RAG grounding)
+LOCAL AI & SEARCH     ✅  ← Completed (Local AI indexer, grounding assistant tools/ai_grounding.py, RAG)
     ↓
 VALIDATION & GRC      🟡  ← Active (MITRE ATT&CK STIX validator, OpenAPI specs, CISA SCuBA, CIS benchmarks)
     ↓
@@ -145,11 +145,11 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
-<div class="cc-phase cc-active" markdown>
+<div class="cc-phase" markdown>
 
 ## Phase 6 — Intelligent Search & Local AI
 
-**Status:** 🟡 In progress
+**Status:** ✅ Complete
 
 **Objective:** a locally hosted assistant (e.g. Ollama or local AI daemon) grounded **only** in Command & Code content: natural-language search, command/query explanation, KQL ↔ SPL ↔ S1QL starting points, related-procedure discovery.
 
@@ -157,10 +157,11 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 - [x] Offline CLI semantic lookup utility (`tools/lookup.py`)
 - [x] Structured RAG knowledge indexer (`tools/ai_indexer.py` producing `site/ai_knowledge_index.jsonl`)
-- [ ] Grounding connector for local Ollama / AI daemon embedding workflows
-- [ ] Natural language query translation into KQL / SPL / S1QL
+- [x] Grounding connector for local Ollama / AI daemon embedding workflows (`tools/ai_grounding.py`)
+- [x] Natural language query translation into KQL / SPL / S1QL
+- [x] Offline prompt synthesizer injecting verified code blocks directly into LLM context
 
-**Repository areas:** `tools/ai_indexer.py`, `tools/lookup.py`, `site/ai_knowledge_index.jsonl`
+**Repository areas:** `tools/ai_indexer.py`, `tools/lookup.py`, `tools/ai_grounding.py`, `site/ai_knowledge_index.jsonl`
 
 </div>
 
@@ -177,12 +178,12 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 - [x] MITRE ATT&CK STIX 2.1 automated coverage engine (`tools/validate_mitre.py`)
 - [x] Automated MITRE ATT&CK Navigator Layer generation (`site/mitre_attack_coverage.json`)
 - [x] Cross-platform ATT&CK technique reference matrix (`docs/references/mitre-attack-matrix.md`)
-- [ ] Automated OpenAPI / Swagger schema validator for Graph, Defender, SentinelOne, and Splunk REST APIs
-- [ ] CISA SCuBA / ScubaGear compliance cross-walk for Microsoft 365 and Azure tenants
+- [x] Automated OpenAPI / Swagger schema validator for Graph, Defender, SentinelOne, and Splunk REST APIs (`tools/validate_apis.py`)
+- [x] CISA SCuBA / ScubaGear compliance cross-walk for Microsoft 365 and Azure tenants (`docs/tasks/assurance/cisa-scuba-compliance.md`)
 - [ ] CIS Controls v8 / Benchmarks scoring audit integration
 - [ ] LOLBAS & GTFOBins binary telemetry coverage auditor
 
-**Repository areas:** `tools/validate_mitre.py`, `site/mitre_attack_coverage.json`, `docs/references/mitre-attack-matrix.md`, `docs/references/coverage-matrix.md`
+**Repository areas:** `tools/validate_mitre.py`, `tools/validate_apis.py`, `site/mitre_attack_coverage.json`, `docs/references/mitre-attack-matrix.md`, `docs/tasks/assurance/cisa-scuba-compliance.md`
 
 </div>
 
