@@ -319,7 +319,7 @@ a.headerlink,
   background-size: 200% 100%, 100% 100%, 100% 100%;
   pointer-events: none;
   z-index: -1;
-  animation: nexusWaveRightToLeft 25s linear infinite;
+  animation: nexusWaveRightToLeft 50s linear infinite;
 }
 
 @keyframes nexusWaveRightToLeft {
