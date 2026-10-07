@@ -94,7 +94,7 @@ function Get-IPEnrichment {
         }
     }
     catch {
-        Write-Error "Failed to enrich IP $IPAddress: $_"
+        Write-Error "Failed to enrich IP ${IPAddress}: $_"
     }
 }
 
