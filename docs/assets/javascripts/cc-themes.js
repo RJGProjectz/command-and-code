@@ -74,6 +74,10 @@
     }
     updateSwitcherUI(themeId);
 
+    if (themeId === 'nexus' || themeId === 'nexus-cyber' || themeId === 'nexus-flow') {
+      randomizeNexusGradient();
+    }
+
     if (themeId === 'catrix' || themeId === 'matrix' || themeId === 'matrix-green') {
       startMatrixCatRain();
     } else {
@@ -87,9 +91,61 @@
     }
   }
 
+  // =========================================================================
+  // Nexus Procedural Gradient Randomizer (Static on view, varied per refresh)
+  // =========================================================================
+  function randomizeNexusGradient() {
+    var root = document.documentElement;
+    // Slanted cyber linear mesh angle: 120deg - 155deg or 35deg - 65deg
+    var angle = Math.random() < 0.5
+      ? Math.floor(120 + Math.random() * 35) + 'deg'
+      : Math.floor(35 + Math.random() * 30) + 'deg';
+    var mid = Math.floor(44 + Math.random() * 14) + '%';
+
+    // Jitter neon glow centers across viewport quadrants
+    var cx1 = Math.floor(14 + Math.random() * 18) + '%'; // Cyan upper flare
+    var cy1 = Math.floor(12 + Math.random() * 16) + '%';
+    var cx2 = Math.floor(74 + Math.random() * 16) + '%'; // Pink lower flare
+    var cy2 = Math.floor(74 + Math.random() * 16) + '%';
+    var cx3 = Math.floor(46 + Math.random() * 14) + '%'; // Purple core
+    var cy3 = Math.floor(44 + Math.random() * 14) + '%';
+    var cx4 = Math.floor(78 + Math.random() * 14) + '%'; // Cyan top-right accent
+    var cy4 = Math.floor(10 + Math.random() * 12) + '%';
+    var cx5 = Math.floor(12 + Math.random() * 14) + '%'; // Violet bottom-left accent
+    var cy5 = Math.floor(80 + Math.random() * 12) + '%';
+
+    // Subtle luminous opacity variations per session
+    var op1 = (0.13 + Math.random() * 0.06).toFixed(3);
+    var op2 = (0.13 + Math.random() * 0.06).toFixed(3);
+    var op3 = (0.18 + Math.random() * 0.06).toFixed(3);
+    var op4 = (0.07 + Math.random() * 0.05).toFixed(3);
+    var op5 = (0.09 + Math.random() * 0.05).toFixed(3);
+
+    root.style.setProperty('--cc-nexus-angle', angle);
+    root.style.setProperty('--cc-nexus-mid', mid);
+    root.style.setProperty('--cc-nexus-cx1', cx1);
+    root.style.setProperty('--cc-nexus-cy1', cy1);
+    root.style.setProperty('--cc-nexus-cx2', cx2);
+    root.style.setProperty('--cc-nexus-cy2', cy2);
+    root.style.setProperty('--cc-nexus-cx3', cx3);
+    root.style.setProperty('--cc-nexus-cy3', cy3);
+    root.style.setProperty('--cc-nexus-cx4', cx4);
+    root.style.setProperty('--cc-nexus-cy4', cy4);
+    root.style.setProperty('--cc-nexus-cx5', cx5);
+    root.style.setProperty('--cc-nexus-cy5', cy5);
+    root.style.setProperty('--cc-nexus-op1', op1);
+    root.style.setProperty('--cc-nexus-op2', op2);
+    root.style.setProperty('--cc-nexus-op3', op3);
+    root.style.setProperty('--cc-nexus-op4', op4);
+    root.style.setProperty('--cc-nexus-op5', op5);
+  }
+
   // Apply immediately on script load to prevent flicker
   var initialTheme = getStoredTheme();
   document.documentElement.setAttribute('data-cc-theme', initialTheme);
+  if (initialTheme === 'nexus' || initialTheme === 'nexus-cyber' || initialTheme === 'nexus-flow') {
+    randomizeNexusGradient();
+  }
 
   function createSwitcherElement() {
     var container = document.createElement('div');
@@ -708,6 +764,9 @@
 
   function checkAndInitActiveThemeEffects() {
     var current = getStoredTheme();
+    if (current === 'nexus' || current === 'nexus-cyber' || current === 'nexus-flow') {
+      randomizeNexusGradient();
+    }
     if (current === 'catrix' || current === 'matrix' || current === 'matrix-green') {
       startMatrixCatRain();
     }

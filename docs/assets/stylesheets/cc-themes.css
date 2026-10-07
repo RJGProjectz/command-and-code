@@ -296,7 +296,7 @@ a.headerlink,
   background: transparent !important;
 }
 
-/* Ambient cyber gradient wave moving smoothly from right to left across viewport */
+/* Ambient cyber gradient mesh (static on view, subtly varied per refresh, zero distracting movement) */
 :is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) body::before {
   content: "";
   position: fixed;
@@ -304,31 +304,20 @@ a.headerlink,
   width: 100vw;
   height: 100vh;
   background:
+    radial-gradient(ellipse 75% 60% at var(--cc-nexus-cx1, 22%) var(--cc-nexus-cy1, 18%), rgba(0, 243, 255, var(--cc-nexus-op1, 0.16)), transparent 65%),
+    radial-gradient(ellipse 75% 60% at var(--cc-nexus-cx2, 78%) var(--cc-nexus-cy2, 82%), rgba(255, 0, 127, var(--cc-nexus-op2, 0.16)), transparent 65%),
+    radial-gradient(ellipse 85% 70% at var(--cc-nexus-cx3, 50%) var(--cc-nexus-cy3, 48%), rgba(124, 58, 237, var(--cc-nexus-op3, 0.20)), transparent 70%),
+    radial-gradient(circle at var(--cc-nexus-cx4, 82%) var(--cc-nexus-cy4, 15%), rgba(0, 243, 255, var(--cc-nexus-op4, 0.10)), transparent 45%),
+    radial-gradient(circle at var(--cc-nexus-cx5, 16%) var(--cc-nexus-cy5, 84%), rgba(168, 85, 247, var(--cc-nexus-op5, 0.12)), transparent 50%),
     linear-gradient(
-      90deg,
-      rgba(15, 5, 26, 0.94) 0%,
-      rgba(0, 243, 255, 0.16) 18%,
-      rgba(124, 58, 237, 0.22) 36%,
-      rgba(255, 0, 127, 0.18) 54%,
-      rgba(0, 243, 255, 0.16) 72%,
-      rgba(124, 58, 237, 0.22) 90%,
-      rgba(15, 5, 26, 0.94) 100%
-    ),
-    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(0, 243, 255, 0.14), transparent 70%),
-    radial-gradient(ellipse 90% 55% at 50% 110%, rgba(255, 0, 127, 0.14), transparent 70%);
-  background-size: 200% 100%, 100% 100%, 100% 100%;
+      var(--cc-nexus-angle, 135deg),
+      rgba(15, 5, 26, 0.96) 0%,
+      rgba(22, 10, 40, 0.92) var(--cc-nexus-mid, 50%),
+      rgba(10, 4, 20, 0.98) 100%
+    );
+  background-size: 100% 100%;
   pointer-events: none;
   z-index: -1;
-  animation: nexusWaveRightToLeft 50s linear infinite;
-}
-
-@keyframes nexusWaveRightToLeft {
-  0% {
-    background-position: 200% 0, 0 0, 0 0;
-  }
-  100% {
-    background-position: 0% 0, 0 0, 0 0;
-  }
 }
 
 :is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .md-header {
