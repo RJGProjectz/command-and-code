@@ -784,31 +784,30 @@
     if (!query) return;
 
     var toggle = document.getElementById('__search');
+    // Ensure search modal is opened idempotently - NEVER toggle off if already open
     if (toggle && !toggle.checked) {
-      toggle.click();
+      toggle.checked = true;
+      toggle.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
-    function dispatchSearchInput() {
-      var input = document.querySelector('.md-search__input') || document.querySelector('[data-md-component="search-query"]');
-      if (input) {
-        input.focus();
-        input.value = query;
-        input.dispatchEvent(new Event('focus', { bubbles: true }));
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-        input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'Enter' }));
-      }
+    var input = document.querySelector('.md-search__input') || document.querySelector('[data-md-component="search-query"]');
+    if (input) {
+      input.value = query;
+      input.focus();
+      input.dispatchEvent(new FocusEvent('focusin', { bubbles: true }));
+      input.dispatchEvent(new Event('focus', { bubbles: true }));
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Enter' }));
+      input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'Enter' }));
     }
-
-    dispatchSearchInput();
-    setTimeout(dispatchSearchInput, 50);
-    setTimeout(dispatchSearchInput, 150);
-    setTimeout(dispatchSearchInput, 300);
-    setTimeout(dispatchSearchInput, 600);
   }
 
+  var initialUrlProcessed = false;
   function handleUrlSearchQuery() {
+    if (initialUrlProcessed) return;
     var match = window.location.search.match(/[?&]q=([^&#]+)/);
     if (match) {
+      initialUrlProcessed = true;
       var q = decodeURIComponent(match[1].replace(/\+/g, ' '));
       setTimeout(function () {
         executeSearch(q);
@@ -816,29 +815,35 @@
     }
   }
 
-  // Global delegated click listener for quick-search chips
+  // Global delegated click listener for quick-search chips and query links
+  // Attached in CAPTURE phase (true) so it intercepts and stops propagation
+  // BEFORE Material for MkDocs instant navigation pjax can cancel the event.
   document.addEventListener('click', function (e) {
-    var link = e.target && e.target.closest ? e.target.closest('.cc-searches a, a[href*="?q="]') : null;
-    if (!link) return;
+    var target = e.target;
+    if (!target) return;
 
-    var href = link.getAttribute('href') || '';
-    var match = href.match(/[?&]q=([^&#]+)/);
-    var q = '';
-    if (match) {
-      q = decodeURIComponent(match[1].replace(/\+/g, ' '));
-    } else {
-      q = link.textContent.trim();
+    var chip = target.closest ? target.closest('.cc-searches button, .cc-searches a, .cc-search-chip, [data-query], a[href*="?q="]') : null;
+    if (!chip) return;
+
+    var q = chip.getAttribute('data-query');
+    if (!q) {
+      var href = chip.getAttribute('href') || '';
+      var match = href.match(/[?&]q=([^&#]+)/);
+      if (match) {
+        q = decodeURIComponent(match[1].replace(/\+/g, ' '));
+      } else {
+        q = chip.textContent.trim();
+      }
     }
 
     if (q) {
       e.preventDefault();
+      e.stopPropagation();
       executeSearch(q);
-      if (window.history && window.history.replaceState) {
-        var base = window.location.pathname.replace(/\/$/, '') + '/';
-        window.history.replaceState(null, '', base + '?q=' + encodeURIComponent(q));
-      }
+      // NOTE: Do NOT alter history.replaceState or location here.
+      // Material for MkDocs listens to location changes and auto-closes the search modal after 125ms!
     }
-  });
+  }, true);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {

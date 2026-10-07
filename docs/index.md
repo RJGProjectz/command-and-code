@@ -24,16 +24,16 @@ A version-controlled knowledge base of **commands, code, queries, configuration 
 
 Press ++s++ or ++slash++ to search, or try:
 
-<div class="cc-searches" markdown>
-[listening ports](?q=listening+ports)
-[suspicious powershell](?q=suspicious+powershell)
-[failed windows login](?q=failed+windows+login)
-[find process by PID](?q=find+process+by+PID)
-[scheduled task persistence](?q=scheduled+task+persistence)
-[registry run keys](?q=registry+run+keys)
-[defender process query](?q=defender+process+query)
-[linux services](?q=linux+services)
-[network connections](?q=network+connections)
+<div class="cc-searches">
+<button type="button" class="cc-search-chip" data-query="listening ports">listening ports</button>
+<button type="button" class="cc-search-chip" data-query="suspicious powershell">suspicious powershell</button>
+<button type="button" class="cc-search-chip" data-query="failed windows login">failed windows login</button>
+<button type="button" class="cc-search-chip" data-query="find process by PID">find process by PID</button>
+<button type="button" class="cc-search-chip" data-query="scheduled task persistence">scheduled task persistence</button>
+<button type="button" class="cc-search-chip" data-query="registry run keys">registry run keys</button>
+<button type="button" class="cc-search-chip" data-query="defender process query">defender process query</button>
+<button type="button" class="cc-search-chip" data-query="linux services">linux services</button>
+<button type="button" class="cc-search-chip" data-query="network connections">network connections</button>
 </div>
 
 </div>
