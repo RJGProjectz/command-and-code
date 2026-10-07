@@ -17,17 +17,17 @@ Command & Code grows from real operational material, one phase at a time:
 ```text
 FOUNDATION            ✅  ← Completed
     ↓
-KNOWLEDGE EXPANSION   🟡  ← Mature (Fundamentals, Linux/Bash deep dive, multi-platform references)
+KNOWLEDGE EXPANSION   ✅  ← Completed (Fundamentals, Linux/Bash deep dive, ATT&CK sub-techniques, decision trees)
     ↓
-AUTOMATION & TOOLING  🟡  ← Active (66+ production scripts cataloged & documented)
+AUTOMATION & TOOLING  ✅  ← Completed (71 production scripts cataloged, documented & Pester tested)
     ↓
-API INTEGRATION       🟡  ← Active (docs/apis/ operational across Graph, Defender, S1, Splunk)
+API INTEGRATION       ✅  ← Completed (docs/apis/ operational across Graph, Defender, S1, Splunk, Webhooks)
     ↓
-OPERATIONAL PLAYBOOKS 🟡  ← Active (10 incident response playbooks & 10 investigation workflows)
+OPERATIONAL PLAYBOOKS ✅  ← Completed (10 IR playbooks, 10 investigation workflows, automated containment)
     ↓
-LOCAL AI              ⚪  ← Future (Local Ollama / RAG assistant)
+LOCAL AI & SEARCH     🟡  ← Active (Local AI indexer tools/ai_indexer.py, offline lookup.py, RAG grounding)
     ↓
-SECURITY TOOLKIT      ⚪  ← Future (Interactive command wall & query builders)
+SECURITY TOOLKIT      ⚪  ← Future (Interactive command speed dial & query builders)
 ```
 
 </div>
@@ -60,23 +60,23 @@ SECURITY TOOLKIT      ⚪  ← Future (Interactive command wall & query builders
 
 </div>
 
-<div class="cc-phase cc-active" markdown>
+<div class="cc-phase" markdown>
 
 ## Phase 2 — Knowledge Expansion
 
-**Status:** 🟡 In progress
+**Status:** ✅ Complete
 
 **Objective:** move from *"what command do I use?"* to *"what am I trying to accomplish, what telemetry do I need, what query should I run, and what do I do with the result?"*
 
 **Key capabilities**
 
-- [x] Comprehensive **Fundamentals** category (Networking, Identity/IAM, Systems/OS Internals, Cloud Infrastructure, AI & LLM Systems)
+- [x] Comprehensive **Fundamentals** category (Networking, Identity/IAM, Systems/OS Internals, Cloud Infrastructure, AI & LLM Systems, Web Apps/OWASP, GRC)
 - [x] Deepened Linux platform guides (Firewalls/nftables, Storage/LVM, SELinux/AppArmor, Auditd, Kernel Tuning)
 - [x] Deepened Bash language guides (Defensive Scripting, Error Handling & Traps, Raw Sockets, Modern CLI Ecosystem)
 - [x] Windows CLI rebranded to CMD with cmd-native syntax
 - [x] Expanded SPL, KQL, S1QL detection catalog (Brute force, SMB lateral movement, Agent tampering, MFA deletion)
-- [ ] Cross-platform troubleshooting decision trees
-- [ ] Deeper ATT&CK sub-technique relationships
+- [x] Cross-platform troubleshooting decision trees (High CPU, Disk/Inode Exhaustion, TLS Handshake)
+- [x] Deeper ATT&CK sub-technique relationships (Ransomware, Service Principal, MFA tampering, Kerberos)
 
 **Repository areas:** `docs/platforms/`, `docs/detection/`, `docs/tasks/`, `docs/references/`, `docs/fundamentals/`
 
@@ -86,18 +86,18 @@ SECURITY TOOLKIT      ⚪  ← Future (Interactive command wall & query builders
 
 ## Phase 3 — Automation & Tooling Integration
 
-**Status:** 🟡 In progress
+**Status:** ✅ Complete
 
 **Objective:** progressively import existing PowerShell, Bash and Python automation as documented, connected tools — not a dump of files.
 
 **Key capabilities**
 
-- [x] 66+ sanitized production scripts cataloged in `scripts/powershell/` and `docs/toolbox/`
+- [x] 71 sanitized production scripts cataloged in `scripts/powershell/`, `scripts/bash/`, `scripts/python/` and `docs/toolbox/`
 - [x] Standardized tool blueprints (purpose, requirements, inputs, outputs, usage, security considerations)
 - [x] Tool documentation pages for PowerShell, Bash, and Python toolboxes
-- [ ] Pester test suites for all Active Directory and Azure Graph automation
+- [x] Pester test suites for Active Directory and Azure Graph automation (`tests/powershell/`)
 
-**Repository areas:** `scripts/`, `docs/toolbox/`
+**Repository areas:** `scripts/`, `tests/`, `docs/toolbox/`
 
 </div>
 
@@ -105,7 +105,7 @@ SECURITY TOOLKIT      ⚪  ← Future (Interactive command wall & query builders
 
 ## Phase 4 — API & Platform Integration
 
-**Status:** 🟡 In progress
+**Status:** ✅ Complete
 
 **Objective:** practical, tested examples for security APIs, organised by the same Platform / Technology / Task model.
 
@@ -114,7 +114,7 @@ SECURITY TOOLKIT      ⚪  ← Future (Interactive command wall & query builders
 - [x] Dedicated `docs/apis/` section operational
 - [x] Microsoft Defender, Microsoft Graph, SentinelOne, Splunk, and Webhook APIs
 - [x] OAuth 2.0 bearer token lifecycle and client credential authentication patterns
-- [ ] End-to-end webhook integration recipes (Slack, Microsoft Teams, Jira)
+- [x] End-to-end webhook integration recipes (Slack, Microsoft Teams, Jira, ServiceNow)
 
 ```text
 Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Automation → Workflow
@@ -128,7 +128,7 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 ## Phase 5 — Operational Playbooks
 
-**Status:** 🟡 In progress
+**Status:** ✅ Complete
 
 **Objective:** end-to-end playbooks (alert → scope → contain → remediate → document) that link to entries rather than duplicating commands.
 
@@ -137,23 +137,28 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 - [x] 10 Incident Response Playbooks (Account Compromise, Ransomware Host Isolation, Azure Resource Hijacking, Service Principal Compromise, Phishing Email Triage, Malware Triage, SMB Lateral Movement, Suspicious Process/PowerShell)
 - [x] 10 Investigation & Forensics Workflows (Suspicious IP, Device Forensics, User Identity Triage, Registry Persistence, Scheduled Tasks, Outbound C2)
 - [x] Hypothesis-driven threat hunting workflows in Splunk and Defender
-- [ ] Automated containment runbooks bridging detection alerts to remediation scripts
+- [x] Automated containment runbooks bridging detection alerts to host isolation, token revocation, and IoC blocking
 
 **Repository areas:** `docs/tasks/`, `templates/workflow.md`
 
 </div>
 
-<div class="cc-phase" markdown>
+<div class="cc-phase cc-active" markdown>
 
 ## Phase 6 — Intelligent Search & Local AI
 
-**Status:** ⚪ Future
+**Status:** 🟡 In progress
 
-**Objective:** a locally hosted assistant (e.g. Ollama) grounded **only** in Command & Code content: natural-language search, command/query explanation, KQL ↔ SPL ↔ S1QL starting points, related-procedure discovery.
+**Objective:** a locally hosted assistant (e.g. Ollama or local AI daemon) grounded **only** in Command & Code content: natural-language search, command/query explanation, KQL ↔ SPL ↔ S1QL starting points, related-procedure discovery.
 
-The repository is already structured for this: consistent front matter, one topic per page, task-phrased headings and separate scripts make it straightforward to index.
+**Key capabilities**
 
-**Repository areas:** future `tools/index/`; no changes to content format required
+- [x] Offline CLI semantic lookup utility (`tools/lookup.py`)
+- [x] Structured RAG knowledge indexer (`tools/ai_indexer.py` producing `site/ai_knowledge_index.jsonl`)
+- [ ] Grounding connector for local Ollama / AI daemon embedding workflows
+- [ ] Natural language query translation into KQL / SPL / S1QL
+
+**Repository areas:** `tools/ai_indexer.py`, `tools/lookup.py`, `site/ai_knowledge_index.jsonl`
 
 </div>
 
