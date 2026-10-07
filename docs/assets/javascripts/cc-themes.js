@@ -775,10 +775,79 @@
     }
   }
 
+  // =========================================================================
+  // Quick Search Chips Engine
+  // Intercepts .cc-searches links and URL ?q= query parameters to trigger
+  // Material for MkDocs search modal with live results.
+  // =========================================================================
+  function executeSearch(query) {
+    if (!query) return;
+
+    var toggle = document.getElementById('__search');
+    if (toggle && !toggle.checked) {
+      toggle.click();
+    }
+
+    function dispatchSearchInput() {
+      var input = document.querySelector('.md-search__input') || document.querySelector('[data-md-component="search-query"]');
+      if (input) {
+        input.focus();
+        input.value = query;
+        input.dispatchEvent(new Event('focus', { bubbles: true }));
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new KeyboardEvent('keyup', { bubbles: true, key: 'Enter' }));
+      }
+    }
+
+    dispatchSearchInput();
+    setTimeout(dispatchSearchInput, 50);
+    setTimeout(dispatchSearchInput, 150);
+    setTimeout(dispatchSearchInput, 300);
+    setTimeout(dispatchSearchInput, 600);
+  }
+
+  function handleUrlSearchQuery() {
+    var match = window.location.search.match(/[?&]q=([^&#]+)/);
+    if (match) {
+      var q = decodeURIComponent(match[1].replace(/\+/g, ' '));
+      setTimeout(function () {
+        executeSearch(q);
+      }, 150);
+    }
+  }
+
+  // Global delegated click listener for quick-search chips
+  document.addEventListener('click', function (e) {
+    var link = e.target && e.target.closest ? e.target.closest('.cc-searches a, a[href*="?q="]') : null;
+    if (!link) return;
+
+    var href = link.getAttribute('href') || '';
+    var match = href.match(/[?&]q=([^&#]+)/);
+    var q = '';
+    if (match) {
+      q = decodeURIComponent(match[1].replace(/\+/g, ' '));
+    } else {
+      q = link.textContent.trim();
+    }
+
+    if (q) {
+      e.preventDefault();
+      executeSearch(q);
+      if (window.history && window.history.replaceState) {
+        var base = window.location.pathname.replace(/\/$/, '') + '/';
+        window.history.replaceState(null, '', base + '?q=' + encodeURIComponent(q));
+      }
+    }
+  });
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mountSwitcher);
+    document.addEventListener('DOMContentLoaded', function () {
+      mountSwitcher();
+      handleUrlSearchQuery();
+    });
   } else {
     mountSwitcher();
+    handleUrlSearchQuery();
   }
 
   // Handle Material for MkDocs instant navigation (pjax / instant loading)
@@ -786,6 +855,7 @@
     app.document$.subscribe(function () {
       mountSwitcher();
       checkAndInitActiveThemeEffects();
+      handleUrlSearchQuery();
     });
   } else if (typeof window !== 'undefined' && 'MutationObserver' in window) {
     var observer = new MutationObserver(function () {
