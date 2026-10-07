@@ -65,7 +65,9 @@ Every node provides:
 | [Entra ID](../platforms/microsoft-365/entra.md) | Entry | Microsoft 365, Entra ID | PowerShell | Incident Response, Investigation, Administration |
 | [Exchange Online](../platforms/microsoft-365/exchange.md) | Entry | Microsoft 365, Exchange Online | PowerShell | Incident Response, Investigation, Administration |
 | [Fundamentals — Agentic AI Architectures & Tool Execution](agentic-ai.md) | Entry | Linux | Python | Automation, Hardening |
+| [Fundamentals — API Security & Error Handling](apis/security-error-handling.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |
 | [Fundamentals — AppLocker & Application Control Baselines](systems/applocker.md) | Entry | Windows, Windows Server | PowerShell | Hardening, Administration |
+| [Fundamentals — Authentication & Token Lifecycles](apis/auth-tokens.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |
 | [Fundamentals — Azure Policy & Governance Baselines](cloud/azure-policy.md) | Entry | Azure | PowerShell | Assurance, Hardening |
 | [Fundamentals — Azure Virtual Network (VNet) Security](cloud/azure-vnet-security.md) | Entry | Azure | PowerShell | Hardening, Administration |
 | [Fundamentals — DHCP Protocol Mechanics & IP Allocation](networking/dhcp.md) | Entry | Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
@@ -78,7 +80,10 @@ Every node provides:
 | [Fundamentals — Microsoft Entra ID Architecture & Hybrid Identity](cloud/entra-id-fundamentals.md) | Entry | Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
 | [Fundamentals — OAuth 2.0 Authorization & OIDC Mechanics](identity/oauth2.md) | Entry | Entra ID, Microsoft 365 | PowerShell | Automation, Investigation |
 | [Fundamentals — OWASP Top 10 for Large Language Models](owasp-llm-top-10.md) | Entry | Linux | Python | Hardening, Assurance |
+| [Fundamentals — Pagination & High-Volume Ingestion](apis/pagination.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Investigation |
 | [Fundamentals — Public Key Infrastructure (PKI), CAs & Revocation](identity/pki.md) | Entry | Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
+| [Fundamentals — Rate Limiting & Exponential Backoff](apis/rate-limiting-backoff.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
+| [Fundamentals — REST Architecture & HTTP Semantics](apis/rest-architecture.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
 | [Fundamentals — Retrieval-Augmented Generation (RAG) Architecture](rag-architecture.md) | Entry | Linux | Python | Automation, Investigation |
 | [Fundamentals — Self-Hosted & Air-Gapped AI Model Runtimes](ai-systems/self-hosted-models.md) | Entry | Linux | Bash, Python | Hardening, Automation |
 | [Fundamentals — SMB Protocol & Network Share Security](smb.md) | Entry | Windows, Windows Server, Linux | PowerShell | Investigation, Hardening |
@@ -90,6 +95,7 @@ Every node provides:
 | [Fundamentals — Vector Databases & Approximate Nearest Neighbors (ANN)](ai-systems/vector-databases.md) | Entry | Linux | Python | Automation, Investigation |
 | [Fundamentals — Virtual Memory, Paging, Stack & Heap](systems/memory-internals.md) | Entry | Windows, Linux | PowerShell, Bash | Forensics, Investigation |
 | [Fundamentals — VPN Protocols (IPsec vs SSL/TLS)](networking/vpn.md) | Entry | Windows, Linux | PowerShell, Bash | Troubleshooting, Hardening |
+| [Fundamentals — Webhooks & Event-Driven Architecture](apis/webhooks-events.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Incident Response |
 | [Fundamentals — Windows Process Architecture, Tokens & Handles](systems/windows-processes.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Investigation, Forensics |
 | [Fundamentals — Zero Trust Network Microsegmentation](networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
 | [Hyper-V](../platforms/virtualization/hyper-v.md) | Entry | Hyper-V, Windows Server | PowerShell | Administration, Incident Response, Forensics |

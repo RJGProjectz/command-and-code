@@ -23,6 +23,12 @@ Every entry includes:
 <!-- cc:index languages="REST API" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Fundamentals — API Security & Error Handling](../fundamentals/apis/security-error-handling.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |
+| [Fundamentals — Authentication & Token Lifecycles](../fundamentals/apis/auth-tokens.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |
+| [Fundamentals — Pagination & High-Volume Ingestion](../fundamentals/apis/pagination.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Investigation |
+| [Fundamentals — Rate Limiting & Exponential Backoff](../fundamentals/apis/rate-limiting-backoff.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
+| [Fundamentals — REST Architecture & HTTP Semantics](../fundamentals/apis/rest-architecture.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
+| [Fundamentals — Webhooks & Event-Driven Architecture](../fundamentals/apis/webhooks-events.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Incident Response |
 | [Incoming Webhooks for Slack & Microsoft Teams](webhooks/slack-teams-webhooks.md) | Entry | Microsoft 365 | PowerShell, Bash, REST API | Automation, Incident Response |
 | [Microsoft Defender API — Get Alerts](microsoft-defender/get-alerts.md) | Entry | Microsoft Defender, Microsoft 365 | PowerShell, REST API | Incident Response, Automation |
 | [Microsoft Defender API — Trigger Antivirus Scan](microsoft-defender/antivirus-scan.md) | Entry | Microsoft Defender, Windows | PowerShell, REST API | Incident Response, Automation |

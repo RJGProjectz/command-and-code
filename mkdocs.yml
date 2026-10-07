@@ -228,6 +228,14 @@ nav:
           - Agentic AI & Tool Execution: fundamentals/agentic-ai.md
           - Self-Hosted Models & Local Inference: fundamentals/ai-systems/self-hosted-models.md
           - OWASP Top 10 for LLMs: fundamentals/owasp-llm-top-10.md
+      - API & Integration Engineering:
+          - REST Architecture & HTTP Semantics: fundamentals/apis/rest-architecture.md
+          - Authentication & Token Lifecycles: fundamentals/apis/auth-tokens.md
+          - Rate Limiting & Backoff: fundamentals/apis/rate-limiting-backoff.md
+          - Pagination & High-Volume Ingestion: fundamentals/apis/pagination.md
+          - Webhooks & Event-Driven Architecture: fundamentals/apis/webhooks-events.md
+          - API Security & Error Handling: fundamentals/apis/security-error-handling.md
+
   - Detection:
       - detection/index.md
       - KQL:
