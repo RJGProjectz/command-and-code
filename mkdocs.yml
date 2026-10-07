@@ -329,6 +329,16 @@ nav:
           - Temporary File Purging: tasks/administration/temp-file-cleanup.md
           - Finding Files & Content: tasks/administration/file-search-discovery.md
           - Remote File Transfer (SCP/rsync): tasks/administration/remote-file-transfer.md
+          - Local User & Group Management: tasks/administration/local-user-group-management.md
+          - Network Adapter & IP Configuration: tasks/administration/network-adapter-ip-configuration.md
+          - Host Firewall & Port Management: tasks/administration/firewall-port-management.md
+          - Storage Partitioning & Mounting: tasks/administration/storage-partitioning-mounting.md
+          - Scheduled Jobs & Task Scheduler: tasks/administration/scheduled-jobs-task-scheduler.md
+          - Package & Software Lifecycle: tasks/administration/package-software-management.md
+          - DNS Resolution Troubleshooting: tasks/administration/dns-resolution-troubleshooting.md
+          - Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
+          - Performance & Resource Auditing: tasks/administration/performance-resource-auditing.md
+          - Azure Cloud Resource Management: tasks/administration/cloud-azure-resource-management.md
       - Detection Engineering: tasks/detection-engineering/index.md
       - Hardening:
           - tasks/hardening/index.md
