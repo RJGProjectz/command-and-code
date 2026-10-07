@@ -51,11 +51,11 @@ param(
 Write-Host "--- Entra/MDE TI Indicator Block ---" -ForegroundColor Cyan
 
 if ($TargetEnvironment -eq "Test") {
-    Write-Host "[TEST] Would block $IndicatorType: $Value" -ForegroundColor Yellow
+    Write-Host "[TEST] Would block ${IndicatorType}: $Value" -ForegroundColor Yellow
     return
 }
 
-if ($PSCmdlet.ShouldProcess("$IndicatorType: $Value", "Add to Global Blocklist")) {
+if ($PSCmdlet.ShouldProcess("${IndicatorType}: $Value", "Add to Global Blocklist")) {
     try {
         # Placeholder for MG Graph Call
         # $Body = @{ "targetProduct" = "Microsoft Defender for Endpoint"; "action" = "block"; ... }

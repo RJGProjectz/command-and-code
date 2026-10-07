@@ -23,7 +23,6 @@ param (
 
     [Parameter(Mandatory=$true)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment = "Test"
     [string]$TargetEnvironment = "Test",
 
     [string]$LogPath = "$PSScriptRoot\..\..\Logs"

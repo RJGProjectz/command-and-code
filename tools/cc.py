@@ -243,7 +243,7 @@ def check_code() -> list[str]:
     def add_bash(label: str, code: str) -> None:
         code_bytes = code.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
         result = subprocess.run(["bash", "-n"], input=code_bytes, capture_output=True)
-        if result.returncode:
+        if result.returncode and result.stderr.strip():
             problems.append(f"{label}: bash: {result.stderr.decode('utf-8', errors='replace').strip()}")
 
     for page in all_pages():
@@ -285,8 +285,10 @@ def check_code() -> list[str]:
     if ps_items and not pwsh:
         print(f"note: pwsh not found; skipped {len(ps_items)} PowerShell blocks")
     elif ps_items:
-        (ROOT / "scratch").mkdir(exist_ok=True)
-        with tempfile.TemporaryDirectory(dir=ROOT / "scratch") as tmp:
+        tmp_kwargs = {}
+        if sys.version_info >= (3, 12):
+            tmp_kwargs["ignore_cleanup_errors"] = True
+        with tempfile.TemporaryDirectory(**tmp_kwargs) as tmp:
             paths = []
             for n, (label, code) in enumerate(ps_items):
                 path = Path(tmp) / f"block{n}.ps1"

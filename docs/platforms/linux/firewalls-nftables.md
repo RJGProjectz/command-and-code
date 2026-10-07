@@ -27,9 +27,9 @@ Configuration of host-based firewalls in Linux using `nftables` (modern default)
 ```bash
 # Flush and apply a hardened default-drop configuration
 nft add table inet filter
-nft add chain inet filter input { type filter hook input priority 0 \\; policy drop \\; }
-nft add chain inet filter forward { type filter hook forward priority 0 \\; policy drop \\; }
-nft add chain inet filter output { type filter hook output priority 0 \\; policy accept \\; }
+nft "add chain inet filter input { type filter hook input priority 0; policy drop; }"
+nft "add chain inet filter forward { type filter hook forward priority 0; policy drop; }"
+nft "add chain inet filter output { type filter hook output priority 0; policy accept; }"
 
 # Allow established connections and loopback
 nft add rule inet filter input ct state established,related accept

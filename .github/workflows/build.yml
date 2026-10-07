@@ -29,5 +29,8 @@ jobs:
       - name: Validate front matter and browse tables
         run: python tools/cc.py check
 
+      - name: Check code block and script syntax
+        run: python tools/cc.py code
+
       - name: Strict MkDocs build
         run: mkdocs build --strict

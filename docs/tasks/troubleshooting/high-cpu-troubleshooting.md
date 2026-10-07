@@ -78,20 +78,24 @@ vmstat 1 5
 ### Windows
 - **Set Process Priority**:
   ```powershell
-  (Get-Process -Id <PID>).PriorityClass = [System.Diagnostics.ProcessPriorityClass]::BelowNormal
+  $targetPid = 1234
+  (Get-Process -Id $targetPid).PriorityClass = [System.Diagnostics.ProcessPriorityClass]::BelowNormal
   ```
 - **Set Processor Affinity** (limit to specific CPU cores):
   ```powershell
   # Restrict process to CPU Core 0 and Core 1 (Affinity mask 0x3)
-  (Get-Process -Id <PID>).ProcessorAffinity = 0x3
+  $targetPid = 1234
+  (Get-Process -Id $targetPid).ProcessorAffinity = 0x3
   ```
 
 ### Linux
 - **Dynamically Lower Process Priority**:
   ```bash
-  renice -n 19 -p <PID>
+  TARGET_PID=1234
+  renice -n 19 -p "${TARGET_PID}"
   ```
 - **Hard Limit CPU Quota via systemd transient scope**:
   ```bash
-  systemd-run --scope -p CPUQuota=30% -p MemoryMax=2G kill -STOP <PID> && kill -CONT <PID>
+  TARGET_PID=1234
+  systemd-run --scope -p CPUQuota=30% -p MemoryMax=2G kill -STOP "${TARGET_PID}" && kill -CONT "${TARGET_PID}"
   ```

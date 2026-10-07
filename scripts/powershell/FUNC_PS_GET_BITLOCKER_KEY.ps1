@@ -71,7 +71,7 @@ Process {
             $BLObjects = Get-ADObject -Filter 'objectClass -eq "msFVE-RecoveryInformation"' -SearchBase $Computer.DistinguishedName -Properties msFVE-RecoveryPassword
 
             if ($BLObjects) {
-                foreach ($ obj in $BLObjects) {
+                foreach ($obj in $BLObjects) {
                     Write-Host "Recovery Password ID: $($obj.Name)" -ForegroundColor Green
                     Write-Host "Password: $($obj.'msFVE-RecoveryPassword')" -ForegroundColor Yellow
                     Write-Log "Retrieved key for $($obj.Name)"
