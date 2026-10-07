@@ -27,11 +27,11 @@ Start from the tool you want to use.
 
     API automation, data handling and cross-platform tooling.
 
--   :material-console:{ .lg } **[Windows CLI](windows-cli/index.md)**
+-   :material-console:{ .lg } **[CMD / Windows CLI](windows-cli/index.md)**
 
     ---
 
-    `netstat`, `sc.exe`, `schtasks`, `reg`, `wevtutil`, `auditpol` and other native tools.
+    Native Command Prompt syntax, batch scripting standards, text parsing with `findstr`, and the System32 diagnostic toolkit.
 
 -   :material-magnify-scan:{ .lg } **[KQL](../detection/kql/index.md)**
 

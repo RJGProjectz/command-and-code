@@ -72,11 +72,11 @@ Start from what you are trying to accomplish. **Workflows** are ordered field pr
 | --- | --- | --- | --- | --- |
 | [Account Compromise Investigation](incident-response/account-compromise.md) | Workflow | Entra ID, Exchange Online, Microsoft 365, Windows | PowerShell, KQL | Incident Response, Investigation |
 | [Active Directory Domain Services Administration](administration/active-directory-domain-management.md) | Workflow | Windows Server, Active Directory | PowerShell, CMD | Administration |
-| [Administration — BitLocker Key Retrieval & Status Audit](administration/bitlocker-recovery.md) | Workflow | Windows, Active Directory | PowerShell | Administration, Troubleshooting |
-| [Administration — Disk Space Capacity Audit & Reporting](administration/disk-space-audit.md) | Workflow | Windows Server, Windows | PowerShell | Administration, Troubleshooting |
-| [Administration — Group Policy Force Refresh & Diagnostic Audit](administration/group-policy-update.md) | Workflow | Windows, Active Directory | PowerShell | Administration, Troubleshooting |
-| [Administration — Remote Service Restart & Dependency Validation](administration/remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell | Administration, Troubleshooting |
-| [Administration — Safe Temporary File Purging](administration/temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell | Administration, Troubleshooting |
+| [Administration — BitLocker Key Retrieval & Status Audit](administration/bitlocker-recovery.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Disk Space Capacity Audit & Reporting](administration/disk-space-audit.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Group Policy Force Refresh & Diagnostic Audit](administration/group-policy-update.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Remote Service Restart & Dependency Validation](administration/remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Safe Temporary File Purging](administration/temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Azure Cloud Infrastructure and Resource Administration](administration/cloud-azure-resource-management.md) | Workflow | Azure, Entra ID | PowerShell, Bash | Administration |
 | [Backup and Recovery Operations](administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
 | [Certificate and PKI Management](administration/certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
@@ -100,18 +100,18 @@ Start from what you are trying to accomplish. **Workflows** are ordered field pr
 | [Malware Triage](incident-response/malware-triage.md) | Workflow | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Forensics |
 | [Network Adapter and IP Configuration](administration/network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Investigation](investigation/network-investigation.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
-| [Network Services Management](administration/network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Troubleshooting |
-| [Package and Software Lifecycle Management](administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash | Administration |
+| [Network Services Management](administration/network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
+| [Package and Software Lifecycle Management](administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
 | [Possible Lateral Movement](threat-hunting/lateral-movement.md) | Workflow | Windows, Windows Server, Microsoft Defender, Splunk | PowerShell, KQL, SPL | Threat Hunting, Incident Response, Investigation |
 | [Registry Persistence Investigation](investigation/registry-persistence.md) | Workflow | Windows, Microsoft Defender, SentinelOne | PowerShell, Windows CLI, KQL, S1QL | Investigation, Incident Response, Threat Hunting |
 | [Scheduled Task and Cron Job Automation](administration/scheduled-jobs-task-scheduler.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
 | [Scheduled Task Investigation](investigation/scheduled-task-investigation.md) | Workflow | Windows, Microsoft Defender, Splunk, SentinelOne | PowerShell, Windows CLI, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
-| [Storage Partitioning, Formatting and Filesystem Mounting](administration/storage-partitioning-mounting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration |
+| [Storage Partitioning, Formatting and Filesystem Mounting](administration/storage-partitioning-mounting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Suspicious Outbound Connection](investigation/suspicious-outbound-connection.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Threat Hunting |
 | [Suspicious PowerShell Investigation](incident-response/suspicious-powershell.md) | Workflow | Windows, Microsoft Defender, Splunk, SentinelOne | PowerShell, KQL, SPL, S1QL | Incident Response, Investigation |
 | [Suspicious Process Investigation](incident-response/suspicious-process.md) | Workflow | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Investigation |
 | [Suspicious Service Investigation](investigation/suspicious-service.md) | Workflow | Windows, Windows Server, Microsoft Defender, Splunk | PowerShell, Windows CLI, KQL, SPL | Investigation, Incident Response |
-| [System Maintenance and Updates](administration/system-maintenance-updates.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Automation |
+| [System Maintenance and Updates](administration/system-maintenance-updates.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
 | [Threat Hunting — Hypothesis-Driven SIEM Hunting in Splunk](threat-hunting/splunk-threat-hunting.md) | Workflow | Splunk, Windows, Linux | SPL | Threat Hunting, Detection Engineering |
 | [Troubleshooting — Emergency Disk Space Exhaustion & Inode Recovery](troubleshooting/disk-space-emergency.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Troubleshooting — High CPU Utilization & Runaway Processes](troubleshooting/high-cpu-troubleshooting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |

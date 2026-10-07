@@ -6,6 +6,7 @@ platforms:
   - Windows Server
 languages:
   - PowerShell
+  - CMD
 tasks:
   - Hardening
   - Assurance
@@ -137,3 +138,64 @@ Get-MpPreference | Select-Object -ExpandProperty AttackSurfaceReductionRules_Ids
 # Check command line inclusion in 4688 events
 (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit").ProcessCreationIncludeCmdLine_Enabled
 ```
+
+---
+
+## 5. Windows CMD Baseline Operations
+
+Native Command Prompt commands for applying and validating security baselines without PowerShell:
+
+### Account Policies & Lockouts (`net accounts`)
+
+```bat
+:: Enforce lockout after 5 invalid attempts with 30-minute lockout duration
+net accounts /lockoutthreshold:5 /lockoutduration:30 /lockoutwindow:30
+
+:: Verify active account policies
+net accounts
+```
+
+### Registry Hardening via CMD (`reg.exe`)
+
+```bat
+:: Enable LSA Protection (RunAsPPL) [CIS 18.3 / NIST PR.PS-01]
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v RunAsPPL /t REG_DWORD /d 1 /f
+
+:: Disable LLMNR multicast name resolution across adapters [CIS 18.9 / NIST PR.DS-01]
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient" /v EnableMulticast /t REG_DWORD /d 0 /f
+
+:: Include full process command-line in Event ID 4688 logs [CIS 17.5 / NIST DE.CM-01]
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit" /v ProcessCreationIncludeCmdLine_Enabled /t REG_DWORD /d 1 /f
+
+:: Prevent anonymous SID/Name enumeration
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v RestrictAnonymous /t REG_DWORD /d 1 /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Lsa" /v RestrictAnonymousSAM /t REG_DWORD /d 1 /f
+```
+
+### Advanced Audit Policy Enforcement (`auditpol.exe`)
+
+```bat
+:: Audit successful and failed logons (4624, 4625)
+auditpol /set /subcategory:"Logon" /success:enable /failure:enable
+
+:: Audit process creation events (4688)
+auditpol /set /subcategory:"Process Creation" /success:enable
+
+:: Audit user rights assignment and privilege use
+auditpol /set /subcategory:"Sensitive Privilege Use" /success:enable /failure:enable
+
+:: Query current audit configuration
+auditpol /get /category:*
+```
+
+### Host Firewall Enforcement (`netsh.exe`)
+
+```bat
+:: Enforce default-deny inbound posture across all firewall profiles
+netsh advfirewall set allprofiles firewallpolicy blockinbound,allowoutbound
+
+:: Enable firewall logging for dropped connections
+netsh advfirewall set allprofiles logging droppedconnections enable
+netsh advfirewall set allprofiles logging filename "%SystemRoot%\system32\logfiles\firewall\pfirewall.log"
+```
+

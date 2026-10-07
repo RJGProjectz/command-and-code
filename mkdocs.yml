@@ -22,9 +22,9 @@ theme:
     primary: custom
     accent: custom
   features:
+    - navigation.instant
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.indexes
     - navigation.top
     - navigation.footer
     - navigation.tracking
@@ -94,7 +94,7 @@ nav:
   - Platforms:
       - platforms/index.md
       - Windows:
-          - platforms/windows/index.md
+          - Overview: platforms/windows/index.md
           - System Information: platforms/windows/system-information.md
           - Windows 10/11: platforms/windows/windows-10-11.md
           - Windows Server: platforms/windows/windows-server.md
@@ -116,7 +116,7 @@ nav:
           - Kernel & TCP/IP Tuning: platforms/windows/kernel-tuning.md
           - Troubleshooting: platforms/windows/troubleshooting.md
       - Linux:
-          - platforms/linux/index.md
+          - Overview: platforms/linux/index.md
           - System Information: platforms/linux/system-information.md
           - Distributions & Releases: platforms/linux/distros.md
           - Processes: platforms/linux/processes.md
@@ -137,28 +137,28 @@ nav:
           - Kernel Tuning (sysctl): platforms/linux/kernel-tuning.md
           - Troubleshooting: platforms/linux/troubleshooting.md
       - Microsoft 365:
-          - platforms/microsoft-365/index.md
+          - Overview: platforms/microsoft-365/index.md
           - Defender XDR: platforms/microsoft-365/defender.md
           - Entra ID: platforms/microsoft-365/entra.md
           - Conditional Access: platforms/microsoft-365/conditional-access.md
           - Intune: platforms/microsoft-365/intune.md
           - Exchange Online: platforms/microsoft-365/exchange.md
       - Virtualization:
-          - platforms/virtualization/index.md
+          - Overview: platforms/virtualization/index.md
           - Hyper-V: platforms/virtualization/hyper-v.md
           - VMware: platforms/virtualization/vmware.md
           - Proxmox: platforms/virtualization/proxmox.md
   - Languages:
       - languages/index.md
       - PowerShell:
-          - languages/powershell/index.md
+          - Overview: languages/powershell/index.md
           - Fundamentals & Pitfalls: languages/powershell/fundamentals.md
           - JSON & CSV: languages/powershell/json-csv.md
           - REST APIs: languages/powershell/rest-apis.md
           - Error Handling: languages/powershell/error-handling.md
           - Automation & Remoting: languages/powershell/automation.md
       - Bash:
-          - languages/bash/index.md
+          - Overview: languages/bash/index.md
           - Defensive Scripting: languages/bash/defensive-scripting.md
           - Error Handling & Traps: languages/bash/error-handling-traps.md
           - Text Processing: languages/bash/text-processing.md
@@ -166,12 +166,18 @@ nav:
           - Modern CLI Tools Ecosystem: languages/bash/cli-tools-ecosystem.md
           - Scripting & Automation: languages/bash/automation.md
       - Python:
-          - languages/python/index.md
+          - Overview: languages/python/index.md
           - HTTP & APIs: languages/python/http-apis.md
           - JSON & CSV: languages/python/json-csv.md
           - Subprocess & Filesystem: languages/python/subprocess-filesystem.md
           - Logging & Automation: languages/python/logging-automation.md
-      - CMD: languages/windows-cli/index.md
+      - CMD:
+          - Overview: languages/windows-cli/index.md
+          - Fundamentals & Syntax: languages/windows-cli/fundamentals.md
+          - Batch Defensive Scripting: languages/windows-cli/batch-scripting.md
+          - Text Processing & findstr: languages/windows-cli/text-processing.md
+          - Error Handling & Exit Codes: languages/windows-cli/error-handling.md
+          - System32 Native Executables: languages/windows-cli/system32-toolkit.md
   - APIs:
       - apis/index.md
       - Microsoft Defender:
@@ -251,14 +257,14 @@ nav:
   - Detection:
       - detection/index.md
       - KQL:
-          - detection/kql/index.md
+          - Overview: detection/kql/index.md
           - Fundamentals: detection/kql/fundamentals.md
           - Process Events: detection/kql/process-events.md
           - Network Events: detection/kql/network-events.md
           - File & Registry Events: detection/kql/file-registry-events.md
           - Logons & Identity: detection/kql/logon-identity.md
       - SPL:
-          - detection/spl/index.md
+          - Overview: detection/spl/index.md
           - Fundamentals & Optimization: detection/spl/fundamentals.md
           - Windows Security Events: detection/spl/windows-events.md
           - PowerShell: detection/spl/powershell.md
@@ -271,17 +277,17 @@ nav:
           - Agent Tampering: detection/spl/agent-tampering.md
           - MFA Method Deletion: detection/spl/mfa-deletion.md
       - S1QL:
-          - detection/s1ql/index.md
+          - Overview: detection/s1ql/index.md
           - Fundamentals: detection/s1ql/fundamentals.md
           - Hunting Queries: detection/s1ql/hunting.md
       - Sigma:
-          - detection/sigma/index.md
+          - Overview: detection/sigma/index.md
           - Rule Examples: detection/sigma/examples.md
       - MITRE ATT&CK: detection/mitre-attack/index.md
   - Tasks:
       - tasks/index.md
       - Incident Response:
-          - tasks/incident-response/index.md
+          - Overview: tasks/incident-response/index.md
           - Endpoint Triage: tasks/incident-response/endpoint-triage.md
           - Suspicious PowerShell: tasks/incident-response/suspicious-powershell.md
           - Suspicious Process: tasks/incident-response/suspicious-process.md
@@ -294,7 +300,7 @@ nav:
           - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
           - Automated Containment: tasks/incident-response/automated-containment.md
       - Investigation:
-          - tasks/investigation/index.md
+          - Overview: tasks/investigation/index.md
           - Suspicious Service: tasks/investigation/suspicious-service.md
           - Scheduled Task Investigation: tasks/investigation/scheduled-task-investigation.md
           - Registry Persistence: tasks/investigation/registry-persistence.md
@@ -305,18 +311,18 @@ nav:
           - Compromised Host Forensics (Splunk): tasks/investigation/investigate-device-splunk.md
           - User Identity Triage (Splunk): tasks/investigation/investigate-user-splunk.md
       - Threat Hunting:
-          - tasks/threat-hunting/index.md
+          - Overview: tasks/threat-hunting/index.md
           - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
           - Hypothesis-Driven Hunting (Splunk): tasks/threat-hunting/splunk-threat-hunting.md
       - Troubleshooting:
-          - tasks/troubleshooting/index.md
+          - Overview: tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
           - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
           - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
           - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
           - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
       - Administration:
-          - tasks/administration/index.md
+          - Overview: tasks/administration/index.md
           - User Lifecycle Management: tasks/administration/user-lifecycle-management.md
           - System Maintenance & Updates: tasks/administration/system-maintenance-updates.md
           - Network Services Management: tasks/administration/network-services-management.md
@@ -341,14 +347,14 @@ nav:
           - Azure Cloud Resource Management: tasks/administration/cloud-azure-resource-management.md
       - Detection Engineering: tasks/detection-engineering/index.md
       - Hardening:
-          - tasks/hardening/index.md
+          - Overview: tasks/hardening/index.md
           - Windows Security Baseline (CIS/NIST): tasks/hardening/windows-security-baseline.md
           - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
           - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
       - Forensics: tasks/forensics/index.md
       - Automation: tasks/automation/index.md
       - Assurance:
-          - tasks/assurance/index.md
+          - Overview: tasks/assurance/index.md
           - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
           - Active Directory STIG: tasks/assurance/ad-stig-compliance.md
           - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md

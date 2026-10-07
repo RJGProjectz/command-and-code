@@ -71,7 +71,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Windows Firewall](../../platforms/windows/firewall.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Administration, Hardening, Incident Response, Troubleshooting |
 | [Windows Kernel & Network Stack Tuning](../../platforms/windows/kernel-tuning.md) | Entry | Windows, Windows Server | PowerShell, CMD | Administration, Hardening |
 | [Windows Remote Access (WinRM & OpenSSH)](../../platforms/windows/winrm-openssh.md) | Entry | Windows, Windows Server | PowerShell | Administration, Hardening |
-| [Windows Security Baseline — CIS Benchmark & NIST CSF 2.0](windows-security-baseline.md) | Entry | Windows, Windows Server | PowerShell | Hardening, Assurance, Administration |
+| [Windows Security Baseline — CIS Benchmark & NIST CSF 2.0](windows-security-baseline.md) | Entry | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Services](../../platforms/windows/services.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Windows Users and Groups](../../platforms/windows/users-groups.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Knowledge Graph Efficacy & Operational Coverage Matrix](../../references/coverage-matrix.md) | Reference | Windows, Windows Server, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | PowerShell, Bash, Python, KQL, SPL, S1QL, REST API | Administration, Incident Response, Threat Hunting, Detection Engineering, Hardening, Assurance, Governance |

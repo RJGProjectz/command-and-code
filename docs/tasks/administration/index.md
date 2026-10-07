@@ -23,11 +23,11 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Active Directory Domain Services Administration](active-directory-domain-management.md) | Workflow | Windows Server, Active Directory | PowerShell, CMD | Administration |
-| [Administration — BitLocker Key Retrieval & Status Audit](bitlocker-recovery.md) | Workflow | Windows, Active Directory | PowerShell | Administration, Troubleshooting |
-| [Administration — Disk Space Capacity Audit & Reporting](disk-space-audit.md) | Workflow | Windows Server, Windows | PowerShell | Administration, Troubleshooting |
-| [Administration — Group Policy Force Refresh & Diagnostic Audit](group-policy-update.md) | Workflow | Windows, Active Directory | PowerShell | Administration, Troubleshooting |
-| [Administration — Remote Service Restart & Dependency Validation](remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell | Administration, Troubleshooting |
-| [Administration — Safe Temporary File Purging](temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell | Administration, Troubleshooting |
+| [Administration — BitLocker Key Retrieval & Status Audit](bitlocker-recovery.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Disk Space Capacity Audit & Reporting](disk-space-audit.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Group Policy Force Refresh & Diagnostic Audit](group-policy-update.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Remote Service Restart & Dependency Validation](remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Safe Temporary File Purging](temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Azure Cloud Infrastructure and Resource Administration](cloud-azure-resource-management.md) | Workflow | Azure, Entra ID | PowerShell, Bash | Administration |
 | [Backup and Recovery Operations](backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
 | [Certificate and PKI Management](certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
@@ -37,16 +37,19 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Linux Service Failure Troubleshooting](../troubleshooting/linux-service-failure.md) | Workflow | Linux | Bash | Troubleshooting, Administration |
 | [Local User and Group Administration](local-user-group-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Adapter and IP Configuration](network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
-| [Network Services Management](network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Troubleshooting |
-| [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash | Administration |
+| [Network Services Management](network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
+| [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
 | [Scheduled Task and Cron Job Automation](scheduled-jobs-task-scheduler.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
-| [Storage Partitioning, Formatting and Filesystem Mounting](storage-partitioning-mounting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration |
-| [System Maintenance and Updates](system-maintenance-updates.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Automation |
+| [Storage Partitioning, Formatting and Filesystem Mounting](storage-partitioning-mounting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
+| [System Maintenance and Updates](system-maintenance-updates.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
 | [Troubleshooting — Emergency Disk Space Exhaustion & Inode Recovery](../troubleshooting/disk-space-emergency.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Troubleshooting — High CPU Utilization & Runaway Processes](../troubleshooting/high-cpu-troubleshooting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [User Lifecycle Management](user-lifecycle-management.md) | Workflow | Windows, Windows Server, Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
 | [Assurance Check — Azure External Guest Access & Permissions](../assurance/azure-guest-access-audit.md) | Entry | Entra ID, Azure, Microsoft 365 | PowerShell | Assurance, Hardening, Administration |
 | [Bash Scripting and Automation](../../languages/bash/automation.md) | Entry | Linux | Bash | Automation, Administration, Incident Response |
+| [Batch Defensive Scripting & Automation](../../languages/windows-cli/batch-scripting.md) | Entry | Windows, Windows Server | CMD, Windows CLI | Automation, Administration |
+| [CMD Error Handling & Exit Codes](../../languages/windows-cli/error-handling.md) | Entry | Windows, Windows Server | CMD, Windows CLI | Automation, Troubleshooting, Administration |
+| [CMD Fundamentals & Syntax](../../languages/windows-cli/fundamentals.md) | Entry | Windows, Windows Server | CMD, Windows CLI | Administration, Automation |
 | [Conditional Access](../../platforms/microsoft-365/conditional-access.md) | Entry | Microsoft 365, Entra ID | PowerShell, KQL | Administration, Hardening, Investigation, Troubleshooting |
 | [Entra ID](../../platforms/microsoft-365/entra.md) | Entry | Microsoft 365, Entra ID | PowerShell | Incident Response, Investigation, Administration |
 | [Exchange Online](../../platforms/microsoft-365/exchange.md) | Entry | Microsoft 365, Exchange Online | PowerShell | Incident Response, Investigation, Administration |
@@ -92,8 +95,10 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [PowerShell Automation and Remoting](../../languages/powershell/automation.md) | Entry | Windows, Windows Server | PowerShell | Automation, Incident Response, Administration |
 | [PowerShell Fundamentals and Pitfalls](../../languages/powershell/fundamentals.md) | Entry | Windows, Windows Server | PowerShell | Automation, Administration |
 | [Proxmox VE](../../platforms/virtualization/proxmox.md) | Entry | Proxmox, Linux | Bash | Administration, Incident Response, Forensics |
-| [Remote File Transfer — SCP, SFTP, rsync & WinRM](remote-file-transfer.md) | Entry | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Automation, Incident Response |
+| [Remote File Transfer — SCP, SFTP, rsync & WinRM](remote-file-transfer.md) | Entry | Linux, Windows, Windows Server | Bash, PowerShell, CMD | Administration, Automation, Incident Response |
 | [Splunk REST API — Search Jobs Management](../../apis/splunk/management-jobs.md) | Entry | Splunk | PowerShell, Bash, REST API | Administration, Automation, Troubleshooting |
+| [System32 Native Executables Field Guide](../../languages/windows-cli/system32-toolkit.md) | Entry | Windows, Windows Server | CMD, Windows CLI | Administration, Investigation, Troubleshooting, Incident Response |
+| [Text Processing & findstr](../../languages/windows-cli/text-processing.md) | Entry | Windows, Windows Server | CMD, Windows CLI | Investigation, Automation, Administration |
 | [VMware vSphere and ESXi](../../platforms/virtualization/vmware.md) | Entry | VMware | PowerShell, Bash | Administration, Incident Response, Forensics |
 | [Windows 10 and 11 Version Notes](../../platforms/windows/windows-10-11.md) | Entry | Windows | PowerShell | Administration, Troubleshooting |
 | [Windows Advanced Audit Policy & SACLs](../../platforms/windows/audit-policy.md) | Entry | Windows, Windows Server | PowerShell, CMD | Hardening, Administration |
@@ -104,7 +109,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Windows Networking and DNS](../../platforms/windows/networking.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Troubleshooting, Administration |
 | [Windows Remote Access (WinRM & OpenSSH)](../../platforms/windows/winrm-openssh.md) | Entry | Windows, Windows Server | PowerShell | Administration, Hardening |
 | [Windows Scheduled Tasks](../../platforms/windows/scheduled-tasks.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Threat Hunting, Administration |
-| [Windows Security Baseline — CIS Benchmark & NIST CSF 2.0](../hardening/windows-security-baseline.md) | Entry | Windows, Windows Server | PowerShell | Hardening, Assurance, Administration |
+| [Windows Security Baseline — CIS Benchmark & NIST CSF 2.0](../hardening/windows-security-baseline.md) | Entry | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Server Notes](../../platforms/windows/windows-server.md) | Entry | Windows Server | PowerShell, Windows CLI | Administration, Incident Response, Troubleshooting |
 | [Windows Services](../../platforms/windows/services.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Windows Storage & Disk Management](../../platforms/windows/storage-disks.md) | Entry | Windows, Windows Server | PowerShell, CMD | Administration, Troubleshooting |

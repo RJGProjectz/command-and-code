@@ -2,7 +2,7 @@
 title: Network Services Management
 type: workflow
 platforms: [Windows, Windows Server, Linux]
-languages: [PowerShell, Bash]
+languages: [PowerShell, CMD, Bash]
 tasks: [Administration, Troubleshooting]
 category: Network
 tags: [dns, dhcp, firewall, ports, bind, iptables, ufw, static ip, network configuration]
@@ -58,6 +58,22 @@ Add-DnsServerResourceRecordA -ZoneName '<INTERNAL_DOMAIN>' `
 Add-DnsServerResourceRecordCName -ZoneName '<INTERNAL_DOMAIN>' `
                                  -Name 'portal' `
                                  -HostNameAlias '<APP_HOST>.<INTERNAL_DOMAIN>'
+```
+
+### Windows Server DNS via CMD (`dnscmd.exe`)
+
+```bat
+:: Enumerate all resource records in target DNS zone
+dnscmd /EnumRecords <INTERNAL_DOMAIN> @ /Type A
+
+:: Add a static A record
+dnscmd /RecordAdd <INTERNAL_DOMAIN> <APP_HOST> A <STATIC_IP>
+
+:: Add a CNAME alias record
+dnscmd /RecordAdd <INTERNAL_DOMAIN> portal CNAME <APP_HOST>.<INTERNAL_DOMAIN>
+
+:: Delete a stale DNS record
+dnscmd /RecordDelete <INTERNAL_DOMAIN> oldhost A <OLD_IP> /f
 ```
 
 ### Linux DNS Testing & BIND9 Query
@@ -124,6 +140,20 @@ Get-NetFirewallRule -Direction Inbound |
     Where-Object { $_.Enabled -eq 'True' -and $_.DisplayName -like '*Remote Desktop*' } |
     Get-NetFirewallAddressFilter |
     Where-Object { $_.RemoteAddress -eq 'Any' }
+```
+
+### Windows CMD Firewall Operations (`netsh.exe`)
+
+```bat
+:: Add inbound rule allowing HTTPS 443 from management subnet
+netsh advfirewall firewall add rule name="App-Inbound-HTTPS-443" dir=in action=allow protocol=TCP localport=443 remoteip=<MANAGEMENT_SUBNET> profile=domain,private
+
+:: Delete or disable a firewall rule by name
+netsh advfirewall firewall set rule name="App-Inbound-HTTPS-443" new enable=no
+netsh advfirewall firewall delete rule name="App-Inbound-HTTPS-443"
+
+:: Audit all active inbound rules allowing external connections
+netsh advfirewall firewall show rule name=all dir=in
 ```
 
 ### Linux Host Firewalls (`ufw` & `nftables`)

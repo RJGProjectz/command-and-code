@@ -8,6 +8,7 @@ platforms:
 languages:
   - Bash
   - PowerShell
+  - CMD
 tasks:
   - Administration
   - Automation
@@ -151,3 +152,46 @@ Get-BitsTransfer -JobId $job.JobId
 # Finalize completed transfer
 Complete-BitsTransfer -BitsJob $job
 ```
+
+---
+
+## 5. Windows CMD Native File Transfer
+
+Native command-line transfer tools available on Windows without requiring PowerShell:
+
+### Enterprise Resilient Copy (`robocopy.exe`)
+The standard for high-volume network share and UNC transfers. Supports restartable mode (`/z`) and multi-threading (`/mt`):
+
+```bat
+:: Mirror directory from remote server share with 2 retries and 5s wait
+robocopy "\\WIN-SRV01\Deploy$" "C:\Staging" /e /z /r:2 /w:5 /np /log:"C:\Audit\copy.log"
+
+:: High-throughput multi-threaded transfer across WAN links (8 threads)
+robocopy "\\WIN-SRV01\Backup" "D:\Recovery" /e /z /mt:8 /r:1 /w:2
+```
+
+### Native HTTPS Web Download (`curl.exe` & `certutil.exe`)
+
+```bat
+:: Using native Windows curl.exe (built-in on Windows 10/11 and Server 2019+)
+curl.exe -fSL -o "C:\Staging\agent-setup.exe" "https://updates.example.com/agent-setup.exe"
+
+:: Using certutil (works on all legacy and modern Windows environments)
+certutil.exe -urlcache -split -f "https://updates.example.com/patch.msu" "C:\Staging\patch.msu"
+```
+
+### Background Transfer via BITS (`bitsadmin.exe`)
+
+```bat
+:: Create and execute an asynchronous BITS download job
+bitsadmin /transfer PatchJob /download /priority normal "https://updates.example.com/kb5001.msu" "C:\Staging\kb5001.msu"
+```
+
+### Native OpenSSH SCP Client (`scp.exe`)
+Built into modern Windows System32:
+
+```bat
+:: Push local file to Linux jump host from CMD prompt
+scp.exe -P 22 "C:\Audit\report.pdf" secops@10.0.0.50:/home/secops/
+```
+

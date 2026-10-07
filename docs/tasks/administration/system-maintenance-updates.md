@@ -2,7 +2,7 @@
 title: System Maintenance and Updates
 type: workflow
 platforms: [Windows, Windows Server, Linux]
-languages: [PowerShell, Bash]
+languages: [PowerShell, CMD, Bash]
 tasks: [Administration, Automation]
 category: Operations
 tags: [patching, updates, reboot, maintenance, apt, dnf, pswindowsupdate, uptime]
@@ -78,6 +78,33 @@ Get-WindowsUpdate -MicrosoftUpdate -Category 'SecurityUpdates', 'CriticalUpdates
 
 # Install updates without immediate reboot
 Install-WindowsUpdate -MicrosoftUpdate -Category 'SecurityUpdates', 'CriticalUpdates' -AcceptAll -IgnoreReboot
+```
+
+### Windows CMD Maintenance & Component Repair
+
+Native command-line maintenance tools:
+
+```bat
+:: Check for pending reboot flags in registry
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\RebootPending" >nul 2>&1 && echo [ALERT] CBS Reboot Pending
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired" >nul 2>&1 && echo [ALERT] Windows Update Reboot Required
+
+:: Repair corrupted component store using DISM
+dism /online /cleanup-image /checkhealth
+dism /online /cleanup-image /restorehealth
+
+:: Run System File Checker to repair corrupted OS binaries
+sfc /scannow
+
+:: Trigger Windows Update orchestrator scan and background download
+usoclient StartInteractiveScan
+usoclient StartDownload
+
+:: Schedule a safe server reboot with a 5-minute notification grace period
+shutdown /r /t 300 /c "Scheduled monthly maintenance reboot in 5 minutes. Save active sessions."
+
+:: Abort a scheduled reboot if unexpected operational activity is detected
+shutdown /a
 ```
 
 ---

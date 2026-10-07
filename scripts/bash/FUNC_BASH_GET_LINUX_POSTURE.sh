@@ -21,7 +21,7 @@
 #     Author: Antigravity
 #     Created: 2026-01-23T15:20:00
 #     Last Modified: 2026-01-26T08:50:00
-#     KB Article: [KB-Sec-019-LinuxPosture](file:///c:/Users/Admin/AGP/KnowledgeBase/KnowledgeBase/HowTo/Scripts/KB-Sec-019-LinuxPosture.md)
+#     KB Article: KB-Sec-019-LinuxPosture
 # -----------------------------------------------------------------------------
 
 # --- Configuration & Defaults ---

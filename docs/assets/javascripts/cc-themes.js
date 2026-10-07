@@ -781,8 +781,13 @@
     mountSwitcher();
   }
 
-  // Handle Material for MkDocs instant navigation (pjax)
-  if (typeof window !== 'undefined' && 'MutationObserver' in window) {
+  // Handle Material for MkDocs instant navigation (pjax / instant loading)
+  if (typeof app !== 'undefined' && app.document$) {
+    app.document$.subscribe(function () {
+      mountSwitcher();
+      checkAndInitActiveThemeEffects();
+    });
+  } else if (typeof window !== 'undefined' && 'MutationObserver' in window) {
     var observer = new MutationObserver(function () {
       if (!document.querySelector('.cc-theme-switcher')) {
         mountSwitcher();

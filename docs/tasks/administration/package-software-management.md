@@ -7,6 +7,7 @@ platforms:
 languages:
   - PowerShell
   - Bash
+  - CMD
 tasks:
   - Administration
 verified: true
@@ -47,6 +48,19 @@ winget upgrade --all --include-unknown --silent
 
 # Uninstall an application
 winget uninstall --id "WiresharkFoundation.Wireshark"
+```
+
+### Windows CMD & MSI Unattended Installation
+
+```bat
+:: Install an MSI package silently without rebooting
+msiexec.exe /i "C:\Staging\endpoint-agent.msi" /qn /norestart /log "C:\Audit\install.log"
+
+:: Silently uninstall an application using its product GUID
+msiexec.exe /x {12345678-ABCD-1234-ABCD-1234567890AB} /qn /norestart
+
+:: Enumerate installed MSI products via command prompt
+wmic product get Name, Version, Vendor /format:table
 ```
 
 ---

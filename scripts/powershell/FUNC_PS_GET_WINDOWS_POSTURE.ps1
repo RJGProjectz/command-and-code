@@ -35,7 +35,7 @@ param (
     [string]$TargetEnvironment = "Test",
 
     [Parameter(Mandatory=$false)]
-    [string]$LogPath = "c:\Users\rgeorge\AntiG\Audit\Logs\Posture"
+    [string]$LogPath = "C:\Audit\Logs\Posture"
 )
 
 Begin {

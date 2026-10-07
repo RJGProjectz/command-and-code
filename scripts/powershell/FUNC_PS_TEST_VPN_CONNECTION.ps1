@@ -25,14 +25,14 @@
 
 .EXAMPLE
     .\Test-VpnConnection.ps1 -TargetEnvironment Prod
-    Standard diagnostic run for the currently logged-on user. Default portal (vpn.servus.ca) is used.
+    Standard diagnostic run for the currently logged-on user. Default portal (vpn.example.com) is used.
 
 .EXAMPLE
     .\Test-VpnConnection.ps1 -TargetEnvironment Prod -DebugMode
     Run with elevated diagnostic logging to troubleshoot certificate template mismatches or SID resolution issues.
 
 .EXAMPLE
-    .\Test-VpnConnection.ps1 -TargetEnvironment Prod -Repair -DebugMode -Portal "vpn.servus.ca"
+    .\Test-VpnConnection.ps1 -TargetEnvironment Prod -Repair -DebugMode -Portal "vpn.example.com"
     Comprehensive diagnostic and repair run. Restarts services, flushes DNS, and provides detailed LDAP-resolved certificate info.
 
 .NOTES
@@ -45,7 +45,7 @@
 
 param(
     [Parameter(Mandatory=$false)]
-    [string]$Portal = "vpn.servus.ca",
+    [string]$Portal = "vpn.example.com",
 
     [switch]$Repair,
 

@@ -7,6 +7,7 @@ platforms:
   - Linux
 languages:
   - PowerShell
+  - CMD
   - Bash
 tasks:
   - Administration
@@ -47,6 +48,30 @@ Format-Volume -DriveLetter $Partition.DriveLetter -FileSystem NTFS -AllocationUn
 
 # Verify volume mount and free space
 Get-Volume -DriveLetter $Partition.DriveLetter
+```
+
+### Windows CMD Disk Management (`diskpart.exe` & `mountvol.exe`)
+
+```bat
+:: Enumerate attached disks and logical volumes
+echo list disk | diskpart
+echo list volume | diskpart
+
+:: Scripted disk initialization, partitioning, and NTFS formatting
+(
+echo select disk 1
+echo clean
+echo convert gpt
+echo create partition primary
+echo format fs=ntfs quick label="DataVolume"
+echo assign letter=E
+) | diskpart
+
+:: Mount a volume to an NTFS folder path instead of a drive letter
+mountvol C:\Mount\DataVolume \\?\Volume{12345678-abcd-1234-abcd-1234567890ab}\
+
+:: Dismount volume from folder path
+mountvol C:\Mount\DataVolume /D
 ```
 
 ---

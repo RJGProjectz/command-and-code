@@ -12,3 +12,14 @@ triage-*/
 scratch/
 WebsiteThemeSource/
 tmp*/
+
+# Internal Agent Operating & Governance Ledgers
+Audit/
+Standards/
+AGENTS.md
+TASK_LEDGER.md
+task_ledger.ndjson
+templates/GOLDEN_STANDARDS.md
+
+# Private / Internal Scripts
+internal/
