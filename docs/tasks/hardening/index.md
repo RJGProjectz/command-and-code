@@ -20,6 +20,9 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |
 | [Host Firewall and Port Management](../administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |
+| [Linux CIS Benchmark — Access Control, PAM & SSH Hardening](linux-cis-access-pam-ssh.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
+| [Linux CIS Benchmark — Comprehensive Auditd & Telemetry Baseline](linux-cis-auditd-logging.md) | Workflow | Linux | Bash | Hardening, Detection Engineering, Forensics |
+| [Linux CIS Benchmark — Filesystem Integrity & Service Hardening](linux-cis-filesystem-services.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
 | [User Lifecycle Management](../administration/user-lifecycle-management.md) | Workflow | Windows, Windows Server, Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
 | [Windows CIS Benchmark — Advanced Audit Policy Baseline](windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |

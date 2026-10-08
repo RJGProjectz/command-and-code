@@ -13,6 +13,7 @@ Evidence preservation and artefact analysis: exports, hashes, hives, snapshots, 
 | [Backup and Recovery Operations](../administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
 | [Endpoint Triage](../incident-response/endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
 | [Investigation Workflow — Compromised Host Forensics in Splunk](../investigation/investigate-device-splunk.md) | Workflow | Splunk, Windows, Windows Server | SPL | Investigation, Forensics, Incident Response |
+| [Linux CIS Benchmark — Comprehensive Auditd & Telemetry Baseline](../hardening/linux-cis-auditd-logging.md) | Workflow | Linux | Bash | Hardening, Detection Engineering, Forensics |
 | [Linux Live Response and Forensic Artifact Extraction](linux-live-response-forensics.md) | Workflow | Linux | Bash, Python | Forensics, Incident Response, Investigation |
 | [Live Memory Acquisition and Volatility Analysis](memory-acquisition-analysis.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash, Python | Forensics, Incident Response, Investigation |
 | [Malware Triage](../incident-response/malware-triage.md) | Workflow | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Forensics |

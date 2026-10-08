@@ -29,15 +29,25 @@ Operational baseline hardening configurations for Linux servers (Ubuntu, Debian,
 
 ---
 
-## 1. Compliance Alignment Matrix
+## 1. CIS Linux Benchmark Architecture (Level 1 & Level 2)
 
-| CIS Control | NIST CSF 2.0 | Configuration Target | Hardening Standard |
+The **CIS Distribution-Independent Linux Benchmark** organizes server hardening across 6 distinct functional sections. Command & Code provides dedicated operational implementation guides for the most complex domains:
+
+* **[Filesystem Integrity & Service Hardening](linux-cis-filesystem-services.md):** Partition mount options (`nodev,nosuid,noexec`), disabling legacy filesystems, core dump limits, sticky bits, and legacy service elimination.
+* **[Comprehensive Auditd & Telemetry Baseline](linux-cis-auditd-logging.md):** Full 50+ syscall kernel auditing configuration (`99-cis.rules`), immutable audit locking (`-e 2`), and `ausearch`/`aureport` triage.
+* **[Access Control, PAM & SSH Hardening](linux-cis-access-pam-ssh.md):** Network protocol blacklisting (DCCP/SCTP), UFW default-deny firewall, PAM password quality & faillock, SSH cryptographic ciphers, and file permissions integrity.
+* **[Centralized Event Forwarding (WEF & Rsyslog)](../administration/centralized-log-forwarding-wef-rsyslog.md):** Centralized log shipping via Rsyslog TLS with RELP and disk queues.
+
+### Compliance Alignment Matrix
+
+| CIS Section | Domain | Configuration Target | Hardening Standard |
 |:---|:---|:---|:---|
-| **CIS 1.1** | `PR.PS-01` | Filesystem Modules | Disable unneeded legacy filesystems (`cramfs`, `freevxfs`, `jffs2`, `hfs`). |
-| **CIS 3.2** | `PR.DS-01` | Network Stack (`sysctl`) | Disable IP forwarding, packet redirects, and source-routed packets; enable ASLR. |
-| **CIS 5.2** | `PR.AC-01` | SSH Daemon (`sshd`) | Disable root login, enforce key authentication, limit auth attempts to 3. |
-| **CIS 5.4** | `PR.AC-01` | PAM & Password Quality | Enforce minimum 14-char complexity and 5-attempt account lockout. |
-| **CIS 6.1** | `PR.DS-01` | File Permissions | Enforce 0644 on `/etc/passwd`, 0000 on `/etc/shadow`, restrict SUID binaries. |
+| **Section 1** | Initial Setup | Filesystem & Core Dumps | Mount `/tmp` with `noexec,nosuid,nodev`, disable core dumps, enable ASLR. |
+| **Section 2** | Services | Legacy Daemons & NTP | Disable `telnet`, `rsh`, `nis`, `xinetd`, `cups`; enforce Chrony NTP sync. |
+| **Section 3** | Network Configuration | Sysctl & Host Firewall | Disable IP redirects, enable SYN cookies, blacklist DCCP/SCTP, UFW default deny. |
+| **Section 4** | Logging & Auditing | Kernel Auditd Telemetry | Audit syscalls for time, identity, DAC permissions, deletions, immutable `-e 2`. |
+| **Section 5** | Access Control | PAM, SSH & Cron | PAM minimum 14 chars, lockout after 5 fails, SSH no root, restrict cron permissions. |
+| **Section 6** | System Maintenance | File Permissions | Enforce 0644 on `/etc/passwd`, 0000 on `/etc/shadow`, audit SUID binaries. |
 
 ---
 

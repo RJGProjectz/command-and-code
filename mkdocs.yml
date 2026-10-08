@@ -380,6 +380,9 @@ nav:
           - Windows CIS Advanced Audit Policy: tasks/hardening/windows-cis-advanced-audit-policy.md
           - Windows CIS ASR & Credential Guard: tasks/hardening/windows-cis-attack-surface-reduction.md
           - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
+          - Linux CIS Filesystems & Services: tasks/hardening/linux-cis-filesystem-services.md
+          - Linux CIS Auditd & Telemetry Baseline: tasks/hardening/linux-cis-auditd-logging.md
+          - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md
           - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
           - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
           - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md
