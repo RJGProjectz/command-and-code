@@ -7,6 +7,34 @@ type: index
 
 Diagnose broken services, connectivity and configuration — and recognise when a 'fault' is actually tampering.
 
+## Interactive Triage Trees
+
+Select an operational symptom to launch an interactive step-by-step diagnostic tree:
+
+<div class="grid cards" markdown>
+
+- :material-lan-disconnect:{ .lg .middle } **[Windows Network & Domain Connectivity](windows-connectivity.md)**
+    
+    Triage DNS resolution failures, gateway routing drops, TCP port 445/3389 drops, and Kerberos ticket errors.
+
+- :material-server-network-off:{ .lg .middle } **[Linux Systemd Service Failures](linux-service-failure.md)**
+    
+    Triage immediate crashloops (`code=exited`), SELinux permission denials, port binding conflicts (`EADDRINUSE`), and missing environment variables.
+
+- :material-speedometer-slow:{ .lg .middle } **[High CPU & Runaway Processes](high-cpu-troubleshooting.md)**
+    
+    Isolate runaway userland loops, kworker/kernel interrupt storms, cryptocurrency miners, and thread deadlocks.
+
+- :material-harddisk-remove:{ .lg .middle } **[Emergency Disk Exhaustion & Inodes](disk-space-emergency.md)**
+    
+    Diagnose 100% capacity block exhaustion, inode exhaustion (`df -i`), unlinked open file descriptors (`lsof +L1`), and VSS shadow bloat.
+
+- :material-certificate-outline:{ .lg .middle } **[TLS Handshake & Certificate Errors](certificate-handshake-failure.md)**
+    
+    Resolve incomplete intermediate CA chains, Subject Alternative Name (SAN) mismatches, protocol deprecation, and clock skew.
+
+</div>
+
 ## Workflows
 
 <!-- cc:index tasks="Troubleshooting" type="workflow" -->
