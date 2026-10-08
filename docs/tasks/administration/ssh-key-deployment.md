@@ -31,7 +31,18 @@ Asymmetric SSH key authentication replaces vulnerable password-based logins, mit
 
 ---
 
-## 1. Key Generation Standards & Algorithms
+## 1. Conceptual Grounding: Client vs Server Key Architecture
+
+Understanding key placement prevents inverted deployment errors:
+
+- **Client Workstation (Origin)**: The system initiating the connection (e.g., Windows or macOS workstation).
+    - **Private Key (`~/.ssh/id_ed25519`)**: Stays strictly on the client. It must never be copied, transmitted, or uploaded to remote systems. It cryptographically signs authentication challenges.
+- **Remote Host (Destination)**: The target server or VM receiving the connection (e.g., Linux server).
+    - **Public Key (`~/.ssh/id_ed25519.pub`)**: Placed onto the remote host inside `~/.ssh/authorized_keys`. The server uses this public key as a lock to verify challenge signatures without passwords.
+
+---
+
+## 2. Key Generation Standards & Algorithms
 
 Always prefer modern elliptic curve cryptography (**Ed25519**) over legacy algorithms. Ed25519 keys offer superior cryptographic strength, constant-time execution (preventing side-channel timing attacks), and compact 256-bit signatures.
 
@@ -71,7 +82,7 @@ ssh-keygen.exe -t ed25519 -a 100 -C "$($env:USERNAME)@$($env:COMPUTERNAME)" -f "
 
 ---
 
-## 2. Deploying Public Keys to Remote Hosts
+## 3. Deploying Public Keys to Remote Hosts
 
 The public key (`*.pub`) must be appended to the target user's `~/.ssh/authorized_keys` file on the remote server. Never transfer or expose the private key file.
 
@@ -84,12 +95,12 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub '<USER>@<TARGET_HOST>'
 ssh-copy-id -i ~/.ssh/id_ed25519.pub -p '<PORT>' '<USER>@<TARGET_HOST>'
 ```
 
-### Windows Client (PowerShell Native)
-When `ssh-copy-id` is unavailable on Windows, stream and append the public key using PowerShell while establishing safe POSIX permissions:
+### Windows Client: Stream & Set Permissions in One Pass
+When `ssh-copy-id` is unavailable on Windows, stream the public key using PowerShell while establishing safe POSIX directory and file permissions in a single command:
 
 ```powershell
-# Stream local public key to remote Linux host and create .ssh with 700 permissions
-Get-Content "$HOME\.ssh\id_ed25519.pub" | ssh -p '<PORT>' '<USER>@<TARGET_HOST>' "umask 077; test -d .ssh || mkdir .ssh; cat >> .ssh/authorized_keys"
+# Stream local public key to remote Linux host, ensure ~/.ssh exists (700) and authorized_keys (600)
+Get-Content "$HOME\.ssh\id_ed25519.pub" | ssh -p '<PORT>' '<USER>@<TARGET_HOST>' "mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
 ```
 
 ### Target: Windows OpenSSH Server
@@ -108,7 +119,7 @@ icacls.exe $AuthPath /inheritance:r /grant "SYSTEM:(F)" /grant "BUILTIN\Administ
 
 ---
 
-## 3. Strict Permissions & Troubleshooting (`StrictModes`)
+## 4. Strict Permissions & Troubleshooting (`StrictModes`)
 
 By default, OpenSSH enforces `StrictModes yes`. If files or parent directories have loose permissions (e.g., writable by group or other users), `sshd` **silently ignores** the `authorized_keys` file and falls back to password authentication without logging an error to the client.
 
@@ -132,20 +143,20 @@ chmod 700 ~/.ssh && \
   chmod go-w ~
 ```
 
-### Windows Private Key ACL Repair (PowerShell)
-If the Windows OpenSSH client reports `"Permissions for id_ed25519 are too open"`, strip inherited permissions:
+### Windows Private Key ACL Hardening (PowerShell)
+If the Windows OpenSSH client reports `"Permissions for id_ed25519 are too open"`, strip inherited permissions and grant access exclusively to your user account:
 
 ```powershell
-# Restrict private key to current user only
+# Restrict private key to current user only (remove inheritance, grant Full Control)
 $Key = "$HOME\.ssh\id_ed25519"
 icacls.exe $Key /reset
 icacls.exe $Key /inheritance:r
-icacls.exe $Key /grant:r "$($env:USERNAME):(R,W)"
+icacls.exe $Key /grant:r "$($env:USERNAME):(F)"
 ```
 
 ---
 
-## 4. SSH Agent & Keyring Integration
+## 5. SSH Agent & Keyring Integration
 
 The SSH Authentication Agent stores decrypted private keys in memory so administrators enter their passphrase only once per workstation session.
 
@@ -185,7 +196,7 @@ ssh-add.exe -l
 
 ---
 
-## 5. Client Configuration Ergonomics (`~/.ssh/config`)
+## 6. Client Configuration Ergonomics (`~/.ssh/config`)
 
 Managing multiple servers, jump hosts, and identity keys is streamlined using `~/.ssh/config`.
 
@@ -205,6 +216,12 @@ Host web-prod
     User opsadmin
     Port 2222
     IdentityFile ~/.ssh/id_ed25519_prod
+
+# Dedicated VM / Lab Host
+Host dev-vm
+    HostName <TARGET_HOST>
+    User <USER>
+    IdentityFile ~/.ssh/id_ed25519
 
 # Isolated host routed through a Bastion / Jump Server
 Host db-internal
@@ -230,9 +247,32 @@ Host cluster-*
 - `ProxyJump`: Routes connections transparently through an intermediate jump host.
 - `ControlMaster auto`: Reuses an existing established TCP socket for subsequent SSH/SCP sessions, cutting connection time from hundreds of milliseconds to under 20ms.
 
+### Client Configuration Troubleshooting & Traps
+
+#### Trap 1: Environment Variables in Config Files
+OpenSSH configuration parsers **do not** evaluate Windows or PowerShell environment variables (such as `$env:USERPROFILE` or `%USERPROFILE%`).
+- **Incorrect**: `IdentityFile $env:USERPROFILE\.ssh\id_ed25519`
+- **Correct**: Use the standard tilde shortcut `~` which OpenSSH natively evaluates across Windows, Linux, and macOS:
+  ```text
+  IdentityFile ~/.ssh/id_ed25519
+  ```
+
+#### Trap 2: Notepad Hidden `.txt` Extension (`No such host is known`)
+When creating a config file with Windows Notepad, the editor often silently appends a `.txt` extension (`config.txt`). OpenSSH strictly looks for the extensionless file named `config`. If `config.txt` exists, OpenSSH ignores it, causing `ssh <ALIAS>` to attempt DNS resolution on the alias name and fail with `ssh: Could not resolve hostname <ALIAS>: No such host is known`.
+
+```powershell
+# Check if config was saved with a hidden .txt extension
+Get-ChildItem -Path "$HOME\.ssh\config*"
+
+# Fix: Rename config.txt to extensionless config
+if (Test-Path "$HOME\.ssh\config.txt") {
+    Rename-Item -Path "$HOME\.ssh\config.txt" -NewName "config"
+}
+```
+
 ---
 
-## 6. Key Lockdown & Automation Privileges
+## 7. Key Lockdown & Automation Privileges
 
 For service accounts, backup jobs, and automated CI/CD pipelines, restrict the public key directly in `~/.ssh/authorized_keys` to enforce the principle of least privilege.
 
@@ -253,7 +293,7 @@ from="10.10.10.0/24,192.168.1.50",command="/usr/local/bin/backup-sync.sh",no-por
 
 ---
 
-## 7. Zero-Lockout Safe Cutover Checklist
+## 8. Zero-Lockout Safe Cutover Checklist
 
 Before permanently disabling password authentication on a remote production server, execute this systematic migration checklist:
 
