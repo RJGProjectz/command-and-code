@@ -33,7 +33,7 @@ PRACTITIONER EXP      ✅  ← Completed (Command Builder, Diagnostic Decision T
     ↓
 THREAT HUNTING        ✅  ← Completed (Hypothesis framework, LFO baselining, cross-platform behavior, cloud LOTC, hunt runner)
     ↓
-THREAT INTELLIGENCE   🟡  ← Active / Next (CTI pipelines, adversary emulation, STIX/TAXII feeds, TTP profiling)
+THREAT INTELLIGENCE   ✅  ← Completed (STIX/TAXII pipeline, adversary emulation, IoC lifecycle, threat actor profiles, CTI gap analyzer)
 ```
 
 </div>
@@ -234,19 +234,19 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 ## Phase 10 — Cyber Threat Intelligence (CTI) & Threat-Informed Defense
 
-**Status:** 🔵 Planned
+**Status:** ✅ Complete
 
 **Objective:** translate strategic and tactical adversary intelligence into actionable detection engineering, defense validation, and prioritized threat modeling.
 
 **Key capabilities**
 
-- [ ] Structured Threat Information Expression (STIX 2.1) & TAXII 2.1 threat feed ingestion and normalization pipelines
-- [ ] Adversary emulation profiles and ATT&CK heatmaps for prevalent threat actors (e.g., ransomware affiliates, state-sponsored espionage)
-- [ ] Automated indicator of compromise (IoC) extraction, deduplication, and scoring workflows
-- [ ] Detection gap analysis aligning CTI reporting against deployed SIEM/EDR detection rule coverage
-- [ ] Threat actor profile reference cards detailing tooling, infrastructure habits, and high-probability initial access vectors
+- [x] Structured Threat Information Expression (STIX 2.1) & TAXII 2.1 threat feed ingestion and normalization pipelines (`docs/tasks/threat-intelligence/stix-taxii-pipeline.md`)
+- [x] Adversary emulation profiles and ATT&CK heatmaps for prevalent threat actors (`docs/tasks/threat-intelligence/adversary-emulation-profiling.md`)
+- [x] Automated indicator of compromise (IoC) extraction, deduplication, and scoring workflows (`docs/tasks/threat-intelligence/ioc-lifecycle-scoring.md`)
+- [x] Threat actor profile reference cards detailing tooling, infrastructure habits, and initial access vectors (`docs/references/threat-actor-profiles.md`)
+- [x] Detection gap analysis engine aligning CTI reporting against deployed SIEM/EDR detection coverage (`tools/cti_gap_analyzer.py`)
 
-**Repository areas:** `docs/tasks/incident-response/`, `docs/detection/`, `docs/references/`, `tools/`
+**Repository areas:** `docs/tasks/threat-intelligence/`, `docs/references/threat-actor-profiles.md`, `tools/cti_gap_analyzer.py`, `docs/detection/`
 
 </div>
 

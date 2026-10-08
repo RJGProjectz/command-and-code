@@ -327,6 +327,11 @@ nav:
           - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md
           - LOLBins Execution Hunting: tasks/threat-hunting/lolbins-execution-hunting.md
           - Cloud Identity Persistence: tasks/threat-hunting/cloud-identity-persistence-hunting.md
+      - Threat Intelligence:
+          - Overview: tasks/threat-intelligence/index.md
+          - STIX 2.1 & TAXII Feed Pipeline: tasks/threat-intelligence/stix-taxii-pipeline.md
+          - Adversary Emulation & ATT&CK Profiling: tasks/threat-intelligence/adversary-emulation-profiling.md
+          - IoC Lifecycle & Confidence Scoring: tasks/threat-intelligence/ioc-lifecycle-scoring.md
       - Troubleshooting:
           - Overview: tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
@@ -403,6 +408,7 @@ nav:
       - Overview: references/index.md
       - Knowledge Graph Coverage Matrix: references/coverage-matrix.md
       - MITRE ATT&CK Matrix & Navigator: references/mitre-attack-matrix.md
+      - Threat Actor Intelligence Profiles: references/threat-actor-profiles.md
       - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
       - PowerShell Admin One-Liners: references/powershell-cheat-sheet.md
       - Linux Sysadmin Speed Dial: references/linux-cheat-sheet.md

@@ -41,6 +41,7 @@ languages:
 tasks:
   Incident Response: tasks/incident-response/index.md
   Threat Hunting: tasks/threat-hunting/index.md
+  Threat Intelligence: tasks/threat-intelligence/index.md
   Investigation: tasks/investigation/index.md
   Troubleshooting: tasks/troubleshooting/index.md
   Administration: tasks/administration/index.md
