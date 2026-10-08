@@ -318,6 +318,10 @@ nav:
           - User Identity Triage (Splunk): tasks/investigation/investigate-user-splunk.md
       - Threat Hunting:
           - Overview: tasks/threat-hunting/index.md
+          - Hypothesis-Driven Lifecycle Framework: tasks/threat-hunting/hypothesis-driven-hunting-framework.md
+          - Statistical Baselining & LFO Frequency: tasks/threat-hunting/statistical-baselining-frequency-analysis.md
+          - Cross-Platform Behavioral Telemetry: tasks/threat-hunting/cross-platform-behavioral-hunting.md
+          - Cloud Identity & Ephemeral Asset Hunting: tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md
           - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
           - Hypothesis-Driven Hunting (Splunk): tasks/threat-hunting/splunk-threat-hunting.md
           - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md

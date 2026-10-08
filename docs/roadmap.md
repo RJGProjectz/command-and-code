@@ -31,9 +31,9 @@ VALIDATION & GRC      ✅  ← Completed (MITRE ATT&CK STIX validator, OpenAPI s
     ↓
 PRACTITIONER EXP      ✅  ← Completed (Command Builder, Diagnostic Decision Trees, Terminal CLI cc)
     ↓
-THREAT HUNTING        🔵  ← Planned (Hypothesis hunting, baselining, behavioral analytics, hunt playbooks)
+THREAT HUNTING        ✅  ← Completed (Hypothesis framework, LFO baselining, cross-platform behavior, cloud LOTC, hunt runner)
     ↓
-THREAT INTELLIGENCE   🔵  ← Planned (CTI pipelines, adversary emulation, STIX/TAXII feeds, TTP profiling)
+THREAT INTELLIGENCE   🟡  ← Active / Next (CTI pipelines, adversary emulation, STIX/TAXII feeds, TTP profiling)
 ```
 
 </div>
@@ -210,23 +210,23 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
-<div class="cc-phase cc-active" markdown>
+<div class="cc-phase" markdown>
 
 ## Phase 9 — Threat Hunting Operational Mastery
 
-**Status:** 🔵 Planned
+**Status:** ✅ Complete
 
 **Objective:** develop systematic, hypothesis-driven proactive hunting playbooks that assume breach and isolate stealthy adversary behaviors before alert generation.
 
 **Key capabilities**
 
-- [ ] Hypothesis-driven hunt playbooks mapped across enterprise kill chains (initial access through exfiltration)
-- [ ] Statistical baselining and frequency analysis queries (parent-child anomalies, rare service registrations, outbound beacon jitter)
-- [ ] Cross-platform behavioral hunting queries (unified hunts comparing Windows Event Logs, Sysmon, and Linux Auditd/Syslog)
-- [ ] Ephemeral asset and living-off-the-cloud anomaly detection (abnormal OAuth grant consents, service principal credential additions)
-- [ ] Automated hunt finding capture and retrospective analysis runbooks
+- [x] Hypothesis-driven hunt playbooks mapped across enterprise kill chains (`docs/tasks/threat-hunting/hypothesis-driven-hunting-framework.md`)
+- [x] Statistical baselining and frequency analysis queries (`docs/tasks/threat-hunting/statistical-baselining-frequency-analysis.md`)
+- [x] Cross-platform behavioral hunting queries (`docs/tasks/threat-hunting/cross-platform-behavioral-hunting.md`)
+- [x] Ephemeral asset and living-off-the-cloud anomaly detection (`docs/tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md`)
+- [x] Automated hunt finding capture and retrospective validation engine (`tools/hunt_runner.py`)
 
-**Repository areas:** `docs/tasks/threat-hunting/`, `docs/detection/`, `docs/platforms/`
+**Repository areas:** `docs/tasks/threat-hunting/`, `tools/hunt_runner.py`, `docs/detection/`, `docs/platforms/`
 
 </div>
 
