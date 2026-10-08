@@ -159,3 +159,27 @@ Deployments are automated through `.github/workflows/deploy.yml`:
    - Upload and deploy to GitHub Pages
 3. Monitor progress under the **Actions** tab on GitHub:
    `https://github.com/RJGProjectz/command-and-code/actions`
+
+### Manual Re-Trigger & Visibility Recovery
+
+If the site goes down after toggling repository visibility (Private ↔ Public), GitHub automatically tears down active Pages environments. To restore or manually force a redeployment:
+
+#### Option A: GitHub Web UI (No Terminal Needed)
+1. Navigate to: [Deploy Workflow Actions](https://github.com/RJGProjectz/command-and-code/actions/workflows/deploy.yml)
+2. Click the **Run workflow** dropdown on the right.
+3. Select branch `main` and click the green **Run workflow** button.
+*(Alternatively, click on the latest completed run and select **Re-run all jobs**).*
+
+#### Option B: Git CLI (Empty Commit)
+From your terminal in the repository root:
+```bash
+git commit --allow-empty -m "ci(pages): re-trigger pages deployment"
+git push origin main
+```
+
+#### Option C: GitHub CLI (`gh`)
+```bash
+gh workflow run deploy.yml --ref main
+```
+
+> **Note on Repository Settings**: If toggling visibility resets GitHub Pages, navigate to **Settings** &rarr; **Pages** (`https://github.com/RJGProjectz/command-and-code/settings/pages`) and ensure **Source** is set to **GitHub Actions**.
