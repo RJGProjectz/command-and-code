@@ -27,9 +27,13 @@ OPERATIONAL PLAYBOOKS ✅  ← Completed (10 IR playbooks, 10 investigation work
     ↓
 LOCAL AI & SEARCH     ✅  ← Completed (Local AI indexer, grounding assistant tools/ai_grounding.py, RAG)
     ↓
-VALIDATION & GRC      🟡  ← Active (MITRE ATT&CK STIX validator, OpenAPI specs, CISA SCuBA, CIS benchmarks)
+VALIDATION & GRC      ✅  ← Completed (MITRE ATT&CK STIX validator, OpenAPI specs, CISA SCuBA, LOLBAS audit)
     ↓
-SECURITY TOOLKIT      ⚪  ← Future (Interactive command speed dial & query builders)
+PRACTITIONER EXP      ✅  ← Completed (Command Builder, Diagnostic Decision Trees, Terminal CLI cc)
+    ↓
+THREAT HUNTING        🔵  ← Planned (Hypothesis hunting, baselining, behavioral analytics, hunt playbooks)
+    ↓
+THREAT INTELLIGENCE   🔵  ← Planned (CTI pipelines, adversary emulation, STIX/TAXII feeds, TTP profiling)
 ```
 
 </div>
@@ -165,11 +169,11 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
-<div class="cc-phase cc-active" markdown>
+<div class="cc-phase" markdown>
 
 ## Phase 7 — Authoritative Validation & Compliance Benchmarking
 
-**Status:** 🟡 In progress
+**Status:** ✅ Complete
 
 **Objective:** continuously validate operational coverage, query syntax, and hardening recommendations against authoritative external industry frameworks (MITRE ATT&CK STIX 2.1, OpenAPI/Swagger specifications, CIS Benchmarks Level 1/2, CISA SCuBA, and DISA STIGs).
 
@@ -180,10 +184,11 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 - [x] Cross-platform ATT&CK technique reference matrix (`docs/references/mitre-attack-matrix.md`)
 - [x] Automated OpenAPI / Swagger schema validator for Graph, Defender, SentinelOne, and Splunk REST APIs (`tools/validate_apis.py`)
 - [x] CISA SCuBA / ScubaGear compliance cross-walk for Microsoft 365 and Azure tenants (`docs/tasks/assurance/cisa-scuba-compliance.md`)
-- [ ] CIS Controls v8 / Benchmarks scoring audit integration
-- [ ] LOLBAS & GTFOBins binary telemetry coverage auditor
+- [x] LOLBAS & GTFOBins binary telemetry coverage auditor (`tools/audit_lolbas_coverage.py`)
+- [x] Active Directory Kerberos & LDAP protocol hardening baseline (`docs/tasks/hardening/ad-kerberos-ldap-hardening.md`)
+- [x] Centralized event forwarding pipeline with WEF and Rsyslog TLS (`docs/tasks/administration/centralized-log-forwarding-wef-rsyslog.md`)
 
-**Repository areas:** `tools/validate_mitre.py`, `tools/validate_apis.py`, `site/mitre_attack_coverage.json`, `docs/references/mitre-attack-matrix.md`, `docs/tasks/assurance/cisa-scuba-compliance.md`
+**Repository areas:** `tools/validate_mitre.py`, `tools/validate_apis.py`, `tools/audit_lolbas_coverage.py`, `site/mitre_attack_coverage.json`, `docs/references/mitre-attack-matrix.md`, `docs/tasks/assurance/`
 
 </div>
 
@@ -202,6 +207,46 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 - [x] **Terminal Companion CLI (`cc`)**: zero-dependency offline shell tool (`tools/cc_cli.py`, `cc.cmd`, `cc.ps1`, `cc.sh`) for instant search, syntax viewing, and verified script execution directly from PowerShell or Bash.
 
 **Repository areas:** `docs/assets/javascripts/cc-interactive.js`, `docs/assets/stylesheets/cc-interactive.css`, `tools/cc_cli.py`, `cc.cmd`, `cc.ps1`, `tools/`
+
+</div>
+
+<div class="cc-phase cc-active" markdown>
+
+## Phase 9 — Threat Hunting Operational Mastery
+
+**Status:** 🔵 Planned
+
+**Objective:** develop systematic, hypothesis-driven proactive hunting playbooks that assume breach and isolate stealthy adversary behaviors before alert generation.
+
+**Key capabilities**
+
+- [ ] Hypothesis-driven hunt playbooks mapped across enterprise kill chains (initial access through exfiltration)
+- [ ] Statistical baselining and frequency analysis queries (parent-child anomalies, rare service registrations, outbound beacon jitter)
+- [ ] Cross-platform behavioral hunting queries (unified hunts comparing Windows Event Logs, Sysmon, and Linux Auditd/Syslog)
+- [ ] Ephemeral asset and living-off-the-cloud anomaly detection (abnormal OAuth grant consents, service principal credential additions)
+- [ ] Automated hunt finding capture and retrospective analysis runbooks
+
+**Repository areas:** `docs/tasks/threat-hunting/`, `docs/detection/`, `docs/platforms/`
+
+</div>
+
+<div class="cc-phase" markdown>
+
+## Phase 10 — Cyber Threat Intelligence (CTI) & Threat-Informed Defense
+
+**Status:** 🔵 Planned
+
+**Objective:** translate strategic and tactical adversary intelligence into actionable detection engineering, defense validation, and prioritized threat modeling.
+
+**Key capabilities**
+
+- [ ] Structured Threat Information Expression (STIX 2.1) & TAXII 2.1 threat feed ingestion and normalization pipelines
+- [ ] Adversary emulation profiles and ATT&CK heatmaps for prevalent threat actors (e.g., ransomware affiliates, state-sponsored espionage)
+- [ ] Automated indicator of compromise (IoC) extraction, deduplication, and scoring workflows
+- [ ] Detection gap analysis aligning CTI reporting against deployed SIEM/EDR detection rule coverage
+- [ ] Threat actor profile reference cards detailing tooling, infrastructure habits, and high-probability initial access vectors
+
+**Repository areas:** `docs/tasks/incident-response/`, `docs/detection/`, `docs/references/`, `tools/`
 
 </div>
 

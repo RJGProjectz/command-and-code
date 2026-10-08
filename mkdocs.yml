@@ -358,6 +358,7 @@ nav:
           - Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
           - Performance & Resource Auditing: tasks/administration/performance-resource-auditing.md
           - Sysmon Enterprise Deployment & Tuning: tasks/administration/sysmon-deployment-tuning.md
+          - Centralized Event Forwarding (WEF & Rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
           - Azure Cloud Resource Management: tasks/administration/cloud-azure-resource-management.md
       - Detection Engineering:
           - Overview: tasks/detection-engineering/index.md
@@ -369,6 +370,7 @@ nav:
           - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
           - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
           - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
+          - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md
       - Forensics:
           - Overview: tasks/forensics/index.md
           - Memory Acquisition & Volatility: tasks/forensics/memory-acquisition-analysis.md
