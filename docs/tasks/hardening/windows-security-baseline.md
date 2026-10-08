@@ -30,16 +30,27 @@ Hardened operational baseline configurations for enterprise Windows workstations
 
 ---
 
-## 1. Compliance Alignment Matrix
+## 1. CIS Windows Server Benchmark Architecture (Level 1 & Level 2)
 
-| CIS Control | NIST CSF 2.0 | Configuration Target | Hardening Standard |
+The **CIS Microsoft Windows Server Benchmark** organizes enterprise hardening across 19 distinct functional sections. Command & Code provides dedicated operational implementation guides for the most complex domains:
+
+* **[User Rights Assignment & Account Policies](windows-cis-user-rights-assignment.md):** Password aging, lockout thresholds, Kerberos tickets, and restricting `SeDebugPrivilege`, `SeImpersonatePrivilege`, and `SeNetworkLogonRight`.
+* **[Advanced Audit Policy Baseline](windows-cis-advanced-audit-policy.md):** Full 50+ subcategory audit policy configuration across the 9 audit categories via `auditpol.exe`.
+* **[Attack Surface Reduction (ASR) & Credential Guard](windows-cis-attack-surface-reduction.md):** Complete 16-rule ASR block-mode configuration, Virtualization-Based Security (VBS), and Windows Defender Firewall baseline.
+* **[Active Directory Kerberos & LDAP Protocol Hardening](ad-kerberos-ldap-hardening.md):** Group Managed Service Accounts (gMSA), LDAP signing (`LDAPServerIntegrity = 2`), and RC4 deprecation.
+
+### Compliance Alignment Matrix
+
+| CIS Section | Domain | Configuration Target | Hardening Standard |
 |:---|:---|:---|:---|
-| **CIS 1.1** | `PR.AC-01` | Account Lockout Policy | Lockout threshold: 5 invalid attempts; duration: 30 mins; reset: 30 mins. |
-| **CIS 2.3** | `PR.AC-04` | User Rights Assignment | Deny network logon and Remote Desktop Services to guest accounts. |
-| **CIS 18.3** | `PR.PS-01` | LSA Protection (`RunAsPPL`) | Protect LSASS process against memory dumping by unauthorized debuggers. |
-| **CIS 18.9** | `PR.DS-01` | Network Protocols | Disable legacy SMBv1, NetBIOS, and LLMNR broadcast name resolution. |
-| **CIS 17.5** | `DE.CM-01` | Advanced Audit Policy | Audit Process Creation (with command-line logging) and PowerShell Script Blocks. |
-| **CIS 18.4** | `PR.PS-06` | Attack Surface Reduction (ASR) | Block credential stealing from LSASS and child processes spawned by Office. |
+| **Section 1** | Account Policies | Password & Lockout | Minimum 14 chars, lockout after 5 attempts for 15 mins. |
+| **Section 2** | User Rights Assignment | Privilege Elevation | Restrict `SeDebugPrivilege` and `SeImpersonatePrivilege` to Administrators/Services. |
+| **Section 2.3** | Security Options | LSA & UAC | RunAsPPL = 1, UAC Secure Desktop, Restrict Anonymous SAM. |
+| **Section 9** | Defender Firewall | Network Boundaries | Block inbound, allow outbound, dropped packet logging enabled. |
+| **Section 17** | Advanced Audit Policy | Security Telemetry | Subcategory auditing for Process Creation, Logons, and Privilege Use. |
+| **Section 18.3** | Hardware Security | Credential Guard | Enable Virtualization-Based Security (VBS) with UEFI lock. |
+| **Section 18.4** | Exploit Mitigation | Defender ASR | Enforce all 16 ASR rules in Block Mode (`1`). |
+| **Section 18.9** | Network Protocols | Attack Surface | Disable SMBv1, NetBIOS, LLMNR, and enforce RDP NLA. |
 
 ---
 

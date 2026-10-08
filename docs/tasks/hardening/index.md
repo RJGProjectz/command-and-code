@@ -21,6 +21,9 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |
 | [Host Firewall and Port Management](../administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |
 | [User Lifecycle Management](../administration/user-lifecycle-management.md) | Workflow | Windows, Windows Server, Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
+| [Windows CIS Benchmark — Advanced Audit Policy Baseline](windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
+| [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
+| [Windows CIS Benchmark — User Rights Assignment & Account Policies](windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Assurance Check — Active Directory STIG Compliance](../assurance/ad-stig-compliance.md) | Entry | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
 | [Assurance Check — Azure External Guest Access & Permissions](../assurance/azure-guest-access-audit.md) | Entry | Entra ID, Azure, Microsoft 365 | PowerShell | Assurance, Hardening, Administration |
 | [Assurance Check — Azure Network Security Group Compliance](../assurance/azure-nsg-compliance.md) | Entry | Azure | PowerShell | Assurance, Hardening |
