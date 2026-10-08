@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Command & Code — Interactive Web Enhancements (Pillar 1: Command Builder)
+   ========================================================================== */
+
+/* Parameter Toolbar above code blocks */
+.cc-param-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-bottom: none;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  padding: 0.55rem 0.8rem;
+  margin-top: 1rem;
+  font-family: var(--cc-mono);
+  font-size: 0.75rem;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cc-param-bar:focus-within {
+  border-color: var(--cc-amber);
+  box-shadow: 0 0 10px rgba(230, 126, 34, 0.15);
+}
+
+.cc-param-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 0.35rem;
+}
+
+.cc-param-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  color: var(--cc-amber);
+}
+
+.cc-param-title svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.cc-param-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cc-param-btn {
+  background: transparent;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  font-family: var(--cc-mono);
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cc-param-btn:hover {
+  border-color: var(--cc-amber);
+  color: var(--cc-amber);
+}
+
+.cc-param-btn--copy {
+  background: rgba(230, 126, 34, 0.12);
+  border-color: var(--cc-amber);
+  color: var(--cc-amber);
+  font-weight: 600;
+}
+
+.cc-param-btn--copy:hover {
+  background: var(--cc-amber);
+  color: #111;
+}
+
+.cc-param-btn--copied {
+  background: #27ae60 !important;
+  border-color: #27ae60 !important;
+  color: #fff !important;
+}
+
+/* Fields Grid */
+.cc-param-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  align-items: center;
+}
+
+.cc-param-field {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  transition: border-color 0.15s ease;
+}
+
+.cc-param-field:focus-within {
+  border-color: var(--cc-amber);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.cc-param-label {
+  font-size: 0.66rem;
+  color: var(--md-default-fg-color--light);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cc-param-input {
+  background: transparent;
+  border: none;
+  color: var(--md-default-fg-color);
+  font-family: var(--cc-mono);
+  font-size: 0.72rem;
+  padding: 0.15rem 0.2rem;
+  min-width: 110px;
+  outline: none;
+  transition: color 0.15s ease;
+}
+
+.cc-param-input::placeholder {
+  color: var(--md-default-fg-color--lightest);
+  font-style: italic;
+  opacity: 0.6;
+}
+
+/* Highlighted replaced token inside code block */
+.cc-token-replaced {
+  color: #f1c40f !important;
+  font-weight: bold;
+  background: rgba(241, 196, 15, 0.15);
+  border-radius: 2px;
+  padding: 0 2px;
+  box-shadow: 0 0 4px rgba(241, 196, 15, 0.3);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* When attached, strip top border radius from adjacent code block */
+.cc-param-bar + .highlight,
+.cc-param-bar + div.highlight {
+  margin-top: 0 !important;
+}
+
+.cc-param-bar + .highlight pre,
+.cc-param-bar + div.highlight pre {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Page-level Session Parameter Banner */
+.cc-global-session-banner {
+  background: rgba(230, 126, 34, 0.08);
+  border: 1px solid var(--cc-amber);
+  border-radius: 6px;
+  padding: 0.6rem 0.9rem;
+  margin: 1rem 0 1.4rem;
+  font-family: var(--cc-mono);
+  font-size: 0.72rem;
+}
+
+.cc-global-session-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  color: var(--cc-amber);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cc-global-session-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.cc-session-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.68rem;
+}
+
+.cc-session-chip strong {
+  color: var(--cc-amber);
+}

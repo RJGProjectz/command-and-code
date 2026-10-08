@@ -41,10 +41,12 @@ extra_css:
   - assets/stylesheets/cc.css
   - assets/stylesheets/cc-themes.css
   - assets/stylesheets/cc-poster.css
+  - assets/stylesheets/cc-interactive.css
 
 extra_javascript:
   - assets/javascripts/cc-themes.js
   - assets/javascripts/cc-poster.js
+  - assets/javascripts/cc-interactive.js
 
 hooks:
   - hooks/cc_meta.py

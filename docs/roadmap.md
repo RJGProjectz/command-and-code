@@ -187,13 +187,21 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
-<div class="cc-phase" markdown>
+<div class="cc-phase cc-active" markdown>
 
-## Phase 8 — Operational Security Toolkit
+## Phase 8 — Practitioner Operational Experience (POX)
 
-**Status:** ⚪ Future
+**Status:** 🟡 Active
 
-**Objective:** interactive workflows, query builders and translators, posture checks and automated reporting — built on top of the documentation, which remains the foundation.
+**Objective:** enhance practitioner speed and execution safety through lightweight, dependency-free interactive web capabilities and companion terminal tooling — without compromising raw Markdown readability or offline autonomy.
+
+**Key capabilities**
+
+- [x] **Parameterized Command Builder** (`docs/assets/javascripts/cc-interactive.js` & `cc-interactive.css`): automated parameter detection (`<TARGET_IP>`, `<TARGET_HOST>`, `<UPN>`), live multi-block parameter synchronization, highlighted syntax interpolation, and one-click clipboard copying.
+- [ ] **Branching Diagnostic Decision Trees**: interactive visual troubleshooting widgets (Step 1 $\rightarrow$ Click [Exit 0] / [Timeout] $\rightarrow$ next diagnostic branch) with graceful fallback to collapsible Markdown.
+- [ ] **Terminal Companion CLI (`cc`)**: zero-dependency offline shell tool for instant search, syntax viewing, and verified script execution directly from PowerShell or Bash.
+
+**Repository areas:** `docs/assets/javascripts/cc-interactive.js`, `docs/assets/stylesheets/cc-interactive.css`, `tools/`
 
 </div>
 
