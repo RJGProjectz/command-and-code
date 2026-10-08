@@ -206,3 +206,146 @@
 .cc-session-chip strong {
   color: var(--cc-amber);
 }
+
+/* ==========================================================================
+   Pillar 2: Diagnostic Decision Tree
+   ========================================================================== */
+.cc-tree {
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.cc-tree-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cc-tree-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-family: var(--cc-mono);
+  font-size: 0.8rem;
+  color: var(--cc-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cc-tree-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-family: var(--cc-mono);
+  font-size: 0.68rem;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 1rem;
+}
+
+.cc-tree-crumb {
+  cursor: pointer;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color);
+  transition: all 0.15s ease;
+}
+
+.cc-tree-crumb:hover {
+  border-color: var(--cc-amber);
+  color: var(--cc-amber);
+}
+
+.cc-tree-crumb.active {
+  background: rgba(230, 126, 34, 0.15);
+  border-color: var(--cc-amber);
+  color: var(--cc-amber);
+  font-weight: 700;
+}
+
+.cc-node {
+  display: none;
+  animation: ccFadeIn 0.22s ease-out forwards;
+}
+
+.cc-node.cc-node--active {
+  display: block;
+}
+
+@keyframes ccFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cc-branch-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.cc-branch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(230, 126, 34, 0.08);
+  border: 1px solid var(--cc-amber);
+  color: var(--md-default-fg-color);
+  font-family: var(--cc-mono);
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+.cc-branch-btn:hover {
+  background: var(--cc-amber);
+  color: #111 !important;
+  transform: translateY(-1px);
+}
+
+.cc-branch-btn--danger {
+  background: rgba(231, 76, 60, 0.08);
+  border-color: #e74c3c;
+}
+
+.cc-branch-btn--danger:hover {
+  background: #e74c3c;
+  color: #fff !important;
+}
+
+.cc-branch-btn--success {
+  background: rgba(46, 204, 113, 0.08);
+  border-color: #2ecc71;
+}
+
+.cc-branch-btn--success:hover {
+  background: #2ecc71;
+  color: #fff !important;
+}
+
+.cc-branch-btn--reset {
+  background: transparent;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+}
+
+.cc-branch-btn--reset:hover {
+  border-color: var(--md-default-fg-color);
+  color: var(--md-default-fg-color) !important;
+}

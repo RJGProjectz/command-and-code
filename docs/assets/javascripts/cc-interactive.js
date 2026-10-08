@@ -257,22 +257,148 @@
     updateAllBlocks(registry);
   }
 
+  // =========================================================================
+  // Pillar 2: Diagnostic Decision Tree Engine
+  // =========================================================================
+  function initDecisionTrees() {
+    var trees = document.querySelectorAll('.cc-tree');
+    if (!trees.length) return;
+
+    trees.forEach(function (tree) {
+      if (tree.hasAttribute('data-cc-tree-initialized')) return;
+      tree.setAttribute('data-cc-tree-initialized', 'true');
+
+      var nodes = tree.querySelectorAll('.cc-node');
+      if (!nodes.length) return;
+
+      var titleText = tree.getAttribute('data-title') || 'Diagnostic Decision Tree';
+      var history = [];
+
+      // Create tree header
+      var header = document.createElement('div');
+      header.className = 'cc-tree-header';
+
+      var titleEl = document.createElement('div');
+      titleEl.className = 'cc-tree-title';
+      titleEl.innerHTML = '<svg style="width:16px;height:16px;fill:currentColor" viewBox="0 0 24 24"><path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/></svg> ' + escapeHtml(titleText);
+
+      var resetBtn = document.createElement('button');
+      resetBtn.type = 'button';
+      resetBtn.className = 'cc-param-btn cc-branch-btn--reset';
+      resetBtn.innerText = '↺ Restart Triage';
+
+      header.appendChild(titleEl);
+      header.appendChild(resetBtn);
+
+      var breadcrumbs = document.createElement('div');
+      breadcrumbs.className = 'cc-tree-breadcrumbs';
+
+      tree.insertBefore(breadcrumbs, tree.firstChild);
+      tree.insertBefore(header, breadcrumbs);
+
+      function getNodeTitle(node) {
+        var h = node.querySelector('h1, h2, h3, h4, h5, h6');
+        return h ? h.textContent.trim() : (node.getAttribute('data-id') || 'Step');
+      }
+
+      function updateBreadcrumbs() {
+        breadcrumbs.innerHTML = '';
+        history.forEach(function (nodeId, idx) {
+          var targetNode = tree.querySelector('.cc-node[data-id="' + nodeId + '"]');
+          if (!targetNode) return;
+
+          var crumb = document.createElement('span');
+          crumb.className = 'cc-tree-crumb' + (idx === history.length - 1 ? ' active' : '');
+          crumb.innerText = getNodeTitle(targetNode);
+          crumb.addEventListener('click', function () {
+            if (idx < history.length - 1) {
+              history = history.slice(0, idx + 1);
+              activateNode(nodeId, false);
+            }
+          });
+          breadcrumbs.appendChild(crumb);
+
+          if (idx < history.length - 1) {
+            var sep = document.createElement('span');
+            sep.style.opacity = '0.5';
+            sep.innerText = ' > ';
+            breadcrumbs.appendChild(sep);
+          }
+        });
+      }
+
+      function activateNode(nodeId, pushHistory) {
+        var targetNode = tree.querySelector('.cc-node[data-id="' + nodeId + '"]');
+        if (!targetNode) return;
+
+        nodes.forEach(function (n) {
+          n.classList.remove('cc-node--active');
+        });
+
+        targetNode.classList.add('cc-node--active');
+
+        if (pushHistory !== false) {
+          history.push(nodeId);
+        }
+
+        updateBreadcrumbs();
+      }
+
+      // Find root node
+      var rootNode = tree.querySelector('.cc-node--root') || tree.querySelector('.cc-node[data-id="root"]') || nodes[0];
+      var rootId = rootNode.getAttribute('data-id') || 'root';
+      rootNode.setAttribute('data-id', rootId);
+
+      // Event delegation for branch buttons
+      tree.addEventListener('click', function (e) {
+        var btn = e.target.closest ? e.target.closest('.cc-branch, [data-branch-next], .cc-branch-reset') : null;
+        if (!btn) return;
+
+        e.preventDefault();
+
+        if (btn.classList.contains('cc-branch-reset') || btn.classList.contains('cc-branch-btn--reset')) {
+          history = [];
+          activateNode(rootId, true);
+          return;
+        }
+
+        var nextId = btn.getAttribute('data-next') || btn.getAttribute('data-branch-next');
+        if (nextId) {
+          activateNode(nextId, true);
+        }
+      });
+
+      resetBtn.addEventListener('click', function () {
+        history = [];
+        activateNode(rootId, true);
+      });
+
+      // Start at root
+      activateNode(rootId, true);
+    });
+  }
+
+  function initAll() {
+    initCommandBuilders();
+    initDecisionTrees();
+  }
+
   // Lifecycle mounting
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCommandBuilders);
+    document.addEventListener('DOMContentLoaded', initAll);
   } else {
-    initCommandBuilders();
+    initAll();
   }
 
   // Handle Material for MkDocs instant navigation (pjax)
   if (typeof app !== 'undefined' && app.document$) {
     app.document$.subscribe(function () {
-      initCommandBuilders();
+      initAll();
     });
   } else if (typeof window !== 'undefined' && 'MutationObserver' in window) {
     var observer = new MutationObserver(function () {
-      if (document.querySelector('.md-typeset pre > code:not([data-cc-builder-initialized])')) {
-        initCommandBuilders();
+      if (document.querySelector('.md-typeset pre > code:not([data-cc-builder-initialized]), .cc-tree:not([data-cc-tree-initialized])')) {
+        initAll();
       }
     });
     observer.observe(document.body, { childList: true, subtree: true });
