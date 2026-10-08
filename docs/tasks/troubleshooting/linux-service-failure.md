@@ -25,7 +25,7 @@ last_verified: 2026-10-05
 Check the current systemd unit active state, exit code, and recent runtime log:
 
 ```bash
-systemctl status <SERVICE_NAME> --no-pager -l
+systemctl status '<SERVICE_NAME>' --no-pager -l
 ```
 
 <div class="cc-branch-group">
@@ -43,7 +43,7 @@ systemctl status <SERVICE_NAME> --no-pager -l
 Extract the last 50 journal entries for the service to identify the exact runtime exception:
 
 ```bash
-journalctl -u <SERVICE_NAME> -b --no-pager | tail -50
+journalctl -u '<SERVICE_NAME>' -b --no-pager | tail -50
 ```
 
 **What error appears in the journal log?**
@@ -65,10 +65,10 @@ journalctl -u <SERVICE_NAME> -b --no-pager | tail -50
 
 ```bash
 # 1. Inspect unit file execution command and service user
-systemctl cat <SERVICE_NAME> | grep -E "User|Group|ExecStart"
+systemctl cat '<SERVICE_NAME>' | grep -E "User|Group|ExecStart"
 
 # 2. Verify binary permissions and execute manually as service user
-sudo -u <SERVICE_USER> /path/to/binary --config /etc/service.conf
+sudo -u '<SERVICE_USER>' /path/to/binary --config /etc/service.conf
 
 # 3. Check for SELinux / AppArmor audit denials
 sudo ausearch -m avc -ts recent
@@ -89,15 +89,15 @@ sudo dmesg | grep -i apparmor
 
 ```bash
 # 1. Identify conflicting process holding target listening port
-sudo ss -tulpn | grep :<PORT>
+sudo ss -tulpn | grep ':<PORT>'
 
 # 2. Or query via lsof
-sudo lsof -i :<PORT>
+sudo lsof -i ':<PORT>'
 ```
 
 Terminate or reconfigure the conflicting daemon, then restart:
 ```bash
-sudo systemctl restart <SERVICE_NAME>
+sudo systemctl restart '<SERVICE_NAME>'
 ```
 
 <div class="cc-branch-group">
@@ -139,10 +139,10 @@ When systemd reports `start request repeated too quickly`, reset the failure cou
 # Examples: nginx -t, sshd -t, apachectl configtest, named-checkconf
 
 # 2. Reset systemd unit failure count
-sudo systemctl reset-failed <SERVICE_NAME>
+sudo systemctl reset-failed '<SERVICE_NAME>'
 
 # 3. Restart service cleanly
-sudo systemctl restart <SERVICE_NAME>
+sudo systemctl restart '<SERVICE_NAME>'
 ```
 
 <div class="cc-branch-group">
@@ -159,11 +159,11 @@ If a critical service is unexpectedly masked or disabled, check for administrati
 
 ```bash
 # 1. Check if unit is masked (symlinked to /dev/null)
-systemctl is-enabled <SERVICE_NAME>
+systemctl is-enabled '<SERVICE_NAME>'
 
 # 2. Unmask and enable if legitimate
-sudo systemctl unmask <SERVICE_NAME>
-sudo systemctl enable --now <SERVICE_NAME>
+sudo systemctl unmask '<SERVICE_NAME>'
+sudo systemctl enable --now '<SERVICE_NAME>'
 
 # 3. Audit recent shell commands that disabled the service
 sudo grep -E "systemctl (stop|disable|mask)" /root/.bash_history /home/*/.bash_history 2>/dev/null
@@ -184,8 +184,8 @@ sudo grep -E "systemctl (stop|disable|mask)" /root/.bash_history /home/*/.bash_h
 ### 1. Status and recent logs
 
 ```bash
-systemctl status <SERVICE_NAME> --no-pager -l
-journalctl -u <SERVICE_NAME> -b --no-pager | tail -50
+systemctl status '<SERVICE_NAME>' --no-pager -l
+journalctl -u '<SERVICE_NAME>' -b --no-pager | tail -50
 ```
 
 The status output shows the exit code and the last log lines. → [systemd](../../platforms/linux/systemd.md#inspect-a-service)

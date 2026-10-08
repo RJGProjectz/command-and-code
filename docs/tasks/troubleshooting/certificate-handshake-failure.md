@@ -54,9 +54,7 @@ Before analyzing cryptographic negotiations, verify whether the transport socket
 
 ```bash
 # Linux: Test TCP socket connection (timeout 5s)
-nc -zv -w 5 <TARGET_HOST> 443
-# Or via native bash /dev/tcp
-(timeout 3 bash -c "</dev/tcp/<TARGET_HOST>/443") && echo "Port 443 open" || echo "Port 443 unreachable"
+nc -zv -w 5 '<TARGET_HOST>' 443
 ```
 ```powershell
 # Windows: Test TCP port 443 reachability
@@ -85,7 +83,7 @@ Get-NetFirewallRule -Direction Outbound -Enabled True | Where-Object { $_.Displa
 ```
 ```bash
 # Linux: Trace TCP path and inspect iptables/nftables
-traceroute -T -p 443 <TARGET_HOST>
+traceroute -T -p 443 '<TARGET_HOST>'
 sudo iptables -L OUTPUT -n -v | grep 443
 ```
 
@@ -103,7 +101,7 @@ Connect using OpenSSL or PowerShell with verbose certificate chain dumping to ca
 
 ```bash
 # Linux: Perform TLS handshake and inspect certificate chain
-echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> -showcerts 2>&1 | head -n 30
+echo | openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' -showcerts 2>&1 | head -n 30
 ```
 ```powershell
 # Windows: Probe SSL stream and retrieve remote certificate properties
@@ -142,10 +140,10 @@ $SslStream.Close(); $TcpClient.Close()
 
 ```bash
 # 1. Inspect the certificate chain depth returned by the server (depth should be >= 2)
-echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> 2>&1 | grep -E "depth|verify error|verify return"
+echo | openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' 2>&1 | grep -E "depth|verify error|verify return"
 
 # 2. Extract Authority Information Access (AIA) issuer URL to locate missing intermediate
-echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> 2>/dev/null | \
+echo | openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' 2>/dev/null | \
   openssl x509 -noout -text | grep -A 4 "Authority Information Access"
 
 # 3. Remediation: Reconfigure web server (Nginx/Apache/Envoy) to bundle fullchain.pem
@@ -167,7 +165,7 @@ echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> 2>/
 
 ```bash
 # Inspect all Subject Alternative Names (SANs) on the remote certificate
-echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> 2>/dev/null | \
+echo | openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' 2>/dev/null | \
   openssl x509 -noout -ext subjectAltName
 ```
 ```powershell
@@ -190,8 +188,8 @@ $Cert.Extensions | Where-Object { $_.Oid.FriendlyName -eq "Subject Alternative N
 
 ```bash
 # Test explicit TLS versions to pinpoint supported protocol floor
-openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> -tls1_2 < /dev/null
-openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> -tls1_3 < /dev/null
+openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' -tls1_2 < /dev/null
+openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' -tls1_3 < /dev/null
 ```
 ```powershell
 # Windows: Enforce TLS 1.2 on legacy PowerShell 5.1 sessions before calling API
@@ -213,7 +211,7 @@ openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> -tls1_3 < 
 
 ```bash
 # 1. Check exact certificate expiration timestamps
-echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> 2>/dev/null | openssl x509 -noout -dates
+echo | openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' 2>/dev/null | openssl x509 -noout -dates
 
 # 2. Check local client clock synchronization against NTP
 timedatectl status
@@ -236,15 +234,15 @@ w32tm /query /status
 ### Linux / OpenSSL Deep-Dive
 ```bash
 # 1. Test full handshake and print certificate chain details
-echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> -showcerts
+echo | openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' -showcerts
 
 # 2. Check validity dates and SAN entries explicitly
-echo | openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> 2>/dev/null |
+echo | openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' 2>/dev/null | \
   openssl x509 -noout -dates -subject -issuer -ext subjectAltName
 
 # 3. Test explicit TLS version negotiation
-openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> -tls1_2
-openssl s_client -connect <TARGET_HOST>:443 -servername <TARGET_HOST> -tls1_3
+openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' -tls1_2 < /dev/null
+openssl s_client -connect '<TARGET_HOST>:443' -servername '<TARGET_HOST>' -tls1_3 < /dev/null
 ```
 
 ### Windows (PowerShell)

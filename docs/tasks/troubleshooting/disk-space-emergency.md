@@ -117,7 +117,7 @@ sudo lsof +L1 | awk '{print $1, $2, $7, $10}' | head -n 15
 # Example: rsyslogd 1240 4294967296 /var/log/messages (deleted)
 
 # 2. Release blocks without rebooting by restarting the daemon:
-sudo systemctl restart <DAEMON_NAME>
+sudo systemctl restart '<DAEMON_NAME>'
 
 # 3. Or truncate file descriptor directly in /proc without restart:
 # : > "/proc/<PID>/fd/<FD_NUM>"

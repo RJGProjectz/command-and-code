@@ -149,10 +149,10 @@ $TargetProcess.ProcessorAffinity = 0x3
 ```
 ```bash
 # Linux: Renice process to lower priority (+10)
-renice +10 -p <PID>
+renice +10 -p '<PID>'
 
 # Linux: Restrict process to CPU cores 0 and 1
-taskset -cp 0,1 <PID>
+taskset -cp 0,1 '<PID>'
 ```
 
 <div class="cc-branch-group">
