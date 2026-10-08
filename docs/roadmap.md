@@ -187,21 +187,21 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
-<div class="cc-phase cc-active" markdown>
+<div class="cc-phase" markdown>
 
 ## Phase 8 — Practitioner Operational Experience (POX)
 
-**Status:** 🟡 Active
+**Status:** ✅ Complete
 
 **Objective:** enhance practitioner speed and execution safety through lightweight, dependency-free interactive web capabilities and companion terminal tooling — without compromising raw Markdown readability or offline autonomy.
 
 **Key capabilities**
 
 - [x] **Parameterized Command Builder** (`docs/assets/javascripts/cc-interactive.js` & `cc-interactive.css`): automated parameter detection (`<TARGET_IP>`, `<TARGET_HOST>`, `<UPN>`), live multi-block parameter synchronization, highlighted syntax interpolation, and one-click clipboard copying.
-- [ ] **Branching Diagnostic Decision Trees**: interactive visual troubleshooting widgets (Step 1 $\rightarrow$ Click [Exit 0] / [Timeout] $\rightarrow$ next diagnostic branch) with graceful fallback to collapsible Markdown.
-- [ ] **Terminal Companion CLI (`cc`)**: zero-dependency offline shell tool for instant search, syntax viewing, and verified script execution directly from PowerShell or Bash.
+- [x] **Branching Diagnostic Decision Trees**: interactive visual troubleshooting widgets (Step 1 $\rightarrow$ Click [Exit 0] / [Timeout] $\rightarrow$ next diagnostic branch) with graceful fallback to collapsible Markdown.
+- [x] **Terminal Companion CLI (`cc`)**: zero-dependency offline shell tool (`tools/cc_cli.py`, `cc.cmd`, `cc.ps1`, `cc.sh`) for instant search, syntax viewing, and verified script execution directly from PowerShell or Bash.
 
-**Repository areas:** `docs/assets/javascripts/cc-interactive.js`, `docs/assets/stylesheets/cc-interactive.css`, `tools/`
+**Repository areas:** `docs/assets/javascripts/cc-interactive.js`, `docs/assets/stylesheets/cc-interactive.css`, `tools/cc_cli.py`, `cc.cmd`, `cc.ps1`, `tools/`
 
 </div>
 

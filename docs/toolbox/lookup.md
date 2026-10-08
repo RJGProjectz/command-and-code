@@ -19,25 +19,58 @@ tags:
   - offline
 ---
 
-# Command & Code CLI Lookup Utility
+# Command & Code Terminal Companion CLI (`cc`)
 
-Fast offline terminal lookup utility for searching knowledge nodes, queries, syntax, and workflows directly from PowerShell, CMD, or Bash without needing a web browser or network connection.
+Fast offline terminal companion CLI for searching knowledge nodes, viewing runbooks, extracting copy-ready command blocks, and executing production automation scripts directly from PowerShell, CMD, or Bash without needing a web browser or network connection.
+
+---
 
 ## 1. Purpose & Capabilities
 
-- Instantly search through 195+ knowledge nodes by keyword, task, platform, or language.
-- View document contents directly in the terminal via `--cat`.
-- Operates entirely offline with zero external dependencies (pure Python + PyYAML).
+- **Instant Offline Search (`cc find`)**: Search through 263+ knowledge entries by keyword, task, platform, or language with ANSI-colored relevance scoring.
+- **Runbook Viewer & Code Extraction (`cc view`)**: Pretty-print any entry directly in your terminal, or extract only executable code blocks with `--code`.
+- **Direct Clipboard Copy (`cc copy`)**: Copy specific command blocks directly to the OS clipboard without touching a mouse.
+- **Script Discovery & Execution (`cc scripts`, `cc run`)**: Discover and run cataloged PowerShell, Bash, and Python production scripts.
+- **Environment Doctor (`cc doctor`)**: Audit local runtime health, Git status, PowerShell version, and schema compliance.
 
-## 2. Usage Examples
+---
+
+## 2. Command Line Reference
 
 ```bash
-# Search for brute force or failed authentication workflows
-python tools/lookup.py "failed logons"
+# 1. Search knowledge entries by keywords
+cc find "listening ports"
+cc find "ransomware" --platform Windows --language PowerShell
 
-# Filter by platform and language
-python tools/lookup.py "isolate" --platform Windows --language PowerShell
+# 2. View guide content or extract code blocks
+cc view windows-connectivity
+cc view ransomware-host-isolation --code
 
-# View the full markdown content of any entry directly in terminal
-python tools/lookup.py --cat tasks/incident-response/automated-containment.md
+# 3. Copy a specific code block directly to clipboard
+cc copy ransomware-host-isolation --block 1
+
+# 4. List and execute cataloged automation scripts
+cc scripts vpn
+cc run FUNC_PS_TEST_VPN_CONNECTION
+
+# 5. Environment & repository health audit
+cc doctor
+```
+
+---
+
+## 3. Shell Integration
+
+To use `cc` globally from any directory:
+
+### Windows PowerShell
+Add this function to your PowerShell profile (`$PROFILE`):
+```powershell
+function cc { & "g:\AI-Playground\C&C\command-and-code\tools\cc.cmd" @args }
+```
+
+### Linux / macOS Bash
+Add an alias to your `~/.bashrc` or `~/.zshrc`:
+```bash
+alias cc="/path/to/command-and-code/tools/cc.sh"
 ```
