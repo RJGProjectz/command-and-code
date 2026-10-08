@@ -20,6 +20,12 @@
 .PARAMETER ApiKey
     Optional API Key for authenticated portal checks.
 
+.PARAMETER DeviceCertTemplate
+    Optional. The Active Directory Certificate Services (AD CS) template name required for machine authentication. Defaults to 'ClientAuth-Computer'.
+
+.PARAMETER UserCertTemplate
+    Optional. The Active Directory Certificate Services (AD CS) template name required for user authentication. Defaults to 'ClientAuth-User'.
+
 .PARAMETER TargetEnvironment
     Mandatory. Specifies the environment context for the diagnostics. Use 'Test' or 'Prod'.
 
@@ -38,7 +44,7 @@
 .NOTES
     Security Domain: Network
     Created: 2026-01-16T14:40:00
-    Last Modified: 2026-02-27T15:00:00
+    Last Modified: 2026-10-08T08:00:00
     Author: Antigravity
     KB Article: [KB-Net-001-VpnTroubleshooting.md](../../HowTo/Scripts/KB-Net-001-VpnTroubleshooting.md)
 #>
@@ -53,6 +59,12 @@ param(
 
     [Parameter(Mandatory=$false)]
     [string]$ApiKey,
+
+    [Parameter(Mandatory=$false)]
+    [string]$DeviceCertTemplate = "ClientAuth-Computer",
+
+    [Parameter(Mandatory=$false)]
+    [string]$UserCertTemplate = "ClientAuth-User",
 
     [Parameter(Mandatory=$true)]
     [ValidateSet("Test", "Prod")]
@@ -163,8 +175,6 @@ if ($GPService) {
 
 # 2. Certificate Check (Enhanced Logic)
 $ClientAuthOID = "1.3.6.1.5.5.7.3.2"
-$DeviceCertTemplate = "Enterprise Computer SHA2 - Wi-Fi"
-$UserCertTemplate = "Enterprise User SHA2 - Wi-Fi"
 
 Write-Host "[*] Checking Device Certificate..." -NoNewline
 $DeviceCerts = Get-ChildItem Cert:\LocalMachine\My | Where-Object { 
@@ -175,8 +185,8 @@ $DeviceCerts = Get-ChildItem Cert:\LocalMachine\My | Where-Object {
     $_.NotAfter -ge (Get-Date) 
 }
 
-# Tighten Device Cert Validation: Require specific template
-if ($DeviceCerts) {
+# Tighten Device Cert Validation: Require specific template if configured
+if ($DeviceCerts -and -not [string]::IsNullOrWhiteSpace($DeviceCertTemplate)) {
     $DeviceCerts = $DeviceCerts | Where-Object {
         $ResolvedTemplate = Get-CertificateTemplate -Cert $_
         $ResolvedTemplate -match [regex]::Escape($DeviceCertTemplate)
@@ -223,8 +233,8 @@ if ($TargetSID -eq $CurrentUserSID) {
         $_.NotAfter -ge (Get-Date)
     }
 
-    # Tighten validation: Require specific User VPN template
-    if ($UserCerts) {
+    # Tighten validation: Require specific User VPN template if configured
+    if ($UserCerts -and -not [string]::IsNullOrWhiteSpace($UserCertTemplate)) {
         $UserCerts = $UserCerts | Where-Object {
             $ResolvedTemplate = Get-CertificateTemplate -Cert $_
             $ResolvedTemplate -match [regex]::Escape($UserCertTemplate)
@@ -272,7 +282,7 @@ if ($TargetSID -eq $CurrentUserSID) {
                             }
                         }
                         
-                        $IsVpnTemplate = ($TemplateName -match [regex]::Escape($UserCertTemplate))
+                        $IsVpnTemplate = [string]::IsNullOrWhiteSpace($UserCertTemplate) -or ($TemplateName -match [regex]::Escape($UserCertTemplate))
 
                         if ($IsVpnTemplate -and $HasClientAuth -and -not $IsExpired) {
                             $UserCerts += $ParsedCert
@@ -325,7 +335,7 @@ if ($TargetSID -eq $CurrentUserSID) {
                             }
                         }
 
-                        $IsVpnTemplate = ($TemplateName -match [regex]::Escape($UserCertTemplate))
+                        $IsVpnTemplate = [string]::IsNullOrWhiteSpace($UserCertTemplate) -or ($TemplateName -match [regex]::Escape($UserCertTemplate))
 
                         if ($IsVpnTemplate -and $HasClientAuth -and -not $IsExpired) {
                             $UserCerts += $ParsedCert
