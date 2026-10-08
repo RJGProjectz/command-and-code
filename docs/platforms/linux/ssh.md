@@ -175,6 +175,8 @@ ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes user@host
 
 ## Related
 
+- [Administration — SSH Key Generation, Deployment & Best Practices](../../tasks/administration/ssh-key-deployment.md)
+- [Fundamentals — SSH Key Architecture & Cryptography Baselines](../../fundamentals/identity/ssh-keys.md)
 - [Linux Logs](logs.md#failed-ssh-logins)
 - [Linux Troubleshooting Commands](troubleshooting.md)
 - [Account Compromise Workflow](../../tasks/incident-response/account-compromise.md)

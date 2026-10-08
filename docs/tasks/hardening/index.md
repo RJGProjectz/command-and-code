@@ -10,6 +10,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 <!-- cc:index tasks="Hardening" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Administration — SSH Key Generation, Deployment & Best Practices](../administration/ssh-key-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Certificate and PKI Management](../administration/certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](../assurance/cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |
 | [Host Firewall and Port Management](../administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |

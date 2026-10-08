@@ -28,6 +28,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Administration — Group Policy Force Refresh & Diagnostic Audit](group-policy-update.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Remote Service Restart & Dependency Validation](remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Safe Temporary File Purging](temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — SSH Key Generation, Deployment & Best Practices](ssh-key-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Automated Active Directory and Cloud Identity Containment](../automation/automated-account-containment.md) | Workflow | Active Directory, Entra ID, Microsoft 365, Windows Server | PowerShell, REST API | Automation, Incident Response, Administration |
 | [Azure Cloud Infrastructure and Resource Administration](cloud-azure-resource-management.md) | Workflow | Azure, Entra ID | PowerShell, Bash | Administration |
 | [Backup and Recovery Operations](backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |

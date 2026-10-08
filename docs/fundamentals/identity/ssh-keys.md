@@ -47,3 +47,12 @@ ssh-copy-id -i ~/.ssh/id_ed25519_production.pub user@server.example.com
 - Public key (`~/.ssh/id_ed25519.pub`): `chmod 644`
 - Authorized keys (`~/.ssh/authorized_keys`): `chmod 600`
 - SSH directory (`~/.ssh`): `chmod 700`
+
+---
+
+## Related Guides
+
+- [Administration — SSH Key Generation, Deployment & Best Practices](../../tasks/administration/ssh-key-deployment.md)
+- [Linux SSH Daemon Configuration & Security Baseline](../../platforms/linux/ssh.md)
+- [Remote File Transfer — SCP, SFTP, rsync & WinRM](../../tasks/administration/remote-file-transfer.md)
+

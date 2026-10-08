@@ -344,6 +344,7 @@ nav:
           - Temporary File Purging: tasks/administration/temp-file-cleanup.md
           - Finding Files & Content: tasks/administration/file-search-discovery.md
           - Remote File Transfer (SCP/rsync): tasks/administration/remote-file-transfer.md
+          - SSH Key Deployment & Best Practices: tasks/administration/ssh-key-deployment.md
           - Local User & Group Management: tasks/administration/local-user-group-management.md
           - Network Adapter & IP Configuration: tasks/administration/network-adapter-ip-configuration.md
           - Host Firewall & Port Management: tasks/administration/firewall-port-management.md
