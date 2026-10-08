@@ -173,8 +173,85 @@ ssh -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes user@host
 
 ---
 
+## 7. SSH Session Timeouts, Freezes & KeepAlive Tuning
+
+When an SSH session freezes, drops after inactivity, or disconnects unexpectedly, the issue typically stems from stateful firewall timeouts, operating system sleep modes, or power management suspending the network adapter:
+
+### 1. Active Session & Established Socket Inspection
+
+```bash
+# Check logged-in user terminals and idle times
+who
+w
+
+# Inspect established inbound SSH connections and remote client IPs
+sudo ss -tnp state established '( sport = :22 )'
+```
+
+### 2. Prevent Host & Virtual Machine Sleep / Suspend
+
+On workstations, laptops, or VMs, systemd sleep targets suspend network connectivity:
+
+```bash
+# Mask sleep and hibernation targets to prevent the host from suspending
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+# Stop and disable power-profiles-daemon if overriding system availability
+sudo systemctl stop power-profiles-daemon 2>/dev/null || true
+sudo systemctl disable power-profiles-daemon 2>/dev/null || true
+```
+
+### 3. Check for Shell Inactivity Auto-Logout (`TMOUT`)
+
+```bash
+# Search for TMOUT definitions in global and user shell profiles
+grep -rn "TMOUT" /etc/profile /etc/profile.d/ /etc/bash.bashrc ~/.bashrc 2>/dev/null
+```
+
+### 4. Network Adapter & Wi-Fi Power Management
+
+NetworkManager or kernel runtime power management may suspend the network interface during idle periods:
+
+```bash
+# Inspect runtime power state (should be 'on', not 'auto')
+cat /sys/class/net/*/device/power/control
+
+# Prevent kernel from sleeping network adapters via udev rule
+echo 'ACTION=="add", SUBSYSTEM=="net", KERNEL=="*", ATTR{power/control}="on"' | sudo tee /etc/udev/rules.d/99-disable-network-sleep.rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
+
+# Disable NetworkManager Wi-Fi power saving (wifi.powersave = 2)
+sudo tee /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf << 'EOF'
+[connection]
+wifi.powersave = 2
+EOF
+sudo systemctl restart NetworkManager
+```
+
+### 5. Server & Client KeepAlive Configuration
+
+Keep stateful NAT routers and firewalls from dropping idle connection tracking states:
+
+* **Server-side (`/etc/ssh/sshd_config.d/99-keepalive.conf`):**
+  ```text
+  ClientAliveInterval 60
+  ClientAliveCountMax 3
+  TCPKeepAlive yes
+  ```
+* **Client-side (`~/.ssh/config`):**
+  ```text
+  Host *
+      ServerAliveInterval 60
+      ServerAliveCountMax 3
+  ```
+
+For the complete interactive decision tree and deep-dive triage, see **[Troubleshooting — SSH Connection Timeouts & Session Freezes](../../tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md)**.
+
+---
+
 ## Related
 
+- [Troubleshooting — SSH Connection Timeouts, Session Freezes & Host Sleep Drops](../../tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md)
 - [Administration — SSH Key Generation, Deployment & Best Practices](../../tasks/administration/ssh-key-deployment.md)
 - [Fundamentals — SSH Key Architecture & Cryptography Baselines](../../fundamentals/identity/ssh-keys.md)
 - [Linux Logs](logs.md#failed-ssh-logins)

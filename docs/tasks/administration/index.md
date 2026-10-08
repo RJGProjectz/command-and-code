@@ -51,6 +51,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Network Services Management](network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
 | [Scheduled Task and Cron Job Automation](scheduled-jobs-task-scheduler.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
+| [SSH Connection Timeouts, Session Freezes & Host Sleep Drops](../troubleshooting/ssh-connection-timeout-troubleshooting.md) | Workflow | Linux, Windows | Bash, PowerShell | Troubleshooting, Administration |
 | [Storage Partitioning, Formatting and Filesystem Mounting](storage-partitioning-mounting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [System Maintenance and Updates](system-maintenance-updates.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
 | [Troubleshooting — Emergency Disk Space Exhaustion & Inode Recovery](../troubleshooting/disk-space-emergency.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |

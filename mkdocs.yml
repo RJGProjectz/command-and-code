@@ -336,6 +336,7 @@ nav:
           - Overview: tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
           - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
+          - SSH Timeouts & Freezes: tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md
           - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
           - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
           - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md

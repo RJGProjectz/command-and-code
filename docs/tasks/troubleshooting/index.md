@@ -51,6 +51,7 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
 | [Host Performance and System Resource Auditing](../administration/performance-resource-auditing.md) | Workflow | Windows, Linux | PowerShell, Bash, Python | Administration, Troubleshooting |
 | [Linux Service Failure Troubleshooting](linux-service-failure.md) | Workflow | Linux | Bash | Troubleshooting, Administration |
 | [Network Services Management](../administration/network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
+| [SSH Connection Timeouts, Session Freezes & Host Sleep Drops](ssh-connection-timeout-troubleshooting.md) | Workflow | Linux, Windows | Bash, PowerShell | Troubleshooting, Administration |
 | [Troubleshooting — Emergency Disk Space Exhaustion & Inode Recovery](disk-space-emergency.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Troubleshooting — High CPU Utilization & Runaway Processes](high-cpu-troubleshooting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Troubleshooting — TLS/SSL Handshake & Certificate Failures](certificate-handshake-failure.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Troubleshooting, Investigation |
