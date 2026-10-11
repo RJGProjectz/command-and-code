@@ -30,12 +30,17 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$KqlQuery,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- MDE Advanced Hunting Query ---" -ForegroundColor Cyan
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would run the KQL query against Defender Advanced Hunting" -ForegroundColor Yellow
+    return
+}
 
 try {
     Write-Host "[*] Executing KQL..."

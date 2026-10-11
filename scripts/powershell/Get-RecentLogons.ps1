@@ -15,6 +15,9 @@
     Include machine accounts (ending in $) and logon types 0 and 5 (System, Service).
 .PARAMETER MaxEvents
     Upper bound on events read per event ID. Default 5000.
+.PARAMETER TargetEnvironment
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
 .EXAMPLE
     .\Get-RecentLogons.ps1 -Hours 4 | Format-Table Time, Outcome, User, LogonTypeName, SourceIp
 .EXAMPLE
@@ -32,8 +35,15 @@ param(
     [switch]$IncludeSystemLogons,
 
     [ValidateRange(1, 1000000)]
-    [int]$MaxEvents = 5000
+    [int]$MaxEvents = 5000,
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
+
+# Local, read-only collection: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'

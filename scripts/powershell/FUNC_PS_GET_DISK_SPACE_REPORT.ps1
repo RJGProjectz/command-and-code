@@ -14,7 +14,7 @@
     Percentage threshold for "Low Space" warnings. Defaults to 10.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Get-DiskSpaceReport.ps1 -ComputerName "Server01" -Threshold 15 -TargetEnvironment Prod
@@ -34,13 +34,18 @@ param(
     [Parameter(Mandatory=$false)]
     [int]$Threshold = 10,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Disk Space Report ---" -ForegroundColor Cyan
 Write-Host "Target: $ComputerName (Threshold: $Threshold%)"
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would query fixed disks on $ComputerName via CIM" -ForegroundColor Yellow
+    return
+}
 
 try {
     $Disks = Get-CimInstance -ClassName Win32_LogicalDisk -ComputerName $ComputerName -Filter "DriveType=3" -ErrorAction Stop

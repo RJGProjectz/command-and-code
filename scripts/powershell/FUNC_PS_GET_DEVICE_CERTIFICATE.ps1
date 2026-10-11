@@ -19,6 +19,11 @@
 .PARAMETER ExpiringInDays
     Optional. If provided, returns only certificates that expire within the specified number of days.
 
+.PARAMETER TargetEnvironment
+
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
+
 .EXAMPLE
     .\Get-DeviceCertificate.ps1
     Retrieves all certificates in the LocalMachine\My store.
@@ -46,10 +51,17 @@ param (
     
     [string]$StoreName = "My",
     
-    [int]$ExpiringInDays
+    [int]$ExpiringInDays,
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
 
 process {
+    # Local, read-only collection: behaves the same in Test and Prod.
+    Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
+
     $CertPath = "Cert:\$StoreLocation\$StoreName"
     
     if (-not (Test-Path $CertPath)) {

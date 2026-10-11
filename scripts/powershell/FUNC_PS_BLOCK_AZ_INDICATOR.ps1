@@ -43,9 +43,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$Comment,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Entra/MDE TI Indicator Block ---" -ForegroundColor Cyan

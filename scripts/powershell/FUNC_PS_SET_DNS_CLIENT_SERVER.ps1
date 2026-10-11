@@ -37,9 +37,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string[]]$DnsServers,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Remote DNS Configuration ---" -ForegroundColor Cyan

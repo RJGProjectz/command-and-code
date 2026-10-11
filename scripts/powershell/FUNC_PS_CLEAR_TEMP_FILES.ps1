@@ -14,7 +14,7 @@
     Keep files newer than this many days. Defaults to 7.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Clear-TempFiles.ps1 -ComputerName "Server01" -Days 14 -TargetEnvironment Prod
@@ -34,13 +34,18 @@ param(
     [Parameter(Mandatory=$false)]
     [int]$Days = 7,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Remote Temp Cleanup ---" -ForegroundColor Cyan
 Write-Host "Target: $ComputerName (Older than $Days days)"
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would delete temp files older than $Days days on $ComputerName" -ForegroundColor Yellow
+    return
+}
 
 $ScriptBlock = {
     param($Days)

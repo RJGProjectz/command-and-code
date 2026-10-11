@@ -11,7 +11,7 @@
     The UPN or Object ID of the user.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Get-AzSignInLogs.ps1 -UserId "user@example.com" -TargetEnvironment Prod
@@ -28,9 +28,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$UserId,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Azure Sign-In Failure Logs ---" -ForegroundColor Cyan

@@ -11,7 +11,7 @@
     Array of URL strings.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Test-WebsiteStatus.ps1 -Urls "https://google.com", "https://bing.com" -TargetEnvironment Prod
@@ -28,15 +28,20 @@ param(
     [Parameter(Mandatory=$true)]
     [string[]]$Urls,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment,
+    [string]$TargetEnvironment = "Test",
 
     [Parameter(Mandatory=$false)]
     [string]$Token
 )
 
 Write-Host "--- mass Website Status Checker ---" -ForegroundColor Cyan
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would send HEAD requests to $($Urls -join ', ')" -ForegroundColor Yellow
+    return
+}
 
 $Results = foreach ($Url in $Urls) {
     Write-Host "[*] Testing $Url..." -NoNewline

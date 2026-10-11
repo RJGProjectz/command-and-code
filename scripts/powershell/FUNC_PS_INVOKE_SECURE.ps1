@@ -35,7 +35,7 @@ param(
     [string]$Arguments = ""
 )
 
-$Verifier = Join-Path $PSScriptRoot "Verify-ScriptIntegrity.ps1"
+$Verifier = Join-Path $PSScriptRoot "FUNC_PS_VERIFY_SCRIPT_INTEGRITY.ps1"
 
 # 1. Verify Integrity
 Write-Host "[*] Pre-Execution Integrity Check..." -ForegroundColor Gray
@@ -45,6 +45,11 @@ if ($IntegrityOk -like "*True*") {
     Write-Host "[OK] Integrity Verified. Proceeding to execution." -ForegroundColor Green
 } else {
     Write-Error "INTEGRITY CHECK FAILED. Execution aborted for security reasons."
+    return
+}
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Integrity verified; would execute $Path $Arguments" -ForegroundColor Yellow
     return
 }
 

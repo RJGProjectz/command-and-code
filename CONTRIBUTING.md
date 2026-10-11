@@ -45,6 +45,7 @@ See [`docs/references/metadata.md`](docs/references/metadata.md). Platform, lang
 - No secrets in code, arguments or examples — read tokens from the environment or a secret store.
 - PowerShell scripts must pass PSScriptAnalyzer at Warning level; Bash scripts must pass `shellcheck`. Keep scripts ASCII-only so Windows PowerShell 5.1 reads them correctly without a BOM.
   CI enforces both (`lint` job in `build.yml`). Run the PowerShell gate locally with `pwsh tests/lint/Invoke-PSScriptAnalyzerGate.ps1`; it fails on any finding not in `tests/lint/pssa-baseline.json`. Fix new findings rather than baselining them; after fixing old ones, shrink the baseline with `-UpdateBaseline`.
+- Every script in `scripts/powershell/` must pass `tests/powershell/ScriptContract.Tests.ps1` (run in CI): ASCII-only, `.EXAMPLE` help, a non-mandatory `TargetEnvironment` (`Test`/`Prod`, default `Test`) that the script reads, and no live calls when run in `Test`. Add new parameters at the end of the `param()` block so positional callers keep working.
 
 ## Importing existing work
 

@@ -7,6 +7,9 @@
     Windows Defender Firewall, and Attack Surface Reduction.
 .PARAMETER OutputJson
     Optional file path to export full structured JSON audit results.
+.PARAMETER TargetEnvironment
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
 .EXAMPLE
     .\Invoke-CisWindowsAudit.ps1
 .EXAMPLE
@@ -15,8 +18,15 @@
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $false)]
-    [string]$OutputJson
+    [string]$OutputJson,
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
+
+# Local, read-only collection: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 
 $ErrorActionPreference = "SilentlyContinue"
 $AuditResults = [System.Collections.Generic.List[PSCustomObject]]::new()

@@ -8,6 +8,11 @@ This script acts as a wrapper around Get-NetTCPConnection and Get-Process to qui
 correlate active TCP connections with their owning process names and PIDs. It normalizes 
 the output into custom objects for easy sorting and pipeline consumption by other security tools.
 
+.PARAMETER TargetEnvironment
+
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
+
 .NOTES
     Security Domain: Operations
 Purpose: Correlate active connections to processes during live triage.
@@ -31,8 +36,15 @@ PSCustomObject containing LocalAddress, LocalPort, RemoteAddress, RemotePort, St
 param (
     [Parameter(ParameterSetName="ByProcess", Mandatory=$true, HelpMessage="Enter process name to filter, or '*' for all")]
     [ValidateNotNullOrEmpty()]
-    [string]$ProcessName
+    [string]$ProcessName,
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
+
+# Local, read-only collection: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 
 # Enforce brief help output if run without parameters
 if ($PSCmdlet.ParameterSetName -eq "None") {

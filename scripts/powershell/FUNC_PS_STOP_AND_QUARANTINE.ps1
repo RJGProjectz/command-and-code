@@ -45,9 +45,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$Token,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- MDE Stop & Quarantine Action ---" -ForegroundColor Cyan

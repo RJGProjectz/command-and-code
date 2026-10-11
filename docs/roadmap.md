@@ -35,7 +35,7 @@ THREAT HUNTING        ✅  ← Completed (Hypothesis framework, LFO baselining, 
     ↓
 THREAT INTELLIGENCE   ✅  ← Completed (STIX/TAXII pipeline, adversary emulation, IoC lifecycle, threat actor profiles, CTI gap analyzer)
     ↓
-QUALITY & VERIFICATION 🔵  ← Planned (test every script and tool, lint in CI)
+QUALITY & VERIFICATION 🟡  ← In progress (lint in CI, contract tests for every PowerShell script; pytest next)
     ↓
 LOCAL AI ASSISTANT v2  🔵  ← Planned (grounded `cc ask` with citations and an evaluation set)
     ↓
@@ -107,7 +107,7 @@ WEBSITE UX/UI REFACTOR 🔵  ← Planned (navigation, landing pages, mobile and 
 - [x] 71 sanitized production scripts cataloged in `scripts/powershell/`, `scripts/bash/`, `scripts/python/` and `docs/toolbox/`
 - [x] Standardized tool blueprints (purpose, requirements, inputs, outputs, usage, security considerations)
 - [x] Tool documentation pages for PowerShell, Bash, and Python toolboxes
-- [x] Pester test suites for Active Directory and Azure Graph automation (`tests/powershell/`, 7 scripts; run in CI since 2026-10-11 — full coverage is Phase 11)
+- [x] Pester test suites for Active Directory and Azure Graph automation (`tests/powershell/`; run in CI since 2026-10-11 — every script now covered by the Phase 11 contract suite)
 
 **Repository areas:** `scripts/`, `tests/`, `docs/toolbox/`
 
@@ -260,14 +260,14 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 ## Phase 11 — Quality & Verification
 
-**Status:** 🔵 Planned
+**Status:** 🟡 In progress
 
 **Objective:** every script and tool the site publishes is linted and tested in CI, so "documented" also means "verified". Today 7 of 76 scripts have Pester tests, there is no PowerShell or shell linting in CI, and the 11 Python tools have no tests.
 
 **Key capabilities**
 
-- [ ] PSScriptAnalyzer (repo settings) and ShellCheck jobs in `build.yml`, with existing findings fixed or explicitly baselined
-- [ ] Data-driven Pester contract suite that discovers every `scripts/powershell/FUNC_PS_*.ps1`: comment-based help present, `TargetEnvironment` validated, `Test` mode runs without live calls
+- [x] PSScriptAnalyzer (repo settings) and ShellCheck jobs in `build.yml`, with existing findings fixed or explicitly baselined (`tests/lint/`)
+- [x] Data-driven Pester contract suite that discovers every script in `scripts/powershell/`: comment-based help present, `TargetEnvironment` validated, `Test` mode runs without live calls (`tests/powershell/ScriptContract.Tests.ps1`)
 - [ ] pytest suite for `tools/*.py` (validators, sanitizer, CLI, AI indexer/grounding) run in CI
 - [ ] Coverage figures reported on the site instead of stated by hand
 

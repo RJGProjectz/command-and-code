@@ -36,9 +36,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$GroupId,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Entra ID Group Membership Update ---" -ForegroundColor Cyan

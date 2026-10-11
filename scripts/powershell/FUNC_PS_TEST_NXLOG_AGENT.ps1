@@ -13,7 +13,7 @@
     Path to the nxlog.conf file. Defaults to 'C:\Program Files (x86)\nxlog\conf\nxlog.conf'.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Test-NXLogAgent.ps1 -TargetEnvironment Prod
@@ -26,9 +26,9 @@
 #>
 
 param(
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment,
+    [string]$TargetEnvironment = "Test",
 
     [string]$ConfigPath = "C:\Program Files (x86)\nxlog\conf\nxlog.conf"
 )

@@ -17,7 +17,7 @@
     Optional Bearer token.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Save-ApiAttachment.ps1 -Uri "https://example.com/report.pdf" -OutPath "C:\Downloads\report.pdf" -TargetEnvironment Prod
@@ -40,13 +40,18 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$Token,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- API Binary Download ---" -ForegroundColor Cyan
 Write-Host "Source: $Uri -> $OutPath"
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would download $Uri to $OutPath" -ForegroundColor Yellow
+    return
+}
 
 $Headers = @{}
 if ($Token) { $Headers["Authorization"] = "Bearer $Token" }

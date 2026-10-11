@@ -38,9 +38,9 @@ param(
     [string]$JobTitle,
     [string]$Department,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Entra ID Profile Update ---" -ForegroundColor Cyan

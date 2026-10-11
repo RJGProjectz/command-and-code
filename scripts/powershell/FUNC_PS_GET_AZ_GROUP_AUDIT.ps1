@@ -11,7 +11,7 @@
     The Object ID or Display Name of the group.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Get-AzGroupAudit.ps1 -GroupId "Global Admins" -TargetEnvironment Prod
@@ -28,9 +28,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$GroupId,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Azure Group Audit ---" -ForegroundColor Cyan

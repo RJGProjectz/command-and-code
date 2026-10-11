@@ -14,7 +14,7 @@
     Type of scan: Quick (default) or Full.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Start-DefenderScan.ps1 -DeviceId "xyz-123" -ScanType Full -TargetEnvironment Prod
@@ -39,9 +39,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$Token,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Defender Remote Scan ---" -ForegroundColor Cyan

@@ -27,7 +27,7 @@
     Optional. The Active Directory Certificate Services (AD CS) template name required for user authentication. Defaults to 'ClientAuth-User'.
 
 .PARAMETER TargetEnvironment
-    Mandatory. Specifies the environment context for the diagnostics. Use 'Test' or 'Prod'.
+    Environment context for the diagnostics: 'Test' (default) or 'Prod'.
 
 .EXAMPLE
     .\Test-VpnConnection.ps1 -TargetEnvironment Prod
@@ -66,9 +66,9 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$UserCertTemplate = "ClientAuth-User",
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 function Get-CertificateFromRegistryBlob {

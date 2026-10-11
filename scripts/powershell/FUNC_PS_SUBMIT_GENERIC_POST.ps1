@@ -17,7 +17,7 @@
     Bearer token for authentication.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     $User = @{ name="John"; job="Engineer" }
@@ -41,9 +41,9 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$Token,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Generic API POST ---" -ForegroundColor Cyan

@@ -7,7 +7,7 @@
     It correlates the two datasets using Serial Number and Hostname to find devices present in MDE but missing from S1.
 
 .PARAMETER TargetEnvironment
-    Mandatory. Target environment for the operation (Test, Prod).
+    'Test' (default) simulates. 'Prod' executes.
 
 .PARAMETER DefenderTenantId
     The Azure AD Tenant ID for Microsoft Graph authentication.
@@ -35,9 +35,9 @@
 #>
 
 param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    $TargetEnvironment,
+    $TargetEnvironment = "Test",
 
     [Parameter(Mandatory=$true)]
     [string]$DefenderTenantId,

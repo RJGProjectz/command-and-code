@@ -14,7 +14,7 @@
     The name of the service to restart (e.g., Spooler).
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Restart-RemoteService.ps1 -ComputerName "Server01" -ServiceName "Spooler" -TargetEnvironment Prod
@@ -34,9 +34,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$ServiceName,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Remote Service Restart ---" -ForegroundColor Cyan

@@ -29,6 +29,9 @@ param(
     [string]$Path
 )
 
+# Local, read-only analysis: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
+
 $ManifestPath = Join-Path $PSScriptRoot "../../Audit/integrity_manifest.json"
 
 if (-not (Test-Path $Path)) {

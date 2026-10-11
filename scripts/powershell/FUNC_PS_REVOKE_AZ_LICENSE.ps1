@@ -14,7 +14,7 @@
     Array of SkuIDs to remove.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Revoke-AzLicense.ps1 -UserId "user@example.com" -SkuIds "c7df5d40-f1c6-430c-87d2-9721665a5135" -TargetEnvironment Prod
@@ -34,9 +34,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string[]]$SkuIds,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 # Implementation would use Microsoft.Graph module or direct REST calls.

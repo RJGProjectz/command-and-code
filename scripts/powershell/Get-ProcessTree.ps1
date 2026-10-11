@@ -11,6 +11,9 @@
 .PARAMETER AsObject
     Output objects (Depth, Relation, ProcessId, ParentProcessId, Name, CreationDate,
     ExecutablePath, CommandLine) instead of an indented text tree.
+.PARAMETER TargetEnvironment
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
 .EXAMPLE
     .\Get-ProcessTree.ps1 -ProcessId 4321
 .EXAMPLE
@@ -23,8 +26,15 @@ param(
     [Parameter(Mandatory)]
     [int]$ProcessId,
 
-    [switch]$AsObject
+    [switch]$AsObject,
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
+
+# Local, read-only collection: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'

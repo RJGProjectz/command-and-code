@@ -11,7 +11,7 @@
     The name of the computer. Defaults to localhost.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Get-LoggedOnUsers.ps1 -ComputerName "WS101" -TargetEnvironment Prod
@@ -28,9 +28,9 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$ComputerName = "localhost",
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Logged On User Detection ---" -ForegroundColor Cyan

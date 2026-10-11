@@ -11,6 +11,9 @@
     Compatible with Windows PowerShell 5.1 and PowerShell 7 on Windows. Run elevated.
 .PARAMETER SuspiciousOnly
     Return only items with at least one flag.
+.PARAMETER TargetEnvironment
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
 .EXAMPLE
     .\Get-PersistenceSnapshot.ps1 | Out-GridView
 .EXAMPLE
@@ -20,8 +23,15 @@
 #>
 [CmdletBinding()]
 param(
-    [switch]$SuspiciousOnly
+    [switch]$SuspiciousOnly,
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
+
+# Local, read-only collection: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'

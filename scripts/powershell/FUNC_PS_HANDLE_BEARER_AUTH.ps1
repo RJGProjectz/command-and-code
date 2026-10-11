@@ -45,12 +45,17 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$Token,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- OAuth2 Bearer Auth Handler ---" -ForegroundColor Cyan
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would request an OAuth2 token for client $ClientId" -ForegroundColor Yellow
+    return
+}
 
 try {
     Write-Host "[*] Requesting token from login.microsoftonline.com..."

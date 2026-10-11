@@ -30,12 +30,17 @@ param(
     [ValidateSet("Informational", "Low", "Medium", "High")]
     [string]$Severity,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Active Defender Incidents Audit ---" -ForegroundColor Cyan
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would query active Defender incidents" -ForegroundColor Yellow
+    return
+}
 
 try {
     Write-Host "[*] Querying Graph Security API..."

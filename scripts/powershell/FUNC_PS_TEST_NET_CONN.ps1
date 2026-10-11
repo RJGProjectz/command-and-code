@@ -36,12 +36,17 @@ param(
     [Parameter(Mandatory=$true)]
     [int[]]$Ports,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Multi-Host Port Connectivity Test ---" -ForegroundColor Cyan
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would test ports $($Ports -join ', ') on $($Computers -join ', ')" -ForegroundColor Yellow
+    return
+}
 
 $Results = foreach ($Computer in $Computers) {
     foreach ($Port in $Ports) {

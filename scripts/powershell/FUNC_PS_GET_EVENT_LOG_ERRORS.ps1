@@ -30,9 +30,9 @@
 param(
     [int]$Hours = 24,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 $StartTime = (Get-Date).AddHours(-$Hours)

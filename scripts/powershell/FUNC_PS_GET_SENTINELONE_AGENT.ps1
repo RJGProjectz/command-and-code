@@ -6,6 +6,11 @@ Queries the SentinelOne API for an agent based on Hostname, IP Address, or Last 
 Script Name: FUNC_PS_GET_SENTINELONE_AGENT
 This script connects to the SentinelOne Management Console API to retrieve specific endpoint agent details. It supports searching interchangeably by hostname, network IP, or the last known interactive user.
 
+.PARAMETER TargetEnvironment
+
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
+
 .NOTES
     Security Domain: Operations
 Purpose: Quickly retrieve endpoint agent status and IDs for isolation or investigation playbooks.
@@ -55,8 +60,15 @@ param(
     [string]$ConsoleUrl = "https://usea1-xxxx.sentinelone.net",
     
     [Parameter(Mandatory=$false)]
-    [string]$ApiToken = "YOUR_S1_API_TOKEN"
+    [string]$ApiToken = "YOUR_S1_API_TOKEN",
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
+
+# Local, read-only collection: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 
 # Enforce brief help output if run without parameters
 if ($PSCmdlet.ParameterSetName -eq "None") {

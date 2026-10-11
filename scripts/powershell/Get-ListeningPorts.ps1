@@ -9,6 +9,9 @@
     Also return bound UDP endpoints.
 .PARAMETER ExcludeLoopback
     Hide listeners bound only to 127.0.0.1 / ::1.
+.PARAMETER TargetEnvironment
+    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+
 .EXAMPLE
     .\Get-ListeningPorts.ps1 | Format-Table -AutoSize
 .EXAMPLE
@@ -19,8 +22,15 @@
 [CmdletBinding()]
 param(
     [switch]$IncludeUdp,
-    [switch]$ExcludeLoopback
+    [switch]$ExcludeLoopback,
+
+    [Parameter(Mandatory=$false)]
+    [ValidateSet("Test", "Prod")]
+    [string]$TargetEnvironment = "Test"
 )
+
+# Local, read-only collection: behaves the same in Test and Prod.
+Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'

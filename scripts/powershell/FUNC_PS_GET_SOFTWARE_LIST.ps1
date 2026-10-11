@@ -29,9 +29,9 @@
 param(
     [string]$ComputerName = $env:COMPUTERNAME,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Software Inventory Audit: $ComputerName ---" -ForegroundColor Cyan
@@ -40,6 +40,11 @@ $RegPaths = @(
     "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
     "SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall"
 )
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would read installed software from $ComputerName via Invoke-Command" -ForegroundColor Yellow
+    return
+}
 
 $SoftwareList = Invoke-Command -ComputerName $ComputerName -ScriptBlock {
     param($Paths)

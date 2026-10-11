@@ -18,7 +18,7 @@
     The message body.
 
 .PARAMETER TargetEnvironment
-    'Test' and 'Prod' both send messages for validation.
+    'Test' (default) prints the payload without sending. 'Prod' posts it to the webhook.
 
 .EXAMPLE
     .\Send-TeamsWebhook.ps1 -WebhookUrl "https://outlook.office.com/webhook/..." -Title "Security Alert" -Message "Unauthorized login" -TargetEnvironment Prod
@@ -45,9 +45,9 @@ param(
     [Parameter(Mandatory=$false)]
     [string]$Token,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- MS Teams Notification Tool ---" -ForegroundColor Cyan
@@ -65,6 +65,12 @@ $Payload = @{
         }
     )
 } | ConvertTo-Json
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would POST this payload to the Teams webhook:" -ForegroundColor Yellow
+    Write-Output $Payload
+    return
+}
 
 try {
     Invoke-RestMethod -Uri $WebhookUrl -Method Post -Body $Payload -ContentType 'application/json' -ErrorAction Stop

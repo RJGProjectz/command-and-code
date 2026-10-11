@@ -14,7 +14,7 @@
     Minimum CVSS score to report. Defaults to 7.0.
 
 .PARAMETER TargetEnvironment
-    Mandatory standard parameter. Use 'Test' or 'Prod'.
+    'Test' (default) simulates. 'Prod' executes.
 
 .EXAMPLE
     .\Get-SoftwareVulnerabilities.ps1 -DeviceId "xyz-123" -MinCvss 8.5 -TargetEnvironment Prod
@@ -34,13 +34,18 @@ param(
     [Parameter(Mandatory=$false)]
     [double]$MinCvss = 7.0,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Software Vulnerability Audit ---" -ForegroundColor Cyan
 Write-Host "Device: $DeviceId (Min CVSS: $MinCvss)"
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would fetch TVM vulnerabilities for $DeviceId" -ForegroundColor Yellow
+    return
+}
 
 # Action would be GET /api/machines/{id}/vulnerabilities
 Write-Host "[*] Fetching TVM data from Defender for Endpoint..."

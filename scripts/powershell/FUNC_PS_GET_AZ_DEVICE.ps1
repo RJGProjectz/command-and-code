@@ -29,12 +29,17 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$DeviceName,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment
+    [string]$TargetEnvironment = "Test"
 )
 
 Write-Host "--- Entra ID / Intune Device State Audit ---" -ForegroundColor Cyan
+
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would query Intune for device $DeviceName" -ForegroundColor Yellow
+    return
+}
 
 try {
     Write-Host "[*] Searching for device: $DeviceName..."
