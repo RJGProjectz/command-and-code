@@ -35,7 +35,7 @@ THREAT HUNTING        ✅  ← Completed (Hypothesis framework, LFO baselining, 
     ↓
 THREAT INTELLIGENCE   ✅  ← Completed (STIX/TAXII pipeline, adversary emulation, IoC lifecycle, threat actor profiles, CTI gap analyzer)
     ↓
-QUALITY & VERIFICATION 🟡  ← In progress (lint in CI, contract tests for every PowerShell script; pytest next)
+QUALITY & VERIFICATION 🟡  ← In progress (lint, Pester contract suite and pytest in CI; coverage reporting next)
     ↓
 LOCAL AI ASSISTANT v2  🔵  ← Planned (grounded `cc ask` with citations and an evaluation set)
     ↓
@@ -268,7 +268,7 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 - [x] PSScriptAnalyzer (repo settings) and ShellCheck jobs in `build.yml`, with existing findings fixed or explicitly baselined (`tests/lint/`)
 - [x] Data-driven Pester contract suite that discovers every script in `scripts/powershell/`: comment-based help present, `TargetEnvironment` validated, `Test` mode runs without live calls (`tests/powershell/ScriptContract.Tests.ps1`)
-- [ ] pytest suite for `tools/*.py` (validators, sanitizer, CLI, AI indexer/grounding) run in CI
+- [x] pytest suite for `tools/*.py` (validators, sanitizer, CLI, AI indexer/grounding) run in CI (`tests/python/`)
 - [ ] Coverage figures reported on the site instead of stated by hand
 
 **Repository areas:** `tests/`, `.github/workflows/build.yml`, `scripts/`, `tools/`

@@ -70,3 +70,23 @@ jobs:
         run: |
           Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
           ./tests/lint/Invoke-PSScriptAnalyzerGate.ps1
+
+  pytest:
+    name: Python tool tests
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest
+
+      - name: Run pytest
+        run: python -m pytest tests/python -q -p no:cacheprovider

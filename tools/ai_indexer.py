@@ -36,8 +36,12 @@ def extract_sections(text: str) -> list[dict[str, str]]:
     current_title = "Overview"
     current_body: list[str] = []
 
+    in_fence = False
     for line in lines:
-        if line.startswith("#"):
+        if line.lstrip().startswith(("```", "~~~")):
+            in_fence = not in_fence
+        # A '#' line inside a code block is a shell/PowerShell comment, not a heading.
+        if line.startswith("#") and not in_fence:
             if current_body:
                 sections.append({
                     "title": current_title,
