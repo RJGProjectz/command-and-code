@@ -37,6 +37,11 @@ param(
 
 $Verifier = Join-Path $PSScriptRoot "FUNC_PS_VERIFY_SCRIPT_INTEGRITY.ps1"
 
+if ($TargetEnvironment -eq "Test") {
+    Write-Host "[TEST] Would verify integrity of $Path against the manifest, then execute it with: $Arguments" -ForegroundColor Yellow
+    return
+}
+
 # 1. Verify Integrity
 Write-Host "[*] Pre-Execution Integrity Check..." -ForegroundColor Gray
 # Run the verifier in-process so this works under pwsh on any OS (it returns $true/$false)
@@ -46,11 +51,6 @@ if ($IntegrityOk) {
     Write-Host "[OK] Integrity Verified. Proceeding to execution." -ForegroundColor Green
 } else {
     Write-Error "INTEGRITY CHECK FAILED. Execution aborted for security reasons."
-    return
-}
-
-if ($TargetEnvironment -eq "Test") {
-    Write-Host "[TEST] Integrity verified; would execute $Path $Arguments" -ForegroundColor Yellow
     return
 }
 
