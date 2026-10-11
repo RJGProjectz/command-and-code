@@ -19,7 +19,7 @@
     Author: Antigravity
     Created: 2026-02-04T11:15:00
     Last Modified: 2026-02-06T10:10:00
-    KB Article: [KB-Fund-042](../../Fundamentals/KB-Fund-042-OS-Security-Script-Integrity.md)
+    Documentation: [PowerShell Defensive Scripting](../../docs/languages/powershell/defensive-scripting.md)
 #>
 
 [CmdletBinding()]

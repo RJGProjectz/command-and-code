@@ -21,7 +21,7 @@
     Created: 2026-01-16T16:35:00
     Last Modified: 2026-01-19T08:50:00
     Author: Antigravity
-    KB Article: [KB-Rest-003-WebStatus.md](../../HowTo/Scripts/KB-Rest-003-WebStatus.md)
+    Documentation: [HTTP/HTTPS Protocol Mechanics & Headers](../../docs/fundamentals/networking/http-https.md)
 #>
 
 param(

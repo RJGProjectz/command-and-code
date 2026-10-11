@@ -18,7 +18,7 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-003: Defender Alert Triage](../../HowTo/Scripts/KB-003-DefenderAlerts.md)
+    Documentation: [Microsoft Defender APIs — Alerts & Incidents](../../docs/apis/defender/alerts-incidents.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

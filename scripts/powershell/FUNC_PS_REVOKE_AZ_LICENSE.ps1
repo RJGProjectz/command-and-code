@@ -24,7 +24,7 @@
     Created: 2026-01-16T16:25:00
     Last Modified: 2026-01-16T16:25:00
     Author: Antigravity
-    KB Article: [KB-Azure-004-RevokeLicense.md](../../HowTo/Scripts/KB-Azure-004-RevokeLicense.md)
+    Documentation: [User Lifecycle Management](../../docs/tasks/administration/user-lifecycle-management.md)
 #>
 
 param(

@@ -23,7 +23,7 @@
     Security Domain: Endpoint
     Created: 2026-01-15T14:03:51
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-Sec-008-AgedAlerts](../../HowTo/Scripts/KB-Sec-008-CloseAgedAlerts.md)
+    Documentation: [Microsoft Defender APIs — Alerts & Incidents](../../docs/apis/defender/alerts-incidents.md)
     Source Repo: https://learn.microsoft.com/en-us/graph/api/alert-update
     API Standards:
         - Verdicts: Resolved

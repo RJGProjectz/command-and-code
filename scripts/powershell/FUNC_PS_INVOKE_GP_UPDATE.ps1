@@ -21,7 +21,7 @@
     Created: 2026-01-16T16:20:00
     Last Modified: 2026-01-16T16:20:00
     Author: Antigravity
-    KB Article: [KB-OnPrem-008-GPUpdate.md](../../HowTo/Scripts/KB-OnPrem-008-GPUpdate.md)
+    Documentation: [Group Policy Force Refresh & Diagnostic Audit](../../docs/tasks/administration/group-policy-update.md)
 #>
 
 param(

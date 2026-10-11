@@ -30,7 +30,7 @@ New-Snapshot -VM 'APP01' -Name 'IR-2026-001' -Description 'Pre-remediation' -Mem
 Get-Snapshot -VM 'APP01' | Select-Object Name, Created, SizeGB
 ```
 
-`-Memory` includes RAM in the snapshot (`.vmsn`/`.vmem`), which can be analysed with memory-forensics tools.
+`-Memory` includes RAM in the snapshot (`.vmsn`/`.vmem`), which can be analyzed with memory-forensics tools.
 
 ### Network-isolate a VM
 

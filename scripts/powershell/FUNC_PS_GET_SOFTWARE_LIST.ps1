@@ -22,7 +22,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-OnPrem-015-SoftwareInv.md](../../HowTo/Scripts/KB-OnPrem-015-SoftwareInv.md)
+    Documentation: [Package & Software Management](../../docs/tasks/administration/package-software-management.md)
 #>
 
 [CmdletBinding()]

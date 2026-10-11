@@ -24,7 +24,7 @@
     Created: 2026-01-16T16:20:00
     Last Modified: 2026-01-16T16:20:00
     Author: Antigravity
-    KB Article: [KB-OnPrem-011-TempCleanup.md](../../HowTo/Scripts/KB-OnPrem-011-TempCleanup.md)
+    Documentation: [Safe Temporary File Purging](../../docs/tasks/administration/temp-file-cleanup.md)
 #>
 
 param(

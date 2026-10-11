@@ -21,7 +21,7 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-002: Graph API Basics](../../HowTo/Scripts/KB-002-GraphBasics.md)
+    Documentation: [Microsoft Graph REST API — Users](../../docs/apis/graph/users.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

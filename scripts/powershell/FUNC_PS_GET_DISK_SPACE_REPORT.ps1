@@ -24,7 +24,7 @@
     Created: 2026-01-16T16:20:00
     Last Modified: 2026-01-16T16:20:00
     Author: Antigravity
-    KB Article: [KB-OnPrem-010-DiskReport.md](../../HowTo/Scripts/KB-OnPrem-010-DiskReport.md)
+    Documentation: [Disk Space Capacity Audit & Reporting](../../docs/tasks/administration/disk-space-audit.md)
 #>
 
 param(

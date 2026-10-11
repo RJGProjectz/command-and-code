@@ -25,7 +25,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Rest-005-SlackWebhooks.md](../../HowTo/Scripts/KB-Rest-005-SlackWebhooks.md)
+    Documentation: [Webhook Notification Integration](../../docs/apis/webhooks/slack-teams.md)
 #>
 
 [CmdletBinding()]

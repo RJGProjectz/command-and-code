@@ -26,7 +26,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-OnPrem-013-DnsConfig.md](../../HowTo/Scripts/KB-OnPrem-013-DnsConfig.md)
+    Documentation: [DNS Client Resolution and Troubleshooting](../../docs/tasks/administration/dns-resolution-troubleshooting.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

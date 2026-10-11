@@ -21,7 +21,7 @@
     Created: 2026-01-16T16:30:00
     Last Modified: 2026-01-16T16:30:00
     Author: Antigravity
-    KB Article: [KB-Sec-011-LoggedOnUsers.md](../../HowTo/Scripts/KB-Sec-011-LoggedOnUsers.md)
+    Documentation: [Endpoint Triage Playbook](../../docs/tasks/incident-response/endpoint-triage.md)
 #>
 
 param(

@@ -340,6 +340,8 @@ nav:
           - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
           - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
           - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
+          - VPN & Remote Access Tunnels: tasks/troubleshooting/vpn-connectivity-troubleshooting.md
+          - Account Lockout & Bad Passwords: tasks/troubleshooting/account-lockout-troubleshooting.md
       - Administration:
           - Overview: tasks/administration/index.md
           - User Lifecycle Management: tasks/administration/user-lifecycle-management.md

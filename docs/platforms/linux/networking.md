@@ -63,7 +63,7 @@ sudo lsof -i :8080 -P -n
 sudo fuser -v 8080/tcp
 ```
 
-## IP addresses, routes and neighbours
+## IP addresses, routes and neighbors
 
 ```bash
 ip -br address
@@ -80,7 +80,7 @@ dig -x '<TARGET_IP>' +short
 getent hosts example.com
 ```
 
-`dig` queries DNS directly. `getent hosts` follows the system's name-service order (`/etc/nsswitch.conf`), so it also honours `/etc/hosts` — use it to see what applications will actually resolve.
+`dig` queries DNS directly. `getent hosts` follows the system's name-service order (`/etc/nsswitch.conf`), so it also honors `/etc/hosts` — use it to see what applications will actually resolve.
 
 ## Resolver configuration
 

@@ -22,6 +22,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 <!-- cc:index tasks="Administration" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Active Directory Account Lockout & Bad Password Troubleshooting](../troubleshooting/account-lockout-troubleshooting.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD, Windows CLI | Troubleshooting, Administration |
 | [Active Directory Domain Services Administration](active-directory-domain-management.md) | Workflow | Windows Server, Active Directory | PowerShell, CMD | Administration |
 | [Administration — BitLocker Key Retrieval & Status Audit](bitlocker-recovery.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Centralized Event Forwarding Pipeline (WEF & Rsyslog TLS)](centralized-log-forwarding-wef-rsyslog.md) | Workflow | Windows Server, Windows, Linux | PowerShell, Bash | Administration, Hardening, Assurance |

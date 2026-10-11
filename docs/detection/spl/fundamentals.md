@@ -68,7 +68,7 @@ index=wineventlog EventCode=4688 earliest=-30d
 | convert ctime(first_seen) ctime(last_seen)
 ```
 
-"Executables first seen in the last day, in 30 days of data" — a classic new-behaviour hunt. Field names depend on your Windows add-on (`New_Process_Name` classic vs `NewProcessName` XML).
+"Executables first seen in the last day, in 30 days of data" — a classic new-behavior hunt. Field names depend on your Windows add-on (`New_Process_Name` classic vs `NewProcessName` XML).
 
 ## tstats on CIM data models
 

@@ -46,7 +46,7 @@
     Created: 2026-01-16T14:40:00
     Last Modified: 2026-10-08T08:00:00
     Author: Antigravity
-    KB Article: [KB-Net-001-VpnTroubleshooting.md](../../HowTo/Scripts/KB-Net-001-VpnTroubleshooting.md)
+    Documentation: [VPN & Remote Access Tunnel Troubleshooting](../../docs/tasks/troubleshooting/vpn-connectivity-troubleshooting.md)
 #>
 
 param(

@@ -16,7 +16,7 @@
     Security Domain: Operations
     Created: 2026-01-15T13:13:14
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-OnPrem-001](../../HowTo/Scripts/KB-OnPrem-001-UnlockAccount.md)
+    Documentation: [Active Directory Account Lockout Troubleshooting](../../docs/tasks/troubleshooting/account-lockout-troubleshooting.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium')]

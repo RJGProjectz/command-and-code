@@ -22,7 +22,7 @@
     Security Domain: Operations
     Created: 2026-02-25
     Author: Antigravity
-    KB Article: [KB-Sec-012-NXLog.md](../../HowTo/Scripts/KB-Sec-012-NXLog.md)
+    Documentation: [Centralized Log Forwarding](../../docs/tasks/administration/centralized-log-forwarding-wef-rsyslog.md)
 #>
 
 param(

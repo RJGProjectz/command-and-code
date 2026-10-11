@@ -46,7 +46,7 @@ Windows 10 reached end of support on **14 October 2025**; after that only device
 
 `DisplayVersion` (e.g. `23H2`) replaced the older `ReleaseId` value, which stopped updating after 2009/20H2.
 
-## Behaviour differences that affect scripts
+## Behavior differences that affect scripts
 
 | Topic | Note |
 | --- | --- |

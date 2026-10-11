@@ -32,7 +32,7 @@ Checkpoint-VM -Name 'APP01' -SnapshotName 'IR-2026-001-preserve'
 Get-VMSnapshot -VMName 'APP01'
 ```
 
-`Save-VM -Name 'APP01'` suspends the VM and writes its memory to disk — the memory state can be analysed later, unlike a hard power-off.
+`Save-VM -Name 'APP01'` suspends the VM and writes its memory to disk — the memory state can be analyzed later, unlike a hard power-off.
 
 !!! warning "Production checkpoints exclude memory"
     The default *Production* checkpoint type uses VSS inside the guest and does **not** capture memory. For a memory-inclusive checkpoint, set `Set-VM -Name 'APP01' -CheckpointType Standard` first, or use `Save-VM`.

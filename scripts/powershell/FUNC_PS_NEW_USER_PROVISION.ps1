@@ -13,7 +13,7 @@
     Security Domain: Operations
     Created: 2026-01-15T13:13:26
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-OnPrem-003](../../HowTo/Scripts/KB-OnPrem-003-UserProvision.md)
+    Documentation: [User Lifecycle Management](../../docs/tasks/administration/user-lifecycle-management.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

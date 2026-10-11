@@ -70,7 +70,7 @@ schtasks /query /fo CSV /v > C:\Cases\tasks.csv
 | `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{GUID}` | Actions, triggers, metadata |
 
 !!! warning "Hidden tasks"
-    Deleting the `SD` value under `TaskCache\Tree\<task>` hides a task from `schtasks` and `Get-ScheduledTask` while it keeps running (technique publicised by Microsoft as *Tarrask*, 2022). Compare the `Tree` registry keys against `Get-ScheduledTask` output when hunting.
+    Deleting the `SD` value under `TaskCache\Tree\<task>` hides a task from `schtasks` and `Get-ScheduledTask` while it keeps running (technique publicized by Microsoft as *Tarrask*, 2022). Compare the `Tree` registry keys against `Get-ScheduledTask` output when hunting.
 
 ```powershell
 Get-ChildItem -Path 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tree' -Recurse |

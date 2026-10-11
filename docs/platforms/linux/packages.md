@@ -24,7 +24,7 @@ last_verified: 2026-10-05
 
 ## Verify package integrity
 
-Detects binaries replaced by a rootkit or trojanised tool:
+Detects binaries replaced by a rootkit or trojanized tool:
 
 ```bash
 sudo dpkg --verify 2>/dev/null | grep -v ' c '          # Debian/Ubuntu; 'c' marks config files

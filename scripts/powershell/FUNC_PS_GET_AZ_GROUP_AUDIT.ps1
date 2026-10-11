@@ -21,7 +21,7 @@
     Created: 2026-01-16T16:25:00
     Last Modified: 2026-01-16T16:25:00
     Author: Antigravity
-    KB Article: [KB-Azure-005-GroupAudit.md](../../HowTo/Scripts/KB-Azure-005-GroupAudit.md)
+    Documentation: [Entra ID Architecture](../../docs/platforms/microsoft-365/entra.md)
 #>
 
 param(

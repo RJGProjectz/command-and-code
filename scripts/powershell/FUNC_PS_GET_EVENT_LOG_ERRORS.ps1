@@ -23,7 +23,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-OnPrem-012-EventAudit.md](../../HowTo/Scripts/KB-OnPrem-012-EventAudit.md)
+    Documentation: [Windows Event Logs Reference](../../docs/platforms/windows/event-logs.md)
 #>
 
 [CmdletBinding()]

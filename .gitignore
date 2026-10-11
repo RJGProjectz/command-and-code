@@ -23,3 +23,8 @@ templates/GOLDEN_STANDARDS.md
 
 # Private / Internal Scripts
 internal/
+
+# Local MCP config (machine-specific paths)
+.mcp.json
+BACKLOG.md
+CLAUDE.md

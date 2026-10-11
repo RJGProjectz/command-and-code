@@ -20,7 +20,7 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-OnPrem-007: BitLocker Recovery](../../HowTo/Scripts/KB-OnPrem-007-Bitlocker.md)
+    Documentation: [BitLocker Key Retrieval & Status Audit](../../docs/tasks/administration/bitlocker-recovery.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

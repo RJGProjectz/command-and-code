@@ -1,5 +1,5 @@
 ---
-title: Hunt or Detect the Behaviour          # e.g. "KQL Encoded PowerShell"
+title: Hunt or Detect the Behavior          # e.g. "KQL Encoded PowerShell"
 platforms: [Microsoft Defender]              # data source platform
 languages: [KQL]                             # KQL | SPL | S1QL | Sigma
 tasks: [Threat Hunting, Detection Engineering]
@@ -15,7 +15,7 @@ verified: false
 # last_verified: 2026-10-06
 ---
 
-# Hunt or Detect the Behaviour
+# Hunt or Detect the Behavior
 > **Created**: 2026-10-06T02:45:00Z
 > **Last Modified**: 2026-10-06T02:45:00Z
 > **Author**: RJGProjectz

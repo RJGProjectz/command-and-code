@@ -19,7 +19,7 @@
     Created: 2026-01-16T15:45:00
     Last Modified: 2026-01-16T15:45:00
     Author: Antigravity
-    KB Article: [KB-Sec-009-EDR.md](../../HowTo/Scripts/KB-Sec-009-EDR.md)
+    Documentation: [Endpoint EDR Status](../../docs/tasks/assurance/endpoint-edr-status.md)
 #>
 
 param(

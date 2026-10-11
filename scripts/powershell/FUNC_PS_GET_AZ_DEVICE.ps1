@@ -21,7 +21,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Azure-010-DeviceState.md](../../HowTo/Scripts/KB-Azure-010-DeviceState.md)
+    Documentation: [Intune Device Management](../../docs/platforms/microsoft-365/intune.md)
 #>
 
 [CmdletBinding()]

@@ -31,7 +31,7 @@
     Security Domain: Endpoint
     Created: 2026-01-19T09:20:00
     Last Modified: 2026-01-19T09:20:00
-    KB Article: [KB-Sec-017-InventoryGap.md](../../HowTo/Scripts/KB-Sec-017-InventoryGap.md)
+    Documentation: [Endpoint EDR Status](../../docs/tasks/assurance/endpoint-edr-status.md)
 #>
 
 param (

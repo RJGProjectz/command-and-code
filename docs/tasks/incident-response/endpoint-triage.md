@@ -21,7 +21,7 @@ search:
 **Goal:** in 15–30 minutes, capture volatile state and answer *is this host compromised, and how urgently do we contain it?*
 
 !!! tip "Order of volatility"
-    Collect what disappears first: network connections → processes → logged-on users → DNS cache → then disk artefacts and logs. Write output to a collection folder or remote share, not over evidence on the system drive.
+    Collect what disappears first: network connections → processes → logged-on users → DNS cache → then disk artifacts and logs. Write output to a collection folder or remote share, not over evidence on the system drive.
 
 ## Automated collection
 

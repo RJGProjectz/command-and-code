@@ -28,7 +28,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Rest-004-BearerAuth.md](../../HowTo/Scripts/KB-Rest-004-BearerAuth.md)
+    Documentation: [OAuth 2.0 Token Lifecycles & Caching](../../docs/fundamentals/apis/oauth2-tokens.md)
 #>
 
 [CmdletBinding()]

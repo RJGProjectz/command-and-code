@@ -22,7 +22,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Sec-014-AdvHunting.md](../../HowTo/Scripts/KB-Sec-014-AdvHunting.md)
+    Documentation: [Microsoft Defender APIs — Advanced Hunting](../../docs/apis/defender/advanced-hunting.md)
 #>
 
 [CmdletBinding()]

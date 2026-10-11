@@ -46,7 +46,7 @@ gpresult /h C:\Temp\gp.html /f      full HTML report (elevated for computer sett
 gpupdate /force
 ```
 
-## Time synchronisation
+## Time synchronization
 
 Kerberos fails when clocks drift more than 5 minutes (default) — a common cause of sudden authentication failures.
 

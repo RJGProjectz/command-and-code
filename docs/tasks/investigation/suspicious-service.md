@@ -22,7 +22,7 @@ Name, display name, binary path and arguments, start type, account.
 
 → [Inspect one service](../../platforms/windows/services.md#inspect-one-service) · [Registry location](../../platforms/windows/services.md#registry-location)
 
-## 2. Recognise common attacker patterns
+## 2. Recognize common attacker patterns
 
 | Pattern | Likely cause |
 | --- | --- |

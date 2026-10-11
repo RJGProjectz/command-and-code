@@ -23,7 +23,7 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-Azure-002: Guest Access](../../HowTo/Scripts/KB-Azure-002-GuestAccess.md)
+    Documentation: [Azure External Guest Access Audit](../../docs/tasks/assurance/azure-guest-access-audit.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium')]

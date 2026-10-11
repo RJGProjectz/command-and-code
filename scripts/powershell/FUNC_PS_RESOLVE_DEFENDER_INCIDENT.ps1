@@ -25,7 +25,7 @@
     Security Domain: Endpoint
     Created: 2026-01-15T13:36:06
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-Sec-007-IncidentResponse](../../HowTo/Scripts/KB-Sec-007-IncidentResponse.md)
+    Documentation: [Microsoft Defender APIs — Alerts & Incidents](../../docs/apis/defender/alerts-incidents.md)
     Source Repo: https://learn.microsoft.com/en-us/graph/api/security-incident-update
     API Standards:
         - Verdicts: TruePositive, FalsePositive, BenignPositive

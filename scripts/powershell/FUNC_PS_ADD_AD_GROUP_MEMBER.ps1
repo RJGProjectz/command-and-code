@@ -24,7 +24,7 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-OnPrem-006: Group Management](../../HowTo/Scripts/KB-OnPrem-006-GroupManagement.md)
+    Documentation: [Local User & Group Management](../../docs/tasks/administration/local-user-group-management.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium')]

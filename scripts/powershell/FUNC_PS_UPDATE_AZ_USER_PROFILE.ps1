@@ -27,7 +27,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Azure-009-ProfileUpdate.md](../../HowTo/Scripts/KB-Azure-009-ProfileUpdate.md)
+    Documentation: [Microsoft Graph REST API — Users](../../docs/apis/graph/users.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

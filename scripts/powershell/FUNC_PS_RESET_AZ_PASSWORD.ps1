@@ -25,7 +25,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Azure-008-PassReset.md](../../HowTo/Scripts/KB-Azure-008-PassReset.md)
+    Documentation: [User Lifecycle Management](../../docs/tasks/administration/user-lifecycle-management.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='High')]

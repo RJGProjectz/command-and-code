@@ -5,7 +5,7 @@
     Read-only collection, in order of volatility:
       network connections -> processes -> DNS cache -> sessions -> persistence ->
       security tooling -> local accounts -> event log exports -> file hashes.
-    Every artefact is written as CSV (or the native format) into a timestamped folder,
+    Every artifact is written as CSV (or the native format) into a timestamped folder,
     with a manifest of SHA256 hashes and a transcript of the run.
 
     Nothing on the host is changed apart from creating the output folder.

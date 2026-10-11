@@ -28,7 +28,7 @@
     Created: 2026-01-16T16:35:00
     Last Modified: 2026-01-16T16:35:00
     Author: Antigravity
-    KB Article: [KB-Rest-001-GenericPost.md](../../HowTo/Scripts/KB-Rest-001-GenericPost.md)
+    Documentation: [REST Architecture & Verbs](../../docs/fundamentals/apis/rest-architecture.md)
 #>
 
 param(

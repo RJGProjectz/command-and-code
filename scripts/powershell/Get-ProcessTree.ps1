@@ -7,7 +7,7 @@
     (a recycled PID would otherwise appear as a false parent). Read-only.
     Compatible with Windows PowerShell 5.1 and PowerShell 7 on Windows.
 .PARAMETER ProcessId
-    The process to centre the tree on.
+    The process to center the tree on.
 .PARAMETER AsObject
     Output objects (Depth, Relation, ProcessId, ParentProcessId, Name, CreationDate,
     ExecutablePath, CommandLine) instead of an indented text tree.

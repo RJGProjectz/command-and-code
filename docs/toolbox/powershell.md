@@ -149,7 +149,7 @@ Related: [Registry Persistence](../tasks/investigation/registry-persistence.md) 
 .\Invoke-EndpointTriage.ps1 -OutputPath D:\Cases\IR-2026-001 -Verbose
 ```
 
-`-Verbose` shows per-artefact progress. The script returns the collection folder as its output.
+`-Verbose` shows per-artifact progress. The script returns the collection folder as its output.
 
 Remote use — copy the folder to the target first so the companion scripts are found:
 

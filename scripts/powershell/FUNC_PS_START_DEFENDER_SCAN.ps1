@@ -24,7 +24,7 @@
     Created: 2026-01-16T16:30:00
     Last Modified: 2026-01-16T16:30:00
     Author: Antigravity
-    KB Article: [KB-Sec-010-DefenderScan.md](../../HowTo/Scripts/KB-Sec-010-DefenderScan.md)
+    Documentation: [Microsoft Defender Antivirus](../../docs/platforms/windows/defender.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

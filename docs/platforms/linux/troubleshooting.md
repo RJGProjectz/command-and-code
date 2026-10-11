@@ -50,7 +50,7 @@ journalctl -u SERVICE -b --no-pager | tail -50
 
 See the [Linux Service Failure workflow](../../tasks/troubleshooting/linux-service-failure.md).
 
-## Time synchronisation
+## Time synchronization
 
 ```bash
 timedatectl

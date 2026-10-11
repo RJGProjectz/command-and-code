@@ -5,7 +5,7 @@ type: index
 
 # Forensics
 
-Evidence preservation and artefact analysis: exports, hashes, hives, snapshots, execution artefacts.
+Evidence preservation and artifact analysis: exports, hashes, hives, snapshots, execution artifacts.
 
 <!-- cc:index tasks="Forensics" -->
 | Entry | Type | Platforms | Languages | Tasks |

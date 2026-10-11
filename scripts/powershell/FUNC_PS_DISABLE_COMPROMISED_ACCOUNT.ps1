@@ -30,7 +30,7 @@
     Created: 2026-01-15T14:29:48
     Last Modified: 2026-01-19T08:55:00
     Author: Antigravity
-    KB Article: [KB-Sec-007-IncidentResponse.md](../../HowTo/Scripts/KB-Sec-007-IncidentResponse.md)
+    Documentation: [Account Compromise Playbook](../../docs/tasks/incident-response/account-compromise.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='High')]

@@ -46,7 +46,7 @@ THREAT INTELLIGENCE   ✅  ← Completed (STIX/TAXII pipeline, adversary emulati
 
 **Status:** ✅ Complete
 
-**Objective:** a highly organised, searchable knowledge base with consistent metadata and CI.
+**Objective:** a highly organized, searchable knowledge base with consistent metadata and CI.
 
 **Key capabilities**
 
@@ -113,7 +113,7 @@ THREAT INTELLIGENCE   ✅  ← Completed (STIX/TAXII pipeline, adversary emulati
 
 **Status:** ✅ Complete
 
-**Objective:** practical, tested examples for security APIs, organised by the same Platform / Technology / Task model.
+**Objective:** practical, tested examples for security APIs, organized by the same Platform / Technology / Task model.
 
 **Key capabilities**
 

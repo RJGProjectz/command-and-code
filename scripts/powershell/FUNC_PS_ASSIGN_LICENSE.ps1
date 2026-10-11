@@ -23,7 +23,7 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-Azure-003: Licensing](../../HowTo/Scripts/KB-Azure-003-Licensing.md)
+    Documentation: [User Lifecycle Management](../../docs/tasks/administration/user-lifecycle-management.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium')]

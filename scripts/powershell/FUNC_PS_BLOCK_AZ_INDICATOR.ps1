@@ -28,7 +28,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Sec-015-BlockIndicator.md](../../HowTo/Scripts/KB-Sec-015-BlockIndicator.md)
+    Documentation: [Automated Containment](../../docs/tasks/incident-response/automated-containment.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium')]

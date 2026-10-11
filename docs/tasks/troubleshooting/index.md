@@ -5,7 +5,7 @@ type: index
 
 # Troubleshooting
 
-Diagnose broken services, connectivity and configuration — and recognise when a 'fault' is actually tampering.
+Diagnose broken services, connectivity and configuration — and recognize when a 'fault' is actually tampering.
 
 ## Interactive Triage Trees
 
@@ -33,6 +33,18 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
     
     Resolve incomplete intermediate CA chains, Subject Alternative Name (SAN) mismatches, protocol deprecation, and clock skew.
 
+- :material-ssh:{ .lg .middle } **[SSH Connection Timeouts & Freezes](ssh-connection-timeout-troubleshooting.md)**
+    
+    Triage idle session disconnects, systemd sleep/suspend drops, network adapter power savings, and TCP keepalives.
+
+- :material-vpn:{ .lg .middle } **[VPN & Remote Access Tunnels](vpn-connectivity-troubleshooting.md)**
+    
+    Triage GlobalProtect / WireGuard connection drops, AD CS machine cert auto-enrollment, MTU packet drops, and split-tunnel routing.
+
+- :material-account-lock:{ .lg .middle } **[Active Directory Account Lockouts](account-lockout-troubleshooting.md)**
+    
+    Triage Event 4740 on PDC emulator, isolate Caller Computer, purge Credential Manager and stale mapped drive loops, and audit BadPwdCount.
+
 </div>
 
 ## Workflows
@@ -40,6 +52,7 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
 <!-- cc:index tasks="Troubleshooting" type="workflow" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Active Directory Account Lockout & Bad Password Troubleshooting](account-lockout-troubleshooting.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD, Windows CLI | Troubleshooting, Administration |
 | [Administration — BitLocker Key Retrieval & Status Audit](../administration/bitlocker-recovery.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Disk Space Capacity Audit & Reporting](../administration/disk-space-audit.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Group Policy Force Refresh & Diagnostic Audit](../administration/group-policy-update.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
@@ -55,6 +68,7 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
 | [Troubleshooting — Emergency Disk Space Exhaustion & Inode Recovery](disk-space-emergency.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Troubleshooting — High CPU Utilization & Runaway Processes](high-cpu-troubleshooting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Troubleshooting — TLS/SSL Handshake & Certificate Failures](certificate-handshake-failure.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Troubleshooting, Investigation |
+| [VPN & Remote Access Tunnel Troubleshooting](vpn-connectivity-troubleshooting.md) | Workflow | Windows, Linux | PowerShell, Bash, Windows CLI | Troubleshooting |
 | [Windows Connectivity Troubleshooting](windows-connectivity.md) | Workflow | Windows, Windows Server | PowerShell, Windows CLI | Troubleshooting |
 
 <!-- /cc:index -->

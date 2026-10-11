@@ -54,7 +54,7 @@ The critical question.
 
 If yes → [Account Compromise](../incident-response/account-compromise.md).
 
-## 6. Characterise the source
+## 6. Characterize the source
 
 Internal host? Investigate that host. External IP? Check ASN, whether it hit other accounts, and whether the targeted service should be internet-exposed at all (RDP, SSH, legacy auth).
 

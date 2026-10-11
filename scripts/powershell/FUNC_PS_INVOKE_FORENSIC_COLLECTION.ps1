@@ -23,7 +23,7 @@
     Security Domain: Endpoint
     Created: 2026-01-15T13:31:08
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Sec-006-Forensics.md](../../HowTo/Scripts/KB-Sec-006-Forensics.md)
+    Documentation: [Memory Acquisition & Analysis](../../docs/tasks/forensics/memory-acquisition-analysis.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

@@ -24,7 +24,7 @@
     Created: 2026-01-16T16:20:00
     Last Modified: 2026-01-16T16:20:00
     Author: Antigravity
-    KB Article: [KB-OnPrem-009-ServiceRestart.md](../../HowTo/Scripts/KB-OnPrem-009-ServiceRestart.md)
+    Documentation: [Remote Service Restart & Dependency Validation](../../docs/tasks/administration/remote-service-restart.md)
 #>
 
 param(

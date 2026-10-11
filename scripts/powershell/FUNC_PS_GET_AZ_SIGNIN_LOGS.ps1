@@ -21,7 +21,7 @@
     Created: 2026-01-16T16:25:00
     Last Modified: 2026-01-16T16:25:00
     Author: Antigravity
-    KB Article: [KB-Azure-006-SignInAudit.md](../../HowTo/Scripts/KB-Azure-006-SignInAudit.md)
+    Documentation: [Failed Authentication Investigation](../../docs/tasks/investigation/failed-authentication.md)
 #>
 
 param(

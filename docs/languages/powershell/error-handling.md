@@ -84,7 +84,7 @@ External programs do not throw. Check the exit code:
 if ($LASTEXITCODE -ne 0) { throw "sc.exe failed with exit code $LASTEXITCODE" }
 ```
 
-PowerShell 7.3+: `$PSNativeCommandUseErrorActionPreference = $true` makes non-zero exit codes honour `$ErrorActionPreference`.
+PowerShell 7.3+: `$PSNativeCommandUseErrorActionPreference = $true` makes non-zero exit codes honor `$ErrorActionPreference`.
 
 ## Strict mode
 

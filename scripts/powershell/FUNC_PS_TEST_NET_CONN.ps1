@@ -25,7 +25,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-OnPrem-014-NetConn.md](../../HowTo/Scripts/KB-OnPrem-014-NetConn.md)
+    Documentation: [Windows Connectivity Troubleshooting](../../docs/tasks/troubleshooting/windows-connectivity.md)
 #>
 
 [CmdletBinding()]

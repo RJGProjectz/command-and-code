@@ -28,7 +28,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    KB Article: [KB-Sec-013-StopQuarantine.md](../../HowTo/Scripts/KB-Sec-013-StopQuarantine.md)
+    Documentation: [Malware Triage Playbook](../../docs/tasks/incident-response/malware-triage.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='High')]

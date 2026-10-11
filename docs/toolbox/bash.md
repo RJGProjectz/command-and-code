@@ -66,9 +66,9 @@ Related: [Linux processes](../platforms/linux/processes.md#process-tree)
 | | |
 | --- | --- |
 | Inputs | `-o OUTPUT_DIR` (default `/var/tmp`) |
-| Output | `triage-HOST-TIMESTAMP/` with one text file per artefact, `logs/` copies, `manifest-sha256.txt` |
+| Output | `triage-HOST-TIMESTAMP/` with one text file per artifact, `logs/` copies, `manifest-sha256.txt` |
 | Collects | context, sockets, routes, resolver, firewall, processes (incl. deleted/tmp binaries), sessions, wtmp/btmp, crontabs, systemd timers/units, authorized_keys, effective sshd config, `ld.so.preload`, shell profiles, kernel modules, accounts, sudoers, SUID files, temp dirs, recent files, shell history, auth/syslog/audit logs, 48 h of journal |
-| Behaviour | Missing tools are skipped and reported, never fatal. Output is created with `umask 077`. |
+| Behavior | Missing tools are skipped and reported, never fatal. Output is created with `umask 077`. |
 
 ```bash
 sudo ./linux-triage.sh -o /mnt/usb/cases

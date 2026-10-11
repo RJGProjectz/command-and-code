@@ -22,7 +22,7 @@
     Author: Antigravity
     Created: 2026-01-23T15:15:00
     Last Modified: 2026-01-23T15:15:00
-    KB Article: [KB-Sec-018-WindowsPosture.md](../../HowTo/Scripts/KB-Sec-018-WindowsPosture.md)
+    Documentation: [Windows Security Baseline](../../docs/tasks/hardening/windows-security-baseline.md)
     
     CHANGE LOG:
     - 2026-01-23: Initial implementation for security posture discovery.

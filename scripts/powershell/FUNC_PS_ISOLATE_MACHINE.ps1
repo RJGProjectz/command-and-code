@@ -27,7 +27,7 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    KB Article: [KB-Sec-002: Isolation](../../HowTo/Scripts/KB-Sec-002-Isolation.md)
+    Documentation: [Ransomware Host Isolation](../../docs/tasks/incident-response/ransomware-host-isolation.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='High')]
