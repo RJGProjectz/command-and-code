@@ -8,7 +8,9 @@ BeforeAll {
 Describe "Azure & Microsoft Graph Security Scripts - Parameter & Safety Contracts" {
 
     Context "FUNC_PS_BLOCK_AZ_INDICATOR.ps1" {
-        $scriptPath = "$scriptRoot/FUNC_PS_BLOCK_AZ_INDICATOR.ps1"
+        BeforeAll {
+            $scriptPath = "$scriptRoot/FUNC_PS_BLOCK_AZ_INDICATOR.ps1"
+        }
 
         It "Script file exists" {
             Test-Path $scriptPath | Should -Be $true
@@ -24,19 +26,23 @@ Describe "Azure & Microsoft Graph Security Scripts - Parameter & Safety Contract
     }
 
     Context "FUNC_PS_GET_AZ_SIGNIN_LOGS.ps1" {
-        $scriptPath = "$scriptRoot/FUNC_PS_GET_AZ_SIGNIN_LOGS.ps1"
+        BeforeAll {
+            $scriptPath = "$scriptRoot/FUNC_PS_GET_AZ_SIGNIN_LOGS.ps1"
+        }
 
         It "Script file exists" {
             Test-Path $scriptPath | Should -Be $true
         }
 
         It "Accepts UserId parameter contract" {
-            { & $scriptPath -UserId "user@example.com" -Hours 24 } | Should -Not -Throw
+            { & $scriptPath -UserId "user@example.com" -TargetEnvironment "Test" } | Should -Not -Throw
         }
     }
 
     Context "FUNC_PS_INVITE_GUEST_USER.ps1" {
-        $scriptPath = "$scriptRoot/FUNC_PS_INVITE_GUEST_USER.ps1"
+        BeforeAll {
+            $scriptPath = "$scriptRoot/FUNC_PS_INVITE_GUEST_USER.ps1"
+        }
 
         It "Script file exists" {
             Test-Path $scriptPath | Should -Be $true

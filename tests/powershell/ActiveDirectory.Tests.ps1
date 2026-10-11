@@ -8,7 +8,9 @@ BeforeAll {
 Describe "Active Directory Automation Scripts - Parameter & Safety Contracts" {
     
     Context "FUNC_PS_DISABLE_TERMINATED_USER.ps1" {
-        $scriptPath = "$scriptRoot/FUNC_PS_DISABLE_TERMINATED_USER.ps1"
+        BeforeAll {
+            $scriptPath = "$scriptRoot/FUNC_PS_DISABLE_TERMINATED_USER.ps1"
+        }
 
         It "Script file exists" {
             Test-Path $scriptPath | Should -Be $true
@@ -24,7 +26,9 @@ Describe "Active Directory Automation Scripts - Parameter & Safety Contracts" {
     }
 
     Context "FUNC_PS_GET_AD_GROUP_MEMBERS.ps1" {
-        $scriptPath = "$scriptRoot/FUNC_PS_GET_AD_GROUP_MEMBERS.ps1"
+        BeforeAll {
+            $scriptPath = "$scriptRoot/FUNC_PS_GET_AD_GROUP_MEMBERS.ps1"
+        }
 
         It "Script file exists" {
             Test-Path $scriptPath | Should -Be $true
@@ -40,7 +44,9 @@ Describe "Active Directory Automation Scripts - Parameter & Safety Contracts" {
     }
 
     Context "FUNC_PS_RESET_PASSWORD.ps1" {
-        $scriptPath = "$scriptRoot/FUNC_PS_RESET_PASSWORD.ps1"
+        BeforeAll {
+            $scriptPath = "$scriptRoot/FUNC_PS_RESET_PASSWORD.ps1"
+        }
 
         It "Script file exists" {
             Test-Path $scriptPath | Should -Be $true
@@ -53,7 +59,9 @@ Describe "Active Directory Automation Scripts - Parameter & Safety Contracts" {
     }
 
     Context "FUNC_PS_GET_BITLOCKER_KEY.ps1" {
-        $scriptPath = "$scriptRoot/FUNC_PS_GET_BITLOCKER_KEY.ps1"
+        BeforeAll {
+            $scriptPath = "$scriptRoot/FUNC_PS_GET_BITLOCKER_KEY.ps1"
+        }
 
         It "Script file exists" {
             Test-Path $scriptPath | Should -Be $true
