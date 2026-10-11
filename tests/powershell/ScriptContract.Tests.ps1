@@ -116,7 +116,7 @@ Describe 'Test mode makes no live calls: <Name>' -ForEach $gatedScripts {
         }
     }
 
-    It 'runs in Test mode without making live calls' {
+    It 'runs <Name> in Test mode without making live calls' {
         if ($unsupported) { Set-ItResult -Skipped -Because "no dummy value for mandatory $($unsupported -join ', ')" }
 
         { & $Path @arguments *> $null } | Should -Not -Throw

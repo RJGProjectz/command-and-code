@@ -39,9 +39,10 @@ $Verifier = Join-Path $PSScriptRoot "FUNC_PS_VERIFY_SCRIPT_INTEGRITY.ps1"
 
 # 1. Verify Integrity
 Write-Host "[*] Pre-Execution Integrity Check..." -ForegroundColor Gray
-$IntegrityOk = powershell -ExecutionPolicy Bypass -File $Verifier -Path $Path
+# Run the verifier in-process so this works under pwsh on any OS (it returns $true/$false)
+$IntegrityOk = (& $Verifier -Path $Path -ErrorAction SilentlyContinue) -eq $true
 
-if ($IntegrityOk -like "*True*") {
+if ($IntegrityOk) {
     Write-Host "[OK] Integrity Verified. Proceeding to execution." -ForegroundColor Green
 } else {
     Write-Error "INTEGRITY CHECK FAILED. Execution aborted for security reasons."
