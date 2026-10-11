@@ -6,7 +6,8 @@ the repository in compliance with Golden Standards §2.4 (Scrub protocol) and
 NIST CSF 2.0 PR.DS-01.
 
 Usage:
-    python tools/sanitize.py --scan               # Scan and inventory all identifiers
+    python tools/sanitize.py --scan               # Scan git-tracked files (what a public push would expose)
+    python tools/sanitize.py --scan --all-files   # Also scan ignored/untracked files (site/, internal/, ...)
     python tools/sanitize.py --dry-run            # Preview diff of sanitization changes
     python tools/sanitize.py --run                # Apply sanitization in-place
     python tools/sanitize.py --check-206          # Specifically audit for 206.* IPs
@@ -16,8 +17,10 @@ from __future__ import annotations
 
 import argparse
 import difflib
+import ipaddress
 import os
 import re
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -65,7 +68,67 @@ ALLOWED_PUBLIC_DOMAINS = {
     "chrony-project.org",
     "system.net",
     "shields.io",
+    # Public vendors, specs and tooling referenced in docs/overrides
+    "w3.org",
+    "schema.org",
+    "fontawesome.com",
+    "squidfunk.com",
+    "mozilla.org",
+    "google.com",
+    "bing.com",
+    "azure.com",
+    "office.com",
+    "outlook.com",
+    "onmicrosoft.com",
+    "msftconnecttest.com",
+    "slack.com",
+    "atlassian.net",
+    "service-now.com",
+    "adaptivecards.io",
+    "abuseipdb.com",
+    "virustotal.com",
+    "httpbin.org",
+    "githubusercontent.com",
+    "unpkg.com",
+    "tartarus.org",
+    "system.io",
+    # OpenSSH / libssh algorithm names look like emails (chacha20-poly1305@openssh.com)
+    "openssh.com",
+    "libssh.org",
 }
+
+# Generic fake domains used as examples; not real identifiers (contoso.* stays flagged: --run rewrites it)
+PLACEHOLDER_DOMAINS = {
+    "example.com",
+    "example.org",
+    "example.net",
+    "domain.com",
+    "tenant.com",
+    "target.com",
+    "external.com",
+    "bad.com",
+    "evil-site.com",
+    "attacker.com",
+    "app.com",
+    "corp.com",
+    "production.com",
+    "trusted-cdn.com",
+}
+
+# Real-world identifiers that must never reach the public repo (any case) -> CRITICAL
+WATCHLIST = (
+    "connectfirstcu",
+    "forgepoint",
+    "servus.ca",
+    "adcfcu",
+    "corp.prv",
+    "robert.george",
+)
+
+# Dotted-number prefixes that are OIDs / versions, not IPv4 addresses (EKU, key usage, MS OIDs, ...)
+OID_PREFIXES = ("1.3.6.1", "2.5.29", "2.3.", "4.1.311", "5.5.7")
+
+BINARY_EXT = (".pyc", ".png", ".jpg", ".ico", ".svg", ".woff", ".woff2", ".ttf", ".gif", ".pdf")
 
 # Standard loopback and bind addresses
 LOOPBACK_AND_BIND_IPS = {
@@ -148,8 +211,25 @@ REPLACEMENTS = [
 ]
 
 
-def find_files(root: Path) -> list[Path]:
-    """Find all files to check, ignoring excluded directories."""
+def tracked_files(root: Path) -> list[Path] | None:
+    """Return git-tracked plus untracked-not-ignored files, or None if git is unavailable."""
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(root), "ls-files", "-z", "--cached", "--others", "--exclude-standard"],
+            capture_output=True, check=True,
+        ).stdout.decode("utf-8", errors="ignore")
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    paths = [root / name for name in out.split("\0") if name]
+    return sorted(p for p in paths if p.is_file() and p.name not in IGNORE_FILES and not p.name.endswith(BINARY_EXT))
+
+
+def find_files(root: Path, all_files: bool = False) -> list[Path]:
+    """Find files to check. Default: only what git would publish; all_files walks the whole tree."""
+    if not all_files:
+        listed = tracked_files(root)
+        if listed is not None:
+            return listed
     files: list[Path] = []
     for dirpath, dirnames, filenames in os.walk(root):
         rel_dir = Path(dirpath).relative_to(root)
@@ -157,10 +237,38 @@ def find_files(root: Path) -> list[Path]:
         for f in filenames:
             if f in IGNORE_FILES:
                 continue
-            if f.endswith((".pyc", ".png", ".jpg", ".ico", ".svg")):
+            if f.endswith(BINARY_EXT):
                 continue
             files.append(Path(dirpath) / f)
     return sorted(files)
+
+
+def is_allowed_domain(domain: str) -> bool:
+    """True for public vendor domains (and their subdomains) and generic placeholder domains."""
+    allowed = ALLOWED_PUBLIC_DOMAINS | PLACEHOLDER_DOMAINS
+    return any(domain == d or domain.endswith("." + d) for d in allowed)
+
+
+def is_reportable_ip(ip: str) -> bool:
+    """False for OIDs, version strings, masks and RFC-reserved documentation/link-local ranges."""
+    octets = ip.split(".")
+    if any(len(o) > 1 and o.startswith("0") for o in octets):  # 24.04.47.09 is a version, not an IP
+        return False
+    if ip.startswith(OID_PREFIXES) or ip.startswith("0."):
+        return False
+    try:
+        addr = ipaddress.ip_address(ip)
+    except ValueError:  # octet > 255
+        return False
+    if addr.is_multicast or addr.is_unspecified or addr.is_link_local or addr.is_loopback:
+        return False
+    if ip.startswith("255.") or ip.endswith(".0.0.0") or ip == "240.0.0.0":  # netmasks / network bases
+        return False
+    # RFC 5737 documentation ranges are the approved placeholders
+    for net in ("192.0.2.0/24", "198.51.100.0/24", "203.0.113.0/24"):
+        if addr in ipaddress.ip_network(net):
+            return False
+    return True
 
 
 def scan_file(file_path: Path, root: Path, include_all_ips: bool = False) -> list[Finding]:
@@ -174,7 +282,7 @@ def scan_file(file_path: Path, root: Path, include_all_ips: bool = False) -> lis
     lines = text.splitlines()
 
     # Regex patterns for discovery
-    ip_re = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")
+    ip_re = re.compile(r"(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?![\d.])")
     user_path_re = re.compile(r"(?:[Cc]:[\\/]Users[\\/]|/home/|/Users/)([\w.-]+)", re.IGNORECASE)
     domain_re = re.compile(r"\b([a-zA-Z0-9][-a-zA-Z0-9]*\.(?:com|net|org|local|internal|corp|lan|io|gov))\b", re.IGNORECASE)
     email_re = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
@@ -185,6 +293,8 @@ def scan_file(file_path: Path, root: Path, include_all_ips: bool = False) -> lis
             ip = m.group()
             is_special = ip in LOOPBACK_AND_BIND_IPS or ip in PUBLIC_DNS_IPS
             if not include_all_ips and is_special:
+                continue
+            if not is_reportable_ip(ip):
                 continue
             cat = "IP (206.*)" if ip.startswith("206.") else "IP Address"
             findings.append(Finding(
@@ -198,7 +308,7 @@ def scan_file(file_path: Path, root: Path, include_all_ips: bool = False) -> lis
         # 2. User paths
         for m in user_path_re.finditer(line):
             user = m.group(1)
-            if user not in ("<user>", "<USER>", "Public", "Default"):
+            if user not in ("<user>", "<USER>", "Public", "Default") and not user.isdigit():  # /users/104 is a URL id
                 findings.append(Finding(
                     category="Username / User Path",
                     identifier=user,
@@ -232,7 +342,7 @@ def scan_file(file_path: Path, root: Path, include_all_ips: bool = False) -> lis
         # 5. Domains
         for m in domain_re.finditer(line):
             domain = m.group(1).lower()
-            if domain in ALLOWED_PUBLIC_DOMAINS or domain == "example.com":
+            if is_allowed_domain(domain):
                 continue
             findings.append(Finding(
                 category="Domain Identifier",
@@ -242,9 +352,23 @@ def scan_file(file_path: Path, root: Path, include_all_ips: bool = False) -> lis
                 line_content=line.strip(),
             ))
 
-        # 6. Emails
+        # 6. Real-world identifiers (watchlist)
+        low = line.lower()
+        for term in WATCHLIST:
+            if term in low:
+                findings.append(Finding(
+                    category="CRITICAL: Real identifier",
+                    identifier=term,
+                    file_path=file_path.relative_to(root),
+                    line_number=line_idx,
+                    line_content=line.strip(),
+                ))
+
+        # 7. Emails
         for m in email_re.finditer(line):
             email = m.group()
+            if is_allowed_domain(email.rsplit("@", 1)[1].lower()):
+                continue
             findings.append(Finding(
                 category="Email Identifier",
                 identifier=email,
@@ -325,11 +449,12 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="Preview proposed sanitization diff")
     parser.add_argument("--run", action="store_true", help="Apply sanitization in-place across files")
     parser.add_argument("--check-206", action="store_true", help="Audit explicitly for 206.* IPs")
+    parser.add_argument("--all-files", action="store_true", help="Scan the whole tree, including git-ignored files")
     parser.add_argument("--all-ips", action="store_true", help="Include loopback/bind/public DNS in scan")
 
     args = parser.parse_args()
 
-    files = find_files(ROOT)
+    files = find_files(ROOT, all_files=args.all_files)
 
     # 1. Check for 206.* specifically
     findings_206 = check_206_specifically(files, ROOT)
