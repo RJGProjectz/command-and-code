@@ -19,7 +19,7 @@ FOUNDATION            ✅  ← Completed
     ↓
 KNOWLEDGE EXPANSION   ✅  ← Completed (Fundamentals, Linux/Bash deep dive, ATT&CK sub-techniques, decision trees)
     ↓
-AUTOMATION & TOOLING  ✅  ← Completed (71 production scripts cataloged, documented & Pester tested)
+AUTOMATION & TOOLING  ✅  ← Completed (71 production scripts cataloged & documented; Pester suites for AD & Graph)
     ↓
 API INTEGRATION       ✅  ← Completed (docs/apis/ operational across Graph, Defender, S1, Splunk, Webhooks)
     ↓
@@ -34,6 +34,12 @@ PRACTITIONER EXP      ✅  ← Completed (Command Builder, Diagnostic Decision T
 THREAT HUNTING        ✅  ← Completed (Hypothesis framework, LFO baselining, cross-platform behavior, cloud LOTC, hunt runner)
     ↓
 THREAT INTELLIGENCE   ✅  ← Completed (STIX/TAXII pipeline, adversary emulation, IoC lifecycle, threat actor profiles, CTI gap analyzer)
+    ↓
+QUALITY & VERIFICATION 🔵  ← Planned (test every script and tool, lint in CI)
+    ↓
+LOCAL AI ASSISTANT v2  🔵  ← Planned (grounded `cc ask` with citations and an evaluation set)
+    ↓
+WEBSITE UX/UI REFACTOR 🔵  ← Planned (navigation, landing pages, mobile and search usability)
 ```
 
 </div>
@@ -101,7 +107,7 @@ THREAT INTELLIGENCE   ✅  ← Completed (STIX/TAXII pipeline, adversary emulati
 - [x] 71 sanitized production scripts cataloged in `scripts/powershell/`, `scripts/bash/`, `scripts/python/` and `docs/toolbox/`
 - [x] Standardized tool blueprints (purpose, requirements, inputs, outputs, usage, security considerations)
 - [x] Tool documentation pages for PowerShell, Bash, and Python toolboxes
-- [x] Pester test suites for Active Directory and Azure Graph automation (`tests/powershell/`)
+- [x] Pester test suites for Active Directory and Azure Graph automation (`tests/powershell/`, 7 scripts; run in CI since 2026-10-11 — full coverage is Phase 11)
 
 **Repository areas:** `scripts/`, `tests/`, `docs/toolbox/`
 
@@ -247,6 +253,63 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 - [x] Detection gap analysis engine aligning CTI reporting against deployed SIEM/EDR detection coverage (`tools/cti_gap_analyzer.py`)
 
 **Repository areas:** `docs/tasks/threat-intelligence/`, `docs/references/threat-actor-profiles.md`, `tools/cti_gap_analyzer.py`, `docs/detection/`
+
+</div>
+
+<div class="cc-phase" markdown>
+
+## Phase 11 — Quality & Verification
+
+**Status:** 🔵 Planned
+
+**Objective:** every script and tool the site publishes is linted and tested in CI, so "documented" also means "verified". Today 7 of 76 scripts have Pester tests, there is no PowerShell or shell linting in CI, and the 11 Python tools have no tests.
+
+**Key capabilities**
+
+- [ ] PSScriptAnalyzer (repo settings) and ShellCheck jobs in `build.yml`, with existing findings fixed or explicitly baselined
+- [ ] Data-driven Pester contract suite that discovers every `scripts/powershell/FUNC_PS_*.ps1`: comment-based help present, `TargetEnvironment` validated, `Test` mode runs without live calls
+- [ ] pytest suite for `tools/*.py` (validators, sanitizer, CLI, AI indexer/grounding) run in CI
+- [ ] Coverage figures reported on the site instead of stated by hand
+
+**Repository areas:** `tests/`, `.github/workflows/build.yml`, `scripts/`, `tools/`
+
+</div>
+
+<div class="cc-phase" markdown>
+
+## Phase 12 — Local AI Assistant v2
+
+**Status:** 🔵 Planned
+
+**Objective:** turn the Phase 6 grounding engine into a day-to-day assistant: ask a question from the terminal, get an answer built only from Command & Code content, with every claim traceable to a page.
+
+**Key capabilities**
+
+- [ ] `cc ask "<question>"` in the terminal CLI, wrapping `tools/ai_grounding.py` (local Ollama, configurable model and host)
+- [ ] Answers cite the source pages and code blocks they used; uncited answers are flagged
+- [ ] Evaluation set of real practitioner questions with expected source pages, scored offline
+- [ ] Index rebuild wired into the build so the assistant never answers from stale content
+
+**Repository areas:** `tools/ai_grounding.py`, `tools/ai_indexer.py`, `tools/cc_cli.py`, `tests/`
+
+</div>
+
+<div class="cc-phase" markdown>
+
+## Phase 13 — Website UX/UI Refactor
+
+**Status:** 🔵 Planned
+
+**Objective:** make the published site easy to use for a practitioner under pressure — find the right page in seconds on desktop or phone — while keeping Markdown sources readable and the build dependency-light.
+
+**Key capabilities**
+
+- [ ] UX/UI audit of the current site (navigation depth, landing pages, browse tables, search results, mobile layout, interactive widgets) with prioritized findings
+- [ ] Information architecture and navigation redesign agreed with the owner before implementation
+- [ ] Landing and index pages rebuilt around tasks ("I need to…") rather than file structure
+- [ ] Theme, typography and component refresh in `overrides/` and `docs/assets/`, checked for accessibility and dark mode
+
+**Repository areas:** `mkdocs.yml`, `overrides/`, `docs/assets/`, `docs/index.md`, section `index.md` pages
 
 </div>
 
