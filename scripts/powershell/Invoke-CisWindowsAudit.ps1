@@ -105,7 +105,7 @@ foreach ($p in $FwProfiles) {
 
 # --- CIS Section 17: Advanced Audit Policy ---
 $AuditCsv = auditpol.exe /get /category:* /r | ConvertFrom-Csv
-function Check-AuditSubcategory {
+function Test-AuditSubcategory {
     param([string]$CisId, [string]$SubcategoryName)
     $row = $AuditCsv | Where-Object { $_.'Subcategory Name' -eq $SubcategoryName }
     $setting = if ($row) { $row.'Inclusion Setting' } else { "No Auditing" }
@@ -114,11 +114,11 @@ function Check-AuditSubcategory {
         -Compliant $isComp -ObservedValue $setting -ExpectedValue "Success / Failure"
 }
 
-Check-AuditSubcategory -CisId "CIS 17.1.1" -SubcategoryName "Credential Validation"
-Check-AuditSubcategory -CisId "CIS 17.3.1" -SubcategoryName "Process Creation"
-Check-AuditSubcategory -CisId "CIS 17.5.5" -SubcategoryName "Logon"
-Check-AuditSubcategory -CisId "CIS 17.5.6" -SubcategoryName "Special Logon"
-Check-AuditSubcategory -CisId "CIS 17.8.1" -SubcategoryName "Sensitive Privilege Use"
+Test-AuditSubcategory -CisId "CIS 17.1.1" -SubcategoryName "Credential Validation"
+Test-AuditSubcategory -CisId "CIS 17.3.1" -SubcategoryName "Process Creation"
+Test-AuditSubcategory -CisId "CIS 17.5.5" -SubcategoryName "Logon"
+Test-AuditSubcategory -CisId "CIS 17.5.6" -SubcategoryName "Special Logon"
+Test-AuditSubcategory -CisId "CIS 17.8.1" -SubcategoryName "Sensitive Privilege Use"
 
 # Check CommandLine in Event 4688
 $AuditSysKey = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit"

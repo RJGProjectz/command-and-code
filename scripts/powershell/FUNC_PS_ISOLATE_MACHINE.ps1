@@ -38,11 +38,11 @@ param (
     [Parameter(Mandatory=$true)]
     [string]$Comment,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Full", "Selective")]
     [string]$IsolationType = "Full",
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 

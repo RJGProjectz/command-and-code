@@ -30,7 +30,7 @@
 
 [CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='Medium')]
 param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 
@@ -107,8 +107,8 @@ Process {
 
         # Firewall Check
         $fw = Get-NetFirewallProfile -Name Domain,Public,Private
-        foreach ($profile in $fw) {
-            $auditResults.CriticalConfigFlags += "Firewall($($profile.Name)): $($profile.Enabled)"
+        foreach ($fwProfile in $fw) {
+            $auditResults.CriticalConfigFlags += "Firewall($($fwProfile.Name)): $($fwProfile.Enabled)"
         }
 
         # 4. Audit Privileged Users

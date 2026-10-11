@@ -53,3 +53,20 @@ jobs:
           $config.Run.Exit = $true
           $config.Output.Verbosity = 'Detailed'
           Invoke-Pester -Configuration $config
+
+  lint:
+    name: Lint scripts
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: ShellCheck
+        run: shellcheck --version && shellcheck -S warning scripts/bash/*.sh
+
+      - name: PSScriptAnalyzer (fails on findings not in tests/lint/pssa-baseline.json)
+        shell: pwsh
+        run: |
+          Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+          ./tests/lint/Invoke-PSScriptAnalyzerGate.ps1

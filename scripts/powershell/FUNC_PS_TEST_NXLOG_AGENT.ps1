@@ -33,9 +33,6 @@ param(
     [string]$ConfigPath = "C:\Program Files (x86)\nxlog\conf\nxlog.conf"
 )
 
-# --- Initialize Result Containers ---
-$Global:ValidationResults = @()
-
 function Write-Result {
     param([string]$Category, [string]$Status, [string]$Message, [ConsoleColor]$Color)
     $Label = "[$Status]"
@@ -55,7 +52,9 @@ try {
     $DelayedStart = $false
     try {
         $DelayedStart = (Get-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Services\nxlog" -Name "DelayedAutostart" -ErrorAction SilentlyContinue).DelayedAutostart -eq 1
-    } catch {}
+    } catch {
+        Write-Verbose "DelayedAutostart registry value not readable: $($_.Exception.Message)"
+    }
 
     $StatusColor = if ($Svc.Status -eq 'Running') { 'Green' } else { 'Red' }
     Write-Result "Service" $Svc.Status.ToString().ToUpper() "NXLog service is $($Svc.Status)." $StatusColor
@@ -65,7 +64,7 @@ try {
     }
 
     Write-Host "    - Startup Type: $StartupType"
-    Write-Host "    - Delayed Start: $($DelayedStart ? 'Enabled' : 'Disabled')"
+    Write-Host "    - Delayed Start: $(if ($DelayedStart) { 'Enabled' } else { 'Disabled' })"
     
     if ($StartupType -eq 'Automatic' -and -not $DelayedStart) {
         Write-Host "    [!] WARN: 'Automatic' start without 'Delayed Start' may cause ingestion failures if event channels aren't ready at boot." -ForegroundColor Yellow

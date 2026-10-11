@@ -136,7 +136,9 @@ function Get-CertificateTemplate {
             if ($res) { 
                 $TemplateName = "$($res.Properties['cn']), $($res.Properties['displayname'])" 
             }
-        } catch { }
+        } catch {
+            Write-Verbose "Certificate template lookup failed: $($_.Exception.Message)"
+        }
     }
     else {
         # Fallback for simple string formats
@@ -220,6 +222,7 @@ if ($IsAdmin -and $LoggedOnUser) {
         }
     } catch {
         # Fallback to current process user if translation fails
+        Write-Verbose "SID translation failed for ${LoggedOnUser}: $($_.Exception.Message)"
     }
 }
 
@@ -348,7 +351,9 @@ if ($TargetSID -eq $CurrentUserSID) {
                             }
                         }
                     }
-                } catch { }
+                } catch {
+                    Write-Verbose "Could not parse certificate file: $($_.Exception.Message)"
+                }
             }
             if ($DebugMode -and $UserCerts.Count -eq 0 -and $CertFiles.Count -gt 0) {
                 Write-Host " [DEBUG] File System folder found but no certs matching '$UserCertTemplate' found." -ForegroundColor Gray

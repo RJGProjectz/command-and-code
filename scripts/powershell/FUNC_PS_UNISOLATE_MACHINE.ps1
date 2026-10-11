@@ -34,7 +34,7 @@ param (
     [Parameter(Mandatory=$true)]
     [string]$Comment,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 

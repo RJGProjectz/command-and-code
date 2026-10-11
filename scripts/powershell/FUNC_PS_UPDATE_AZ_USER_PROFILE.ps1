@@ -27,7 +27,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    Documentation: [Microsoft Graph REST API — Users](../../docs/apis/graph/users.md)
+    Documentation: [Microsoft Graph REST API -- Users](../../docs/apis/graph/users.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]

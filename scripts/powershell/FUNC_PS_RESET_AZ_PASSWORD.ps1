@@ -12,19 +12,20 @@
     UPN or ObjectId of the user.
 
 .PARAMETER NewPassword
-    The new password to set.
+    The new password to set, as a SecureString (e.g. from Read-Host -AsSecureString).
+    It is only converted to plain text for the Graph request body.
 
 .PARAMETER TargetEnvironment
     'Test' simulates. 'Prod' executes.
 
 .EXAMPLE
-    .\Reset-AzPassword.ps1 -UserId "user@tenant.com" -NewPassword "ComplexPass123!" -TargetEnvironment Test
+    .\Reset-AzPassword.ps1 -UserId "user@tenant.com" -NewPassword (Read-Host -AsSecureString "New password") -TargetEnvironment Test
 
 .NOTES
     Security Domain: Identity
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
-    Last Modified: 2026-01-19T08:50:00
+    Last Modified: 2026-10-11T18:40:00Z
     Documentation: [User Lifecycle Management](../../docs/tasks/administration/user-lifecycle-management.md)
 #>
 
@@ -34,7 +35,7 @@ param(
     [string]$UserId,
 
     [Parameter(Mandatory=$true)]
-    [string]$NewPassword,
+    [securestring]$NewPassword,
 
     [Parameter(Mandatory=$true)]
     [ValidateSet("Test", "Prod")]
@@ -50,13 +51,13 @@ if ($TargetEnvironment -eq "Test") {
 
 if ($PSCmdlet.ShouldProcess($UserId, "Reset Password")) {
     try {
-        $Profile = @{
+        $Body = @{
             "PasswordProfile" = @{
-                "Password" = $NewPassword
+                "Password" = [System.Net.NetworkCredential]::new('', $NewPassword).Password
                 "ForceChangePasswordNextSignIn" = $true
             }
         }
-        Update-MgUser -UserId $UserId -BodyParameter $Profile -ErrorAction Stop
+        Update-MgUser -UserId $UserId -BodyParameter $Body -ErrorAction Stop
         Write-Host "[OK] Password reset completed." -ForegroundColor Green
     } catch {
         Write-Host "[FAIL] Error during reset: $($_.Exception.Message)" -ForegroundColor Red

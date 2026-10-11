@@ -27,7 +27,7 @@ param (
     [Parameter(Mandatory=$true)]
     [securestring]$NewPassword,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 

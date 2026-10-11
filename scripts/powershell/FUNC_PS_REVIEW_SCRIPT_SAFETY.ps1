@@ -21,7 +21,7 @@
 
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 
@@ -87,8 +87,8 @@ foreach ($pattern in $DownloaderPatterns) {
 
 # Check for any external domain calls
 if ($Content -match $ExternalDomainPattern) {
-    $Matches = [regex]::Matches($Content, $ExternalDomainPattern)
-    foreach ($m in $Matches) {
+    $urlMatches = [regex]::Matches($Content, $ExternalDomainPattern)
+    foreach ($m in $urlMatches) {
         $Findings += "FOUND: External Domain Call (URL: $($m.Value)) - MANDATORY MANUAL APPROVAL REQUIRED."
     }
 }

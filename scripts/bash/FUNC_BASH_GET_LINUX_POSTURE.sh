@@ -12,7 +12,7 @@
 #     Explicitly requires 'Test' or 'Prod'. Defaults to 'Test'.
 #
 # .PARAMETER WHAT_IF
-#     If set to 'true', simulates actions without making changes.
+#     If set to 'true' (--whatif), prints the report to stdout instead of writing a file.
 #
 # .EXAMPLE
 #     ./Get-LinuxPosture.sh --env Test
@@ -37,7 +37,8 @@ RUN_BY=$(whoami)
 Write-Log() {
     local MESSAGE=$1
     local LEVEL=${2:-INFO}
-    local TIMESTAMP=$(date -Iseconds)
+    local TIMESTAMP
+    TIMESTAMP=$(date -Iseconds)
     local LOG_ENTRY="[$TIMESTAMP] [$LEVEL] $MESSAGE"
     
     local CYAN='\033[0;36m'
@@ -66,6 +67,10 @@ while [[ "$#" -gt 0 ]]; do
     esac
     shift
 done
+
+if [[ "$WHAT_IF" == true ]]; then
+    REPORT_FILE=/dev/stdout
+fi
 
 # --- Begin Block ---
 Write-Log "Initializing Posture Assessment in [$TARGET_ENVIRONMENT] mode..."

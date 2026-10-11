@@ -28,7 +28,7 @@ param (
     [Parameter(Mandatory=$true)]
     [string]$ComputerName,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 

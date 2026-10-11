@@ -56,6 +56,7 @@ $ScriptBlock = {
                     Write-Output " Deleted: $($_.Name)"
                 } catch {
                     # Skip locked files
+                    Write-Verbose "Skipped (locked): $($_.TargetObject)"
                 }
             }
         }

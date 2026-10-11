@@ -44,6 +44,7 @@ See [`docs/references/metadata.md`](docs/references/metadata.md). Platform, lang
 - Read-only by default. Anything that changes state needs `SupportsShouldProcess` (`-WhatIf`) in PowerShell or an explicit flag in Bash/Python.
 - No secrets in code, arguments or examples — read tokens from the environment or a secret store.
 - PowerShell scripts must pass PSScriptAnalyzer at Warning level; Bash scripts must pass `shellcheck`. Keep scripts ASCII-only so Windows PowerShell 5.1 reads them correctly without a BOM.
+  CI enforces both (`lint` job in `build.yml`). Run the PowerShell gate locally with `pwsh tests/lint/Invoke-PSScriptAnalyzerGate.ps1`; it fails on any finding not in `tests/lint/pssa-baseline.json`. Fix new findings rather than baselining them; after fixing old ones, shrink the baseline with `-UpdateBaseline`.
 
 ## Importing existing work
 

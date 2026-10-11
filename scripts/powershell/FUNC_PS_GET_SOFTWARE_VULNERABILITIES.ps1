@@ -24,7 +24,7 @@
     Created: 2026-01-16T16:30:00
     Last Modified: 2026-01-16T16:30:00
     Author: Antigravity
-    Documentation: [Microsoft Defender APIs — Machines & Vulnerabilities](../../docs/apis/defender/machines.md)
+    Documentation: [Microsoft Defender APIs -- Machines & Vulnerabilities](../../docs/apis/defender/machines.md)
 #>
 
 param(

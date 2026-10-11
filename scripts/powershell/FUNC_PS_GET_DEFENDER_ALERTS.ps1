@@ -18,12 +18,12 @@
     Author: AntiGravity
     Created: 2026-01-15T00:00:00
     Last Modified: 2026-01-16T08:58:00
-    Documentation: [Microsoft Defender APIs — Alerts & Incidents](../../docs/apis/defender/alerts-incidents.md)
+    Documentation: [Microsoft Defender APIs -- Alerts & Incidents](../../docs/apis/defender/alerts-incidents.md)
 #>
 
 [CmdletBinding(SupportsShouldProcess=$true)]
 param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
     

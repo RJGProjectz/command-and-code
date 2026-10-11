@@ -38,7 +38,7 @@ param (
     [Parameter(Mandatory = $true)]
     [string]$CompromisedAccount,
 
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 
@@ -81,9 +81,15 @@ Process {
     $admin = ([System.Security.Principal.WindowsIdentity]::GetCurrent().Name -split '\\')[-1]
     $date = (Get-Date).ToString("yyyy-MM-ddTHH:mm:ss")
     $comment = "Disabled by $admin on $date for confirmed account compromise."
-    $DateString = (Get-Date).ToString('yyyyMMdd')
-    $RandomSuffix = -join ((48..57) + (65..90) | Get-Random -Count 8 | ForEach-Object {[char]$_})
-    $NewPassword = "$DateString`_$RandomSuffix!"
+    # Scramble password: 32 cryptographically random printable characters, never held as plain text
+    $rng = [System.Security.Cryptography.RandomNumberGenerator]::Create()
+    $randomBytes = New-Object byte[] 32
+    $rng.GetBytes($randomBytes)
+    $rng.Dispose()
+    $NewPassword = New-Object System.Security.SecureString
+    foreach ($b in $randomBytes) { $NewPassword.AppendChar([char](33 + ($b % 94))) }
+    foreach ($c in 'Aa1!'.ToCharArray()) { $NewPassword.AppendChar($c) }  # guarantee complexity classes
+    $NewPassword.MakeReadOnly()
 
     # === Local AD Section ===
     try {
@@ -95,7 +101,7 @@ Process {
             
             # Reset password
             if ($PSCmdlet.ShouldProcess($localUser.SamAccountName, "Reset Password")) {
-                Set-ADAccountPassword -Identity $localUser -Reset -NewPassword (ConvertTo-SecureString $NewPassword -AsPlainText -Force)
+                Set-ADAccountPassword -Identity $localUser -Reset -NewPassword $NewPassword
                 Write-Log "Password reset."
             }
 

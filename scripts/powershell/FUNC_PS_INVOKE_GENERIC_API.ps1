@@ -22,7 +22,7 @@
 
 [CmdletBinding(SupportsShouldProcess=$true)]
 param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("GET", "POST", "PUT", "DELETE")]
     [string]$Method = "GET",
 
@@ -32,7 +32,7 @@ param (
     [Parameter(Mandatory=$false)]
     [hashtable]$Body,
     
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 

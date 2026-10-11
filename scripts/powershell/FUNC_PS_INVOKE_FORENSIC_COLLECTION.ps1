@@ -28,7 +28,7 @@
 
 [CmdletBinding(SupportsShouldProcess=$true)]
 param (
-    [Parameter(Mandatory=$true)]
+    [Parameter(Mandatory=$false)]
     [ValidateSet("Test", "Prod")]
     [string]$TargetEnvironment = "Test",
 

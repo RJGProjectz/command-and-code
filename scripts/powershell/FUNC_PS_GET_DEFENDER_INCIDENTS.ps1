@@ -22,7 +22,7 @@
     Author: AntiGravity
     Created: 2026-01-19T08:50:00
     Last Modified: 2026-01-19T08:50:00
-    Documentation: [Microsoft Defender APIs — Alerts & Incidents](../../docs/apis/defender/alerts-incidents.md)
+    Documentation: [Microsoft Defender APIs -- Alerts & Incidents](../../docs/apis/defender/alerts-incidents.md)
 #>
 
 [CmdletBinding()]
