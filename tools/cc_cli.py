@@ -391,6 +391,88 @@ def cmd_doctor(_args: argparse.Namespace) -> None:
 
     print()
 
+# Preferred local models, best first. Names ending in "-cloud" are never chosen
+# automatically: they send the question and the context off this machine.
+ASK_MODEL_PREFERENCE = ("llama3.2", "gemma3", "qwen3-coder", "qwen3", "gpt-oss", "mistral", "phi")
+CITATION_RE = re.compile(r"\[(\d+)\]")
+
+
+def pick_ask_model(host: str) -> Optional[str]:
+    import json
+    import urllib.request
+    try:
+        with urllib.request.urlopen(f"{host}/api/tags", timeout=3) as resp:
+            names = [m["name"] for m in json.loads(resp.read().decode("utf-8")).get("models", [])]
+    except Exception:
+        return None
+    local = [n for n in names if not n.split(":", 1)[-1].endswith("cloud") and not n.endswith("-cloud")]
+    for prefix in ASK_MODEL_PREFERENCE:
+        for name in local:
+            if name.startswith(prefix):
+                return name
+    return local[0] if local else None
+
+
+def build_cited_prompt(question: str, results: List[Tuple[Dict[str, Any], float]]) -> str:
+    parts = []
+    for i, (rec, _score) in enumerate(results, 1):
+        parts.append(f"[{i}] {rec['title']} ({rec['path']})")
+        parts.append(rec.get("summary", "").strip())
+        for block in rec.get("code_blocks", [])[:2]:
+            parts.append(f"```{block.get('language', '')}\n{block.get('code', '').strip()}\n```")
+        parts.append("")
+    return (
+        "You answer security operations questions using ONLY the numbered sources below.\n"
+        "Cite every statement and command with its source number in square brackets, e.g. [1].\n"
+        "Copy commands exactly as they appear in the sources. If the sources do not answer the\n"
+        "question, say so and cite nothing.\n\n"
+        "=== SOURCES ===\n" + "\n".join(parts) + "=== END SOURCES ===\n\n"
+        f"QUESTION: {question}\n\nANSWER:"
+    )
+
+
+def cmd_ask(args: argparse.Namespace) -> None:
+    sys.path.insert(0, str(ROOT))
+    from tools import ai_grounding, cc
+
+    question = " ".join(args.question).strip()
+    if not question:
+        print(c_red("Ask a question, e.g.: cc ask how do I find public gcs buckets"))
+        sys.exit(2)
+
+    results = ai_grounding.search(question, top_k=args.sources)
+    if not results:
+        print(c_amber("No matching pages in the knowledge base; nothing to ground an answer on."))
+        sys.exit(1)
+
+    model = args.model or os.environ.get("CC_ASK_MODEL") or pick_ask_model(args.host)
+    answer = None
+    if model:
+        print(c_dim(f"Asking {model} at {args.host} with {len(results)} sources..."))
+        answer = ai_grounding.query_ollama(build_cited_prompt(question, results), model=model,
+                                           host=args.host, timeout=args.timeout)
+
+    if answer:
+        print("\n" + answer.strip() + "\n")
+    else:
+        print(c_amber(f"\nNo answer from a local model at {args.host} (is Ollama running?). Showing the sources only.\n"))
+
+    cited = {int(n) for n in CITATION_RE.findall(answer or "")}
+    print(c_bold("Sources:"))
+    for i, (rec, score) in enumerate(results, 1):
+        page = cc.load_page(ROOT / rec["path"])
+        state = c_green("verified") if page.meta.get("verified") is True else c_amber("unverified")
+        mark = c_cyan("cited") if i in cited else c_dim("not cited")
+        print(f"  [{i}] {rec['title']}  {c_dim(rec['path'])}  {state}  {mark}")
+
+    if answer:
+        invalid = sorted(n for n in cited if not 1 <= n <= len(results))
+        if not cited:
+            print(c_red("\n[!] UNCITED: the answer does not reference any source. Treat it as unverified."))
+        elif invalid:
+            print(c_red(f"\n[!] The answer cites sources that do not exist: {invalid}. Check it against the pages above."))
+    print()
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         prog="cc",
@@ -403,6 +485,7 @@ def main() -> None:
                "  cc scripts vpn\n"
                "  cc run FUNC_PS_TEST_VPN_CONNECTION\n"
                "  cc doctor\n"
+               "  cc ask how do I find public gcs buckets\n"
     )
 
     subparsers = parser.add_subparsers(dest="command", help="Operational Subcommands")
@@ -443,13 +526,22 @@ def main() -> None:
     p_doc = subparsers.add_parser("doctor", help="Audit local environment and repository health")
     p_doc.set_defaults(func=cmd_doctor)
 
+    # ask
+    p_ask = subparsers.add_parser("ask", help="Answer a question with a local model, citing knowledge base pages")
+    p_ask.add_argument("question", nargs="*", default=[], help="Question in plain words")
+    p_ask.add_argument("-k", "--sources", type=int, default=3, help="Pages given to the model (default: 3)")
+    p_ask.add_argument("-m", "--model", help="Ollama model (default: $CC_ASK_MODEL or the best installed local model)")
+    p_ask.add_argument("--host", default=os.environ.get("OLLAMA_HOST_URL", "http://localhost:11434"), help="Ollama endpoint")
+    p_ask.add_argument("--timeout", type=int, default=180, help="Seconds to wait for the answer (default: 180)")
+    p_ask.set_defaults(func=cmd_ask)
+
     if len(sys.argv) == 1:
         banner()
         parser.print_help()
         sys.exit(0)
 
     # If first argument is not a known command, default to 'find'
-    known_commands = {"find", "search", "view", "cat", "copy", "scripts", "run", "doctor", "-h", "--help"}
+    known_commands = {"find", "search", "view", "cat", "copy", "scripts", "run", "doctor", "ask", "-h", "--help"}
     if sys.argv[1] not in known_commands and not sys.argv[1].startswith("-"):
         sys.argv.insert(1, "find")
 

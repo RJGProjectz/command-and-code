@@ -118,13 +118,13 @@ def build_grounded_prompt(query: str, top_k: int = 3) -> str:
     return prompt
 
 
-def query_ollama(prompt: str, model: str = "llama3.2", host: str = "http://localhost:11434") -> str | None:
+def query_ollama(prompt: str, model: str = "llama3.2", host: str = "http://localhost:11434", timeout: int = 10) -> str | None:
     """Attempts to query a local Ollama instance if available."""
     url = f"{host}/api/generate"
     data = json.dumps({"model": model, "prompt": prompt, "stream": False}).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
     try:
-        with urllib.request.urlopen(req, timeout=10) as resp:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
             result = json.loads(resp.read().decode("utf-8"))
             return result.get("response", "")
     except Exception:

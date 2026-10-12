@@ -32,6 +32,7 @@ Fast offline terminal companion CLI for searching knowledge nodes, viewing runbo
 - **Direct Clipboard Copy (`cc copy`)**: Copy specific command blocks directly to the OS clipboard without touching a mouse.
 - **Script Discovery & Execution (`cc scripts`, `cc run`)**: Discover and run cataloged PowerShell, Bash, and Python production scripts.
 - **Environment Doctor (`cc doctor`)**: Audit local runtime health, Git status, PowerShell version, and schema compliance.
+- **Grounded Answers (`cc ask`)**: Ask a question in plain words; a local Ollama model answers from the top matching pages only and cites them as `[1]`, `[2]`. The source list shows each page's path, whether it is verified, and whether the answer cited it. Answers that cite nothing are flagged **UNCITED**. Models whose name ends in `-cloud` are never picked automatically, so the question stays on this machine. Without Ollama, the sources are listed on their own.
 
 ---
 
@@ -55,6 +56,10 @@ cc run FUNC_PS_TEST_VPN_CONNECTION
 
 # 5. Environment & repository health audit
 cc doctor
+
+# 6. Grounded answer from a local model, with cited sources
+cc ask how do I find public gcs buckets
+cc ask -k 5 -m gemma3:12b "revoke a leaked service account key"   # or set CC_ASK_MODEL
 ```
 
 ---
