@@ -127,3 +127,61 @@ a.headerlink,
 @media screen and (max-width: 44.9375em) {
   .md-typeset .cc-hero h1 { font-size: 1.8rem; }
 }
+
+/* Top-tab dropdowns of sub-categories (WP-19, overrides/partials/tabs-item.html).
+   Tabs only show at >= 1220px; below that the drawer is the navigation. */
+.md-tabs,
+.md-tabs__list {
+  overflow: visible;
+  contain: none;
+}
+
+.cc-tabs-item--menu {
+  position: relative;
+}
+
+.cc-tabs-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  min-width: 13rem;
+  max-height: 70vh;
+  margin: 0;
+  padding: 0.3rem 0;
+  overflow-y: auto;
+  list-style: none;
+  white-space: nowrap;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+  box-shadow: var(--md-shadow-z2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.2rem);
+  transition: opacity 120ms, transform 120ms, visibility 0s 120ms;
+}
+
+.cc-tabs-item--menu:hover > .cc-tabs-menu,
+.cc-tabs-item--menu:focus-within > .cc-tabs-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 120ms, transform 120ms;
+}
+
+.cc-tabs-menu__link {
+  display: block;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.68rem;
+  color: var(--md-default-fg-color);
+  opacity: 0.85;
+}
+
+.cc-tabs-menu__link:hover,
+.cc-tabs-menu__link:focus,
+.cc-tabs-menu__link--active {
+  color: var(--md-accent-fg-color);
+  background: var(--md-accent-fg-color--transparent);
+  opacity: 1;
+}
