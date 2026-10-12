@@ -345,8 +345,12 @@ nav:
       - fundamentals/concepts/index.md
       - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
       - Credential Dumping: fundamentals/concepts/credential-dumping.md
+      - Cryptographic Attacks and Cryptanalysis: fundamentals/concepts/cryptographic-attacks.md
+      - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
       - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
       - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
+      - Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP): fundamentals/concepts/digital-signatures.md
+      - Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2): fundamentals/concepts/hash-functions.md
       - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
       - Kerberoasting: fundamentals/concepts/kerberoasting.md
       - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
@@ -355,12 +359,15 @@ nav:
       - OSINT and Reconnaissance: fundamentals/concepts/osint.md
       - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
       - Port Scanning: fundamentals/concepts/port-scanning.md
+      - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
       - Proxy Servers: fundamentals/concepts/proxy-servers.md
+      - Quantum Computing and Security (Qubits, QKD): fundamentals/concepts/quantum-computing-security.md
       - Ransomware: fundamentals/concepts/ransomware.md
       - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
       - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
       - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
       - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md
+      - Zero-Knowledge Proofs, Homomorphic Encryption and Blockchain: fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md
   - Reference:
       - Overview: references/index.md
       - APIs:
