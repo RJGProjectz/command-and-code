@@ -6,7 +6,7 @@ languages: [Bash]
 tasks: [Administration, Troubleshooting, Investigation]
 category: Reference
 tags: [linux, cheat sheet, bash, systemd, journalctl, sysadmin, speed dial, commands]
-aliases: [linux cheat sheet, linux admin commands, systemctl cheat sheet, journalctl cheat sheet, linux troubleshooting commands]
+aliases: [linux cheat sheet, linux admin commands, systemctl cheat sheet, journalctl cheat sheet, linux troubleshooting commands, Linux Commands]
 difficulty: intermediate
 verified: true
 last_verified: 2026-10-06

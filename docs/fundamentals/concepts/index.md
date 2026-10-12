@@ -20,15 +20,18 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Access Control Models (ACL, DAC, MAC, RBAC, ABAC)](access-control-models.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Administration, Assurance |
+| [Anonymity Networks and the Dark Web (Tor, I2P, Tails)](anonymity-dark-web.md) | Concept | Windows, Linux, Microsoft Defender | KQL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Investigation |
 | [ARP Spoofing](arp-spoofing.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Troubleshooting |
 | [Authentication, MFA, SSO and Federation](authentication-mfa-sso.md) | Concept | Windows, Entra ID, Microsoft 365 | PowerShell, KQL | Investigation, Hardening, Incident Response |
 | [CIA Triad and Least Privilege](cia-triad.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [Credential Dumping](credential-dumping.md) | Concept | Windows, Microsoft Defender, Active Directory | PowerShell, KQL | Incident Response, Threat Hunting, Hardening |
 | [Cryptographic Attacks and Cryptanalysis](cryptographic-attacks.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Threat Hunting, Hardening, Assurance |
 | [Cryptography Fundamentals (Symmetric and Asymmetric Encryption)](cryptography-fundamentals.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |
+| [Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP)](cyber-law.md) | Concept | Windows, Azure | PowerShell | Compliance, Assurance, Incident Response |
 | [Defense in Depth and Secure Network Design](defense-in-depth.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Assurance |
 | [Denial of Service (DoS and DDoS)](denial-of-service.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Incident Response, Troubleshooting, Hardening |
 | [Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP)](digital-signatures.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Hardening, Forensics |
+| [Ethical Hacking, Ethics and Careers](ethical-hacking.md) | Concept | Windows, Linux | PowerShell, Bash | Assurance, Hardening |
 | [Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2)](hash-functions.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Investigation, Threat Intelligence |
 | [Identity and Access Management (IAM, PAM, Directory Services)](identity-access-management.md) | Concept | Windows Server, Entra ID, Azure | PowerShell, KQL | Administration, Hardening, Assurance |
 | [Intrusion Detection and Prevention (IDS/IPS)](ids-ips.md) | Concept | Linux, Windows, Microsoft Defender | Bash, KQL | Detection Engineering, Threat Hunting, Hardening |
@@ -41,11 +44,15 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Packet Sniffing](packet-sniffing.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Troubleshooting, Threat Hunting |
 | [Port Scanning](port-scanning.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Investigation, Threat Hunting, Hardening |
 | [Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA)](post-quantum-cryptography.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |
+| [Privacy Laws and Data Protection (GDPR, CCPA, HIPAA)](privacy-laws.md) | Concept | Microsoft 365, Windows | PowerShell, KQL | Compliance, Incident Response, Assurance |
 | [Proxy Servers](proxy-servers.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Administration |
 | [Quantum Computing and Security (Qubits, QKD)](quantum-computing-security.md) | Concept | Windows, Linux | PowerShell, Bash | Threat Intelligence, Assurance |
 | [Ransomware](ransomware.md) | Concept | Windows, Linux, VMware, SentinelOne | PowerShell, S1QL | Incident Response, Threat Hunting, Hardening |
+| [Risk Management, Policies and Compliance Audits](risk-management-governance.md) | Concept | Windows, Linux | PowerShell | Assurance, Compliance |
 | [Security Information and Event Management (SIEM)](siem.md) | Concept | Splunk, Microsoft Defender, Azure | SPL, KQL | Detection Engineering, Investigation, Threat Hunting |
+| [Security Standards Map (ISO/IEC 27000 series, NIST SP 800)](security-standards-map.md) | Concept | Windows, Linux, Azure | PowerShell | Compliance, Assurance, Hardening |
 | [Social Engineering (Phishing, Vishing, Pretexting, Tailgating)](social-engineering.md) | Concept | Microsoft 365, Exchange Online, Microsoft Defender | KQL, PowerShell | Incident Response, Investigation, Hardening |
+| [Surveillance, Counter-Surveillance and Deception](surveillance-deception.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, KQL | Threat Hunting, Detection Engineering, Investigation |
 | [Wi-Fi Deauthentication and Rogue Access Points](wifi-deauth-rogue-ap.md) | Concept | Windows, Linux | PowerShell, Bash | Threat Hunting, Investigation, Hardening |
 | [Wi-Fi Security (WEP, WPA, WPA2, WPA3)](wifi-security.md) | Concept | Windows, Linux | PowerShell, Bash, Windows CLI | Hardening, Investigation, Assurance |
 | [WPA/WPA2 Passphrase Attacks (Handshake Capture)](wifi-passphrase-attacks.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Investigation, Threat Hunting |

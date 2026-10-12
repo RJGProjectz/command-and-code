@@ -344,15 +344,18 @@ nav:
   - Concepts:
       - fundamentals/concepts/index.md
       - Access Control Models (ACL, DAC, MAC, RBAC, ABAC): fundamentals/concepts/access-control-models.md
+      - Anonymity Networks and the Dark Web (Tor, I2P, Tails): fundamentals/concepts/anonymity-dark-web.md
       - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
       - Authentication, MFA, SSO and Federation: fundamentals/concepts/authentication-mfa-sso.md
       - CIA Triad and Least Privilege: fundamentals/concepts/cia-triad.md
       - Credential Dumping: fundamentals/concepts/credential-dumping.md
       - Cryptographic Attacks and Cryptanalysis: fundamentals/concepts/cryptographic-attacks.md
       - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
+      - Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP): fundamentals/concepts/cyber-law.md
       - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
       - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
       - Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP): fundamentals/concepts/digital-signatures.md
+      - Ethical Hacking, Ethics and Careers: fundamentals/concepts/ethical-hacking.md
       - Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2): fundamentals/concepts/hash-functions.md
       - Identity and Access Management (IAM, PAM, Directory Services): fundamentals/concepts/identity-access-management.md
       - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
@@ -365,11 +368,15 @@ nav:
       - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
       - Port Scanning: fundamentals/concepts/port-scanning.md
       - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
+      - Privacy Laws and Data Protection (GDPR, CCPA, HIPAA): fundamentals/concepts/privacy-laws.md
       - Proxy Servers: fundamentals/concepts/proxy-servers.md
       - Quantum Computing and Security (Qubits, QKD): fundamentals/concepts/quantum-computing-security.md
       - Ransomware: fundamentals/concepts/ransomware.md
+      - Risk Management, Policies and Compliance Audits: fundamentals/concepts/risk-management-governance.md
       - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
+      - Security Standards Map (ISO/IEC 27000 series, NIST SP 800): fundamentals/concepts/security-standards-map.md
       - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
+      - Surveillance, Counter-Surveillance and Deception: fundamentals/concepts/surveillance-deception.md
       - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
       - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
       - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md

@@ -1,7 +1,7 @@
 ---
 title: Incident Response
 type: index
-aliases: [Incident Response Plan (IRP)]
+aliases: [Incident Response Plan (IRP), Incident Response Process]
 ---
 
 # Incident Response

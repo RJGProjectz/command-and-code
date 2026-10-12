@@ -1,6 +1,7 @@
 ---
 title: Automation
 type: index
+aliases: [How to Automate Incident Response with Scripts]
 ---
 
 # Automation

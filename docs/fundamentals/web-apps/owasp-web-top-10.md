@@ -8,7 +8,7 @@ type: entry
 verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
-aliases: [Application Security, Web Application Security]
+aliases: [Application Security, Web Application Security, How to Do Web Application Security Testing, Web Application Exploitation, Website Hacking]
 ---
 
 # OWASP Top 10 for Web Applications

@@ -26,6 +26,7 @@ tags:
   - taxii
   - indicators
   - feed-ingestion
+aliases: [Threat Feeds and Sharing, Threat Intelligence Platforms]
 ---
 
 # Cyber Threat Intelligence — STIX 2.1 & TAXII Feed Ingestion Pipeline

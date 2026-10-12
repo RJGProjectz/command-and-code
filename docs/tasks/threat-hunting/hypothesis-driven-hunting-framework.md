@@ -27,6 +27,7 @@ tags:
   - tahiti
   - hunt-lifecycle
   - metrics
+aliases: [How to Develop a Threat Hunting Strategy]
 ---
 
 # Threat Hunting — Hypothesis-Driven Methodology & Hunt Lifecycle Framework

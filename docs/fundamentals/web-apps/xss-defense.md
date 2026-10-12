@@ -8,6 +8,7 @@ type: entry
 verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
+aliases: [How to Prevent Cross-Site Scripting (XSS)]
 ---
 
 # Cross-Site Scripting (XSS) & Content Security Policy

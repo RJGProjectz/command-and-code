@@ -8,6 +8,7 @@ type: entry
 verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
+aliases: ["How to Do SQL Injection Testing & Mitigation"]
 ---
 
 # SQL Injection & Parameterized Defense

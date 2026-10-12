@@ -24,6 +24,7 @@ tags:
   - lime
   - injection
   - triage
+aliases: [Memory Forensics]
 ---
 
 # Live Memory Acquisition and Volatility Analysis
