@@ -103,7 +103,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Systems:
+  - Platforms:
       - Overview: platforms/index.md
       - Windows:
           - Overview: platforms/windows/index.md
@@ -156,6 +156,12 @@ nav:
           - Intune: platforms/microsoft-365/intune.md
           - Exchange Online: platforms/microsoft-365/exchange.md
           - Audit Log (UAL) Investigation: platforms/microsoft-365/audit-log-investigation.md
+      - Azure:
+          - Overview: platforms/azure/index.md
+      - AWS:
+          - Overview: platforms/aws/index.md
+      - Google Cloud:
+          - Overview: platforms/gcp/index.md
       - Virtualization:
           - Overview: platforms/virtualization/index.md
           - Hyper-V: platforms/virtualization/hyper-v.md

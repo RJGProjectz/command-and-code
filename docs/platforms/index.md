@@ -1,11 +1,11 @@
 ---
-title: Systems & OS
+title: Platforms
 type: index
 ---
 
-# Systems & Operating Systems
+# Platforms
 
-Start from the target operating system or enterprise environment you are managing.
+Start from the operating system, cloud or enterprise environment you are managing.
 
 <div class="grid cards" markdown>
 
@@ -26,6 +26,24 @@ Start from the target operating system or enterprise environment you are managin
     ---
 
     Defender XDR, Entra ID, Conditional Access, Intune and Exchange Online.
+
+-   :material-microsoft-azure:{ .lg } **[Azure](azure/index.md)**
+
+    ---
+
+    Subscriptions, RBAC, VMs, VNets/NSGs, storage, Key Vault, AKS, Activity Log, Defender for Cloud, Azure Policy.
+
+-   :material-aws:{ .lg } **[AWS](aws/index.md)**
+
+    ---
+
+    Organizations, IAM, EC2, VPC, S3, CloudTrail, KMS, EKS, GuardDuty, Security Hub.
+
+-   :material-google-cloud:{ .lg } **[Google Cloud](gcp/index.md)**
+
+    ---
+
+    Projects and folders, Cloud IAM, Compute Engine, VPC, Cloud Storage, Audit Logs, KMS, GKE, Security Command Center.
 
 -   :material-server-network:{ .lg } **[Virtualization](virtualization/index.md)**
 

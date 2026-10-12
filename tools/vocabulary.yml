@@ -21,7 +21,9 @@ platforms:
   Proxmox: platforms/virtualization/proxmox.md
   SentinelOne: detection/s1ql/index.md
   Splunk: detection/spl/index.md
-  Azure: platforms/microsoft-365/index.md
+  Azure: platforms/azure/index.md
+  AWS: platforms/aws/index.md
+  GCP: platforms/gcp/index.md
   Active Directory: platforms/windows/index.md
 
 languages:

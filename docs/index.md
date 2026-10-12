@@ -123,7 +123,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 
 </div>
 
-## Systems & OS
+## Platforms
 
 <div class="grid cards" markdown>
 
@@ -144,6 +144,12 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     ---
 
     Defender XDR · Entra ID · Conditional Access · Intune · Exchange Online
+
+-   :material-cloud-outline:{ .lg } **[Azure](platforms/azure/index.md)** · **[AWS](platforms/aws/index.md)** · **[Google Cloud](platforms/gcp/index.md)**
+
+    ---
+
+    Identity, compute, networking, storage, audit logs, keys, Kubernetes and posture, with the same topics across all three clouds.
 
 -   :material-server-network:{ .lg } **[Virtualization](platforms/virtualization/index.md)**
 
