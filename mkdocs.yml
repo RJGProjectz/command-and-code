@@ -175,6 +175,21 @@ nav:
           - Troubleshooting: platforms/azure/troubleshooting.md
       - AWS:
           - Overview: platforms/aws/index.md
+          - CLI & Authentication: platforms/aws/cli-authentication.md
+          - Organizations & Inventory: platforms/aws/resource-hierarchy.md
+          - IAM: platforms/aws/identity-access.md
+          - EC2 & Systems Manager: platforms/aws/compute.md
+          - VPC & Security Groups: platforms/aws/networking.md
+          - S3: platforms/aws/storage.md
+          - CloudTrail: platforms/aws/audit-logging.md
+          - CloudWatch & Athena: platforms/aws/monitoring-logs.md
+          - KMS & Secrets Manager: platforms/aws/keys-secrets.md
+          - EKS: platforms/aws/kubernetes.md
+          - GuardDuty & Security Hub: platforms/aws/security-posture.md
+          - SCPs & Config: platforms/aws/policy-governance.md
+          - Incident Response: platforms/aws/incident-response.md
+          - Persistence & Hunting: platforms/aws/persistence-hunting.md
+          - Troubleshooting: platforms/aws/troubleshooting.md
       - Google Cloud:
           - Overview: platforms/gcp/index.md
       - Virtualization:
