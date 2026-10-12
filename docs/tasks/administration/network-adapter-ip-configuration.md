@@ -12,7 +12,7 @@ languages:
 tasks:
   - Administration
 verified: true
-last_verified: 2026-10-06
+last_verified: 2026-10-12
 difficulty: intermediate
 tags:
   - networking
@@ -93,11 +93,23 @@ ip link show
 # List all assigned IP addresses
 ip -br addr show
 
-# Temporarily assign a static IP address and subnet
+# Show addresses on one interface only
+ip addr show dev eth0
+
+# Temporarily change the IP (not persistent across reboot): `ip addr add` adds a second
+# address, so remove the old one first
+sudo ip addr del 192.168.10.20/24 dev eth0
 sudo ip addr add 192.168.10.50/24 dev eth0
 
-# Add a default gateway
-sudo ip route add default via 192.168.10.1 dev eth0
+# Remove every IPv4 address from the interface (drops connectivity on that link)
+sudo ip -4 addr flush dev eth0
+
+# Bring the interface down / up
+sudo ip link set dev eth0 down
+sudo ip link set dev eth0 up
+
+# Add or replace the default gateway (flushing addresses also removes the routes via that link)
+sudo ip route replace default via 192.168.10.1 dev eth0
 
 # View kernel IP routing table
 ip route show
