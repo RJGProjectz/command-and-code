@@ -22,6 +22,8 @@ A version-controlled knowledge base of **commands, code, queries, configuration 
 [:material-map-legend: Roadmap](roadmap.md){ .md-button }
 </div>
 
+<div id="cc-recent" class="cc-recent" hidden></div>
+
 Press ++s++ or ++slash++ to search, or try:
 
 <div class="cc-searches" markdown>
@@ -36,6 +38,59 @@ Press ++s++ or ++slash++ to search, or try:
 [network connections](?q=network+connections)
 </div>
 
+</div>
+
+## What are you doing right now?
+
+Pick the lane that matches the job in front of you. Each lane opens with the first three workflows to run; the count is every entry tagged for that task.
+
+<div class="grid cards cc-lanes" markdown>
+
+-   :material-alarm-light-outline:{ .lg } **[Responding to an incident](tasks/incident-response/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Incident Response" -->110<!-- /cc:count --> entries</span>
+
+    ---
+
+    1. [Triage the endpoint](tasks/incident-response/endpoint-triage.md) — capture volatile state
+    2. [Check the account](tasks/incident-response/account-compromise.md) — sign-ins, tokens, mailbox rules
+    3. [Isolate the host](tasks/incident-response/ransomware-host-isolation.md) — contain before it spreads
+
+-   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->124<!-- /cc:count --> entries</span>
+
+    ---
+
+    1. [Failed authentication](tasks/investigation/failed-authentication.md) — who, from where, how often
+    2. [Suspicious outbound connection](tasks/investigation/suspicious-outbound-connection.md) — process to destination
+    3. [Registry persistence](tasks/investigation/registry-persistence.md) — run keys and services
+
+-   :material-crosshairs-gps:{ .lg } **[Hunting for threats](tasks/threat-hunting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Threat Hunting" -->75<!-- /cc:count --> entries</span>
+
+    ---
+
+    1. [Frame a hypothesis](tasks/threat-hunting/hypothesis-driven-hunting-framework.md) — scope, data, success criteria
+    2. [Lateral movement](tasks/threat-hunting/lateral-movement.md) — remote logons and admin shares
+    3. [LOLBin execution](tasks/threat-hunting/lolbins-execution-hunting.md) — signed binaries doing odd things
+
+-   :material-wrench-outline:{ .lg } **[Fixing something broken](tasks/troubleshooting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Troubleshooting" -->58<!-- /cc:count --> entries</span>
+
+    ---
+
+    1. [Network and domain connectivity](tasks/troubleshooting/windows-connectivity.md) — DNS, routes, ports, Kerberos
+    2. [Service will not start](tasks/troubleshooting/linux-service-failure.md) — crashloops, SELinux, port conflicts
+    3. [High CPU](tasks/troubleshooting/high-cpu-troubleshooting.md) — runaway process or miner?
+
+</div>
+
+**Other lanes:**
+
+<div class="cc-searches cc-lane-chips" markdown>
+[Forensics · <!-- cc:count tasks="Forensics" -->34<!-- /cc:count -->](tasks/forensics/index.md)
+[Detection engineering · <!-- cc:count tasks="Detection Engineering" -->59<!-- /cc:count -->](tasks/detection-engineering/index.md)
+[Hardening · <!-- cc:count tasks="Hardening" -->108<!-- /cc:count -->](tasks/hardening/index.md)
+[Administration · <!-- cc:count tasks="Administration" -->121<!-- /cc:count -->](tasks/administration/index.md)
+[Automation · <!-- cc:count tasks="Automation" -->50<!-- /cc:count -->](tasks/automation/index.md)
+[Assurance · <!-- cc:count tasks="Assurance" -->48<!-- /cc:count -->](tasks/assurance/index.md)
+[Threat intelligence · <!-- cc:count tasks="Threat Intelligence" -->11<!-- /cc:count -->](tasks/threat-intelligence/index.md)
+[All tasks](tasks/index.md)
 </div>
 
 ## Fast-Track & Cheat Sheets
@@ -113,36 +168,6 @@ Press ++s++ or ++slash++ to search, or try:
     ---
 
     Hunting and detection queries for Defender XDR, Sentinel, Splunk and SentinelOne — plus [Sigma](detection/sigma/index.md) and [ATT&CK](detection/mitre-attack/index.md).
-
-</div>
-
-## Browse by Task
-
-<div class="grid cards" markdown>
-
--   :material-alarm-light-outline:{ .lg } **[Incident Response](tasks/incident-response/index.md)**
-
-    ---
-
-    [Endpoint triage](tasks/incident-response/endpoint-triage.md) · [Suspicious PowerShell](tasks/incident-response/suspicious-powershell.md) · [Account compromise](tasks/incident-response/account-compromise.md)
-
--   :material-crosshairs-gps:{ .lg } **[Threat Hunting](tasks/threat-hunting/index.md)** · **[Investigation](tasks/investigation/index.md)**
-
-    ---
-
-    [Lateral movement](tasks/threat-hunting/lateral-movement.md) · [Failed authentication](tasks/investigation/failed-authentication.md) · [Outbound connections](tasks/investigation/suspicious-outbound-connection.md)
-
--   :material-radar:{ .lg } **[Detection Engineering](tasks/detection-engineering/index.md)** · **[Automation](tasks/automation/index.md)**
-
-    ---
-
-    Queries, Sigma rules and the [toolbox](toolbox/index.md) of reusable scripts.
-
--   :material-wrench-outline:{ .lg } **[Administration](tasks/administration/index.md)** · **[Troubleshooting](tasks/troubleshooting/index.md)**
-
-    ---
-
-    Configuration locations, health checks and fault-finding workflows.
 
 </div>
 

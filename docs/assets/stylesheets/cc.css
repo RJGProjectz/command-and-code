@@ -185,3 +185,22 @@ a.headerlink,
   background: var(--md-accent-fg-color--transparent);
   opacity: 1;
 }
+
+/* Recently viewed (WP-32) — rendered by assets/javascripts/cc-recent.js, hidden when empty */
+.md-typeset .cc-recent { margin: 0 0 1.2rem; }
+.md-typeset .cc-recent[hidden] { display: none; }
+.md-typeset .cc-recent-head { margin: 0 0 0.4rem; font-size: 0.72rem; }
+.md-typeset .cc-recent-clear {
+  margin-left: 0.6rem; padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 0.66rem; color: var(--md-default-fg-color--light); text-decoration: underline;
+}
+.md-typeset .cc-recent-clear:hover { color: var(--cc-amber); }
+.md-typeset .cc-recent-list a { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Home lanes (WP-15) — counts filled by tools/cc.py (cc:count markers) */
+.md-typeset .cc-lane-count {
+  display: inline-block; margin-left: 0.3rem; font-size: 0.62rem; font-weight: 400;
+  color: var(--md-default-fg-color--light); white-space: nowrap;
+}
+.md-typeset .cc-lanes ol { margin: 0.4rem 0 0 1rem; list-style-type: decimal; }
+.md-typeset .cc-lanes ol li { margin-bottom: 0.25rem; }

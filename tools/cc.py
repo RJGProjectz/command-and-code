@@ -20,6 +20,10 @@ metadata filter. Write the markers once; `index` fills in the rows:
 Filters are ANDed. Supported keys: platforms, languages, tasks, type, category.
 Use `|` for OR within one key: tasks="Hardening|Administration".
 
+An inline count of matching entries uses the same filters (home page lanes):
+
+    <!-- cc:count tasks="Incident Response" -->0<!-- /cc:count -->
+
 The generated rows are committed, so the tables also render on GitHub and in
 any Markdown viewer. Only the Python standard library and PyYAML are used.
 """
@@ -46,6 +50,7 @@ LIST_KEYS = ("platforms", "languages", "tasks")
 CONTENT_TYPES = {"entry", "workflow", "tool", "reference", "concept"}
 VERIFY_BANNER = "VERIFY BEFORE PRODUCTION USE"
 INDEX_RE = re.compile(r"(<!-- cc:index(?P<attrs>[^>]*?)-->)(?P<body>.*?)(<!-- /cc:index -->)", re.S)
+COUNT_RE = re.compile(r"(<!-- cc:count(?P<attrs>[^>]*?)-->)(?P<body>[^<]*)(<!-- /cc:count -->)")
 ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
 FENCE_RE = re.compile(r"^(?P<indent>[ \t]*)(?P<fence>`{3,})(?P<lang>[\w+-]*)[^\n]*\n(?P<code>.*?)^(?P=indent)(?P=fence)[ \t]*$", re.S | re.M)
 
@@ -191,11 +196,15 @@ def render_table(host: Page, filters: dict[str, str], pages: list[Page]) -> str:
     return "\n".join(rows) + "\n\n"
 
 
+def count_entries(host: Page, filters: dict[str, str], pages: list[Page]) -> int:
+    return sum(1 for p in pages if p.type in CONTENT_TYPES and p.path != host.path and _matches(p, filters))
+
+
 def build_indexes(pages: list[Page], check: bool) -> list[str]:
     stale: list[str] = []
     for host in pages:
         text = host.path.read_text(encoding="utf-8")
-        if "<!-- cc:index" not in text:
+        if "<!-- cc:index" not in text and "<!-- cc:count" not in text:
             continue
 
         def replace(match: re.Match) -> str:
@@ -209,7 +218,14 @@ def build_indexes(pages: list[Page], check: bool) -> list[str]:
                 return match.group(0)  # example markers inside code blocks are left alone
             return replace(match)
 
+        def count_outside_code(match: re.Match) -> str:
+            if any(start <= match.start() < end for start, end in fenced):
+                return match.group(0)
+            filters = dict(ATTR_RE.findall(match.group("attrs")))
+            return match.group(1) + str(count_entries(host, filters, pages)) + match.group(4)
+
         new_text = INDEX_RE.sub(replace_outside_code, text)
+        new_text = COUNT_RE.sub(count_outside_code, new_text)
         if new_text != text:
             stale.append(host.rel)
             if not check:
