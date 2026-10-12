@@ -33,6 +33,7 @@ Python is the glue for API automation, data processing and cross-platform toolin
 | [AWS KMS, Secrets Manager & Parameter Store](../../platforms/aws/keys-secrets.md) | Entry | AWS | Bash, Python | Administration, Hardening, Investigation, Incident Response |
 | [AWS Organizations, Accounts & Inventory](../../platforms/aws/resource-hierarchy.md) | Entry | AWS | Bash, Python | Administration, Investigation, Assurance |
 | [AWS Persistence & Threat Hunting](../../platforms/aws/persistence-hunting.md) | Entry | AWS | Bash, Python | Threat Hunting, Incident Response, Investigation, Detection Engineering |
+| [Cross-platform data handling: Windows ↔ Linux, secrets, encodings and transport](../../fundamentals/systems/cross-platform-data-handling.md) | Entry | Windows, Linux, Proxmox | Python, PowerShell, Bash | Administration, Automation, Troubleshooting, Hardening |
 | [Fundamentals — Agentic AI Architectures & Tool Execution](../../fundamentals/agentic-ai.md) | Entry | Linux | Python | Automation, Hardening |
 | [Fundamentals — API Security & Error Handling](../../fundamentals/apis/security-error-handling.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |
 | [Fundamentals — Authentication & Token Lifecycles](../../fundamentals/apis/auth-tokens.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |

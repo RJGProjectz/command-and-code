@@ -488,6 +488,7 @@ nav:
               - AppLocker & Application Control: fundamentals/systems/applocker.md
               - Sysmon Architecture & Telemetry: fundamentals/systems/sysmon.md
           - Networking & Transport Protocols:
+              - "Cross-Platform Data Handling (CRLF, Encodings, Secrets)": fundamentals/systems/cross-platform-data-handling.md
               - DNS Mechanics & Security: fundamentals/dns.md
               - DHCP Mechanics & Allocation: fundamentals/networking/dhcp.md
               - HTTP & HTTPS Protocols: fundamentals/networking/http-https.md
