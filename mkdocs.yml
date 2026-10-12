@@ -192,6 +192,21 @@ nav:
           - Troubleshooting: platforms/aws/troubleshooting.md
       - Google Cloud:
           - Overview: platforms/gcp/index.md
+          - CLI & Authentication: platforms/gcp/cli-authentication.md
+          - Resource Manager & Asset Inventory: platforms/gcp/resource-hierarchy.md
+          - Cloud IAM: platforms/gcp/identity-access.md
+          - Compute Engine & OS Login: platforms/gcp/compute.md
+          - VPC & Firewall Rules: platforms/gcp/networking.md
+          - Cloud Storage: platforms/gcp/storage.md
+          - Cloud Audit Logs: platforms/gcp/audit-logging.md
+          - Cloud Logging & BigQuery: platforms/gcp/monitoring-logs.md
+          - Cloud KMS & Secret Manager: platforms/gcp/keys-secrets.md
+          - GKE: platforms/gcp/kubernetes.md
+          - Security Command Center: platforms/gcp/security-posture.md
+          - Organization Policy: platforms/gcp/policy-governance.md
+          - Incident Response: platforms/gcp/incident-response.md
+          - Persistence & Hunting: platforms/gcp/persistence-hunting.md
+          - Troubleshooting: platforms/gcp/troubleshooting.md
       - Virtualization:
           - Overview: platforms/virtualization/index.md
           - Hyper-V: platforms/virtualization/hyper-v.md
