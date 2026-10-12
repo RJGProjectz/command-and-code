@@ -26,7 +26,7 @@ verified: false
 
 ## What it is
 
-Availability is one leg of the CIA triad. A DoS attack does not need to break in; it only needs to use up
+Availability is one leg of the [CIA triad](cia-triad.md). A DoS attack does not need to break in; it only needs to use up
 something finite. A DDoS spreads the load over thousands of hijacked devices (a botnet) or abuses open servers that answer
 small requests with large replies (amplification), so blocking one IP does not help.
 

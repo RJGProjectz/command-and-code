@@ -79,4 +79,4 @@ Resolve-DnsName -Name example.com -Type MX
 
 ## Related concepts
 
-- Social Engineering · [Port Scanning](port-scanning.md)
+- [Social Engineering](social-engineering.md) · [Port Scanning](port-scanning.md)

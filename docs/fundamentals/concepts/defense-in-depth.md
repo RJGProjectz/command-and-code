@@ -42,7 +42,7 @@ device and context every time.
 | Data | encryption at rest and in transit | [BitLocker recovery](../../tasks/administration/bitlocker-recovery.md), [TLS](../networking/tls-ssl.md) |
 | Detect & recover | SIEM, backups | [SIEM](siem.md), [Backup and recovery](../../tasks/administration/backup-and-recovery.md) |
 
-Design principles that go with it: least privilege, fail closed, separation of duties, simplicity, and keeping management
+Design principles that go with it: [least privilege](cia-triad.md), fail closed, separation of duties, simplicity, and keeping management
 interfaces on their own network.
 
 ## Why it matters

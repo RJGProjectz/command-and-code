@@ -343,7 +343,10 @@ nav:
           - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
   - Concepts:
       - fundamentals/concepts/index.md
+      - Access Control Models (ACL, DAC, MAC, RBAC, ABAC): fundamentals/concepts/access-control-models.md
       - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
+      - Authentication, MFA, SSO and Federation: fundamentals/concepts/authentication-mfa-sso.md
+      - CIA Triad and Least Privilege: fundamentals/concepts/cia-triad.md
       - Credential Dumping: fundamentals/concepts/credential-dumping.md
       - Cryptographic Attacks and Cryptanalysis: fundamentals/concepts/cryptographic-attacks.md
       - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
@@ -351,9 +354,11 @@ nav:
       - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
       - Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP): fundamentals/concepts/digital-signatures.md
       - Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2): fundamentals/concepts/hash-functions.md
+      - Identity and Access Management (IAM, PAM, Directory Services): fundamentals/concepts/identity-access-management.md
       - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
       - Kerberoasting: fundamentals/concepts/kerberoasting.md
       - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
+      - Malware Types and Analysis (Spyware, RATs, Rootkits): fundamentals/concepts/malware-types-analysis.md
       - Man-in-the-Middle Attacks: fundamentals/concepts/man-in-the-middle.md
       - OSI Model and TCP: fundamentals/concepts/osi-model-tcp.md
       - OSINT and Reconnaissance: fundamentals/concepts/osint.md
@@ -364,6 +369,7 @@ nav:
       - Quantum Computing and Security (Qubits, QKD): fundamentals/concepts/quantum-computing-security.md
       - Ransomware: fundamentals/concepts/ransomware.md
       - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
+      - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
       - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
       - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
       - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md

@@ -17,6 +17,7 @@ tags:
   - oidc
   - authentication
   - jwt
+aliases: [How to Implement OAuth in a Web Application]
 ---
 
 # Fundamentals — OAuth 2.0 Authorization & OIDC Mechanics
