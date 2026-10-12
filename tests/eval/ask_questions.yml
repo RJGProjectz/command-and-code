@@ -1,0 +1,107 @@
+# Evaluation set for `cc ask` (WP-12)
+# Created: 2026-10-12T18:20:00Z
+# Author: RJGProjectz
+# security_domain: Knowledge Management
+#
+# Real practitioner questions, phrased the way people ask them (not page titles).
+# `expected` lists the pages (relative to docs/) that answer the question; retrieving any one
+# of them counts as a hit. Scored offline by tools/ask_eval.py. Keep ids stable: results are
+# compared run to run.
+
+questions:
+  - id: q01
+    question: which process is listening on port 443 on a windows box
+    expected: [platforms/windows/networking.md, platforms/windows/processes.md]
+  - id: q02
+    question: how do I see what ran at startup through the run keys in the registry
+    expected: [tasks/investigation/registry-persistence.md, platforms/windows/registry.md]
+  - id: q03
+    question: a user keeps getting locked out of their AD account, how do I find the source
+    expected: [tasks/troubleshooting/account-lockout-troubleshooting.md]
+  - id: q04
+    question: hunt for kerberoasting in my domain
+    expected: [tasks/threat-hunting/kerberoasting-asreproast-hunting.md, fundamentals/concepts/kerberoasting.md]
+  - id: q05
+    question: isolate a ransomware infected host from the network
+    expected: [tasks/incident-response/ransomware-host-isolation.md, apis/sentinelone/isolate-host.md]
+  - id: q06
+    question: find s3 buckets that are open to the public
+    expected: [platforms/aws/storage.md, platforms/aws/security-posture.md]
+  - id: q07
+    question: find public gcs buckets
+    expected: [platforms/gcp/storage.md, platforms/gcp/security-posture.md]
+  - id: q08
+    question: what does windows event id 4625 mean
+    expected: [references/windows-event-ids.md, tasks/investigation/failed-authentication.md, platforms/windows/event-logs.md]
+  - id: q09
+    question: splunk search for brute force logins
+    expected: [detection/spl/brute-force.md, tasks/investigation/failed-authentication.md]
+  - id: q10
+    question: detect dns tunneling
+    expected: [detection/spl/dns-tunneling.md, detection/spl/network-dns.md]
+  - id: q11
+    question: someone clicked a phishing link, what do I check in the mailbox
+    expected: [tasks/incident-response/phishing-email-triage.md, platforms/microsoft-365/exchange.md]
+  - id: q12
+    question: list scheduled tasks created recently that look suspicious
+    expected: [tasks/investigation/scheduled-task-investigation.md, platforms/windows/scheduled-tasks.md]
+  - id: q13
+    question: cron jobs used for persistence on linux
+    expected: [platforms/linux/cron.md, platforms/linux/persistence.md]
+  - id: q14
+    question: systemd service keeps failing to start, how do I troubleshoot
+    expected: [tasks/troubleshooting/linux-service-failure.md, platforms/linux/systemd.md]
+  - id: q15
+    question: ssh connection times out when connecting to a server
+    expected: [tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md, platforms/linux/ssh.md]
+  - id: q16
+    question: disk is full on a linux server, find what is taking the space
+    expected: [tasks/troubleshooting/disk-space-emergency.md, tasks/administration/disk-space-audit.md]
+  - id: q17
+    question: high cpu usage, which process is causing it
+    expected: [tasks/troubleshooting/high-cpu-troubleshooting.md, platforms/windows/processes.md, platforms/linux/processes.md]
+  - id: q18
+    question: check whether defender real time protection is turned on
+    expected: [platforms/windows/defender.md, tasks/assurance/endpoint-edr-status.md]
+  - id: q19
+    question: kql query for suspicious process command lines
+    expected: [detection/kql/process-events.md]
+  - id: q20
+    question: decode an encoded powershell command and investigate it
+    expected: [tasks/incident-response/suspicious-powershell.md, detection/spl/powershell.md]
+  - id: q21
+    question: detect lateral movement over smb and admin shares
+    expected: [tasks/incident-response/smb-lateral-movement.md, detection/spl/lateral-movement-smb.md, tasks/threat-hunting/lateral-movement.md]
+  - id: q22
+    question: revoke sessions for a compromised azure ad account
+    expected: [tasks/incident-response/account-compromise.md, platforms/azure/incident-response.md, platforms/azure/identity-access.md, platforms/microsoft-365/entra.md]
+  - id: q23
+    question: a service principal secret was leaked, what now
+    expected: [tasks/incident-response/compromised-service-principal.md]
+  - id: q24
+    question: pull sign in logs from microsoft graph
+    expected: [apis/microsoft-graph/sign-in-logs.md]
+  - id: q25
+    question: who deleted MFA methods for a user
+    expected: [detection/spl/mfa-deletion.md, apis/microsoft-graph/user-auth-methods.md]
+  - id: q26
+    question: tls handshake fails because of a certificate problem
+    expected: [tasks/troubleshooting/certificate-handshake-failure.md, fundamentals/networking/tls-ssl.md]
+  - id: q27
+    question: set up spf dkim and dmarc for our domain
+    expected: [tasks/administration/email-authentication-deployment.md, fundamentals/networking/smtp.md]
+  - id: q28
+    question: capture memory from a windows machine for forensics
+    expected: [tasks/forensics/memory-acquisition-analysis.md]
+  - id: q29
+    question: lolbins like certutil or mshta used to run payloads
+    expected: [tasks/threat-hunting/lolbins-execution-hunting.md, languages/windows-cli/system32-toolkit.md]
+  - id: q30
+    question: call a rest api with a bearer token in powershell
+    expected: [languages/powershell/rest-apis.md, apis/authentication/bearer-tokens.md]
+  - id: q31
+    question: open a firewall port on linux with nftables
+    expected: [platforms/linux/firewalls-nftables.md, tasks/administration/firewall-port-management.md]
+  - id: q32
+    question: what is the difference between ids and ips
+    expected: [fundamentals/concepts/ids-ips.md]
