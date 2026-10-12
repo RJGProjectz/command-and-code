@@ -28,6 +28,10 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.tracking
+    # Breadcrumbs, section landing pages, and only the current branch in the sidebar DOM.
+    - navigation.path
+    - navigation.indexes
+    - navigation.prune
     - toc.follow
     - search.suggest
     - search.highlight
@@ -55,6 +59,11 @@ plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - tags
+
+# Linked from the footer About links (overrides/partials/copyright.html), not the tabs.
+not_in_nav: |
+  /executive-summary.md
+  /roadmap.md
 
 validation:
   omitted_files: warn
@@ -93,8 +102,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Executive Summary: executive-summary.md
-  - Systems & OS:
+  - Systems:
       - Overview: platforms/index.md
       - Windows:
           - Overview: platforms/windows/index.md
@@ -153,7 +161,7 @@ nav:
           - VMware: platforms/virtualization/vmware.md
           - Proxmox: platforms/virtualization/proxmox.md
           - ESXi Forensics & Hardening: platforms/virtualization/esxi-forensics-hardening.md
-  - Shells & Scripting:
+  - Shells:
       - Overview: languages/index.md
       - PowerShell:
           - Overview: languages/powershell/index.md
@@ -183,80 +191,6 @@ nav:
           - Text Processing & findstr: languages/windows-cli/text-processing.md
           - Error Handling & Exit Codes: languages/windows-cli/error-handling.md
           - System32 Native Executables: languages/windows-cli/system32-toolkit.md
-  - APIs:
-      - Overview: apis/index.md
-      - Microsoft Defender:
-          - apis/microsoft-defender/get-alerts.md
-          - apis/microsoft-defender/antivirus-scan.md
-      - Microsoft Graph:
-          - apis/microsoft-graph/conditional-access.md
-          - apis/microsoft-graph/sign-in-logs.md
-          - apis/microsoft-graph/user-auth-methods.md
-      - SentinelOne:
-          - apis/sentinelone/threats.md
-          - apis/sentinelone/isolate-host.md
-      - Splunk:
-          - apis/splunk/management-jobs.md
-      - Authentication:
-          - apis/authentication/bearer-tokens.md
-      - Webhooks:
-          - apis/webhooks/slack-teams-webhooks.md
-          - Jira & ServiceNow: apis/webhooks/jira-servicenow-incident-creation.md
-  - Fundamentals:
-      - Overview: fundamentals/index.md
-      - Operating System & Kernel Architecture:
-          - Windows Process Internals: fundamentals/systems/windows-processes.md
-          - Memory Internals & Paging: fundamentals/systems/memory-internals.md
-          - UEFI & Secure Boot: fundamentals/systems/uefi-secure-boot.md
-          - AppLocker & Application Control: fundamentals/systems/applocker.md
-          - Sysmon Architecture & Telemetry: fundamentals/systems/sysmon.md
-      - Networking & Transport Protocols:
-          - DNS Mechanics & Security: fundamentals/dns.md
-          - DHCP Mechanics & Allocation: fundamentals/networking/dhcp.md
-          - HTTP & HTTPS Protocols: fundamentals/networking/http-https.md
-          - TLS & SSL Cryptography: fundamentals/networking/tls-ssl.md
-          - SMB Protocol & Shares: fundamentals/smb.md
-          - SMTP & Mail Routing: fundamentals/networking/smtp.md
-          - VPN Architectures: fundamentals/networking/vpn.md
-          - Microsegmentation: fundamentals/networking/microsegmentation.md
-      - Identity, Access & Cryptography:
-          - Kerberos Authentication: fundamentals/kerberos.md
-          - LDAP & Active Directory: fundamentals/identity/ldap.md
-          - OAuth 2.0 & OIDC: fundamentals/identity/oauth2.md
-          - Public Key Infrastructure (PKI): fundamentals/identity/pki.md
-          - SSH Key Mechanics: fundamentals/identity/ssh-keys.md
-      - API & Integration Engineering:
-          - REST Architecture & HTTP Semantics: fundamentals/apis/rest-architecture.md
-          - Authentication & Token Lifecycles: fundamentals/apis/auth-tokens.md
-          - Rate Limiting & Backoff: fundamentals/apis/rate-limiting-backoff.md
-          - Pagination & High-Volume Ingestion: fundamentals/apis/pagination.md
-          - Webhooks & Event-Driven Architecture: fundamentals/apis/webhooks-events.md
-          - API Security & Error Handling: fundamentals/apis/security-error-handling.md
-      - Web Applications & OWASP:
-          - OWASP Top 10 for Web Applications: fundamentals/web-apps/owasp-web-top-10.md
-          - SQL Injection & Parameterization: fundamentals/web-apps/sql-injection.md
-          - Cross-Site Scripting (XSS) & CSP: fundamentals/web-apps/xss-defense.md
-          - Cross-Site Request Forgery (CSRF): fundamentals/web-apps/csrf-defense.md
-          - Server-Side Request Forgery (SSRF): fundamentals/web-apps/ssrf-defense.md
-          - HTTP Security Headers: fundamentals/web-apps/http-security-headers.md
-          - Session Management & Cookies: fundamentals/web-apps/session-management.md
-      - Cloud Infrastructure:
-          - Entra ID Fundamentals: fundamentals/cloud/entra-id-fundamentals.md
-          - Azure VNet Security: fundamentals/cloud/azure-vnet-security.md
-          - Azure Policy & Governance: fundamentals/cloud/azure-policy.md
-      - AI & LLM Systems:
-          - LLM Architecture & Inference: fundamentals/ai-llm-architecture.md
-          - Tokenization & Embeddings: fundamentals/ai-systems/tokenization-embeddings.md
-          - Vector Databases & Indexing: fundamentals/ai-systems/vector-databases.md
-          - RAG Architecture: fundamentals/rag-architecture.md
-          - Prompt Engineering & Context Windows: fundamentals/ai-systems/prompt-engineering.md
-          - Agentic AI & Tool Execution: fundamentals/agentic-ai.md
-          - Self-Hosted Models & Local Inference: fundamentals/ai-systems/self-hosted-models.md
-          - OWASP Top 10 for LLMs: fundamentals/owasp-llm-top-10.md
-      - Governance, Risk & Compliance (GRC):
-          - NIST Cybersecurity Framework (CSF) 2.0: fundamentals/grc/nist-csf-2.md
-          - CIS Controls & Benchmarks: fundamentals/grc/cis-benchmarks.md
-          - Regulatory Compliance & Cross-Walk: fundamentals/grc/regulatory-frameworks.md
   - Detection:
       - Overview: detection/index.md
       - KQL:
@@ -407,22 +341,96 @@ nav:
           - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
           - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
           - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
-  - Toolbox:
-      - Overview: toolbox/index.md
-      - PowerShell Tools: toolbox/powershell.md
-      - Bash Tools: toolbox/bash.md
-      - Python Tools: toolbox/python.md
-      - CLI Lookup Utility: toolbox/lookup.md
-  - References:
+  - Reference:
       - Overview: references/index.md
-      - Knowledge Graph Coverage Matrix: references/coverage-matrix.md
-      - MITRE ATT&CK Matrix & Navigator: references/mitre-attack-matrix.md
-      - Threat Actor Intelligence Profiles: references/threat-actor-profiles.md
-      - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
-      - PowerShell Admin One-Liners: references/powershell-cheat-sheet.md
-      - Linux Sysadmin Speed Dial: references/linux-cheat-sheet.md
-      - Cross-Platform Equivalents: references/equivalents.md
-      - Windows Event IDs: references/windows-event-ids.md
-      - Metadata Conventions: references/metadata.md
-      - Tags: references/tags.md
-  - Roadmap: roadmap.md
+      - APIs:
+          - Overview: apis/index.md
+          - Microsoft Defender:
+              - apis/microsoft-defender/get-alerts.md
+              - apis/microsoft-defender/antivirus-scan.md
+          - Microsoft Graph:
+              - apis/microsoft-graph/conditional-access.md
+              - apis/microsoft-graph/sign-in-logs.md
+              - apis/microsoft-graph/user-auth-methods.md
+          - SentinelOne:
+              - apis/sentinelone/threats.md
+              - apis/sentinelone/isolate-host.md
+          - Splunk:
+              - apis/splunk/management-jobs.md
+          - Authentication:
+              - apis/authentication/bearer-tokens.md
+          - Webhooks:
+              - apis/webhooks/slack-teams-webhooks.md
+              - Jira & ServiceNow: apis/webhooks/jira-servicenow-incident-creation.md
+      - Fundamentals:
+          - Overview: fundamentals/index.md
+          - Operating System & Kernel Architecture:
+              - Windows Process Internals: fundamentals/systems/windows-processes.md
+              - Memory Internals & Paging: fundamentals/systems/memory-internals.md
+              - UEFI & Secure Boot: fundamentals/systems/uefi-secure-boot.md
+              - AppLocker & Application Control: fundamentals/systems/applocker.md
+              - Sysmon Architecture & Telemetry: fundamentals/systems/sysmon.md
+          - Networking & Transport Protocols:
+              - DNS Mechanics & Security: fundamentals/dns.md
+              - DHCP Mechanics & Allocation: fundamentals/networking/dhcp.md
+              - HTTP & HTTPS Protocols: fundamentals/networking/http-https.md
+              - TLS & SSL Cryptography: fundamentals/networking/tls-ssl.md
+              - SMB Protocol & Shares: fundamentals/smb.md
+              - SMTP & Mail Routing: fundamentals/networking/smtp.md
+              - VPN Architectures: fundamentals/networking/vpn.md
+              - Microsegmentation: fundamentals/networking/microsegmentation.md
+          - Identity, Access & Cryptography:
+              - Kerberos Authentication: fundamentals/kerberos.md
+              - LDAP & Active Directory: fundamentals/identity/ldap.md
+              - OAuth 2.0 & OIDC: fundamentals/identity/oauth2.md
+              - Public Key Infrastructure (PKI): fundamentals/identity/pki.md
+              - SSH Key Mechanics: fundamentals/identity/ssh-keys.md
+          - API & Integration Engineering:
+              - REST Architecture & HTTP Semantics: fundamentals/apis/rest-architecture.md
+              - Authentication & Token Lifecycles: fundamentals/apis/auth-tokens.md
+              - Rate Limiting & Backoff: fundamentals/apis/rate-limiting-backoff.md
+              - Pagination & High-Volume Ingestion: fundamentals/apis/pagination.md
+              - Webhooks & Event-Driven Architecture: fundamentals/apis/webhooks-events.md
+              - API Security & Error Handling: fundamentals/apis/security-error-handling.md
+          - Web Applications & OWASP:
+              - OWASP Top 10 for Web Applications: fundamentals/web-apps/owasp-web-top-10.md
+              - SQL Injection & Parameterization: fundamentals/web-apps/sql-injection.md
+              - Cross-Site Scripting (XSS) & CSP: fundamentals/web-apps/xss-defense.md
+              - Cross-Site Request Forgery (CSRF): fundamentals/web-apps/csrf-defense.md
+              - Server-Side Request Forgery (SSRF): fundamentals/web-apps/ssrf-defense.md
+              - HTTP Security Headers: fundamentals/web-apps/http-security-headers.md
+              - Session Management & Cookies: fundamentals/web-apps/session-management.md
+          - Cloud Infrastructure:
+              - Entra ID Fundamentals: fundamentals/cloud/entra-id-fundamentals.md
+              - Azure VNet Security: fundamentals/cloud/azure-vnet-security.md
+              - Azure Policy & Governance: fundamentals/cloud/azure-policy.md
+          - AI & LLM Systems:
+              - LLM Architecture & Inference: fundamentals/ai-llm-architecture.md
+              - Tokenization & Embeddings: fundamentals/ai-systems/tokenization-embeddings.md
+              - Vector Databases & Indexing: fundamentals/ai-systems/vector-databases.md
+              - RAG Architecture: fundamentals/rag-architecture.md
+              - Prompt Engineering & Context Windows: fundamentals/ai-systems/prompt-engineering.md
+              - Agentic AI & Tool Execution: fundamentals/agentic-ai.md
+              - Self-Hosted Models & Local Inference: fundamentals/ai-systems/self-hosted-models.md
+              - OWASP Top 10 for LLMs: fundamentals/owasp-llm-top-10.md
+          - Governance, Risk & Compliance (GRC):
+              - NIST Cybersecurity Framework (CSF) 2.0: fundamentals/grc/nist-csf-2.md
+              - CIS Controls & Benchmarks: fundamentals/grc/cis-benchmarks.md
+              - Regulatory Compliance & Cross-Walk: fundamentals/grc/regulatory-frameworks.md
+      - Toolbox:
+          - Overview: toolbox/index.md
+          - PowerShell Tools: toolbox/powershell.md
+          - Bash Tools: toolbox/bash.md
+          - Python Tools: toolbox/python.md
+          - CLI Lookup Utility: toolbox/lookup.md
+      - Quick References:
+          - Knowledge Graph Coverage Matrix: references/coverage-matrix.md
+          - MITRE ATT&CK Matrix & Navigator: references/mitre-attack-matrix.md
+          - Threat Actor Intelligence Profiles: references/threat-actor-profiles.md
+          - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
+          - PowerShell Admin One-Liners: references/powershell-cheat-sheet.md
+          - Linux Sysadmin Speed Dial: references/linux-cheat-sheet.md
+          - Cross-Platform Equivalents: references/equivalents.md
+          - Windows Event IDs: references/windows-event-ids.md
+          - Metadata Conventions: references/metadata.md
+          - Tags: references/tags.md

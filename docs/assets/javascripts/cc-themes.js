@@ -158,6 +158,7 @@
     button.className = 'cc-theme-switcher-btn';
     button.setAttribute('aria-expanded', 'false');
     button.setAttribute('aria-haspopup', 'true');
+    button.setAttribute('aria-label', 'Choose site theme');
     button.innerHTML = [
       '<span class="cc-theme-icon">🎨</span>',
       '<span class="cc-theme-prefix">Themes:</span>',

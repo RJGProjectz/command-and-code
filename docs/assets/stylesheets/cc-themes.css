@@ -70,6 +70,19 @@
   transform: rotate(180deg);
 }
 
+/* Phone/tablet header: icon-only switcher so the site title fits (WP-14). */
+@media screen and (max-width: 59.9375em) {
+  .cc-theme-prefix,
+  .cc-theme-current-label,
+  .cc-theme-chevron {
+    display: none;
+  }
+
+  .cc-theme-switcher-btn {
+    padding: 0.28rem 0.45rem;
+  }
+}
+
 .cc-theme-menu {
   position: absolute;
   top: calc(100% + 0.45rem);

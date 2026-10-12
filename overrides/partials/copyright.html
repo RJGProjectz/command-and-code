@@ -1,0 +1,23 @@
+{#-
+  Footer copyright with "About" links for pages kept out of the top tabs
+  (see not_in_nav in mkdocs.yml). Based on Material 9.7 partials/copyright.html.
+  Author: RJGProjectz
+-#}
+<div class="md-copyright">
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">
+      {{ config.copyright }}
+    </div>
+  {% endif %}
+  <nav class="cc-footer-about" aria-label="About">
+    About:
+    <a href="{{ 'executive-summary/' | url }}">Executive Summary</a> ·
+    <a href="{{ 'roadmap/' | url }}">Roadmap</a>
+  </nav>
+  {% if not config.extra.generator == false %}
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  {% endif %}
+</div>
