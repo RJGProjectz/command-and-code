@@ -7,6 +7,8 @@
    links (../../scripts/...) to the published location.
 3. Table pipes: removes the backslash GitHub requires before a pipe inside a code
    span in a table cell, which Python-Markdown would otherwise print.
+4. Platform switcher: on docs/platforms/<platform>/<slug>.md, links the same slug on
+   sibling platforms (Linux/Windows, Azure/AWS/GCP) so readers can jump across.
 
 The Markdown files themselves are never modified, so they stay correct on GitHub.
 """
@@ -79,9 +81,48 @@ def _unescape_table_pipes(markdown: str) -> str:
     return "\n".join(lines)
 
 
+# Sibling platforms whose pages share slugs; the order is the order shown.
+_SWITCH_GROUPS = (
+    (("linux", "Linux"), ("windows", "Windows")),
+    (("azure", "Azure"), ("aws", "AWS"), ("gcp", "Google Cloud")),
+)
+
+
+def _switcher(src_uri: str, docs_dir: str) -> str:
+    parts = src_uri.split("/")
+    if len(parts) != 3 or parts[0] != "platforms":
+        return ""
+    _, platform, name = parts
+    for group in _SWITCH_GROUPS:
+        if platform not in dict(group):
+            continue
+        items = []
+        for other, label in group:
+            if other == platform:
+                items.append(f'<span class="cc-switch-item cc-current">{label}</span>')
+            elif (Path(docs_dir) / "platforms" / other / name).is_file():
+                items.append(f"[{label}](../{other}/{name}){{ .cc-switch-item }}")
+        if len(items) < 2:
+            return ""
+        return '<span class="cc-switch-label">Same topic on</span> ' + " ".join(items) + "\n{ .cc-switch }\n"
+    return ""
+
+
+def _insert_after_h1(markdown: str, block: str) -> str:
+    lines = markdown.splitlines(keepends=True)
+    for index, line in enumerate(lines):
+        if line.startswith("# "):
+            lines.insert(index + 1, "\n" + block + "\n")
+            return "".join(lines)
+    return block + "\n" + markdown
+
+
 def on_page_markdown(markdown, page, config, files):  # noqa: D103 - MkDocs hook signature
     markdown = _rewrite_script_links(markdown, page.file.src_uri)
     markdown = _unescape_table_pipes(markdown)
+    switch = _switcher(page.file.src_uri, config["docs_dir"])
+    if switch:
+        markdown = _insert_after_h1(markdown, switch)
     meta = page.meta or {}
     if meta.get("type", "entry") == "index":
         return markdown
@@ -109,9 +150,4 @@ def on_page_markdown(markdown, page, config, files):  # noqa: D103 - MkDocs hook
     if aliases:
         # Rendered as visible text so the search index picks up alternative phrasings.
         strip += "\nAlso searched as: " + " · ".join(str(a) for a in aliases) + "\n{ .cc-aliases }\n"
-    lines = markdown.splitlines(keepends=True)
-    for index, line in enumerate(lines):
-        if line.startswith("# "):
-            lines.insert(index + 1, "\n" + strip + "\n")
-            return "".join(lines)
-    return strip + "\n" + markdown
+    return _insert_after_h1(markdown, strip)

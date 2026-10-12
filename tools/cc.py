@@ -51,6 +51,7 @@ CONTENT_TYPES = {"entry", "workflow", "tool", "reference", "concept"}
 VERIFY_BANNER = "VERIFY BEFORE PRODUCTION USE"
 INDEX_RE = re.compile(r"(<!-- cc:index(?P<attrs>[^>]*?)-->)(?P<body>.*?)(<!-- /cc:index -->)", re.S)
 COUNT_RE = re.compile(r"(<!-- cc:count(?P<attrs>[^>]*?)-->)(?P<body>[^<]*)(<!-- /cc:count -->)")
+COVERAGE_RE = re.compile(r"(<!-- cc:coverage(?P<attrs>[^>]*?)-->)(?P<body>.*?)(<!-- /cc:coverage -->)", re.S)
 ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
 FENCE_RE = re.compile(r"^(?P<indent>[ \t]*)(?P<fence>`{3,})(?P<lang>[\w+-]*)[^\n]*\n(?P<code>.*?)^(?P=indent)(?P=fence)[ \t]*$", re.S | re.M)
 
@@ -200,11 +201,35 @@ def count_entries(host: Page, filters: dict[str, str], pages: list[Page]) -> int
     return sum(1 for p in pages if p.type in CONTENT_TYPES and p.path != host.path and _matches(p, filters))
 
 
+def render_coverage(host: Page, filters: dict[str, str]) -> str:
+    """Topic x platform matrix for sibling folders under the host page (shared slugs)."""
+    dirs = [d.strip() for d in filters["dirs"].split(",")]
+    labels = [l.strip() for l in filters.get("labels", filters["dirs"]).split(",")]
+    base = host.path.parent
+    present = {d: {p.stem for p in (base / d).glob("*.md") if p.name != "index.md"} for d in dirs}
+    slugs = sorted(set().union(*present.values()))
+    if not slugs:
+        return "\n_No topics yet._\n"
+    rows = ["", "| Topic | " + " | ".join(labels) + " |", "| --- |" + " :---: |" * len(dirs)]
+    gaps = 0
+    for slug in slugs:
+        cells = [slug.replace("-", " ").capitalize()]
+        for d in dirs:
+            if slug in present[d]:
+                cells.append(f"[✓]({d}/{slug}.md)")
+            else:
+                cells.append("—")
+                gaps += 1
+        rows.append("| " + " | ".join(cells) + " |")
+    summary = f"{len(slugs)} topics, {gaps} gaps."
+    return f'\n{summary}\n\n<div class="cc-coverage" markdown>\n' + "\n".join(rows) + "\n\n</div>\n"
+
+
 def build_indexes(pages: list[Page], check: bool) -> list[str]:
     stale: list[str] = []
     for host in pages:
         text = host.path.read_text(encoding="utf-8")
-        if "<!-- cc:index" not in text and "<!-- cc:count" not in text:
+        if "<!-- cc:index" not in text and "<!-- cc:count" not in text and "<!-- cc:coverage" not in text:
             continue
 
         def replace(match: re.Match) -> str:
@@ -224,8 +249,15 @@ def build_indexes(pages: list[Page], check: bool) -> list[str]:
             filters = dict(ATTR_RE.findall(match.group("attrs")))
             return match.group(1) + str(count_entries(host, filters, pages)) + match.group(4)
 
+        def coverage_outside_code(match: re.Match) -> str:
+            if any(start <= match.start() < end for start, end in fenced):
+                return match.group(0)
+            filters = dict(ATTR_RE.findall(match.group("attrs")))
+            return match.group(1) + render_coverage(host, filters) + match.group(4)
+
         new_text = INDEX_RE.sub(replace_outside_code, text)
         new_text = COUNT_RE.sub(count_outside_code, new_text)
+        new_text = COVERAGE_RE.sub(coverage_outside_code, new_text)
         if new_text != text:
             stale.append(host.rel)
             if not check:

@@ -87,6 +87,17 @@ a.headerlink,
 
 .md-typeset .cc-aliases { font-size: 0.66rem; color: var(--md-default-fg-color--lighter); margin: -1rem 0 1.4rem; }
 
+/* Platform switcher: same slug on sibling platforms (hooks/cc_meta.py) */
+.md-typeset .cc-switch { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; margin: -0.8rem 0 1.4rem; font-size: 0.68rem; }
+.md-typeset .cc-switch-label { color: var(--md-default-fg-color--lighter); margin-right: 0.2rem; }
+.md-typeset .cc-switch-item {
+  display: inline-block; padding: 0.1rem 0.65rem; border-radius: 0.2rem; text-decoration: none;
+  border: 1px solid var(--md-default-fg-color--lightest); color: var(--md-default-fg-color--light);
+}
+.md-typeset a.cc-switch-item:hover { border-color: var(--cc-amber); color: var(--cc-amber); }
+.md-typeset .cc-switch-item.cc-current { border-color: var(--cc-amber); color: var(--cc-amber); font-weight: 600; }
+.md-typeset .cc-coverage td:not(:first-child), .md-typeset .cc-coverage th:not(:first-child) { text-align: center; }
+
 /* Homepage */
 .cc-hero { padding: 1.2rem 0 0.4rem; }
 .md-typeset .cc-hero h1 { font-size: 2.3rem; margin: 0 0 0.3rem; }
