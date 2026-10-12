@@ -9,6 +9,8 @@
    span in a table cell, which Python-Markdown would otherwise print.
 4. Platform switcher: on docs/platforms/<platform>/<slug>.md, links the same slug on
    sibling platforms (Linux/Windows, Azure/AWS/GCP) so readers can jump across.
+5. Knowledge graph: collects every internal Markdown link and writes assets/graph.json
+   after the build, for the local graph and the full graph page (cc-graph.js).
 
 The Markdown files themselves are never modified, so they stay correct on GitHub.
 """
@@ -117,7 +119,62 @@ def _insert_after_h1(markdown: str, block: str) -> str:
     return block + "\n" + markdown
 
 
+# Knowledge graph: one node per page, one edge per internal Markdown link (page -> page).
+# Collected from the author's Markdown before the chips are added, so the vocabulary
+# browse pages the chips point to do not turn into hubs that link everything.
+_GRAPH_NODES: dict[str, dict] = {}
+_GRAPH_LINKS: set[tuple[str, str]] = set()
+_FENCE = re.compile(r"^[ \t]*(`{3,}|~{3,}).*?^[ \t]*\1", re.M | re.S)
+_INLINE_LINK = re.compile(r"\]\(\s*<?([^)\s>#]+\.md)(?:#[^)\s>]*)?>?(?:\s+\"[^\"]*\")?\s*\)")
+_REF_LINK = re.compile(r"^\s*\[[^\]]+\]:\s*<?([^\s>#]+\.md)", re.M)
+_H1 = re.compile(r"^# (.+)$", re.M)
+
+
+def on_pre_build(config):  # noqa: D103 - MkDocs hook signature
+    _GRAPH_NODES.clear()
+    _GRAPH_LINKS.clear()
+
+
+def _record_graph(markdown: str, page) -> None:
+    src = page.file.src_uri
+    if src == "graph.md":  # the graph page draws the graph; it is not part of it
+        return
+    meta = page.meta or {}
+    heading = _H1.search(markdown)
+    title = meta.get("title") or (heading.group(1).strip() if heading else posixpath.basename(src)[:-3])
+    _GRAPH_NODES[src] = {
+        "id": src,
+        "title": str(title),
+        "url": page.url,
+        "section": src.split("/")[0] if "/" in src else "home",
+        "type": str(meta.get("type", "index" if src.endswith("index.md") else "entry")),
+    }
+    text = _FENCE.sub("", markdown)
+    base = posixpath.dirname(src)
+    for match in list(_INLINE_LINK.finditer(text)) + list(_REF_LINK.finditer(text)):
+        target = match.group(1)
+        if "://" in target:
+            continue
+        resolved = posixpath.normpath(posixpath.join(base, target))
+        if resolved != src:
+            _GRAPH_LINKS.add((src, resolved))
+
+
+def on_post_build(config):  # noqa: D103 - MkDocs hook signature
+    """Write assets/graph.json: nodes plus [source, target] index pairs (compact)."""
+    import json
+
+    ids = sorted(_GRAPH_NODES)
+    index = {node_id: i for i, node_id in enumerate(ids)}
+    links = sorted([index[a], index[b]] for a, b in _GRAPH_LINKS if a in index and b in index)
+    graph = {"nodes": [_GRAPH_NODES[node_id] for node_id in ids], "links": links}
+    out = Path(config["site_dir"]) / "assets" / "graph.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(graph, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+
 def on_page_markdown(markdown, page, config, files):  # noqa: D103 - MkDocs hook signature
+    _record_graph(markdown, page)
     markdown = _rewrite_script_links(markdown, page.file.src_uri)
     markdown = _unescape_table_pipes(markdown)
     switch = _switcher(page.file.src_uri, config["docs_dir"])

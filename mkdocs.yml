@@ -53,6 +53,7 @@ extra_javascript:
   - assets/javascripts/cc-interactive.js
   - assets/javascripts/cc-recent.js
   - assets/javascripts/cc-tables.js
+  - assets/javascripts/cc-graph.js
 
 hooks:
   - hooks/cc_meta.py
@@ -550,3 +551,4 @@ nav:
           - Windows Event IDs: references/windows-event-ids.md
           - Metadata Conventions: references/metadata.md
           - Tags: references/tags.md
+  - Graph: graph.md
