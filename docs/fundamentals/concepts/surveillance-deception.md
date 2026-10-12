@@ -83,7 +83,7 @@ SecurityEvent
 
 - Hunt: [Kerberoasting and AS-REP roasting hunting](../../tasks/threat-hunting/kerberoasting-asreproast-hunting.md)
 - Investigate: [Account compromise](../../tasks/incident-response/account-compromise.md)
-- No dedicated honeytoken rule page yet (tracked in WP-31).
+- Rule: [Honeytoken and honey account use](../../detection/sigma/honeytoken-access.md)
 
 ## Related concepts
 

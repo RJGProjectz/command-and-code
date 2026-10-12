@@ -92,7 +92,7 @@ trivy fs --scanners vuln,secret --format cyclonedx --output sbom.json .
 
 - Web flaws: [OWASP Web Top 10](../web-apps/owasp-web-top-10.md) · [SQL injection](../web-apps/sql-injection.md) · [XSS defense](../web-apps/xss-defense.md)
 - Automation: [Automation tasks](../../tasks/automation/index.md)
-- No dedicated rule page yet for CI/CD secret-leak alerts (tracked in WP-31).
+- Rule: [CI/CD secret leak](../../detection/sigma/cicd-secret-leak.md) — push-protection bypass, scanning disabled, gitleaks findings
 
 ## Related concepts
 

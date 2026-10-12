@@ -88,7 +88,7 @@ In Wireshark, on a monitor-mode capture **you are authorised to take**, deauthen
 - Hunt: compare `netsh wlan show networks mode=bssid` or controller scans against the AP inventory — unknown BSSID with a corporate SSID = evil twin candidate
 - Investigate: [Network investigation](../../tasks/investigation/network-investigation.md)
 - Harden: [Wi-Fi Security](wifi-security.md) — PMF required, EAP-TLS with server-certificate validation
-- No dedicated rule page yet for WLAN-AutoConfig disconnect bursts (tracked in WP-31).
+- Rule: [Wi-Fi disconnect bursts](../../detection/sigma/wlan-events.md#1-disconnect-bursts-deauthentication) and [evil-twin connections](../../detection/sigma/wlan-events.md#2-wlan-autoconfig-connection-analysis-evil-twin)
 
 ## Related concepts
 

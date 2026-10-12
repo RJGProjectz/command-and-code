@@ -95,7 +95,7 @@ Passive capture alone is invisible; detection depends on the active steps (deaut
 - Detect: [Deauthentication and rogue access points](wifi-deauth-rogue-ap.md) — WIDS deauth alerts
 - Investigate: [Network investigation](../../tasks/investigation/network-investigation.md) — new devices on the WLAN
 - Harden: [Wi-Fi Security](wifi-security.md) — WPA3, 802.1X, PMF
-- No dedicated rule page yet for unknown-device-on-WLAN (tracked in WP-31).
+- Rule: [Unknown device on the WLAN](../../detection/sigma/wlan-events.md#3-unknown-device-on-the-wlan) — new DHCP leases vs inventory
 
 ## Related concepts
 

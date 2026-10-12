@@ -77,7 +77,7 @@ Get-NetTCPConnection -State SynReceived | Group-Object -Property RemoteAddress |
 
 - Respond: [High CPU troubleshooting](../../tasks/troubleshooting/high-cpu-troubleshooting.md), [Windows connectivity](../../tasks/troubleshooting/windows-connectivity.md)
 - Harden: [Kernel tuning (Linux)](../../platforms/linux/kernel-tuning.md), [Azure VNet security](../cloud/azure-vnet-security.md)
-- No dedicated rule page yet for flood detection (tracked in WP-31).
+- Rule: [Network flood (DoS / DDoS)](../../detection/sigma/dos-flood.md) — Sigma correlation, KQL, SPL
 
 ## Related concepts
 

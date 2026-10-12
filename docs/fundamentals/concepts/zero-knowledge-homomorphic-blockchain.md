@@ -89,7 +89,7 @@ ss -tnp | grep -E ":(3333|4444|5555|7777|14444)\b"
 
 - Investigate: [Suspicious outbound connection](../../tasks/investigation/suspicious-outbound-connection.md) — mining-pool traffic
 - Background: [Ransomware](ransomware.md) — payments in cryptocurrency
-- No dedicated cryptomining rule page yet (tracked in WP-31).
+- Rule: [Cryptomining](../../detection/sigma/cryptomining.md) — miner command lines and pool connections
 
 ## Related concepts
 

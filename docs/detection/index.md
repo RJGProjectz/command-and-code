@@ -62,6 +62,14 @@ More side-by-side comparisons: [Cross-platform equivalents](../references/equiva
 | [Threat Hunting — Hypothesis-Driven SIEM Hunting in Splunk](../tasks/threat-hunting/splunk-threat-hunting.md) | Workflow | Splunk, Windows, Linux | SPL | Threat Hunting, Detection Engineering |
 | [Threat Hunting — Statistical Baselining & Frequency Analysis (LFO)](../tasks/threat-hunting/statistical-baselining-frequency-analysis.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL, PowerShell, Bash | Threat Hunting, Detection Engineering, Investigation |
 | [Windows CIS Benchmark — Advanced Audit Policy Baseline](../tasks/hardening/windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
+| [Detection Rule — ARP Spoofing (DAI and arpwatch)](sigma/arp-spoofing-dai.md) | Entry | Linux, Splunk | Sigma, SPL, KQL | Detection Engineering, Threat Hunting |
+| [Detection Rule — CI/CD Secret Leak](sigma/cicd-secret-leak.md) | Entry | Splunk | Sigma, SPL, KQL | Detection Engineering, Incident Response |
+| [Detection Rule — Cryptomining (Resource Hijacking)](sigma/cryptomining.md) | Entry | Windows, Linux, Microsoft Defender | Sigma, KQL, SPL | Detection Engineering, Threat Hunting |
+| [Detection Rule — Honeytoken and Honey Account Use](sigma/honeytoken-access.md) | Entry | Active Directory, Windows Server, Microsoft Defender | Sigma, KQL, SPL | Detection Engineering, Threat Hunting |
+| [Detection Rule — LLMNR / NBT-NS Poisoning](sigma/llmnr-nbtns-poisoning.md) | Entry | Windows, Microsoft Defender | Sigma, KQL, SPL | Detection Engineering, Threat Hunting |
+| [Detection Rule — Network Flood (DoS / DDoS)](sigma/dos-flood.md) | Entry | Azure, Splunk | Sigma, KQL, SPL | Detection Engineering, Incident Response |
+| [Detection Rule — Unmanaged Mobile Access to Corporate Apps](sigma/unmanaged-mobile-access.md) | Entry | Entra ID, Intune, Microsoft 365 | Sigma, KQL | Detection Engineering, Compliance |
+| [Detection Rules — Wi-Fi (WLAN-AutoConfig and Unknown Devices)](sigma/wlan-events.md) | Entry | Windows, Windows Server | Sigma, KQL, SPL | Detection Engineering, Investigation |
 | [Fundamentals — Cross-Site Request Forgery (CSRF) & State Defense](../fundamentals/web-apps/csrf-defense.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
 | [Fundamentals — Cross-Site Scripting (XSS) & Content Security Policy](../fundamentals/web-apps/xss-defense.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
 | [Fundamentals — OWASP Top 10 for Web Applications](../fundamentals/web-apps/owasp-web-top-10.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |

@@ -83,7 +83,7 @@ ip neigh show | sort -k5
 - Investigate: [Account compromise](../../tasks/incident-response/account-compromise.md) — AiTM token theft
 - Investigate: [Network investigation](../../tasks/investigation/network-investigation.md)
 - Harden: [TLS & SSL](../networking/tls-ssl.md), [SMB signing](../smb.md), [Conditional Access](../../platforms/microsoft-365/conditional-access.md)
-- No dedicated rule page yet for LLMNR/NBT-NS poisoning (tracked in WP-31).
+- Rule: [LLMNR / NBT-NS poisoning](../../detection/sigma/llmnr-nbtns-poisoning.md) — tool execution, rogue listener, honey-name check
 
 ## Related concepts
 

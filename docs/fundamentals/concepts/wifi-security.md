@@ -98,7 +98,7 @@ iw dev wlan0 link
 - Harden: [Windows security baseline](../../tasks/hardening/windows-security-baseline.md) — wireless profile policy via GPO/Intune
 - Investigate: [Network investigation](../../tasks/investigation/network-investigation.md)
 - Detect: [Deauthentication and rogue access points](wifi-deauth-rogue-ap.md) — WIDS alerts
-- No dedicated rule page yet for WLAN-AutoConfig event analysis (tracked in WP-31).
+- Rule: [Wi-Fi detections from WLAN-AutoConfig](../../detection/sigma/wlan-events.md) — disconnect bursts, evil twin, unknown devices
 
 ## Related concepts
 

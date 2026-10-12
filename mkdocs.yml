@@ -223,6 +223,14 @@ nav:
           - Overview: detection/sigma/index.md
           - Rule Examples: detection/sigma/examples.md
           - Cloud Identity Rules: detection/sigma/cloud-identity-rules.md
+          - ARP Spoofing (DAI): detection/sigma/arp-spoofing-dai.md
+          - Network Flood (DoS): detection/sigma/dos-flood.md
+          - LLMNR / NBT-NS Poisoning: detection/sigma/llmnr-nbtns-poisoning.md
+          - Honeytoken Use: detection/sigma/honeytoken-access.md
+          - Unmanaged Mobile Access: detection/sigma/unmanaged-mobile-access.md
+          - CI/CD Secret Leak: detection/sigma/cicd-secret-leak.md
+          - Wi-Fi (WLAN-AutoConfig): detection/sigma/wlan-events.md
+          - Cryptomining: detection/sigma/cryptomining.md
       - MITRE ATT&CK: detection/mitre-attack/index.md
   - Tasks:
       - Overview: tasks/index.md

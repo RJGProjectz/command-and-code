@@ -93,7 +93,7 @@ your network documentation.
 - Troubleshoot the symptom: [Windows Connectivity](../../tasks/troubleshooting/windows-connectivity.md)
 - Inspect: [Windows networking — IP configuration, routes and ARP](../../platforms/windows/networking.md) · [Linux networking](../../platforms/linux/networking.md)
 - Harden: enable Dynamic ARP Inspection and DHCP snooping on access switches; segment with [microsegmentation](../networking/microsegmentation.md)
-- No SIEM rule page yet: endpoint EDR rarely sees layer-2 traffic, so switch logs are the reliable source.
+- Rule: [ARP spoofing (DAI and arpwatch)](../../detection/sigma/arp-spoofing-dai.md) — endpoint EDR rarely sees layer 2, so switch logs are the source
 
 ## Related concepts
 

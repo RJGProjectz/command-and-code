@@ -85,7 +85,7 @@ SigninLogs
 
 - Platform: [Intune](../../platforms/microsoft-365/intune.md) · [Conditional Access](../../platforms/microsoft-365/conditional-access.md)
 - Forensics: [Digital forensics](digital-forensics.md) — mobile extractions
-- No dedicated rule page yet for unmanaged mobile access (tracked in WP-31).
+- Rule: [Unmanaged mobile access](../../detection/sigma/unmanaged-mobile-access.md) — Entra sign-ins from unmanaged iOS/Android
 
 ## Related concepts
 
