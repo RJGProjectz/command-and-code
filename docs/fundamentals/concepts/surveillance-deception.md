@@ -4,7 +4,7 @@ type: concept
 platforms: [Windows, Linux, Microsoft Defender]
 languages: [PowerShell, KQL]
 tasks: [Threat Hunting, Detection Engineering, Investigation]
-category: Network Defense
+category: Security Operations
 security_domain: Operations
 author: RJGProjectz
 date_created: 2026-10-12

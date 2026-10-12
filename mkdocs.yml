@@ -343,52 +343,59 @@ nav:
           - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
   - Concepts:
       - fundamentals/concepts/index.md
-      - Access Control Models (ACL, DAC, MAC, RBAC, ABAC): fundamentals/concepts/access-control-models.md
-      - Anonymity Networks and the Dark Web (Tor, I2P, Tails): fundamentals/concepts/anonymity-dark-web.md
-      - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
-      - Authentication, MFA, SSO and Federation: fundamentals/concepts/authentication-mfa-sso.md
-      - CIA Triad and Least Privilege: fundamentals/concepts/cia-triad.md
-      - Cloud-Native Security (Containers, Kubernetes, Microservices): fundamentals/concepts/cloud-native-security.md
-      - Credential Dumping: fundamentals/concepts/credential-dumping.md
-      - Cryptographic Attacks and Cryptanalysis: fundamentals/concepts/cryptographic-attacks.md
-      - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
-      - Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP): fundamentals/concepts/cyber-law.md
-      - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
-      - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
-      - Digital Forensics and Incident Response (DFIR): fundamentals/concepts/digital-forensics.md
-      - Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP): fundamentals/concepts/digital-signatures.md
-      - Ethical Hacking, Ethics and Careers: fundamentals/concepts/ethical-hacking.md
-      - Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2): fundamentals/concepts/hash-functions.md
-      - Identity and Access Management (IAM, PAM, Directory Services): fundamentals/concepts/identity-access-management.md
-      - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
-      - Kerberoasting: fundamentals/concepts/kerberoasting.md
-      - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
-      - Malware Types and Analysis (Spyware, RATs, Rootkits): fundamentals/concepts/malware-types-analysis.md
-      - Man-in-the-Middle Attacks: fundamentals/concepts/man-in-the-middle.md
-      - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
-      - OSI Model and TCP: fundamentals/concepts/osi-model-tcp.md
-      - OSINT and Reconnaissance: fundamentals/concepts/osint.md
-      - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
-      - Password Attacks and Defences (Spraying, Cracking, Wordlists): fundamentals/concepts/password-attacks.md
-      - Penetration Testing and Red Teaming (Methodology and Detection): fundamentals/concepts/penetration-testing.md
-      - Port Scanning: fundamentals/concepts/port-scanning.md
-      - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
-      - Privacy Laws and Data Protection (GDPR, CCPA, HIPAA): fundamentals/concepts/privacy-laws.md
-      - Proxy Servers: fundamentals/concepts/proxy-servers.md
-      - Quantum Computing and Security (Qubits, QKD): fundamentals/concepts/quantum-computing-security.md
-      - Ransomware: fundamentals/concepts/ransomware.md
-      - Risk Management, Policies and Compliance Audits: fundamentals/concepts/risk-management-governance.md
-      - Secure SDLC, DevSecOps and Secure Coding: fundamentals/concepts/secure-sdlc-devsecops.md
-      - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
-      - Security Standards Map (ISO/IEC 27000 series, NIST SP 800): fundamentals/concepts/security-standards-map.md
-      - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
-      - Surveillance, Counter-Surveillance and Deception: fundamentals/concepts/surveillance-deception.md
-      - Threat Intelligence and the Cyber Kill Chain: fundamentals/concepts/threat-intelligence-kill-chain.md
-      - Vulnerability Assessment and Patch Management: fundamentals/concepts/vulnerability-management.md
-      - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
-      - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
-      - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md
-      - Zero-Knowledge Proofs, Homomorphic Encryption and Blockchain: fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md
+      - "Network":
+          - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
+          - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
+          - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
+          - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
+          - Man-in-the-Middle Attacks: fundamentals/concepts/man-in-the-middle.md
+          - OSI Model and TCP: fundamentals/concepts/osi-model-tcp.md
+          - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
+          - Port Scanning: fundamentals/concepts/port-scanning.md
+          - Proxy Servers: fundamentals/concepts/proxy-servers.md
+          - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
+          - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
+          - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md
+      - "Identity & Access":
+          - Access Control Models (ACL, DAC, MAC, RBAC, ABAC): fundamentals/concepts/access-control-models.md
+          - Authentication, MFA, SSO and Federation: fundamentals/concepts/authentication-mfa-sso.md
+          - Credential Dumping: fundamentals/concepts/credential-dumping.md
+          - Identity and Access Management (IAM, PAM, Directory Services): fundamentals/concepts/identity-access-management.md
+          - Kerberoasting: fundamentals/concepts/kerberoasting.md
+          - Password Attacks and Defences (Spraying, Cracking, Wordlists): fundamentals/concepts/password-attacks.md
+          - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
+      - "Cryptography":
+          - Cryptographic Attacks and Cryptanalysis: fundamentals/concepts/cryptographic-attacks.md
+          - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
+          - Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP): fundamentals/concepts/digital-signatures.md
+          - Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2): fundamentals/concepts/hash-functions.md
+          - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
+          - Quantum Computing and Security (Qubits, QKD): fundamentals/concepts/quantum-computing-security.md
+          - Zero-Knowledge Proofs, Homomorphic Encryption and Blockchain: fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md
+      - "Threats & Intelligence":
+          - Anonymity Networks and the Dark Web (Tor, I2P, Tails): fundamentals/concepts/anonymity-dark-web.md
+          - Malware Types and Analysis (Spyware, RATs, Rootkits): fundamentals/concepts/malware-types-analysis.md
+          - OSINT and Reconnaissance: fundamentals/concepts/osint.md
+          - Ransomware: fundamentals/concepts/ransomware.md
+          - Threat Intelligence and the Cyber Kill Chain: fundamentals/concepts/threat-intelligence-kill-chain.md
+      - "Security Operations":
+          - Digital Forensics and Incident Response (DFIR): fundamentals/concepts/digital-forensics.md
+          - Penetration Testing and Red Teaming (Methodology and Detection): fundamentals/concepts/penetration-testing.md
+          - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
+          - Surveillance, Counter-Surveillance and Deception: fundamentals/concepts/surveillance-deception.md
+          - Vulnerability Assessment and Patch Management: fundamentals/concepts/vulnerability-management.md
+      - "Apps, Cloud & Endpoint":
+          - Cloud-Native Security (Containers, Kubernetes, Microservices): fundamentals/concepts/cloud-native-security.md
+          - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
+          - Secure SDLC, DevSecOps and Secure Coding: fundamentals/concepts/secure-sdlc-devsecops.md
+      - "Governance & Principles":
+          - CIA Triad and Least Privilege: fundamentals/concepts/cia-triad.md
+          - Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP): fundamentals/concepts/cyber-law.md
+          - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
+          - Ethical Hacking, Ethics and Careers: fundamentals/concepts/ethical-hacking.md
+          - Privacy Laws and Data Protection (GDPR, CCPA, HIPAA): fundamentals/concepts/privacy-laws.md
+          - Risk Management, Policies and Compliance Audits: fundamentals/concepts/risk-management-governance.md
+          - Security Standards Map (ISO/IEC 27000 series, NIST SP 800): fundamentals/concepts/security-standards-map.md
   - Reference:
       - Overview: references/index.md
       - APIs:
