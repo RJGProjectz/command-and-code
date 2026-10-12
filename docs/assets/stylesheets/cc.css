@@ -275,3 +275,15 @@ a.headerlink,
 @media screen and (max-width: 600px) {
   .md-typeset .cc-graph__canvas { height: 70vh; min-height: 0; }
 }
+
+/* Up link and backlinks (WP-21), inserted by hooks/cc_meta.py from the link graph. */
+.md-typeset .cc-up { margin: -0.6rem 0 0.4rem; font-size: 0.66rem; color: var(--md-default-fg-color--light); }
+.md-typeset .cc-up-label { margin-right: 0.2rem; }
+.md-typeset .cc-backlinks {
+  margin-top: 2.4rem; padding-top: 0.8rem; font-size: 0.7rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-typeset .cc-backlinks__title { margin: 0 0 0.3rem; font-weight: 700; color: var(--md-default-fg-color--light); }
+.md-typeset .cc-backlinks ul { margin: 0 0 0.8rem; columns: 2 16rem; column-gap: 1.6rem; }
+.md-typeset .cc-backlinks li { margin: 0 0 0.2rem; break-inside: avoid; }
+.md-typeset .cc-backlinks p { margin: 0 0 0.6rem; }

@@ -11,6 +11,8 @@
    sibling platforms (Linux/Windows, Azure/AWS/GCP) so readers can jump across.
 5. Knowledge graph: collects every internal Markdown link and writes assets/graph.json
    after the build, for the local graph and the full graph page (cc-graph.js).
+6. Backlinks and up links: an "Up:" link to the nearest section index under the title,
+   and "Linked from" / "Listed in" lists at the foot of every content page.
 
 The Markdown files themselves are never modified, so they stay correct on GitHub.
 """
@@ -59,6 +61,7 @@ def on_files(files, config):  # noqa: D103 - MkDocs hook signature
         if path.is_file():
             rel = path.relative_to(_ROOT).as_posix()
             files.append(File(rel, str(_ROOT), config["site_dir"], config["use_directory_urls"]))
+    _build_graph(files)
     return files
 
 
@@ -120,44 +123,46 @@ def _insert_after_h1(markdown: str, block: str) -> str:
 
 
 # Knowledge graph: one node per page, one edge per internal Markdown link (page -> page).
-# Collected from the author's Markdown before the chips are added, so the vocabulary
-# browse pages the chips point to do not turn into hubs that link everything.
+# Read from the source files in on_files, before any page renders, so every page can list
+# its backlinks. The chips are added later and never counted, so the vocabulary browse
+# pages they point to do not turn into hubs that link everything.
 _GRAPH_NODES: dict[str, dict] = {}
 _GRAPH_LINKS: set[tuple[str, str]] = set()
 _FENCE = re.compile(r"^[ \t]*(`{3,}|~{3,}).*?^[ \t]*\1", re.M | re.S)
 _INLINE_LINK = re.compile(r"\]\(\s*<?([^)\s>#]+\.md)(?:#[^)\s>]*)?>?(?:\s+\"[^\"]*\")?\s*\)")
 _REF_LINK = re.compile(r"^\s*\[[^\]]+\]:\s*<?([^\s>#]+\.md)", re.M)
 _H1 = re.compile(r"^# (.+)$", re.M)
+_GRAPH_SKIP = {"graph.md"}  # the graph page draws the graph; it is not part of it
 
 
-def on_pre_build(config):  # noqa: D103 - MkDocs hook signature
+def _build_graph(files) -> None:
+    from mkdocs.utils.meta import get_data
+
     _GRAPH_NODES.clear()
     _GRAPH_LINKS.clear()
-
-
-def _record_graph(markdown: str, page) -> None:
-    src = page.file.src_uri
-    if src == "graph.md":  # the graph page draws the graph; it is not part of it
-        return
-    meta = page.meta or {}
-    heading = _H1.search(markdown)
-    title = meta.get("title") or (heading.group(1).strip() if heading else posixpath.basename(src)[:-3])
-    _GRAPH_NODES[src] = {
-        "id": src,
-        "title": str(title),
-        "url": page.url,
-        "section": src.split("/")[0] if "/" in src else "home",
-        "type": str(meta.get("type", "index" if src.endswith("index.md") else "entry")),
-    }
-    text = _FENCE.sub("", markdown)
-    base = posixpath.dirname(src)
-    for match in list(_INLINE_LINK.finditer(text)) + list(_REF_LINK.finditer(text)):
-        target = match.group(1)
-        if "://" in target:
+    for file in files.documentation_pages():
+        src = file.src_uri
+        if src in _GRAPH_SKIP:
             continue
-        resolved = posixpath.normpath(posixpath.join(base, target))
-        if resolved != src:
-            _GRAPH_LINKS.add((src, resolved))
+        body, meta = get_data(Path(file.abs_src_path).read_text(encoding="utf-8"))
+        heading = _H1.search(body)
+        title = meta.get("title") or (heading.group(1).strip() if heading else posixpath.basename(src)[:-3])
+        _GRAPH_NODES[src] = {
+            "id": src,
+            "title": str(title),
+            "url": file.url,
+            "section": src.split("/")[0] if "/" in src else "home",
+            "type": str(meta.get("type", "index" if src.endswith("index.md") else "entry")),
+        }
+        text = _FENCE.sub("", body)
+        base = posixpath.dirname(src)
+        for match in list(_INLINE_LINK.finditer(text)) + list(_REF_LINK.finditer(text)):
+            target = match.group(1)
+            if "://" in target:
+                continue
+            resolved = posixpath.normpath(posixpath.join(base, target))
+            if resolved != src:
+                _GRAPH_LINKS.add((src, resolved))
 
 
 def on_post_build(config):  # noqa: D103 - MkDocs hook signature
@@ -173,8 +178,66 @@ def on_post_build(config):  # noqa: D103 - MkDocs hook signature
     out.write_text(json.dumps(graph, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
+def _md_link(target: str, page_src: str) -> str:
+    node = _GRAPH_NODES[target]
+    label = node["title"].replace("[", "\\[").replace("]", "\\]")
+    return f"[{label}]({posixpath.relpath(target, posixpath.dirname(page_src) or '.')})"
+
+
+def _parent(src: str) -> str | None:
+    """The nearest section index above a page: dir/index.md, or the one above for an index."""
+    folder = posixpath.dirname(src)
+    if posixpath.basename(src) == "index.md":
+        if not folder:
+            return None
+        folder = posixpath.dirname(folder)
+    while True:
+        candidate = posixpath.join(folder, "index.md") if folder else "index.md"
+        if candidate in _GRAPH_NODES and candidate != src:
+            return candidate
+        if not folder:
+            return None
+        folder = posixpath.dirname(folder)
+
+
+def _up_link(src: str) -> str:
+    parent = _parent(src)
+    if not parent or src not in _GRAPH_NODES:
+        return ""
+    return '<span class="cc-up-label">Up:</span> ' + _md_link(parent, src) + "\n{ .cc-up }\n"
+
+
+def _backlinks(src: str) -> str:
+    """'Linked from' (content pages) and 'Listed in' (section indexes) at the foot of a page."""
+    sources = [a for a, b in _GRAPH_LINKS if b == src and a in _GRAPH_NODES]
+    if not sources:
+        return ""
+
+    def order(node_id: str) -> tuple[str, str]:
+        return (_GRAPH_NODES[node_id]["section"], _GRAPH_NODES[node_id]["title"].lower())
+
+    content = sorted((a for a in sources if _GRAPH_NODES[a]["type"] != "index"), key=order)
+    indexes = sorted((a for a in sources if _GRAPH_NODES[a]["type"] == "index"), key=order)
+    parts = ['\n\n<div class="cc-backlinks" markdown>\n\n']
+    if content:
+        parts.append(f'<p class="cc-backlinks__title">Linked from ({len(content)})</p>\n\n')
+        parts.extend(f"- {_md_link(a, src)}\n" for a in content)
+        parts.append("\n")
+    if indexes:
+        parts.append('<p class="cc-backlinks__title">Listed in</p>\n\n')
+        parts.append(" · ".join(_md_link(a, src) for a in indexes) + "\n")
+    parts.append("\n</div>\n")
+    return "".join(parts)
+
+
 def on_page_markdown(markdown, page, config, files):  # noqa: D103 - MkDocs hook signature
-    _record_graph(markdown, page)
+    markdown = _page_markdown(markdown, page, config)
+    # Inserted last so it sits directly under the title, above the chips and switcher.
+    up = _up_link(page.file.src_uri)
+    return _insert_after_h1(markdown, up) if up else markdown
+
+
+def _page_markdown(markdown, page, config):
     markdown = _rewrite_script_links(markdown, page.file.src_uri)
     markdown = _unescape_table_pipes(markdown)
     switch = _switcher(page.file.src_uri, config["docs_dir"])
@@ -183,6 +246,7 @@ def on_page_markdown(markdown, page, config, files):  # noqa: D103 - MkDocs hook
     meta = page.meta or {}
     if meta.get("type", "entry") == "index":
         return markdown
+    markdown += _backlinks(page.file.src_uri)
 
     vocab = _vocab()
     src = page.file.src_uri
