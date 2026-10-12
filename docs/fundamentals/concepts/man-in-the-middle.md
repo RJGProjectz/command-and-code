@@ -33,7 +33,7 @@ or downgrade encryption, or inject content.
 
 ## How it works
 
-1. **Get in the path** — [ARP spoofing](arp-spoofing.md), a rogue DHCP server, a poisoned DNS answer, an evil-twin Wi-Fi
+1. **Get in the path** — [ARP spoofing](arp-spoofing.md), a rogue DHCP server, a poisoned DNS answer, an [evil-twin Wi-Fi](wifi-deauth-rogue-ap.md)
    network, or a reverse-proxy phishing kit.
 2. **Forward traffic** — the victim must keep working, so the attacker relays everything (IP forwarding on).
 3. **Exploit the position** — capture credentials from clear-text protocols, relay NTLM, steal session tokens, or offer a

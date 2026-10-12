@@ -78,4 +78,4 @@ adapter's *Network Address* property) and confirm the port still demands 802.1X.
 
 ## Related concepts
 
-- [OSI Model and TCP](osi-model-tcp.md) · [ARP Spoofing](arp-spoofing.md) · Wi-Fi Security
+- [OSI Model and TCP](osi-model-tcp.md) · [ARP Spoofing](arp-spoofing.md) · [Wi-Fi Security](wifi-security.md)

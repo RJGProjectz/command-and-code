@@ -341,6 +341,26 @@ nav:
           - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
           - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
           - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
+  - Concepts:
+      - fundamentals/concepts/index.md
+      - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
+      - Credential Dumping: fundamentals/concepts/credential-dumping.md
+      - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
+      - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
+      - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
+      - Kerberoasting: fundamentals/concepts/kerberoasting.md
+      - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
+      - Man-in-the-Middle Attacks: fundamentals/concepts/man-in-the-middle.md
+      - OSI Model and TCP: fundamentals/concepts/osi-model-tcp.md
+      - OSINT and Reconnaissance: fundamentals/concepts/osint.md
+      - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
+      - Port Scanning: fundamentals/concepts/port-scanning.md
+      - Proxy Servers: fundamentals/concepts/proxy-servers.md
+      - Ransomware: fundamentals/concepts/ransomware.md
+      - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
+      - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
+      - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
+      - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md
   - Reference:
       - Overview: references/index.md
       - APIs:
@@ -364,23 +384,6 @@ nav:
               - Jira & ServiceNow: apis/webhooks/jira-servicenow-incident-creation.md
       - Fundamentals:
           - Overview: fundamentals/index.md
-          - Concepts:
-              - fundamentals/concepts/index.md
-              - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
-              - Credential Dumping: fundamentals/concepts/credential-dumping.md
-              - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
-              - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
-              - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
-              - Kerberoasting: fundamentals/concepts/kerberoasting.md
-              - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
-              - Man-in-the-Middle Attacks: fundamentals/concepts/man-in-the-middle.md
-              - OSI Model and TCP: fundamentals/concepts/osi-model-tcp.md
-              - OSINT and Reconnaissance: fundamentals/concepts/osint.md
-              - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
-              - Port Scanning: fundamentals/concepts/port-scanning.md
-              - Proxy Servers: fundamentals/concepts/proxy-servers.md
-              - Ransomware: fundamentals/concepts/ransomware.md
-              - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
           - Operating System & Kernel Architecture:
               - Windows Process Internals: fundamentals/systems/windows-processes.md
               - Memory Internals & Paging: fundamentals/systems/memory-internals.md

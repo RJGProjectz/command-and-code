@@ -34,5 +34,8 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Proxy Servers](proxy-servers.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Administration |
 | [Ransomware](ransomware.md) | Concept | Windows, Linux, VMware, SentinelOne | PowerShell, S1QL | Incident Response, Threat Hunting, Hardening |
 | [Security Information and Event Management (SIEM)](siem.md) | Concept | Splunk, Microsoft Defender, Azure | SPL, KQL | Detection Engineering, Investigation, Threat Hunting |
+| [Wi-Fi Deauthentication and Rogue Access Points](wifi-deauth-rogue-ap.md) | Concept | Windows, Linux | PowerShell, Bash | Threat Hunting, Investigation, Hardening |
+| [Wi-Fi Security (WEP, WPA, WPA2, WPA3)](wifi-security.md) | Concept | Windows, Linux | PowerShell, Bash, Windows CLI | Hardening, Investigation, Assurance |
+| [WPA/WPA2 Passphrase Attacks (Handshake Capture)](wifi-passphrase-attacks.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Investigation, Threat Hunting |
 
 <!-- /cc:index -->
