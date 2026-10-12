@@ -298,14 +298,14 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 ## Phase 13 — Website UX/UI Refactor
 
-**Status:** 🔵 Planned
+**Status:** 🟡 In progress — audit done, direction agreed 2026-10-11 (task-first home, breadcrumbs and platform switcher, faceted search later)
 
 **Objective:** make the published site easy to use for a practitioner under pressure — find the right page in seconds on desktop or phone — while keeping Markdown sources readable and the build dependency-light.
 
 **Key capabilities**
 
-- [ ] UX/UI audit of the current site (navigation depth, landing pages, browse tables, search results, mobile layout, interactive widgets) with prioritized findings
-- [ ] Information architecture and navigation redesign agreed with the owner before implementation
+- [x] UX/UI audit of the current site (navigation depth, landing pages, browse tables, search results, mobile layout, interactive widgets) with prioritized findings
+- [x] Information architecture and navigation redesign agreed with the owner before implementation
 - [ ] Landing and index pages rebuilt around tasks ("I need to…") rather than file structure
 - [ ] Theme, typography and component refresh in `overrides/` and `docs/assets/`, checked for accessibility and dark mode
 
