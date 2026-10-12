@@ -1245,3 +1245,57 @@ a.headerlink,
 }
 
 
+
+/* Top-tab dropdowns follow each theme's tab colour and glow (WP-19). */
+
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-tabs-menu {
+  background: #090314;
+  border-color: rgba(255, 0, 127, 0.3);
+}
+
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-tabs-menu__link:hover,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-tabs-menu__link:focus,
+:is([data-cc-theme="nexus"], [data-cc-theme="nexus-cyber"], [data-cc-theme="nexus-flow"]) .cc-tabs-menu__link--active {
+  color: #00f3ff;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+  background: rgba(0, 243, 255, 0.08);
+}
+
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-tabs-menu {
+  background: #05070a;
+  border-color: rgba(255, 94, 0, 0.35);
+}
+
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-tabs-menu__link:hover,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-tabs-menu__link:focus,
+:is([data-cc-theme="high-voltage"], [data-cc-theme="electric-cyber"], [data-cc-theme="electric-xtra"]) .cc-tabs-menu__link--active {
+  color: #ff5e00;
+  text-shadow: 0 0 12px rgba(255, 94, 0, 0.7);
+  background: rgba(255, 94, 0, 0.08);
+}
+
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-tabs-menu {
+  background: #020704;
+  border-color: rgba(0, 255, 102, 0.35);
+}
+
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-tabs-menu__link:hover,
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-tabs-menu__link:focus,
+:is([data-cc-theme="catrix"], [data-cc-theme="matrix"], [data-cc-theme="matrix-green"]) .cc-tabs-menu__link--active {
+  color: #00ff66;
+  text-shadow: 0 0 12px rgba(0, 255, 102, 0.7);
+  background: rgba(0, 255, 102, 0.08);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-tabs-menu {
+  background: #0d0407;
+  border-color: rgba(255, 23, 68, 0.3);
+}
+
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-tabs-menu__link:hover,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-tabs-menu__link:focus,
+:is([data-cc-theme="crimson"], [data-cc-theme="crimson-alert"], [data-cc-theme="war-room"], [data-cc-theme="red-cell"]) .cc-tabs-menu__link--active {
+  color: #ff1744;
+  text-shadow: 0 0 10px rgba(255, 23, 68, 0.65);
+  background: rgba(255, 23, 68, 0.08);
+}
