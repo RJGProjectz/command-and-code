@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 import urllib.request
@@ -35,54 +36,108 @@ def load_index() -> list[dict]:
     return records
 
 
-def score_record(query: str, record: dict) -> float:
-    """Calculates relevance score using multi-field token matching."""
-    tokens = [t.lower() for t in re.findall(r"\w+", query) if len(t) > 2]
-    if not tokens:
+STOPWORDS = frozenset(
+    "the and for are was were who what when where which how why that this with from into onto out "
+    "has have had does did not can could should would will all any some its it's them they their "
+    "there then than our your you see find show get list check someone something user users".split()
+)
+
+# Per-field weight for each query term found in that field (once per field, not per occurrence).
+FIELD_WEIGHTS = {
+    "title": 15.0,
+    "path": 10.0,
+    "tags": 10.0,
+    "platforms": 8.0,
+    "languages": 8.0,
+    "tasks": 6.0,
+    "summary": 3.0,
+    "body": 2.0,
+    "code": 2.0,
+}
+
+_SUFFIXES = ("ings", "ing", "ions", "ion", "ies", "es", "ed", "ly", "s", "e")
+
+
+def stem(word: str) -> str:
+    """Strips one common English suffix so isolate/isolation and deleted/deletion match."""
+    for suffix in _SUFFIXES:
+        if word.endswith(suffix) and len(word) - len(suffix) >= 3:
+            return word[: -len(suffix)] + ("y" if suffix == "ies" else "")
+    return word
+
+
+def words(text: str) -> set[str]:
+    """Lowercase stemmed word set of a text."""
+    return {stem(w) for w in re.findall(r"[a-z0-9]+", text.lower())}
+
+
+def query_terms(query: str) -> list[str]:
+    """Stemmed query terms: words longer than 2 chars (or short ones with a digit, e.g. s3), minus stopwords."""
+    terms = []
+    for w in re.findall(r"[a-z0-9]+", query.lower()):
+        if w in STOPWORDS or (len(w) <= 2 and not any(c.isdigit() for c in w)):
+            continue
+        t = stem(w)
+        if t not in terms:
+            terms.append(t)
+    return terms
+
+
+def record_fields(record: dict) -> dict[str, set[str]]:
+    """Stemmed word sets per scored field of an index record."""
+    sections = record.get("sections", [])
+    return {
+        "title": words(record.get("title", "")),
+        "path": words(record.get("path", "").replace("docs/", "", 1)),
+        "tags": words(" ".join(str(t) for t in record.get("tags", []))),
+        "platforms": words(" ".join(str(p) for p in record.get("platforms", []))),
+        "languages": words(" ".join(str(l) for l in record.get("languages", []))),
+        "tasks": words(" ".join(str(t) for t in record.get("tasks", []))),
+        "summary": words(record.get("summary", "")),
+        "body": words(" ".join(f"{s.get('title', '')} {s.get('content', '')}" for s in sections)),
+        "code": words(" ".join(b.get("code", "") for b in record.get("code_blocks", []))),
+    }
+
+
+def term_weights(all_fields: list[dict[str, set[str]]]) -> dict[str, float]:
+    """Inverse document frequency per term, so rare words (ransomware, mfa) outweigh common ones."""
+    n = len(all_fields)
+    df: dict[str, int] = {}
+    for fields in all_fields:
+        for term in set().union(*fields.values()):
+            df[term] = df.get(term, 0) + 1
+    return {term: math.log((n + 1) / (count + 1)) + 1.0 for term, count in df.items()}
+
+
+def score_fields(query: str, fields: dict[str, set[str]], title: str = "", idf: dict[str, float] | None = None) -> float:
+    terms = query_terms(query)
+    if not terms:
         return 0.0
 
     score = 0.0
-    title_lower = record.get("title", "").lower()
-    summary_lower = record.get("summary", "").lower()
-    tags = [str(t).lower() for t in record.get("tags", [])]
-    platforms = [str(p).lower() for p in record.get("platforms", [])]
-    languages = [str(l).lower() for l in record.get("languages", [])]
-    tasks = [str(t).lower() for t in record.get("tasks", [])]
-
     # Full query exact match boost
-    q_str = " ".join(tokens)
-    if q_str in title_lower:
+    if len(terms) > 1 and " ".join(query.lower().split()) in title.lower():
         score += 50.0
 
-    for token in tokens:
-        if token in title_lower:
-            score += 15.0
-        if any(token in t for t in tags):
-            score += 10.0
-        if any(token in p for p in platforms):
-            score += 8.0
-        if any(token in l for l in languages):
-            score += 8.0
-        if any(token in t for t in tasks):
-            score += 6.0
-        if token in summary_lower:
-            score += 3.0
-
-        # Scan code blocks
-        for block in record.get("code_blocks", []):
-            code_text = block.get("code", "").lower()
-            if token in code_text:
-                score += 4.0
-
+    for term in terms:
+        weight = idf.get(term, 1.0) if idf else 1.0
+        score += weight * sum(w for name, w in FIELD_WEIGHTS.items() if term in fields[name])
     return score
+
+
+def score_record(query: str, record: dict, idf: dict[str, float] | None = None) -> float:
+    """Calculates relevance score using stemmed multi-field term matching, optionally IDF-weighted."""
+    return score_fields(query, record_fields(record), record.get("title", ""), idf)
 
 
 def search(query: str, top_k: int = 5) -> list[tuple[dict, float]]:
     """Retrieves top scoring records from knowledge index."""
     records = load_index()
+    all_fields = [record_fields(r) for r in records]
+    idf = term_weights(all_fields)
     scored = []
-    for r in records:
-        s = score_record(query, r)
+    for r, fields in zip(records, all_fields):
+        s = score_fields(query, fields, r.get("title", ""), idf)
         if s > 0:
             scored.append((r, s))
     scored.sort(key=lambda x: x[1], reverse=True)

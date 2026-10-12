@@ -37,7 +37,7 @@ jobs:
 
       # WP-12: cc ask retrieval must keep finding an expected page for 80% of the eval set.
       - name: Evaluate cc ask retrieval
-        run: python tools/ask_eval.py --min-hit 0.8
+        run: python tools/ask_eval.py --min-hit 0.95
 
   pester:
     name: Pester tests

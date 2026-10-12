@@ -64,7 +64,7 @@ cc ask -k 5 -m gemma3:12b "revoke a leaked service account key"   # or set CC_AS
 
 **Measuring answer quality.** `tools/ask_eval.py` scores `cc ask` against 32 real questions in
 `tests/eval/ask_questions.yml`, each with the pages that should answer it. Retrieval (hit@1, hit@5,
-MRR) runs offline and in CI, which fails below 80 % hit@5. `--live` also asks the local model and checks
+MRR) runs offline and in CI, which fails below 95 % hit@5. `--live` also asks the local model and checks
 that each answer cites a source, cites only sources that exist, and cites an expected page.
 
 ```bash

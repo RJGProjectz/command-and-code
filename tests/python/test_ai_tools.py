@@ -85,3 +85,32 @@ def test_grounded_prompt_cites_source_paths(tmp_path, monkeypatch):
 def test_query_ollama_returns_none_when_unreachable():
     # Port 9 (discard) on loopback is closed; the call must fail fast and quietly.
     assert ai_grounding.query_ollama("hello", host="http://127.0.0.1:9") is None
+
+
+def test_stem_matches_word_forms():
+    assert ai_grounding.stem("isolate") == ai_grounding.stem("isolation")
+    assert ai_grounding.stem("deleted") == ai_grounding.stem("deletion")
+    assert ai_grounding.stem("buckets") == ai_grounding.stem("bucket")
+
+
+def test_query_terms_drop_stopwords_and_keep_short_ids_with_digits():
+    assert ai_grounding.query_terms("find the s3 buckets") == ["s3", "bucket"]
+
+
+def test_score_record_matches_path_and_word_forms():
+    record = {"title": "Playbook", "path": "docs/tasks/ransomware-host-isolation.md", "summary": ""}
+
+    assert ai_grounding.score_record("isolate a ransomware host", record) > 0
+
+
+def test_score_record_does_not_match_substrings():
+    record = {"title": "Information Security", "path": "x.md", "summary": ""}
+
+    assert ai_grounding.score_record("format", record) == 0.0
+
+
+def test_idf_weights_rare_terms_higher():
+    fields = [ai_grounding.record_fields(r) for r in RECORDS]
+    idf = ai_grounding.term_weights(fields + [ai_grounding.record_fields({"title": "Linux"})])
+
+    assert idf["kerberoast"] > idf["linux"]
