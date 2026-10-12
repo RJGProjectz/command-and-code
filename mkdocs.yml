@@ -364,6 +364,14 @@ nav:
               - Jira & ServiceNow: apis/webhooks/jira-servicenow-incident-creation.md
       - Fundamentals:
           - Overview: fundamentals/index.md
+          - Concepts:
+              - fundamentals/concepts/index.md
+              - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
+              - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
+              - Port Scanning: fundamentals/concepts/port-scanning.md
+              - Kerberoasting: fundamentals/concepts/kerberoasting.md
+              - Credential Dumping: fundamentals/concepts/credential-dumping.md
+              - Ransomware: fundamentals/concepts/ransomware.md
           - Operating System & Kernel Architecture:
               - Windows Process Internals: fundamentals/systems/windows-processes.md
               - Memory Internals & Paging: fundamentals/systems/memory-internals.md

@@ -26,5 +26,6 @@ Hypervisor commands for inventory, evidence preservation and containment.
 | [Proxmox VE](proxmox.md) | Entry | Proxmox, Linux | Bash | Administration, Incident Response, Forensics |
 | [VMware ESXi CLI Forensics and Ransomware Hardening](esxi-forensics-hardening.md) | Entry | VMware, Linux | Bash, PowerShell | Hardening, Incident Response, Forensics |
 | [VMware vSphere and ESXi](vmware.md) | Entry | VMware | PowerShell, Bash | Administration, Incident Response, Forensics |
+| [Ransomware](../../fundamentals/concepts/ransomware.md) | Concept | Windows, Linux, VMware, SentinelOne | PowerShell, S1QL | Incident Response, Threat Hunting, Hardening |
 
 <!-- /cc:index -->

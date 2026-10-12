@@ -43,7 +43,7 @@ SCRIPTS = ROOT / "scripts"
 VOCAB = yaml.safe_load((ROOT / "tools" / "vocabulary.yml").read_text(encoding="utf-8"))
 
 LIST_KEYS = ("platforms", "languages", "tasks")
-CONTENT_TYPES = {"entry", "workflow", "tool", "reference"}
+CONTENT_TYPES = {"entry", "workflow", "tool", "reference", "concept"}
 VERIFY_BANNER = "VERIFY BEFORE PRODUCTION USE"
 INDEX_RE = re.compile(r"(<!-- cc:index(?P<attrs>[^>]*?)-->)(?P<body>.*?)(<!-- /cc:index -->)", re.S)
 ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
@@ -172,7 +172,7 @@ def _matches(page: Page, filters: dict[str, str]) -> bool:
 
 def render_table(host: Page, filters: dict[str, str], pages: list[Page]) -> str:
     hits = [p for p in pages if p.type in CONTENT_TYPES and p.path != host.path and _matches(p, filters)]
-    order = {"workflow": 0, "entry": 1, "tool": 2, "reference": 3}
+    order = {"workflow": 0, "entry": 1, "tool": 2, "reference": 3, "concept": 4}
     hits.sort(key=lambda p: (order.get(p.type, 9), p.title.lower()))
     if not hits:
         return "\n_No entries yet._\n"

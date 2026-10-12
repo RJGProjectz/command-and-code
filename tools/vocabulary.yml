@@ -58,6 +58,7 @@ types:
   - workflow   # ordered operational procedure that links to entries
   - tool       # documentation for a script in scripts/
   - reference  # lookup tables (event IDs, equivalents)
+  - concept    # short idea page ending in Do it / See it / Detect it links (WP-22)
   - index      # landing / browse pages
 
 difficulty:
