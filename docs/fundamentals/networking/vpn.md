@@ -14,11 +14,11 @@ verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
 tags:
-aliases: [Virtual Private Networks]
   - vpn
   - ipsec
   - ikev2
   - wireguard
+aliases: [Virtual Private Networks]
 ---
 
 # Fundamentals — VPN Protocols (IPsec vs SSL/TLS)

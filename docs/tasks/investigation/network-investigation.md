@@ -6,7 +6,7 @@ languages: [PowerShell, Bash, KQL, SPL, S1QL]
 tasks: [Investigation, Incident Response, Threat Hunting]
 category: Workflow
 tags: [workflow, network, connections, dns, firewall, pcap]
-aliases: [network investigation, network connections investigation, what is this host talking to, investigate ip]
+aliases: [network investigation, network connections investigation, what is this host talking to, investigate ip, Network Forensics]
 difficulty: intermediate
 verified: true
 last_verified: 2026-10-05

@@ -14,11 +14,11 @@ verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
 tags:
-aliases: [Digital Signature, Private Key, Public Key, Public Key Infrastructure]
   - pki
   - certificates
   - x509
   - ocsp
+aliases: [Digital Signature, Private Key, Public Key, Public Key Infrastructure]
 ---
 
 # Fundamentals — Public Key Infrastructure (PKI), CAs & Revocation

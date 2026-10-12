@@ -13,11 +13,11 @@ verified: true
 last_verified: 2026-10-06
 difficulty: advanced
 tags:
-aliases: [Kerberos]
   - kerberos
   - active-directory
   - authentication
   - fundamentals
+aliases: [Kerberos]
 ---
 
 # Fundamentals — Kerberos Authentication Protocol

@@ -20,7 +20,6 @@ verified: true
 last_verified: 2026-10-07
 difficulty: advanced
 tags:
-aliases: [Advanced Persistent Threats (APTs), Cyber Espionage]
   - threat-intelligence
   - threat-actors
   - apt
@@ -29,6 +28,7 @@ aliases: [Advanced Persistent Threats (APTs), Cyber Espionage]
   - volt-typhoon
   - scattered-spider
   - mitre-attack
+aliases: [Advanced Persistent Threats (APTs), Cyber Espionage]
 ---
 
 # Threat Actor Intelligence Profiles & TTP Reference Cards

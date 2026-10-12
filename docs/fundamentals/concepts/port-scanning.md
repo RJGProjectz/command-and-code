@@ -10,7 +10,7 @@ author: RJGProjectz
 date_created: 2026-10-11
 last_updated: 2026-10-11
 tags: [concept, nmap, discovery, scanning]
-aliases: [Nmap, network scan, network service discovery, banner grabbing]
+aliases: [Nmap, network scan, network service discovery, banner grabbing, Network Scanning and Enumeration, Network Hacking]
 difficulty: basic
 verified: false
 ---

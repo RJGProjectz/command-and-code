@@ -14,11 +14,11 @@ verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
 tags:
-aliases: [Diffie-Hellman, Elliptic Curve Diffie-Hellman]
   - tls
   - ssl
   - cryptography
   - ciphers
+aliases: [Diffie-Hellman, Elliptic Curve Diffie-Hellman]
 ---
 
 # Fundamentals — TLS Handshake & Cipher Suite Mechanics

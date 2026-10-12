@@ -19,13 +19,13 @@ verified: true
 last_verified: 2026-10-07
 difficulty: advanced
 tags:
-aliases: [Cobalt Strike]
   - threat-intelligence
   - adversary-emulation
   - mitre-attack
   - threat-informed-defense
   - atomic-red-team
   - ttp-profiling
+aliases: [Cobalt Strike]
 ---
 
 # Cyber Threat Intelligence — Adversary Emulation & ATT&CK Profiling

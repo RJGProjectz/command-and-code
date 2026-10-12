@@ -12,11 +12,11 @@ verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
 tags:
-aliases: [Data Poisoning]
   - ai
   - owasp
   - security
   - llm-top-10
+aliases: [Data Poisoning]
 ---
 
 # Fundamentals — OWASP Top 10 for Large Language Models

@@ -21,6 +21,7 @@ tags:
   - tunnel
   - gateway
   - hardening
+aliases: ["How to Configure & Manage a VPN"]
 ---
 
 # Administration — WireGuard Secure VPN Gateway & Client Deployment

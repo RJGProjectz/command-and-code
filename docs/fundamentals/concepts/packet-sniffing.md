@@ -10,7 +10,7 @@ author: RJGProjectz
 date_created: 2026-10-11
 last_updated: 2026-10-11
 tags: [concept, pcap, sniffing, tcpdump, wireshark]
-aliases: [network sniffing, packet capture, Wireshark, tcpdump, pktmon, promiscuous mode]
+aliases: [network sniffing, packet capture, Wireshark, tcpdump, pktmon, promiscuous mode, How to Conduct Traffic Analysis with Wireshark, Targeted Packet Sniffing]
 difficulty: basic
 verified: false
 ---

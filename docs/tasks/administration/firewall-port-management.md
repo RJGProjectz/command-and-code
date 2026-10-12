@@ -22,6 +22,7 @@ tags:
   - iptables
   - ports
   - network-security
+aliases: [How to Build and Configure a Firewall]
 ---
 
 # Host Firewall and Port Management
