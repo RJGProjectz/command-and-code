@@ -82,9 +82,9 @@ ip route show default
 
 ## Detect it
 
-- Unauthorised "testing" looks like an attack — see [Port scanning](port-scanning.md) · penetration testing
+- Unauthorised "testing" looks like an attack — see [Port scanning](port-scanning.md) · [Penetration testing](penetration-testing.md)
 - No detection rule applies.
 
 ## Related concepts
 
-- [Cyber Law](cyber-law.md) · [Privacy Laws](privacy-laws.md)
+- [Cyber Law](cyber-law.md) · [Penetration Testing](penetration-testing.md) · [Privacy Laws](privacy-laws.md)
