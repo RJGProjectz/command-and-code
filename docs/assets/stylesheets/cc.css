@@ -215,3 +215,23 @@ a.headerlink,
 }
 .md-typeset .cc-lanes ol { margin: 0.4rem 0 0 1rem; list-style-type: decimal; }
 .md-typeset .cc-lanes ol li { margin-bottom: 0.25rem; }
+
+/* Responsive tables (WP-16): rows of 4+ column tables become cards below 600 px.
+   cc-tables.js adds .cc-stack and a data-label (column header) on every cell. */
+@media screen and (max-width: 600px) {
+  .md-typeset .cc-stack-wrap { display: block; width: 100%; }
+  .md-typeset .cc-stack-wrap .md-typeset__scrollwrap { overflow: visible; margin: 0; }
+  .md-typeset table.cc-stack { display: block; border: 0; background: none; font-size: 0.7rem; }
+  .md-typeset table.cc-stack thead { display: none; }
+  .md-typeset table.cc-stack tbody { display: block; }
+  .md-typeset table.cc-stack tr {
+    display: block; margin: 0 0 0.6rem; padding: 0.45rem 0.6rem;
+    border: 1px solid var(--md-default-fg-color--lightest); border-radius: 0.25rem;
+  }
+  .md-typeset table.cc-stack td { display: block; border: 0; padding: 0.1rem 0; overflow-wrap: anywhere; }
+  .md-typeset table.cc-stack td[data-label]::before {
+    content: attr(data-label) ": "; color: var(--md-default-fg-color--lighter); font-size: 0.62rem;
+  }
+  .md-typeset table.cc-stack td:first-child { font-weight: 600; font-size: 0.75rem; }
+  .md-typeset table.cc-stack td:first-child::before { content: none; }
+}

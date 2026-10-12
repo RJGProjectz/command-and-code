@@ -52,6 +52,7 @@ extra_javascript:
   - assets/javascripts/cc-poster.js
   - assets/javascripts/cc-interactive.js
   - assets/javascripts/cc-recent.js
+  - assets/javascripts/cc-tables.js
 
 hooks:
   - hooks/cc_meta.py
