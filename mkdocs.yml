@@ -158,6 +158,21 @@ nav:
           - Audit Log (UAL) Investigation: platforms/microsoft-365/audit-log-investigation.md
       - Azure:
           - Overview: platforms/azure/index.md
+          - CLI & Authentication: platforms/azure/cli-authentication.md
+          - Resource Hierarchy & Inventory: platforms/azure/resource-hierarchy.md
+          - Identity & Access (RBAC): platforms/azure/identity-access.md
+          - Virtual Machines: platforms/azure/compute.md
+          - Networking: platforms/azure/networking.md
+          - Storage: platforms/azure/storage.md
+          - Audit Logging: platforms/azure/audit-logging.md
+          - Monitor & Log Analytics: platforms/azure/monitoring-logs.md
+          - Key Vault: platforms/azure/keys-secrets.md
+          - AKS: platforms/azure/kubernetes.md
+          - Defender for Cloud: platforms/azure/security-posture.md
+          - Policy & Locks: platforms/azure/policy-governance.md
+          - Incident Response: platforms/azure/incident-response.md
+          - Persistence & Hunting: platforms/azure/persistence-hunting.md
+          - Troubleshooting: platforms/azure/troubleshooting.md
       - AWS:
           - Overview: platforms/aws/index.md
       - Google Cloud:
