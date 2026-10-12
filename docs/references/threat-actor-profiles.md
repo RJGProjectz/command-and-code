@@ -20,6 +20,7 @@ verified: true
 last_verified: 2026-10-07
 difficulty: advanced
 tags:
+aliases: [Advanced Persistent Threats (APTs), Cyber Espionage]
   - threat-intelligence
   - threat-actors
   - apt

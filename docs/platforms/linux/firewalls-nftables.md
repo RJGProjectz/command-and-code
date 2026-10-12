@@ -12,6 +12,7 @@ verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
 tags:
+aliases: [Firewalls]
   - linux
   - firewalls
   - nftables

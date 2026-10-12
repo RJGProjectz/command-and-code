@@ -8,6 +8,7 @@ type: entry
 verified: true
 last_verified: 2026-10-06
 difficulty: advanced
+aliases: [OWASP API Security Top 10, API Security]
 ---
 
 # API Security & Error Handling

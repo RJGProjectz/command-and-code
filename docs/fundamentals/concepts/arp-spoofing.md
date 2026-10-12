@@ -10,7 +10,7 @@ author: RJGProjectz
 date_created: 2026-10-11
 last_updated: 2026-10-11
 tags: [concept, arp, mitm, layer-2]
-aliases: [ARP poisoning, ARP cache poisoning, gratuitous ARP attack]
+aliases: [ARP poisoning, ARP cache poisoning, gratuitous ARP attack, ARP (Address Resolution Protocol)]
 difficulty: intermediate
 verified: false
 ---

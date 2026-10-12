@@ -8,6 +8,7 @@ type: entry
 verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
+aliases: [Critical Security Controls]
 ---
 
 # CIS Critical Security Controls & Benchmarks

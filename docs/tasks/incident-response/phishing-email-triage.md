@@ -14,6 +14,7 @@ verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
 tags:
+aliases: [phishing]
   - playbook
   - phishing
   - exchange

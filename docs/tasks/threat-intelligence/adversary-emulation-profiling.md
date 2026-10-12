@@ -19,6 +19,7 @@ verified: true
 last_verified: 2026-10-07
 difficulty: advanced
 tags:
+aliases: [Cobalt Strike]
   - threat-intelligence
   - adversary-emulation
   - mitre-attack

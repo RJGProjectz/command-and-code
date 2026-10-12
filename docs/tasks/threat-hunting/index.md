@@ -1,6 +1,7 @@
 ---
 title: Threat Hunting
 type: index
+aliases: [Threat Hunting]
 ---
 
 # Threat Hunting

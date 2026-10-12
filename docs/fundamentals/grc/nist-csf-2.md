@@ -8,6 +8,7 @@ type: entry
 verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
+aliases: [NIST Cybersecurity Framework]
 ---
 
 # NIST Cybersecurity Framework (CSF) 2.0

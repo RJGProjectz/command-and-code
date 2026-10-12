@@ -8,6 +8,7 @@ type: entry
 verified: true
 last_verified: 2026-10-06
 difficulty: intermediate
+aliases: ["Governance, Risk, and Compliance (GRC)", PCI DSS]
 ---
 
 # Regulatory Compliance & Framework Cross-Walk
