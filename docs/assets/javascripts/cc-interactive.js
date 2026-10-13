@@ -351,20 +351,21 @@
 
       // Event delegation for branch buttons
       tree.addEventListener('click', function (e) {
-        var btn = e.target.closest ? e.target.closest('.cc-branch, [data-branch-next], .cc-branch-reset') : null;
-        if (!btn) return;
+        var btn = e.target.closest ? e.target.closest('.cc-branch-btn, .cc-branch, [data-next], [data-branch-next], .cc-branch-reset') : null;
+        if (!btn || !tree.contains(btn)) return;
 
         e.preventDefault();
+
+        // A target wins over styling: --reset buttons with data-next are branches, not restarts
+        var nextId = btn.getAttribute('data-next') || btn.getAttribute('data-branch-next');
+        if (nextId) {
+          activateNode(nextId, true);
+          return;
+        }
 
         if (btn.classList.contains('cc-branch-reset') || btn.classList.contains('cc-branch-btn--reset')) {
           history = [];
           activateNode(rootId, true);
-          return;
-        }
-
-        var nextId = btn.getAttribute('data-next') || btn.getAttribute('data-branch-next');
-        if (nextId) {
-          activateNode(nextId, true);
         }
       });
 
