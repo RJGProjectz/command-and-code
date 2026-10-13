@@ -7,15 +7,16 @@ category: Containers
 tags: [gcp, gke, kubernetes, workload identity federation for gke, private cluster, binary authorization, gke autopilot, kubernetes audit logs, rbac]
 aliases: [gcloud container clusters get-credentials, gke workload identity, gke audit logs query, gke private cluster, gke node service account, gke security posture]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Kubernetes Engine (GKE)
 
 GKE runs Kubernetes with a Google-managed control plane. Access to the API server is **IAM** (who can get credentials) plus **Kubernetes RBAC** (what they can do inside). Pods should reach Google APIs through **Workload Identity Federation for GKE**, never through the node's service account or key files.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Inventory and connect
 

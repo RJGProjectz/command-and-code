@@ -7,15 +7,16 @@ category: Persistence
 tags: [gcp, persistence, threat hunting, service account keys, iam bindings, cloud functions, startup scripts, impersonation, mitre attack cloud]
 aliases: [gcp persistence techniques, hunt new service account keys, gcp iam policy change query, gcp malicious cloud function, gcp startup script backdoor, gcp external principal granted role]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Persistence & Threat Hunting
 
 Attackers with a foothold in Google Cloud keep access by **creating credentials** (SA keys, HMAC keys), **granting roles** to identities they control, or **deploying code** that runs as a privileged service account. All of these leave Admin Activity audit logs, which are always on.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. All queries here are read-only.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. All queries here are read-only.
 
 ## 1. Technique map
 

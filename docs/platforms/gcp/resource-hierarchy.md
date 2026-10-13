@@ -7,15 +7,16 @@ category: Inventory
 tags: [gcp, organization, folders, projects, cloud asset inventory, labels, tags, resource manager]
 aliases: [gcloud projects list, gcloud resource-manager folders list, gcloud asset search-all-resources, gcp list all resources, gcp organization id, gcp asset inventory export]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Resource Hierarchy & Inventory
 
 Google Cloud resources sit in a tree: **Organization → Folders → Projects → resources**. IAM policies and Organization Policies set at a node are **inherited** by everything below it. Most APIs work per project; **Cloud Asset Inventory** searches the whole organization at once.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Map the tree
 

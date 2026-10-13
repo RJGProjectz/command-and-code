@@ -7,7 +7,8 @@ category: Logging
 tags: [gcp, cloud logging, logging query language, logs explorer, log analytics, bigquery, log-based metrics, alerting, cloud monitoring]
 aliases: [gcp logging query language examples, gcloud logging read filter, gcp log analytics sql, bigquery audit log query, gcp log based metric alert, logs explorer query]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Logging & BigQuery Log Queries
@@ -20,8 +21,8 @@ Cloud Logging stores logs in **log buckets** (`_Required`, `_Default`, plus any 
 | **Log Analytics** | SQL (BigQuery dialect) over an upgraded log bucket | Aggregation without exporting |
 | **BigQuery** via a sink | SQL | Long retention, joins, large volumes |
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Logging query language
 

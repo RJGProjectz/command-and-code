@@ -7,15 +7,16 @@ category: Incident Response
 tags: [gcp, incident response, disable service account key, revoke tokens, isolate vm, disk snapshot, forensics, evidence, containment]
 aliases: [gcp compromised service account key, gcloud iam service-accounts keys disable, gcp isolate compromised vm, gcloud compute snapshots create forensic, gcp revoke user sessions, gcp incident response playbook]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Incident Response & Forensics
 
 Order of work: **contain the identity, isolate the workload, preserve evidence, scope, then recover**. Evidence in Google Cloud is mostly audit logs (keep them, see [Audit logging](audit-logging.md)) plus disk snapshots and serial output of affected VMs.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Every command in sections 1, 2 and 5 **changes** state. Agree containment with the system owner first; disabling a service account breaks its workloads.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Every command in sections 1, 2 and 5 **changes** state. Agree containment with the system owner first; disabling a service account breaks its workloads.
 
 ## 1. Contain the identity
 

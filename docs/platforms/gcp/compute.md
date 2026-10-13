@@ -7,15 +7,16 @@ category: Compute
 tags: [gcp, compute engine, os login, ssh keys, metadata, startup script, shielded vm, iap tunnel, serial console]
 aliases: [gcloud compute instances list, gcloud compute ssh, gcp os login enable, gcp startup script, gcp serial port output, gcloud compute ssh tunnel-through-iap]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Compute Engine & OS Login
 
 Compute Engine VMs get their identity from an **attached service account** and their configuration from **metadata** (SSH keys, startup scripts, guest attributes). Whoever can edit metadata can usually run code as root, so metadata permissions are as sensitive as SSH access.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Inventory
 

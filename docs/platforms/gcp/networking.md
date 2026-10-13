@@ -7,15 +7,16 @@ category: Networking
 tags: [gcp, vpc, firewall rules, firewall policies, vpc flow logs, shared vpc, private google access, vpc service controls, cloud nat]
 aliases: [gcloud compute firewall-rules list, gcp open firewall 0.0.0.0/0, gcp vpc flow logs query, gcp firewall rules logging, gcp shared vpc, vpc service controls perimeter]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud VPC & Firewall Rules
 
 A Google Cloud **VPC network is global**; subnets are regional. Traffic is filtered by **hierarchical firewall policies** (org/folder), then **network firewall policies**, then **VPC firewall rules**. Rules target instances by **network tag** or **service account**. Every VPC has implied rules: deny all ingress, allow all egress.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Inventory
 

@@ -7,15 +7,16 @@ category: Identity
 tags: [gcp, cloud iam, service accounts, service account keys, roles, iam conditions, policy analyzer, iam recommender, deny policies]
 aliases: [gcloud projects get-iam-policy, gcp list service account keys, gcp who has owner role, gcloud iam roles describe, gcp policy analyzer, gcp unused permissions]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud IAM (Identity & Access)
 
 An IAM **allow policy** on a resource binds **principals** (users, groups, service accounts, `domain:`, `allUsers`) to **roles** (bundles of permissions). Policies inherit down the hierarchy and **add up**; only **deny policies** subtract. Users and groups live in Cloud Identity / Google Workspace; **service accounts** are the identities of workloads.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Read a policy
 

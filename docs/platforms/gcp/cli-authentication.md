@@ -7,7 +7,8 @@ category: Authentication
 tags: [gcp, gcloud, application default credentials, adc, service account impersonation, workload identity federation, metadata server, google-auth]
 aliases: [gcloud auth login, gcloud auth list, gcloud config configurations, gcloud impersonate service account, application default credentials, gcp metadata server token]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud CLI, SDKs & Authentication
@@ -21,8 +22,8 @@ Google Cloud has **two credential stores** on a workstation, and mixing them up 
 
 Prefer user accounts plus **service-account impersonation** over downloaded service-account keys.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Run read-only commands first. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Run read-only commands first. Commands that change state are marked **change**.
 
 ## 1. Install and check the tools
 

@@ -7,15 +7,16 @@ category: Secrets
 tags: [gcp, cloud kms, cmek, key rotation, key destruction, secret manager, secret versions, cloud hsm, ekm]
 aliases: [gcloud kms keys list, gcp rotate kms key, gcloud secrets versions access, gcp secret manager audit, gcp cmek bucket, gcp who accessed secret]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud KMS & Secret Manager
 
 **Cloud KMS** holds encryption keys (software, Cloud HSM, or external via EKM) in **key rings** per location. Services use them as **CMEK** to encrypt data you control. **Secret Manager** stores API keys, passwords and certificates as versioned secrets. Both are controlled by IAM on the key or secret.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Inventory keys
 

@@ -7,7 +7,8 @@ category: Posture
 tags: [gcp, security command center, scc, security health analytics, event threat detection, container threat detection, findings, mute rules, cis benchmark]
 aliases: [gcloud scc findings list, gcp security command center findings, event threat detection findings, scc mute rule, gcp cis benchmark compliance, scc notification pubsub]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Security Command Center (GCP Posture & Alerts)
@@ -23,8 +24,8 @@ verified: false
 | **Web Security Scanner** | OWASP issues in App Engine / GKE / Compute apps | Standard (managed scans: Premium) |
 | **Attack path simulation**, **compliance reports** (CIS, PCI DSS, NIST) | Exposure of high-value resources | Premium |
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. List active findings
 

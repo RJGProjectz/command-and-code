@@ -7,7 +7,8 @@ category: Logging
 tags: [gcp, cloud audit logs, admin activity, data access, system event, policy denied, log sinks, aggregated sinks, log buckets]
 aliases: [gcp who deleted vm, gcloud logging read audit, gcp data access logs enable, gcp aggregated log sink, cloudaudit.googleapis.com activity, gcp log retention]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Audit Logs
@@ -21,8 +22,8 @@ Cloud Audit Logs write four logs per project, folder and organization:
 | **Data Access** (`data_access`) | Reads of config and data (`ADMIN_READ`, `DATA_READ`, `DATA_WRITE`) | **Off** (except BigQuery) | 30 days |
 | **Policy Denied** (`policy`) | Requests blocked by VPC Service Controls or Org Policy | On | 30 days |
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Quick lookups
 

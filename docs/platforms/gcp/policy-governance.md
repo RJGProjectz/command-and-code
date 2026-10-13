@@ -7,7 +7,8 @@ category: Governance
 tags: [gcp, organization policy, org policy constraints, custom constraints, deny policies, iam conditions, policy simulator, liens, cis benchmark]
 aliases: [gcloud org-policies list, gcp disable service account key creation, gcp restrict public ip, gcp domain restricted sharing, gcp custom org policy constraint, gcp project lien]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Organization Policy & Governance
@@ -22,8 +23,8 @@ Google Cloud has three guardrails above ordinary IAM grants:
 
 Org Policies are set at organization, folder or project and inherited; a child can override unless the parent forbids it.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. Test policies on one folder or with **dry run** before enforcing org-wide.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**. Test policies on one folder or with **dry run** before enforcing org-wide.
 
 ## 1. Read current policies
 

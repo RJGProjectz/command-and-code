@@ -7,15 +7,16 @@ category: Storage
 tags: [gcp, cloud storage, gcs, buckets, uniform bucket-level access, public access prevention, allusers, signed urls, hmac keys, retention]
 aliases: [gcloud storage ls, gsutil iam get, gcp public bucket, gcs allUsers, gcp public access prevention, gcloud storage buckets update uniform-bucket-level-access]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Storage (Buckets & Data Exposure)
 
 Access to a bucket comes from **IAM** (bucket, project, folder, org) and, unless **uniform bucket-level access** is on, from per-object **ACLs**. A bucket is public when `allUsers` or `allAuthenticatedUsers` holds any role. Use `gcloud storage` (the successor of `gsutil`).
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Inventory
 

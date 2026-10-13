@@ -7,15 +7,16 @@ category: Troubleshooting
 tags: [gcp, troubleshooting, permission denied, api not enabled, quota, connectivity tests, policy troubleshooter, gcloud verbosity, iap]
 aliases: [gcp permission denied 403, gcp api has not been used in project, gcloud services enable, gcp policy troubleshooter, gcp connectivity test, gcloud debug log-http]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Google Cloud Troubleshooting
 
 Most Google Cloud failures are one of: **wrong identity or project**, **missing permission**, **API not enabled**, **an Org Policy or VPC Service Controls block**, **firewall or routing**, or **quota**. Work through them in that order.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Google Cloud documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the gcloud CLI reference (2026-10-12); this guide does not run them against a live project. Commands that change state are marked **change**.
 
 ## 1. Permission denied and authentication errors
 
@@ -101,7 +102,7 @@ Windows: run `gcloud` from a fresh PowerShell after install so `PATH` updates; p
 
 - [Audit logging](audit-logging.md#2-read-an-audit-entry) for the exact `status` and `authorizationInfo` of a failed call
 - **Personalized Service Health** and the Google Cloud status dashboard for provider outages
-- `gcloud support cases create` with a paid support plan
+- **Support → Cases** in the Google Cloud console, with a paid support plan
 
 ## Related
 
