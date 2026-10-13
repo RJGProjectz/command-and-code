@@ -2,7 +2,7 @@
  * Command & Code — Responsive tables (WP-16)
  * Wide tables (4+ columns: the generated browse tables and similar) become stacked cards
  * below 600 px. This script only labels each cell with its column header (data-label) and
- * marks the table; the layout itself is CSS in cc.css (.cc-stack).
+ * marks the table; the layout itself is CSS in cc.css ([data-cc-stack]).
  * Tables inside .cc-coverage stay a grid: their cells are a single check mark.
  */
 
@@ -12,7 +12,7 @@
   var MIN_COLUMNS = 4;
 
   function prepare(table) {
-    if (table.classList.contains('cc-stack') || table.closest('.cc-coverage')) { return; }
+    if (table.hasAttribute('data-cc-stack') || table.closest('.cc-coverage')) { return; }
     var headers = table.querySelectorAll('thead th');
     if (headers.length < MIN_COLUMNS) { return; }
     var labels = Array.prototype.map.call(headers, function (th) { return th.textContent.trim(); });
@@ -21,7 +21,7 @@
         if (labels[index]) { cell.setAttribute('data-label', labels[index]); }
       });
     });
-    table.classList.add('cc-stack');
+    table.setAttribute('data-cc-stack', ''); // not a class: Material borders only table:not([class])
     var wrap = table.closest('.md-typeset__table');
     if (wrap) { wrap.classList.add('cc-stack-wrap'); }
   }
