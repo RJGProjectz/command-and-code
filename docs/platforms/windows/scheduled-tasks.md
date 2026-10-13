@@ -107,6 +107,7 @@ Disable and export before deleting so the definition is preserved as evidence.
 
 ## Related
 
+- [Scheduled Task and Cron Persistence Review](../../tasks/threat-hunting/scheduled-task-persistence-review.md) — sweep every host's scheduled jobs
 - [Scheduled Task Investigation workflow](../../tasks/investigation/scheduled-task-investigation.md)
 - [Linux cron and timers](../linux/cron.md)
 - [KQL: scheduled task creation](../../detection/kql/file-registry-events.md#scheduled-task-creation)

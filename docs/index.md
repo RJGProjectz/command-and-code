@@ -46,7 +46,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 
 <div class="grid cards cc-lanes" markdown>
 
--   :material-alarm-light-outline:{ .lg } **[Responding to an incident](tasks/incident-response/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Incident Response" -->138<!-- /cc:count --> entries</span>
+-   :material-alarm-light-outline:{ .lg } **[Responding to an incident](tasks/incident-response/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Incident Response" -->139<!-- /cc:count --> entries</span>
 
     ---
 
@@ -54,7 +54,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     2. [Check the account](tasks/incident-response/account-compromise.md) — sign-ins, tokens, mailbox rules
     3. [Isolate the host](tasks/incident-response/ransomware-host-isolation.md) — contain before it spreads
 
--   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->160<!-- /cc:count --> entries</span>
+-   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->161<!-- /cc:count --> entries</span>
 
     ---
 
@@ -62,7 +62,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     2. [Suspicious outbound connection](tasks/investigation/suspicious-outbound-connection.md) — process to destination
     3. [Registry persistence](tasks/investigation/registry-persistence.md) — run keys and services
 
--   :material-crosshairs-gps:{ .lg } **[Hunting for threats](tasks/threat-hunting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Threat Hunting" -->78<!-- /cc:count --> entries</span>
+-   :material-crosshairs-gps:{ .lg } **[Hunting for threats](tasks/threat-hunting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Threat Hunting" -->79<!-- /cc:count --> entries</span>
 
     ---
 

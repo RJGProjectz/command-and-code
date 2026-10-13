@@ -54,6 +54,10 @@ Disable → export → remove; investigate the payload the task points at.
 
 → [Disable or remove a task](../../platforms/windows/scheduled-tasks.md#disable-or-remove-a-task)
 
+## Review every task on a host
+
+→ [Scheduled Task and Cron Persistence Review](../threat-hunting/scheduled-task-persistence-review.md) — Windows, Linux and macOS, GUI and CLI
+
 ## Linux equivalent
 
 → [Cron](../../platforms/linux/cron.md) · [systemd timers](../../platforms/linux/systemd.md#timers)

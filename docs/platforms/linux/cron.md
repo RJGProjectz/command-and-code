@@ -118,6 +118,7 @@ sudo crontab -r -u www-data
 
 ## Related
 
+- [Scheduled Task and Cron Persistence Review](../../tasks/threat-hunting/scheduled-task-persistence-review.md) — sweep every host's scheduled jobs
 - [Windows Scheduled Tasks](../windows/scheduled-tasks.md)
 - [Linux Services with systemd](systemd.md)
 

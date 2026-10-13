@@ -324,6 +324,7 @@ nav:
           - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md
           - LOLBins Execution Hunting: tasks/threat-hunting/lolbins-execution-hunting.md
           - Cloud Identity Persistence: tasks/threat-hunting/cloud-identity-persistence-hunting.md
+          - Scheduled Task & Cron Persistence Review: tasks/threat-hunting/scheduled-task-persistence-review.md
       - Threat Intelligence:
           - Overview: tasks/threat-intelligence/index.md
           - STIX 2.1 & TAXII Feed Pipeline: tasks/threat-intelligence/stix-taxii-pipeline.md
