@@ -2,6 +2,26 @@
 
 {% block extrahead %}
   {{ super() }}
+  {#- Link preview card (Open Graph + Twitter). One site-wide image; title and description per page. -#}
+  {%- set cc_title = config.site_name if page.is_homepage else (page.title ~ " - " ~ config.site_name) -%}
+  {%- set cc_desc = (page.meta.description if page.meta and page.meta.description else config.site_description) -%}
+  {%- set cc_image = config.site_url ~ "assets/social-card.png" %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.site_name | e }}">
+  <meta property="og:title" content="{{ cc_title | striptags | e }}">
+  <meta property="og:description" content="{{ cc_desc | striptags | e }}">
+  {%- if page.canonical_url %}
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  {%- endif %}
+  <meta property="og:image" content="{{ cc_image }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Command &amp; Code - the practical security operations field manual">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ cc_title | striptags | e }}">
+  <meta name="twitter:description" content="{{ cc_desc | striptags | e }}">
+  <meta name="twitter:image" content="{{ cc_image }}">
   <script>
     (function () {
       try {
