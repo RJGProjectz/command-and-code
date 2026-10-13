@@ -13,6 +13,9 @@
    after the build, for the local graph and the full graph page (cc-graph.js).
 6. Backlinks and up links: an "Up:" link to the nearest section index under the title,
    and "Linked from" / "Listed in" lists at the foot of every content page.
+7. Search facets: writes assets/facets.json (page URL -> type, platforms, languages, title,
+   tags and aliases from front matter) after the build, for the facet chips and the filtered
+   result list in the search dialog (cc-facets.js).
 
 The Markdown files themselves are never modified, so they stay correct on GitHub.
 """
@@ -128,6 +131,7 @@ def _insert_after_h1(markdown: str, block: str) -> str:
 # pages they point to do not turn into hubs that link everything.
 _GRAPH_NODES: dict[str, dict] = {}
 _GRAPH_LINKS: set[tuple[str, str]] = set()
+_FACETS: dict[str, dict] = {}  # page URL -> {t: type, p: platforms, l: languages, n: title, k: tags + aliases}
 _FENCE = re.compile(r"^[ \t]*(`{3,}|~{3,}).*?^[ \t]*\1", re.M | re.S)
 _INLINE_LINK = re.compile(r"\]\(\s*<?([^)\s>#]+\.md)(?:#[^)\s>]*)?>?(?:\s+\"[^\"]*\")?\s*\)")
 _REF_LINK = re.compile(r"^\s*\[[^\]]+\]:\s*<?([^\s>#]+\.md)", re.M)
@@ -140,6 +144,7 @@ def _build_graph(files) -> None:
 
     _GRAPH_NODES.clear()
     _GRAPH_LINKS.clear()
+    _FACETS.clear()
     for file in files.documentation_pages():
         src = file.src_uri
         if src in _GRAPH_SKIP:
@@ -154,6 +159,13 @@ def _build_graph(files) -> None:
             "section": src.split("/")[0] if "/" in src else "home",
             "type": str(meta.get("type", "index" if src.endswith("index.md") else "entry")),
         }
+        _FACETS[file.url] = {
+            "t": _GRAPH_NODES[src]["type"],
+            "p": [str(v) for v in meta.get("platforms") or []],
+            "l": [str(v) for v in meta.get("languages") or []],
+            "n": str(title),
+            "k": [str(v) for v in (meta.get("tags") or []) + (meta.get("aliases") or [])],
+        }
         text = _FENCE.sub("", body)
         base = posixpath.dirname(src)
         for match in list(_INLINE_LINK.finditer(text)) + list(_REF_LINK.finditer(text)):
@@ -166,7 +178,7 @@ def _build_graph(files) -> None:
 
 
 def on_post_build(config):  # noqa: D103 - MkDocs hook signature
-    """Write assets/graph.json: nodes plus [source, target] index pairs (compact)."""
+    """Write assets/graph.json (nodes plus [source, target] index pairs) and assets/facets.json."""
     import json
 
     ids = sorted(_GRAPH_NODES)
@@ -176,6 +188,8 @@ def on_post_build(config):  # noqa: D103 - MkDocs hook signature
     out = Path(config["site_dir"]) / "assets" / "graph.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(graph, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    facets = out.parent / "facets.json"
+    facets.write_text(json.dumps(_FACETS, ensure_ascii=False, separators=(",", ":"), sort_keys=True), encoding="utf-8")
 
 
 def _md_link(target: str, page_src: str) -> str:
