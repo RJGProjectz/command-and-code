@@ -53,6 +53,7 @@ INDEX_RE = re.compile(r"(<!-- cc:index(?P<attrs>[^>]*?)-->)(?P<body>.*?)(<!-- /c
 COUNT_RE = re.compile(r"(<!-- cc:count(?P<attrs>[^>]*?)-->)(?P<body>[^<]*)(<!-- /cc:count -->)")
 COVERAGE_RE = re.compile(r"(<!-- cc:coverage(?P<attrs>[^>]*?)-->)(?P<body>.*?)(<!-- /cc:coverage -->)", re.S)
 ATTR_RE = re.compile(r'(\w+)="([^"]*)"')
+PLACEHOLDER_RE = re.compile(r"<[A-Za-z][\w.-]*>")
 FENCE_RE = re.compile(r"^(?P<indent>[ \t]*)(?P<fence>`{3,})(?P<lang>[\w+-]*)[^\n]*\n(?P<code>.*?)^(?P=indent)(?P=fence)[ \t]*$", re.S | re.M)
 
 
@@ -298,6 +299,8 @@ def check_code() -> list[str]:
             label = f"docs/{page.rel}:{line}"
             if "--8<--" in code:
                 continue  # snippet include; the included script is checked directly below
+            # <rg>, <ORG_ID>, <bucket>/<prefix> are fill-in placeholders, not redirections
+            code = PLACEHOLDER_RE.sub("PLACEHOLDER", code)
             if lang in ("powershell", "ps1", "pwsh"):
                 ps_items.append((label, code))
             elif lang in ("bash", "sh"):
