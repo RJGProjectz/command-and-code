@@ -7,15 +7,16 @@ category: Inventory
 tags: [azure, management groups, subscriptions, resource groups, resource graph, inventory, tags]
 aliases: [azure resource graph query, list all azure resources, azure management group tree, azure inventory, what is in this subscription]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Resource Hierarchy & Inventory
 
 Before you investigate or harden anything, know what exists and where. Azure organizes resources in four levels. Policy and role assignments set at a level inherit downward, so the level an assignment sits at matters as much as the assignment.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Everything on this page is read-only except the tag commands marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Everything on this page is read-only except the tag commands marked **change**.
 
 ## 1. The hierarchy
 

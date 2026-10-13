@@ -7,7 +7,8 @@ category: Logging
 tags: [azure, activity log, diagnostic settings, azureactivity, entra sign-in logs, log retention, audit]
 aliases: [azure activity log, who deleted azure resource, azure audit trail, azureactivity kql, azure diagnostic settings, azure log retention 90 days]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Audit Logging (Activity Log & Diagnostic Settings)
@@ -20,8 +21,8 @@ Azure has three audit layers. Know which one answers your question before you st
 | **Entra ID logs** | Who signed in, who changed users, apps and roles | `SigninLogs`, `AuditLogs`, `AADServicePrincipalSignInLogs` | 7–30 days by license |
 | **Resource logs** | What happened *inside* a resource (blob reads, Key Vault gets, firewall hits) | Per resource; off until you add a **diagnostic setting** | None until configured |
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Send everything to Log Analytics first
 

@@ -7,15 +7,16 @@ category: Authentication
 tags: [aws, aws cli, iam identity center, sso, assume role, sts, access keys, imdsv2, boto3]
 aliases: [aws configure sso, aws sts get-caller-identity, aws assume role cli, aws profile, aws credentials file, aws imdsv2 token]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS CLI, SDKs & Authentication
 
 Every AWS API call is signed with credentials: either **long-term access keys** (an IAM user) or **temporary credentials** from AWS STS (IAM Identity Center, an assumed role, an instance profile). Prefer temporary credentials everywhere. The **AWS CLI v2**, **AWS Tools for PowerShell** and **boto3** all read the same profiles and credential chain.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Run read-only commands first. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Run read-only commands first. Commands that change state are marked **change**.
 
 ## 1. Install and check the tools
 

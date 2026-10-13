@@ -7,15 +7,16 @@ category: Persistence
 tags: [aws, persistence, threat hunting, iam backdoor, access keys, assume role policy, lambda, eventbridge, mitre attack]
 aliases: [aws persistence techniques, hunt aws backdoor user, createaccesskey for other user, updateassumerolepolicy backdoor, lambda persistence aws, aws attacker enumeration]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS Persistence & Threat Hunting
 
 After stealing a credential, an attacker in AWS wants access that survives key rotation: new identities, new keys on existing identities, trust-policy backdoors, and code that runs on a schedule. Each hunt below uses CloudTrail Lake SQL (adapt to Athena by renaming the table, see [Monitoring](monitoring-logs.md#4-athena-over-s3-logs)).
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Queries are hunting starting points: baseline your own environment before turning any into an alert.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Queries are hunting starting points: baseline your own environment before turning any into an alert.
 
 ## 1. Technique map
 

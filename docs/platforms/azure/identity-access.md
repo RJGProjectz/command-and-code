@@ -7,15 +7,16 @@ category: Identity
 tags: [azure, rbac, role assignment, pim, managed identity, service principal, owner, contributor]
 aliases: [azure role assignments, who has owner on subscription, azure rbac audit, azure pim activation, managed identity permissions, user access administrator]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Identity & Access (RBAC, PIM, Managed Identities)
 
 Azure RBAC decides what an identity can do to resources. A **role assignment** = security principal (user, group, service principal, managed identity) + **role definition** + **scope** (management group, subscription, resource group, resource). Entra ID roles (Global Administrator, etc.) are a separate system covered under [Entra ID](../microsoft-365/entra.md#privileged-role-members).
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. The roles that matter
 

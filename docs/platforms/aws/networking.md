@@ -7,15 +7,16 @@ category: Networking
 tags: [aws, vpc, security groups, nacl, vpc flow logs, reachability analyzer, network firewall, route tables, endpoints]
 aliases: [aws security group open to world, aws 0.0.0.0/0 port 22, aws vpc flow logs query, aws reachability analyzer, aws nacl vs security group, aws network firewall logs]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS Networking (VPC, Security Groups, Flow Logs)
 
 Traffic to an EC2 instance passes the subnet's **network ACL** (stateless, ordered rules, allow and deny) and the ENI's **security groups** (stateful, allow-only, all rules combined). Routing comes from the subnet's **route table**: internet gateway, NAT gateway, Transit Gateway, VPC endpoint or AWS Network Firewall.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Inventory
 

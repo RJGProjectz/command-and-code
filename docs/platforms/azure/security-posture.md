@@ -7,7 +7,8 @@ category: Posture
 tags: [azure, defender for cloud, secure score, recommendations, security alerts, cspm, regulatory compliance]
 aliases: [azure secure score, defender for cloud recommendations, defender for cloud alerts query, azure cspm, which defender plans enabled, azure security center]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Microsoft Defender for Cloud (Posture & Alerts)
@@ -19,8 +20,8 @@ Defender for Cloud (formerly Azure Security Center) does two jobs:
 
 Alerts also flow into the [Defender XDR portal](../microsoft-365/defender.md) and Microsoft Sentinel.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. Enabling a Defender plan has a cost.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. Enabling a Defender plan has a cost.
 
 ## 1. Which plans are on?
 

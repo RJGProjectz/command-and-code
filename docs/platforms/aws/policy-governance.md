@@ -7,7 +7,8 @@ category: Governance
 tags: [aws, service control policies, scp, resource control policies, aws config, conformance packs, control tower, tag policies]
 aliases: [aws scp examples, deny region scp, protect cloudtrail scp, aws config rules noncompliant, aws control tower guardrails, resource control policy]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS SCPs, Config Rules & Governance
@@ -19,8 +20,8 @@ Governance in AWS has two halves:
 
 **AWS Control Tower** packages both as "controls" on top of a multi-account landing zone.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. A wrong SCP on the root can lock every account out of a service. Attach to a test OU first.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. A wrong SCP on the root can lock every account out of a service. Attach to a test OU first.
 
 ## 1. Inspect what is attached
 

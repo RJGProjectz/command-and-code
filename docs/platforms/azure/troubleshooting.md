@@ -7,15 +7,16 @@ category: Troubleshooting
 tags: [azure, troubleshooting, authorizationfailed, quota, resource provider, nsg, deployment errors, vm agent]
 aliases: [azure authorizationfailed, azure deployment failed, azure quota exceeded, missingsubscriptionregistration, cannot rdp azure vm, azure vm agent not ready, requestdisallowedbypolicy]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Troubleshooting
 
 Most Azure failures fall into five groups: **who you are**, **what you may do**, **what the platform allows** (policy, quota, provider), **network path**, and **inside the guest**. Read the error code before anything else; it names the group.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Authentication and authorization errors
 

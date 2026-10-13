@@ -7,15 +7,16 @@ category: Incident Response
 tags: [aws, incident response, containment, quarantine security group, ebs snapshot, revoke sessions, access keys, forensics]
 aliases: [isolate ec2 instance, snapshot ebs for forensics, revoke aws role sessions, compromised aws access key, aws ir runbook, aws forensic account]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS Incident Response & Forensics
 
 Most AWS incidents start with **leaked credentials**: access keys in code, a stolen SSO session, or instance-role credentials taken through SSRF. Contain the credentials first, then the resources, and preserve evidence in a separate **forensics account** before you rebuild. For the cloud-agnostic process, see [Concept: digital forensics](../../fundamentals/concepts/digital-forensics.md).
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Almost every command here **changes state**. Agree containment with the incident lead before you run it, and record each action with a UTC timestamp.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Almost every command here **changes state**. Agree containment with the incident lead before you run it, and record each action with a UTC timestamp.
 
 ## 1. Contain the identity
 

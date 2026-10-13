@@ -7,15 +7,16 @@ category: Governance
 tags: [azure, azure policy, initiative, compliance, deny, deployifnotexists, resource locks, tags, landing zone]
 aliases: [azure policy compliance state, azure deny policy, assign azure policy cli, azure resource lock, cannotdelete lock, allowed locations policy, azure policy remediation]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Policy, Locks & Governance
 
 **Azure Policy** evaluates every resource against rules and can **audit**, **deny**, **modify** or **deploy** configuration. **Resource locks** stop deletion or change, even by Owners. Assign both at **management-group** scope so new subscriptions inherit them ([Resource hierarchy](resource-hierarchy.md)).
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. Test `Deny` policies in `Audit` (or `DoNotEnforce`) mode first; they block deployments immediately.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. Test `Deny` policies in `Audit` (or `DoNotEnforce`) mode first; they block deployments immediately.
 
 ## 1. Effects
 

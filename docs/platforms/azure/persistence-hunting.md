@@ -7,15 +7,16 @@ category: Persistence
 tags: [azure, persistence, threat hunting, role assignment, app credentials, automation runbook, logic apps, run command, mitre attack]
 aliases: [azure persistence techniques, hunt azure backdoor, attacker added service principal secret, azure automation runbook persistence, azure lateral movement, azure attack paths]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Persistence & Threat Hunting
 
 An attacker with Azure control-plane access needs persistence that **survives a password reset**. That means identities and code the organization does not watch. Hunt each technique below in `AzureActivity` and the Entra ID `AuditLogs`. Each hunt assumes logs are exported ([Audit logging](audit-logging.md)).
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Queries are hunting starting points: baseline your own environment before turning any into an alert.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Queries are hunting starting points: baseline your own environment before turning any into an alert.
 
 ## 1. Technique map
 

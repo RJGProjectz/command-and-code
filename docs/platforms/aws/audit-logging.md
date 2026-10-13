@@ -7,7 +7,8 @@ category: Logging
 tags: [aws, cloudtrail, organization trail, data events, cloudtrail lake, event history, log integrity, audit]
 aliases: [aws cloudtrail lookup events, who deleted ec2 instance, cloudtrail organization trail, cloudtrail data events s3, cloudtrail lake sql, stoplogging cloudtrail]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS CloudTrail (Audit Logging)
@@ -22,8 +23,8 @@ CloudTrail records API calls. Know which part answers your question:
 | **Data events** | Object-level and function-level calls (S3 `GetObject`, Lambda `Invoke`, DynamoDB items) | Off unless enabled; paid |
 | **CloudTrail Lake** | SQL over events, across accounts and regions | 1–10 years per event data store |
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Quick lookups (event history)
 

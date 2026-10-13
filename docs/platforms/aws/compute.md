@@ -7,15 +7,16 @@ category: Compute
 tags: [aws, ec2, ssm, systems manager, run command, session manager, user data, instance profile, imdsv2, lambda]
 aliases: [aws ec2 list instances, aws ssm send-command, ssm session manager, ec2 user data persistence, enforce imdsv2, ec2 serial console]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Amazon EC2 & Systems Manager (Compute)
 
 EC2 instances are ordinary Windows and Linux hosts; inside the guest, use the [Windows](../windows/index.md) and [Linux](../linux/index.md) sections. This page covers the **control plane**: inventory, running code through **Systems Manager (SSM)**, user data, instance profiles and metadata.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Inventory
 

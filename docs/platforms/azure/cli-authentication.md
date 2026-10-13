@@ -7,15 +7,16 @@ category: Authentication
 tags: [azure, az cli, az powershell, service principal, managed identity, authentication, tokens]
 aliases: [az login, connect-azaccount, azure service principal login, azure managed identity token, switch azure subscription]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure CLI, Az PowerShell & Authentication
 
 Every Azure task starts with an authenticated session in the right tenant and subscription. Use the **Azure CLI** (`az`) in Bash or PowerShell, or the **Az PowerShell** module. Both read the same Azure Resource Manager (ARM) API, so a command in one has an equivalent in the other.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Run read-only commands first. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Run read-only commands first. Commands that change state are marked **change**.
 
 ## 1. Install and check the tools
 

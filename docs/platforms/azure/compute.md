@@ -7,15 +7,16 @@ category: Compute
 tags: [azure, virtual machines, run command, vm extensions, boot diagnostics, serial console, vmss]
 aliases: [azure vm list, azure run command, azure vm extension persistence, azure serial console, azure vm boot diagnostics, start stop azure vm]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Virtual Machines (Compute)
 
 Azure VMs are ordinary Windows and Linux hosts, so the [Windows](../windows/index.md) and [Linux](../linux/index.md) sections apply inside the guest. This page covers the **control plane**: what the Azure API can see and do to a VM without logging in. That includes running code in the VM, which is why VM permissions matter.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Inventory
 

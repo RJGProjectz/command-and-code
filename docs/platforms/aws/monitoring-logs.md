@@ -7,7 +7,8 @@ category: Logging
 tags: [aws, cloudwatch, logs insights, athena, metrics, alarms, eventbridge, cloudwatch agent]
 aliases: [cloudwatch logs insights query, athena cloudtrail table, cloudwatch alarm cli, eventbridge rule security, cloudwatch agent install, query vpc flow logs athena]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Amazon CloudWatch, Logs Insights & Athena
@@ -20,8 +21,8 @@ AWS splits monitoring across three services:
 
 **EventBridge** routes API events (from CloudTrail) and findings to alerts and automation in near real time.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. Athena bills per TB scanned; partition and filter.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. Athena bills per TB scanned; partition and filter.
 
 ## 1. Log groups
 

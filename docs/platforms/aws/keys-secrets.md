@@ -7,7 +7,8 @@ category: Secrets
 tags: [aws, kms, key policy, secrets manager, parameter store, rotation, encryption, grants]
 aliases: [aws kms key policy audit, who read secrets manager secret, rotate secrets manager, ssm parameter store securestring, kms grants list, kms key scheduled deletion]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS KMS, Secrets Manager & Parameter Store
@@ -20,8 +21,8 @@ verified: false
 
 Reading a secret needs both `secretsmanager:GetSecretValue` (or `ssm:GetParameter`) and `kms:Decrypt` on its key. That second permission is a useful choke point.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. Never print secret values into terminals that are logged or recorded.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. Never print secret values into terminals that are logged or recorded.
 
 ## 1. KMS inventory and key policies
 

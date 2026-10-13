@@ -7,7 +7,8 @@ category: Posture
 tags: [aws, security hub, guardduty, inspector, findings, cspm, foundational security best practices, detective]
 aliases: [guardduty findings cli, security hub failed controls, aws cspm, guardduty finding types, inspector vulnerabilities, aws security posture]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS Security Hub, GuardDuty & Inspector (Posture & Alerts)
@@ -22,8 +23,8 @@ verified: false
 
 Enable all of them organization-wide from a **delegated administrator** account (usually the security tooling account), in **every enabled region**.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. These services have per-volume costs.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. These services have per-volume costs.
 
 ## 1. Is it on everywhere?
 

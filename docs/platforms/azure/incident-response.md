@@ -7,15 +7,16 @@ category: Incident Response
 tags: [azure, incident response, containment, isolate vm, disk snapshot, revoke sessions, evidence, forensics]
 aliases: [isolate azure vm, snapshot azure disk for forensics, revoke azure service principal, contain azure compromise, azure ir runbook, azure evidence collection]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Incident Response & Forensics
 
 Azure incidents usually start with a **compromised identity** (user, service principal or managed identity) and then move to **resources** (VMs, storage, Key Vault). Contain the identity first, then the resources, and preserve evidence before you rebuild anything. For the cloud-agnostic process, see [Concept: DFIR](../../fundamentals/concepts/digital-forensics.md).
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Almost every command here **changes state**. Agree containment with the incident lead before you run it, and record each action with a UTC timestamp.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Almost every command here **changes state**. Agree containment with the incident lead before you run it, and record each action with a UTC timestamp.
 
 ## 1. Contain the identity
 

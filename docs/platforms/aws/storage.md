@@ -7,15 +7,16 @@ category: Storage
 tags: [aws, s3, bucket policy, block public access, acl, presigned url, object lock, versioning, ebs snapshots]
 aliases: [public s3 bucket, s3 block public access, s3 bucket policy audit, who downloaded from s3, s3 object lock ransomware, public ebs snapshot]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Amazon S3 & Data Exposure
 
 S3 access is the union of **bucket policies**, **IAM policies**, **access points** and (legacy) **ACLs**, capped by **Block Public Access (BPA)** at account and bucket level. Since April 2023, new buckets have BPA on and ACLs disabled, but older buckets keep whatever they had.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Account-level Block Public Access
 

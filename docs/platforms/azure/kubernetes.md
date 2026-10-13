@@ -7,15 +7,16 @@ category: Containers
 tags: [azure, aks, kubernetes, kubectl, entra id, workload identity, kube-audit, container insights]
 aliases: [aks get credentials, aks local accounts disabled, aks audit logs kql, aks workload identity, aks api server authorized ip, aks cluster admin]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Kubernetes Service (AKS)
 
 AKS runs the Kubernetes control plane for you. Two permission layers apply: **Azure RBAC** on the cluster resource, which decides who can fetch credentials, and **Kubernetes RBAC** (or Azure RBAC for Kubernetes), which decides what they can do inside it. See [Concept: cloud-native security](../../fundamentals/concepts/cloud-native-security.md) for the general model.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Inventory and security settings
 

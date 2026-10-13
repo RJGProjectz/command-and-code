@@ -7,15 +7,16 @@ category: Inventory
 tags: [aws, organizations, organizational units, accounts, resource explorer, aws config, tags, inventory, regions]
 aliases: [list aws accounts, aws organization structure, aws resource explorer search, aws inventory all regions, what is running in this aws account, aws config advanced query]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS Organizations, Accounts & Inventory
 
 In AWS the **account** is the hard security boundary. **AWS Organizations** groups accounts into **organizational units (OUs)** under one **management account**, and **service control policies (SCPs)** applied to an OU limit every account below it. Most resources are also **regional**, so inventory means *every account × every region*.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Everything here is read-only except commands marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Everything here is read-only except commands marked **change**.
 
 ## 1. The hierarchy
 

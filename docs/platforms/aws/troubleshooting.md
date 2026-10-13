@@ -7,15 +7,16 @@ category: Troubleshooting
 tags: [aws, troubleshooting, accessdenied, decode authorization message, service quotas, ssm agent, reachability, throttling]
 aliases: [aws accessdenied explicit deny, decode-authorization-message, aws expiredtoken, ec2 instance not in ssm, cannot ssh to ec2, aws throttlingexception, aws service quota]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS Troubleshooting
 
 AWS errors usually fall into five groups: **wrong identity or expired session**, **a policy denies it**, **limits** (quotas, throttling), **network path**, and **inside the guest**. Read the error code first; it names the group.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. AccessDenied and authentication errors
 

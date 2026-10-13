@@ -7,15 +7,16 @@ category: Storage
 tags: [azure, storage account, blob, sas token, shared key, public access, immutable storage, soft delete]
 aliases: [azure public blob container, azure sas token audit, azure storage account keys, rotate storage key, azure storage anonymous access, storage account exfiltration]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Storage & Data Exposure
 
 A storage account holds blobs, files, queues and tables behind one endpoint (`https://<account>.blob.core.windows.net`). Data exposure usually comes from one of three settings: **anonymous blob access**, **shared key / SAS tokens** that bypass Entra ID, and **public network access**.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. Key rotation breaks every client still using the old key.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. Key rotation breaks every client still using the old key.
 
 ## 1. Inventory and risky settings
 

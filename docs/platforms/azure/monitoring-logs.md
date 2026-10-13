@@ -7,15 +7,16 @@ category: Logging
 tags: [azure, azure monitor, log analytics, kql, metrics, alerts, azure monitor agent, data collection rules]
 aliases: [run kql from cli, log analytics query powershell, azure monitor agent, data collection rule, azure metrics cli, azure alert rule]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Monitor & Log Analytics Queries
 
 Azure Monitor collects **metrics** (numbers every minute) and **logs** (records in a Log Analytics workspace, queried with KQL). Microsoft Sentinel runs on the same workspace, so a query that works here also works as a Sentinel analytics rule. See the [KQL section](../../detection/kql/index.md) for the language itself.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Find the workspaces
 

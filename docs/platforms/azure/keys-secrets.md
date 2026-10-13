@@ -7,7 +7,8 @@ category: Secrets
 tags: [azure, key vault, secrets, keys, certificates, access policy, rbac, soft delete, purge protection]
 aliases: [azure key vault access policy vs rbac, who read key vault secret, rotate key vault secret, key vault purge protection, key vault firewall, list key vault secrets]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Key Vault (Keys, Secrets & Certificates)
@@ -19,8 +20,8 @@ Key Vault stores **secrets** (passwords, connection strings), **keys** (RSA/EC, 
 | **Azure RBAC** (`enableRbacAuthorization: true`) | Principals with a data-plane role (Key Vault Secrets User, Secrets Officer, Administrator) | Yes |
 | **Vault access policy** (legacy) | Principals listed in the vault's access policies. Anyone with **Contributor** on the vault can add themselves. | No; migrate |
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**. Never print secret values into terminals that are logged or recorded.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**. Never print secret values into terminals that are logged or recorded.
 
 ## 1. Inventory and settings
 

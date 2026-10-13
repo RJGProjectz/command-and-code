@@ -7,15 +7,16 @@ category: Identity
 tags: [aws, iam, roles, policies, access keys, access analyzer, permission boundary, root account, mfa]
 aliases: [aws iam audit, who has administratoraccess, aws old access keys, aws credential report, iam access analyzer, aws root account mfa, aws trust policy]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # AWS Identity & Access (IAM)
 
 An IAM request is allowed only if some policy **allows** it and nothing **denies** it. The evaluation layers are: SCP/RCP (Organizations) → resource policy → permission boundary → session policy → identity policy. An explicit `Deny` anywhere wins. Principals are **IAM users** (long-term keys; avoid), **roles** (assumed, temporary credentials) and the account **root user**.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Root user
 

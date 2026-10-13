@@ -7,15 +7,16 @@ category: Networking
 tags: [azure, vnet, nsg, network security group, flow logs, azure firewall, public ip, private endpoint, network watcher]
 aliases: [azure nsg rules, azure effective security rules, azure open ports internet, azure vnet flow logs, azure public ip list, azure ip flow verify]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Azure Networking (VNets, NSGs, Flow Logs, Firewall)
 
 Traffic to an Azure VM passes, in order: the **subnet NSG**, then the **NIC NSG** (inbound; the order reverses outbound). Routing is set by **user-defined routes**, often through **Azure Firewall** or a third-party appliance. Network Watcher tools tell you which rule allowed or blocked a flow without guessing.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from Microsoft documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the Azure CLI reference and Microsoft Learn (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Inventory
 

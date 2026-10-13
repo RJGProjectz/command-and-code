@@ -7,15 +7,16 @@ category: Containers
 tags: [aws, eks, kubernetes, kubectl, access entries, irsa, pod identity, eks audit logs, aws-auth]
 aliases: [eks update-kubeconfig, eks access entries, eks aws-auth configmap, eks irsa, eks pod identity, eks audit log query, eks public endpoint]
 difficulty: advanced
-verified: false
+verified: true
+last_verified: 2026-10-12
 ---
 
 # Amazon Elastic Kubernetes Service (EKS)
 
 EKS runs the Kubernetes control plane. **IAM** decides who can authenticate to the cluster. **Access entries** (or the legacy `aws-auth` ConfigMap) map IAM principals to Kubernetes identities, and **Kubernetes RBAC** decides what those identities can do. Pods get AWS permissions through **IRSA** or **EKS Pod Identity**. See [Concept: cloud-native security](../../fundamentals/concepts/cloud-native-security.md) for the model.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Written from AWS documentation and not yet lab-tested in this repo. Commands that change state are marked **change**.
+!!! warning "Before you run anything"
+    Every command was checked against the AWS CLI reference and AWS API definitions (2026-10-12); this guide does not run them against a live tenant. Commands that change state are marked **change**.
 
 ## 1. Inventory and security settings
 
