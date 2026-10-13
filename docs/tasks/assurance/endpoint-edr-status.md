@@ -23,7 +23,7 @@ tags:
 
 Inspects local service execution, driver loading, and cloud heartbeat telemetry for endpoint detection agents (Microsoft Defender, SentinelOne).
 
-**Why:** an EDR agent that is installed but stopped, unlicensed, in passive mode or out of date gives no protection while the console may still list the device. Attackers stop or tamper with agents early ([T1562.001](https://attack.mitre.org/techniques/T1562/001/)). **Run as:** local administrator; read-only.
+**Why:** an EDR agent that is installed but stopped, unlicensed, in passive mode or out of date gives no protection while the console may still list the device. Attackers stop or tamper with agents early ([T1685](https://attack.mitre.org/techniques/T1685/), formerly T1562.001). **Run as:** local administrator; read-only.
 
 ## Windows — Microsoft Defender Antivirus and Defender for Endpoint
 

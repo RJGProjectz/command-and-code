@@ -40,7 +40,7 @@ Common techniques:
 ## Detection Logic
 
 - **Log Source**: `EventCode=4104` (PowerShell Script Block Logging, `Microsoft-Windows-PowerShell/Operational`)
-- **ATT&CK Technique**: [T1562.001 - Impair Defenses: Disable or Modify Tools](https://attack.mitre.org/techniques/T1562/001/)
+- **ATT&CK Technique**: [T1685 - Disable or Modify Tools](https://attack.mitre.org/techniques/T1685/) (formerly T1562.001)
 
 ```spl
 index=win_logs EventCode=4104
@@ -80,7 +80,7 @@ Script block logging must be on: Group Policy *Administrative Templates → Wind
 
 ## Test it
 
-Atomic Red Team [T1562.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1562.001/T1562.001.md) includes *AMSI Bypass - AMSI InitFailed*. Run it in a lab only; it disables AMSI for that PowerShell session.
+Atomic Red Team [T1685](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1685/T1685.md) includes *AMSI Bypass - AMSI InitFailed*. Run it in a lab only; it disables AMSI for that PowerShell session.
 
 ## Related
 
@@ -92,4 +92,4 @@ Atomic Red Team [T1562.001](https://github.com/redcanaryco/atomic-red-team/blob/
 
 - [Microsoft Learn — Antimalware Scan Interface (AMSI)](https://learn.microsoft.com/windows/win32/amsi/antimalware-scan-interface-portal)
 - [Microsoft Learn — about_Logging_Windows (script block logging)](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_logging_windows)
-- [MITRE ATT&CK T1562.001](https://attack.mitre.org/techniques/T1562/001/)
+- [MITRE ATT&CK T1685 (formerly T1562.001)](https://attack.mitre.org/techniques/T1685/)

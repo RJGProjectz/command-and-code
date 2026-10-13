@@ -22,7 +22,7 @@ tags:
 
 Mandatory Access Control (MAC) enforces fine-grained confinement over processes, restricting file and network access even if root privileges are compromised.
 
-**Why it matters:** with MAC enforcing, a compromised web server process can only touch the files and ports its policy allows, even when the attacker gets code execution. Turning it off "to make the app work" removes that layer, so fix the policy instead. Attackers also disable it after gaining root ([T1562.001](https://attack.mitre.org/techniques/T1562/001/)), so its state is worth checking during triage.
+**Why it matters:** with MAC enforcing, a compromised web server process can only touch the files and ports its policy allows, even when the attacker gets code execution. Turning it off "to make the app work" removes that layer, so fix the policy instead. Attackers also disable it after gaining root ([T1685](https://attack.mitre.org/techniques/T1685/), formerly T1562.001), so its state is worth checking during triage.
 
 | | SELinux | AppArmor |
 | --- | --- | --- |
