@@ -22,12 +22,15 @@ Evidence preservation and artifact analysis: exports, hashes, hives, snapshots, 
 | [AWS Incident Response & Forensics](../../platforms/aws/incident-response.md) | Entry | AWS | Bash | Incident Response, Forensics, Investigation |
 | [Azure Audit Logging (Activity Log & Diagnostic Settings)](../../platforms/azure/audit-logging.md) | Entry | Azure, Entra ID | Bash, PowerShell, KQL | Investigation, Incident Response, Forensics, Hardening |
 | [Azure Incident Response & Forensics](../../platforms/azure/incident-response.md) | Entry | Azure, Entra ID | Bash, PowerShell, KQL | Incident Response, Forensics, Investigation |
+| [Compare Files, Folders and Hashes](../administration/compare-files-and-folders.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Investigation, Forensics |
+| [Create and Extract Archives (zip, tar)](../administration/create-and-extract-archives.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Investigation, Forensics |
 | [Finding Files & Content Discovery](../administration/file-search-discovery.md) | Entry | Linux, Windows, Windows Server | Bash, PowerShell, CMD | Administration, Investigation, Forensics |
 | [Fundamentals — Virtual Memory, Paging, Stack & Heap](../../fundamentals/systems/memory-internals.md) | Entry | Windows, Linux | PowerShell, Bash | Forensics, Investigation |
 | [Fundamentals — Windows Process Architecture, Tokens & Handles](../../fundamentals/systems/windows-processes.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Investigation, Forensics |
 | [Google Cloud Audit Logs](../../platforms/gcp/audit-logging.md) | Entry | GCP | Bash | Investigation, Incident Response, Forensics, Hardening |
 | [Google Cloud Incident Response & Forensics](../../platforms/gcp/incident-response.md) | Entry | GCP | Bash | Incident Response, Forensics, Investigation |
 | [Hyper-V](../../platforms/virtualization/hyper-v.md) | Entry | Hyper-V, Windows Server | PowerShell | Administration, Incident Response, Forensics |
+| [Identify File Types (Not by Extension)](../administration/identify-file-types.md) | Entry | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Investigation, Forensics |
 | [Linux Audit Daemon (auditd) & Kernel Telemetry](../../platforms/linux/auditd.md) | Entry | Linux | Bash | Forensics, Detection Engineering |
 | [Linux Filesystem](../../platforms/linux/filesystem.md) | Entry | Linux | Bash | Incident Response, Investigation, Forensics, Troubleshooting |
 | [Linux Installed Packages](../../platforms/linux/packages.md) | Entry | Linux | Bash | Investigation, Administration, Forensics |

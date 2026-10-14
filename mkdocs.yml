@@ -354,6 +354,11 @@ nav:
           - Disk Capacity Audit: tasks/administration/disk-space-audit.md
           - Temporary File Purging: tasks/administration/temp-file-cleanup.md
           - Finding Files & Content: tasks/administration/file-search-discovery.md
+          - Identify File Types: tasks/administration/identify-file-types.md
+          - Search & Follow Logs by Keyword: tasks/administration/search-logs-by-keyword.md
+          - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
+          - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
+          - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
           - Remote File Transfer (SCP/rsync): tasks/administration/remote-file-transfer.md
           - SSH Key Deployment & Best Practices: tasks/administration/ssh-key-deployment.md
           - WireGuard Secure VPN Gateway Deployment: tasks/administration/wireguard-vpn-deployment.md

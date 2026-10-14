@@ -14,7 +14,7 @@ tasks:
   - Investigation
   - Forensics
 verified: true
-last_verified: 2026-10-06
+last_verified: 2026-10-13
 difficulty: basic
 tags:
   - search
@@ -120,8 +120,9 @@ Get-ChildItem -Path "C:\Users" -File -Recurse -ErrorAction SilentlyContinue |
 
 ### Search File Contents (`Select-String`)
 ```powershell
-# Search recursively for IP addresses or tokens inside files
-Select-String -Path "C:\inetpub\logs\*.log" -Pattern "401\.1|403\.1" -SimpleMatch |
+# Search every IIS log under the folder tree for 401.1 / 403.1 responses (regex: no -SimpleMatch)
+Get-ChildItem -Path "C:\inetpub\logs" -Filter "*.log" -Recurse -File -ErrorAction SilentlyContinue |
+    Select-String -Pattern "401\.1|403\.1" |
     Select-Object -First 20 Path, LineNumber, Line
 
 # Case-insensitive regex search with context lines
@@ -161,5 +162,18 @@ REM Search with exact line numbers
 findstr /s /n /i "SELECT" C:\inetpub\wwwroot\*.asp
 ```
 
-REM Locate executable in system PATH
+### Locate a Program (`where`)
+```cmd
+REM Every svchost.exe under C:\Windows (/R = recursive from that folder)
 where /R C:\Windows svchost.exe
+```
+
+---
+
+## Related
+
+- [Identify file types (not by extension)](identify-file-types.md)
+- [Search and follow logs by keyword](search-logs-by-keyword.md)
+- [Compare files, folders and hashes](compare-files-and-folders.md)
+- [Write command output to files](save-command-output-to-file.md)
+- [Create and extract archives](create-and-extract-archives.md)
