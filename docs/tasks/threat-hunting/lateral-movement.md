@@ -42,6 +42,16 @@ DeviceProcessEvents
 | where FileName in~ ("cmd.exe", "powershell.exe", "pwsh.exe", "rundll32.exe")
 | project Timestamp, DeviceName, AccountName, InitiatingProcessFileName, ProcessCommandLine
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+Timestamp             DeviceName   AccountName  InitiatingProcessFileName  ProcessCommandLine
+2026-10-12T14:02:11Z  srv-file01   svc-backup   wmiprvse.exe               cmd.exe /Q /c whoami 1> \\127.0.0.1\ADMIN$\__1760277731.33 2>&1
+2026-10-12T14:05:40Z  srv-app02    j.doe        wsmprovhost.exe            powershell.exe -NoProfile -Command Get-Process
+```
+
+The first row is the Impacket `wmiexec` pattern (output redirected to `ADMIN$\__<timestamp>`): treat it as an
+incident. The second is a PowerShell remoting session: check whether that admin was working on that server.
 
 ## 3. Services and tasks created right after network logons
 

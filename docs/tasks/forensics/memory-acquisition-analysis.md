@@ -99,6 +99,21 @@ python3 vol.py -f win10_physical_memory.raw windows.cmdline
 python3 vol.py -f win10_physical_memory.raw windows.hashdump
 python3 vol.py -f win10_physical_memory.raw windows.lsass
 ```
+Example `windows.pslist` output (illustrative values; Volatility 3 column layout):
+
+```text
+Volatility 3 Framework 2.x
+Progress:  100.00               PDB scanning finished
+
+PID   PPID  ImageFileName  Offset(V)       Threads  Handles  SessionId  Wow64  CreateTime                ExitTime  File output
+4     0     System         0xa7891d06d040  158      -        N/A        False  2026-10-12 08:01:12.000000  N/A       Disabled
+724   612   lsass.exe      0xa7892154f080  9        -        0          False  2026-10-12 08:01:19.000000  N/A       Disabled
+5116  4280  WINWORD.EXE    0xa78923d1a300  21       -        1          False  2026-10-12 09:30:55.000000  N/A       Disabled
+7840  5116  powershell.exe 0xa789240cb080  12       -        1          False  2026-10-12 09:31:47.000000  N/A       Disabled
+```
+
+Read PID/PPID pairs: `powershell.exe` with Word as its parent is the lead. Compare `pslist` with `psscan`: a process
+that only `psscan` finds was unlinked from the process list.
 
 ### Linux Volatility 3 Analysis
 

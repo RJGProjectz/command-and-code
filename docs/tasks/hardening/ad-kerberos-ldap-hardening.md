@@ -11,7 +11,7 @@ tasks:
   - Administration
   - Assurance
 verified: true
-last_verified: 2026-10-06
+last_verified: 2026-10-13
 difficulty: intermediate
 tags:
   - active-directory
@@ -128,15 +128,32 @@ Eliminate `RC4_HMAC_MD5` across Kerberos ticket exchanges, enforcing `AES128-CTS
 # Audit all user accounts with SPNs that still permit RC4
 Get-ADUser -Filter {ServicePrincipalNames -like "*"} -Properties ServicePrincipalNames, msDS-SupportedEncryptionTypes |
     Select-Object Name, msDS-SupportedEncryptionTypes, @{N='Encryption';E={
-        switch ($_.('msDS-SupportedEncryptionTypes')) {
-            0  { "Default (RC4 Allowed)" }
-            4  { "RC4 Only" }
-            16 { "AES256 Only" }
-            24 { "AES128 & AES256" }
-            default { $_.('msDS-SupportedEncryptionTypes') }
+        $etypes = $_.'msDS-SupportedEncryptionTypes'
+        if ($null -eq $etypes) { 'Not set (domain default, RC4 allowed)' }
+        else {
+            switch ($etypes) {
+                0  { 'Default (RC4 Allowed)' }
+                4  { 'RC4 Only' }
+                16 { 'AES256 Only' }
+                24 { 'AES128 & AES256' }
+                default { 'Other: 0x{0:X}' -f $etypes }   # inside switch, $_ is the value itself
+            }
         }
     }} | Format-Table -AutoSize
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+Name        msDS-SupportedEncryptionTypes Encryption
+----        ----------------------------- ----------
+svc-sql                                   Not set (domain default, RC4 allowed)
+svc-backup                              4 RC4 Only
+svc-web                                28 Other: 0x1C
+svc-sccm                               24 AES128 & AES256
+```
+
+Every row except the last still accepts RC4 (`0x1C` = RC4 + AES128 + AES256), so those accounts are Kerberoastable
+with fast-to-crack tickets. Fix them with the next block, then reset each password so AES keys exist.
 
 ### Configure Accounts to Require AES Encryption
 ```powershell

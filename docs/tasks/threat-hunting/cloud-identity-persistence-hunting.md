@@ -58,6 +58,16 @@ CloudAppEvents
 | project Timestamp, ActionType, TargetAppName, InitiatorUser, IP, RawEventData
 | order by Timestamp desc
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+Timestamp             ActionType                             TargetAppName        InitiatorUser          IP
+2026-10-12T22:41:09Z  Add service principal credentials.     Payroll-Sync         helpdesk2@contoso.com  198.51.100.23
+2026-10-01T09:12:33Z  Update service principal credentials.  CI-Deploy-Pipeline   platform-admin@...     10.20.4.11
+```
+
+A credential added to a business app by a help-desk account, from an external IP, at night, is the finding. Planned
+rotations come from known admins and change-tickets.
 
 ### Microsoft Sentinel / Defender (KQL): Illicit OAuth Consent Grants
 

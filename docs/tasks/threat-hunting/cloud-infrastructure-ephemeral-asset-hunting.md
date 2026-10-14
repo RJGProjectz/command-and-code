@@ -172,6 +172,16 @@ VM_Creations
 | project ResourceId, Caller, DeletingCaller, CreationTime, DeletionTime, LifespanHours, ResourceGroup
 | sort by LifespanHours asc
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+ResourceId                                         Caller            DeletingCaller    CreationTime          DeletionTime          LifespanHours
+/subscriptions/.../virtualmachines/tmp-build-7731  j.doe@contoso.com j.doe@contoso.com 2026-10-12T02:10:04Z  2026-10-12T02:58:41Z  0
+/subscriptions/.../virtualmachines/ci-agent-551    ci-pipeline (SP)  ci-pipeline (SP)  2026-10-11T13:00:12Z  2026-10-11T15:02:40Z  2
+```
+
+Build agents created and deleted by the CI service principal are expected; a VM a user created and deleted within an
+hour at 02:00 is not. `datetime_diff` returns whole hours, so 0 means under an hour.
 
 ---
 

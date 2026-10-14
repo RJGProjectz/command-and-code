@@ -167,6 +167,16 @@ if __name__ == "__main__":
     for r in results:
         print(f"  [{r['type'].upper():<6}] {r['defanged']:<35} Score: {r['confidence']} | TTL: {r['ttl_days']}d")
 ```
+Output of the built-in sample (run locally with Python 3.11):
+
+```text
+Extracted 2 indicators:
+  [SHA256] 2c5a2c4e2b0c39f0d19e9188e404be12f00a29ef19a86a60e0a4f5b248a31e89 Score: 90 | TTL: 180d
+  [DOMAIN] evil-updates-cloud[.]example[.]com  Score: 70 | TTL: 30d
+```
+
+The two sample IPs are missing on purpose: `198.51.100.0/24` is a reserved documentation range (RFC 5737), and
+Python's `ipaddress` reports it as private, so the filter drops it. A real public IP such as a VPS address is kept.
 
 ---
 

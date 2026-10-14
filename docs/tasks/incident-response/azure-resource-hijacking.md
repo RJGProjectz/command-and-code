@@ -11,7 +11,7 @@ tasks:
   - Incident Response
   - Investigation
 verified: true
-last_verified: 2026-10-06
+last_verified: 2026-10-13
 difficulty: intermediate
 tags:
   - playbook
@@ -40,12 +40,22 @@ Standardized operational playbook to detect, scope, and eradicate unauthorized c
 
 ```kql
 AzureActivity
-| where OperationNameValue == "MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE"
-| where ActivityStatusValue == "Succeeded"
+| where OperationNameValue =~ "MICROSOFT.COMPUTE/VIRTUALMACHINES/WRITE"
+| where ActivityStatusValue in~ ("Succeeded", "Success")
 | extend VM_Size = tostring(parse_json(Properties).requestbody.properties.hardwareProfile.vmSize)
 | project TimeGenerated, Caller, ResourceGroup, VM_Size, Location, SubscriptionId
 | order by TimeGenerated desc
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+TimeGenerated         Caller                 ResourceGroup  VM_Size                  Location
+2026-10-12T03:17:52Z  ci-deploy@contoso.com  rg-gpu-tmp     Standard_NC24ads_A100_v4 eastus2
+2026-10-12T03:18:05Z  ci-deploy@contoso.com  rg-gpu-tmp     Standard_NC24ads_A100_v4 westus3
+```
+
+GPU sizes, a new resource group and several regions within seconds from one identity is the mining pattern.
+`ActivityStatusValue` appears as `Succeeded` or `Success` depending on the log path, so the query accepts both.
 
 ### Azure Metrics — Compute Spike Identification
 

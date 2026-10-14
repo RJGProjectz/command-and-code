@@ -56,6 +56,17 @@ AADServicePrincipalSignInLogs
 | project TimeGenerated, ServicePrincipalName, IPAddress, Location, ResourceDisplayName
 | summarize RequestCount = count() by IPAddress, Location, bin(TimeGenerated, 1h)
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+IPAddress      Location  TimeGenerated         RequestCount
+20.42.65.91    US        2026-10-12T00:00:00Z  118
+20.42.65.91    US        2026-10-12T01:00:00Z  121
+185.220.101.4  DE        2026-10-12T02:00:00Z  2417
+```
+
+A steady hourly count from the workload's usual cloud IP, then a burst from a new IP and country, is the stolen secret
+being used. That IP and hour are the starting point for the audit-log review.
 
 ---
 

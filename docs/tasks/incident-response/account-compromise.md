@@ -40,6 +40,16 @@ SigninLogs
 | where IPAddress in ("<TARGET_IP>")
 | summarize Users = make_set(UserPrincipalName), Results = make_set(ResultType) by IPAddress
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+IPAddress     Users                                                     Results
+------------  --------------------------------------------------------  ------------------------
+203.0.113.45  ["j.doe@contoso.com","a.lee@contoso.com","m.ito@...", ...]  ["50126","50053","0"]
+```
+
+Many users from one IP with `50126` (invalid password) and `50053` (locked) is a spray; a `0` (success) in the same
+set is the account to contain first.
 
 ## 4. Review devices and sessions
 

@@ -28,6 +28,16 @@ Record host, user, time, PID and the **full command line** from the alert. If th
 Get-CimInstance Win32_Process -Filter "Name = 'powershell.exe' OR Name = 'pwsh.exe'" |
     Select-Object ProcessId, ParentProcessId, CreationDate, CommandLine
 ```
+Example output (format captured on a lab workstation; names and addresses changed):
+
+```text
+ProcessId ParentProcessId CreationDate           CommandLine
+--------- --------------- ------------           -----------
+     6212             932 2026-10-12 9:14:03 AM  "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe"
+     7840            5116 2026-10-12 9:31:47 AM  powershell.exe -nop -w hidden -enc SQBFAFgAIAAoAE4AZQB3AC0ATwBi...
+```
+
+The second row is the one to chase: hidden window plus an encoded command. Look up its parent (`5116`) next.
 
 → [Find processes by name with command line](../../platforms/windows/processes.md#find-processes-by-name-with-command-line)
 

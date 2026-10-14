@@ -108,6 +108,20 @@ Test whether the target service TCP port is accessible through network firewalls
 Test-NetConnection -ComputerName '<TARGET_HOST>' -Port 443
 ```
 
+Example output (format captured on a lab workstation; names and addresses changed):
+
+```text
+ComputerName     : <TARGET_HOST>
+RemoteAddress    : 10.20.30.40
+RemotePort       : 443
+InterfaceAlias   : Ethernet
+SourceAddress    : 10.20.1.15
+TcpTestSucceeded : True
+```
+
+`TcpTestSucceeded : False` with a `TCP connect ... failed` warning means nothing answered on that port: a firewall,
+or no service listening. `RemoteAddress` tells you which IP DNS actually gave you.
+
 <div class="cc-branch-group">
 <button type="button" class="cc-branch-btn cc-branch-btn--success" data-next="step-app-layer">✓ TcpTestSucceeded : True</button>
 <button type="button" class="cc-branch-btn cc-branch-btn--danger" data-next="step-port-blocked">✗ TcpTestSucceeded : False</button>

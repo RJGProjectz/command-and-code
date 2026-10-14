@@ -69,6 +69,17 @@ Get-VMSnapshot -VMName * |
     Select-Object VMName, Name, CreationTime, SnapshotType |
     Sort-Object CreationTime
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+VMName      Name                              CreationTime           SnapshotType
+------      ----                              ------------           ------------
+APP-SRV-01  Pre-Update-Checkpoint             2026-08-02 7:14:22 PM  Standard
+DB-SQL-02   DB-SQL-02 - (2026-10-11 - 22:00)  2026-10-11 10:00:41 PM Standard
+```
+
+Anything weeks old (the first row) is a forgotten checkpoint: its differencing disk keeps growing and slows the VM.
+Merge it with `Remove-VMSnapshot` once the change it protected is confirmed good.
 
 Remove a checkpoint to initiate automatic background AVHDX merge:
 

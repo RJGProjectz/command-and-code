@@ -24,6 +24,33 @@ Actions, arguments, triggers, principal (run-as account), author, creation date.
 schtasks /query /tn "\TaskName" /xml
 ```
 
+Example output (built-in `\Microsoft\Windows\Defrag\ScheduledDefrag`, captured locally, trimmed):
+
+```xml
+<Task version="1.6" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Author>$(@%systemroot%\system32\defragsvc.dll,-801)</Author>
+    <URI>\Microsoft\Windows\Defrag\ScheduledDefrag</URI>
+  </RegistrationInfo>
+  <Principals>
+    <Principal id="LocalSystem">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
+  ...
+  <Actions Context="LocalSystem">
+    <Exec>
+      <Command>%windir%\system32\defrag.exe</Command>
+      <Arguments>-c -h -o -$</Arguments>
+    </Exec>
+  </Actions>
+</Task>
+```
+
+Read `<UserId>` (S-1-5-18 = SYSTEM), `<RunLevel>`, and `<Command>` / `<Arguments>`. A built-in task has a resource-string
+author like the one above; a plain-text author, a user-writable command path or a script interpreter needs explaining.
+
 → [List tasks with their actions](../../platforms/windows/scheduled-tasks.md#list-tasks-with-their-actions) · [schtasks.exe](../../platforms/windows/scheduled-tasks.md#schtasksexe)
 
 ## 2. Assess the action

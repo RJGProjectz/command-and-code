@@ -12,7 +12,7 @@ tasks:
   - Assurance
   - Administration
 verified: true
-last_verified: 2026-10-08
+last_verified: 2026-10-13
 difficulty: advanced
 tags:
   - cis-benchmark
@@ -183,8 +183,23 @@ $Pref = Get-MpPreference
 # 2. Audit Credential Guard operational status
 $DG = Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\Microsoft\Windows\DeviceGuard
 [PSCustomObject]@{
-    VBS_Status              = switch ($DG.VirtualizationBasedSecurityStatus) { 0 { "Disabled" } 1 { "Enabled" } default { "Unknown" } }
+    VBS_Status              = switch ($DG.VirtualizationBasedSecurityStatus) { 0 { "Not enabled" } 1 { "Enabled, not running" } 2 { "Enabled and running" } default { "Unknown" } }
     SecurityServicesRunning = $DG.SecurityServicesRunning
     CredentialGuardRunning  = if ($DG.SecurityServicesRunning -contains 1) { "RUNNING" } else { "NOT RUNNING" }
 } | Format-List
 ```
+Example output (fully hardened lab host; format captured locally):
+
+```text
+ConfiguredASRRules : 16
+BlockModeCount     : 15
+AuditModeCount     : 1
+
+VBS_Status              : Enabled and running
+SecurityServicesRunning : {1, 2}
+CredentialGuardRunning  : RUNNING
+```
+
+`VirtualizationBasedSecurityStatus` is 0 (not enabled), 1 (enabled, not running) or 2 (running); in
+`SecurityServicesRunning`, 1 = Credential Guard and 2 = memory integrity (HVCI) ([Microsoft Learn](https://learn.microsoft.com/windows/security/hardware-security/enable-virtualization-based-protection-of-code-integrity)).
+A host with nothing configured shows `0`, `0`, `0` and `{0}`.

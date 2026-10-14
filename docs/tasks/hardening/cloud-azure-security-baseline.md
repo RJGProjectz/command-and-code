@@ -158,3 +158,12 @@ $legacyAuthPolicy = $policies | Where-Object {
 
 Write-Host "Found $($legacyAuthPolicy.Count) policy/policies targeting legacy authentication protocols." -ForegroundColor Cyan
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+Found 1 policy/policies targeting legacy authentication protocols.
+```
+
+`0` means no Conditional Access policy covers legacy protocols: IMAP/POP/SMTP basic auth bypasses MFA. For a found
+policy, also check `$legacyAuthPolicy | Select-Object DisplayName, State`: `enabledForReportingButNotEnforced` is
+report-only and blocks nothing.

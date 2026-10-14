@@ -16,7 +16,7 @@ tasks:
   - Investigation
   - Incident Response
 verified: true
-last_verified: 2026-10-07
+last_verified: 2026-10-13
 difficulty: advanced
 tags:
   - active-directory
@@ -54,20 +54,29 @@ When an Active Directory user account has the flag `Do not require Kerberos prea
 ### Splunk: Kerberoasting Anomaly Detection (Event ID 4769)
 
 ```spl
-index=wineventlog EventCode=4769 Ticket_Encryption_Type=0x17
-| eval Service_Name=lower(Service_Name)
-| search NOT Service_Name IN ("*$", "krbtgt")
-| stats dc(Service_Name) as distinct_spns values(Service_Name) as targeted_services count by src_ip, Target_User_Name
+index=wineventlog source="XmlWinEventLog:Security" EventCode=4769 TicketEncryptionType=0x17
+| eval ServiceName=lower(ServiceName)
+| search NOT ServiceName IN ("*$", "krbtgt")
+| stats dc(ServiceName) as distinct_spns values(ServiceName) as targeted_services count by IpAddress, TargetUserName
 | where distinct_spns > 3
 | sort - distinct_spns
 ```
+Example output (illustrative values — your rows will differ):
+
+```text
+IpAddress          TargetUserName        distinct_spns  targeted_services                         count
+::ffff:10.20.1.57  j.doe@CONTOSO.LOCAL   14             svc-backup svc-sql svc-sccm svc-web ...   14
+```
+
+One user requesting RC4 tickets for 14 different service accounts in the search window is Kerberoasting. Field
+names are the XML-rendered ones (`ServiceName` is the account the ticket is for).
 
 ### Splunk: AS-REP Roasting Detection (Event ID 4768)
 
 ```spl
-index=wineventlog EventCode=4768 Pre_Authentication_Type=0 Result_Code=0x0
-| search NOT Target_User_Name="*$"
-| stats count values(Client_Address) as src_ips by Target_User_Name
+index=wineventlog source="XmlWinEventLog:Security" EventCode=4768 PreAuthType=0 Status=0x0
+| search NOT TargetUserName="*$"
+| stats count values(IpAddress) as src_ips by TargetUserName
 | sort - count
 ```
 
