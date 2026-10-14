@@ -11,7 +11,8 @@ languages:
 tasks:
   - Detection Engineering
   - Investigation
-verified: false
+verified: true
+last_verified: 2026-10-13
 difficulty: intermediate
 tags:
   - wifi
@@ -28,8 +29,9 @@ tags:
 Three Wi-Fi detections from logs you already have: disconnect bursts on Windows clients (deauthentication attacks),
 WLAN-AutoConfig connection analysis (evil-twin downgrades), and new devices leasing addresses on the wireless subnet.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    The `Microsoft-Windows-WLAN-AutoConfig/Operational` channel is **not** collected by default by Windows Event
+!!! warning "Before you deploy"
+    Checked (2026-10-13) against Microsoft Learn (WLAN reason codes, `netsh wlan`, DHCP audit log format) and the
+    Sigma correlation specification; not run against a live WLAN. The `Microsoft-Windows-WLAN-AutoConfig/Operational` channel is **not** collected by default by Windows Event
     Forwarding, the Azure Monitor Agent or the Splunk UF — add it to your collection rule first. Field names inside
     the event (`SSID`, `Reason`, `AuthenticationAlgorithm`) vary by Windows build; check one raw event.
     Roaming, sleep and driver bugs also cause disconnects — thresholds are placeholders.
@@ -105,7 +107,7 @@ Event
 ```
 
 ```spl
-index=wineventlog source="WinEventLog:Microsoft-Windows-WLAN-AutoConfig/Operational" EventCode=8003
+index=wineventlog source="XmlWinEventLog:Microsoft-Windows-WLAN-AutoConfig/Operational" EventCode=8003
 | bin _time span=5m
 | stats count as disconnects dc(host) as hosts values(Reason) as reasons by _time, SSID
 | where disconnects >= 10 AND hosts >= 3
@@ -159,7 +161,8 @@ certificate leaves those.
 ## 3. Unknown device on the WLAN
 
 A cracked passphrase lets an attacker join as a new device. Compare every new DHCP lease on the wireless scope with
-your device inventory. Windows DHCP Server writes leases to `%windir%\System32\dhcp\DhcpSrvLog-*.log` (CSV; ID `10` = new lease).
+your device inventory. Windows DHCP Server writes leases to `%windir%\System32\dhcp\DhcpSrvLog-*.log` (CSV; ID `10` = new lease). Field
+names (`ip`, `mac`, `hostname`) depend on the add-on or parser that reads the file; check one event first.
 
 ```spl
 index=dhcp sourcetype=DhcpSrvLog ID=10 ip="10.20.*"
@@ -186,3 +189,20 @@ BYOD its own SSID and scope. Wireless controllers that log associations are a be
 1. Disconnect burst: walk the area or check the controller's wIPS for deauth frames; enable 802.11w (PMF).
 2. Evil twin: find the client's location, then the rogue AP (controller rogue list, or a survey tool).
 3. Unknown device: block the MAC on the controller, then rotate the passphrase — or move to 802.1X so a passphrase is not the only key.
+
+## Test it
+
+Atomic Red Team has no Wi-Fi tests. Safe checks on lab or test laptops:
+
+- **Disconnect burst:** on three laptops on the same SSID, run `netsh wlan disconnect` a few times within five
+  minutes; each run logs 8003 (reason: disconnected by the user), which exercises the correlation.
+- **Evil twin:** create a phone hotspot named like a *test* entry in your SSID list with WPA2-Personal and join it from
+  a lab laptop; 8001 shows `WPA2-Personal`. Never broadcast your real corporate SSID.
+- **Unknown device:** join the wireless scope with a device that is not in the inventory lookup.
+
+## Sources
+
+- [Microsoft Learn — WLAN_REASON_CODE](https://learn.microsoft.com/windows/win32/nativewifi/wlan-reason-code)
+- [Microsoft Learn — netsh wlan commands](https://learn.microsoft.com/windows-server/administration/windows-commands/netsh-wlan)
+- [Microsoft Learn — Analyze DHCP server log files](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd183591(v=ws.10))
+- [Sigma correlation rules specification](https://github.com/SigmaHQ/sigma-specification/blob/main/specification/sigma-correlation-rules-specification.md)

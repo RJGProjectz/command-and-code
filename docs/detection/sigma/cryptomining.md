@@ -12,7 +12,8 @@ languages:
 tasks:
   - Detection Engineering
   - Threat Hunting
-verified: false
+verified: true
+last_verified: 2026-10-13
 difficulty: basic
 tags:
   - cryptomining
@@ -27,8 +28,9 @@ tags:
 Detects coin miners on endpoints and servers: miner command-line options, Stratum pool URLs, and connections to common
 pool ports. XMRig (Monero) is by far the most common miner used by attackers, so most patterns target it.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Pool ports are conventions, not rules; attackers often tunnel Stratum over 443 or use a proxy. Treat the network
+!!! warning "Before you deploy"
+    Option names were checked (2026-10-13) against the XMRig command-line documentation and the KQL columns against
+    Microsoft Learn; not run against live miners. Pool ports are conventions, not rules; attackers often tunnel Stratum over 443 or use a proxy. Treat the network
     query as a hunt and the command-line rule as the alert. Sustained high CPU on a server with no workload change is
     the oldest and still useful signal.
 
@@ -106,3 +108,19 @@ index=sysmon EventCode=1
 1. Find how it arrived: parent process, scheduled tasks, cron, services, and the initial access (exposed service, stolen cloud key).
 2. Miners are often the visible payload of a broader compromise — check for persistence and credential theft before cleaning up.
 3. In cloud, check for unexpected GPU/compute instances and the API key that created them.
+
+## Test it
+
+Atomic Red Team [T1496](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1496/T1496.md) has
+*Windows - Simulate CPU Load with PowerShell* and *FreeBSD/macOS/Linux - Simulate CPU Load with Yes* for the CPU
+signal. They start no miner, so test the command-line rule with a harmless process that carries the same strings:
+
+```powershell
+cmd.exe /c "echo stratum+tcp://pool.invalid:3333 --donate-level 1"
+```
+
+## Sources
+
+- [XMRig — command line options](https://xmrig.com/docs/miner/command-line-options)
+- [Microsoft Learn — DeviceProcessEvents](https://learn.microsoft.com/defender-xdr/advanced-hunting-deviceprocessevents-table)
+- [MITRE ATT&CK T1496](https://attack.mitre.org/techniques/T1496/)

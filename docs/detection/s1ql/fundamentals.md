@@ -7,13 +7,15 @@ category: Query Language
 tags: [s1ql, sentinelone, deep visibility, powerquery, event search, singularity data lake]
 aliases: [sentinelone query, deep visibility query syntax, powerquery, s1 query language, contains anycase]
 difficulty: basic
-verified: false
+verified: true
+last_verified: 2026-10-13
 ---
 
 # S1QL Fundamentals
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Syntax shown is **S1QL 2.0 with PowerQuery pipes**, as used in the Singularity Data Lake / Event Search experience. Older consoles use **S1QL 1.0** with different field names (e.g. `SrcProcName`, `TgtProcCmdLine`) and operators (`ContainsCIS`). Field availability depends on console version, license and agent OS. Test every query in your console and confirm field names with its autocomplete.
+!!! warning "Before you deploy"
+    Checked (2026-10-13) against SentinelOne's published PowerQuery reference and Deep Visibility event field
+    names; not run in a live console. Syntax shown is **S1QL 2.0 with PowerQuery pipes**, as used in the Singularity Data Lake / Event Search experience. Older consoles use **S1QL 1.0** with different field names (e.g. `SrcProcName`, `TgtProcCmdLine`) and operators (`ContainsCIS`). Field availability depends on console version, license and agent OS. Test every query in your console and confirm field names with its autocomplete.
 
 ## Query structure
 
@@ -28,12 +30,12 @@ The filter selects events; pipe commands (PowerQuery) aggregate and shape them.
 | Operator | Example |
 | --- | --- |
 | `=` / `!=` | `src.process.name = 'powershell.exe'` |
-| `contains` | `tgt.file.path contains '\\Temp\\'` |
-| `contains:anycase` | `src.process.cmdline contains:anycase 'downloadstring'` |
+| `contains` | `tgt.file.path contains '\\Temp\\'` — case-insensitive by default |
+| `contains:anycase` | `src.process.cmdline contains:anycase 'downloadstring'` — explicit 2.0 form of 1.0 `ContainsCIS` |
 | `contains (a, b)` | `src.process.cmdline contains:anycase ('-enc', '-encodedcommand')` — any of |
-| `in` / `in:anycase` | `src.process.name in ('powershell.exe', 'pwsh.exe')` |
+| `in` / `in:anycase` | `src.process.name in:anycase ('powershell.exe', 'pwsh.exe')` — plain `in` is case-sensitive |
 | `matches` | `src.process.cmdline matches '(?i)\\s-e[a-z]*\\s'` — regex |
-| `and`, `or`, `not` / `!( )` | boolean logic |
+| `and`, `or`, `not ( )` / `!( )` | boolean logic; always parenthesise a negated test: `!(src.process.name contains 'svchost')` |
 
 ## Core fields
 
@@ -47,7 +49,7 @@ The filter selects events; pipe commands (PowerQuery) aggregate and shape them.
 | File | `tgt.file.path`, `tgt.file.sha256`, `tgt.file.extension` |
 | Network | `src.ip.address`, `dst.ip.address`, `dst.port.number`, `event.network.direction` |
 | DNS | `event.dns.request`, `event.dns.response` |
-| Registry | `registry.keyPath`, `registry.value` |
+| Registry | `registry.keyPath`, `registry.valueName`, `registry.value` |
 | Scheduled task | `task.name`, `task.path` |
 | Login | `event.login.userName`, `event.login.loginIsSuccessful`, `event.login.type` |
 
@@ -55,7 +57,9 @@ In **Process Creation** events, `src.process` is the parent that created the pro
 
 ## Common event types
 
-`Process Creation`, `IP Connect`, `IP Listen`, `DNS Resolved`, `File Creation`, `File Modification`, `Registry Value Modified`, `Task Register`, `Login`.
+`Process Creation`, `IP Connect`, `DNS Resolved`, `File Creation`, `File Modification`, `File Deletion`, `File Rename`, `Registry Value Modified`, `Registry Key Create`, `Module Load`, `Task Register`, `Task Start`, `Login`, `Logout`.
+
+A negation without parentheses (`!src.process.name contains 'x'`) is not an error: it silently returns nothing.
 
 ## PowerQuery pipe commands
 
@@ -87,6 +91,11 @@ src.process.storyline.id = 'STORYLINE_ID'
 | sort event.time
 ```
 
+## Test it
+
+Run any Atomic Red Team PowerShell test on a lab endpoint, for example [T1059.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1059.001/T1059.001.md) *PowerShell Command Execution*,
+then run the example query above: the endpoint's count goes up and the storyline pivot shows the test's child processes.
+
 ## Related
 
 - [S1QL hunting queries](hunting.md)
@@ -95,4 +104,6 @@ src.process.storyline.id = 'STORYLINE_ID'
 ## Sources
 
 - SentinelOne console: *Help → Query Language* and the in-console field autocomplete (authoritative for your version)
+- [SentinelOne — PowerQuery syntax and operators (Sentinel-One/ai-siem)](https://github.com/Sentinel-One/ai-siem/blob/main/plugins/s1-secops-skills/skills/powerquery/references/syntax-and-operators.md)
+- [SentinelOne — PowerQuery fields and schema (Sentinel-One/ai-siem)](https://github.com/Sentinel-One/ai-siem/blob/main/plugins/s1-secops-skills/skills/powerquery/references/fields-and-schema.md)
 - [SentinelOne: PowerQuery brings new data analytics capabilities](https://www.sentinelone.com/blog/powerquery-brings-new-data-analytics-capabilities-to-singularity-xdr/)

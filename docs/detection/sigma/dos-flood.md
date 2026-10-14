@@ -11,7 +11,8 @@ languages:
 tasks:
   - Detection Engineering
   - Incident Response
-verified: false
+verified: true
+last_verified: 2026-10-13
 difficulty: intermediate
 tags:
   - dos
@@ -28,7 +29,9 @@ Detects a volumetric flood against one destination: a jump in connections per mi
 (DDoS) or one source at very high rate (DoS). Firewall or flow logs are the source; endpoints usually fall over
 before they log anything useful.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
+!!! warning "Before you deploy"
+    Checked (2026-10-13) against the Sigma correlation specification, the SigmaHQ firewall field names, Microsoft
+    Learn (`CommonSecurityLog`, Azure DDoS Protection logs) and the Splunk CIM; not run against live traffic.
     Thresholds are placeholders. Baseline your busiest public service first and set the threshold well above its
     normal peak. Field names follow CEF (`CommonSecurityLog`) and the Splunk CIM `Network_Traffic` data model.
 
@@ -51,11 +54,14 @@ logsource:
   category: firewall
 detection:
   selection:
-    action:
+    action:     # vendors log different words; list the ones your firewall uses
       - allow
+      - allowed
       - accept
       - deny
+      - denied
       - drop
+      - blocked
   condition: selection
 level: informational
 ---
@@ -114,6 +120,9 @@ AzureDiagnostics
 | project TimeGenerated, Resource, type_s, Message
 ```
 
+`type_s` is the notification type (`MitigationStarted`, `MitigationStopped`); `DDoSMitigationReports` holds the
+attack vectors and top sources once mitigation starts.
+
 ## SPL
 
 ```spl
@@ -131,3 +140,22 @@ AzureDiagnostics
 1. Is the service actually degraded? Check health probes and response times before escalating.
 2. `single/few sources` — block or rate-limit at the edge. `distributed` — engage the upstream provider / DDoS service.
 3. Follow [Network Investigation](../../tasks/investigation/network-investigation.md) for the top talkers and protocol mix (SYN, UDP, HTTP).
+
+## Test it
+
+Atomic Red Team has no test for [T1498](https://attack.mitre.org/techniques/T1498/) or
+[T1499](https://attack.mitre.org/techniques/T1499/): flooding is not safe to automate. Test the pipeline instead:
+copy the rule with the threshold lowered to 100, then send 200 requests from one lab host to a lab web server you own.
+
+```bash
+for i in $(seq 1 200); do curl -s -o /dev/null "http://<LAB_WEB_SERVER>/"; done
+```
+
+For Azure resources, Microsoft supports real attack simulations only through its approved simulation partners.
+
+## Sources
+
+- [Sigma correlation rules specification](https://github.com/SigmaHQ/sigma-specification/blob/main/specification/sigma-correlation-rules-specification.md)
+- [Microsoft Learn — View Azure DDoS Protection logs](https://learn.microsoft.com/azure/ddos-protection/ddos-view-diagnostic-logs)
+- [Microsoft Learn — Test with simulation partners](https://learn.microsoft.com/azure/ddos-protection/test-through-simulations)
+- [Splunk CIM — Network Traffic data model](https://docs.splunk.com/Documentation/CIM/latest/User/NetworkTraffic)

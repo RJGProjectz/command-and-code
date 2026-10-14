@@ -7,13 +7,15 @@ category: Hunting
 tags: [s1ql, sentinelone, powershell, persistence, network, dns, lolbins, failed logins]
 aliases: [sentinelone query powershell, sentinelone hunt, s1 network query, s1 scheduled task, deep visibility hunting]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-13
 ---
 
 # S1QL Hunting Queries
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    S1QL 2.0 / PowerQuery syntax. Field names and event types vary by console version and agent OS — validate each query in your console before relying on it, then set `verified: true` on this page. See [S1QL fundamentals](fundamentals.md).
+!!! warning "Before you deploy"
+    S1QL 2.0 / PowerQuery syntax, checked (2026-10-13) against SentinelOne's published PowerQuery reference and
+    Deep Visibility field names; not run in a live console. Field availability still varies by agent OS and license. See [S1QL fundamentals](fundamentals.md).
 
 ## Process investigation
 
@@ -80,7 +82,7 @@ event.type = 'DNS Resolved' and event.dns.request contains:anycase 'example.com'
 ```text
 event.type = 'Registry Value Modified'
 and registry.keyPath contains:anycase '\\CurrentVersion\\Run'
-| columns event.time, endpoint.name, src.process.name, registry.keyPath, registry.value
+| columns event.time, endpoint.name, src.process.name, registry.keyPath, registry.valueName, registry.value
 ```
 
 ### Scheduled task registration
@@ -110,6 +112,20 @@ event.type = 'Login' and event.login.loginIsSuccessful = false
 | sort -failures
 ```
 
+## Test it
+
+| Query | Atomic Red Team test |
+| --- | --- |
+| Encoded or download-cradle PowerShell | [T1059.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1059.001/T1059.001.md) *ATHPowerShellCommandLineParameter -EncodedCommand parameter variations* |
+| Office or browser spawning a shell | [T1566.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1566.001/T1566.001.md) *Word spawned a command shell and used an IP address in the command line* |
+| Rare processes | [T1036.003](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1036.003/T1036.003.md) *Masquerading - windows exe running as different windows exe* |
+| Connections to an indicator, scripting engines outbound | [T1105](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1105/T1105.md) *Windows - PowerShell Download* |
+| DNS lookups for a domain | [T1071.004](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1071.004/T1071.004.md) *DNS Long Domain Query* |
+| Run key writes | [T1547.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1547.001/T1547.001.md) *Reg Key Run* |
+| Scheduled task registration | [T1053.005](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1053.005/T1053.005.md) *Scheduled task Local* |
+| Linux cron and systemd | [T1053.003](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1053.003/T1053.003.md) *Cron - Add script to /etc/cron.d folder*; [T1543.002](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1543.002/T1543.002.md) *Create Systemd Service* |
+| Failed logins | [T1110.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1110.001/T1110.001.md) *Brute Force Credentials of single Active Directory domain users via SMB* |
+
 ## Related
 
 - [KQL process events](../kql/process-events.md)
@@ -119,4 +135,5 @@ event.type = 'Login' and event.login.loginIsSuccessful = false
 ## Sources
 
 - SentinelOne console *Help → Query Language* (authoritative for your version)
+- [SentinelOne — PowerQuery syntax and operators (Sentinel-One/ai-siem)](https://github.com/Sentinel-One/ai-siem/blob/main/plugins/s1-secops-skills/skills/powerquery/references/syntax-and-operators.md)
 - [secure-cake/sentinelone-powerquery (community examples)](https://github.com/secure-cake/sentinelone-powerquery)

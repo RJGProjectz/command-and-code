@@ -7,13 +7,15 @@ category: Network
 tags: [spl, network traffic, dns, sysmon 22, cim, firewall, rare domains]
 aliases: [network connections splunk, dns splunk, long dns queries, rare domains splunk, outbound traffic splunk]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-13
 ---
 
 # SPL Network and DNS Hunting
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    CIM examples (`datamodel=Network_Traffic`, `datamodel=Network_Resolution`) require CIM-compliant data and accelerated data models. Sysmon examples assume `source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"`. Confirm names in your environment.
+!!! warning "Before you deploy"
+    Field names were checked (2026-10-13) against the Splunk CIM Network Traffic and Network Resolution data models
+    and Sysmon event 22; not run against a live index. CIM examples (`datamodel=Network_Traffic`, `datamodel=Network_Resolution`) require CIM-compliant data and accelerated data models. Sysmon examples assume `source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"`. Confirm names in your environment.
 
 ## Connections to an indicator (CIM)
 
@@ -80,7 +82,17 @@ index=proxy earliest=-24h
 | sort stdev_gap
 ```
 
-Low standard deviation of the gap between connections = regular, machine-like timing.
+Low standard deviation of the gap between connections = regular, machine-like timing. The 1-minute bins mean this
+finds beacons that call home every minute or more with little jitter; shorten the span for faster beacons.
+
+## Test it
+
+| Query | Atomic Red Team test |
+| --- | --- |
+| Connections to an indicator, rare destinations | [T1071.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1071.001/T1071.001.md) *Malicious User Agents - Powershell* (point it at a lab URL) |
+| RDP / SMB between workstations | [T1021.002](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1021.002/T1021.002.md) *Map admin share* |
+| DNS queries, long DNS names | [T1071.004](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1071.004/T1071.004.md) *DNS Long Domain Query* |
+| Beaconing | [T1071.004](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1071.004/T1071.004.md) *DNS Regular Beaconing* shows the timing pattern; for proxy logs, request a lab URL every 60 s from a loop |
 
 ## Related
 

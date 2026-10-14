@@ -11,7 +11,8 @@ languages:
 tasks:
   - Detection Engineering
   - Compliance
-verified: false
+verified: true
+last_verified: 2026-10-13
 difficulty: basic
 tags:
   - mobile
@@ -27,8 +28,9 @@ Detects successful sign-ins from iOS or Android devices that are neither managed
 signal more than an attack signal: it shows where Conditional Access does not yet require a compliant device or app
 protection policy, and which users are working around it.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    `DeviceDetail` is only populated when the device presents an identity; unregistered devices show an empty
+!!! warning "Before you deploy"
+    Checked (2026-10-13) against Microsoft Learn (`SigninLogs`, sign-in log device details); not run against a live
+    tenant. `DeviceDetail` is only populated when the device presents an identity; unregistered devices show an empty
     `deviceId`. If your Conditional Access already blocks unmanaged mobile, this rule should return nothing — a
     result means a policy exclusion or a gap.
 
@@ -69,10 +71,10 @@ level: low
 
 ```kql
 SigninLogs
-| where ResultType == 0
+| where ResultType == "0"
 | extend OS = tostring(DeviceDetail.operatingSystem),
-         IsManaged = tobool(DeviceDetail.isManaged),
-         IsCompliant = tobool(DeviceDetail.isCompliant)
+         IsManaged = coalesce(tobool(DeviceDetail.isManaged), false),
+         IsCompliant = coalesce(tobool(DeviceDetail.isCompliant), false)
 | where OS startswith "iOS" or OS startswith "Android"
 | where not(IsManaged) and not(IsCompliant)
 | summarize SignIns = count(), Apps = make_set(AppDisplayName, 10), IPs = make_set(IPAddress, 10),
@@ -81,6 +83,8 @@ SigninLogs
 | sort by SignIns desc
 ```
 
+`ResultType` is a string in `SigninLogs`. The `coalesce` matters: an unregistered phone has no `isManaged` value at
+all, and without a default the `not()` test returns null and silently drops exactly the devices this rule is for.
 `CAResult` of `notApplied` means no policy covered the sign-in — that is the gap to close.
 
 ## Triage
@@ -88,3 +92,15 @@ SigninLogs
 1. Group by `AppDisplayName`: which apps let unmanaged mobile in?
 2. Check whether the users are in a Conditional Access exclusion group.
 3. Fix by policy (require compliant device or app protection), not by chasing individual users.
+
+## Test it
+
+Atomic Red Team has no test for this (it is a policy gap, not a technique). Sign in to Outlook or Teams with a test
+account from a phone that is not enrolled in Intune; the sign-in should appear within the Entra sign-in log delay
+(usually a few minutes). If Conditional Access blocks it, `ResultType` is not `0` and the rule correctly stays quiet.
+
+## Sources
+
+- [Microsoft Learn — SigninLogs table](https://learn.microsoft.com/azure/azure-monitor/reference/tables/signinlogs)
+- [Microsoft Learn — Sign-in log activity details (device information)](https://learn.microsoft.com/entra/identity/monitoring-health/concept-sign-in-log-activity-details)
+- [Microsoft Learn — Require compliant device or app protection policy](https://learn.microsoft.com/entra/identity/conditional-access/policy-all-users-device-compliance)

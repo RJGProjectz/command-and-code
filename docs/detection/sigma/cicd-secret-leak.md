@@ -10,7 +10,8 @@ languages:
 tasks:
   - Detection Engineering
   - Incident Response
-verified: false
+verified: true
+last_verified: 2026-10-13
 difficulty: intermediate
 tags:
   - github
@@ -26,10 +27,10 @@ tags:
 Detects secrets reaching a repository: a developer bypassing GitHub push protection, someone turning secret scanning
 off, and a pipeline secret scanner (gitleaks) finding a credential.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    GitHub audit events reach a SIEM only through audit log streaming (Enterprise) or an API poller. Action names
-    come from the GitHub audit log; check the current names in your stream before relying on exact matches.
-    The `contains` matches below are deliberately loose.
+!!! warning "Before you deploy"
+    Action names were checked (2026-10-13) against GitHub's organization audit log event reference, and the gitleaks
+    message against its source. GitHub audit events reach a SIEM only through audit log streaming (Enterprise) or an
+    API poller. Organization events carry an `org.` prefix in some exports, so the rules match with `contains`.
 
 - **ATT&CK**: [T1552.001 — Unsecured Credentials: Credentials in Files](https://attack.mitre.org/techniques/T1552/001/), [T1685 — Disable or Modify Tools](https://attack.mitre.org/techniques/T1685/) (formerly T1562.001)
 - **Concept**: [Secure SDLC & DevSecOps](../../fundamentals/concepts/secure-sdlc-devsecops.md)
@@ -77,9 +78,12 @@ logsource:
   service: audit
 detection:
   selection:
-    action|contains|all:
-      - 'secret_scanning'
-      - 'disable'
+    action|contains:
+      - 'secret_scanning.disable'
+      - 'secret_scanning_new_repos.disable'
+      - 'secret_scanning_push_protection_disable'
+      - 'secret_scanning_push_protection_new_repos_disable'
+      - 'secret_scanning_push_protection.disable'
   condition: selection
 falsepositives:
   - Repository archival or migration by administrators
@@ -89,12 +93,14 @@ level: high
 ## SPL — GitHub audit stream and gitleaks in CI
 
 ```spl
-index=github (action="*secret_scanning_push_protection.bypass*" OR (action="*secret_scanning*" action="*disable*"))
+index=github (action="*secret_scanning_push_protection.bypass*" OR action="*secret_scanning.disable*"
+    OR action="*secret_scanning_new_repos.disable*" OR action="*secret_scanning_push_protection_disable*"
+    OR action="*secret_scanning_push_protection_new_repos_disable*" OR action="*secret_scanning_push_protection.disable*")
 | eval signal=if(like(action, "%bypass%"), "push protection bypass", "secret scanning disabled")
 | table _time, signal, actor, repo, org, action
 ```
 
-gitleaks exits non-zero and prints `leaks found: N` when it finds a secret; ship CI job logs to the SIEM and alert on it:
+gitleaks exits non-zero and logs `leaks found: N` (a warning-level line) when it finds a secret; ship CI job logs to the SIEM and alert on it:
 
 ```spl
 index=cicd "leaks found:"
@@ -107,8 +113,9 @@ index=cicd "leaks found:"
 
 ```kql
 GitHubAuditLogPolling_CL
-| where action_s has "secret_scanning_push_protection.bypass"
-    or (action_s has "secret_scanning" and action_s has "disable")
+| where action_s has_any ("secret_scanning_push_protection.bypass", "secret_scanning.disable",
+    "secret_scanning_new_repos.disable", "secret_scanning_push_protection_disable",
+    "secret_scanning_push_protection_new_repos_disable", "secret_scanning_push_protection.disable")
 | project TimeGenerated, action_s, actor_s, repo_s, org_s
 ```
 
@@ -119,3 +126,20 @@ Table and column names depend on the connector; adjust to yours.
 1. A real secret in Git history is compromised: **rotate it first**, then clean history.
 2. Check the provider's logs (cloud, SaaS) for use of the secret since the push time.
 3. Ask why the bypass was chosen; "I'll fix it later" with no fix is the finding.
+
+## Test it
+
+Atomic Red Team has no test that produces GitHub audit events ([T1552.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1552.001/T1552.001.md)
+*Find and Access Github Credentials* covers the endpoint side). In a throwaway repository you own:
+
+1. Turn push protection on, push a commit containing a token you created for the test and revoke straight after,
+   and choose a bypass reason: one `secret_scanning_push_protection.bypass` event.
+2. Turn secret scanning off for that repository: one `repository_secret_scanning.disable` event (matched by
+   `secret_scanning.disable`).
+3. Run `gitleaks git .` in a CI job on a branch with a fake key in a test file: the job log shows `leaks found: 1`.
+
+## Sources
+
+- [GitHub Docs — Audit log events for your organization](https://docs.github.com/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)
+- [GitHub Docs — Push protection](https://docs.github.com/code-security/secret-scanning/protecting-pushes-with-secret-scanning)
+- [gitleaks (source of the `leaks found` message)](https://github.com/gitleaks/gitleaks)

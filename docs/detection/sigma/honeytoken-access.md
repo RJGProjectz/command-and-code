@@ -12,7 +12,8 @@ languages:
 tasks:
   - Detection Engineering
   - Threat Hunting
-verified: false
+verified: true
+last_verified: 2026-10-13
 difficulty: intermediate
 tags:
   - honeytoken
@@ -29,9 +30,11 @@ A honey account is a real-looking AD account nobody uses; a honey SPN is a fake 
 Kerberos ticket or directory read that touches them is close to a guaranteed true positive, so the rule needs no
 threshold.
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Replace `svc-backup-legacy` and the GUID with your own honey objects. Event 4662 needs a SACL on the honey object;
-    4768/4769 come from domain controllers only. Exclude your own deception health checks by source host.
+!!! warning "Before you deploy"
+    Event fields were checked (2026-10-13) against Microsoft Learn (events 4662, 4768, 4769, 4771, 4776) and Defender
+    for Identity; not run against a live domain. Replace `svc-backup-legacy` and the GUID with your own honey objects.
+    Event 4662 needs a SACL on the honey object **and** the *Audit Directory Service Access* subcategory on domain
+    controllers; 4768/4769 come from domain controllers only. Exclude your own deception health checks by source host.
 
 - **ATT&CK**: [T1558.003 — Kerberoasting](https://attack.mitre.org/techniques/T1558/003/), [T1087.002 — Domain Account Discovery](https://attack.mitre.org/techniques/T1087/002/)
 - **Concept**: [Surveillance & Deception](../../fundamentals/concepts/surveillance-deception.md)
@@ -78,7 +81,7 @@ detection:
   directory_read:
     EventID: 4662
     ObjectName|contains: '00000000-0000-0000-0000-000000000000'  # honey object GUID
-  condition: 1 of auth, kerberoast, directory_read
+  condition: auth or kerberoast or directory_read
 falsepositives:
   - Deception platform health checks
   - Broad AD inventory tools reading every object (directory_read only)
@@ -108,15 +111,31 @@ IdentityLogonEvents
 ## SPL
 
 ```spl
-index=wineventlog source="WinEventLog:Security"
-    (EventCode IN (4624,4625,4648,4768,4771,4776) TargetUserName="svc-backup-legacy")
+index=wineventlog source="XmlWinEventLog:Security"
+    ((EventCode IN (4624,4625,4648,4768,4771,4776) TargetUserName="svc-backup-legacy")
     OR (EventCode=4769 ServiceName="svc-backup-legacy")
-    OR (EventCode=4662 ObjectName="*00000000-0000-0000-0000-000000000000*")
-| table _time, host, EventCode, TargetUserName, ServiceName, IpAddress, Workstation_Name, SubjectUserName
+    OR (EventCode=4662 ObjectName="*00000000-0000-0000-0000-000000000000*"))
+| table _time, host, EventCode, TargetUserName, ServiceName, TicketEncryptionType, IpAddress, WorkstationName, SubjectUserName
 ```
 
 ## Triage
 
-1. 4769 for the honey SPN with ticket encryption `0x17` (RC4) is Kerberoasting — the requesting account is compromised or misused.
+1. 4769 for the honey SPN with ticket encryption `0x17` (RC4) is Kerberoasting — the requesting account (`TargetUserName`) is compromised or misused. In 4769, `ServiceName` is the account the ticket is for.
 2. 4625/4771 against the honey account usually means password spraying; widen to all failures from that source IP.
 3. Follow [Account compromise](../../tasks/incident-response/account-compromise.md) for the account and host that made the request.
+
+## Test it
+
+- Atomic Red Team [T1558.003](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1558.003/T1558.003.md)
+  *Request for service tickets* and *Rubeus kerberoast* request tickets for every SPN, including the honey SPN: one 4769
+  per run with `ServiceName` = the honey account.
+- Atomic Red Team [T1087.002](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1087.002/T1087.002.md)
+  *Enumerate all accounts via PowerShell (Domain)* reads every user object: 4662 on the honey object if the SACL is in place.
+- One failed `runas /user:<DOMAIN>\svc-backup-legacy cmd` with a wrong password gives 4625 and 4771.
+
+## Sources
+
+- [Microsoft Learn — Event 4769](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4769)
+- [Microsoft Learn — Event 4662](https://learn.microsoft.com/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4662)
+- [Microsoft Learn — Defender for Identity entity tags (honeytoken)](https://learn.microsoft.com/defender-for-identity/entity-tags)
+- [Microsoft Learn — IdentityLogonEvents](https://learn.microsoft.com/defender-xdr/advanced-hunting-identitylogonevents-table)

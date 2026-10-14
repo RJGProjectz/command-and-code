@@ -7,13 +7,15 @@ category: Process Execution
 tags: [spl, powershell, 4104, script block logging, encoded command, sysmon]
 aliases: [suspicious powershell splunk, 4104 splunk, script block splunk, encoded powershell splunk]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-13
 ---
 
 # SPL PowerShell Hunting
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Assumes `index=wineventlog` and XML-rendered events from the Splunk Add-on for Microsoft Windows. Sysmon examples assume `source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"` with the Splunk Add-on for Sysmon. Confirm index, source and field names in your environment.
+!!! warning "Before you deploy"
+    Fields were checked (2026-10-13) against Microsoft Learn (about_Logging_Windows, Sysmon) and Atomic Red Team;
+    not run against a live index. Assumes `index=wineventlog` and XML-rendered events from the Splunk Add-on for Microsoft Windows. Sysmon examples assume `source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"` with the Splunk Add-on for Sysmon. Confirm index, source and field names in your environment.
 
 ## Suspicious script blocks (4104)
 
@@ -56,7 +58,9 @@ index=wineventlog source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" E
 
 ## Downgrade to PowerShell 2.0
 
-Version 2.0 bypasses script block logging and AMSI. Windows PowerShell log event 400 records the engine version:
+Version 2.0 bypasses script block logging and AMSI. Microsoft removed it from Windows 11 24H2 and Windows Server 2025
+(KB5065506, from August/September 2025), where `powershell -Version 2` starts 5.1 instead; older builds with the
+optional feature still installed remain exposed. Windows PowerShell log event 400 records the engine version:
 
 ```spl
 index=wineventlog source="XmlWinEventLog:Windows PowerShell" EventCode=400
@@ -64,6 +68,15 @@ index=wineventlog source="XmlWinEventLog:Windows PowerShell" EventCode=400
 | where like(engine_version, "2.%")
 | table _time, host, engine_version
 ```
+
+## Test it
+
+| Query | Atomic Red Team test |
+| --- | --- |
+| Suspicious script blocks | [T1059.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1059.001/T1059.001.md) *PowerShell Invoke Known Malicious Cmdlets* |
+| Encoded commands | [T1059.001](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1059.001/T1059.001.md) *ATHPowerShellCommandLineParameter -EncodedCommand parameter variations* |
+| PowerShell network connections | [T1105](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1105/T1105.md) *Windows - PowerShell Download* |
+| Downgrade to 2.0 | [T1689](https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1689/T1689.md) *PowerShell Version 2 Downgrade* (fires only where the 2.0 engine is still installed) |
 
 ## Related
 
@@ -75,3 +88,4 @@ index=wineventlog source="XmlWinEventLog:Windows PowerShell" EventCode=400
 
 - [about_Logging_Windows](https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_logging_windows)
 - [Splunk Add-on for Sysmon](https://docs.splunk.com/Documentation/AddOns/released/MSSysmon/About)
+- [Microsoft Support — PowerShell 2.0 removal from Windows (KB5065506)](https://support.microsoft.com/help/5065506)
