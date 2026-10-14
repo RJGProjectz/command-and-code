@@ -81,8 +81,17 @@
     wideBtn.title = 'Break out of standard page format into full-canvas Command Poster Wall';
     wideBtn.innerHTML = '<span class="cc-hud-btn-icon">⛶</span> Breakout Wall [ON]';
 
+    // One-page print: the print stylesheet lays the cards out on paper
+    var printBtn = document.createElement('button');
+    printBtn.className = 'cc-hud-btn cc-hud-print-btn';
+    printBtn.type = 'button';
+    printBtn.title = 'Print this cheat sheet (two-column landscape layout)';
+    printBtn.innerHTML = '<span class="cc-hud-btn-icon">🖨</span> Print';
+    printBtn.addEventListener('click', function () { window.print(); });
+
     controlsBox.appendChild(searchWrap);
     controlsBox.appendChild(wideBtn);
+    controlsBox.appendChild(printBtn);
 
     topRow.appendChild(titleBox);
     topRow.appendChild(controlsBox);

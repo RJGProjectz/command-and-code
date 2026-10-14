@@ -643,3 +643,187 @@ body:not(.cc-breakout-mode) .cc-poster-deck {
   color: #ff1744;
 }
 
+
+/* --------------------------------------------------------------------------
+   8. Print: cheat sheets as a two-column landscape sheet (WP-49)
+   Every rule is scoped to pages that contain a poster deck, so printing any
+   other page keeps Material's default print style. Dark glass cards and the
+   HUD do not survive printing: print uses plain bordered boxes, black text
+   and small monospace. ':root body:has()' outranks the !important code
+   colours in cc-themes.css.
+   -------------------------------------------------------------------------- */
+
+/* Named page: only pages that contain a poster deck print landscape */
+@page cc-sheet {
+  size: landscape;
+  margin: 7mm;
+}
+
+@media print {
+  body:has(.cc-poster-deck) {
+    page: cc-sheet;
+  }
+
+  /* Full-height wrappers and trailing spacing otherwise push a blank last page */
+  html:has(.cc-poster-deck),
+  body:has(.cc-poster-deck),
+  body:has(.cc-poster-deck) .md-container,
+  body:has(.cc-poster-deck) .md-main {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  body:has(.cc-poster-deck) .md-content__inner::before,
+  body:has(.cc-poster-deck) .md-content__inner::after {
+    display: none !important;
+  }
+
+  body:has(.cc-poster-deck) .cc-speed-dial-hud,
+  body:has(.cc-poster-deck) .md-header,
+  body:has(.cc-poster-deck) .md-tabs,
+  body:has(.cc-poster-deck) .md-sidebar,
+  body:has(.cc-poster-deck) .md-footer,
+  body:has(.cc-poster-deck) .md-content__button,
+  body:has(.cc-poster-deck) .md-source-file,
+  body:has(.cc-poster-deck) .md-clipboard,
+  body:has(.cc-poster-deck) .md-code__nav,
+  body:has(.cc-poster-deck) .md-code__button,
+  body:has(.cc-poster-deck) .md-path,
+  body:has(.cc-poster-deck) .md-tags,
+  body:has(.cc-poster-deck) .cc-up,
+  body:has(.cc-poster-deck) .cc-meta,
+  body:has(.cc-poster-deck) .cc-aliases,
+  body:has(.cc-poster-deck) .cc-param-bar,
+  body:has(.cc-poster-deck) .cc-poster-card[data-section-id="sources"],
+  body:has(.cc-poster-deck) .cc-print-hide {
+    display: none !important;
+  }
+
+  body:has(.cc-poster-deck),
+  body:has(.cc-poster-deck) .md-main,
+  body:has(.cc-poster-deck) .md-content,
+  body:has(.cc-poster-deck) .md-typeset {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-main__inner,
+  :root body:has(.cc-poster-deck) .md-content,
+  :root body:has(.cc-poster-deck) .md-content__inner {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  body:has(.cc-poster-deck) .md-typeset {
+    font-size: 7.5pt !important;
+    line-height: 1.3 !important;
+  }
+
+  body:has(.cc-poster-deck) .md-typeset h1 {
+    font-size: 13pt !important;
+    margin: 0 0 2mm !important;
+    color: #000 !important;
+  }
+
+  /* Two-column grid; cards keep their own height instead of stretching to the
+     tallest card in the row. A grid paginates reliably; CSS columns left a blank
+     trailing page in Chromium. */
+  body:has(.cc-poster-deck) .cc-poster-deck {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    align-items: start !important;
+    gap: 3mm !important;
+    margin: 2mm 0 0 !important;
+  }
+
+  :root body:has(.cc-poster-deck) .cc-poster-card {
+    display: block !important;
+    margin: 0 !important;
+    padding: 2mm 3mm !important;
+    overflow: visible !important;
+    background: #fff !important;
+    border: 0.3mm solid #888 !important;
+    border-radius: 2mm !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform: none !important;
+    break-inside: avoid;
+  }
+
+  body:has(.cc-poster-deck) .cc-poster-card h2 {
+    font-size: 9pt !important;
+    color: #000 !important;
+    border-bottom: 0.2mm solid #bbb !important;
+    margin: 0 0 1mm !important;
+    padding-bottom: 1mm !important;
+  }
+
+  body:has(.cc-poster-deck) .cc-poster-card h2::before {
+    color: #000 !important;
+  }
+
+  body:has(.cc-poster-deck) .cc-poster-card p {
+    font-size: 7.5pt !important;
+    opacity: 1 !important;
+    margin-bottom: 1mm !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset .highlight {
+    margin: 1mm 0 !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset pre {
+    margin: 0 !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset .highlight,
+  :root body:has(.cc-poster-deck) .md-typeset pre,
+  :root body:has(.cc-poster-deck) .md-typeset pre > code,
+  :root body:has(.cc-poster-deck) .md-typeset .md-code__content,
+  :root body:has(.cc-poster-deck) .md-typeset .highlight code {
+    background: #f3f3f3 !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    font-size: 6.5pt !important;
+    white-space: pre-wrap !important;
+    word-break: break-word;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset pre > code {
+    padding: 1.2mm 2mm !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset .highlight span {
+    color: #000 !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset .highlight .c,
+  :root body:has(.cc-poster-deck) .md-typeset .highlight .c1,
+  :root body:has(.cc-poster-deck) .md-typeset .highlight .ch {
+    color: #555 !important;
+  }
+
+  body:has(.cc-poster-deck) .md-typeset table:not([class]) {
+    margin: 1mm 0 !important;
+  }
+
+  body:has(.cc-poster-deck) .md-typeset table:not([class]) th,
+  body:has(.cc-poster-deck) .md-typeset table:not([class]) td {
+    padding: 0.6mm 1.5mm !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset .admonition,
+  :root body:has(.cc-poster-deck) .md-typeset .admonition-title {
+    background: #fff !important;
+    color: #000 !important;
+    border: 0.3mm solid #888 !important;
+    box-shadow: none !important;
+    font-size: 7pt !important;
+  }
+
+  :root body:has(.cc-poster-deck) .md-typeset a {
+    color: #000 !important;
+  }
+}

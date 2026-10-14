@@ -550,6 +550,9 @@ nav:
           - Sysadmin Quick Reference: references/sysadmin-cheat-sheet.md
           - PowerShell Admin One-Liners: references/powershell-cheat-sheet.md
           - Linux Sysadmin Speed Dial: references/linux-cheat-sheet.md
+          - "Printable: Windows Triage": references/windows-triage-cheat-sheet.md
+          - "Printable: Linux Triage": references/linux-triage-cheat-sheet.md
+          - "Printable: Cloud IR": references/cloud-ir-cheat-sheet.md
           - Cross-Platform Equivalents: references/equivalents.md
           - Windows Event IDs: references/windows-event-ids.md
           - Metadata Conventions: references/metadata.md

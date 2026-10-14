@@ -46,7 +46,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 
 <div class="grid cards cc-lanes" markdown>
 
--   :material-alarm-light-outline:{ .lg } **[Responding to an incident](tasks/incident-response/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Incident Response" -->139<!-- /cc:count --> entries</span>
+-   :material-alarm-light-outline:{ .lg } **[Responding to an incident](tasks/incident-response/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Incident Response" -->142<!-- /cc:count --> entries</span>
 
     ---
 
@@ -54,7 +54,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     2. [Check the account](tasks/incident-response/account-compromise.md) — sign-ins, tokens, mailbox rules
     3. [Isolate the host](tasks/incident-response/ransomware-host-isolation.md) — contain before it spreads
 
--   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->161<!-- /cc:count --> entries</span>
+-   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->164<!-- /cc:count --> entries</span>
 
     ---
 
@@ -83,7 +83,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 **Other lanes:**
 
 <div class="cc-searches cc-lane-chips" markdown>
-[Forensics · <!-- cc:count tasks="Forensics" -->40<!-- /cc:count -->](tasks/forensics/index.md)
+[Forensics · <!-- cc:count tasks="Forensics" -->43<!-- /cc:count -->](tasks/forensics/index.md)
 [Detection engineering · <!-- cc:count tasks="Detection Engineering" -->65<!-- /cc:count -->](tasks/detection-engineering/index.md)
 [Hardening · <!-- cc:count tasks="Hardening" -->134<!-- /cc:count -->](tasks/hardening/index.md)
 [Administration · <!-- cc:count tasks="Administration" -->155<!-- /cc:count -->](tasks/administration/index.md)

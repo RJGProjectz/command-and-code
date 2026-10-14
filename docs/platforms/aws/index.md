@@ -65,5 +65,6 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [AWS SCPs, Config Rules & Governance](policy-governance.md) | Entry | AWS | Bash | Hardening, Assurance, Administration, Governance |
 | [AWS Security Hub, GuardDuty & Inspector (Posture & Alerts)](security-posture.md) | Entry | AWS | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [AWS Troubleshooting](troubleshooting.md) | Entry | AWS | Bash | Troubleshooting, Administration |
+| [Cloud Incident Response Cheat Sheet (Printable)](../../references/cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |
 
 <!-- /cc:index -->
