@@ -12,19 +12,23 @@ last_updated: 2026-10-12
 tags: [crlf, line-endings, encoding, utf-8, bom, secrets, chpasswd, subprocess, quoting, clipboard, ssh, time, locale, yaml, csv, json, ndjson, cross-platform]
 aliases: [CRLF vs LF, Line Endings, Text vs Binary Mode, UTF-8 BOM, Secrets in argv, Verify effects not exit codes, bad interpreter ^M]
 difficulty: intermediate
-verified: false
+verified: true
+last_verified: 2026-10-14
 ---
 
 # Cross-platform data handling: Windows ↔ Linux, secrets, encodings and transport
 > **Created**: 2026-10-12T21:30:00Z
-> **Last Modified**: 2026-10-12T21:30:00Z
+> **Last Modified**: 2026-10-14T14:00:00Z
 > **Author**: RJGProjectz
 
-!!! danger "VERIFY BEFORE PRODUCTION USE"
-    Remove this block when `verified: true`. The Windows-side behaviour on this page (Python 3.11 `subprocess`, Windows
-    PowerShell 5.1 and PowerShell 7.6 pipes, file encodings, clipboard lengths, `ConvertTo-Json` depth, culture parsing,
-    PyYAML typing) was reproduced on a Windows 11 workstation on 2026-10-12. The Linux-side commands (`chpasswd`,
-    Proxmox API login, GNU coreutils) are not lab-tested yet.
+!!! info "How this page was checked"
+    Windows-side behaviour (Python 3.11 `subprocess`, Windows PowerShell 5.1 and PowerShell 7.6 pipes, file encodings,
+    clipboard lengths, `ConvertTo-Json` depth, culture parsing, PyYAML typing) was reproduced on Windows 11 on 2026-10-12.
+    Linux side, checked 2026-10-14: GNU `sed`, `iconv`, `date`, `sha256sum`, `tr` and `od` examples run in GNU tools;
+    `chpasswd` behaviour checked against the shadow-utils man page and source (only `
+` is stripped, so `` stays in
+    the password); the Proxmox ticket call checked against the Proxmox VE API documentation, and the `curl
+    --data-urlencode 'password@-'` form tested against a local endpoint.
 
 **In one line:** the bytes that arrive are not always the bytes you sent. Every hop (interpreter, shell, pipe, file,
 clipboard, terminal, HTTP) can add, drop or re-encode characters, and most tools still report success.
@@ -253,7 +257,7 @@ delimiter that the receiving tool parses.
 | Length | Equal to the vault's recorded length (24 in the incident) | Catches added `\r`, truncation, a lost character |
 | Character set | `[A-Za-z0-9!#%+,.;=?@^_~-]` or your generator's alphabet | Catches mojibake and keyboard-layout swaps |
 | Forbidden characters | No `\r`, `\n`, `\0` or other control characters (< 0x20, 0x7F) | Line-based tools cut or keep them silently |
-| Tool delimiters | `chpasswd`: no `:` in the user name and no newline anywhere. Also avoid `:` in passwords unless you have checked how your `chpasswd` version handles it | The tool splits on these characters |
+| Tool delimiters | `chpasswd`: no `:` in the user name and no newline anywhere. A `:` inside the password is kept (shadow-utils splits at the first `:`) | The tool splits on these characters |
 | Encoding | ASCII-only for anything typed into consoles, IPMI, VNC or boot prompts | Layout-dependent characters break at the console |
 
 **Wrong.**
