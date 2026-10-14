@@ -43,7 +43,7 @@ Enterprise intrusions frequently pivot across heterogeneous operating systems. W
 | :--- | :--- | :--- | :--- |
 | **In-Memory Injection** | Sysmon Event ID 8, 10, 25; MDE `DeviceEvents` | Auditd `ptrace`, `mmap(PROT_EXEC)`, `/proc/$PID/mem` | Cross-process memory writes, unbacked executable memory |
 | **Credential Access** | Sysmon Event ID 10 (`lsass.exe`), Event ID 4624 | Auditd open `/etc/shadow`, read `/tmp/krb5cc_*` | Non-system processes accessing security credential stores |
-| **Defense Evasion** | Event ID 1102, `wevtutil.exe cl`, mini-filter tampering | `auditctl -e 0`, `/dev/null` log redirect, `HISTFILE` tampering | Abrupt stoppage or truncation of security logging subsystems |
+| **Defense Impairment** | Event ID 1102, `wevtutil.exe cl`, mini-filter tampering | `auditctl -e 0`, `/dev/null` log redirect, `HISTFILE` tampering | Abrupt stoppage or truncation of security logging subsystems |
 | **Fileless Execution** | LOLBAS unmanaged PowerShell / C# execution | `memfd_create()`, `perl`/`python` direct RAM execution | Binary execution without corresponding disk writes |
 
 ---

@@ -68,7 +68,7 @@ graph TD
 | :--- | :--- | :--- | :--- |
 | **Identity & Cloud** | Malicious OAuth App Registrations, bypassing MFA via dormant test tenant accounts. | T1098.003, T1078.004 | Entra ID `AuditLogs`: `Consent to application`, `Add service principal credentials`. |
 | **Execution** | Living off the cloud, Microsoft Graph API queries, PowerShell unmanaged runspaces. | T1059.001, T1106 | Graph API sign-ins from residential IP pools without interactive browser fingerprints. |
-| **Defense Evasion** | Disabling cloud audit settings, using trusted infrastructure proxies to evade geolocation alerts. | T1562.008, T1090 | Atypical sign-ins where ASN matches commercial consumer ISP rather than corporate VPN. |
+| **Defense Impairment / Stealth** | Disabling cloud audit settings, using trusted infrastructure proxies to evade geolocation alerts. | T1685.002 (formerly T1562.008), T1090 | Atypical sign-ins where ASN matches commercial consumer ISP rather than corporate VPN. |
 
 ---
 
@@ -95,7 +95,7 @@ graph TD
 | Domain | Adversary Tradecraft | ATT&CK ID | Key Telemetry Artifacts |
 | :--- | :--- | :--- | :--- |
 | **Identity Hijacking** | Requesting MFA token resets via IT Help Desk impersonation, registering rogue FIDO2/authenticator devices. | T1556, T1098.005 | Okta / Entra ID logs: MFA device reset followed immediately by sign-in from a new device/IP. |
-| **Defense Evasion** | Deploying Bring-Your-Own-Vulnerable-Driver (BYOVD) to terminate EDR sensors (`mhyprot2.sys`, `procexp.sys`). | T1562.001, T1068 | Windows System Event ID 7045 registering known vulnerable kernel drivers. |
+| **Defense Impairment** | Deploying Bring-Your-Own-Vulnerable-Driver (BYOVD) to terminate EDR sensors (`mhyprot2.sys`, `procexp.sys`). | T1685 (formerly T1562.001), T1068 | Windows System Event ID 7045 registering known vulnerable kernel drivers. |
 | **Lateral Movement** | Remote Desktop Protocol (RDP), Fleet management tools (AnyDesk, TeamViewer, Splashtop). | T1021.001, T1219 | Rapid RDP connections across workstations using newly provisioned Help Desk administrative accounts. |
 
 ---

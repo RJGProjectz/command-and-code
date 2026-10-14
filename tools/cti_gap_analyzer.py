@@ -27,7 +27,7 @@ THREAT_ACTORS = {
             "T1098.003": "Additional Cloud Credentials / OAuth Grants",
             "T1078.004": "Valid Accounts: Cloud Accounts",
             "T1059.001": "Command and Scripting: PowerShell",
-            "T1562.008": "Impair Defenses: Disable Cloud Audit",
+            "T1685.002": "Disable or Modify Tools: Cloud Log (formerly T1562.008)",
             "T1090": "Proxy: Residential Proxies",
             "T1106": "Native API: Graph API Interrogation"
         }
@@ -48,9 +48,9 @@ THREAT_ACTORS = {
         "techniques": {
             "T1556": "Modify Authentication Process (MFA Reset)",
             "T1098.005": "Device Registration Manipulation",
-            "T1562.001": "Impair Defenses: BYOVD Driver Unhooking",
+            "T1685": "Disable or Modify Tools: BYOVD EDR Termination (formerly T1562.001)",
             "T1021.001": "Remote Desktop Protocol",
-            "T1219": "Remote Access Software"
+            "T1219": "Remote Access Tools"
         }
     },
     "BlackCat": {

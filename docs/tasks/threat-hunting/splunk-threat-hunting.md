@@ -41,7 +41,7 @@ index=network sourcetype=firewall direction=outbound dest_port=443
 
 - **Low Jitter ($< 5\text{s}$)**: Indicates automated programmatic connection cycles rather than human web browsing.
 
-## 2. Hypothesis: Defense Evasion via Renamed System Binaries
+## 2. Hypothesis: Stealth via Renamed System Binaries
 
 Adversaries rename native binaries (e.g. `cmd.exe` renamed to `svchost.exe`) to blend into process lists.
 

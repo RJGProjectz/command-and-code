@@ -107,7 +107,7 @@ aws cloudtrail get-query-results --query-id <id>
 
 ## 5. Log tampering
 
-Alert on `StopLogging`, `DeleteTrail`, `UpdateTrail`, `PutEventSelectors` (narrowing selectors), `DeleteEventDataStore`, and `PutBucketPolicy` / `PutBucketLifecycle` on the log bucket ([T1562.008](https://attack.mitre.org/techniques/T1562/008/)). An SCP that denies these actions to everyone except a break-glass role is the strongest control ([Policy & governance](policy-governance.md#2-service-control-policies)).
+Alert on `StopLogging`, `DeleteTrail`, `UpdateTrail`, `PutEventSelectors` (narrowing selectors), `DeleteEventDataStore`, and `PutBucketPolicy` / `PutBucketLifecycle` on the log bucket ([T1685.002](https://attack.mitre.org/techniques/T1685/002/), formerly T1562.008). An SCP that denies these actions to everyone except a break-glass role is the strongest control ([Policy & governance](policy-governance.md#2-service-control-policies)).
 
 Validate that delivered log files were not modified:
 

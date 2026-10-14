@@ -67,7 +67,7 @@ Recent Defender versions return `N/A: Must be an administrator to view exclusion
 | **Local** | `HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\{Paths,Processes,Extensions}` |
 | **Group Policy** | `HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Exclusions\…` |
 
-**Security relevance:** Attackers frequently inject exclusions for their staging folder before dropping tooling ([T1562.001](https://attack.mitre.org/techniques/T1562/001/)). Broad exclusions such as `C:\Users\`, `C:\ProgramData\`, or `*.exe` represent severe security deficiencies.
+**Security relevance:** Attackers frequently inject exclusions for their staging folder before dropping tooling ([T1685](https://attack.mitre.org/techniques/T1685/), formerly T1562.001). Broad exclusions such as `C:\Users\`, `C:\ProgramData\`, or `*.exe` represent severe security deficiencies.
 
 ### Attack Surface Reduction rules state
 
@@ -111,7 +111,7 @@ Channel: `Microsoft-Windows-Windows Defender/Operational`
 | :--- | :--- | :--- |
 | **1116** | Malware or PUA detected | Action initiated by scanner |
 | **1117** | Action taken on malware | Quarantine, clean, or block outcome |
-| **5001** | Real-time protection disabled | Defense evasion indicator |
+| **5001** | Real-time protection disabled | Defense impairment indicator |
 | **5007** | Configuration changed | Look for newly added exclusion paths in message |
 | **5013** | Tamper protection triggered | Unauthorized attempt to disable Defender blocked |
 

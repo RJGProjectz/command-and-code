@@ -54,7 +54,7 @@ email tagging, attachment sandboxing, and **regular simulations plus short train
 
 | | |
 | :--- | :--- |
-| **MITRE ATT&CK** | [T1566](https://attack.mitre.org/techniques/T1566/) Phishing (incl. .004 Spearphishing Voice) · [T1598](https://attack.mitre.org/techniques/T1598/) Phishing for Information · [T1656](https://attack.mitre.org/techniques/T1656/) Impersonation |
+| **MITRE ATT&CK** | [T1566](https://attack.mitre.org/techniques/T1566/) Phishing (incl. .004 Spearphishing Voice) · [T1598](https://attack.mitre.org/techniques/T1598/) Phishing for Information · [T1684.001](https://attack.mitre.org/techniques/T1684/001/) Social Engineering: Impersonation (formerly T1656) |
 | **What it leads to** | initial access in most breaches, business email compromise, MFA bypass via helpdesk |
 | **Where defenders meet it** | reported phish mailbox, helpdesk tickets, payment-change requests |
 

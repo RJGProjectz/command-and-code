@@ -30,7 +30,7 @@ tags:
 
 # Threat Hunting — Cloud Identity, OAuth Grants & Ephemeral Asset Anomalies
 
-As organizations transition to hybrid environments, adversaries bypass endpoint telemetry by targeting identity control planes (Entra ID, Microsoft 365, Azure). Common cloud persistence and defense evasion techniques include illicit OAuth consent grants, backdooring service principal credentials, exploiting Privileged Identity Management (PIM), and rapidly deploying and destroying ephemeral cloud compute resources.
+As organizations transition to hybrid environments, adversaries bypass endpoint telemetry by targeting identity control planes (Entra ID, Microsoft 365, Azure). Common cloud persistence, stealth and defense impairment techniques include illicit OAuth consent grants, backdooring service principal credentials, exploiting Privileged Identity Management (PIM), and rapidly deploying and destroying ephemeral cloud compute resources.
 
 ---
 

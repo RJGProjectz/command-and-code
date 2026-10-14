@@ -273,7 +273,7 @@ nav:
           - Overview: detection/s1ql/index.md
           - Fundamentals: detection/s1ql/fundamentals.md
           - Hunting Queries: detection/s1ql/hunting.md
-          - Defense Evasion: detection/s1ql/defense-evasion.md
+          - Defense Impairment: detection/s1ql/defense-evasion.md
       - Sigma:
           - Overview: detection/sigma/index.md
           - Rule Examples: detection/sigma/examples.md

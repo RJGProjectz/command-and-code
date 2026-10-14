@@ -28,7 +28,7 @@ An attacker with Azure control-plane access needs persistence that **survives a 
 | Automation runbook, Logic App or Function with a managed identity | [T1053](https://attack.mitre.org/techniques/T1053/), [T1648](https://attack.mitre.org/techniques/T1648/) | `AzureActivity` automationAccounts/runbooks/write, workflows/write, sites/write |
 | VM Run Command / Custom Script Extension | [T1651](https://attack.mitre.org/techniques/T1651/) | `AzureActivity` runCommand/action, extensions/write |
 | User-assigned identity attached to a resource the attacker controls | [T1078.004](https://attack.mitre.org/techniques/T1078/004/) | `AzureActivity` userAssignedIdentities/assign/action |
-| Disabled logging | [T1562.008](https://attack.mitre.org/techniques/T1562/008/) | `AzureActivity` diagnosticSettings/delete |
+| Disabled logging | [T1685.002](https://attack.mitre.org/techniques/T1685/002/) (formerly T1562.008) | `AzureActivity` diagnosticSettings/delete |
 
 ## 2. Hunts
 

@@ -77,7 +77,7 @@ Get-CimInstance -ClassName Win32_ShadowCopy | Select-Object -Property InstallDat
 
 ## Detect it
 
-- Detection: [S1QL defense evasion — shadow copy deletion, log clearing](../../detection/s1ql/defense-evasion.md)
+- Detection: [S1QL defense impairment — shadow copy deletion, log clearing](../../detection/s1ql/defense-evasion.md)
 - Detection: [SMB admin-share lateral movement](../../detection/spl/lateral-movement-smb.md)
 - Respond: [Ransomware host isolation](../../tasks/incident-response/ransomware-host-isolation.md) · [Malware triage](../../tasks/incident-response/malware-triage.md)
 - Hypervisors: [ESXi forensics & hardening](../../platforms/virtualization/esxi-forensics-hardening.md)

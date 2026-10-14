@@ -87,7 +87,7 @@ The events that matter most in investigations. "Requires" names the advanced-aud
 | 4732 / 4733 | Member added to / removed from a local security group |
 | 4756 / 4757 | Member added to / removed from a universal security group |
 
-## Defense evasion and system
+## Defense impairment and system
 
 | ID | Log | Meaning |
 | --- | --- | --- |

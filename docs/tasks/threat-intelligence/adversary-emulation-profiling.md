@@ -105,11 +105,11 @@ Write-EventLog -LogName Application -Source "Application Error" -EventId 9999 -E
 Write-Host "[EMULATION] Complete. Inspect SIEM detection pipeline for alert generation." -ForegroundColor Green
 ```
 
-### Phase 2: Linux Anti-Forensics & Audit Tampering (T1562.001) Emulation
+### Phase 2: Linux Anti-Forensics & Audit Tampering (T1690, T1685.004) Emulation
 
 ```bash
 #!/usr/bin/env bash
-# Synthetic adversary emulation for T1562.001 (Impair Defenses - Linux Logging)
+# Synthetic adversary emulation for T1690 (Prevent Command History Logging) and T1685.004 (Linux audit tampering)
 echo "[EMULATION] Testing detection of shell history suppression..."
 
 # Test 1: Spawning subshell with HISTFILE unset

@@ -32,6 +32,9 @@ jobs:
       - name: Check code block and script syntax
         run: python tools/cc.py code
 
+      - name: Validate MITRE ATT&CK IDs (v20, no revoked IDs)
+        run: python tools/validate_mitre.py
+
       - name: Strict MkDocs build
         run: mkdocs build --strict
 

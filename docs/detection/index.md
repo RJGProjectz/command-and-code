@@ -89,7 +89,7 @@ More side-by-side comparisons: [Cross-platform equivalents](../references/equiva
 | [KQL Network Event Hunting](kql/network-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Investigation, Detection Engineering, Incident Response |
 | [KQL Process Event Hunting](kql/process-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Detection Engineering, Investigation, Incident Response |
 | [Linux Audit Daemon (auditd) & Kernel Telemetry](../platforms/linux/auditd.md) | Entry | Linux | Bash | Forensics, Detection Engineering |
-| [S1QL Defense Evasion and Tampering Queries](s1ql/defense-evasion.md) | Entry | SentinelOne, Windows, Linux | S1QL | Threat Hunting, Incident Response, Detection Engineering |
+| [S1QL Defense Impairment and Tampering Queries](s1ql/defense-evasion.md) | Entry | SentinelOne, Windows, Linux | S1QL | Threat Hunting, Incident Response, Detection Engineering |
 | [S1QL Fundamentals](s1ql/fundamentals.md) | Entry | SentinelOne | S1QL | Threat Hunting, Investigation, Detection Engineering |
 | [Sigma Rule Examples](sigma/examples.md) | Entry | Windows | Sigma | Detection Engineering, Threat Hunting |
 | [Sigma Rules for Cloud Identity and Entra ID Attacks](sigma/cloud-identity-rules.md) | Entry | Entra ID, Microsoft 365, Azure | Sigma | Detection Engineering, Threat Hunting |

@@ -31,7 +31,7 @@ off, and a pipeline secret scanner (gitleaks) finding a credential.
     come from the GitHub audit log; check the current names in your stream before relying on exact matches.
     The `contains` matches below are deliberately loose.
 
-- **ATT&CK**: [T1552.001 — Unsecured Credentials: Credentials in Files](https://attack.mitre.org/techniques/T1552/001/), [T1562.001 — Impair Defenses](https://attack.mitre.org/techniques/T1562/001/)
+- **ATT&CK**: [T1552.001 — Unsecured Credentials: Credentials in Files](https://attack.mitre.org/techniques/T1552/001/), [T1685 — Disable or Modify Tools](https://attack.mitre.org/techniques/T1685/) (formerly T1562.001)
 - **Concept**: [Secure SDLC & DevSecOps](../../fundamentals/concepts/secure-sdlc-devsecops.md)
 
 ## Sigma rule — push protection bypass
@@ -70,8 +70,8 @@ description: Detects secret scanning or push protection being turned off for a r
 author: RJGProjectz
 date: 2026-10-11
 tags:
-  - attack.defense-evasion
-  - attack.t1562.001
+  - attack.defense-impairment
+  - attack.t1685
 logsource:
   product: github
   service: audit

@@ -116,7 +116,8 @@ references:
 author: Command & Code Detection Engineering
 date: 2026-10-07
 tags:
-  - attack.defense_evasion
+  - attack.defense-impairment
+  - attack.privilege-escalation
   - attack.t1484.002
 logsource:
   product: azure

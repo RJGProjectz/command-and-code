@@ -30,7 +30,7 @@ Attackers with a foothold in Google Cloud keep access by **creating credentials*
 | Function / Cloud Run running as privileged SA | T1525 / T1648 Serverless Execution | `google.cloud.functions.v2.FunctionService.CreateFunction`, `google.cloud.run.v2.Services.CreateService` |
 | SSH key or startup script in metadata | T1098.004 SSH Authorized Keys / T1037 | `v1.compute.projects.setCommonInstanceMetadata`, `v1.compute.instances.setMetadata` |
 | Workload Identity Federation pool for attacker IdP | T1484.002 Trust Modification | `CreateWorkloadIdentityPoolProvider` |
-| Log sink deleted / exclusion added | T1562.008 Disable Cloud Logs | `google.logging.v2.ConfigServiceV2.DeleteSink`, `CreateExclusion` |
+| Log sink deleted / exclusion added | [T1685.002](https://attack.mitre.org/techniques/T1685/002/) Disable or Modify Cloud Log (formerly T1562.008) | `google.logging.v2.ConfigServiceV2.DeleteSink`, `CreateExclusion` |
 
 ## 2. Hunts
 

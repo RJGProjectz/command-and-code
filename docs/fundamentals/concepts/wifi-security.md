@@ -55,7 +55,7 @@ more data over shorter range. 6 GHz (Wi-Fi 6E/7) only allows WPA3 and PMF — a 
 
 | | |
 | :--- | :--- |
-| **MITRE ATT&CK** | [T1557](https://attack.mitre.org/techniques/T1557/) Adversary-in-the-Middle · [T1040](https://attack.mitre.org/techniques/T1040/) Network Sniffing · [T1465](https://attack.mitre.org/techniques/T1465/) Rogue Wi-Fi Access Points (Mobile) |
+| **MITRE ATT&CK** | [T1557](https://attack.mitre.org/techniques/T1557/) Adversary-in-the-Middle · [T1040](https://attack.mitre.org/techniques/T1040/) Network Sniffing · [T1638](https://attack.mitre.org/techniques/T1638/) Adversary-in-the-Middle (Mobile; formerly T1465 Rogue Wi-Fi Access Points) |
 | **What it leads to** | an outsider on the internal LAN without touching a cable, traffic capture, a foothold for [MITM](man-in-the-middle.md) |
 | **Where defenders meet it** | wireless controller security reports, audit findings ("WEP/TKIP enabled"), unknown SSIDs in a site survey |
 

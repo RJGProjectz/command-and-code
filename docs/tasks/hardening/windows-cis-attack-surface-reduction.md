@@ -66,8 +66,8 @@ graph TD
 | `c1db55ab-5378-4508-ba71-56134c7ac45c` | Block use of copied or impersonated system tools | **Block (1)** | T1036.003 (Masquerading) |
 | `7674ba52-37eb-4a4f-a9a1-f0f9a1619a2c` | Block Adobe Reader from creating child processes | **Block (1)** | T1204 (PDF Exploitation) |
 | `e6db77e5-3e12-4247-81d7-4dd7558116ec` | Block persistence through WMI event subscription | **Block (1)** | T1546.003 (Event Triggered Execution: WMI) |
-| `56a863a9-875e-4185-98a7-b882c60b5ce5` | Block abuse of exploited vulnerable signed drivers | **Block (1)** | T1068, T1562.001 (BYOVD Defense Impairment) |
-| `33ddedf1-c6e0-47cb-833e-de6133960387` | Block rebooting machine in Safe Mode | **Block (1)** | T1562.009 (Safe Mode EDR Bypass) |
+| `56a863a9-875e-4185-98a7-b882c60b5ce5` | Block abuse of exploited vulnerable signed drivers | **Block (1)** | T1068, T1685 (BYOVD Defense Impairment; formerly T1562.001) |
+| `33ddedf1-c6e0-47cb-833e-de6133960387` | Block rebooting machine in Safe Mode | **Block (1)** | T1688 Safe Mode Boot (formerly T1562.009) |
 
 ---
 

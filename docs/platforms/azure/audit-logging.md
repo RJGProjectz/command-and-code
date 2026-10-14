@@ -99,7 +99,7 @@ AzureActivity
 
 ## 4. Log tampering
 
-Disabling logging is an attacker step ([T1562.008 Disable or Modify Cloud Logs](https://attack.mitre.org/techniques/T1562/008/)). Alert on:
+Disabling logging is an attacker step ([T1685.002 Disable or Modify Cloud Log](https://attack.mitre.org/techniques/T1685/002/), formerly T1562.008). Alert on:
 
 - `MICROSOFT.INSIGHTS/DIAGNOSTICSETTINGS/DELETE` or `/WRITE` by anyone outside the platform team.
 - `MICROSOFT.OPERATIONALINSIGHTS/WORKSPACES/DELETE` or `.../TABLES/WRITE` (retention changes).

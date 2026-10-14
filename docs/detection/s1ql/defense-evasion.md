@@ -1,5 +1,5 @@
 ---
-title: S1QL Defense Evasion and Tampering Queries
+title: S1QL Defense Impairment and Tampering Queries
 type: entry
 platforms:
   - SentinelOne
@@ -17,14 +17,14 @@ difficulty: advanced
 tags:
   - s1ql
   - sentinelone
-  - defense-evasion
+  - defense-impairment
   - tampering
   - wevtutil
   - auditpol
   - shadow-copies
 ---
 
-# S1QL Defense Evasion and Tampering Queries
+# S1QL Defense Impairment and Tampering Queries
 
 SentinelOne Deep Visibility telemetry captures system-level manipulation attempts where adversaries attempt to disable logging, clear Windows Event logs, delete volume shadow copies, and blind security sensors.
 

@@ -18,7 +18,7 @@ tags:
   - splunk
   - edr-tampering
   - sentinelone
-  - defense-evasion
+  - defense-impairment
 ---
 
 # Splunk Detection — Security Agent Tampering & EDR Impairment
@@ -28,7 +28,7 @@ Detects audit events and administrative actions attempting to disable, unload, u
 ## Detection Logic
 
 - **Log Source**: EDR Management Audit Logs (`sourcetype="sentinelone:audit"` or Windows Event 7036 / 7040 for stopped security services)
-- **ATT&CK Technique**: [T1562.001 - Impair Defenses: Disable or Modify Tools](https://attack.mitre.org/techniques/T1562/001/)
+- **ATT&CK Technique**: [T1685 - Disable or Modify Tools](https://attack.mitre.org/techniques/T1685/) (formerly T1562.001)
 
 ```spl
 index=s1_logs sourcetype="sentinelone:audit"

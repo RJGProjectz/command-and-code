@@ -50,7 +50,7 @@ plugged into the network, often by an employee, which bypasses the perimeter.
 
 | | |
 | :--- | :--- |
-| **MITRE ATT&CK** | [T1498](https://attack.mitre.org/techniques/T1498/) Network DoS · [T1557](https://attack.mitre.org/techniques/T1557/) Adversary-in-the-Middle · [T1465](https://attack.mitre.org/techniques/T1465/) Rogue Wi-Fi Access Points (Mobile) |
+| **MITRE ATT&CK** | [T1498](https://attack.mitre.org/techniques/T1498/) Network DoS · [T1557](https://attack.mitre.org/techniques/T1557/) Adversary-in-the-Middle · [T1638](https://attack.mitre.org/techniques/T1638/) Adversary-in-the-Middle (Mobile; formerly T1465 Rogue Wi-Fi Access Points) |
 | **What it leads to** | Wi-Fi outages, credential phishing via captive portal, interception of client traffic |
 | **Where defenders meet it** | users reporting "Wi-Fi keeps dropping", WIDS alerts, an SSID seen on a BSSID not in the AP inventory |
 

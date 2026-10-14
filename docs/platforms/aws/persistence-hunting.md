@@ -29,7 +29,7 @@ After stealing a credential, an attacker in AWS wants access that survives key r
 | Scheduled code (Lambda + EventBridge) | [T1053](https://attack.mitre.org/techniques/T1053/), [T1648](https://attack.mitre.org/techniques/T1648/) | `CreateFunction*`, `UpdateFunctionCode*`, `PutRule`, `PutTargets`, `AddPermission` |
 | Federation backdoor | [T1484.002](https://attack.mitre.org/techniques/T1484/002/) | `CreateSAMLProvider`, `UpdateSAMLProvider`, `CreateOpenIDConnectProvider` |
 | Instance user data / SSM documents | [T1651](https://attack.mitre.org/techniques/T1651/) | `ModifyInstanceAttribute` (userData), `CreateDocument`, `SendCommand` |
-| Defense evasion | [T1562.008](https://attack.mitre.org/techniques/T1562/008/) | `StopLogging`, `DeleteDetector`, `DisableSecurityHub` |
+| Defense impairment | [T1685.002](https://attack.mitre.org/techniques/T1685/002/) (formerly T1562.008) | `StopLogging`, `DeleteDetector`, `DisableSecurityHub` |
 
 ## 2. Hunts
 
