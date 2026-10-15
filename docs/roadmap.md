@@ -313,6 +313,29 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
+<div class="cc-phase" markdown>
+
+## Phase 14 — CIS Compliance Tooling & Test Support
+
+**Status:** 🔵 Planned — owner request 2026-10-15
+
+**Objective:** audit hosts against the CIS Benchmarks for Windows 11, Windows Server and Linux/Unix with read-only tools, and log every program install or run that a CIS control blocks, so hardening can be tested before and after rollout instead of discovered by users.
+
+**Key capabilities**
+
+- [ ] Windows 11 CIS audit (CIS Microsoft Windows 11 Enterprise Benchmark, Level 1/Level 2): extend `scripts/powershell/Invoke-CisWindowsAudit.ps1` into a data-driven check set, read-only, one result object per recommendation (ID, expected, actual, pass/fail) as JSON/NDJSON and CSV
+- [ ] Windows Server CIS audit (Member Server and Domain Controller profiles, CIS Microsoft Windows Server 2022/2025 Benchmarks) on the same engine and output format
+- [ ] Linux/Unix CIS audit: extend `scripts/bash/audit_cis_linux.sh` with distribution profiles (Ubuntu, RHEL family; macOS later), same result schema
+- [ ] CIS block monitor: watch and log installs and executions that fail because of a hardening control — Windows AppLocker/WDAC (Code Integrity), Defender ASR, Windows Installer and UAC denials; Linux SELinux/AppArmor denials, `noexec` mounts, fapolicyd — as NDJSON (§4.7) with the CIS recommendation that caused the block
+- [ ] Test support: before/after report diff, Pester and pytest suites with recorded sample events and config fixtures, lab run checklist for Windows 11, Server and Linux VMs, CI job for the check engines
+- [ ] Docs: one page per tool in `docs/toolbox/`, links from the CIS hardening tasks
+
+**Constraints:** check definitions cite CIS recommendation numbers and titles only — benchmark text stays in the licensed CIS documents. All tools default to `Test` and read-only; event IDs and registry values are doc-checked against Microsoft Learn and man pages before `verified: true`.
+
+**Repository areas:** `scripts/powershell/`, `scripts/bash/`, `tests/`, `docs/toolbox/`, `docs/tasks/hardening/`
+
+</div>
+
 ## Knowledge ingestion model
 
 How existing work enters Command & Code:
