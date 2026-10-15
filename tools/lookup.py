@@ -16,6 +16,8 @@ DOCS = ROOT / "docs"
 def load_pages():
     pages = []
     for p in DOCS.rglob("*.md"):
+        if any(part.startswith(".") for part in p.relative_to(DOCS).parts):
+            continue  # docs/.obsidian, docs/.trash: not site pages
         try:
             text = p.read_text(encoding="utf-8")
         except Exception:

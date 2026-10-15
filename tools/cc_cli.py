@@ -51,6 +51,8 @@ def banner() -> None:
 def load_pages() -> List[Dict[str, Any]]:
     pages = []
     for p in sorted(DOCS.rglob("*.md")):
+        if any(part.startswith(".") for part in p.relative_to(DOCS).parts):
+            continue  # docs/.obsidian, docs/.trash: not site pages
         try:
             text = p.read_text(encoding="utf-8")
         except Exception:

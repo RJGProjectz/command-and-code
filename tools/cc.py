@@ -102,7 +102,8 @@ def load_page(path: Path) -> Page:
 
 
 def all_pages() -> list[Page]:
-    return [load_page(p) for p in sorted(DOCS.rglob("*.md"))]
+    # Skip dot-directories (e.g. docs/.obsidian, docs/.trash), as MkDocs exclude_docs does.
+    return [load_page(p) for p in sorted(DOCS.rglob("*.md")) if not any(part.startswith(".") for part in p.relative_to(DOCS).parts)]
 
 
 # --------------------------------------------------------------------------- validate

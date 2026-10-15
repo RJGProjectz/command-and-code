@@ -100,3 +100,13 @@ def test_code_blocks_yield_language_code_and_line():
     blocks = list(cc._code_blocks(text))
 
     assert blocks == [("powershell", "Get-Process", 3), ("bash", "echo hi", 7)]
+
+
+def test_all_pages_skips_dot_directories(tmp_path, monkeypatch):
+    # docs/ may be opened as an Obsidian vault: .obsidian/ and .trash/ are not site pages.
+    (tmp_path / "a.md").write_text("# A\n", encoding="utf-8")
+    for hidden in (".obsidian", ".trash"):
+        (tmp_path / hidden).mkdir()
+        (tmp_path / hidden / "x.md").write_text("no heading\n", encoding="utf-8")
+    monkeypatch.setattr(cc, "DOCS", tmp_path)
+    assert [p.rel for p in cc.all_pages()] == ["a.md"]

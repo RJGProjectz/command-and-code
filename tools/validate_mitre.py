@@ -270,7 +270,8 @@ def scan_repository():
     """
     coverage = {}
     stale = []
-    doc_files = list(DOCS.glob("**/*.md"))
+    # Skip dot-directories (docs/.obsidian, docs/.trash), as MkDocs exclude_docs does.
+    doc_files = [d for d in DOCS.glob("**/*.md") if not any(part.startswith(".") for part in d.relative_to(DOCS).parts)]
 
     for doc in doc_files:
         try:

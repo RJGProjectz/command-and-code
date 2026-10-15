@@ -4,6 +4,9 @@ venv/
 __pycache__/
 *.pyc
 .cache/
+# Obsidian vault settings and trash when docs/ is opened as a vault (CONTRIBUTING.md)
+.obsidian/
+.trash/
 .DS_Store
 Thumbs.db
 # Triage output written by scripts/ when run from the repo
