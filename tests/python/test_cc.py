@@ -110,3 +110,24 @@ def test_all_pages_skips_dot_directories(tmp_path, monkeypatch):
         (tmp_path / hidden / "x.md").write_text("no heading\n", encoding="utf-8")
     monkeypatch.setattr(cc, "DOCS", tmp_path)
     assert [p.rel for p in cc.all_pages()] == ["a.md"]
+
+
+def _no_git_bash(monkeypatch, tmp_path, which_bash):
+    monkeypatch.setattr(cc.sys, "platform", "win32")
+    monkeypatch.setattr(cc.shutil, "which", lambda name: which_bash if name == "bash" else None)
+    for env in ("ProgramFiles", "ProgramW6432", "LOCALAPPDATA"):
+        monkeypatch.setenv(env, str(tmp_path / "empty"))
+
+
+def test_find_bash_rejects_the_wsl_stub_on_windows(monkeypatch, tmp_path):
+    _no_git_bash(monkeypatch, tmp_path, r"C:\Windows\System32\bash.exe")
+    assert cc.find_bash() is None
+
+
+def test_find_bash_prefers_git_bash_on_windows(monkeypatch, tmp_path):
+    _no_git_bash(monkeypatch, tmp_path, r"C:\Windows\System32\bash.exe")
+    git_bash = tmp_path / "pf" / "Git" / "bin" / "bash.exe"
+    git_bash.parent.mkdir(parents=True)
+    git_bash.write_bytes(b"")
+    monkeypatch.setenv("ProgramFiles", str(tmp_path / "pf"))
+    assert cc.find_bash() == str(git_bash)

@@ -31,6 +31,7 @@ any Markdown viewer. Only the Python standard library and PyYAML are used.
 from __future__ import annotations
 
 import datetime as dt
+import os
 import posixpath
 import re
 import shutil
@@ -278,6 +279,38 @@ def _code_blocks(text: str):
         yield lang, code, text[: match.start()].count("\n") + 1
 
 
+def find_bash() -> str | None:
+    """Return a bash for `bash -n`, or None.
+
+    On Windows, CreateProcess searches System32 before PATH, so a bare "bash"
+    can start the WSL launcher (%SystemRoot%/System32/bash.exe), which fails
+    without a distro. Prefer Git Bash and never return the WSL stubs.
+    """
+    if sys.platform != "win32":
+        return shutil.which("bash")
+    candidates: list[Path] = []
+    git = shutil.which("git")
+    if git:
+        try:
+            exec_path = subprocess.run([git, "--exec-path"], text=True, capture_output=True, check=True).stdout.strip()
+            git_root = Path(exec_path).parents[2]  # <root>/mingw64/libexec/git-core
+            candidates += [git_root / "bin" / "bash.exe", git_root / "usr" / "bin" / "bash.exe"]
+        except (OSError, subprocess.CalledProcessError, IndexError):
+            pass
+    for env in ("ProgramFiles", "ProgramW6432", "LOCALAPPDATA"):
+        base = os.environ.get(env)
+        if base:
+            sub = ("Programs", "Git") if env == "LOCALAPPDATA" else ("Git",)
+            candidates.append(Path(base).joinpath(*sub, "bin", "bash.exe"))
+    for path in candidates:
+        if path.is_file():
+            return str(path)
+    found = shutil.which("bash")
+    if found and not any(part.lower() in ("system32", "windowsapps") for part in Path(found).parts):
+        return found
+    return None
+
+
 def check_code() -> list[str]:
     """Parse every PowerShell/Bash/Python/YAML block and every script.
 
@@ -287,11 +320,17 @@ def check_code() -> list[str]:
     problems: list[str] = []
     pwsh = shutil.which("pwsh")
     shellcheck = shutil.which("shellcheck")
+    bash = find_bash()
     ps_items: list[tuple[str, str]] = []
+    bash_skipped = 0
 
     def add_bash(label: str, code: str) -> None:
+        nonlocal bash_skipped
+        if not bash:
+            bash_skipped += 1
+            return
         code_bytes = code.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
-        result = subprocess.run(["bash", "-n"], input=code_bytes, capture_output=True)
+        result = subprocess.run([bash, "-n"], input=code_bytes, capture_output=True)
         if result.returncode and result.stderr.strip():
             problems.append(f"{label}: bash: {result.stderr.decode('utf-8', errors='replace').strip()}")
 
@@ -333,6 +372,8 @@ def check_code() -> list[str]:
             except SyntaxError as exc:
                 problems.append(f"{rel}: python: {exc}")
 
+    if bash_skipped:
+        print(f"note: bash not found (Git Bash on Windows); skipped {bash_skipped} Bash blocks")
     if ps_items and not pwsh:
         print(f"note: pwsh not found; skipped {len(ps_items)} PowerShell blocks")
     elif ps_items:
