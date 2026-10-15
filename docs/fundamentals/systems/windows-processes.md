@@ -76,6 +76,7 @@ Get-CimInstance Win32_Process |
 
 ## Related
 
+- Concept: [Processes, threads and handles](../concepts/processes-threads.md)
 - [Windows processes (platform)](../../platforms/windows/processes.md)
 - [Suspicious Process](../../tasks/incident-response/suspicious-process.md)
 - [Virtual memory, stack and heap](memory-internals.md)

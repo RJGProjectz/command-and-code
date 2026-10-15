@@ -120,6 +120,7 @@ Requires an elevated prompt. `SAM` and `SECURITY` contain credential material â€
 
 ## Related
 
+- Concept: [Windows registry](../../fundamentals/concepts/windows-registry.md)
 - [Registry Persistence workflow](../../tasks/investigation/registry-persistence.md)
 - [KQL: Run key modifications](../../detection/kql/file-registry-events.md#run-key-modifications)
 - [Sigma: Run key persistence](../../detection/sigma/examples.md#run-key-persistence)

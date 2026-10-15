@@ -74,6 +74,7 @@ findmnt
 
 ## Related
 
+- Concept: [File systems](../../fundamentals/concepts/file-systems.md)
 - [Malware Triage workflow](../../tasks/incident-response/malware-triage.md)
 - [Windows files and permissions](../windows/files-directories.md)
 

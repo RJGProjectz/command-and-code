@@ -137,6 +137,7 @@ To remove after evidence collection: `sc.exe delete BadSvc`. On PowerShell 7, `R
 
 ## Related
 
+- Concept: [Services and daemons](../../fundamentals/concepts/services-daemons.md)
 - [Suspicious Service workflow](../../tasks/investigation/suspicious-service.md)
 - [Linux services (systemd)](../linux/systemd.md)
 - [SPL: new service installs](../../detection/spl/windows-events.md#new-service-installed-7045)

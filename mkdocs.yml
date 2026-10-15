@@ -414,6 +414,13 @@ nav:
           - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
   - Concepts:
       - fundamentals/concepts/index.md
+      - "Operating Systems":
+          - Boot and Startup Sequence (UEFI to Logon): fundamentals/concepts/boot-startup-sequence.md
+          - File Systems (NTFS, ext4, XFS): fundamentals/concepts/file-systems.md
+          - Processes, Threads and Handles: fundamentals/concepts/processes-threads.md
+          - Services and Daemons (Windows SCM, systemd): fundamentals/concepts/services-daemons.md
+          - Users, Groups and Privilege (SIDs, UIDs, UAC, sudo): fundamentals/concepts/users-groups-permissions.md
+          - Windows Registry (and the Linux /etc Equivalent): fundamentals/concepts/windows-registry.md
       - "Network":
           - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
           - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md

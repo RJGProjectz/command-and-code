@@ -154,6 +154,7 @@ Stop-Process -Id 1234 -Force
 
 ## Related
 
+- Concept: [Processes, threads and handles](../../fundamentals/concepts/processes-threads.md)
 - [Suspicious Process workflow](../../tasks/incident-response/suspicious-process.md)
 - [Suspicious PowerShell workflow](../../tasks/incident-response/suspicious-powershell.md)
 - [KQL process events](../../detection/kql/process-events.md)

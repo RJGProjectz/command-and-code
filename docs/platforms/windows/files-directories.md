@@ -113,6 +113,7 @@ Parse Prefetch and Amcache with dedicated tools (for example Eric Zimmerman's PE
 
 ## Related
 
+- Concept: [File systems](../../fundamentals/concepts/file-systems.md)
 - [Malware Triage workflow](../../tasks/incident-response/malware-triage.md)
 - [Linux filesystem](../linux/filesystem.md)
 - [KQL file events](../../detection/kql/file-registry-events.md)

@@ -100,6 +100,7 @@ kill -STOP 1234    # freeze (keeps memory for collection), resume with kill -CON
 
 ## Related
 
+- Concept: [Processes, threads and handles](../../fundamentals/concepts/processes-threads.md)
 - [Suspicious Process workflow](../../tasks/incident-response/suspicious-process.md)
 - [Windows processes](../windows/processes.md)
 - [Linux networking](networking.md)

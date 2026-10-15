@@ -86,6 +86,7 @@ ls /sys/firmware/efi >/dev/null 2>&1 && echo "UEFI boot" || echo "legacy BIOS bo
 
 ## Related
 
+- Concept: [Boot and startup sequence](../concepts/boot-startup-sequence.md)
 - [BitLocker recovery](../../tasks/administration/bitlocker-recovery.md)
 - [Windows system information](../../platforms/windows/system-information.md)
 

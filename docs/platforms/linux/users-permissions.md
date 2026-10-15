@@ -104,6 +104,7 @@ sudo chown root:root /etc/cron.d/job
 
 ## Related
 
+- Concept: [Users, groups and privilege](../../fundamentals/concepts/users-groups-permissions.md)
 - [Account Compromise workflow](../../tasks/incident-response/account-compromise.md)
 - [Windows users and groups](../windows/users-groups.md)
 
