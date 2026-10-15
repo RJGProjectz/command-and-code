@@ -25,6 +25,10 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
     
     Isolate runaway userland loops, kworker/kernel interrupt storms, cryptocurrency miners, and thread deadlocks.
 
+- :material-file-lock-outline:{ .lg .middle } **[File or Port in Use](file-or-port-in-use.md)**
+    
+    Find which process holds a locked file, a busy mount or a port (`Address already in use`), identify it, then stop it safely.
+
 - :material-harddisk-remove:{ .lg .middle } **[Emergency Disk Exhaustion & Inodes](disk-space-emergency.md)**
     
     Diagnose 100% capacity block exhaustion, inode exhaustion (`df -i`), unlinked open file descriptors (`lsof +L1`), and VSS shadow bloat.
@@ -89,6 +93,8 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
 | [CMD Error Handling & Exit Codes](../../languages/windows-cli/error-handling.md) | Entry | Windows, Windows Server | CMD, Windows CLI | Automation, Troubleshooting, Administration |
 | [Conditional Access](../../platforms/microsoft-365/conditional-access.md) | Entry | Microsoft 365, Entra ID | PowerShell, KQL | Administration, Hardening, Investigation, Troubleshooting |
 | [Cross-platform data handling: Windows ↔ Linux, secrets, encodings and transport](../../fundamentals/systems/cross-platform-data-handling.md) | Entry | Windows, Linux, Proxmox | Python, PowerShell, Bash | Administration, Automation, Troubleshooting, Hardening |
+| [Environment Variables and PATH](../administration/environment-variables-and-path.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting, Hardening |
+| [File or Port in Use — Find and Stop the Holder](file-or-port-in-use.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Troubleshooting, Administration |
 | [Fundamentals — DHCP Protocol Mechanics & IP Allocation](../../fundamentals/networking/dhcp.md) | Entry | Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Fundamentals — HTTP Security Headers & Transport Hardening](../../fundamentals/web-apps/http-security-headers.md) | Entry | Linux, Windows | HTTP, PowerShell, Bash | Hardening, Assurance, Troubleshooting |
 | [Fundamentals — HTTP/HTTPS Protocol Mechanics & Headers](../../fundamentals/networking/http-https.md) | Entry | Linux, Windows Server | Bash, PowerShell | Investigation, Troubleshooting |

@@ -114,3 +114,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable --now backup.timer
 systemctl list-timers --all
 ```
+
+A job that works in your shell but fails from cron usually misses PATH or another variable: see [environment variables and PATH](environment-variables-and-path.md#4-works-in-my-shell-not-in-cron-sudo-the-service).

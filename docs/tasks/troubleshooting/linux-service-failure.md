@@ -212,6 +212,8 @@ sudo -u SERVICE_USER /path/to/binary --args
 | `status=137` / killed | OOM killer → [OOM kills](../../platforms/linux/troubleshooting.md#out-of-memory-kills) |
 | `start request repeated too quickly` | crash loop — fix the underlying error, then `systemctl reset-failed SERVICE` |
 
+Works when you run it by hand but not as a service? Services do not read your shell profile: see [environment variables and PATH](../administration/environment-variables-and-path.md). Port or file held by another process: [file or port in use](file-or-port-in-use.md).
+
 ## 4. Config changes
 
 Validate config before restarting (examples: `nginx -t`, `sshd -t`, `apachectl configtest`, `named-checkconf`). After editing unit files: `systemctl daemon-reload`.

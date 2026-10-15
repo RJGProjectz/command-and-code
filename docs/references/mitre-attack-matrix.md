@@ -176,9 +176,9 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1567`** | Exfiltration Over Web Service | Exfiltration | [Anonymity Dark Web](../fundamentals/concepts/anonymity-dark-web.md) · [Privacy Laws](../fundamentals/concepts/privacy-laws.md) |
 | **`T1567.002`** | Exfiltration to Cloud Storage | Exfiltration | [Threat Actor Profiles](../references/threat-actor-profiles.md) |
 | **`T1573`** | Encrypted Channel | Command and Control | [Cryptography Fundamentals](../fundamentals/concepts/cryptography-fundamentals.md) |
-| **`T1574`** | Hijack Execution Flow | Execution, Stealth | [Filesystem](../platforms/linux/filesystem.md) · [Services](../platforms/windows/services.md) · [System Information](../platforms/windows/system-information.md) |
+| **`T1574`** | Hijack Execution Flow | Execution, Stealth | [Environment Variables And Path](../tasks/administration/environment-variables-and-path.md) · [Filesystem](../platforms/linux/filesystem.md) · [Services](../platforms/windows/services.md) · [System Information](../platforms/windows/system-information.md) |
 | **`T1574.006`** | Dynamic Linker Hijacking | Execution, Stealth | [Filesystem](../platforms/linux/filesystem.md) |
-| **`T1574.007`** | Path Interception by PATH Environment Variable | Execution, Stealth | [System Information](../platforms/windows/system-information.md) |
+| **`T1574.007`** | Path Interception by PATH Environment Variable | Execution, Stealth | [Environment Variables And Path](../tasks/administration/environment-variables-and-path.md) · [System Information](../platforms/windows/system-information.md) |
 | **`T1574.009`** | Path Interception by Unquoted Path | Execution, Stealth | [Services](../platforms/windows/services.md) |
 | **`T1574.012`** | COR_PROFILER | Execution, Stealth | [System Information](../platforms/windows/system-information.md) |
 | **`T1578.002`** | Create Cloud Instance | Defense Impairment | [Cloud Infrastructure Ephemeral Asset Hunting](../tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md) |

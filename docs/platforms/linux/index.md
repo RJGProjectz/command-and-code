@@ -85,6 +85,8 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Defensive Bash Scripting & Enterprise Boilerplate](../../languages/bash/defensive-scripting.md) | Entry | Linux | Bash | Automation, Hardening |
 | [Detection Rule — ARP Spoofing (DAI and arpwatch)](../../detection/sigma/arp-spoofing-dai.md) | Entry | Linux, Splunk | Sigma, SPL, KQL | Detection Engineering, Threat Hunting |
 | [Detection Rule — Cryptomining (Resource Hijacking)](../../detection/sigma/cryptomining.md) | Entry | Windows, Linux, Microsoft Defender | Sigma, KQL, SPL | Detection Engineering, Threat Hunting |
+| [Environment Variables and PATH](../../tasks/administration/environment-variables-and-path.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting, Hardening |
+| [File or Port in Use — Find and Stop the Holder](../../tasks/troubleshooting/file-or-port-in-use.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Troubleshooting, Administration |
 | [Finding Files & Content Discovery](../../tasks/administration/file-search-discovery.md) | Entry | Linux, Windows, Windows Server | Bash, PowerShell, CMD | Administration, Investigation, Forensics |
 | [Fundamentals — Agentic AI Architectures & Tool Execution](../../fundamentals/agentic-ai.md) | Entry | Linux | Python | Automation, Hardening |
 | [Fundamentals — API Security & Error Handling](../../fundamentals/apis/security-error-handling.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |

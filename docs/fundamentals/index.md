@@ -153,7 +153,9 @@ Every fundamental node provides:
 | [Defensive Bash Scripting & Enterprise Boilerplate](../languages/bash/defensive-scripting.md) | Entry | Linux | Bash | Automation, Hardening |
 | [Detection Rules — Wi-Fi (WLAN-AutoConfig and Unknown Devices)](../detection/sigma/wlan-events.md) | Entry | Windows, Windows Server | Sigma, KQL, SPL | Detection Engineering, Investigation |
 | [Entra ID](../platforms/microsoft-365/entra.md) | Entry | Microsoft 365, Entra ID | PowerShell | Incident Response, Investigation, Administration |
+| [Environment Variables and PATH](../tasks/administration/environment-variables-and-path.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting, Hardening |
 | [Exchange Online](../platforms/microsoft-365/exchange.md) | Entry | Microsoft 365, Exchange Online | PowerShell | Incident Response, Investigation, Administration |
+| [File or Port in Use — Find and Stop the Holder](../tasks/troubleshooting/file-or-port-in-use.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Troubleshooting, Administration |
 | [Finding Files & Content Discovery](../tasks/administration/file-search-discovery.md) | Entry | Linux, Windows, Windows Server | Bash, PowerShell, CMD | Administration, Investigation, Forensics |
 | [Fundamentals — Agentic AI Architectures & Tool Execution](agentic-ai.md) | Entry | Linux | Python | Automation, Hardening |
 | [Fundamentals — API Security & Error Handling](apis/security-error-handling.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |

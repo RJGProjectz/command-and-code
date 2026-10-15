@@ -340,6 +340,7 @@ nav:
           - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
           - VPN & Remote Access Tunnels: tasks/troubleshooting/vpn-connectivity-troubleshooting.md
           - Account Lockout & Bad Passwords: tasks/troubleshooting/account-lockout-troubleshooting.md
+          - File or Port in Use: tasks/troubleshooting/file-or-port-in-use.md
       - Administration:
           - Overview: tasks/administration/index.md
           - User Lifecycle Management: tasks/administration/user-lifecycle-management.md
@@ -359,6 +360,7 @@ nav:
           - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
           - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
           - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
+          - Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
           - Remote File Transfer (SCP/rsync): tasks/administration/remote-file-transfer.md
           - SSH Key Deployment & Best Practices: tasks/administration/ssh-key-deployment.md
           - WireGuard Secure VPN Gateway Deployment: tasks/administration/wireguard-vpn-deployment.md
