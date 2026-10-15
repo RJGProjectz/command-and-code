@@ -38,7 +38,7 @@ import shutil
 import subprocess
 import sys
 from dataclasses import dataclass, field
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 import yaml
 
@@ -306,7 +306,7 @@ def find_bash() -> str | None:
         if path.is_file():
             return str(path)
     found = shutil.which("bash")
-    if found and not any(part.lower() in ("system32", "windowsapps") for part in Path(found).parts):
+    if found and not any(part.lower() in ("system32", "windowsapps") for part in PureWindowsPath(found).parts):
         return found
     return None
 
