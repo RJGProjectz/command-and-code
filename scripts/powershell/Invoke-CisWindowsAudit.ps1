@@ -1,173 +1,235 @@
 <#
 .SYNOPSIS
-    Automated CIS Microsoft Windows Benchmark Compliance Auditor (Level 1 & Level 2).
+    Read-only CIS Microsoft Windows 11 Enterprise Benchmark audit (Level 1 / Level 2), data-driven.
+
 .DESCRIPTION
-    Audits the local Windows host against critical CIS Benchmark recommendations
-    across Account Policies, User Rights, Security Options, Advanced Audit Policy,
-    Windows Defender Firewall, and Attack Surface Reduction.
-.PARAMETER OutputJson
-    Optional file path to export full structured JSON audit results.
+    Script Name   : Invoke-CisWindowsAudit.ps1
+    Purpose       : Audits the local host against every automatable recommendation in a CIS check
+                    catalog (default: CIS Microsoft Windows 11 Enterprise v5.1.0, 486 checks) and
+                    writes one result per recommendation: CIS ID, title, level, expected, actual,
+                    Pass / Fail / NotApplicable / Error. Use it for hardening baselines, before/after
+                    comparisons and compliance evidence.
+    Inputs        : Catalog JSON (scripts/cis/catalogs/), profile level, optional ID/section filters.
+    Outputs       : Result objects on the pipeline; optional JSON report, NDJSON (GOLDEN_STANDARDS
+                    section 4.7, one line per check, SIEM-ready) and CSV in -OutputPath.
+    Security      : Security Domain: Compliance / Hardening. Read-only in Test and Prod: reads the
+                    registry, secedit /export (temporary .inf, deleted), auditpol /get and service
+                    state. Run elevated: secedit and auditpol need administrator rights; without
+                    them account, user-rights and audit-policy checks report Error.
+    Author        : RJGProjectz
+    Version       : 2.0.0
+    Created       : 2026-10-08T12:30:00Z
+    Last Modified : 2026-10-16T15:00:00Z
+    KB Article    : docs/tasks/hardening/windows-11-cis-audit-tool.md
+    Source Repo   : https://www.cisecurity.org/benchmark/microsoft_windows_desktop
+    API Standards : Status values Pass | Fail | NotApplicable | Error. Recommendation IDs and titles
+                    only; CIS benchmark text is licensed and not reproduced.
+
 .PARAMETER TargetEnvironment
-    'Test' (default) or 'Prod'. Read-only: behaves the same in both.
+    'Test' (default) or 'Prod'. The audit is read-only and behaves the same in both; the value is
+    recorded in the report.
+
+.PARAMETER Level
+    CIS profile: L1 (default) or L2. L2 includes all L1 recommendations.
+
+.PARAMETER Id
+    Recommendation ID filter, wildcards allowed (e.g. '2.3.*', '18.10.43.*'). Default: all.
+
+.PARAMETER Section
+    Top-level section numbers to audit (1, 2, 5, 9, 17, 18, 19). Default: all.
+
+.PARAMETER CatalogPath
+    Catalog JSON. Default: ..\cis\catalogs\windows11-enterprise-v5.1.0.json next to this script.
+
+.PARAMETER OutputPath
+    Folder for report files. Nothing is written when omitted.
+
+.PARAMETER Format
+    Report formats written to -OutputPath: Json, Ndjson, Csv (default: all three).
+
+.PARAMETER OutputJson
+    Legacy: path of a single JSON report file (same content as Format Json).
+
+.PARAMETER SkipApplicabilityCheck
+    Audit even when the host is not Windows 11 client (results are then indicative only).
+
+.PARAMETER Quiet
+    No console summary; results still go to the pipeline and files.
 
 .EXAMPLE
-    .\Invoke-CisWindowsAudit.ps1
+    .\Invoke-CisWindowsAudit.ps1 -Level L1 -OutputPath C:\Reports\CIS
 .EXAMPLE
-    .\Invoke-CisWindowsAudit.ps1 -OutputJson "C:\Reports\cis_audit.json"
+    .\Invoke-CisWindowsAudit.ps1 -Level L2 -Section 17 | Where-Object Status -ne 'Pass'
+.EXAMPLE
+    .\Invoke-CisWindowsAudit.ps1 -Id '2.3.*','18.9.*' -Format Csv -OutputPath .\out -Quiet
 #>
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $false)]
+    [ValidateSet('Test', 'Prod')]
+    [string]$TargetEnvironment = 'Test',
+
+    [Parameter(Mandatory = $false)]
+    [ValidateSet('L1', 'L2')]
+    [string]$Level = 'L1',
+
+    [Parameter(Mandatory = $false)]
+    [string[]]$Id = @('*'),
+
+    [Parameter(Mandatory = $false)]
+    [string[]]$Section = @(),
+
+    [Parameter(Mandatory = $false)]
+    [string]$CatalogPath = (Join-Path $PSScriptRoot '..\cis\catalogs\windows11-enterprise-v5.1.0.json'),
+
+    [Parameter(Mandatory = $false)]
+    [string]$OutputPath,
+
+    [Parameter(Mandatory = $false)]
+    [ValidateSet('Json', 'Ndjson', 'Csv')]
+    [string[]]$Format = @('Json', 'Ndjson', 'Csv'),
+
+    [Parameter(Mandatory = $false)]
     [string]$OutputJson,
 
-    [Parameter(Mandatory=$false)]
-    [ValidateSet("Test", "Prod")]
-    [string]$TargetEnvironment = "Test"
+    [Parameter(Mandatory = $false)]
+    [switch]$SkipApplicabilityCheck,
+
+    [Parameter(Mandatory = $false)]
+    [switch]$Quiet
 )
 
-# Local, read-only collection: behaves the same in Test and Prod.
+Set-StrictMode -Version 3.0
+$ErrorActionPreference = 'Stop'
+
+$ToolName = 'Invoke-CisWindowsAudit'
+$ToolVersion = '2.0.0'
+
+function Write-AuditLog {
+    # Console logging helper (the only place Write-Host is used, GOLDEN_STANDARDS section 5.1).
+    param([string]$Message, [ValidateSet('INFO', 'WARN', 'ERROR', 'PASS', 'FAIL')][string]$Level = 'INFO')
+    if ($Quiet) { return }
+    $colors = @{ INFO = 'Cyan'; WARN = 'Yellow'; ERROR = 'Red'; PASS = 'Green'; FAIL = 'Red' }
+    Write-Host "[$Level] $Message" -ForegroundColor $colors[$Level]
+}
+
+Import-Module (Join-Path $PSScriptRoot 'CisAudit\CisAudit.psm1') -Force
+
+$executionId = [guid]::NewGuid().ToString()
+$startedUtc = (Get-Date).ToUniversalTime()
+$timestamp = $startedUtc.ToString('yyyy-MM-ddTHH:mm:ssZ')
+$hostName = [Environment]::MachineName
+$isElevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(
+    [Security.Principal.WindowsBuiltInRole]::Administrator)
+
 Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
-
-$ErrorActionPreference = "SilentlyContinue"
-$AuditResults = [System.Collections.Generic.List[PSCustomObject]]::new()
-
-Write-Host "===============================================================" -ForegroundColor Cyan
-Write-Host "   COMMAND & CODE - CIS WINDOWS BENCHMARK AUDIT ENGINE        " -ForegroundColor Cyan
-Write-Host "===============================================================" -ForegroundColor Cyan
-Write-Host "Target Host : $env:COMPUTERNAME" -ForegroundColor Yellow
-Write-Host "Timestamp   : $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -ForegroundColor Yellow
-Write-Host ""
-
-# ---------------------------------------------------------------------------
-# 1. Export Active Security Policy via Secedit (Account Policies & User Rights)
-# ---------------------------------------------------------------------------
-$SecExport = Join-Path $env:TEMP "cis_temp_audit.inf"
-secedit.exe /export /cfg $SecExport /areas SECURITYPOLICY USER_RIGHTS | Out-Null
-$SecText = if (Test-Path $SecExport) { Get-Content $SecExport -Raw } else { "" }
-Remove-Item $SecExport -Force -ErrorAction SilentlyContinue
-
-function Add-AuditResult {
-    param(
-        [string]$CisId,
-        [string]$Category,
-        [string]$Description,
-        [bool]$Compliant,
-        [string]$ObservedValue,
-        [string]$ExpectedValue
-    )
-    $status = if ($Compliant) { "PASS" } else { "FAIL" }
-    $color = if ($Compliant) { "Green" } else { "Red" }
-    
-    $AuditResults.Add([PSCustomObject]@{
-        CisId         = $CisId
-        Category      = $Category
-        Description   = $Description
-        Status        = $status
-        Compliant     = $Compliant
-        ObservedValue = $ObservedValue
-        ExpectedValue = $ExpectedValue
-    })
-    
-    Write-Host "[$status] $CisId - $Description" -ForegroundColor $color
-    Write-Host "       Observed: $ObservedValue | Required: $ExpectedValue" -ForegroundColor Gray
+$catalog = Import-CisCatalog -Path $CatalogPath
+Write-AuditLog "$($catalog.benchmark) v$($catalog.version) - profile $Level - host $hostName - $TargetEnvironment"
+if (-not $isElevated) {
+    Write-AuditLog 'Not elevated: account policy, user rights and audit policy checks will report Error. Run as administrator for a full audit.' 'WARN'
 }
 
-# --- CIS Section 1: Account Policies ---
-$PassLen = if ($SecText -match 'MinimumPasswordLength\s*=\s*(\d+)') { [int]$Matches[1] } else { 0 }
-Add-AuditResult -CisId "CIS 1.1.4" -Category "Account Policies" -Description "Minimum Password Length >= 14" `
-    -Compliant ($PassLen -ge 14) -ObservedValue "$PassLen chars" -ExpectedValue ">= 14 chars"
+$context = Get-CisLiveContext
 
-$Lockout = if ($SecText -match 'LockoutBadCount\s*=\s*(\d+)') { [int]$Matches[1] } else { 0 }
-Add-AuditResult -CisId "CIS 1.2.2" -Category "Account Policies" -Description "Account Lockout Threshold <= 5" `
-    -Compliant ($Lockout -gt 0 -and $Lockout -le 5) -ObservedValue "$Lockout attempts" -ExpectedValue "1 to 5 attempts"
-
-# --- CIS Section 2: User Rights Assignment ---
-$DebugPriv = if ($SecText -match 'SeDebugPrivilege\s*=\s*([^\r\n]+)') { $Matches[1].Trim() } else { "None" }
-Add-AuditResult -CisId "CIS 2.2.14" -Category "User Rights" -Description "SeDebugPrivilege restricted to Administrators" `
-    -Compliant ($DebugPriv -eq "*S-1-5-32-544" -or $DebugPriv -eq "None") -ObservedValue $DebugPriv -ExpectedValue "Administrators (*S-1-5-32-544)"
-
-$DenyNet = if ($SecText -match 'SeDenyNetworkLogonRight\s*=\s*([^\r\n]+)') { $Matches[1].Trim() } else { "None" }
-Add-AuditResult -CisId "CIS 2.2.21" -Category "User Rights" -Description "SeDenyNetworkLogonRight includes Guests" `
-    -Compliant ($DenyNet -match 'S-1-5-32-546') -ObservedValue $DenyNet -ExpectedValue "Includes Guests (S-1-5-32-546)"
-
-# --- CIS Section 2.3: Security Options (Registry) ---
-$LsaKey = "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa"
-$LmCompat = (Get-ItemProperty -Path $LsaKey -Name "LmCompatibilityLevel" -ErrorAction SilentlyContinue).LmCompatibilityLevel
-Add-AuditResult -CisId "CIS 2.3.11.1" -Category "Security Options" -Description "NTLMv2 only (LmCompatibilityLevel = 5)" `
-    -Compliant ($LmCompat -eq 5) -ObservedValue "$LmCompat" -ExpectedValue "5"
-
-$RestAnon = (Get-ItemProperty -Path $LsaKey -Name "RestrictAnonymous" -ErrorAction SilentlyContinue).RestrictAnonymous
-Add-AuditResult -CisId "CIS 2.3.11.4" -Category "Security Options" -Description "Restrict Anonymous SAM & Share Enumeration" `
-    -Compliant ($RestAnon -ge 1) -ObservedValue "$RestAnon" -ExpectedValue ">= 1"
-
-$UacKey = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
-$PromptSecure = (Get-ItemProperty -Path $UacKey -Name "PromptOnSecureDesktop" -ErrorAction SilentlyContinue).PromptOnSecureDesktop
-Add-AuditResult -CisId "CIS 2.3.17.5" -Category "Security Options" -Description "UAC: Prompt on Secure Desktop" `
-    -Compliant ($PromptSecure -eq 1) -ObservedValue "$PromptSecure" -ExpectedValue "1"
-
-# --- CIS Section 9: Windows Defender Firewall ---
-$FwProfiles = Get-NetFirewallProfile -ErrorAction SilentlyContinue
-foreach ($p in $FwProfiles) {
-    $isBlock = ($p.Enabled -eq "True" -and $p.DefaultInboundAction -eq "Block")
-    Add-AuditResult -CisId "CIS 9.$($p.Name)" -Category "Firewall" -Description "Firewall $($p.Name) Profile: Default Inbound Block" `
-        -Compliant $isBlock -ObservedValue "Enabled=$($p.Enabled), Inbound=$($p.DefaultInboundAction)" -ExpectedValue "Enabled=True, Inbound=Block"
+# Applicability: the catalog says which OS it is written for (Windows 11 client builds).
+$applicable = $true
+foreach ($test in @($catalog.applicability)) {
+    if ((Invoke-CisTest -Test $test -Context $context).Status -ne 'Pass') { $applicable = $false }
 }
-
-# --- CIS Section 17: Advanced Audit Policy ---
-$AuditCsv = auditpol.exe /get /category:* /r | ConvertFrom-Csv
-function Test-AuditSubcategory {
-    param([string]$CisId, [string]$SubcategoryName)
-    $row = $AuditCsv | Where-Object { $_.'Subcategory Name' -eq $SubcategoryName }
-    $setting = if ($row) { $row.'Inclusion Setting' } else { "No Auditing" }
-    $isComp = ($setting -ne "No Auditing" -and $setting -ne "Not Configured")
-    Add-AuditResult -CisId $CisId -Category "Audit Policy" -Description "Audit $SubcategoryName" `
-        -Compliant $isComp -ObservedValue $setting -ExpectedValue "Success / Failure"
-}
-
-Test-AuditSubcategory -CisId "CIS 17.1.1" -SubcategoryName "Credential Validation"
-Test-AuditSubcategory -CisId "CIS 17.3.1" -SubcategoryName "Process Creation"
-Test-AuditSubcategory -CisId "CIS 17.5.5" -SubcategoryName "Logon"
-Test-AuditSubcategory -CisId "CIS 17.5.6" -SubcategoryName "Special Logon"
-Test-AuditSubcategory -CisId "CIS 17.8.1" -SubcategoryName "Sensitive Privilege Use"
-
-# Check CommandLine in Event 4688
-$AuditSysKey = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit"
-$CmdLineInc = (Get-ItemProperty -Path $AuditSysKey -Name "ProcessCreationIncludeCmdLine_Enabled" -ErrorAction SilentlyContinue).ProcessCreationIncludeCmdLine_Enabled
-Add-AuditResult -CisId "CIS 17.3.2" -Category "Audit Policy" -Description "Process Creation Include CommandLine (Event 4688)" `
-    -Compliant ($CmdLineInc -eq 1) -ObservedValue "$CmdLineInc" -ExpectedValue "1"
-
-# --- CIS Section 18: Administrative Templates ---
-$RunAsPPL = (Get-ItemProperty -Path $LsaKey -Name "RunAsPPL" -ErrorAction SilentlyContinue).RunAsPPL
-Add-AuditResult -CisId "CIS 18.3.1" -Category "Administrative Templates" -Description "LSA Protection (RunAsPPL = 1)" `
-    -Compliant ($RunAsPPL -ge 1) -ObservedValue "$RunAsPPL" -ExpectedValue "1"
-
-$SmbConfig = Get-SmbServerConfiguration -ErrorAction SilentlyContinue
-Add-AuditResult -CisId "CIS 18.9.79" -Category "Protocols" -Description "SMBv1 Protocol Disabled" `
-    -Compliant ($SmbConfig.EnableSMB1Protocol -eq $false) -ObservedValue "SMB1=$($SmbConfig.EnableSMB1Protocol)" -ExpectedValue "SMB1=False"
-
-# --- Summary Statistics ---
-$Total = $AuditResults.Count
-$Passed = ($AuditResults | Where-Object { $_.Compliant -eq $true }).Count
-$Failed = $Total - $Passed
-$Score = if ($Total -gt 0) { [math]::Round(($Passed / $Total) * 100, 1) } else { 0 }
-
-Write-Host ""
-Write-Host "---------------------------------------------------------------" -ForegroundColor Cyan
-Write-Host "CIS AUDIT SUMMARY: $Passed / $Total Passed ($Score% Compliant)" -ForegroundColor $(if ($Score -ge 80) { "Green" } else { "Yellow" })
-Write-Host "---------------------------------------------------------------" -ForegroundColor Cyan
-
-if ($OutputJson) {
-    $AuditReport = [PSCustomObject]@{
-        ComputerName   = $env:COMPUTERNAME
-        TimestampUtc   = (Get-Date).ToUniversalTime().ToString("o")
-        TotalEvaluated = $Total
-        Passed         = $Passed
-        Failed         = $Failed
-        CompliancePct  = $Score
-        Results        = $AuditResults
+if (-not $applicable) {
+    if (-not $SkipApplicabilityCheck) {
+        throw "Host is not covered by '$($catalog.benchmark)' (build/installation type check failed). Use -SkipApplicabilityCheck to audit anyway."
     }
-    $AuditReport | ConvertTo-Json -Depth 4 | Set-Content -Path $OutputJson -Encoding utf8
-    Write-Host "Full JSON audit report saved to: $OutputJson" -ForegroundColor Cyan
+    Write-AuditLog 'Host is outside the benchmark scope; results are indicative only.' 'WARN'
 }
 
-return $AuditResults
+$checks = Select-CisCheck -Catalog $catalog -Level $Level -Id $Id -Section $Section
+$results = foreach ($check in $checks) { Invoke-CisCheck -Check $check -Context $context }
+$results = @($results)
+
+$summary = [ordered]@{
+    total         = $results.Count
+    pass          = @($results | Where-Object Status -eq 'Pass').Count
+    fail          = @($results | Where-Object Status -eq 'Fail').Count
+    error         = @($results | Where-Object Status -eq 'Error').Count
+    notApplicable = @($results | Where-Object Status -eq 'NotApplicable').Count
+}
+$scored = $summary.pass + $summary.fail
+$summary.scorePct = if ($scored -gt 0) { [math]::Round(100 * $summary.pass / $scored, 1) } else { 0 }
+
+foreach ($r in $results | Where-Object Status -ne 'Pass') {
+    $logLevel = if ($r.Status -eq 'Fail') { 'FAIL' } elseif ($r.Status -eq 'Error') { 'ERROR' } else { 'INFO' }
+    Write-AuditLog "$($r.Id) $($r.Title) | expected: $($r.Expected) | actual: $($r.Actual)" $logLevel
+}
+Write-AuditLog ("Summary: {0} checks, {1} pass, {2} fail, {3} error, {4} n/a - score {5}% (pass / (pass + fail))" -f
+    $summary.total, $summary.pass, $summary.fail, $summary.error, $summary.notApplicable, $summary.scorePct)
+
+$report = [ordered]@{
+    schema           = 'cc.cis.report/1'
+    tool             = $ToolName
+    version          = $ToolVersion
+    execution_id     = $executionId
+    timestamp        = $timestamp
+    host             = $hostName
+    environment      = $TargetEnvironment
+    elevated         = $isElevated
+    benchmark        = $catalog.benchmark
+    benchmarkVersion = $catalog.version
+    profile          = $Level
+    filters          = [ordered]@{ id = $Id; section = $Section }
+    summary          = $summary
+    results          = $results
+}
+
+$written = @()
+if ($OutputJson) {
+    $report | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $OutputJson -Encoding UTF8
+    $written += $OutputJson
+}
+if ($OutputPath) {
+    if (-not (Test-Path -LiteralPath $OutputPath)) { $null = New-Item -ItemType Directory -Path $OutputPath }
+    $base = Join-Path $OutputPath ("cis-{0}-{1}-{2}" -f $hostName, $Level, $startedUtc.ToString('yyyyMMddTHHmmssZ'))
+    if ($Format -contains 'Json') {
+        $report | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath "$base.json" -Encoding UTF8
+        $written += "$base.json"
+    }
+    if ($Format -contains 'Ndjson') {
+        $lines = foreach ($r in $results) {
+            $eventLevel = switch ($r.Status) { 'Fail' { 'WARN' } 'Error' { 'ERROR' } default { 'INFO' } }
+            [ordered]@{
+                timestamp         = $timestamp
+                host              = $hostName
+                tool              = $ToolName
+                version           = $ToolVersion
+                execution_id      = $executionId
+                level             = $eventLevel
+                message           = "CIS $($r.Id) $($r.Status)"
+                environment       = $TargetEnvironment
+                action            = 'cis.check'
+                target            = $r.Id
+                result            = $r.Status
+                benchmark         = $catalog.benchmark
+                benchmark_version = $catalog.version
+                profile           = $r.Level
+                cis_id            = $r.Id
+                title             = $r.Title
+                section           = $r.Section
+                expected          = $r.Expected
+                actual            = $r.Actual
+                source            = $r.Source
+                detail            = $r.Detail
+            } | ConvertTo-Json -Compress -Depth 3
+        }
+        [IO.File]::WriteAllLines("$base.ndjson", [string[]]@($lines), [Text.UTF8Encoding]::new($false))
+        $written += "$base.ndjson"
+    }
+    if ($Format -contains 'Csv') {
+        $results | Export-Csv -LiteralPath "$base.csv" -NoTypeInformation -Encoding UTF8
+        $written += "$base.csv"
+    }
+}
+foreach ($file in $written) { Write-AuditLog "Report written: $file" }
+
+$results
+# auditpol leaves a non-zero native exit code when it is denied; the audit itself succeeded.
+exit 0

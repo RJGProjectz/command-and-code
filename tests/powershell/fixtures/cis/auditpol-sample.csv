@@ -1,0 +1,5 @@
+Machine Name,Policy Target,Subcategory,Subcategory GUID,Inclusion Setting,Exclusion Setting
+WS01,System,Security System Extension,{0CCE9211-69AE-11D9-BED3-505054503030},No Auditing,
+WS01,System,Credential Validation,{0CCE923F-69AE-11D9-BED3-505054503030},Success and Failure,
+WS01,System,Process Creation,{0CCE922B-69AE-11D9-BED3-505054503030},Success,
+WS01,System,Logon,{0CCE9215-69AE-11D9-BED3-505054503030},Success,
