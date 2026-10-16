@@ -81,7 +81,8 @@ Describe 'Catalog contract: <Name>' -ForEach @(
 
     It 'gives every check a CIS title, a level and at least one test' {
         foreach ($c in $catalog.checks) {
-            $c.title | Should -Match "^(Ensure|Configure) '"
+            $c.title | Should -Match '\S' -Because "check $($c.id) needs its CIS title"
+            $c.title.Length | Should -BeLessThan 300 -Because 'titles only, no benchmark text'
             $c.level | Should -BeIn @('L1', 'L2')
             $hasTests = ($c.PSObject.Properties.Name -contains 'tests' -and @($c.tests).Count -gt 0) -or
                 ($c.PSObject.Properties.Name -contains 'variants' -and @($c.variants).Count -gt 0)

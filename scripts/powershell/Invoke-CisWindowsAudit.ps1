@@ -104,11 +104,12 @@ $ErrorActionPreference = 'Stop'
 
 $ToolName = 'Invoke-CisWindowsAudit'
 $ToolVersion = '2.0.0'
+$script:QuietMode = $Quiet.IsPresent
 
 function Write-AuditLog {
     # Console logging helper (the only place Write-Host is used, GOLDEN_STANDARDS section 5.1).
     param([string]$Message, [ValidateSet('INFO', 'WARN', 'ERROR', 'PASS', 'FAIL')][string]$Level = 'INFO')
-    if ($Quiet) { return }
+    if ($script:QuietMode) { return }
     $colors = @{ INFO = 'Cyan'; WARN = 'Yellow'; ERROR = 'Red'; PASS = 'Green'; FAIL = 'Red' }
     Write-Host "[$Level] $Message" -ForegroundColor $colors[$Level]
 }
