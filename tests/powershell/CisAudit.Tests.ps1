@@ -105,6 +105,12 @@ Describe 'Catalog contract: <Name>' -ForEach @(
             Should -BeNullOrEmpty
     }
 
+    It 'maps every audit subcategory to its language-independent GUID' {
+        $script:allTests | Where-Object { $_.source -eq 'AuditPolicy' } |
+            Where-Object { -not (Get-CisAuditSubcategoryGuid -Name $_.subcategory) } | ForEach-Object { $_.subcategory } |
+            Should -BeNullOrEmpty
+    }
+
     It 'uses registry keys the engine can map (HKLM / HKU)' {
         $allTests | Where-Object { $_.source -eq 'Registry' } | ForEach-Object { $_.key } |
             Where-Object { $_ -notmatch '^(HKLM|HKU)\\' } | Should -BeNullOrEmpty
@@ -136,6 +142,63 @@ Describe 'ConvertFrom-CisAuditpolCsv' {
         $map['Credential Validation'] | Should -Be 'Success, Failure'
         $map['Process Creation'] | Should -Be 'Success'
         $map['Security System Extension'] | Should -Be 'No Auditing'
+    }
+}
+
+Describe 'ConvertFrom-CisAuditpolBackup (locale-independent)' {
+    BeforeAll {
+        $script:backup = ConvertFrom-CisAuditpolBackup -Lines (Get-Content -LiteralPath (Join-Path $script:fixtures 'auditpol-backup-localized.csv'))
+    }
+
+    It 'decodes Setting Value bits regardless of the display language' {
+        $script:backup['{0CCE923F-69AE-11D9-BED3-505054503030}'] | Should -Be 'Success, Failure'
+        $script:backup['{0CCE922B-69AE-11D9-BED3-505054503030}'] | Should -Be 'Success'
+        $script:backup['{0CCE9217-69AE-11D9-BED3-505054503030}'] | Should -Be 'Failure'
+    }
+    It 'normalizes GUID case' {
+        $script:backup['{0CCE9211-69AE-11D9-BED3-505054503030}'] | Should -Be 'No Auditing'
+    }
+    It 'skips per-user and option rows' {
+        $script:backup.ContainsKey('{0CCE9216-69AE-11D9-BED3-505054503030}') | Should -BeFalse
+        $script:backup.Count | Should -Be 4
+    }
+    It 'lets catalog checks match by GUID on a non-English host' {
+        $check = Get-FixtureCheck -Id '17.1.1' -Tests @(ConvertTo-Expect '{"source":"AuditPolicy","subcategory":"Credential Validation","expect":{"op":"in","values":["Success, Failure"]}}')
+        (Invoke-CisCheck -Check $check -Context (Get-FakeContext -AuditPolicy $script:backup)).Status | Should -Be 'Pass'
+        $lockout = Get-FixtureCheck -Id '17.5.1' -Tests @(ConvertTo-Expect '{"source":"AuditPolicy","subcategory":"Account Lockout","expect":{"op":"in","values":["Failure","Success, Failure"]}}')
+        (Invoke-CisCheck -Check $lockout -Context (Get-FakeContext -AuditPolicy $script:backup)).Status | Should -Be 'Pass'
+    }
+    It 'also keys auditpol /get /r rows by GUID' {
+        $map = ConvertFrom-CisAuditpolCsv -Lines (Get-Content -LiteralPath (Join-Path $script:fixtures 'auditpol-sample.csv'))
+        $map['{0CCE923F-69AE-11D9-BED3-505054503030}'] | Should -Be 'Success, Failure'
+    }
+    It 'returns $null for an unknown subcategory name' {
+        Get-CisAuditSubcategoryGuid -Name 'Not A Subcategory' | Should -BeNullOrEmpty
+        Get-CisAuditSubcategoryGuid -Name 'Process Creation' | Should -Be '{0CCE922B-69AE-11D9-BED3-505054503030}'
+    }
+}
+
+Describe 'Automation helpers' {
+    It 'exit code <Expected> for FailOn <FailOn> with <Statuses>' -ForEach @(
+        @{ FailOn = 'None'; Statuses = @('Fail', 'Error'); Expected = 0 }
+        @{ FailOn = 'Fail'; Statuses = @('Pass', 'Error'); Expected = 0 }
+        @{ FailOn = 'Fail'; Statuses = @('Pass', 'Fail'); Expected = 1 }
+        @{ FailOn = 'FailOrError'; Statuses = @('Pass', 'Fail'); Expected = 1 }
+        @{ FailOn = 'FailOrError'; Statuses = @('Fail', 'Error'); Expected = 2 }
+        @{ FailOn = 'FailOrError'; Statuses = @('Pass', 'NotApplicable'); Expected = 0 }
+    ) {
+        $results = @($Statuses | ForEach-Object { [PSCustomObject]@{ Status = $_ } })
+        Get-CisExitCode -Results $results -FailOn $FailOn | Should -Be $Expected
+    }
+    It 'treats edition <EditionId> as supported = <Supported>' -ForEach @(
+        @{ EditionId = 'Enterprise'; Supported = $true }
+        @{ EditionId = 'EnterpriseS'; Supported = $true }
+        @{ EditionId = 'Education'; Supported = $true }
+        @{ EditionId = 'Professional'; Supported = $false }
+        @{ EditionId = 'Core'; Supported = $false }
+        @{ EditionId = ''; Supported = $false }
+    ) {
+        Test-CisSupportedEdition -EditionId $EditionId | Should -Be $Supported
     }
 }
 

@@ -53,6 +53,10 @@
 .PARAMETER SkipApplicabilityCheck
     Audit even when the host is not Windows 11 client (results are then indicative only).
 
+.PARAMETER FailOn
+    Exit code policy for automation: None (default, always exit 0), Fail (exit 1 when any check
+    fails) or FailOrError (also exit 2 when any check could not be evaluated, e.g. not elevated).
+
 .PARAMETER Quiet
     No console summary; results still go to the pipeline and files.
 
@@ -62,6 +66,9 @@
     .\Invoke-CisWindowsAudit.ps1 -Level L2 -Section 17 | Where-Object Status -ne 'Pass'
 .EXAMPLE
     .\Invoke-CisWindowsAudit.ps1 -Id '2.3.*','18.9.*' -Format Csv -OutputPath .\out -Quiet
+.EXAMPLE
+    # Scheduled compliance gate: exit 1 on drift, 2 when the audit was incomplete
+    .\Invoke-CisWindowsAudit.ps1 -Level L1 -OutputPath D:\Evidence -Quiet -FailOn FailOrError
 #>
 [CmdletBinding()]
 param(
@@ -96,6 +103,10 @@ param(
     [switch]$SkipApplicabilityCheck,
 
     [Parameter(Mandatory = $false)]
+    [ValidateSet('None', 'Fail', 'FailOrError')]
+    [string]$FailOn = 'None',
+
+    [Parameter(Mandatory = $false)]
     [switch]$Quiet
 )
 
@@ -103,7 +114,7 @@ Set-StrictMode -Version 3.0
 $ErrorActionPreference = 'Stop'
 
 $ToolName = 'Invoke-CisWindowsAudit'
-$ToolVersion = '2.0.0'
+$ToolVersion = '2.1.0'
 $script:QuietMode = $Quiet.IsPresent
 
 function Write-AuditLog {
@@ -125,7 +136,15 @@ $isElevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsI
 
 Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
 $catalog = Import-CisCatalog -Path $CatalogPath
+$catalogSha256 = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
+$osKey = 'HKLM\Software\Microsoft\Windows NT\CurrentVersion'
+$osEdition = [string](Read-CisRegistryValue -Key $osKey -Name 'EditionID')
+$osBuild = '{0}.{1}' -f (Read-CisRegistryValue -Key $osKey -Name 'CurrentBuild'), (Read-CisRegistryValue -Key $osKey -Name 'UBR')
+$psInfo = '{0} {1}' -f $PSVersionTable.PSEdition, $PSVersionTable.PSVersion
 Write-AuditLog "$($catalog.benchmark) v$($catalog.version) - profile $Level - host $hostName - $TargetEnvironment"
+if (-not (Test-CisSupportedEdition -EditionId $osEdition)) {
+    Write-AuditLog "Edition '$osEdition': the benchmark targets Enterprise/Education. Home and Pro ignore many Section 18 policies, so a Pass there may not be enforced." 'WARN'
+}
 if (-not $isElevated) {
     Write-AuditLog 'Not elevated: account policy, user rights and audit policy checks will report Error. Run as administrator for a full audit.' 'WARN'
 }
@@ -174,6 +193,12 @@ $report = [ordered]@{
     host             = $hostName
     environment      = $TargetEnvironment
     elevated         = $isElevated
+    powershell       = $psInfo
+    osEdition        = $osEdition
+    osBuild          = $osBuild
+    auditPolicySource = $context.AuditPolicySource
+    catalog          = [ordered]@{ path = (Split-Path -Leaf $CatalogPath); sha256 = $catalogSha256 }
+    failOn           = $FailOn
     benchmark        = $catalog.benchmark
     benchmarkVersion = $catalog.version
     profile          = $Level
@@ -211,6 +236,10 @@ if ($OutputPath) {
                 result            = $r.Status
                 benchmark         = $catalog.benchmark
                 benchmark_version = $catalog.version
+                catalog_sha256    = $catalogSha256
+                os_edition        = $osEdition
+                os_build          = $osBuild
+                elevated          = $isElevated
                 profile           = $r.Level
                 cis_id            = $r.Id
                 title             = $r.Title
@@ -232,5 +261,5 @@ if ($OutputPath) {
 foreach ($file in $written) { Write-AuditLog "Report written: $file" }
 
 $results
-# auditpol leaves a non-zero native exit code when it is denied; the audit itself succeeded.
-exit 0
+# Exit code is decided by -FailOn only (auditpol leaves a non-zero native exit code when denied).
+exit (Get-CisExitCode -Results $results -FailOn $FailOn)

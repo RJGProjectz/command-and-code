@@ -57,6 +57,12 @@ can write JSON, NDJSON and CSV reports. It is **read-only**: nothing on the host
 | `-OutputPath`, `-Format` | Folder and formats (`Json`, `Ndjson`, `Csv`; default all three) |
 | `-SkipApplicabilityCheck` | Audit a host that is not Windows 11 client (results indicative only) |
 | `-CatalogPath` | Another catalog, e.g. a newer benchmark version |
+| `-FailOn` | Exit code for automation: `None` (default, 0), `Fail` (1 on any Fail), `FailOrError` (also 2 when the audit was incomplete) |
+
+```powershell
+# Scheduled compliance gate: evidence files plus an exit code the scheduler can alert on
+.\scripts\powershell\Invoke-CisWindowsAudit.ps1 -Level L1 -OutputPath D:\Evidence -Quiet -FailOn FailOrError
+```
 
 ## Read the results
 
@@ -73,10 +79,13 @@ exist even when the Windows default behaves the same way.
 
 Report files are named `cis-<host>-<level>-<UTC time>.<ext>`:
 
-- **JSON** — one report: benchmark, profile, host, execution ID, summary and all results.
+- **JSON** — one report: benchmark, profile, host, execution ID, summary and all results, plus the
+  evidence needed to trust it later: catalog file name and **sha256**, OS edition and build,
+  PowerShell edition/version, elevation, and which audit-policy source was used.
 - **NDJSON** — one line per recommendation with the SIEM fields from GOLDEN_STANDARDS §4.7
   (`timestamp`, `host`, `tool`, `version`, `execution_id`, `level`, `action` = `cis.check`, `target`,
-  `result`) plus `cis_id`, `title`, `expected`, `actual`, `source`. `level` is `WARN` for Fail and
+  `result`) plus `cis_id`, `title`, `expected`, `actual`, `source`, `catalog_sha256`, `os_edition`,
+  `os_build` and `elevated`. `level` is `WARN` for Fail and
   `ERROR` for Error, so a SIEM can alert on drift.
 - **CSV** — `Id, Title, Level, Section, Status, Expected, Actual, Source, Detail` for spreadsheets and
   before/after comparison.
@@ -97,8 +106,8 @@ scripts/powershell/Invoke-CisWindowsAudit.ps1                                   
 
 - **Catalog** — one entry per recommendation: ID, title, level and the tests that decide it. Test
   sources: registry value (HKLM, or every loaded user hive for HKU), `secedit` System Access value,
-  `secedit` user right (accounts resolved from SIDs; exact set or "includes"), `auditpol`
-  subcategory, and service state (only to pick the right variant of 2.2.22 / 2.2.23 when the Print
+  `secedit` user right (accounts resolved from SIDs; exact set or "includes"), audit policy
+  subcategory (matched by GUID, see below), and service state (only to pick the right variant of 2.2.22 / 2.2.23 when the Print
   Spooler runs). Recommendations that need several settings (e.g. 18.5.1 AutoAdminLogon) pass only
   when all of them pass.
 - **Source of the check logic** — the catalog is generated from Tenable's public CIS audit files for
@@ -117,8 +126,14 @@ The audit files are not committed to the repository.
 ## Limits
 
 - Manual recommendations in the benchmark (not automatable) are not in the catalog.
-- `auditpol` subcategory names are English; on other display languages audit-policy checks report
-  Error until a matching catalog exists.
+- **Display language**: audit policy is read with `auditpol /backup`, whose numeric *Setting Value*
+  (1 = Success, 2 = Failure, 3 = both; MS-GPAC) and subcategory **GUIDs** do not depend on the Windows
+  language. If the backup cannot be written, the tool falls back to `auditpol /get /r`, still matched
+  by GUID, but that output's setting text is localized. The `/backup` path follows the documented
+  audit.csv format and the unit tests; it has not yet been run elevated on a non-English host.
+- **Edition**: the benchmark targets Enterprise/Education. On Home (`Core`) and Pro the tool warns,
+  because many Section 18 policies are ignored there: a registry value can pass without being
+  enforced.
 - Domain-joined hosts: the result is the **effective** local policy. Fix failures in the GPO, not on the
   host, or the next policy refresh reverts them.
 - The tool reports; it does not remediate. Use the hardening guides below to change settings.
@@ -144,3 +159,6 @@ The audit files are not committed to the repository.
 - [Tenable audit: CIS Microsoft Windows 11 Enterprise v5.1.0 L2](https://www.tenable.com/audits/CIS_Microsoft_Windows_11_Enterprise_v5.1.0_L2)
 - [secedit /export](https://learn.microsoft.com/windows-server/administration/windows-commands/secedit-export)
 - [auditpol get](https://learn.microsoft.com/windows-server/administration/windows-commands/auditpol-get)
+- [auditpol backup](https://learn.microsoft.com/windows-server/administration/windows-commands/auditpol-backup)
+- [MS-GPAC: Subcategory and SubcategoryGUID](https://learn.microsoft.com/openspecs/windows_protocols/ms-gpac/77878370-0712-47cd-997d-b07053429f6d)
+- [MS-GPAC: Example involving system audit subcategory settings](https://learn.microsoft.com/openspecs/windows_protocols/ms-gpac/f2b42f67-98d0-4900-8b66-e9e7db31698a)
