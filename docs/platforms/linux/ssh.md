@@ -256,6 +256,7 @@ For the complete interactive decision tree and deep-dive triage, see **[Troubles
 - [Fundamentals — SSH Key Architecture & Cryptography Baselines](../../fundamentals/identity/ssh-keys.md)
 - [Linux Logs](logs.md#failed-ssh-logins)
 - [Linux Troubleshooting Commands](troubleshooting.md)
+- [Linux Terminal Sessions — tmux, screen & background jobs](terminal-sessions.md)
 - [Account Compromise Workflow](../../tasks/incident-response/account-compromise.md)
 
 ## Sources

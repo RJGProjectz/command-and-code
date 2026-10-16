@@ -60,7 +60,7 @@ Pages with the same file name cover the same topic, and each one links to its si
 ### Windows and Linux
 
 <!-- cc:coverage dirs="windows,linux" labels="Windows,Linux" -->
-34 topics, 29 gaps.
+35 topics, 30 gaps.
 
 <div class="cc-coverage" markdown>
 
@@ -93,6 +93,7 @@ Pages with the same file name cover the same topic, and each one links to its si
 | Storage lvm | — | [✓](linux/storage-lvm.md) |
 | System information | [✓](windows/system-information.md) | [✓](linux/system-information.md) |
 | Systemd | — | [✓](linux/systemd.md) |
+| Terminal sessions | — | [✓](linux/terminal-sessions.md) |
 | Troubleshooting | [✓](windows/troubleshooting.md) | [✓](linux/troubleshooting.md) |
 | Users groups | [✓](windows/users-groups.md) | — |
 | Users permissions | — | [✓](linux/users-permissions.md) |

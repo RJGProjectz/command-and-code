@@ -18,6 +18,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | Find SSH authorized keys | [SSH](ssh.md#find-authorized-keys) |
 | See failed SSH logins | [Logs](logs.md#failed-ssh-logins) |
 | Hunt systemd persistence | [systemd](systemd.md#hunt-for-systemd-persistence) |
+| Keep a job running after SSH drops (tmux/screen) | [Terminal sessions](terminal-sessions.md) |
 
 ## All Linux entries
 
@@ -145,6 +146,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Linux Startup Persistence & Autostart Architecture](persistence.md) | Entry | Linux | Bash | Investigation, Forensics, Hardening |
 | [Linux Storage, Partitioning & Logical Volume Management (LVM)](storage-lvm.md) | Entry | Linux | Bash | Administration, Troubleshooting |
 | [Linux System Information](system-information.md) | Entry | Linux | Bash | Incident Response, Administration, Troubleshooting |
+| [Linux Terminal Sessions — screen, tmux & Background Jobs](terminal-sessions.md) | Entry | Linux | Bash | Administration, Troubleshooting, Investigation, Incident Response |
 | [Linux Troubleshooting Commands](troubleshooting.md) | Entry | Linux | Bash | Troubleshooting, Administration |
 | [Linux Users and Permissions](users-permissions.md) | Entry | Linux | Bash | Incident Response, Investigation, Administration, Hardening |
 | [Modern Sysadmin CLI Toolkit — jq, yq, ripgrep & fzf](../../languages/bash/cli-tools-ecosystem.md) | Entry | Linux | Bash | Administration, Investigation |

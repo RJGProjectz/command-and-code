@@ -144,6 +144,7 @@ nav:
           - Startup Persistence & Autostart: platforms/linux/persistence.md
           - Cron & Timers: platforms/linux/cron.md
           - SSH: platforms/linux/ssh.md
+          - Terminal Sessions (tmux/screen): platforms/linux/terminal-sessions.md
           - Users & Permissions: platforms/linux/users-permissions.md
           - Filesystem: platforms/linux/filesystem.md
           - Packages: platforms/linux/packages.md
