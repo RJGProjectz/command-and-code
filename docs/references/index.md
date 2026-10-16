@@ -13,6 +13,7 @@ Lookup tables and conventions.
 | [PowerShell Admin One-Liners](powershell-cheat-sheet.md) | Essential one-liners for inventory, AD, WMI/CIM, events, and remoting |
 | [Linux Sysadmin Speed Dial](linux-cheat-sheet.md) | High-yield commands for systemd, journalctl, disks, processes, and network |
 | [Cross-Platform Equivalents](equivalents.md) | The same task in PowerShell, Bash, KQL, SPL and S1QL |
+| [Command Index — All Shells](command-index.md) | Everyday jobs in PowerShell, CMD and Bash side by side, with links |
 | [Windows Event IDs](windows-event-ids.md) | Event IDs, logon types, Kerberos/NTLM, Sysmon |
 | [MITRE ATT&CK Mapping](../detection/mitre-attack/index.md) | Techniques ↔ investigation and detection content |
 | [Metadata Conventions](metadata.md) | Front matter schema, vocabulary, verification rules |
@@ -24,6 +25,7 @@ Lookup tables and conventions.
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Cloud Incident Response Cheat Sheet (Printable)](cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |
+| [Command Index — All Shells](command-index.md) | Reference | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting, Investigation |
 | [Cross-Platform Equivalents](equivalents.md) | Reference | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting, Administration |
 | [Knowledge Graph Efficacy & Operational Coverage Matrix](coverage-matrix.md) | Reference | Windows, Windows Server, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | PowerShell, Bash, Python, KQL, SPL, S1QL, REST API | Administration, Incident Response, Threat Hunting, Detection Engineering, Hardening, Assurance, Governance |
 | [Linux Sysadmin Speed Dial Cheat Sheet](linux-cheat-sheet.md) | Reference | Linux | Bash | Administration, Troubleshooting, Investigation |

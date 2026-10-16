@@ -98,6 +98,7 @@ S1QL rows are [unverified](../detection/s1ql/index.md) until tested in your cons
 
 ## Related
 
+- [Command index — all shells (PowerShell, CMD, Bash)](command-index.md)
 - [KQL fundamentals](../detection/kql/fundamentals.md)
 - [SPL fundamentals](../detection/spl/fundamentals.md)
 - [S1QL fundamentals](../detection/s1ql/fundamentals.md)

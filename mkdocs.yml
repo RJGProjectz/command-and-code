@@ -362,6 +362,7 @@ nav:
           - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
           - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
           - Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
+          - Shell Command History: tasks/administration/shell-command-history.md
           - Remote File Transfer (SCP/rsync): tasks/administration/remote-file-transfer.md
           - SSH Key Deployment & Best Practices: tasks/administration/ssh-key-deployment.md
           - WireGuard Secure VPN Gateway Deployment: tasks/administration/wireguard-vpn-deployment.md
@@ -568,6 +569,7 @@ nav:
           - "Printable: Windows Triage": references/windows-triage-cheat-sheet.md
           - "Printable: Linux Triage": references/linux-triage-cheat-sheet.md
           - "Printable: Cloud IR": references/cloud-ir-cheat-sheet.md
+          - Command Index (All Shells): references/command-index.md
           - Cross-Platform Equivalents: references/equivalents.md
           - Windows Event IDs: references/windows-event-ids.md
           - Metadata Conventions: references/metadata.md

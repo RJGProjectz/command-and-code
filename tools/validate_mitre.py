@@ -87,6 +87,7 @@ TECHNIQUE_CATALOG = {
     "T1068": ("Exploitation for Privilege Escalation", ["Privilege Escalation"]),
     "T1069": ("Permission Groups Discovery", ["Discovery"]),
     "T1070": ("Indicator Removal", ["Stealth"]),
+    "T1070.003": ("Clear Command History", ["Stealth"]),
     "T1070.004": ("File Deletion", ["Stealth"]),
     "T1070.006": ("Timestomp", ["Stealth"]),
     "T1071": ("Application Layer Protocol", ["Command and Control"]),

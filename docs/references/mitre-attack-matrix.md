@@ -40,7 +40,7 @@ A verifiable cross-walk indexing all adversary techniques, tactics, detection si
 ## 1. Executive Matrix Summary
 
 ```text
-TOTAL VALIDATED TECHNIQUES COVERED : 168 Enterprise Techniques
+TOTAL VALIDATED TECHNIQUES COVERED : 169 Enterprise Techniques
 OFFICIAL NAVIGATOR LAYER ARTIFACT  : site/mitre_attack_coverage.json
 TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 ```
@@ -88,7 +88,8 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1059.007`** | JavaScript | Execution | [Index](../detection/mitre-attack/index.md) |
 | **`T1068`** | Exploitation for Privilege Escalation | Privilege Escalation | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Software](../platforms/windows/software.md) · [Cia Triad](../fundamentals/concepts/cia-triad.md) *(+1 more)* |
 | **`T1069`** | Permission Groups Discovery | Discovery | [Users Groups Permissions](../fundamentals/concepts/users-groups-permissions.md) |
-| **`T1070`** | Indicator Removal | Stealth | [Files Directories](../platforms/windows/files-directories.md) · [Digital Forensics](../fundamentals/concepts/digital-forensics.md) · [File Systems](../fundamentals/concepts/file-systems.md) |
+| **`T1070`** | Indicator Removal | Stealth | [Shell Command History](../tasks/administration/shell-command-history.md) · [Files Directories](../platforms/windows/files-directories.md) · [Digital Forensics](../fundamentals/concepts/digital-forensics.md) · [File Systems](../fundamentals/concepts/file-systems.md) |
+| **`T1070.003`** | Clear Command History | Stealth | [Shell Command History](../tasks/administration/shell-command-history.md) |
 | **`T1070.006`** | Timestomp | Stealth | [Files Directories](../platforms/windows/files-directories.md) · [File Systems](../fundamentals/concepts/file-systems.md) |
 | **`T1071`** | Application Layer Protocol | Command and Control | [Dns](../fundamentals/dns.md) · [Network Events](../detection/kql/network-events.md) · [Index](../detection/mitre-attack/index.md) · [Dns Tunneling](../detection/spl/dns-tunneling.md) |
 | **`T1071.001`** | Web Protocols | Command and Control | [Network Dns](../detection/spl/network-dns.md) |
@@ -222,7 +223,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1685.005`** | Clear Windows Event Logs | Defense Impairment | [Index](../detection/mitre-attack/index.md) · [Windows Events](../detection/spl/windows-events.md) |
 | **`T1688`** | Safe Mode Boot | Defense Impairment | [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Boot Startup Sequence](../fundamentals/concepts/boot-startup-sequence.md) |
 | **`T1689`** | Downgrade Attack | Defense Impairment | [Powershell](../detection/spl/powershell.md) |
-| **`T1690`** | Prevent Command History Logging | Defense Impairment | [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) |
+| **`T1690`** | Prevent Command History Logging | Defense Impairment | [Shell Command History](../tasks/administration/shell-command-history.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) |
 
 ---
 
