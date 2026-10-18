@@ -63,8 +63,6 @@ def on_files(files, config):  # noqa: D103 - MkDocs hook signature
     for path in sorted(_SCRIPTS.rglob("*")):
         if path.is_file():
             rel = path.relative_to(_ROOT).as_posix()
-            if rel.startswith("scripts/cis/catalogs/") and path.suffix == ".json":
-                continue  # operator-generated from licensed CIS/Tenable data: never publish
             if path.suffix == ".audit" or "__pycache__" in path.parts:
                 continue
             files.append(File(rel, str(_ROOT), config["site_dir"], config["use_directory_urls"]))

@@ -30,10 +30,11 @@ result per recommendation (CIS ID, title, expected, actual, Pass / Fail / NotApp
 can write JSON, NDJSON and CSV reports. It is **read-only**: nothing on the host is changed in either
 `-TargetEnvironment Test` or `Prod`.
 
-!!! note "Bring your own catalog"
-    The repository ships the engine, not the check data. The catalog is derived from licensed
-    CIS / Tenable material, so each operator builds it once from audit files they are entitled to use
-    ([Get a catalog](#get-a-catalog)). Without it the script stops with the command to run.
+!!! note "Catalog included"
+    The repository ships the Windows 11 Enterprise v5.1.0 catalog
+    (`scripts/cis/catalogs/windows11-enterprise-v5.1.0.json`, 486 checks). It holds only recommendation
+    IDs, titles and the settings checked, derived from Tenable's CIS audit files; no CIS rationale or
+    remediation text. To build a catalog for another benchmark version, see [Get a catalog](#get-a-catalog).
 
 !!! warning "Before you run anything"
     Run it from an **elevated** PowerShell (5.1 or 7). Without administrator rights, `secedit /export` and
@@ -46,16 +47,15 @@ can write JSON, NDJSON and CSV reports. It is **read-only**: nothing on the host
 1. Download the audit files for your benchmark from [tenable.com/audits](https://www.tenable.com/audits)
    under your own Tenable / CIS terms, e.g. `CIS_Microsoft_Windows_11_Enterprise_v5.1.0_L1.audit` and
    `..._L2.audit`. Check each file's SHA256 against the value on its audit page.
-2. Build the catalog into the (gitignored) catalog folder:
+2. Build the catalog into the catalog folder:
 
 ```powershell
 python tools/build_cis_catalog.py --benchmark "CIS Microsoft Windows 11 Enterprise" --version 5.1.0 `
     --out scripts/cis/catalogs/windows11-enterprise-v5.1.0.json .\CIS_Microsoft_Windows_11_Enterprise_v5.1.0_L1.audit .\CIS_Microsoft_Windows_11_Enterprise_v5.1.0_L2.audit
 ```
 
-3. Keep the audit files and the catalog out of version control: `.gitignore` already excludes
-   `scripts/cis/catalogs/*.json` and `*.audit`. Distribute a catalog inside your organization only if
-   your licence allows it.
+3. Keep the downloaded audit files out of version control (`.gitignore` excludes `*.audit`); commit
+   the generated catalog.
 
 The level of each check comes from the file name (`_L1` / `_L2`). Re-run the same command when a new
 benchmark version is released (and pass the new file to `-CatalogPath`). For v5.1.0 the result has 486
@@ -135,8 +135,8 @@ scripts/powershell/Invoke-CisWindowsAudit.ps1                                   
   subcategory (matched by GUID, see below), and service state (only to pick the right variant of 2.2.22 / 2.2.23 when the Print
   Spooler runs). Recommendations that need several settings (e.g. 18.5.1 AutoAdminLogon) pass only
   when all of them pass.
-- **Source of the check logic** — the operator's catalog is generated from the Tenable audit files
-  they downloaded (sha256 of each source file recorded in the catalog; the catalog's own sha256 is
+- **Source of the check logic** — the catalog is generated from the Tenable audit files for the
+  benchmark (sha256 of each source file recorded in the catalog; the catalog's own sha256 is
   recorded in every report). Only recommendation IDs, titles and the settings checked are stored; CIS
   rationale and remediation text is not reproduced. Use your CIS WorkBench copy for that.
 
@@ -161,7 +161,7 @@ scripts/powershell/Invoke-CisWindowsAudit.ps1                                   
   hand-written audit file in the same format; `catalog-synthetic.json` is built from it.
 - `tests/powershell/CisAudit.Tests.ps1` (Pester 5, runs in CI on Linux): catalog contract (unique IDs,
   titles, only supported test types, no rationale fields, audit GUID coverage) on the synthetic catalog
-  **and on any catalog you generated locally**, plus fixture tests for every test source, variants,
+  **and on every catalog in `scripts/cis/catalogs/`**, plus fixture tests for every test source, variants,
   user hives and unreadable sources. Run it after building a new catalog.
 - `tests/python/test_build_cis_catalog.py`: generator on the synthetic audit file, and a check that
   the committed synthetic catalog matches the generator output.
