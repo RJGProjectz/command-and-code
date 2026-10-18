@@ -10,6 +10,7 @@ languages:
   - Bash
 tasks:
   - Administration
+  - Detection Engineering
   - Hardening
   - Assurance
 verified: true

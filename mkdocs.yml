@@ -334,6 +334,7 @@ nav:
       - Troubleshooting:
           - Overview: tasks/troubleshooting/index.md
           - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
+          - DNS Resolution Failures: tasks/administration/dns-resolution-troubleshooting.md
           - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
           - SSH Timeouts & Freezes: tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md
           - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
@@ -345,45 +346,51 @@ nav:
           - Shares, Mounts & Containers at Boot: tasks/troubleshooting/services-shares-containers-boot-order.md
       - Administration:
           - Overview: tasks/administration/index.md
-          - User Lifecycle Management: tasks/administration/user-lifecycle-management.md
-          - System Maintenance & Updates: tasks/administration/system-maintenance-updates.md
-          - Network Services Management: tasks/administration/network-services-management.md
-          - Backup & Recovery Operations: tasks/administration/backup-and-recovery.md
-          - Certificate & PKI Management: tasks/administration/certificate-and-pki-management.md
-          - TLS Certificate Deployment & Web Server Hardening: tasks/administration/tls-certificate-deployment.md
-          - BitLocker Key Recovery: tasks/administration/bitlocker-recovery.md
-          - Group Policy Force Refresh: tasks/administration/group-policy-update.md
-          - Remote Service Restart: tasks/administration/remote-service-restart.md
-          - Disk Capacity Audit: tasks/administration/disk-space-audit.md
-          - Temporary File Purging: tasks/administration/temp-file-cleanup.md
-          - Finding Files & Content: tasks/administration/file-search-discovery.md
-          - Identify File Types: tasks/administration/identify-file-types.md
-          - Search & Follow Logs by Keyword: tasks/administration/search-logs-by-keyword.md
-          - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
-          - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
-          - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
-          - Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
-          - Shell Command History: tasks/administration/shell-command-history.md
-          - Remote File Transfer (SCP/rsync): tasks/administration/remote-file-transfer.md
-          - SSH Key Deployment & Best Practices: tasks/administration/ssh-key-deployment.md
-          - WireGuard Secure VPN Gateway Deployment: tasks/administration/wireguard-vpn-deployment.md
-          - Local User & Group Management: tasks/administration/local-user-group-management.md
-          - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
-          - Windows Service Accounts (Least Privilege): tasks/administration/windows-service-accounts-least-privilege.md
-          - Network Adapter & IP Configuration: tasks/administration/network-adapter-ip-configuration.md
-          - Host Firewall & Port Management: tasks/administration/firewall-port-management.md
-          - Email Authentication Deployment (SPF/DKIM/DMARC): tasks/administration/email-authentication-deployment.md
-          - Storage Partitioning & Mounting: tasks/administration/storage-partitioning-mounting.md
-          - Scheduled Jobs & Task Scheduler: tasks/administration/scheduled-jobs-task-scheduler.md
-          - Package & Software Lifecycle: tasks/administration/package-software-management.md
-          - DNS Resolution Troubleshooting: tasks/administration/dns-resolution-troubleshooting.md
-          - Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
-          - Performance & Resource Auditing: tasks/administration/performance-resource-auditing.md
-          - Sysmon Enterprise Deployment & Tuning: tasks/administration/sysmon-deployment-tuning.md
-          - Centralized Event Forwarding (WEF & Rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
-          - Azure Cloud Resource Management: tasks/administration/cloud-azure-resource-management.md
+          - Command-Line Basics:
+              - Set Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
+              - Use Shell Command History: tasks/administration/shell-command-history.md
+              - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
+              - Search & Follow Logs by Keyword: tasks/administration/search-logs-by-keyword.md
+          - Files & Storage:
+              - Find Files & Content: tasks/administration/file-search-discovery.md
+              - Identify File Types: tasks/administration/identify-file-types.md
+              - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
+              - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
+              - Partition & Mount Storage: tasks/administration/storage-partitioning-mounting.md
+              - Audit Disk Space: tasks/administration/disk-space-audit.md
+              - Purge Temporary Files: tasks/administration/temp-file-cleanup.md
+              - Back Up & Restore: tasks/administration/backup-and-recovery.md
+          - Users, Groups & Service Accounts:
+              - Manage Local Users & Groups: tasks/administration/local-user-group-management.md
+              - Manage the User Lifecycle: tasks/administration/user-lifecycle-management.md
+              - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
+              - Windows Service Accounts (Least Privilege): tasks/administration/windows-service-accounts-least-privilege.md
+              - Manage Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
+          - Services, Software & Scheduling:
+              - Restart a Remote Service: tasks/administration/remote-service-restart.md
+              - Schedule Jobs (Task Scheduler, cron, timers): tasks/administration/scheduled-jobs-task-scheduler.md
+              - Manage Packages & Software: tasks/administration/package-software-management.md
+              - Apply Updates & Maintenance: tasks/administration/system-maintenance-updates.md
+              - Force a Group Policy Refresh: tasks/administration/group-policy-update.md
+              - Audit Performance & Resources: tasks/administration/performance-resource-auditing.md
+          - Networking & Remote Access:
+              - Configure Network Adapters & IPs: tasks/administration/network-adapter-ip-configuration.md
+              - Manage Host Firewall & Ports: tasks/administration/firewall-port-management.md
+              - Manage Network Services (DNS, DHCP): tasks/administration/network-services-management.md
+              - Deploy SSH Keys: tasks/administration/ssh-key-deployment.md
+              - Transfer Files Remotely (SCP/rsync): tasks/administration/remote-file-transfer.md
+              - Deploy a WireGuard VPN Gateway: tasks/administration/wireguard-vpn-deployment.md
+          - Certificates, Encryption & Email:
+              - Manage Certificates & PKI: tasks/administration/certificate-and-pki-management.md
+              - Deploy TLS Certificates & Harden Web Servers: tasks/administration/tls-certificate-deployment.md
+              - Recover BitLocker Keys: tasks/administration/bitlocker-recovery.md
+              - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
+          - Cloud:
+              - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md
       - Detection Engineering:
           - Overview: tasks/detection-engineering/index.md
+          - Deploy & Tune Sysmon: tasks/administration/sysmon-deployment-tuning.md
+          - Forward Events Centrally (WEF & rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
           - Detection Development Lifecycle: tasks/detection-engineering/detection-development-lifecycle.md
           - Alert Tuning & False Positives: tasks/detection-engineering/alert-tuning-false-positive-management.md
       - Hardening:
