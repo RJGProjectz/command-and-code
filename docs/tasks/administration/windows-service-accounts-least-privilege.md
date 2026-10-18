@@ -311,8 +311,8 @@ and only on the one key: the `MachineKeys` and `Keys` folders hold every machine
 - Otherwise keep the secret in a file under the secrets folder from section 4 (service: read only), or in a vault the
   service reaches with its own identity (Azure Key Vault with a managed identity, for example).
 - `Export-Clixml` and DPAPI user-scope secrets are tied to the profile that created them; a virtual account or gMSA
-  must create its own copy, so prefer a machine-scope store or a vault for services. Details and rotation steps are
-  planned for a separate page (backlog WP-67).
+  must create its own copy, so prefer a machine-scope store or a vault for services. Details and rotation steps per
+  store: [Store service secrets & keys on Windows](windows-service-secrets-storage.md).
 
 ## 10. Review
 

@@ -125,6 +125,7 @@ Control-plane changes (access-policy edits, network changes) are in `AzureActivi
 - [Identity & access](identity-access.md)
 - [Certificate and PKI management](../../tasks/administration/certificate-and-pki-management.md)
 - [CI/CD secret leak detection](../../detection/sigma/cicd-secret-leak.md)
+- [Store service secrets on Linux](../../tasks/administration/linux-service-secrets-storage.md) · [on Windows](../../tasks/administration/windows-service-secrets-storage.md) (reading the secret from a VM with its own identity)
 
 ## Sources
 

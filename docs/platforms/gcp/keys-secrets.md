@@ -103,6 +103,7 @@ The workload's service account needs `secretAccessor` on that secret only. No ke
 - [Storage → CMEK and retention](storage.md#5-protect-against-deletion-and-ransomware)
 - [Incident response](incident-response.md)
 - [Detection: CI/CD secret leak](../../detection/sigma/cicd-secret-leak.md)
+- [Store service secrets on Linux](../../tasks/administration/linux-service-secrets-storage.md) · [on Windows](../../tasks/administration/windows-service-secrets-storage.md) (reading the secret from a VM with its own identity)
 
 ## Sources
 

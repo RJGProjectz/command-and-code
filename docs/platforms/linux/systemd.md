@@ -125,6 +125,7 @@ sudo systemctl reload nginx              # reloads configuration gracefully with
 - [Shares, mounts & containers at boot (mount ordering, `RequiresMountsFor`)](../../tasks/troubleshooting/services-shares-containers-boot-order.md)
 - [Windows services](../windows/services.md)
 - [Run a service as its own least-privilege account (User=, ProtectSystem=, credentials)](../../tasks/administration/linux-service-accounts-least-privilege.md)
+- [Store service secrets: encrypted credentials, SOPS, Vault/OpenBao](../../tasks/administration/linux-service-secrets-storage.md)
 
 ## Sources
 

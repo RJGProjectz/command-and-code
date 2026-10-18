@@ -264,7 +264,8 @@ On the receiving side, pin that key to one command so a stolen key cannot open a
 restrict,command="/usr/local/bin/receive-backup" ssh-ed25519 AAAA... appsvc@app01
 ```
 
-Vaults, SOPS and rotation are planned for a separate page (backlog WP-67).
+Encrypted credentials in depth, the kernel keyring, SOPS, Vault/OpenBao and rotation steps per store:
+[Store service secrets & keys on Linux](linux-service-secrets-storage.md).
 
 ## 7. Let people manage the service without full root
 

@@ -115,6 +115,7 @@ for page in ssm.get_paginator("describe_parameters").paginate(
 - [IAM](identity-access.md)
 - [Storage](storage.md) (SSE-KMS on buckets)
 - [CI/CD secret leak detection](../../detection/sigma/cicd-secret-leak.md)
+- [Store service secrets on Linux](../../tasks/administration/linux-service-secrets-storage.md) · [on Windows](../../tasks/administration/windows-service-secrets-storage.md) (reading the secret from a VM with its own identity)
 
 ## Sources
 

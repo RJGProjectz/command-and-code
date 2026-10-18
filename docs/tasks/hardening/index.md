@@ -24,6 +24,8 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Linux CIS Benchmark — Comprehensive Auditd & Telemetry Baseline](linux-cis-auditd-logging.md) | Workflow | Linux | Bash | Hardening, Detection Engineering, Forensics |
 | [Linux CIS Benchmark — Filesystem Integrity & Service Hardening](linux-cis-filesystem-services.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
 | [Linux Service Accounts with Least Privilege](../administration/linux-service-accounts-least-privilege.md) | Workflow | Linux | Bash | Administration, Hardening |
+| [Store Service Secrets & Keys on Linux](../administration/linux-service-secrets-storage.md) | Workflow | Linux | Bash | Administration, Hardening |
+| [Store Service Secrets & Keys on Windows](../administration/windows-service-secrets-storage.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 | [User Lifecycle Management](../administration/user-lifecycle-management.md) | Workflow | Windows, Windows Server, Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
 | [Windows CIS Benchmark — Advanced Audit Policy Baseline](windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |

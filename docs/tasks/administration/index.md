@@ -56,6 +56,8 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Scheduled Task and Cron Job Automation](scheduled-jobs-task-scheduler.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
 | [SSH Connection Timeouts, Session Freezes & Host Sleep Drops](../troubleshooting/ssh-connection-timeout-troubleshooting.md) | Workflow | Linux, Windows | Bash, PowerShell | Troubleshooting, Administration |
 | [Storage Partitioning, Formatting and Filesystem Mounting](storage-partitioning-mounting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
+| [Store Service Secrets & Keys on Linux](linux-service-secrets-storage.md) | Workflow | Linux | Bash | Administration, Hardening |
+| [Store Service Secrets & Keys on Windows](windows-service-secrets-storage.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 | [System Maintenance and Updates](system-maintenance-updates.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
 | [Troubleshooting — Emergency Disk Space Exhaustion & Inode Recovery](../troubleshooting/disk-space-emergency.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
 | [Troubleshooting — High CPU Utilization & Runaway Processes](../troubleshooting/high-cpu-troubleshooting.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Troubleshooting, Administration |
