@@ -368,6 +368,7 @@ nav:
           - SSH Key Deployment & Best Practices: tasks/administration/ssh-key-deployment.md
           - WireGuard Secure VPN Gateway Deployment: tasks/administration/wireguard-vpn-deployment.md
           - Local User & Group Management: tasks/administration/local-user-group-management.md
+          - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
           - Network Adapter & IP Configuration: tasks/administration/network-adapter-ip-configuration.md
           - Host Firewall & Port Management: tasks/administration/firewall-port-management.md
           - Email Authentication Deployment (SPF/DKIM/DMARC): tasks/administration/email-authentication-deployment.md

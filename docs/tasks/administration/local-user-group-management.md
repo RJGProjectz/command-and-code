@@ -97,6 +97,7 @@ Manage user accounts with `useradd`, `usermod`, and `passwd`:
 awk -F: '($3 >= 1000 && $1 != "nobody") {print $1, $3, $6, $7}' /etc/passwd
 
 # Create a dedicated system service user with nologin shell
+# (full workflow: ownership, ACLs, sudo/polkit, systemd sandboxing - see linux-service-accounts-least-privilege)
 sudo useradd -r -s /usr/sbin/nologin -d /var/lib/appsvc -m appsvc
 
 # Create an interactive administrative user with home directory and bash
@@ -154,3 +155,8 @@ sudo visudo -c
 | **Find Inactive Accounts (>90d)** | `Get-LocalUser \| Where-Object { $_.LastLogon -lt (Get-Date).AddDays(-90) }` | `sudo lastlog -b 90` |
 | **Audit Admin Membership** | `Get-LocalGroupMember -Group 'Administrators'` | `getent group sudo; getent group wheel` |
 | **Verify Password Policy** | `net accounts` | `sudo grep -E 'PASS_MAX_DAYS\|PASS_MIN_LEN' /etc/login.defs` |
+
+## Related
+
+- [Linux service accounts with least privilege](linux-service-accounts-least-privilege.md)
+- [Linux users and permissions](../../platforms/linux/users-permissions.md)

@@ -124,6 +124,7 @@ sudo systemctl reload nginx              # reloads configuration gracefully with
 - [Terminal sessions (tmux, screen, systemd-run)](terminal-sessions.md)
 - [Shares, mounts & containers at boot (mount ordering, `RequiresMountsFor`)](../../tasks/troubleshooting/services-shares-containers-boot-order.md)
 - [Windows services](../windows/services.md)
+- [Run a service as its own least-privilege account (User=, ProtectSystem=, credentials)](../../tasks/administration/linux-service-accounts-least-privilege.md)
 
 ## Sources
 

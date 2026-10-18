@@ -80,6 +80,7 @@ Always edit with `visudo` (or `visudo -f /etc/sudoers.d/<file>`), which refuses 
 
 - [Linux Audit Daemon (auditd)](../../platforms/linux/auditd.md)
 - [Local User and Group Management](../administration/local-user-group-management.md)
+- [Service accounts: sudo and polkit rules for one service](../administration/linux-service-accounts-least-privilege.md)
 
 ## Sources
 
