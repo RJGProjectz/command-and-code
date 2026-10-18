@@ -189,6 +189,19 @@ a.headerlink,
   opacity: 0.85;
 }
 
+.cc-tabs-menu__heading {
+  padding: 0.45rem 0.9rem 0.15rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+
+.cc-tabs-menu__link--nested {
+  padding-left: 1.4rem;
+}
+
 .cc-tabs-menu__link:hover,
 .cc-tabs-menu__link:focus,
 .cc-tabs-menu__link--active {

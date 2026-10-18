@@ -30,11 +30,23 @@
   {% if entries %}
     <ul class="cc-tabs-menu" aria-label="{{ ref.title }}">
       {% for child in entries %}
+        {#- A grouping of sections (e.g. Tasks > Operate, WP-81): heading + its sections. -#}
+        {% if child.children and (child.children | first).children %}
+          <li class="cc-tabs-menu__heading" role="presentation">{{ child.title }}</li>
+          {% for sub in child.children %}
+            <li class="cc-tabs-menu__item">
+              <a href="{{ first_url(sub) }}" class="cc-tabs-menu__link cc-tabs-menu__link--nested{% if sub.active %} cc-tabs-menu__link--active{% endif %}">
+                {{ sub.title }}
+              </a>
+            </li>
+          {% endfor %}
+        {% else %}
         <li class="cc-tabs-menu__item">
           <a href="{{ first_url(child) }}" class="cc-tabs-menu__link{% if child.active %} cc-tabs-menu__link--active{% endif %}">
             {{ child.title }}
           </a>
         </li>
+        {% endif %}
       {% endfor %}
     </ul>
   {% endif %}

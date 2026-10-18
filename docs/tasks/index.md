@@ -7,6 +7,74 @@ type: index
 
 Start from what you are trying to accomplish. **Workflows** are ordered field procedures that link to the reference entries — they never duplicate the commands.
 
+## Operate
+
+Run, fix, harden and check systems.
+
+<div class="grid cards" markdown>
+
+-   :material-cog-outline:{ .lg } **[Administration](administration/index.md)**
+
+    ---
+
+    Accounts, services, firewall, Microsoft 365 and hypervisor administration.
+
+-   :material-wrench-outline:{ .lg } **[Troubleshooting](troubleshooting/index.md)**
+
+    ---
+
+    Connectivity, failing services, reboots, policy and time problems.
+
+-   :material-shield-lock-outline:{ .lg } **[Hardening](hardening/index.md)**
+
+    ---
+
+    Logging, auditing, firewall and SSH configuration.
+
+-   :material-clipboard-check-outline:{ .lg } **[Assurance](assurance/index.md)**
+
+    ---
+
+    Read-only compliance checks: STIG, SCuBA, EDR health, sudoers, default-deny firewalls.
+
+-   :material-robot-outline:{ .lg } **[Automation](automation/index.md)**
+
+    ---
+
+    Scripting patterns, APIs and toolbox scripts.
+
+</div>
+
+## Detect
+
+Build detections, hunt and use threat intelligence.
+
+<div class="grid cards" markdown>
+
+-   :material-radar:{ .lg } **[Detection Engineering](detection-engineering/index.md)**
+
+    ---
+
+    KQL, SPL, S1QL and Sigma detection content.
+
+-   :material-crosshairs-gps:{ .lg } **[Threat Hunting](threat-hunting/index.md)**
+
+    ---
+
+    Hypothesis-driven hunts such as lateral movement.
+
+-   :material-earth:{ .lg } **[Threat Intelligence](threat-intelligence/index.md)**
+
+    ---
+
+    STIX/TAXII feeds, adversary emulation and IoC lifecycle scoring.
+
+</div>
+
+## Respond
+
+Contain, investigate and preserve evidence.
+
 <div class="grid cards" markdown>
 
 -   :material-alarm-light-outline:{ .lg } **[Incident Response](incident-response/index.md)**
@@ -21,47 +89,11 @@ Start from what you are trying to accomplish. **Workflows** are ordered field pr
 
     Services, scheduled tasks, registry persistence, failed authentication, network and outbound connections.
 
--   :material-crosshairs-gps:{ .lg } **[Threat Hunting](threat-hunting/index.md)**
-
-    ---
-
-    Hypothesis-driven hunts such as lateral movement.
-
--   :material-wrench-outline:{ .lg } **[Troubleshooting](troubleshooting/index.md)**
-
-    ---
-
-    Connectivity, failing services, reboots, policy and time problems.
-
--   :material-cog-outline:{ .lg } **[Administration](administration/index.md)**
-
-    ---
-
-    Accounts, services, firewall, Microsoft 365 and hypervisor administration.
-
--   :material-radar:{ .lg } **[Detection Engineering](detection-engineering/index.md)**
-
-    ---
-
-    KQL, SPL, S1QL and Sigma detection content.
-
--   :material-shield-lock-outline:{ .lg } **[Hardening](hardening/index.md)**
-
-    ---
-
-    Logging, auditing, firewall and SSH configuration.
-
 -   :material-fingerprint:{ .lg } **[Forensics](forensics/index.md)**
 
     ---
 
     Evidence preservation and artifacts.
-
--   :material-robot-outline:{ .lg } **[Automation](automation/index.md)**
-
-    ---
-
-    Scripting patterns, APIs and toolbox scripts.
 
 </div>
 
