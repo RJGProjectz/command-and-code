@@ -19,6 +19,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | See failed SSH logins | [Logs](logs.md#failed-ssh-logins) |
 | Hunt systemd persistence | [systemd](systemd.md#hunt-for-systemd-persistence) |
 | Keep a job running after SSH drops (tmux/screen) | [Terminal sessions](terminal-sessions.md) |
+| Containers see an empty NFS/SMB share after a reboot | [Shares, mounts & containers at boot](../../tasks/troubleshooting/services-shares-containers-boot-order.md) |
 
 ## All Linux entries
 
@@ -32,6 +33,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](../../tasks/administration/tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](../../tasks/administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
 | [Alert Tuning and False Positive Management](../../tasks/detection-engineering/alert-tuning-false-positive-management.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL | Detection Engineering, Investigation, Incident Response |
+| [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](../../tasks/troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](../../tasks/automation/automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |
 | [Backup and Recovery Operations](../../tasks/administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
 | [Certificate and PKI Management](../../tasks/administration/certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |

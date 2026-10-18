@@ -17,6 +17,7 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Administration — Centralized Event Forwarding Pipeline (WEF & Rsyslog TLS)](../administration/centralized-log-forwarding-wef-rsyslog.md) | Workflow | Windows Server, Windows, Linux | PowerShell, Bash | Administration, Hardening, Assurance |
+| [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](../troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |
 | [Cyber Threat Intelligence — Adversary Emulation & ATT&CK Profiling](../threat-intelligence/adversary-emulation-profiling.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | PowerShell, Bash, KQL, SPL | Threat Intelligence, Detection Engineering, Assurance |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](../hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |

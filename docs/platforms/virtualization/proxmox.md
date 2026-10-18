@@ -67,6 +67,7 @@ Task logs are under `/var/log/pve/tasks/`.
 
 - [Hyper-V](hyper-v.md)
 - [VMware](vmware.md)
+- [Shares, mounts & containers at boot](../../tasks/troubleshooting/services-shares-containers-boot-order.md) — Docker on PVE with NAS shares
 
 ## Sources
 

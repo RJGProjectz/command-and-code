@@ -29,6 +29,10 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
     
     Find which process holds a locked file, a busy mount or a port (`Address already in use`), identify it, then stop it safely.
 
+- :material-folder-network-outline:{ .lg .middle } **[Shares, Mounts & Containers at Boot](services-shares-containers-boot-order.md)**
+    
+    Containers `Up` but the NFS/SMB share inside is empty after a reboot: boot order, `RequiresMountsFor`, `:rslave` binds, `bg`/`hard`/`soft` mounts, watchdog and metric.
+
 - :material-harddisk-remove:{ .lg .middle } **[Emergency Disk Exhaustion & Inodes](disk-space-emergency.md)**
     
     Diagnose 100% capacity block exhaustion, inode exhaustion (`df -i`), unlinked open file descriptors (`lsof +L1`), and VSS shadow bloat.
@@ -63,6 +67,7 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
 | [Administration — Remote Service Restart & Dependency Validation](../administration/remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Safe Temporary File Purging](../administration/temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](../administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
+| [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [DNS Client Resolution and Troubleshooting](../administration/dns-resolution-troubleshooting.md) | Workflow | Windows, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [Failed Authentication Investigation](../investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [Host Performance and System Resource Auditing](../administration/performance-resource-auditing.md) | Workflow | Windows, Linux | PowerShell, Bash, Python | Administration, Troubleshooting |

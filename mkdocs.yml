@@ -342,6 +342,7 @@ nav:
           - VPN & Remote Access Tunnels: tasks/troubleshooting/vpn-connectivity-troubleshooting.md
           - Account Lockout & Bad Passwords: tasks/troubleshooting/account-lockout-troubleshooting.md
           - File or Port in Use: tasks/troubleshooting/file-or-port-in-use.md
+          - Shares, Mounts & Containers at Boot: tasks/troubleshooting/services-shares-containers-boot-order.md
       - Administration:
           - Overview: tasks/administration/index.md
           - User Lifecycle Management: tasks/administration/user-lifecycle-management.md

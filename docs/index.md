@@ -70,7 +70,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     2. [Lateral movement](tasks/threat-hunting/lateral-movement.md) — remote logons and admin shares
     3. [LOLBin execution](tasks/threat-hunting/lolbins-execution-hunting.md) — signed binaries doing odd things
 
--   :material-wrench-outline:{ .lg } **[Fixing something broken](tasks/troubleshooting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Troubleshooting" -->73<!-- /cc:count --> entries</span>
+-   :material-wrench-outline:{ .lg } **[Fixing something broken](tasks/troubleshooting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Troubleshooting" -->74<!-- /cc:count --> entries</span>
 
     ---
 
@@ -86,9 +86,9 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 [Forensics · <!-- cc:count tasks="Forensics" -->49<!-- /cc:count -->](tasks/forensics/index.md)
 [Detection engineering · <!-- cc:count tasks="Detection Engineering" -->65<!-- /cc:count -->](tasks/detection-engineering/index.md)
 [Hardening · <!-- cc:count tasks="Hardening" -->139<!-- /cc:count -->](tasks/hardening/index.md)
-[Administration · <!-- cc:count tasks="Administration" -->166<!-- /cc:count -->](tasks/administration/index.md)
+[Administration · <!-- cc:count tasks="Administration" -->167<!-- /cc:count -->](tasks/administration/index.md)
 [Automation · <!-- cc:count tasks="Automation" -->55<!-- /cc:count -->](tasks/automation/index.md)
-[Assurance · <!-- cc:count tasks="Assurance" -->61<!-- /cc:count -->](tasks/assurance/index.md)
+[Assurance · <!-- cc:count tasks="Assurance" -->62<!-- /cc:count -->](tasks/assurance/index.md)
 [Threat intelligence · <!-- cc:count tasks="Threat Intelligence" -->11<!-- /cc:count -->](tasks/threat-intelligence/index.md)
 [All tasks](tasks/index.md)
 </div>

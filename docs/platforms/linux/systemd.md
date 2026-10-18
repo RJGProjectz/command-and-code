@@ -122,6 +122,7 @@ sudo systemctl reload nginx              # reloads configuration gracefully with
 - [Linux Service Failure workflow](../../tasks/troubleshooting/linux-service-failure.md)
 - [Cron and timers](cron.md)
 - [Terminal sessions (tmux, screen, systemd-run)](terminal-sessions.md)
+- [Shares, mounts & containers at boot (mount ordering, `RequiresMountsFor`)](../../tasks/troubleshooting/services-shares-containers-boot-order.md)
 - [Windows services](../windows/services.md)
 
 ## Sources
