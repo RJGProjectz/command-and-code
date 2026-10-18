@@ -336,6 +336,30 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 
 </div>
 
+<div class="cc-phase" markdown>
+
+## Phase 15 — Security Administration: Service Accounts, Secrets & Least Privilege
+
+**Status:** 🔵 Planned — owner request 2026-10-18
+
+**Objective:** cover the day-to-day work of a security administrator by CLI (Bash and PowerShell): run every service under its own account with exactly the rights it needs on files, folders, registry keys, services, keys and secrets; keep those secrets out of plain text; audit and rotate service credentials; and delegate admin tasks without handing out full admin or root.
+
+**Key capabilities**
+
+- [ ] Linux/Unix service accounts with least privilege — system users, ownership and ACLs, sudoers and polkit allowlists, systemd sandboxing and credentials (WP-65)
+- [ ] Windows service accounts with least privilege — virtual accounts, gMSA/sMSA, file/registry/service/private-key ACLs, logon rights (WP-66)
+- [ ] Secrets and key storage for services — systemd-creds, keyring, SOPS+age, Vault/OpenBao, SecretManagement, DPAPI (WP-67)
+- [ ] Service account audit with NDJSON output, and credential rotation after compromise (WP-68, WP-71)
+- [ ] Effective permissions and access review; delegated admin with JEA, sudoers and polkit (WP-69, WP-70)
+- [ ] Identity plumbing — Linux joined to AD, SSH certificate authority, Windows LAPS and admin tiering (WP-72, WP-73, WP-75)
+- [ ] Detective and protective controls — file integrity monitoring, per-service egress rules, LUKS disk encryption, posture scanners (WP-74, WP-76, WP-77, WP-78)
+
+**Constraints:** every command doc-checked against man pages or Microsoft Learn before `verified: true`; examples use placeholder account names and never real secrets; scripts default to read-only/`-WhatIf`.
+
+**Repository areas:** `docs/tasks/administration/`, `docs/tasks/assurance/`, `docs/tasks/hardening/`, `docs/tasks/incident-response/`, `scripts/powershell/`, `scripts/bash/`, `tests/`
+
+</div>
+
 ## Knowledge ingestion model
 
 How existing work enters Command & Code:
