@@ -1,0 +1,215 @@
+# Alias-only WP-22 topics (WP-82). page<TAB>topic. May only shrink:
+# mention the topic in the page body, then run: python tools/topic_depth.py --update
+fundamentals/concepts/access-control-models.md	Authorization Models
+fundamentals/concepts/anonymity-dark-web.md	Anonymity and Pseudonymity
+fundamentals/concepts/anonymity-dark-web.md	Avoiding Law Enforcement Operations on the Dark Web
+fundamentals/concepts/anonymity-dark-web.md	Dark Web Censorship Circumvention
+fundamentals/concepts/anonymity-dark-web.md	Dark Web Cybersecurity Threats
+fundamentals/concepts/anonymity-dark-web.md	Dark Web Hacking Forums
+fundamentals/concepts/anonymity-dark-web.md	Dark Web Monitoring Tools
+fundamentals/concepts/anonymity-dark-web.md	Tor Network
+fundamentals/concepts/authentication-mfa-sso.md	Authentication Mechanisms
+fundamentals/concepts/authentication-mfa-sso.md	Authentication Protocols
+fundamentals/concepts/authentication-mfa-sso.md	Single Sign-On and Federation
+fundamentals/concepts/cia-triad.md	Cybersecurity Fundamentals
+fundamentals/concepts/cia-triad.md	Least Privilege Principle
+fundamentals/concepts/cloud-native-security.md	Cloud Application Security
+fundamentals/concepts/cloud-native-security.md	Cloud Security Tools
+fundamentals/concepts/cloud-native-security.md	Docker Containers
+fundamentals/concepts/cloud-native-security.md	Microservices Architecture
+fundamentals/concepts/cryptography-fundamentals.md	Cryptographic Algorithms
+fundamentals/concepts/cryptography-fundamentals.md	Cryptographic Protocols
+fundamentals/concepts/cryptography-fundamentals.md	Cryptographic Security
+fundamentals/concepts/cryptography-fundamentals.md	Cryptography in Applications
+fundamentals/concepts/cryptography-fundamentals.md	Data Encryption Standard
+fundamentals/concepts/cryptography-fundamentals.md	Data Protection Techniques
+fundamentals/concepts/cryptography-fundamentals.md	Elliptic Curve Cryptography
+fundamentals/concepts/cryptography-fundamentals.md	Encryption Tools
+fundamentals/concepts/cryptography-fundamentals.md	Encryption in Network Security
+fundamentals/concepts/cryptography-fundamentals.md	ISOIEC 18033-3
+fundamentals/concepts/cryptography-fundamentals.md	ISOIEC 29192-3
+fundamentals/concepts/cryptography-fundamentals.md	Introduction to Cryptography
+fundamentals/concepts/cryptography-fundamentals.md	NIST Special Publication 800-56C
+fundamentals/concepts/cryptography-fundamentals.md	Symmetric Cryptography
+fundamentals/concepts/cryptography-fundamentals.md	Symmetric vs. Asymmetric Encryption
+fundamentals/concepts/cryptography-fundamentals.md	Triple DES
+fundamentals/concepts/cyber-law.md	Digital Forensics Legal and Ethical Considerations
+fundamentals/concepts/defense-in-depth.md	Firewalls and VPNs
+fundamentals/concepts/defense-in-depth.md	How to Securely Design Networks
+fundamentals/concepts/defense-in-depth.md	Secure Network Architecture
+fundamentals/concepts/defense-in-depth.md	Security Principles
+fundamentals/concepts/digital-forensics.md	Data Recovery Techniques
+fundamentals/concepts/digital-forensics.md	Digital Forensics Fundamentals
+fundamentals/concepts/digital-forensics.md	Forensic Reporting
+fundamentals/concepts/digital-forensics.md	Forensic Tools and Techniques
+fundamentals/concepts/digital-forensics.md	Mobile Forensics
+fundamentals/concepts/digital-signatures.md	Digital Identity and Trust
+fundamentals/concepts/digital-signatures.md	Digital Signature Algorithm
+fundamentals/concepts/digital-signatures.md	Elliptic Curve Digital Signature Algorithm
+fundamentals/concepts/ethical-hacking.md	Cybersecurity Careers
+fundamentals/concepts/ethical-hacking.md	Ethical Hacking Fundamentals
+fundamentals/concepts/ethical-hacking.md	Ethical and Legal Considerations
+fundamentals/concepts/ethical-hacking.md	Ethics in AI and Machine Learning
+fundamentals/concepts/ethical-hacking.md	Legal and Ethical Implications of Hacking
+fundamentals/concepts/ethical-hacking.md	Unethical Hacking
+fundamentals/concepts/hash-functions.md	Collision Resistance
+fundamentals/concepts/hash-functions.md	One-Way Hash Functions
+fundamentals/concepts/identity-access-management.md	Emerging Technologies in IAM
+fundamentals/concepts/identity-access-management.md	IAM Policy and Governance
+fundamentals/concepts/identity-access-management.md	IAM in the Cloud
+fundamentals/concepts/identity-access-management.md	Privileged Access Management
+fundamentals/concepts/identity-access-management.md	User Identity Management
+fundamentals/concepts/ids-ips.md	How to Implement an IDS-IPS
+fundamentals/concepts/ids-ips.md	Intrusion Detection Systems
+fundamentals/concepts/ids-ips.md	Intrusion Prevention Systems
+fundamentals/concepts/mac-address-spoofing.md	How to Change Your MAC Address
+fundamentals/concepts/malware-types-analysis.md	Emerging Threats
+fundamentals/concepts/malware-types-analysis.md	Malware Analysis and Creation
+fundamentals/concepts/malware-types-analysis.md	Malware Analysis and Defense
+fundamentals/concepts/malware-types-analysis.md	Malware Forensics
+fundamentals/concepts/man-in-the-middle.md	Post-Connection Attacks
+fundamentals/concepts/mobile-security.md	Mobile Application Security
+fundamentals/concepts/mobile-security.md	Mobile Security Tools
+fundamentals/concepts/osi-model-tcp.md	Fundamentals of Network Security
+fundamentals/concepts/osi-model-tcp.md	Protocol Security
+fundamentals/concepts/osint.md	Google Dorking
+fundamentals/concepts/osint.md	Reverse Searches
+fundamentals/concepts/osint.md	Social Media Account Search
+fundamentals/concepts/osint.md	Social Media Scams
+fundamentals/concepts/packet-sniffing.md	How to Conduct Traffic Analysis with Wireshark
+fundamentals/concepts/packet-sniffing.md	Targeted Packet Sniffing
+fundamentals/concepts/password-attacks.md	Generating a Wordlist & Cracking the Password
+fundamentals/concepts/password-attacks.md	How to use Password Cracking Techniques
+fundamentals/concepts/password-attacks.md	wordlists for password cracking
+fundamentals/concepts/penetration-testing.md	Cybersecurity Tools and Technologies
+fundamentals/concepts/penetration-testing.md	Hacking Toolkit
+fundamentals/concepts/penetration-testing.md	How to Develop & Test Exploits
+fundamentals/concepts/penetration-testing.md	How to Set Up a Home Lab
+fundamentals/concepts/penetration-testing.md	How to Set Up a Pentesting Lab
+fundamentals/concepts/penetration-testing.md	How to Use OWASP Juice Shop
+fundamentals/concepts/penetration-testing.md	Open Source Security Tools
+fundamentals/concepts/penetration-testing.md	Penetration Testing Frameworks
+fundamentals/concepts/penetration-testing.md	Penetration Testing Methodologies
+fundamentals/concepts/penetration-testing.md	Post-Exploitation Techniques
+fundamentals/concepts/port-scanning.md	Banner Grabbing
+fundamentals/concepts/port-scanning.md	Network Hacking
+fundamentals/concepts/port-scanning.md	Network Scanning and Enumeration
+fundamentals/concepts/post-quantum-cryptography.md	Code-based cryptography
+fundamentals/concepts/post-quantum-cryptography.md	Hash-based cryptography
+fundamentals/concepts/post-quantum-cryptography.md	Isogenies
+fundamentals/concepts/post-quantum-cryptography.md	Isogeny-based cryptography
+fundamentals/concepts/post-quantum-cryptography.md	Key Decapsulation
+fundamentals/concepts/post-quantum-cryptography.md	Lattice-based cryptography
+fundamentals/concepts/post-quantum-cryptography.md	Multivariate polynomial cryptography
+fundamentals/concepts/post-quantum-cryptography.md	NIST Post-Quantum Cryptography Standardization
+fundamentals/concepts/post-quantum-cryptography.md	Non-deterministic Polynomial-time (NP)
+fundamentals/concepts/post-quantum-cryptography.md	Shortest Vector Problem (SVP)
+fundamentals/concepts/post-quantum-cryptography.md	Supersingular Isogeny Diffie-Hellman
+fundamentals/concepts/privacy-laws.md	Cybersecurity Ethics and Privacy
+fundamentals/concepts/privacy-laws.md	How to Conduct a Data Privacy Assessment
+fundamentals/concepts/privacy-laws.md	How to Perform a Privacy Impact Assessment
+fundamentals/concepts/privacy-laws.md	Privacy Laws and Regulations
+fundamentals/concepts/quantum-computing-security.md	Quantum Entanglement
+fundamentals/concepts/quantum-computing-security.md	Quantum Hacking Techniques
+fundamentals/concepts/quantum-computing-security.md	Quantum Mechanics
+fundamentals/concepts/quantum-computing-security.md	Quantum Superposition
+fundamentals/concepts/risk-management-governance.md	How to Conduct a Risk Assessment
+fundamentals/concepts/risk-management-governance.md	How to Develop Security Policies and Procedures
+fundamentals/concepts/risk-management-governance.md	How to Perform a Compliance Audit
+fundamentals/concepts/risk-management-governance.md	Risk Analysis and Prioritization
+fundamentals/concepts/risk-management-governance.md	Security Policies and Governance
+fundamentals/concepts/secure-sdlc-devsecops.md	Application Security Tools
+fundamentals/concepts/secure-sdlc-devsecops.md	Application Vulnerability Testing
+fundamentals/concepts/secure-sdlc-devsecops.md	High-Level Languages
+fundamentals/concepts/secure-sdlc-devsecops.md	How to Conduct a Secure Code Review
+fundamentals/concepts/secure-sdlc-devsecops.md	Secure Coding Practices
+fundamentals/concepts/secure-sdlc-devsecops.md	Software Development Life Cycle
+fundamentals/concepts/secure-sdlc-devsecops.md	Software Development Life Cycle Security
+fundamentals/concepts/security-standards-map.md	Cybersecurity Frameworks
+fundamentals/concepts/security-standards-map.md	ISOIEC 27002
+fundamentals/concepts/security-standards-map.md	ISOIEC 27017
+fundamentals/concepts/security-standards-map.md	ISOIEC 27018
+fundamentals/concepts/security-standards-map.md	ISOIEC 27031
+fundamentals/concepts/security-standards-map.md	ISOIEC 27032
+fundamentals/concepts/security-standards-map.md	ISOIEC 27037
+fundamentals/concepts/security-standards-map.md	ISOIEC 27043
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-101, Revision 1
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-115
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-124
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-144
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-34
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-37
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-50
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-53
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-63
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-63B
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-83
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-86
+fundamentals/concepts/security-standards-map.md	NIST Special Publication 800-92
+fundamentals/concepts/security-standards-map.md	Security Standards and Best Practices
+fundamentals/concepts/siem.md	How to Implement a SIEM System
+fundamentals/concepts/siem.md	How to Perform Log Analysis for Intrusions
+fundamentals/concepts/social-engineering.md	Awareness and Training
+fundamentals/concepts/social-engineering.md	How to Create a Security Awareness Training Program
+fundamentals/concepts/social-engineering.md	How to Run a Phishing Simulation Campaign
+fundamentals/concepts/social-engineering.md	How to Simulate Social Engineering Attacks
+fundamentals/concepts/social-engineering.md	Rachel Tobac's Social Engineering Best Practices
+fundamentals/concepts/social-engineering.md	Social Engineering Techniques
+fundamentals/concepts/surveillance-deception.md	Surveillance and Counter-Surveillance
+fundamentals/concepts/threat-intelligence-kill-chain.md	Cyber-attack Chain
+fundamentals/concepts/threat-intelligence-kill-chain.md	Introduction to Threat Intelligence
+fundamentals/concepts/vulnerability-management.md	How to Run a Vulnerability Assessment on a Network
+fundamentals/concepts/vulnerability-management.md	Remediation and Patch Management
+fundamentals/concepts/vulnerability-management.md	Threat Intelligence and Vulnerability Management
+fundamentals/concepts/vulnerability-management.md	Vulnerability Assessment Tools
+fundamentals/concepts/vulnerability-management.md	Vulnerability Identification
+fundamentals/concepts/wifi-deauth-rogue-ap.md	Airbase-ng
+fundamentals/concepts/wifi-deauth-rogue-ap.md	Aireplay-ng
+fundamentals/concepts/wifi-deauth-rogue-ap.md	Deauthentication attack
+fundamentals/concepts/wifi-deauth-rogue-ap.md	Exploiting Deauthentication Attacks
+fundamentals/concepts/wifi-deauth-rogue-ap.md	deauth packets
+fundamentals/concepts/wifi-passphrase-attacks.md	Airdecap-ng
+fundamentals/concepts/wifi-passphrase-attacks.md	Airodump-ng
+fundamentals/concepts/wifi-passphrase-attacks.md	Airodump-ng Packet Sniffing
+fundamentals/concepts/wifi-passphrase-attacks.md	Capturing the Handshake
+fundamentals/concepts/wifi-passphrase-attacks.md	Change MAC from Managed to Monitor Mode
+fundamentals/concepts/wifi-passphrase-attacks.md	Cracking WPA and WPA2 Wi-Fi with Wifite
+fundamentals/concepts/wifi-passphrase-attacks.md	Hacking WPA & WPA2
+fundamentals/concepts/wifi-passphrase-attacks.md	Pre-Connection Network Attacks
+fundamentals/concepts/wifi-passphrase-attacks.md	Quick Guide for Hacking WPA & WPA2
+fundamentals/concepts/wifi-passphrase-attacks.md	WPA and WPA2 Cracking
+fundamentals/concepts/wifi-passphrase-attacks.md	WPA handshake
+fundamentals/concepts/wifi-passphrase-attacks.md	Wireless Network Hacking
+fundamentals/concepts/wifi-security.md	ARP Request Replay Attacks
+fundamentals/concepts/wifi-security.md	Exploiting ARP Replay Attacks
+fundamentals/concepts/wifi-security.md	Exploiting WEP
+fundamentals/concepts/wifi-security.md	Fake Authentication Attack
+fundamentals/concepts/wifi-security.md	How to Secure Wireless Networks
+fundamentals/concepts/wifi-security.md	WEP Cracking
+fundamentals/concepts/wifi-security.md	Wifi Bands
+fundamentals/concepts/wifi-security.md	Wireless Security
+fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md	Blockchain Technology
+fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md	Blockchain and Cryptography
+fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md	Decentralized Ledgers
+fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md	Zero Knowledge Proof-based cryptography
+fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md	Zero-Knowledge Proofs and the Future of Cryptocurrency
+fundamentals/identity/oauth2.md	How to Implement OAuth in a Web Application
+fundamentals/identity/pki.md	Digital Signature
+fundamentals/owasp-llm-top-10.md	Data Poisoning
+fundamentals/web-apps/owasp-web-top-10.md	Application Security
+fundamentals/web-apps/owasp-web-top-10.md	How to Do Web Application Security Testing
+fundamentals/web-apps/owasp-web-top-10.md	Web Application Exploitation
+fundamentals/web-apps/owasp-web-top-10.md	Web Application Security
+fundamentals/web-apps/owasp-web-top-10.md	Website Hacking
+fundamentals/web-apps/sql-injection.md	How to Do SQL Injection Testing & Mitigation
+references/linux-cheat-sheet.md	Linux Commands
+references/threat-actor-profiles.md	Advanced Persistent Threats (APTs)
+tasks/administration/firewall-port-management.md	How to Build and Configure a Firewall
+tasks/administration/wireguard-vpn-deployment.md	How to Configure & Manage a VPN
+tasks/automation/index.md	How to Automate Incident Response with Scripts
+tasks/forensics/memory-acquisition-analysis.md	Memory Forensics
+tasks/incident-response/index.md	Incident Response Plan (IRP)
+tasks/incident-response/index.md	Incident Response Process
+tasks/investigation/network-investigation.md	Network Forensics
+tasks/threat-hunting/hypothesis-driven-hunting-framework.md	How to Develop a Threat Hunting Strategy
+tasks/threat-intelligence/stix-taxii-pipeline.md	Threat Feeds and Sharing

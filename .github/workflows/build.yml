@@ -35,6 +35,10 @@ jobs:
       - name: Validate MITRE ATT&CK IDs (v20, no revoked IDs)
         run: python tools/validate_mitre.py
 
+      # WP-82: every WP-22 topic must be mentioned in its page body; only the known alias-only rows may stay at 0.
+      - name: Check topic depth (no new alias-only topics)
+        run: python tools/topic_depth.py --check
+
       - name: Strict MkDocs build
         run: mkdocs build --strict
 
