@@ -46,8 +46,11 @@ BeforeAll {
     function ConvertTo-Expect { param([string]$Json) $Json | ConvertFrom-Json }
 }
 
+# The synthetic catalog (built from fixtures/cis/Synthetic_v1.0.0_L1.audit) always runs; catalogs an
+# operator generated locally in scripts/cis/catalogs/ (gitignored, licensed source) are checked too.
 Describe 'Catalog contract: <Name>' -ForEach @(
-    Get-ChildItem -Path (Join-Path $PSScriptRoot '../../scripts/cis/catalogs') -Filter '*.json' |
+    @(Get-Item -LiteralPath (Join-Path $PSScriptRoot 'fixtures/cis/catalog-synthetic.json')) +
+    @(Get-ChildItem -Path (Join-Path $PSScriptRoot '../../scripts/cis/catalogs') -Filter '*.json' -ErrorAction SilentlyContinue) |
         ForEach-Object { @{ Name = $_.Name; Path = $_.FullName } }
 ) {
 

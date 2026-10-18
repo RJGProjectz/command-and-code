@@ -4,7 +4,7 @@
 
 .DESCRIPTION
     Script Name   : CisAudit.psm1
-    Purpose       : Evaluates the checks in a CIS catalog (scripts/cis/catalogs/*.json, built by
+    Purpose       : Evaluates the checks in a CIS catalog (scripts/cis/catalogs/*.json, generated locally by
                     tools/build_cis_catalog.py) against a host. Collection (secedit, auditpol,
                     registry, services) is separated from evaluation: every check runs against a
                     context object, so Pester can feed fixture data instead of a live system.

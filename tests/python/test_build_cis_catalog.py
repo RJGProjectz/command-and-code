@@ -1,4 +1,8 @@
-"""Tests for tools/build_cis_catalog.py on a small synthetic .audit file (no Tenable content)."""
+"""Tests for tools/build_cis_catalog.py on a small synthetic .audit file (no Tenable content).
+
+The synthetic audit file and the catalog built from it are shared with the Pester suite
+(tests/powershell/CisAudit.Tests.ps1), so CI never needs a licensed catalog.
+"""
 
 from __future__ import annotations
 
@@ -10,141 +14,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "tools"))
 
 import build_cis_catalog as bcc  # noqa: E402
 
-SYNTHETIC = r'''#
-# <variables>
-#   <variable>
-#     <name>MINIMUM_PASSWORD_LENGTH</name>
-#     <default>[14..MAX]</default>
-#   </variable>
-# </variables>
-<check_type:"Windows" version:"2">
-<group_policy:"Synthetic">
-<if>
-  <condition type:"AND">
-    <custom_item>
-      type        : REGISTRY_SETTING
-      description : "Windows 11 is installed"
-      value_type  : POLICY_TEXT
-      value_data  : "2[26][0-9]{3}"
-      reg_key     : "HKLM\Software\Microsoft\Windows Nt\Currentversion"
-      reg_item    : "CurrentBuild"
-      check_type  : CHECK_REGEX
-    </custom_item>
-  </condition>
-  <then>
-    <report type:"PASSED">
-      description : "synthetic.audit from Synthetic Benchmark"
-    </report>
-    <custom_item>
-      type            : PASSWORD_POLICY
-      description     : "1.1.4 Ensure 'Minimum password length' is set to '14 or more character(s)'"
-      info            : "Rationale text that must not be copied.
-Second line."
-      value_type      : POLICY_DWORD
-      value_data      : @MINIMUM_PASSWORD_LENGTH@
-      password_policy : MINIMUM_PASSWORD_LENGTH
-    </custom_item>
-    <custom_item>
-      type        : USER_RIGHTS_POLICY
-      description : "2.2.2 Ensure 'Access this computer from the network' is set to 'Administrators, Remote Desktop Users'"
-      value_type  : USER_RIGHT
-      value_data  : "Administrators" && "Remote Desktop Users"
-      right_type  : SeNetworkLogonRight
-    </custom_item>
-    <custom_item>
-      type        : USER_RIGHTS_POLICY
-      description : "2.2.15 Ensure 'Deny access to this computer from the network' to include 'Guests, Local account'"
-      value_type  : USER_RIGHT
-      value_data  : "Guests" && "Local account"
-      right_type  : SeDenyNetworkLogonRight
-      check_type  : CHECK_SUPERSET
-    </custom_item>
-    <custom_item>
-      type                     : AUDIT_POLICY_SUBCATEGORY
-      description              : "17.3.2 Ensure 'Audit Process Creation' is set to include 'Success'"
-      value_type               : AUDIT_SET
-      value_data               : "Success" || "Success, Failure"
-      audit_policy_subcategory : "Process Creation"
-    </custom_item>
-    <custom_item>
-      type        : REGISTRY_SETTING
-      description : "2.3.10.11 Ensure 'Network access: Shares that can be accessed anonymously' is set to 'None'"
-      value_type  : POLICY_MULTI_TEXT
-      value_data  : ""
-      reg_key     : "HKLM\System\CurrentControlSet\Services\LanManServer\Parameters"
-      reg_item    : "NullSessionShares"
-      reg_option  : CAN_BE_NULL
-    </custom_item>
-    <custom_item>
-      type        : REGISTRY_SETTING
-      description : "18.9.1 Ensure 'Something' is set to 'Enabled: 1 or 2'"
-      value_type  : POLICY_DWORD
-      value_data  : "1" || "2"
-      reg_key     : "HKLM\Software\Policies\Synthetic"
-      reg_item    : "Value"
-      reg_option  : CAN_NOT_BE_NULL
-    </custom_item>
-    <if>
-      <condition auto:"FAILED" type:"AND">
-        <custom_item>
-          type        : REGISTRY_SETTING
-          description : "AutoAdminLogon is 0"
-          value_type  : POLICY_TEXT
-          value_data  : "0"
-          reg_key     : "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"
-          reg_item    : "AutoAdminLogon"
-          reg_option  : CAN_BE_NULL
-        </custom_item>
-        <custom_item>
-          type        : REG_CHECK
-          description : "DefaultPassword does not exist"
-          value_type  : POLICY_TEXT
-          value_data  : "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"
-          reg_option  : MUST_NOT_EXIST
-          key_item    : "DefaultPassword"
-        </custom_item>
-      </condition>
-      <then>
-        <report type:"PASSED">
-          description : "18.5.1 Ensure 'MSS: (AutoAdminLogon) Enable Automatic Logon' is set to 'Disabled'"
-        </report>
-      </then>
-    </if>
-    <if>
-      <condition type:"AND">
-        <custom_item>
-          type            : AUDIT_POWERSHELL
-          description     : "Check if Print Spooler service is running"
-          value_type      : POLICY_TEXT
-          value_data      : "Running"
-          powershell_args : "(Get-Service -Name Spooler -ErrorAction SilentlyContinue).Status"
-          check_type      : CHECK_REGEX
-        </custom_item>
-      </condition>
-      <then>
-        <custom_item>
-          type        : USER_RIGHTS_POLICY
-          description : "2.2.22 Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE'"
-          value_type  : USER_RIGHT
-          value_data  : "Local Service" && "Network Service" && ("PrintSpoolerService" || "Spooler")
-          right_type  : SeAuditPrivilege
-        </custom_item>
-      </then>
-      <else>
-        <custom_item>
-          type        : USER_RIGHTS_POLICY
-          description : "2.2.22 Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE'"
-          value_type  : USER_RIGHT
-          value_data  : "Local Service" && "Network Service"
-          right_type  : SeAuditPrivilege
-        </custom_item>
-      </else>
-    </if>
-  </then>
-</if>
-</group_policy>
-</check_type>
-'''
+FIXTURES = Path(__file__).resolve().parents[1] / "powershell" / "fixtures" / "cis"
+SYNTHETIC = (FIXTURES / "Synthetic_v1.0.0_L1.audit").read_text(encoding="utf-8")
+SYNTHETIC_CATALOG = FIXTURES / "catalog-synthetic.json"
 
 
 def build(tmp_path: Path, name: str = "Synthetic_v1.0.0_L1.audit") -> dict:
@@ -231,3 +103,13 @@ def test_cli_writes_ascii_json(tmp_path):
     raw = out.read_bytes()
     assert max(raw) < 128
     assert len(json.loads(raw)["checks"]) == 8
+
+
+def test_committed_synthetic_catalog_matches_generator(tmp_path):
+    """Regenerate with:
+    python tools/build_cis_catalog.py --benchmark "Synthetic Benchmark" --version 1.0.0         --out tests/powershell/fixtures/cis/catalog-synthetic.json tests/powershell/fixtures/cis/Synthetic_v1.0.0_L1.audit
+    """
+    committed = json.loads(SYNTHETIC_CATALOG.read_text(encoding="utf-8"))
+    fresh = build(tmp_path)
+    for key in ("schema", "benchmark", "version", "applicability", "checks"):
+        assert committed[key] == fresh[key], key

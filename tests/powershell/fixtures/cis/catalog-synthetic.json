@@ -1,0 +1,248 @@
+{
+ "schema": "cc.cis.catalog/1",
+ "benchmark": "Synthetic Benchmark",
+ "version": "1.0.0",
+ "generated": "2026-10-18T06:26:49Z",
+ "generator": "tools/build_cis_catalog.py",
+ "sources": [
+  {
+   "file": "Synthetic_v1.0.0_L1.audit",
+   "sha256": "964c6c1e508914a607668004f59bac4eadab987ef5dcec71f64e5f74a46c3715",
+   "level": "L1"
+  }
+ ],
+ "notice": "Recommendation IDs and titles are from the CIS Benchmark; the benchmark text is licensed by CIS and is not reproduced. Check logic derived from Tenable audit files.",
+ "applicability": [
+  {
+   "source": "Registry",
+   "key": "HKLM\\Software\\Microsoft\\Windows Nt\\Currentversion",
+   "name": "CurrentBuild",
+   "valueType": "POLICY_TEXT",
+   "expect": {
+    "op": "regex",
+    "pattern": "2[26][0-9]{3}"
+   }
+  }
+ ],
+ "checks": [
+  {
+   "id": "1.1.4",
+   "title": "Ensure 'Minimum password length' is set to '14 or more character(s)'",
+   "level": "L1",
+   "section": "1",
+   "tests": [
+    {
+     "source": "SecurityPolicy",
+     "key": "MinimumPasswordLength",
+     "expect": {
+      "op": "range",
+      "min": 14,
+      "max": null
+     }
+    }
+   ]
+  },
+  {
+   "id": "2.2.2",
+   "title": "Ensure 'Access this computer from the network' is set to 'Administrators, Remote Desktop Users'",
+   "level": "L1",
+   "section": "2",
+   "tests": [
+    {
+     "source": "UserRight",
+     "right": "SeNetworkLogonRight",
+     "expect": {
+      "op": "set",
+      "mode": "exact",
+      "anyOf": [
+       [
+        "Administrators",
+        "Remote Desktop Users"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "2.2.15",
+   "title": "Ensure 'Deny access to this computer from the network' to include 'Guests, Local account'",
+   "level": "L1",
+   "section": "2",
+   "tests": [
+    {
+     "source": "UserRight",
+     "right": "SeDenyNetworkLogonRight",
+     "expect": {
+      "op": "set",
+      "mode": "superset",
+      "anyOf": [
+       [
+        "Guests",
+        "Local account"
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "2.2.22",
+   "title": "Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE'",
+   "level": "L1",
+   "section": "2",
+   "variants": [
+    {
+     "when": [
+      {
+       "source": "Service",
+       "name": "Spooler",
+       "property": "Status",
+       "expect": {
+        "op": "regex",
+        "pattern": "Running"
+       }
+      }
+     ],
+     "tests": [
+      {
+       "source": "UserRight",
+       "right": "SeAuditPrivilege",
+       "expect": {
+        "op": "set",
+        "mode": "exact",
+        "anyOf": [
+         [
+          "Local Service",
+          "Network Service",
+          "PrintSpoolerService"
+         ],
+         [
+          "Local Service",
+          "Network Service",
+          "Spooler"
+         ]
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "when": null,
+     "tests": [
+      {
+       "source": "UserRight",
+       "right": "SeAuditPrivilege",
+       "expect": {
+        "op": "set",
+        "mode": "exact",
+        "anyOf": [
+         [
+          "Local Service",
+          "Network Service"
+         ]
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2.3.10.11",
+   "title": "Ensure 'Network access: Shares that can be accessed anonymously' is set to 'None'",
+   "level": "L1",
+   "section": "2",
+   "tests": [
+    {
+     "source": "Registry",
+     "key": "HKLM\\System\\CurrentControlSet\\Services\\LanManServer\\Parameters",
+     "name": "NullSessionShares",
+     "valueType": "POLICY_MULTI_TEXT",
+     "expect": {
+      "op": "set",
+      "mode": "exact",
+      "anyOf": [
+       []
+      ]
+     },
+     "allowMissing": true
+    }
+   ]
+  },
+  {
+   "id": "17.3.2",
+   "title": "Ensure 'Audit Process Creation' is set to include 'Success'",
+   "level": "L1",
+   "section": "17",
+   "tests": [
+    {
+     "source": "AuditPolicy",
+     "subcategory": "Process Creation",
+     "expect": {
+      "op": "in",
+      "values": [
+       "Success",
+       "Success, Failure"
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "18.5.1",
+   "title": "Ensure 'MSS: (AutoAdminLogon) Enable Automatic Logon' is set to 'Disabled'",
+   "level": "L1",
+   "section": "18",
+   "tests": [
+    {
+     "source": "Registry",
+     "key": "HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+     "name": "AutoAdminLogon",
+     "valueType": "POLICY_TEXT",
+     "expect": {
+      "op": "eq",
+      "value": "0"
+     },
+     "allowMissing": true
+    },
+    {
+     "source": "Registry",
+     "key": "HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+     "name": "DefaultPassword",
+     "mustNotExist": true,
+     "expect": {
+      "op": "absent"
+     }
+    }
+   ]
+  },
+  {
+   "id": "18.9.1",
+   "title": "Ensure 'Something' is set to 'Enabled: 1 or 2'",
+   "level": "L1",
+   "section": "18",
+   "tests": [
+    {
+     "source": "Registry",
+     "key": "HKLM\\Software\\Policies\\Synthetic",
+     "name": "Value",
+     "valueType": "POLICY_DWORD",
+     "expect": {
+      "op": "any",
+      "of": [
+       {
+        "op": "eq",
+        "value": "1"
+       },
+       {
+        "op": "eq",
+        "value": "2"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
