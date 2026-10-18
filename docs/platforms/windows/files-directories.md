@@ -117,6 +117,7 @@ Parse Prefetch and Amcache with dedicated tools (for example Eric Zimmerman's PE
 - [Malware Triage workflow](../../tasks/incident-response/malware-triage.md)
 - [Linux filesystem](../linux/filesystem.md)
 - [KQL file events](../../detection/kql/file-registry-events.md)
+- [Service accounts with least privilege (virtual accounts, gMSA, ACLs, service DACL)](../../tasks/administration/windows-service-accounts-least-privilege.md)
 
 ## Sources
 

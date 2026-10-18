@@ -98,6 +98,7 @@ Most entries show **PowerShell** first, with the native **Windows CLI** equivale
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](../../tasks/hardening/windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](../../tasks/hardening/windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Connectivity Troubleshooting](../../tasks/troubleshooting/windows-connectivity.md) | Workflow | Windows, Windows Server | PowerShell, Windows CLI | Troubleshooting |
+| [Windows Service Accounts with Least Privilege](../../tasks/administration/windows-service-accounts-least-privilege.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 | [Assurance Check — Active Directory STIG Compliance](../../tasks/assurance/ad-stig-compliance.md) | Entry | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
 | [Assurance Check — Endpoint EDR Agent Health Status](../../tasks/assurance/endpoint-edr-status.md) | Entry | Windows, Linux | PowerShell | Assurance, Incident Response |
 | [Assurance Check — Host Firewall Default Deny Stance](../../tasks/assurance/firewall-default-deny.md) | Entry | Windows, Linux | PowerShell, Bash | Assurance, Hardening |

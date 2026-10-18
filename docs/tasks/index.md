@@ -155,5 +155,6 @@ Start from what you are trying to accomplish. **Workflows** are ordered field pr
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](hardening/windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](hardening/windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Connectivity Troubleshooting](troubleshooting/windows-connectivity.md) | Workflow | Windows, Windows Server | PowerShell, Windows CLI | Troubleshooting |
+| [Windows Service Accounts with Least Privilege](administration/windows-service-accounts-least-privilege.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 
 <!-- /cc:index -->

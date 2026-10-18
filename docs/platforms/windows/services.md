@@ -142,6 +142,7 @@ To remove after evidence collection: `sc.exe delete BadSvc`. On PowerShell 7, `R
 - [Linux services (systemd)](../linux/systemd.md)
 - [SPL: new service installs](../../detection/spl/windows-events.md#new-service-installed-7045)
 - [Sigma: service installation](../../detection/sigma/examples.md#suspicious-service-installation)
+- [Service accounts with least privilege (virtual accounts, gMSA, ACLs, service DACL)](../../tasks/administration/windows-service-accounts-least-privilege.md)
 
 ## Sources
 

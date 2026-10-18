@@ -99,6 +99,7 @@ Start with [Fundamentals and Pitfalls](fundamentals.md) — it covers the mistak
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](../../tasks/hardening/windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](../../tasks/hardening/windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Connectivity Troubleshooting](../../tasks/troubleshooting/windows-connectivity.md) | Workflow | Windows, Windows Server | PowerShell, Windows CLI | Troubleshooting |
+| [Windows Service Accounts with Least Privilege](../../tasks/administration/windows-service-accounts-least-privilege.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 | [Amazon EC2 & Systems Manager (Compute)](../../platforms/aws/compute.md) | Entry | AWS | Bash, PowerShell | Administration, Investigation, Incident Response |
 | [Assurance Check — Active Directory STIG Compliance](../../tasks/assurance/ad-stig-compliance.md) | Entry | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
 | [Assurance Check — Azure External Guest Access & Permissions](../../tasks/assurance/azure-guest-access-audit.md) | Entry | Entra ID, Azure, Microsoft 365 | PowerShell | Assurance, Hardening, Administration |

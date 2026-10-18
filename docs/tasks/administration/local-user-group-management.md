@@ -158,5 +158,6 @@ sudo visudo -c
 
 ## Related
 
+- [Windows service accounts with least privilege](windows-service-accounts-least-privilege.md)
 - [Linux service accounts with least privilege](linux-service-accounts-least-privilege.md)
 - [Linux users and permissions](../../platforms/linux/users-permissions.md)

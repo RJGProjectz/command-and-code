@@ -98,6 +98,7 @@ Unlock-ADAccount -Identity '<USER>'
 - [Account Compromise workflow](../../tasks/incident-response/account-compromise.md)
 - [Entra ID](../microsoft-365/entra.md)
 - [Linux users and permissions](../linux/users-permissions.md)
+- [Service accounts with least privilege (virtual accounts, gMSA, ACLs, service DACL)](../../tasks/administration/windows-service-accounts-least-privilege.md)
 
 ## Sources
 

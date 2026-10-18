@@ -107,6 +107,7 @@ Every fundamental node provides:
 | [Windows CIS Benchmark — Advanced Audit Policy Baseline](../tasks/hardening/windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](../tasks/hardening/windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](../tasks/hardening/windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
+| [Windows Service Accounts with Least Privilege](../tasks/administration/windows-service-accounts-least-privilege.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 | [Amazon CloudWatch, Logs Insights & Athena](../platforms/aws/monitoring-logs.md) | Entry | AWS | Bash, Python | Investigation, Troubleshooting, Detection Engineering, Administration |
 | [Amazon EC2 & Systems Manager (Compute)](../platforms/aws/compute.md) | Entry | AWS | Bash, PowerShell | Administration, Investigation, Incident Response |
 | [Amazon Elastic Kubernetes Service (EKS)](../platforms/aws/kubernetes.md) | Entry | AWS | Bash | Administration, Hardening, Investigation, Incident Response |

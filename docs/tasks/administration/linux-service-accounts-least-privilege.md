@@ -356,6 +356,7 @@ and alert on any interactive login by a service account: that is ATT&CK
 
 ## Related
 
+- [Windows service accounts with least privilege](windows-service-accounts-least-privilege.md)
 - [Linux users and permissions](../../platforms/linux/users-permissions.md)
 - [Local user & group management](local-user-group-management.md)
 - [systemd](../../platforms/linux/systemd.md) · [Linux service failure](../troubleshooting/linux-service-failure.md)

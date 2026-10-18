@@ -28,6 +28,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Windows CIS Benchmark — Advanced Audit Policy Baseline](windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
+| [Windows Service Accounts with Least Privilege](../administration/windows-service-accounts-least-privilege.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 | [Amazon Elastic Kubernetes Service (EKS)](../../platforms/aws/kubernetes.md) | Entry | AWS | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Amazon S3 & Data Exposure](../../platforms/aws/storage.md) | Entry | AWS | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Assurance Check — Active Directory STIG Compliance](../assurance/ad-stig-compliance.md) | Entry | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
