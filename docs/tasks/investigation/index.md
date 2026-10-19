@@ -103,6 +103,12 @@ Answer specific questions about a host, account or connection: what happened, wh
 | [Fundamentals — Vector Databases & Approximate Nearest Neighbors (ANN)](../../fundamentals/ai-systems/vector-databases.md) | Entry | Linux | Python | Automation, Investigation |
 | [Fundamentals — Virtual Memory, Paging, Stack & Heap](../../fundamentals/systems/memory-internals.md) | Entry | Windows, Linux | PowerShell, Bash | Forensics, Investigation |
 | [Fundamentals — Windows Process Architecture, Tokens & Handles](../../fundamentals/systems/windows-processes.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Investigation, Forensics |
+| [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](../../platforms/github/keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
+| [GitHub Audit Log & Security Log](../../platforms/github/audit-logging.md) | Entry | GitHub | Bash | Investigation, Incident Response, Forensics, Hardening |
+| [GitHub Incident Response (Leaked Tokens, Compromised Accounts, Secret Purge)](../../platforms/github/incident-response.md) | Entry | GitHub | Bash, PowerShell | Incident Response, Forensics, Investigation |
+| [GitHub Organizations, Teams & Repository Access](../../platforms/github/identity-access.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Assurance |
+| [GitHub Persistence & Threat Hunting](../../platforms/github/persistence-hunting.md) | Entry | GitHub | Bash | Threat Hunting, Incident Response, Investigation, Detection Engineering |
+| [GitHub Security Posture (Rulesets, Actions Policy, Dependabot, Secret & Code Scanning)](../../platforms/github/security-posture.md) | Entry | GitHub | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [Google Cloud Audit Logs](../../platforms/gcp/audit-logging.md) | Entry | GCP | Bash | Investigation, Incident Response, Forensics, Hardening |
 | [Google Cloud IAM (Identity & Access)](../../platforms/gcp/identity-access.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |
 | [Google Cloud Incident Response & Forensics](../../platforms/gcp/incident-response.md) | Entry | GCP | Bash | Incident Response, Forensics, Investigation |

@@ -87,6 +87,10 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Fundamentals — UEFI Boot Sequence & Secure Boot Mechanics](../../fundamentals/systems/uefi-secure-boot.md) | Entry | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [Fundamentals — VPN Protocols (IPsec vs SSL/TLS)](../../fundamentals/networking/vpn.md) | Entry | Windows, Linux | PowerShell, Bash | Troubleshooting, Hardening |
 | [Fundamentals — Zero Trust Network Microsegmentation](../../fundamentals/networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
+| [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](../../platforms/github/keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
+| [GitHub Audit Log & Security Log](../../platforms/github/audit-logging.md) | Entry | GitHub | Bash | Investigation, Incident Response, Forensics, Hardening |
+| [GitHub Organizations, Teams & Repository Access](../../platforms/github/identity-access.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Assurance |
+| [GitHub Security Posture (Rulesets, Actions Policy, Dependabot, Secret & Code Scanning)](../../platforms/github/security-posture.md) | Entry | GitHub | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [Google Cloud Audit Logs](../../platforms/gcp/audit-logging.md) | Entry | GCP | Bash | Investigation, Incident Response, Forensics, Hardening |
 | [Google Cloud IAM (Identity & Access)](../../platforms/gcp/identity-access.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |
 | [Google Cloud KMS & Secret Manager](../../platforms/gcp/keys-secrets.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |

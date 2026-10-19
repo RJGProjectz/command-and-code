@@ -81,6 +81,7 @@ More side-by-side comparisons: [Cross-platform equivalents](../references/equiva
 | [Fundamentals — Server-Side Request Forgery (SSRF) & Egress Defense](../fundamentals/web-apps/ssrf-defense.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
 | [Fundamentals — SQL Injection & Parameterized Defense](../fundamentals/web-apps/sql-injection.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Investigation, Detection Engineering |
 | [Fundamentals — Sysmon Telemetry & Endpoint Monitoring](../fundamentals/systems/sysmon.md) | Entry | Windows, Linux | PowerShell, Bash | Threat Hunting, Detection Engineering |
+| [GitHub Persistence & Threat Hunting](../platforms/github/persistence-hunting.md) | Entry | GitHub | Bash | Threat Hunting, Incident Response, Investigation, Detection Engineering |
 | [Google Cloud Logging & BigQuery Log Queries](../platforms/gcp/monitoring-logs.md) | Entry | GCP | Bash | Investigation, Troubleshooting, Detection Engineering, Administration |
 | [Google Cloud Persistence & Threat Hunting](../platforms/gcp/persistence-hunting.md) | Entry | GCP | Bash, Python | Threat Hunting, Incident Response, Investigation, Detection Engineering |
 | [KQL Credential Access and Memory Dumping Queries](kql/credential-access.md) | Entry | Microsoft Defender, Windows, Windows Server | KQL | Threat Hunting, Detection Engineering, Incident Response |

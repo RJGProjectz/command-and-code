@@ -106,6 +106,8 @@ Select an operational symptom to launch an interactive step-by-step diagnostic t
 | [Fundamentals — Rate Limiting & Exponential Backoff](../../fundamentals/apis/rate-limiting-backoff.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
 | [Fundamentals — REST Architecture & HTTP Semantics](../../fundamentals/apis/rest-architecture.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Troubleshooting |
 | [Fundamentals — VPN Protocols (IPsec vs SSL/TLS)](../../fundamentals/networking/vpn.md) | Entry | Windows, Linux | PowerShell, Bash | Troubleshooting, Hardening |
+| [Git: Clone, Sync a Fork, Branches, Rebase & Signed Commits](../../platforms/github/repositories.md) | Entry | GitHub | Bash | Administration, Automation, Troubleshooting |
+| [GitHub Troubleshooting (Auth, Push, Actions & OIDC Errors)](../../platforms/github/troubleshooting.md) | Entry | GitHub | Bash | Troubleshooting, Administration |
 | [Google Cloud Logging & BigQuery Log Queries](../../platforms/gcp/monitoring-logs.md) | Entry | GCP | Bash | Investigation, Troubleshooting, Detection Engineering, Administration |
 | [Google Cloud Troubleshooting](../../platforms/gcp/troubleshooting.md) | Entry | GCP | Bash | Troubleshooting, Administration |
 | [Intune](../../platforms/microsoft-365/intune.md) | Entry | Microsoft 365, Intune, Windows | PowerShell, Windows CLI | Administration, Troubleshooting, Incident Response |

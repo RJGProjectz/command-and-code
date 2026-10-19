@@ -123,7 +123,8 @@ Table and column names depend on the connector; adjust to yours.
 
 ## Triage
 
-1. A real secret in Git history is compromised: **rotate it first**, then clean history.
+1. A real secret in Git history is compromised: **rotate it first**, then clean history
+   ([GitHub incident response](../../platforms/github/incident-response.md#3-purge-a-secret-from-git-history)).
 2. Check the provider's logs (cloud, SaaS) for use of the secret since the push time.
 3. Ask why the bypass was chosen; "I'll fix it later" with no fix is the finding.
 

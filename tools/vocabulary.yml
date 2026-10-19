@@ -24,6 +24,7 @@ platforms:
   Azure: platforms/azure/index.md
   AWS: platforms/aws/index.md
   GCP: platforms/gcp/index.md
+  GitHub: platforms/github/index.md
   Active Directory: platforms/windows/index.md
 
 languages:

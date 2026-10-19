@@ -211,6 +211,17 @@ nav:
           - Incident Response: platforms/gcp/incident-response.md
           - Persistence & Hunting: platforms/gcp/persistence-hunting.md
           - Troubleshooting: platforms/gcp/troubleshooting.md
+      - GitHub:
+          - Overview: platforms/github/index.md
+          - CLI & Authentication: platforms/github/cli-authentication.md
+          - Organizations & Access: platforms/github/identity-access.md
+          - Secrets, OIDC & Deploy Keys: platforms/github/keys-secrets.md
+          - Audit Log: platforms/github/audit-logging.md
+          - Security Posture: platforms/github/security-posture.md
+          - Persistence & Hunting: platforms/github/persistence-hunting.md
+          - Incident Response: platforms/github/incident-response.md
+          - Troubleshooting: platforms/github/troubleshooting.md
+          - "Git: Clone, Sync & Signing": platforms/github/repositories.md
       - Virtualization:
           - Overview: platforms/virtualization/index.md
           - Hyper-V: platforms/virtualization/hyper-v.md

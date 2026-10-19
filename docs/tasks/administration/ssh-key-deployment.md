@@ -340,3 +340,4 @@ Before permanently disabling password authentication on a remote production serv
 - [Fundamentals — SSH Key Architecture & Cryptography Baselines](../../fundamentals/identity/ssh-keys.md)
 - [Remote File Transfer — SCP, SFTP, rsync & WinRM](remote-file-transfer.md)
 - [Windows Remote Access (WinRM & OpenSSH)](../../platforms/windows/winrm-openssh.md)
+- [GitHub SSH, deploy and signing keys](../../platforms/github/cli-authentication.md#4-ssh-gpg-and-ssh-signing-keys)

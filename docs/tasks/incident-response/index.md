@@ -79,6 +79,12 @@ Confirm, scope, contain and recover from security incidents. Start with a workfl
 | [Exchange Online](../../platforms/microsoft-365/exchange.md) | Entry | Microsoft 365, Exchange Online | PowerShell | Incident Response, Investigation, Administration |
 | [Fundamentals — NIST Cybersecurity Framework (CSF) 2.0](../../fundamentals/grc/nist-csf-2.md) | Entry | Windows, Linux, Microsoft 365, Azure | PowerShell, Bash, Python | Assurance, Hardening, Administration, Incident Response |
 | [Fundamentals — Webhooks & Event-Driven Architecture](../../fundamentals/apis/webhooks-events.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Incident Response |
+| [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](../../platforms/github/keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
+| [GitHub Audit Log & Security Log](../../platforms/github/audit-logging.md) | Entry | GitHub | Bash | Investigation, Incident Response, Forensics, Hardening |
+| [GitHub CLI, Tokens & Authentication](../../platforms/github/cli-authentication.md) | Entry | GitHub | Bash | Administration, Automation, Incident Response |
+| [GitHub Incident Response (Leaked Tokens, Compromised Accounts, Secret Purge)](../../platforms/github/incident-response.md) | Entry | GitHub | Bash, PowerShell | Incident Response, Forensics, Investigation |
+| [GitHub Persistence & Threat Hunting](../../platforms/github/persistence-hunting.md) | Entry | GitHub | Bash | Threat Hunting, Incident Response, Investigation, Detection Engineering |
+| [GitHub Security Posture (Rulesets, Actions Policy, Dependabot, Secret & Code Scanning)](../../platforms/github/security-posture.md) | Entry | GitHub | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [Google Cloud Audit Logs](../../platforms/gcp/audit-logging.md) | Entry | GCP | Bash | Investigation, Incident Response, Forensics, Hardening |
 | [Google Cloud CLI, SDKs & Authentication](../../platforms/gcp/cli-authentication.md) | Entry | GCP | Bash, PowerShell, Python | Administration, Automation, Incident Response |
 | [Google Cloud IAM (Identity & Access)](../../platforms/gcp/identity-access.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |

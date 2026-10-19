@@ -119,6 +119,11 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Fundamentals — Session Management & Cookie Security](../../fundamentals/web-apps/session-management.md) | Entry | Linux, Windows | HTTP, Python, PowerShell | Hardening, Administration, Investigation |
 | [Fundamentals — SSH Key Architecture & Cryptographic Baselines](../../fundamentals/identity/ssh-keys.md) | Entry | Linux | Bash | Hardening, Administration |
 | [Fundamentals — Webhooks & Event-Driven Architecture](../../fundamentals/apis/webhooks-events.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Incident Response |
+| [Git: Clone, Sync a Fork, Branches, Rebase & Signed Commits](../../platforms/github/repositories.md) | Entry | GitHub | Bash | Administration, Automation, Troubleshooting |
+| [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](../../platforms/github/keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
+| [GitHub CLI, Tokens & Authentication](../../platforms/github/cli-authentication.md) | Entry | GitHub | Bash | Administration, Automation, Incident Response |
+| [GitHub Organizations, Teams & Repository Access](../../platforms/github/identity-access.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Assurance |
+| [GitHub Troubleshooting (Auth, Push, Actions & OIDC Errors)](../../platforms/github/troubleshooting.md) | Entry | GitHub | Bash | Troubleshooting, Administration |
 | [Google Cloud CLI, SDKs & Authentication](../../platforms/gcp/cli-authentication.md) | Entry | GCP | Bash, PowerShell, Python | Administration, Automation, Incident Response |
 | [Google Cloud IAM (Identity & Access)](../../platforms/gcp/identity-access.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |
 | [Google Cloud KMS & Secret Manager](../../platforms/gcp/keys-secrets.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |

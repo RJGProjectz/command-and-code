@@ -134,6 +134,15 @@ Bash knowledge lives in two places:
 | [Fundamentals — Virtual Memory, Paging, Stack & Heap](../../fundamentals/systems/memory-internals.md) | Entry | Windows, Linux | PowerShell, Bash | Forensics, Investigation |
 | [Fundamentals — VPN Protocols (IPsec vs SSL/TLS)](../../fundamentals/networking/vpn.md) | Entry | Windows, Linux | PowerShell, Bash | Troubleshooting, Hardening |
 | [Fundamentals — Zero Trust Network Microsegmentation](../../fundamentals/networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
+| [Git: Clone, Sync a Fork, Branches, Rebase & Signed Commits](../../platforms/github/repositories.md) | Entry | GitHub | Bash | Administration, Automation, Troubleshooting |
+| [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](../../platforms/github/keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
+| [GitHub Audit Log & Security Log](../../platforms/github/audit-logging.md) | Entry | GitHub | Bash | Investigation, Incident Response, Forensics, Hardening |
+| [GitHub CLI, Tokens & Authentication](../../platforms/github/cli-authentication.md) | Entry | GitHub | Bash | Administration, Automation, Incident Response |
+| [GitHub Incident Response (Leaked Tokens, Compromised Accounts, Secret Purge)](../../platforms/github/incident-response.md) | Entry | GitHub | Bash, PowerShell | Incident Response, Forensics, Investigation |
+| [GitHub Organizations, Teams & Repository Access](../../platforms/github/identity-access.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Assurance |
+| [GitHub Persistence & Threat Hunting](../../platforms/github/persistence-hunting.md) | Entry | GitHub | Bash | Threat Hunting, Incident Response, Investigation, Detection Engineering |
+| [GitHub Security Posture (Rulesets, Actions Policy, Dependabot, Secret & Code Scanning)](../../platforms/github/security-posture.md) | Entry | GitHub | Bash | Assurance, Hardening, Investigation, Incident Response |
+| [GitHub Troubleshooting (Auth, Push, Actions & OIDC Errors)](../../platforms/github/troubleshooting.md) | Entry | GitHub | Bash | Troubleshooting, Administration |
 | [Google Cloud Audit Logs](../../platforms/gcp/audit-logging.md) | Entry | GCP | Bash | Investigation, Incident Response, Forensics, Hardening |
 | [Google Cloud CLI, SDKs & Authentication](../../platforms/gcp/cli-authentication.md) | Entry | GCP | Bash, PowerShell, Python | Administration, Automation, Incident Response |
 | [Google Cloud IAM (Identity & Access)](../../platforms/gcp/identity-access.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |

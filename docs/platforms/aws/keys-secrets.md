@@ -116,6 +116,7 @@ for page in ssm.get_paginator("describe_parameters").paginate(
 - [Storage](storage.md) (SSE-KMS on buckets)
 - [CI/CD secret leak detection](../../detection/sigma/cicd-secret-leak.md)
 - [Store service secrets on Linux](../../tasks/administration/linux-service-secrets-storage.md) · [on Windows](../../tasks/administration/windows-service-secrets-storage.md) (reading the secret from a VM with its own identity)
+- [GitHub Actions OIDC](../github/keys-secrets.md#3-oidc-from-actions-to-azure-aws-and-gcp) (deploy from CI without storing cloud keys)
 
 ## Sources
 

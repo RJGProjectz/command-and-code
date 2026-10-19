@@ -402,7 +402,9 @@ Other stores: [Azure Key Vault](../../platforms/azure/keys-secrets.md#4-create-r
 [AWS](../../platforms/aws/keys-secrets.md) · [GCP](../../platforms/gcp/keys-secrets.md) ·
 [HashiCorp Vault / OpenBao](../administration/linux-service-secrets-storage.md#5-hashicorp-vault-openbao-many-hosts) ·
 [SOPS + age](../administration/linux-service-secrets-storage.md#4-sops-age-encrypted-files-in-git).
-SaaS tokens (GitHub, ticketing, monitoring): revoke them in that vendor's console or API with the same five steps.
+GitHub tokens, SSH/deploy keys and Actions secrets: [GitHub incident response](../../platforms/github/incident-response.md#1-a-token-leaked-identify-and-revoke)
+(revoke by token prefix, find what the token did, purge it from Git history). Other SaaS tokens (ticketing, monitoring):
+revoke them in that vendor's console or API with the same five steps.
 
 **Verify:** a request with the old token returns 401/403; `Get-MgApplication` lists only the new `KeyId`; the
 service principal sign-in logs show no sign-ins with the old credential after the removal.
@@ -474,6 +476,7 @@ certutil -verify -urlfetch old-cert.cer
 - [Windows service accounts with least privilege](../administration/windows-service-accounts-least-privilege.md) · [Linux service accounts with least privilege](../administration/linux-service-accounts-least-privilege.md)
 - [Windows service secrets](../administration/windows-service-secrets-storage.md) · [Linux service secrets](../administration/linux-service-secrets-storage.md)
 - [Service account audit](../assurance/service-account-audit.md) · [AD Kerberos & LDAP hardening](../hardening/ad-kerberos-ldap-hardening.md)
+- [GitHub incident response](../../platforms/github/incident-response.md) · [GitHub Actions secrets & OIDC](../../platforms/github/keys-secrets.md)
 - [SSH key deployment](../administration/ssh-key-deployment.md) · [Certificate and PKI management](../administration/certificate-and-pki-management.md) · [Kerberos](../../fundamentals/kerberos.md)
 
 ## Sources
