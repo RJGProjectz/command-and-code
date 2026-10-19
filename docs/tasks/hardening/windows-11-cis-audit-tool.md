@@ -168,6 +168,7 @@ scripts/powershell/Invoke-CisWindowsAudit.ps1                                   
 
 ## Related
 
+- [Windows Server CIS audit (Member Server / Domain Controller)](windows-server-cis-audit-tool.md)
 - [Windows CIS user rights & account policies](windows-cis-user-rights-assignment.md)
 - [Windows CIS advanced audit policy](windows-cis-advanced-audit-policy.md)
 - [Windows CIS ASR & Credential Guard](windows-cis-attack-surface-reduction.md)

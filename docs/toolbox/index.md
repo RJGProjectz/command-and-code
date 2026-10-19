@@ -40,5 +40,6 @@ Each tool page explains purpose, the problem it solves, inputs, outputs, depende
 | [Python Toolbox](python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
 | [Service Account Audit (Windows, Active Directory, Linux)](../tasks/assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Windows 11 CIS Benchmark Audit Tool (L1 / L2)](../tasks/hardening/windows-11-cis-audit-tool.md) | Tool | Windows | PowerShell | Hardening, Assurance, Administration |
+| [Windows Server CIS Benchmark Audit (Member Server / Domain Controller)](../tasks/hardening/windows-server-cis-audit-tool.md) | Tool | Windows Server, Active Directory | PowerShell, Python | Hardening, Assurance, Administration |
 
 <!-- /cc:index -->

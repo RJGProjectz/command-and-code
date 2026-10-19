@@ -93,6 +93,13 @@ Describe 'Catalog contract: <Name>' -ForEach @(
         }
     }
 
+    It 'names a server profile only as MS or DC, the same in every source' {
+        if ($catalog.PSObject.Properties.Name -contains 'profile' -and $null -ne $catalog.profile) {
+            $catalog.profile | Should -BeIn @('MS', 'DC')
+            foreach ($s in $catalog.sources) { $s.profile | Should -Be $catalog.profile }
+        }
+    }
+
     It 'stores IDs, titles and settings only (no CIS rationale or remediation text)' {
         $allowed = @('id', 'title', 'level', 'section', 'tests', 'variants')
         foreach ($c in $catalog.checks) {
@@ -200,8 +207,31 @@ Describe 'Automation helpers' {
         @{ EditionId = 'Professional'; Supported = $false }
         @{ EditionId = 'Core'; Supported = $false }
         @{ EditionId = ''; Supported = $false }
+        @{ EditionId = 'ServerStandard'; Supported = $true }
+        @{ EditionId = 'ServerDatacenter'; Supported = $true }
     ) {
         Test-CisSupportedEdition -EditionId $EditionId | Should -Be $Supported
+    }
+    It 'maps ProductType <ProductType> to role <Role>' -ForEach @(
+        @{ ProductType = 1; Role = 'Workstation' }
+        @{ ProductType = 2; Role = 'DomainController' }
+        @{ ProductType = 3; Role = 'MemberServer' }
+        @{ ProductType = $null; Role = 'Unknown' }
+    ) {
+        ConvertTo-CisHostRole -ProductType $ProductType | Should -Be $Role
+    }
+    It 'matches catalog profile <Profile> to host role <Role> = <Match>' -ForEach @(
+        @{ Profile = 'MS'; Role = 'MemberServer'; Match = $true }
+        @{ Profile = 'MS'; Role = 'DomainController'; Match = $false }
+        @{ Profile = 'DC'; Role = 'DomainController'; Match = $true }
+        @{ Profile = 'DC'; Role = 'Workstation'; Match = $false }
+        @{ Profile = $null; Role = 'Workstation'; Match = $true }
+        @{ Profile = $null; Role = 'MemberServer'; Match = $false }
+    ) {
+        Test-CisCatalogRole -Catalog ([PSCustomObject]@{ profile = $Profile }) -HostRole $Role | Should -Be $Match
+    }
+    It 'treats a catalog without a profile field as a client catalog' {
+        Test-CisCatalogRole -Catalog ([PSCustomObject]@{ schema = 'cc.cis.catalog/1' }) -HostRole Workstation | Should -BeTrue
     }
 }
 

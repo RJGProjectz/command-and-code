@@ -7,16 +7,17 @@ Purpose     : Turn the machine-readable checks in Tenable's CIS audit files into
               audit engine free of hard-coded settings: a new benchmark release is a re-run.
 Inputs      : One or more .audit files (e.g. CIS_Microsoft_Windows_11_Enterprise_v5.1.0_L1.audit and
               ..._L2.audit, downloaded by the operator from tenable.com/audits). The level of every
-              check is taken from the file name (_L1 / _L2).
+              check is taken from the file name (_L1 / _L2); Windows Server files also name the
+              profile (_L1_MS / _L2_DC), one catalog per profile.
 Outputs     : JSON catalog: benchmark, version, source files + sha256, and one entry per CIS
               recommendation with id, title, level, section and structured tests.
 Security    : Security Domain: Compliance / Hardening. Only recommendation IDs, titles and the
               setting each one checks are written; CIS rationale/remediation text and Tenable
               file contents are not copied. The .audit files themselves are never committed.
 Author      : RJGProjectz
-Version     : 1.0.0
+Version     : 1.1.0
 Created     : 2026-10-16T14:30:00Z
-Last Modified: 2026-10-16T14:30:00Z
+Last Modified: 2026-10-19T03:25:00Z
 KB Article  : docs/tasks/hardening/windows-11-cis-audit-tool.md
 Source Repo : https://www.tenable.com/audits (audit file format: Tenable Compliance Checks Reference)
 
@@ -329,24 +330,46 @@ def sort_key(cid: str):
     return [int(p) for p in cid.split(".")]
 
 
+# Server audit files carry the profile after the level: _L1_MS / _L2_DC (current Tenable names) or
+# _L1_Member_Server / _L1_Domain_Controller (older releases). Client files have no profile.
+LEVEL_PROFILE = re.compile(r"_(L\d)(?:_(MS|DC|Member_Server|Domain_Controller))?(?:_BL)?\.audit$", re.I)
+PROFILE_NAMES = {"ms": "MS", "member_server": "MS", "dc": "DC", "domain_controller": "DC"}
+
+
+def level_and_profile(name: str) -> tuple[str, str | None]:
+    """Level (L1/L2) and server profile (MS/DC, None for client benchmarks) from an audit file name."""
+    m = LEVEL_PROFILE.search(name)
+    if m:
+        role = PROFILE_NAMES[m.group(2).lower()] if m.group(2) else None
+        return m.group(1).upper(), role
+    m = re.search(r"(L\d)", Path(name).stem)
+    return (m.group(1) if m else "L1"), None
+
+
 def build(paths: list[Path], benchmark: str, version: str) -> tuple[dict, list]:
     checks: dict = {}
     sources, problems = [], []
     applicability: list = []
+    profiles: set = set()
     for path in paths:
         raw = path.read_bytes()
         text = raw.decode("utf-8")
-        m = re.search(r"_(L\d)(?:_BL)?\.audit$", path.name) or re.search(r"(L\d)", path.stem)
-        level = m.group(1) if m else "L1"
+        level, role = level_and_profile(path.name)
+        profiles.add(role)
         variables = {k: v.strip() for k, v in VARIABLE.findall(text)}
         collect(tokenize_tree(text), level, variables, checks, problems)
         if "applicability" in checks:
             applicability = checks.pop("applicability")
-        sources.append({"file": path.name, "sha256": hashlib.sha256(raw).hexdigest(), "level": level})
+        sources.append({"file": path.name, "sha256": hashlib.sha256(raw).hexdigest(), "level": level,
+                        "profile": role})
+    if len(profiles) > 1:
+        raise ValueError("audit files mix server profiles (MS and DC, or client and server): "
+                         "build one catalog per profile")
     catalog = {
         "schema": "cc.cis.catalog/1",
         "benchmark": benchmark,
         "version": version,
+        "profile": next(iter(profiles), None),
         "generated": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "generator": "tools/build_cis_catalog.py",
         "sources": sources,
@@ -360,12 +383,16 @@ def build(paths: list[Path], benchmark: str, version: str) -> tuple[dict, list]:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("audit", nargs="+", type=Path, help=".audit files (_L1 / _L2 in the name)")
+    ap.add_argument("audit", nargs="+", type=Path, help=".audit files (_L1 / _L2 in the name; server: _L1_MS / _L1_DC)")
     ap.add_argument("--benchmark", required=True)
     ap.add_argument("--version", required=True)
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args(argv)
-    catalog, problems = build(args.audit, args.benchmark, args.version)
+    try:
+        catalog, problems = build(args.audit, args.benchmark, args.version)
+    except ValueError as exc:
+        print(f"ERROR {exc}", file=sys.stderr)
+        return 2
     for p in problems:
         print(f"WARN {p}", file=sys.stderr)
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -373,7 +400,8 @@ def main(argv: list[str] | None = None) -> int:
     levels = {}
     for c in catalog["checks"]:
         levels[c["level"]] = levels.get(c["level"], 0) + 1
-    print(f"wrote {args.out}: {len(catalog['checks'])} checks {levels}, {len(problems)} warning(s)")
+    role = f" profile {catalog['profile']}" if catalog["profile"] else ""
+    print(f"wrote {args.out}: {len(catalog['checks'])} checks {levels}{role}, {len(problems)} warning(s)")
     return 0
 
 

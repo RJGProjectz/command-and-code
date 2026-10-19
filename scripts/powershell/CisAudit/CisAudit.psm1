@@ -14,9 +14,9 @@
     Security      : Security Domain: Compliance / Hardening. Read-only. secedit /export writes a
                     temporary .inf to $env:TEMP and deletes it; nothing on the host is changed.
     Author        : RJGProjectz
-    Version       : 1.0.0
+    Version       : 1.1.0
     Created       : 2026-10-16T14:45:00Z
-    Last Modified : 2026-10-16T14:45:00Z
+    Last Modified : 2026-10-19T03:30:00Z
     KB Article    : docs/tasks/hardening/windows-11-cis-audit-tool.md
     Source Repo   : https://learn.microsoft.com/windows-server/administration/windows-commands/secedit-export
                     https://learn.microsoft.com/windows-server/administration/windows-commands/auditpol-get
@@ -693,7 +693,45 @@ function Test-CisSupportedEdition {
     #>
     [CmdletBinding()]
     param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$EditionId)
-    return ($EditionId -match '^(Enterprise|Education|IoTEnterprise|ServerRdsh)')
+    # Server editions (ServerStandard, ServerDatacenter, ServerAzureEdition...) honor the full set.
+    return ($EditionId -match '^(Enterprise|Education|IoTEnterprise|Server)')
+}
+
+function ConvertTo-CisHostRole {
+    <#
+    .SYNOPSIS
+        Host role from Win32_OperatingSystem.ProductType (1 = work station, 2 = domain controller,
+        3 = server): Workstation, DomainController or MemberServer. A standalone (workgroup) server
+        is MemberServer, which is the profile CIS applies to it.
+    .EXAMPLE
+        ConvertTo-CisHostRole -ProductType 2
+    #>
+    [CmdletBinding()]
+    param([Parameter(Mandatory = $true)][AllowNull()]$ProductType)
+    switch ([string]$ProductType) {
+        '1' { return 'Workstation' }
+        '2' { return 'DomainController' }
+        '3' { return 'MemberServer' }
+        default { return 'Unknown' }
+    }
+}
+
+function Test-CisCatalogRole {
+    <#
+    .SYNOPSIS
+        $true when the catalog's server profile matches the host role: MS -> MemberServer,
+        DC -> DomainController, no profile (client benchmark) -> Workstation.
+    .EXAMPLE
+        Test-CisCatalogRole -Catalog $catalog -HostRole MemberServer
+    #>
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)]$Catalog,
+        [Parameter(Mandatory = $true)][string]$HostRole
+    )
+    $profileName = if ($Catalog.PSObject.Properties.Name -contains 'profile') { [string]$Catalog.profile } else { '' }
+    $wanted = switch ($profileName) { 'MS' { 'MemberServer' } 'DC' { 'DomainController' } default { 'Workstation' } }
+    return ($HostRole -eq $wanted)
 }
 
 Export-ModuleMember -Function Import-CisCatalog, Get-CisSectionName, ConvertFrom-CisSeceditText,
@@ -701,4 +739,4 @@ Export-ModuleMember -Function Import-CisCatalog, Get-CisSectionName, ConvertFrom
     ConvertTo-CisRegistryPath, Get-CisPrincipalLeafName, Test-CisExpectation,
     Format-CisExpectation, Format-CisValue, Get-CisLiveContext, Read-CisRegistryValue, Get-CisLoadedUserHive,
     Resolve-CisSid, Invoke-CisTest, Invoke-CisUserHiveTest, Invoke-CisCheck, Select-CisCheck,
-    Get-CisExitCode, Test-CisSupportedEdition
+    Get-CisExitCode, Test-CisSupportedEdition, ConvertTo-CisHostRole, Test-CisCatalogRole

@@ -324,7 +324,7 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 **Key capabilities**
 
 - [x] Windows 11 CIS audit (WP-56, [tool page](tasks/hardening/windows-11-cis-audit-tool.md)) (CIS Microsoft Windows 11 Enterprise Benchmark, Level 1/Level 2): extend `scripts/powershell/Invoke-CisWindowsAudit.ps1` into a data-driven check set, read-only, one result object per recommendation (ID, expected, actual, pass/fail) as JSON/NDJSON and CSV
-- [ ] Windows Server CIS audit (Member Server and Domain Controller profiles, CIS Microsoft Windows Server 2022/2025 Benchmarks) on the same engine and output format
+- [x] Windows Server CIS audit (WP-57, [tool page](tasks/hardening/windows-server-cis-audit-tool.md)) (Member Server and Domain Controller profiles, CIS Microsoft Windows Server 2022/2025 Benchmarks) on the same engine and output format
 - [ ] Linux/Unix CIS audit: extend `scripts/bash/audit_cis_linux.sh` with distribution profiles (Ubuntu, RHEL family; macOS later), same result schema
 - [ ] CIS block monitor: watch and log installs and executions that fail because of a hardening control — Windows AppLocker/WDAC (Code Integrity), Defender ASR, Windows Installer and UAC denials; Linux SELinux/AppArmor denials, `noexec` mounts, fapolicyd — as NDJSON (§4.7) with the CIS recommendation that caused the block
 - [ ] Test support: before/after report diff, Pester and pytest suites with recorded sample events and config fixtures, lab run checklist for Windows 11, Server and Linux VMs, CI job for the check engines

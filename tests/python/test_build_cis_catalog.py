@@ -113,3 +113,29 @@ def test_committed_synthetic_catalog_matches_generator(tmp_path):
     fresh = build(tmp_path)
     for key in ("schema", "benchmark", "version", "applicability", "checks"):
         assert committed[key] == fresh[key], key
+
+
+def test_server_profile_from_file_name(tmp_path):
+    for name, expected in (
+        ("CIS_Microsoft_Windows_Server_2025_v2.1.0_L1_MS.audit", ("L1", "MS")),
+        ("CIS_Microsoft_Windows_Server_2025_v2.1.0_L2_DC.audit", ("L2", "DC")),
+        ("CIS_Microsoft_Windows_Server_2022_v3.0.0_L2_Member_Server.audit", ("L2", "MS")),
+        ("CIS_Microsoft_Windows_Server_2019_v2.0.0_L1_Domain_Controller.audit", ("L1", "DC")),
+        ("CIS_Microsoft_Windows_11_Enterprise_v5.1.0_L1.audit", ("L1", None)),
+    ):
+        assert bcc.level_and_profile(name) == expected, name
+    catalog = build(tmp_path, "Synthetic_v1.0.0_L2_DC.audit")
+    assert catalog["profile"] == "DC"
+    assert catalog["sources"][0]["profile"] == "DC"
+    assert {c["level"] for c in catalog["checks"]} == {"L2"}
+    assert build(tmp_path)["profile"] is None
+
+
+def test_mixed_server_profiles_are_rejected(tmp_path):
+    files = []
+    for name in ("Synthetic_v1.0.0_L1_MS.audit", "Synthetic_v1.0.0_L1_DC.audit"):
+        (tmp_path / name).write_text(SYNTHETIC, encoding="utf-8")
+        files.append(str(tmp_path / name))
+    out = tmp_path / "catalog.json"
+    assert bcc.main(["--benchmark", "Synthetic", "--version", "1.0.0", "--out", str(out), *files]) == 2
+    assert not out.exists()

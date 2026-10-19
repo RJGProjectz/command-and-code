@@ -1,11 +1,13 @@
 <#
 .SYNOPSIS
-    Read-only CIS Microsoft Windows 11 Enterprise Benchmark audit (Level 1 / Level 2), data-driven.
+    Read-only CIS Benchmark audit for Windows 11 Enterprise and Windows Server (Member Server and
+    Domain Controller profiles), Level 1 / Level 2, data-driven.
 
 .DESCRIPTION
     Script Name   : Invoke-CisWindowsAudit.ps1
     Purpose       : Audits the local host against every automatable recommendation in a CIS check
-                    catalog (default: CIS Microsoft Windows 11 Enterprise v5.1.0, 486 checks) and
+                    catalog (Windows 11 Enterprise v5.1.0, 486 checks, or a Windows Server MS / DC
+                    catalog the operator builds) and
                     writes one result per recommendation: CIS ID, title, level, expected, actual,
                     Pass / Fail / NotApplicable / Error. Use it for hardening baselines, before/after
                     comparisons and compliance evidence.
@@ -18,11 +20,13 @@
                     state. Run elevated: secedit and auditpol need administrator rights; without
                     them account, user-rights and audit-policy checks report Error.
     Author        : RJGProjectz
-    Version       : 2.0.0
+    Version       : 2.2.0
     Created       : 2026-10-08T12:30:00Z
-    Last Modified : 2026-10-16T15:00:00Z
+    Last Modified : 2026-10-19T03:35:00Z
     KB Article    : docs/tasks/hardening/windows-11-cis-audit-tool.md
+                    docs/tasks/hardening/windows-server-cis-audit-tool.md
     Source Repo   : https://www.cisecurity.org/benchmark/microsoft_windows_desktop
+                    https://www.cisecurity.org/benchmark/microsoft_windows_server
     API Standards : Status values Pass | Fail | NotApplicable | Error. Recommendation IDs and titles
                     only; CIS benchmark text is licensed and not reproduced.
 
@@ -40,7 +44,9 @@
     Top-level section numbers to audit (1, 2, 5, 9, 17, 18, 19). Default: all.
 
 .PARAMETER CatalogPath
-    Catalog JSON. Default: ..\cis\catalogs\windows11-enterprise-v5.1.0.json next to this script.
+    Catalog JSON. Default, by host role (Win32_OperatingSystem.ProductType): work station ->
+    ..\cis\catalogs\windows11-enterprise-v5.1.0.json; member or standalone server -> the last
+    windows-server-*-ms-*.json by name; domain controller -> the last windows-server-*-dc-*.json.
 
 .PARAMETER OutputPath
     Folder for report files. Nothing is written when omitted.
@@ -52,7 +58,9 @@
     Legacy: path of a single JSON report file (same content as Format Json).
 
 .PARAMETER SkipApplicabilityCheck
-    Audit even when the host is not Windows 11 client (results are then indicative only).
+    Audit even when the host is outside the catalog's scope: another OS build or installation type,
+    or a server role that does not match the catalog profile (MS vs DC). Results are then indicative
+    only.
 
 .PARAMETER FailOn
     Exit code policy for automation: None (default, always exit 0), Fail (exit 1 when any check
@@ -67,6 +75,9 @@
     .\Invoke-CisWindowsAudit.ps1 -Level L2 -Section 17 | Where-Object Status -ne 'Pass'
 .EXAMPLE
     .\Invoke-CisWindowsAudit.ps1 -Id '2.3.*','18.9.*' -Format Csv -OutputPath .\out -Quiet
+.EXAMPLE
+    # Domain controller, Level 1, with a DC catalog built from the operator's own audit files
+    .\Invoke-CisWindowsAudit.ps1 -CatalogPath ..\cis\catalogs\windows-server-2025-dc-v2.1.0.json -OutputPath D:\Evidence
 .EXAMPLE
     # Scheduled compliance gate: exit 1 on drift, 2 when the audit was incomplete
     .\Invoke-CisWindowsAudit.ps1 -Level L1 -OutputPath D:\Evidence -Quiet -FailOn FailOrError
@@ -88,7 +99,7 @@ param(
     [string[]]$Section = @(),
 
     [Parameter(Mandatory = $false)]
-    [string]$CatalogPath = (Join-Path $PSScriptRoot '..\cis\catalogs\windows11-enterprise-v5.1.0.json'),
+    [string]$CatalogPath,
 
     [Parameter(Mandatory = $false)]
     [string]$OutputPath,
@@ -115,7 +126,7 @@ Set-StrictMode -Version 3.0
 $ErrorActionPreference = 'Stop'
 
 $ToolName = 'Invoke-CisWindowsAudit'
-$ToolVersion = '2.1.0'
+$ToolVersion = '2.2.0'
 $script:QuietMode = $Quiet.IsPresent
 
 function Write-AuditLog {
@@ -136,22 +147,36 @@ $isElevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsI
     [Security.Principal.WindowsBuiltInRole]::Administrator)
 
 Write-Verbose "Mode: $TargetEnvironment (read-only; no changes are made in either mode)"
+# ProductType: 1 = work station, 2 = domain controller, 3 = server (Win32_OperatingSystem).
+$hostRole = ConvertTo-CisHostRole -ProductType (Get-CimInstance -ClassName Win32_OperatingSystem).ProductType
+$catalogDir = Join-Path $PSScriptRoot '..\cis\catalogs'
+if (-not $CatalogPath) {
+    $pattern = switch ($hostRole) {
+        'MemberServer' { 'windows-server-*-ms-*.json' }
+        'DomainController' { 'windows-server-*-dc-*.json' }
+        default { 'windows11-enterprise-v5.1.0.json' }
+    }
+    $found = @(Get-ChildItem -Path $catalogDir -Filter $pattern -File -ErrorAction SilentlyContinue | Sort-Object Name)
+    $CatalogPath = if ($found.Count -gt 0) { $found[-1].FullName } else { Join-Path $catalogDir $pattern }
+}
 if (-not (Test-Path -LiteralPath $CatalogPath)) {
-    # A catalog for another benchmark version must be built first (only v5.1.0 is shipped).
-    throw ("CIS catalog not found: $CatalogPath`n" +
-        "Generate it from your own audit files (see docs/tasks/hardening/windows-11-cis-audit-tool.md):`n" +
-        "  python tools/build_cis_catalog.py --benchmark `"CIS Microsoft Windows 11 Enterprise`" --version 5.1.0 " +
-        "--out scripts/cis/catalogs/windows11-enterprise-v5.1.0.json <L1.audit> <L2.audit>")
+    # Server catalogs are never shipped: the operator builds them from their own audit files.
+    throw ("CIS catalog not found: $CatalogPath (host role: $hostRole)`n" +
+        "Generate it from your own audit files (docs/tasks/hardening/windows-11-cis-audit-tool.md, " +
+        "docs/tasks/hardening/windows-server-cis-audit-tool.md), e.g.:`n" +
+        "  python tools/build_cis_catalog.py --benchmark `"CIS Microsoft Windows Server 2025`" --version 2.1.0 " +
+        "--out scripts/cis/catalogs/windows-server-2025-ms-v2.1.0.json <..._L1_MS.audit> <..._L2_MS.audit>")
 }
 $catalog = Import-CisCatalog -Path $CatalogPath
+$catalogProfile = if ($catalog.PSObject.Properties.Name -contains 'profile') { [string]$catalog.profile } else { '' }
 $catalogSha256 = (Get-FileHash -LiteralPath $CatalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
 $osKey = 'HKLM\Software\Microsoft\Windows NT\CurrentVersion'
 $osEdition = [string](Read-CisRegistryValue -Key $osKey -Name 'EditionID')
 $osBuild = '{0}.{1}' -f (Read-CisRegistryValue -Key $osKey -Name 'CurrentBuild'), (Read-CisRegistryValue -Key $osKey -Name 'UBR')
 $psInfo = '{0} {1}' -f $PSVersionTable.PSEdition, $PSVersionTable.PSVersion
-Write-AuditLog "$($catalog.benchmark) v$($catalog.version) - profile $Level - host $hostName - $TargetEnvironment"
+Write-AuditLog "$($catalog.benchmark) v$($catalog.version) - profile $Level $catalogProfile - host $hostName ($hostRole) - $TargetEnvironment"
 if (-not (Test-CisSupportedEdition -EditionId $osEdition)) {
-    Write-AuditLog "Edition '$osEdition': the benchmark targets Enterprise/Education. Home and Pro ignore many Section 18 policies, so a Pass there may not be enforced." 'WARN'
+    Write-AuditLog "Edition '$osEdition': the client benchmark targets Enterprise/Education. Home and Pro ignore many Section 18 policies, so a Pass there may not be enforced." 'WARN'
 }
 if (-not $isElevated) {
     Write-AuditLog 'Not elevated: account policy, user rights and audit policy checks will report Error. Run as administrator for a full audit.' 'WARN'
@@ -159,14 +184,19 @@ if (-not $isElevated) {
 
 $context = Get-CisLiveContext
 
-# Applicability: the catalog says which OS it is written for (Windows 11 client builds).
+# Applicability: the catalog says which OS it is written for (build, installation type), and a
+# server catalog's profile must match the role: MS rules on a DC (or the reverse) give wrong results.
 $applicable = $true
+if (-not (Test-CisCatalogRole -Catalog $catalog -HostRole $hostRole)) {
+    $applicable = $false
+    Write-AuditLog "Catalog profile '$catalogProfile' does not match host role '$hostRole'." 'WARN'
+}
 foreach ($test in @($catalog.applicability)) {
     if ((Invoke-CisTest -Test $test -Context $context).Status -ne 'Pass') { $applicable = $false }
 }
 if (-not $applicable) {
     if (-not $SkipApplicabilityCheck) {
-        throw "Host is not covered by '$($catalog.benchmark)' (build/installation type check failed). Use -SkipApplicabilityCheck to audit anyway."
+        throw "Host is not covered by '$($catalog.benchmark)' $catalogProfile (build, installation type or role check failed). Use -SkipApplicabilityCheck to audit anyway."
     }
     Write-AuditLog 'Host is outside the benchmark scope; results are indicative only.' 'WARN'
 }
@@ -204,12 +234,14 @@ $report = [ordered]@{
     powershell       = $psInfo
     osEdition        = $osEdition
     osBuild          = $osBuild
+    hostRole         = $hostRole
     auditPolicySource = $context.AuditPolicySource
     catalog          = [ordered]@{ path = (Split-Path -Leaf $CatalogPath); sha256 = $catalogSha256 }
     failOn           = $FailOn
     benchmark        = $catalog.benchmark
     benchmarkVersion = $catalog.version
     profile          = $Level
+    benchmarkProfile = $catalogProfile
     filters          = [ordered]@{ id = $Id; section = $Section }
     summary          = $summary
     results          = $results
@@ -247,6 +279,8 @@ if ($OutputPath) {
                 catalog_sha256    = $catalogSha256
                 os_edition        = $osEdition
                 os_build          = $osBuild
+                host_role         = $hostRole
+                benchmark_profile = $catalogProfile
                 elevated          = $isElevated
                 profile           = $r.Level
                 cis_id            = $r.Id
