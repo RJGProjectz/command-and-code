@@ -1,0 +1,6 @@
+[Unit]
+Description=PostgreSQL
+
+[Service]
+User=postgres
+ExecStart=/usr/lib/postgresql/bin/postgres

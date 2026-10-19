@@ -38,6 +38,7 @@ Each tool page explains purpose, the problem it solves, inputs, outputs, depende
 | [Command & Code CLI Lookup Utility](lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
 | [PowerShell Toolbox](powershell.md) | Tool | Windows, Windows Server | PowerShell | Automation, Incident Response, Forensics, Investigation |
 | [Python Toolbox](python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
+| [Service Account Audit (Windows, Active Directory, Linux)](../tasks/assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Windows 11 CIS Benchmark Audit Tool (L1 / L2)](../tasks/hardening/windows-11-cis-audit-tool.md) | Tool | Windows | PowerShell | Hardening, Assurance, Administration |
 
 <!-- /cc:index -->

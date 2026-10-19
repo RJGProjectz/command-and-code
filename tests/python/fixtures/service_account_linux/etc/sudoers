@@ -1,0 +1,7 @@
+# Synthetic sudoers for the WP-68 audit fixture
+Defaults	env_reset
+Defaults:deploy	!authenticate
+Cmnd_Alias APPCTL = /usr/bin/systemctl restart appsvc.service
+root	ALL=(ALL:ALL) ALL
+%sudo	ALL=(ALL:ALL) ALL
+@includedir /etc/sudoers.d

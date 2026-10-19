@@ -1,0 +1,3 @@
+# Synthetic login.defs for the WP-68 audit fixture
+UID_MIN                  1000
+UID_MAX                 60000

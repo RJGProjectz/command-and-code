@@ -1,0 +1,5 @@
+[Unit]
+Description=Locally added backup job
+# User=backup is in the comment only
+[Service]
+ExecStart=/usr/local/bin/backup.sh

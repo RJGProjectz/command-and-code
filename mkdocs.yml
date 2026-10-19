@@ -372,6 +372,7 @@ nav:
               - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
               - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
               - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
+              - Service Account Audit: tasks/assurance/service-account-audit.md
           - Automation:
               - Overview: tasks/automation/index.md
               - Automated IoC Enrichment: tasks/automation/automated-ioc-enrichment.md

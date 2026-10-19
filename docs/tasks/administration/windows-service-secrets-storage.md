@@ -264,6 +264,7 @@ Turn on object-access auditing for the secrets folder (SACL plus `auditpol /set 
 
 ## Related
 
+- [Service account audit script](../assurance/service-account-audit.md): finds services and tasks with typed passwords, stale passwords and gMSA retrievers
 - [Windows service accounts with least privilege](windows-service-accounts-least-privilege.md) · [Linux service secrets](linux-service-secrets-storage.md)
 - [AD Kerberos & LDAP hardening (gMSA rollout)](../hardening/ad-kerberos-ldap-hardening.md) · [Kerberoasting](../../fundamentals/concepts/kerberoasting.md)
 - [Windows services](../../platforms/windows/services.md) · [Scheduled tasks](../../platforms/windows/scheduled-tasks.md) · [Windows files and permissions](../../platforms/windows/files-directories.md)

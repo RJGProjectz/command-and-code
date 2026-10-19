@@ -297,6 +297,7 @@ Watch the secret paths with auditd so every read is logged:
 
 ## Related
 
+- [Service account audit script](../assurance/service-account-audit.md): finds world-readable files in the systemd credential stores
 - [Linux service accounts with least privilege](linux-service-accounts-least-privilege.md) · [Windows service secrets](windows-service-secrets-storage.md)
 - [systemd](../../platforms/linux/systemd.md) · [auditd](../../platforms/linux/auditd.md) · [Linux users and permissions](../../platforms/linux/users-permissions.md)
 - [SSH key deployment](ssh-key-deployment.md) · [Environment variables and PATH](environment-variables-and-path.md)

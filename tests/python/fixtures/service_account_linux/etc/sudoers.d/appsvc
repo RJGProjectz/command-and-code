@@ -1,0 +1,2 @@
+# Operators may restart the app without a password: narrow command, still listed
+%appops ALL=(root) NOPASSWD: APPCTL

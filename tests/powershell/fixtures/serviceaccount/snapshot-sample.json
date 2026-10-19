@@ -1,0 +1,76 @@
+{
+  "SchemaVersion": "1.0",
+  "ComputerName": "APP01",
+  "CollectedUtc": "2026-10-01T00:00:00Z",
+  "DomainSid": "S-1-5-21-1000-2000-3000",
+  "DomainNetBiosName": "EXAMPLE",
+  "Services": [
+    { "Name": "Spooler", "DisplayName": "Print Spooler", "StartName": "LocalSystem", "StartMode": "Auto", "State": "Running" },
+    { "Name": "Dnscache", "DisplayName": "DNS Client", "StartName": "NT AUTHORITY\\NetworkService", "StartMode": "Auto", "State": "Running" },
+    { "Name": "AppSvc", "DisplayName": "App service (virtual account)", "StartName": "NT SERVICE\\AppSvc", "StartMode": "Auto", "State": "Running" },
+    { "Name": "WebApi", "DisplayName": "Web API (gMSA)", "StartName": "EXAMPLE\\gmsa-web$", "StartMode": "Auto", "State": "Running" },
+    { "Name": "ReportSvc", "DisplayName": "Reporting", "StartName": "EXAMPLE\\svc-report", "StartMode": "Auto", "State": "Running" },
+    { "Name": "LegacySvc", "DisplayName": "Legacy agent", "StartName": ".\\legacyadmin", "StartMode": "Manual", "State": "Stopped" },
+    { "Name": "BackupSvc", "DisplayName": "Backup agent", "StartName": "svc-missing@example.test", "StartMode": "Auto", "State": "Running" }
+  ],
+  "ScheduledTasks": [
+    { "TaskPath": "\\Microsoft\\Windows\\Defrag\\", "TaskName": "ScheduledDefrag", "UserId": "SYSTEM", "LogonType": "ServiceAccount", "RunLevel": "Highest" },
+    { "TaskPath": "\\Example\\", "TaskName": "Nightly", "UserId": "EXAMPLE\\svc-batch", "LogonType": "Password", "RunLevel": "Limited" },
+    { "TaskPath": "\\Example\\", "TaskName": "Cleanup", "UserId": "EXAMPLE\\svc-batch", "LogonType": "S4U", "RunLevel": "Limited" },
+    { "TaskPath": "\\Example\\", "TaskName": "UserLogon", "UserId": "BUILTIN\\Users", "LogonType": "Group", "RunLevel": "Limited" }
+  ],
+  "LocalAdministrators": [
+    { "Name": "APP01\\legacyadmin", "Sid": "S-1-5-21-9-9-9-1001" },
+    { "Name": "EXAMPLE\\Domain Admins", "Sid": "S-1-5-21-1000-2000-3000-512" }
+  ],
+  "UserRights": {
+    "SeServiceLogonRight": ["*S-1-5-80-0", "*S-1-5-21-1000-2000-3000-1105"],
+    "SeInteractiveLogonRight": ["*S-1-5-32-544", "*S-1-5-32-545"],
+    "SeDenyInteractiveLogonRight": ["*S-1-5-21-9-9-9-1001", "*S-1-5-32-546"],
+    "SeDenyRemoteInteractiveLogonRight": ["*S-1-5-21-9-9-9-1001"]
+  },
+  "Accounts": [
+    {
+      "SamAccountName": "svc-report", "Source": "AD", "ObjectClass": "user", "Sid": "S-1-5-21-1000-2000-3000-1105",
+      "Enabled": true, "PasswordLastSet": "2019-03-01T00:00:00Z", "PasswordNeverExpires": true, "AdminCount": 1,
+      "ServicePrincipalNames": ["MSSQLSvc/sql01.example.test:1433"],
+      "GroupSids": ["S-1-5-21-1000-2000-3000-513", "S-1-5-21-1000-2000-3000-512", "S-1-5-32-544"],
+      "PrincipalsAllowedToRetrieveManagedPassword": []
+    },
+    {
+      "SamAccountName": "svc-sql", "Source": "AD", "ObjectClass": "user", "Sid": "S-1-5-21-1000-2000-3000-1110",
+      "Enabled": true, "PasswordLastSet": "2026-08-01T00:00:00Z", "PasswordNeverExpires": false, "AdminCount": 0,
+      "ServicePrincipalNames": ["MSSQLSvc/sql02.example.test:1433"],
+      "GroupSids": ["S-1-5-21-1000-2000-3000-513"],
+      "PrincipalsAllowedToRetrieveManagedPassword": []
+    },
+    {
+      "SamAccountName": "krbtgt", "Source": "AD", "ObjectClass": "user", "Sid": "S-1-5-21-1000-2000-3000-502",
+      "Enabled": false, "PasswordLastSet": "2020-01-01T00:00:00Z", "PasswordNeverExpires": false, "AdminCount": 1,
+      "ServicePrincipalNames": ["kadmin/changepw"], "GroupSids": [], "PrincipalsAllowedToRetrieveManagedPassword": []
+    },
+    {
+      "SamAccountName": "svc-batch", "Source": "AD", "ObjectClass": "user", "Sid": "S-1-5-21-1000-2000-3000-1120",
+      "Enabled": true, "PasswordLastSet": "2026-06-01T00:00:00Z", "PasswordNeverExpires": false, "AdminCount": 0,
+      "ServicePrincipalNames": [], "GroupSids": ["S-1-5-21-1000-2000-3000-513"], "PrincipalsAllowedToRetrieveManagedPassword": []
+    },
+    {
+      "SamAccountName": "gmsa-web$", "Source": "AD", "ObjectClass": "msDS-GroupManagedServiceAccount", "Sid": "S-1-5-21-1000-2000-3000-1130",
+      "Enabled": true, "PasswordLastSet": "2026-09-20T00:00:00Z", "PasswordNeverExpires": false, "AdminCount": 0,
+      "ServicePrincipalNames": ["HTTP/web.example.test"], "GroupSids": ["S-1-5-21-1000-2000-3000-515"],
+      "PrincipalsAllowedToRetrieveManagedPassword": ["CN=Web Servers,OU=Groups,DC=example,DC=test"]
+    },
+    {
+      "SamAccountName": "gmsa-broad$", "Source": "AD", "ObjectClass": "msDS-GroupManagedServiceAccount", "Sid": "S-1-5-21-1000-2000-3000-1131",
+      "Enabled": true, "PasswordLastSet": "2026-09-20T00:00:00Z", "PasswordNeverExpires": false, "AdminCount": 0,
+      "ServicePrincipalNames": [], "GroupSids": ["S-1-5-21-1000-2000-3000-515"],
+      "PrincipalsAllowedToRetrieveManagedPassword": ["CN=Domain Computers,CN=Users,DC=example,DC=test"]
+    },
+    {
+      "SamAccountName": "legacyadmin", "Source": "Local", "ObjectClass": "user", "Sid": "S-1-5-21-9-9-9-1001",
+      "Enabled": true, "PasswordLastSet": "2026-09-01T00:00:00Z", "PasswordNeverExpires": true, "AdminCount": 0,
+      "ServicePrincipalNames": [], "GroupSids": [], "PrincipalsAllowedToRetrieveManagedPassword": []
+    }
+  ],
+  "CollectionErrors": []
+}

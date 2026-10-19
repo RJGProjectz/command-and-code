@@ -1,0 +1,3 @@
+legacysvc ALL=(ALL) \
+    NOPASSWD: ALL
+bob ALL=(ALL) ALL

@@ -343,6 +343,7 @@ attacker are ATT&CK [T1078](https://attack.mitre.org/techniques/T1078/); weak se
 
 ## Related
 
+- [Service account audit script (NDJSON)](../assurance/service-account-audit.md): runs these review checks on every service, task, SPN user and gMSA
 - [Linux service accounts with least privilege](linux-service-accounts-least-privilege.md)
 - [Windows services](../../platforms/windows/services.md) · [Windows files and permissions](../../platforms/windows/files-directories.md) · [Windows users and groups](../../platforms/windows/users-groups.md)
 - [AD Kerberos & LDAP hardening (gMSA rollout)](../hardening/ad-kerberos-ldap-hardening.md) · [Kerberoasting](../../fundamentals/concepts/kerberoasting.md)
