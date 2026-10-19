@@ -91,3 +91,10 @@ Get-MgApplicationPasswordCredential -ApplicationId $App.Id | ForEach-Object {
     Remove-MgApplicationPasswordCredential -ApplicationId $App.Id -KeyId $_.KeyId
 }
 ```
+
+---
+
+## Related
+
+- [Credential rotation after a compromise](credential-rotation-after-compromise.md): replace the app secret and every other credential the attacker could reach, in order
+- [Account compromise](account-compromise.md)

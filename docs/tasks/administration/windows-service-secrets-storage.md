@@ -264,6 +264,7 @@ Turn on object-access auditing for the secrets folder (SACL plus `auditpol /set 
 
 ## Related
 
+- [Credential rotation after a compromise](../incident-response/credential-rotation-after-compromise.md): the incident-response order for rotating these accounts and secrets
 - [Service account audit script](../assurance/service-account-audit.md): finds services and tasks with typed passwords, stale passwords and gMSA retrievers
 - [Windows service accounts with least privilege](windows-service-accounts-least-privilege.md) · [Linux service secrets](linux-service-secrets-storage.md)
 - [AD Kerberos & LDAP hardening (gMSA rollout)](../hardening/ad-kerberos-ldap-hardening.md) · [Kerberoasting](../../fundamentals/concepts/kerberoasting.md)

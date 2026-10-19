@@ -357,6 +357,7 @@ and alert on any interactive login by a service account: that is ATT&CK
 
 ## Related
 
+- [Credential rotation after a compromise](../incident-response/credential-rotation-after-compromise.md): the incident-response order for rotating these accounts and secrets
 - [Service account audit script (NDJSON)](../assurance/service-account-audit.md): shells, passwords, sudo grants and unit users on a whole host
 - [Windows service accounts with least privilege](windows-service-accounts-least-privilege.md)
 - [Linux users and permissions](../../platforms/linux/users-permissions.md)

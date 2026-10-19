@@ -416,6 +416,7 @@ nav:
               - Phishing Email Triage: tasks/incident-response/phishing-email-triage.md
               - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
               - Automated Containment: tasks/incident-response/automated-containment.md
+              - Credential Rotation After Compromise: tasks/incident-response/credential-rotation-after-compromise.md
           - Investigation:
               - Overview: tasks/investigation/index.md
               - Suspicious Service: tasks/investigation/suspicious-service.md

@@ -297,6 +297,7 @@ Watch the secret paths with auditd so every read is logged:
 
 ## Related
 
+- [Credential rotation after a compromise](../incident-response/credential-rotation-after-compromise.md): the incident-response order for rotating these accounts and secrets
 - [Service account audit script](../assurance/service-account-audit.md): finds world-readable files in the systemd credential stores
 - [Linux service accounts with least privilege](linux-service-accounts-least-privilege.md) · [Windows service secrets](windows-service-secrets-storage.md)
 - [systemd](../../platforms/linux/systemd.md) · [auditd](../../platforms/linux/auditd.md) · [Linux users and permissions](../../platforms/linux/users-permissions.md)

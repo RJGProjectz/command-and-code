@@ -85,6 +85,7 @@ Re-enable with phishing-resistant MFA, review Conditional Access coverage for th
 
 ## Related
 
+- [Credential rotation after a compromise](credential-rotation-after-compromise.md): krbtgt double reset, service accounts, gMSAs, keys, tokens and certificates
 - [Failed Authentication](../investigation/failed-authentication.md)
 - [Conditional Access](../../platforms/microsoft-365/conditional-access.md)
 - [Windows users and groups](../../platforms/windows/users-groups.md)
