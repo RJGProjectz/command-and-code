@@ -81,5 +81,7 @@ Hypothesis-driven searches for activity your detections have not alerted on.
 | [MITRE ATT&CK Mapping](../../detection/mitre-attack/index.md) | Reference | Windows, Linux, Microsoft 365 | MITRE ATT&CK | Detection Engineering, Threat Hunting, Incident Response |
 | [MITRE ATT&CK® Enterprise Matrix & Navigator Coverage](../../references/mitre-attack-matrix.md) | Reference | Windows, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | KQL, SPL, S1QL, PowerShell, Bash | Detection Engineering, Incident Response, Threat Hunting, Hardening |
 | [Threat Actor Intelligence Profiles & TTP Reference Cards](../../references/threat-actor-profiles.md) | Reference | Windows, Linux, Azure, Entra ID, Microsoft 365 | KQL, SPL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Detection Engineering |
+| [Windows Process Parent/Child Chains — Know Normal](../../references/windows-process-chains.md) | Reference | Windows, Windows Server | PowerShell, KQL, SPL | Investigation, Threat Hunting, Incident Response, Detection Engineering |
+| [Windows Registry Keys That Change Behaviour — Persistence and Security Settings](../../references/windows-registry-security-keys.md) | Reference | Windows, Windows Server | PowerShell, Windows CLI, KQL, SPL | Investigation, Threat Hunting, Incident Response, Hardening, Forensics |
 
 <!-- /cc:index -->

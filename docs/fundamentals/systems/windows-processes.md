@@ -65,6 +65,8 @@ Most process-based detections are "this parent should never start that child" or
 | `svchost.exe` | `services.exe` | `C:\Windows\System32` (or `SysWOW64`) | Many, always with `-k <group>` |
 | `explorer.exe` | `userinit.exe` (which exits) | `C:\Windows` | 1 per logged-on user |
 
+Full per-process cards (normal children, suspicious children, LOLBins, signed vs approved): [Windows process parent/child chains](../../references/windows-process-chains.md).
+
 Red flags: `lsass.exe` or `svchost.exe` running from another folder or with a different parent, two `lsass.exe`, `svchost.exe` without `-k`, Office or browsers starting `cmd.exe` / `powershell.exe`, and look-alike names (`scvhost.exe`, `lsas.exe`).
 
 ```powershell
@@ -80,6 +82,7 @@ Get-CimInstance Win32_Process |
 - [Windows processes (platform)](../../platforms/windows/processes.md)
 - [Suspicious Process](../../tasks/incident-response/suspicious-process.md)
 - [Virtual memory, stack and heap](memory-internals.md)
+- [Know normal: process chains](../../references/windows-process-chains.md) · [registry keys](../../references/windows-registry-security-keys.md)
 
 ## Sources
 

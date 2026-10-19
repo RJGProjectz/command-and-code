@@ -52,7 +52,7 @@ logon ──► NTUSER.DAT loaded as HKCU ──► Explorer runs HKLM + HKCU ..
 any program ──► reads/writes keys through the registry API, checked against each key's ACL
 ```
 
-Common autostart and abuse points (full list on [Windows Registry and Run keys](../../platforms/windows/registry.md)):
+Common autostart and abuse points (full list on [Windows Registry and Run keys](../../platforms/windows/registry.md); by purpose with safe values: [registry keys that change behaviour](../../references/windows-registry-security-keys.md)):
 
 | Location | Effect |
 | :--- | :--- |

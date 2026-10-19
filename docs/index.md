@@ -46,7 +46,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 
 <div class="grid cards cc-lanes" markdown>
 
--   :material-alarm-light-outline:{ .lg } **[Responding to an incident](tasks/incident-response/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Incident Response" -->147<!-- /cc:count --> entries</span>
+-   :material-alarm-light-outline:{ .lg } **[Responding to an incident](tasks/incident-response/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Incident Response" -->149<!-- /cc:count --> entries</span>
 
     ---
 
@@ -54,7 +54,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     2. [Check the account](tasks/incident-response/account-compromise.md) — sign-ins, tokens, mailbox rules
     3. [Isolate the host](tasks/incident-response/ransomware-host-isolation.md) — contain before it spreads
 
--   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->178<!-- /cc:count --> entries</span>
+-   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->180<!-- /cc:count --> entries</span>
 
     ---
 
@@ -62,7 +62,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     2. [Suspicious outbound connection](tasks/investigation/suspicious-outbound-connection.md) — process to destination
     3. [Registry persistence](tasks/investigation/registry-persistence.md) — run keys and services
 
--   :material-crosshairs-gps:{ .lg } **[Hunting for threats](tasks/threat-hunting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Threat Hunting" -->83<!-- /cc:count --> entries</span>
+-   :material-crosshairs-gps:{ .lg } **[Hunting for threats](tasks/threat-hunting/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Threat Hunting" -->85<!-- /cc:count --> entries</span>
 
     ---
 
@@ -83,9 +83,9 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 **Other lanes:**
 
 <div class="cc-searches cc-lane-chips" markdown>
-[Forensics · <!-- cc:count tasks="Forensics" -->49<!-- /cc:count -->](tasks/forensics/index.md)
-[Detection engineering · <!-- cc:count tasks="Detection Engineering" -->66<!-- /cc:count -->](tasks/detection-engineering/index.md)
-[Hardening · <!-- cc:count tasks="Hardening" -->144<!-- /cc:count -->](tasks/hardening/index.md)
+[Forensics · <!-- cc:count tasks="Forensics" -->50<!-- /cc:count -->](tasks/forensics/index.md)
+[Detection engineering · <!-- cc:count tasks="Detection Engineering" -->67<!-- /cc:count -->](tasks/detection-engineering/index.md)
+[Hardening · <!-- cc:count tasks="Hardening" -->145<!-- /cc:count -->](tasks/hardening/index.md)
 [Administration · <!-- cc:count tasks="Administration" -->173<!-- /cc:count -->](tasks/administration/index.md)
 [Automation · <!-- cc:count tasks="Automation" -->55<!-- /cc:count -->](tasks/automation/index.md)
 [Assurance · <!-- cc:count tasks="Assurance" -->63<!-- /cc:count -->](tasks/assurance/index.md)

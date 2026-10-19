@@ -15,6 +15,8 @@ Lookup tables and conventions.
 | [Cross-Platform Equivalents](equivalents.md) | The same task in PowerShell, Bash, KQL, SPL and S1QL |
 | [Command Index — All Shells](command-index.md) | Everyday jobs in PowerShell, CMD and Bash side by side, with links |
 | [Windows Event IDs](windows-event-ids.md) | Event IDs, logon types, Kerberos/NTLM, Sysmon |
+| [Know normal: process chains](windows-process-chains.md) | Expected parent, path and children per Windows process; signed is not approved |
+| [Know normal: registry keys](windows-registry-security-keys.md) | Autostart, LSA and security-setting keys with the safe value and what to remove |
 | [MITRE ATT&CK Mapping](../detection/mitre-attack/index.md) | Techniques ↔ investigation and detection content |
 | [Metadata Conventions](metadata.md) | Front matter schema, vocabulary, verification rules |
 | [Tags](tags.md) | Every tag and its pages |
@@ -36,6 +38,8 @@ Lookup tables and conventions.
 | [Sysadmin Quick Reference Cheat Sheet](sysadmin-cheat-sheet.md) | Reference | Windows, Windows Server, Linux, Microsoft 365, Entra ID | PowerShell, Bash, Windows CLI | Administration, Troubleshooting, Investigation |
 | [Threat Actor Intelligence Profiles & TTP Reference Cards](threat-actor-profiles.md) | Reference | Windows, Linux, Azure, Entra ID, Microsoft 365 | KQL, SPL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Detection Engineering |
 | [Windows Event ID Reference](windows-event-ids.md) | Reference | Windows, Windows Server | PowerShell, SPL, KQL | Investigation, Incident Response, Detection Engineering, Forensics |
+| [Windows Process Parent/Child Chains — Know Normal](windows-process-chains.md) | Reference | Windows, Windows Server | PowerShell, KQL, SPL | Investigation, Threat Hunting, Incident Response, Detection Engineering |
+| [Windows Registry Keys That Change Behaviour — Persistence and Security Settings](windows-registry-security-keys.md) | Reference | Windows, Windows Server | PowerShell, Windows CLI, KQL, SPL | Investigation, Threat Hunting, Incident Response, Hardening, Forensics |
 | [Windows Triage Cheat Sheet (Printable)](windows-triage-cheat-sheet.md) | Reference | Windows | PowerShell, Windows CLI | Incident Response, Investigation, Forensics |
 
 <!-- /cc:index -->

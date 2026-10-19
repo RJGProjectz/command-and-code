@@ -26,7 +26,7 @@ HKCU only shows the current user. → [Check other users' HKCU](../../platforms/
 
 ## 3. Assess each entry
 
-→ [What to look for](../../platforms/windows/registry.md#what-to-look-for)
+→ [What to look for](../../platforms/windows/registry.md#what-to-look-for) · by purpose, with the safe value for each key: [Know normal: registry keys](../../references/windows-registry-security-keys.md)
 
 ## 4. Who wrote it and when?
 

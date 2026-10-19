@@ -139,5 +139,5 @@ from the same IP, are one intrusion. Both commands need an elevated session (Sec
 ## 4. Hardening & Mitigation Controls
 
 1. **WDAC / AppLocker Binary Constraints**: Enforce Windows Defender Application Control ($WDAC$) to block LOLBins from executing in user-writable directories (`C:\Users\*`, `C:\ProgramData\*`).
-2. **Microsoft Recommended Block Rules**: Implement the official WDAC blocklist rules which restrict high-risk LOLBins (`mshta.exe`, `wmic.exe`, `cscript.exe`) from initiating external network connections.
+2. **Microsoft Recommended Block Rules**: Implement the official WDAC blocklist rules which deny execution of high-risk signed binaries (`mshta.exe`, `wmic.exe`, `cscript.exe`, `msbuild.exe`). Why a Microsoft signature is not an approval: [Know normal: process chains](../../references/windows-process-chains.md#signed-is-not-approved).
 3. **Attack Surface Reduction (ASR)**: Enable rule `Block process creations originating from PSExec and WMI commands` and `Block executable files from running unless they meet a prevalence, age, or trusted list criterion`.

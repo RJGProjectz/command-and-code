@@ -64,5 +64,6 @@ Preserve first (hash, copy, memory if feasible), then kill/quarantine via EDR so
 
 ## Related
 
+- [Know normal: process parent/child chains](../../references/windows-process-chains.md)
 - [Malware Triage](malware-triage.md)
 - [Suspicious PowerShell](suspicious-powershell.md)

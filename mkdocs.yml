@@ -593,6 +593,8 @@ nav:
           - Command Index (All Shells): references/command-index.md
           - Cross-Platform Equivalents: references/equivalents.md
           - Windows Event IDs: references/windows-event-ids.md
+          - "Know Normal: Process Chains": references/windows-process-chains.md
+          - "Know Normal: Registry Keys": references/windows-registry-security-keys.md
           - Metadata Conventions: references/metadata.md
           - Tags: references/tags.md
   - Graph: graph.md
