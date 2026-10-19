@@ -84,11 +84,11 @@ being used. That IP and hour are the starting point for the audit-log review.
 # 1. Instantly disable the Enterprise Application in Entra ID
 Update-MgServicePrincipal -ServicePrincipalId "<SP_OBJECT_ID>" -AccountEnabled:$false
 
-# 2. Invalidate active tokens via Microsoft Graph
-# Revoke all credentials on the parent App Registration
-$App = Get-MgApplication -ApplicationId "<APP_OBJECT_ID>"
-Get-MgApplicationPasswordCredential -ApplicationId $App.Id | ForEach-Object {
-    Remove-MgApplicationPasswordCredential -ApplicationId $App.Id -KeyId $_.KeyId
+# 2. Remove every client secret on the parent App Registration
+#    (stops new tokens; access tokens already issued stay valid until they expire)
+$App = Get-MgApplication -ApplicationId "<APP_OBJECT_ID>" -Property Id, PasswordCredentials
+$App.PasswordCredentials | ForEach-Object {
+    Remove-MgApplicationPassword -ApplicationId $App.Id -KeyId $_.KeyId
 }
 ```
 
