@@ -186,6 +186,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Windows Users and Groups](../../platforms/windows/users-groups.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Write Command Output to Files](save-command-output-to-file.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Investigation, Automation |
 | [Command & Code CLI Lookup Utility](../../toolbox/lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
+| [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
 | [Service Account Audit (Windows, Active Directory, Linux)](../assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Windows 11 CIS Benchmark Audit Tool (L1 / L2)](../hardening/windows-11-cis-audit-tool.md) | Tool | Windows | PowerShell | Hardening, Assurance, Administration |
 | [Windows Server CIS Benchmark Audit (Member Server / Domain Controller)](../hardening/windows-server-cis-audit-tool.md) | Tool | Windows Server, Active Directory | PowerShell, Python | Hardening, Assurance, Administration |

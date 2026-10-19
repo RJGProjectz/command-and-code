@@ -36,6 +36,7 @@ Each tool page explains purpose, the problem it solves, inputs, outputs, depende
 | --- | --- | --- | --- | --- |
 | [Bash Toolbox](bash.md) | Tool | Linux | Bash | Automation, Incident Response, Forensics, Investigation |
 | [Command & Code CLI Lookup Utility](lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
+| [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../tasks/hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
 | [PowerShell Toolbox](powershell.md) | Tool | Windows, Windows Server | PowerShell | Automation, Incident Response, Forensics, Investigation |
 | [Python Toolbox](python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
 | [Service Account Audit (Windows, Active Directory, Linux)](../tasks/assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
