@@ -323,6 +323,7 @@ nav:
                   - Manage the User Lifecycle: tasks/administration/user-lifecycle-management.md
                   - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
                   - Windows Service Accounts (Least Privilege): tasks/administration/windows-service-accounts-least-privilege.md
+                  - Delegate Admin Tasks (JEA, sudo, polkit): tasks/administration/delegated-admin-jea-sudo-polkit.md
                   - Store Service Secrets on Linux: tasks/administration/linux-service-secrets-storage.md
                   - Store Service Secrets on Windows: tasks/administration/windows-service-secrets-storage.md
                   - Manage Active Directory Domain Services: tasks/administration/active-directory-domain-management.md

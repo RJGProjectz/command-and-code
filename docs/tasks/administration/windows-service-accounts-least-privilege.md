@@ -278,7 +278,7 @@ sc.exe sdset $service $after
 Never grant `DC`, `WD`, `WO` or `GA` to non-admins: change config lets them point the service at any program and run
 it as the service account, often LocalSystem. Members of the group then run `Restart-Service AppSvc` or
 `sc.exe stop AppSvc` without being administrators. For more than start/stop (read logs, run a fixed script),
-use a JEA endpoint (planned, backlog WP-70).
+use a JEA endpoint: [delegated administration with JEA](delegated-admin-jea-sudo-polkit.md).
 
 ## 8. Certificate private keys
 

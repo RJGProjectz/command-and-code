@@ -350,7 +350,7 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 - [ ] Windows service accounts with least privilege — virtual accounts, gMSA/sMSA, file/registry/service/private-key ACLs, logon rights (WP-66)
 - [x] Secrets and key storage for services — systemd-creds, keyring, SOPS+age, Vault/OpenBao, SecretManagement, DPAPI (WP-67)
 - [ ] Service account audit with NDJSON output, and credential rotation after compromise (WP-68, WP-71)
-- [ ] Effective permissions and access review ([WP-69 done](tasks/assurance/effective-permissions-access-review.md)); delegated admin with JEA, sudoers and polkit (WP-70)
+- [x] Effective permissions and access review ([WP-69](tasks/assurance/effective-permissions-access-review.md)); delegated admin with JEA, sudoers and polkit ([WP-70](tasks/administration/delegated-admin-jea-sudo-polkit.md))
 - [ ] Identity plumbing — Linux joined to AD, SSH certificate authority, Windows LAPS and admin tiering (WP-72, WP-73, WP-75)
 - [ ] Detective and protective controls — file integrity monitoring, per-service egress rules, LUKS disk encryption, posture scanners (WP-74, WP-76, WP-77, WP-78)
 
