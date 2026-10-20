@@ -123,6 +123,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Windows Security Baseline — CIS Benchmark & NIST CSF 2.0](windows-security-baseline.md) | Entry | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Services](../../platforms/windows/services.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Windows Users and Groups](../../platforms/windows/users-groups.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
+| [CIS Block Monitor (Windows and Linux)](cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
 | [Service Account Audit (Windows, Active Directory, Linux)](../assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Windows 11 CIS Benchmark Audit Tool (L1 / L2)](windows-11-cis-audit-tool.md) | Tool | Windows | PowerShell | Hardening, Assurance, Administration |

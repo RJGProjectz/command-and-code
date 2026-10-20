@@ -1,0 +1,4 @@
+Oct 19 08:00:00 fixture-rhel fapolicyd[812]: rule=13 dec=deny_syslog perm=execute auid=1003 pid=3101 exe=/usr/bin/bash : path=/home/carol/unsigned ftype=application/x-executable trust=0
+Oct 19 08:00:01 fixture-rhel fapolicyd[812]: rule=9 dec=allow_syslog perm=open auid=1003 pid=3102 exe=/usr/bin/bash : path=/usr/bin/ls ftype=application/x-executable trust=1
+Oct 19 08:00:02 fixture-ubuntu kernel: audit: type=1400 audit(1760860812.000:201): apparmor="DENIED" operation="open" class="file" profile="snap.firefox.firefox" name="/home/dave/.ssh/id_ed25519" pid=3103 comm="firefox" requested_mask="r" denied_mask="r" fsuid=1004 ouid=1004
+Oct 19 08:00:03 fixture-rhel sshd[3104]: Accepted publickey for erin from 192.0.2.10 port 50022 ssh2

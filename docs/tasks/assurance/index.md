@@ -59,6 +59,7 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | [Microsoft Graph API — Conditional Access Policies](../../apis/microsoft-graph/conditional-access.md) | Entry | Entra ID, Microsoft 365 | PowerShell, REST API | Administration, Hardening, Assurance |
 | [Security Command Center (GCP Posture & Alerts)](../../platforms/gcp/security-posture.md) | Entry | GCP | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [Windows Security Baseline — CIS Benchmark & NIST CSF 2.0](../hardening/windows-security-baseline.md) | Entry | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
+| [CIS Block Monitor (Windows and Linux)](../hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
 | [Service Account Audit (Windows, Active Directory, Linux)](service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Windows 11 CIS Benchmark Audit Tool (L1 / L2)](../hardening/windows-11-cis-audit-tool.md) | Tool | Windows | PowerShell | Hardening, Assurance, Administration |

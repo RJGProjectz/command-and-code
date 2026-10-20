@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "benchmark": "Synthetic block monitor fixture",
+  "version": "1.0.0",
+  "checks": [
+    { "id": "9.1.1", "title": "Ensure 'Fixture setting' is set to 'Enabled'", "level": "L1", "section": "9", "tests": [] },
+    { "id": "9.2.1", "title": "Ensure 'Configure Attack Surface Reduction rules' is set to 'Enabled'", "level": "L1", "section": "9", "tests": [] }
+  ]
+}

@@ -370,6 +370,7 @@ nav:
               - Windows CIS ASR & Credential Guard: tasks/hardening/windows-cis-attack-surface-reduction.md
               - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
               - Linux CIS Audit Tool (Ubuntu/RHEL): tasks/hardening/linux-cis-audit-tool.md
+              - CIS Block Monitor (Windows/Linux): tasks/hardening/cis-block-monitor.md
               - Linux CIS Filesystems & Services: tasks/hardening/linux-cis-filesystem-services.md
               - Linux CIS Auditd & Telemetry Baseline: tasks/hardening/linux-cis-auditd-logging.md
               - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md

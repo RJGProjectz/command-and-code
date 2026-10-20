@@ -308,6 +308,7 @@ Every fundamental node provides:
 | [Windows Users and Groups](../platforms/windows/users-groups.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Write Command Output to Files](../tasks/administration/save-command-output-to-file.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Investigation, Automation |
 | [Bash Toolbox](../toolbox/bash.md) | Tool | Linux | Bash | Automation, Incident Response, Forensics, Investigation |
+| [CIS Block Monitor (Windows and Linux)](../tasks/hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Command & Code CLI Lookup Utility](../toolbox/lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../tasks/hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
 | [PowerShell Toolbox](../toolbox/powershell.md) | Tool | Windows, Windows Server | PowerShell | Automation, Incident Response, Forensics, Investigation |

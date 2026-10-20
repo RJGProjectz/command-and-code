@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Synthetic events in Get-WinEvent ToXml() shape for FUNC_PS_GET_CIS_BLOCK_EVENTS tests (WP-59). Not from a real host. -->
+<Events>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Microsoft-Windows-AppLocker" Guid="{CBDA4DBF-8D5D-4F69-9578-BE14AA540D22}"/>
+      <EventID>8004</EventID><Level>2</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:00.0000000Z"/>
+      <Channel>Microsoft-Windows-AppLocker/EXE and DLL</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-21-1-2-3-1001"/>
+    </System>
+    <UserData>
+      <RuleAndFileData xmlns="http://schemas.microsoft.com/schemas/event/Microsoft.Windows/1.0.0.0">
+        <PolicyNameLength>3</PolicyNameLength><PolicyName>EXE</PolicyName>
+        <RuleId>{00000000-0000-0000-0000-000000000000}</RuleId><RuleNameLength>1</RuleNameLength><RuleName>-</RuleName>
+        <FilePathLength>40</FilePathLength><FilePath>%OSDRIVE%\USERS\ALICE\DOWNLOADS\TOOL.EXE</FilePath>
+        <FullFilePathLength>32</FullFilePathLength><FullFilePath>C:\Users\alice\Downloads\tool.exe</FullFilePath>
+        <TargetUser>S-1-5-21-1-2-3-1001</TargetUser><TargetProcessId>4100</TargetProcessId>
+      </RuleAndFileData>
+    </UserData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Microsoft-Windows-AppLocker" Guid="{CBDA4DBF-8D5D-4F69-9578-BE14AA540D22}"/>
+      <EventID>8003</EventID><Level>3</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:01.0000000Z"/>
+      <Channel>Microsoft-Windows-AppLocker/EXE and DLL</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-21-1-2-3-1001"/>
+    </System>
+    <UserData>
+      <RuleAndFileData xmlns="http://schemas.microsoft.com/schemas/event/Microsoft.Windows/1.0.0.0">
+        <PolicyName>EXE</PolicyName><RuleName>-</RuleName>
+        <FilePath>%OSDRIVE%\USERS\ALICE\APPDATA\LOCAL\TEMP\HELPER.EXE</FilePath>
+        <FullFilePath>C:\Users\alice\AppData\Local\Temp\helper.exe</FullFilePath>
+        <TargetUser>S-1-5-21-1-2-3-1001</TargetUser>
+      </RuleAndFileData>
+    </UserData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Microsoft-Windows-CodeIntegrity" Guid="{4EE76BD8-3CF4-44A0-A0AC-3937643E37A3}"/>
+      <EventID>3077</EventID><Level>2</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:02.0000000Z"/>
+      <Channel>Microsoft-Windows-CodeIntegrity/Operational</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-18"/>
+    </System>
+    <EventData>
+      <Data Name="File NameLength">45</Data>
+      <Data Name="File Name">\Device\HarddiskVolume3\Users\bob\evil.dll</Data>
+      <Data Name="Process NameLength">40</Data>
+      <Data Name="Process Name">\Device\HarddiskVolume3\Windows\System32\rundll32.exe</Data>
+      <Data Name="PolicyName">Fixture base policy</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Microsoft-Windows-Windows Defender" Guid="{11CD958A-C507-4EF3-B3F2-5FD9DFBD2C78}"/>
+      <EventID>1121</EventID><Level>3</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:03.0000000Z"/>
+      <Channel>Microsoft-Windows-Windows Defender/Operational</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-18"/>
+    </System>
+    <EventData>
+      <Data Name="Product Name">Microsoft Defender Antivirus</Data>
+      <Data Name="ID">{D4F940AB-401B-4EFC-AADC-AD5F3C50688A}</Data>
+      <Data Name="Detection Time">2026-10-19T08:00:03.000Z</Data>
+      <Data Name="User">FIXTURE\carol</Data>
+      <Data Name="Path">C:\Windows\System32\cmd.exe</Data>
+      <Data Name="Process Name">C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Microsoft-Windows-Windows Defender" Guid="{11CD958A-C507-4EF3-B3F2-5FD9DFBD2C78}"/>
+      <EventID>1122</EventID><Level>3</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:04.0000000Z"/>
+      <Channel>Microsoft-Windows-Windows Defender/Operational</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-18"/>
+    </System>
+    <EventData>
+      <Data Name="ID">{5BEB7EFE-FD9A-4556-801D-275E5FFC04CC}</Data>
+      <Data Name="User">FIXTURE\carol</Data>
+      <Data Name="Path">C:\Users\carol\Downloads\invoice.js</Data>
+      <Data Name="Process Name">C:\Windows\System32\wscript.exe</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Microsoft-Windows-Windows Defender" Guid="{11CD958A-C507-4EF3-B3F2-5FD9DFBD2C78}"/>
+      <EventID>1123</EventID><Level>3</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:05.0000000Z"/>
+      <Channel>Microsoft-Windows-Windows Defender/Operational</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-18"/>
+    </System>
+    <EventData>
+      <Data Name="User">FIXTURE\dave</Data>
+      <Data Name="Path">C:\Users\dave\Documents\budget.xlsx</Data>
+      <Data Name="Process Name">C:\Users\dave\AppData\Local\Temp\crypt.exe</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="MsiInstaller"/>
+      <EventID Qualifiers="0">1008</EventID><Level>2</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:06.0000000Z"/>
+      <Channel>Application</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-21-1-2-3-1005"/>
+    </System>
+    <EventData>
+      <Data>C:\Users\erin\Downloads\setup.msi</Data>
+      <Data>(NULL)</Data>
+    </EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="MsiInstaller"/>
+      <EventID Qualifiers="0">11707</EventID><Level>4</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:07.0000000Z"/>
+      <Channel>Application</Channel><Computer>fixture-w11</Computer>
+      <Security UserID="S-1-5-18"/>
+    </System>
+    <EventData><Data>Product: Fixture Agent -- Installation completed successfully.</Data></EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Application Error"/>
+      <EventID Qualifiers="0">1008</EventID><Level>2</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:08.0000000Z"/>
+      <Channel>Application</Channel><Computer>fixture-w11</Computer>
+    </System>
+    <EventData><Data>Same ID from another provider: not a Windows Installer block.</Data></EventData>
+  </Event>
+  <Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+    <System>
+      <Provider Name="Microsoft-Windows-Security-Auditing" Guid="{54849625-5478-4994-A5BA-3E3B0328C30D}"/>
+      <EventID>4624</EventID><Level>0</Level>
+      <TimeCreated SystemTime="2026-10-19T08:00:09.0000000Z"/>
+      <Channel>Security</Channel><Computer>fixture-w11</Computer>
+    </System>
+    <EventData><Data Name="TargetUserName">alice</Data></EventData>
+  </Event>
+</Events>

@@ -35,6 +35,7 @@ Each tool page explains purpose, the problem it solves, inputs, outputs, depende
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Bash Toolbox](bash.md) | Tool | Linux | Bash | Automation, Incident Response, Forensics, Investigation |
+| [CIS Block Monitor (Windows and Linux)](../tasks/hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Command & Code CLI Lookup Utility](lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../tasks/hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
 | [PowerShell Toolbox](powershell.md) | Tool | Windows, Windows Server | PowerShell | Automation, Incident Response, Forensics, Investigation |
