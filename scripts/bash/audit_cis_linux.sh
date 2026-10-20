@@ -367,7 +367,10 @@ sshd_parse_file() {
             return 0
         fi
         if [[ "$keyword" == "include" ]]; then
-            for pattern in $value; do
+            # read -a splits without pathname expansion, so the pattern is globbed only under AUDIT_ROOT
+            local -a patterns=()
+            read -r -a patterns <<< "$value"
+            for pattern in "${patterns[@]}"; do
                 [[ "$pattern" != /* ]] && pattern="/etc/ssh/$pattern"
                 for included in $(root_path "$pattern"); do
                     sshd_parse_file "$included" $((depth + 1))
