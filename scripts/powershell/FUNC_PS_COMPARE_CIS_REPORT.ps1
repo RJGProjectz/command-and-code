@@ -102,6 +102,7 @@ $ScriptName = 'FUNC_PS_COMPARE_CIS_REPORT'
 $ScriptVersion = '1.0.0'
 $ExecutionId = [guid]::NewGuid().ToString()
 $HostName = [Environment]::MachineName
+if (-not (Test-Path -LiteralPath $LogPath)) { $null = New-Item -ItemType Directory -Path $LogPath -Force }
 
 # --- Logging Helper ---
 function Write-Log {
