@@ -216,6 +216,7 @@ keytab is used like a stolen credential, so treat it as one.
 - [Active Directory management](active-directory-domain-management.md)
 - [Delegated administration (JEA, sudo, polkit)](delegated-admin-jea-sudo-polkit.md)
 - [Deploy SSH keys](ssh-key-deployment.md)
+- [Run an SSH certificate authority](ssh-certificate-authority.md)
 - [Users, groups and privilege](../../fundamentals/concepts/users-groups-permissions.md)
 
 ## Sources

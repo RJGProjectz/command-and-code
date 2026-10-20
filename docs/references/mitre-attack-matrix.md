@@ -40,7 +40,7 @@ A verifiable cross-walk indexing all adversary techniques, tactics, detection si
 ## 1. Executive Matrix Summary
 
 ```text
-TOTAL VALIDATED TECHNIQUES COVERED : 201 Enterprise Techniques
+TOTAL VALIDATED TECHNIQUES COVERED : 202 Enterprise Techniques
 OFFICIAL NAVIGATOR LAYER ARTIFACT  : site/mitre_attack_coverage.json
 TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 ```
@@ -68,6 +68,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1021.001`** | Remote Desktop Protocol | Lateral Movement | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Index](../detection/mitre-attack/index.md) · [Windows Events](../detection/spl/windows-events.md) |
 | **`T1021.002`** | SMB/Windows Admin Shares | Lateral Movement | [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Smb Lateral Movement](../tasks/incident-response/smb-lateral-movement.md) · [Index](../detection/mitre-attack/index.md) · [Lateral Movement Smb](../detection/spl/lateral-movement-smb.md) *(+1 more)* |
 | **`T1021.003`** | Community Technique | Execution | [Windows Process Chains](../references/windows-process-chains.md) |
+| **`T1021.004`** | SSH | Lateral Movement | [Ssh Certificate Authority](../tasks/administration/ssh-certificate-authority.md) |
 | **`T1021.006`** | Windows Remote Management | Lateral Movement | [Windows Process Chains](../references/windows-process-chains.md) |
 | **`T1027`** | Obfuscated Files or Information | Stealth | [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Process Events](../detection/kql/process-events.md) · [Index](../detection/mitre-attack/index.md) |
 | **`T1036`** | Masquerading | Stealth | [Hash Functions](../fundamentals/concepts/hash-functions.md) · [Processes Threads](../fundamentals/concepts/processes-threads.md) |
@@ -112,7 +113,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1098`** | Account Manipulation | Persistence, Privilege Escalation | [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) · [Cloud Identity Persistence Hunting](../tasks/threat-hunting/cloud-identity-persistence-hunting.md) · [Persistence Hunting](../platforms/aws/persistence-hunting.md) · [Persistence Hunting](../platforms/azure/persistence-hunting.md) *(+10 more)* |
 | **`T1098.001`** | Additional Cloud Credentials | Persistence, Privilege Escalation | [Cloud Identity Persistence Hunting](../tasks/threat-hunting/cloud-identity-persistence-hunting.md) · [Cloud Infrastructure Ephemeral Asset Hunting](../tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md) · [Persistence Hunting](../platforms/aws/persistence-hunting.md) · [Persistence Hunting](../platforms/azure/persistence-hunting.md) *(+4 more)* |
 | **`T1098.003`** | Additional Cloud Roles | Persistence, Privilege Escalation | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Cloud Infrastructure Ephemeral Asset Hunting](../tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) · [Persistence Hunting](../platforms/aws/persistence-hunting.md) *(+3 more)* |
-| **`T1098.004`** | SSH Authorized Keys | Persistence, Privilege Escalation | [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) · [Persistence Hunting](../platforms/gcp/persistence-hunting.md) · [Ssh](../platforms/linux/ssh.md) · [Index](../detection/mitre-attack/index.md) |
+| **`T1098.004`** | SSH Authorized Keys | Persistence, Privilege Escalation | [Ssh Certificate Authority](../tasks/administration/ssh-certificate-authority.md) · [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) · [Persistence Hunting](../platforms/gcp/persistence-hunting.md) · [Ssh](../platforms/linux/ssh.md) *(+1 more)* |
 | **`T1098.005`** | Device Registration | Persistence, Privilege Escalation | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Entra](../platforms/microsoft-365/entra.md) |
 | **`T1105`** | Ingress Tool Transfer | Command and Control | [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Process Events](../detection/kql/process-events.md) · [Hunting](../detection/s1ql/hunting.md) · [Powershell](../detection/spl/powershell.md) |
 | **`T1106`** | Native API | Execution | [Threat Actor Profiles](../references/threat-actor-profiles.md) |

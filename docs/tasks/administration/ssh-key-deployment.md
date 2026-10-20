@@ -338,6 +338,7 @@ Before permanently disabling password authentication on a remote production serv
 
 - [Linux SSH Daemon Configuration & Security Baseline](../../platforms/linux/ssh.md)
 - [Fundamentals — SSH Key Architecture & Cryptography Baselines](../../fundamentals/identity/ssh-keys.md)
+- [SSH Certificate Authority — User & Host Certificates, KRL](ssh-certificate-authority.md)
 - [Remote File Transfer — SCP, SFTP, rsync & WinRM](remote-file-transfer.md)
 - [Windows Remote Access (WinRM & OpenSSH)](../../platforms/windows/winrm-openssh.md)
 - [GitHub SSH, deploy and signing keys](../../platforms/github/cli-authentication.md#4-ssh-gpg-and-ssh-signing-keys)
