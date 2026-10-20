@@ -182,7 +182,7 @@ def test_sysctl_runtime_and_persisted(ubuntu):
 
 def test_sshd_first_value_wins_and_match_is_ignored(ubuntu):
     r = ubuntu[0]
-    assert r["5.1.20"]["result"] == "Pass"       # drop-in PermitRootLogin no is read first
+    assert r["5.1.20"]["result"] == "Pass", r["5.1.20"]  # drop-in PermitRootLogin no is read first
     assert r["5.1.16"]["result"] == "Pass"       # Match block MaxAuthTries 10 ignored
     assert r["5.1.13"]["result"] == "Pass"       # LoginGraceTime 1m = 60 s
     assert r["5.1.13"]["actual"] == "60"

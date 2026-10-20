@@ -12,6 +12,7 @@ Thumbs.db
 # Triage output written by scripts/ when run from the repo
 triage-*/
 *.log
+!tests/python/fixtures/**/*.log
 scratch/
 WebsiteThemeSource/
 tmp*/

@@ -519,13 +519,14 @@ Test-SelinuxBoot() {
 # Argument: notdisabled | enforcing. Uses SELINUX= in /etc/selinux/config and, when present, the runtime
 # /sys/fs/selinux/enforce (1 = enforcing, 0 = permissive).
 Test-SelinuxMode() {
-    local want="$1" config runtime="absent" ok=false
+    local want="$1" config runtime="absent" ok=false offline=false
+    is_live || offline=true
     config="$(awk -F= '$1 == "SELINUX" { print tolower($2) }' "$(root_path etc/selinux/config)" 2>/dev/null | tail -n 1 || true)"
     [[ -r "$(root_path sys/fs/selinux/enforce)" ]] && runtime="$(tr -d '[:space:]' < "$(root_path sys/fs/selinux/enforce)")"
     if [[ "$want" == "enforcing" ]]; then
-        [[ "$config" == "enforcing" && ( "$runtime" == "1" || ( "$runtime" == "absent" && ! is_live ) ) ]] && ok=true
+        [[ "$config" == "enforcing" && ( "$runtime" == "1" || ( "$runtime" == "absent" && "$offline" == "true" ) ) ]] && ok=true
     else
-        [[ ( "$config" == "enforcing" || "$config" == "permissive" ) && ( "$runtime" == "1" || "$runtime" == "0" || ( "$runtime" == "absent" && ! is_live ) ) ]] && ok=true
+        [[ ( "$config" == "enforcing" || "$config" == "permissive" ) && ( "$runtime" == "1" || "$runtime" == "0" || ( "$runtime" == "absent" && "$offline" == "true" ) ) ]] && ok=true
     fi
     if $ok; then Write-Result Pass "SELinux $want" "config ${config:-unset}, runtime enforce ${runtime}" "/etc/selinux/config"
     else Write-Result Fail "SELinux $want" "config ${config:-unset}, runtime enforce ${runtime}" "/etc/selinux/config"; fi

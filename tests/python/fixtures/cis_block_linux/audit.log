@@ -1,0 +1,18 @@
+type=AVC msg=audit(1760860800.100:101): avc:  denied  { execute } for  pid=2101 comm="bash" name="dropper" dev="dm-0" ino=4242 scontext=unconfined_u:unconfined_r:unconfined_t:s0 tcontext=unconfined_u:object_r:user_tmp_t:s0 tclass=file permissive=0
+type=SYSCALL msg=audit(1760860800.100:101): arch=c000003e syscall=59 success=no exit=-13 a0=55d1 a1=55d2 a2=55d3 a3=0 items=1 ppid=2000 pid=2101 auid=1000 uid=1000 gid=1000 euid=1000 comm="bash" exe="/usr/bin/bash" subj=unconfined_u:unconfined_r:unconfined_t:s0 key=(null)
+type=AVC msg=audit(1760860801.200:102): avc:  denied  { read } for  pid=2102 comm="httpd" path="/srv/www/secret.conf" dev="dm-0" ino=5151 scontext=system_u:system_r:httpd_t:s0 tcontext=unconfined_u:object_r:admin_home_t:s0 tclass=file permissive=1
+type=AVC msg=audit(1760860802.300:103): apparmor="DENIED" operation="exec" class="file" profile="/usr/sbin/cupsd" name="/tmp/payload" pid=2103 comm="cupsd" requested_mask="x" denied_mask="x" fsuid=0 ouid=1000
+type=AVC msg=audit(1760860803.400:104): apparmor="ALLOWED" operation="open" class="file" profile="/usr/bin/man" name="/etc/shadow" pid=2104 comm="man" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+type=SYSCALL msg=audit(1760860804.500:105): arch=c000003e syscall=59 success=no exit=-13 a0=7ffd a1=7ffe a2=7fff a3=0 items=2 ppid=2000 pid=2105 auid=1001 uid=1001 gid=1001 euid=1001 comm="bash" exe="/usr/bin/bash" key="cis_exec_denied"
+type=EXECVE msg=audit(1760860804.500:105): argc=1 a0="/dev/shm/miner"
+type=CWD msg=audit(1760860804.500:105): cwd="/home/alice"
+type=PATH msg=audit(1760860804.500:105): item=0 name="/dev/shm/miner" inode=777 dev=00:19 mode=0100755 ouid=1001 ogid=1001 rdev=00:00 nametype=NORMAL
+type=PATH msg=audit(1760860804.500:105): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=888 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
+type=SYSCALL msg=audit(1760860805.600:106): arch=c000003e syscall=59 success=no exit=-13 a0=1 a1=2 a2=3 a3=0 items=1 ppid=2000 pid=2106 auid=1001 uid=1001 gid=1001 euid=1001 comm="sh" exe="/usr/bin/sh" key="cis_exec_denied"
+type=PATH msg=audit(1760860805.600:106): item=0 name="/home/alice/notes.sh" inode=999 dev=fd:00 mode=0100600 ouid=1001 ogid=1001 rdev=00:00 nametype=NORMAL
+type=FANOTIFY msg=audit(1760860806.700:107): resp=2 fan_type=1 fan_info=3137 subj_trust=2 obj_trust=0
+type=SYSCALL msg=audit(1760860806.700:107): arch=c000003e syscall=257 success=no exit=-1 a0=ffffff9c a1=7ffc a2=0 a3=0 items=1 ppid=2000 pid=2107 auid=1002 uid=1002 gid=1002 euid=1002 comm="python3" exe="/usr/bin/python3.9" key=(null)
+type=CWD msg=audit(1760860806.700:107): cwd="/home/bob"
+type=PATH msg=audit(1760860806.700:107): item=0 name="/home/bob/tool.so" inode=1234 dev=fd:00 mode=0100755 ouid=1002 ogid=1002 rdev=00:00 nametype=NORMAL
+type=SYSCALL msg=audit(1760860807.800:108): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=7ffc a2=0 a3=0 items=1 ppid=2000 pid=2108 auid=1000 uid=1000 gid=1000 euid=1000 comm="cat" exe="/usr/bin/cat" key=(null)
+type=PATH msg=audit(1760860807.800:108): item=0 name="/tmp/readme" inode=4321 dev=00:20 mode=0100644 ouid=1000 ogid=1000 rdev=00:00 nametype=NORMAL
