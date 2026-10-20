@@ -1,0 +1,20 @@
+{
+  "schema": "cc.cis.report/1",
+  "tool": "Invoke-CisWindowsAudit",
+  "version": "2.2.0",
+  "timestamp": "2026-10-19T10:00:00Z",
+  "host": "FIXTURE-PC01",
+  "environment": "Test",
+  "benchmark": "Synthetic fixture benchmark",
+  "benchmarkVersion": "1.0.0",
+  "profile": "L1",
+  "summary": { "total": 6, "pass": 4, "fail": 2, "error": 0, "notApplicable": 0, "scorePct": 66.7 },
+  "results": [
+    { "Id": "1.1.1", "Title": "Ensure 'Fixture A' is set to '24 or more'", "Level": "L1", "Section": "1", "Status": "Pass", "Expected": ">= 24", "Actual": "24", "Source": "SecurityPolicy", "Detail": "" },
+    { "Id": "1.1.2", "Title": "Ensure 'Fixture B' is set to '365 or fewer'", "Level": "L1", "Section": "1", "Status": "Pass", "Expected": "1..365", "Actual": "365", "Source": "SecurityPolicy", "Detail": "" },
+    { "Id": "2.3.1", "Title": "Ensure 'Fixture C' is set to 'Disabled'", "Level": "L1", "Section": "2", "Status": "Fail", "Expected": "0", "Actual": "1", "Source": "Registry", "Detail": "" },
+    { "Id": "2.3.2", "Title": "Ensure 'Fixture D' is set to '15 or fewer'", "Level": "L1", "Section": "2", "Status": "Fail", "Expected": "1..15", "Actual": "30", "Source": "Registry", "Detail": "" },
+    { "Id": "9.1.1", "Title": "Ensure 'Fixture E' is set to 'On'", "Level": "L1", "Section": "9", "Status": "Pass", "Expected": "1", "Actual": "1", "Source": "Registry", "Detail": "" },
+    { "Id": "18.2.1", "Title": "Ensure 'Fixture G' is set to 'Disabled'", "Level": "L1", "Section": "18", "Status": "Pass", "Expected": "0", "Actual": "0", "Source": "Registry", "Detail": "" }
+  ]
+}

@@ -47,7 +47,7 @@ Describe 'FUNC_PS_GET_CIS_BLOCK_EVENTS: event selection' {
     }
 
     It 'matches Windows Installer IDs only for the MsiInstaller provider' {
-        $msi = Get-Record $script:all.Records 1008
+        $msi = @(Get-Record $script:all.Records 1008)
         $msi.Count | Should -Be 1
         $msi[0].control | Should -Be 'WindowsInstaller'
         $msi[0].path | Should -Be 'C:\Users\erin\Downloads\setup.msi'

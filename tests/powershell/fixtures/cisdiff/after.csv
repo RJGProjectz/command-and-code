@@ -1,0 +1,7 @@
+"Id","Title","Level","Section","Status","Expected","Actual","Source","Detail"
+"1.1.1","Ensure 'Fixture A' is set to '24 or more'","L1","1","Pass",">= 24","24","SecurityPolicy",""
+"1.1.2","Ensure 'Fixture B' is set to '365 or fewer'","L1","1","Pass","1..365","365","SecurityPolicy",""
+"2.3.1","Ensure 'Fixture C' is set to 'Disabled'","L1","2","Fail","0","1","Registry",""
+"2.3.2","Ensure 'Fixture D' is set to '15 or fewer'","L1","2","Fail","1..15","30","Registry",""
+"9.1.1","Ensure 'Fixture E' is set to 'On'","L1","9","Pass","1","1","Registry",""
+"18.2.1","Ensure 'Fixture G' is set to 'Disabled'","L1","18","Pass","0","0","Registry",""

@@ -16,6 +16,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](../administration/tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](../administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
 | [Certificate and PKI Management](../administration/certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
+| [CIS Hardening Lab Test (Before/After Diff and Run Checklist)](cis-hardening-lab-test.md) | Workflow | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](../assurance/cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |

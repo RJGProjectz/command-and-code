@@ -65,6 +65,30 @@ jobs:
           $config.Output.Verbosity = 'Detailed'
           Invoke-Pester -Configuration $config
 
+  cis-windows:
+    name: CIS engines on Windows PowerShell 5.1
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Run CIS Pester suites (audit engine, block monitor, report diff, script contract)
+        shell: powershell
+        run: |
+          Install-Module Pester -MinimumVersion 5.0 -MaximumVersion 5.99 -Scope CurrentUser -Force -SkipPublisherCheck
+          Import-Module Pester -MinimumVersion 5.0
+          $config = New-PesterConfiguration
+          $config.Run.Path = @(
+              'tests/powershell/CisAudit.Tests.ps1',
+              'tests/powershell/CisBlockEvents.Tests.ps1',
+              'tests/powershell/CisReportDiff.Tests.ps1',
+              'tests/powershell/ScriptContract.Tests.ps1'
+          )
+          $config.Run.Exit = $true
+          $config.Output.Verbosity = 'Normal'
+          Invoke-Pester -Configuration $config
+
   lint:
     name: Lint scripts
     runs-on: ubuntu-24.04
