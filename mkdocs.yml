@@ -381,6 +381,7 @@ nav:
               - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
               - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
               - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md
+              - Windows LAPS & Admin Tiering: tasks/hardening/windows-laps-admin-tiering.md
           - Assurance:
               - Overview: tasks/assurance/index.md
               - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md

@@ -205,3 +205,7 @@ function Test-CisUserRightsCompliance {
 
 Test-CisUserRightsCompliance
 ```
+
+## Related
+
+- [Windows LAPS and admin tiering](windows-laps-admin-tiering.md) — deny-logon rights per tier

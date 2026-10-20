@@ -85,8 +85,8 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 <div class="cc-searches cc-lane-chips" markdown>
 [Forensics · <!-- cc:count tasks="Forensics" -->52<!-- /cc:count -->](tasks/forensics/index.md)
 [Detection engineering · <!-- cc:count tasks="Detection Engineering" -->70<!-- /cc:count -->](tasks/detection-engineering/index.md)
-[Hardening · <!-- cc:count tasks="Hardening" -->157<!-- /cc:count -->](tasks/hardening/index.md)
-[Administration · <!-- cc:count tasks="Administration" -->184<!-- /cc:count -->](tasks/administration/index.md)
+[Hardening · <!-- cc:count tasks="Hardening" -->158<!-- /cc:count -->](tasks/hardening/index.md)
+[Administration · <!-- cc:count tasks="Administration" -->185<!-- /cc:count -->](tasks/administration/index.md)
 [Automation · <!-- cc:count tasks="Automation" -->57<!-- /cc:count -->](tasks/automation/index.md)
 [Assurance · <!-- cc:count tasks="Assurance" -->71<!-- /cc:count -->](tasks/assurance/index.md)
 [Threat intelligence · <!-- cc:count tasks="Threat Intelligence" -->11<!-- /cc:count -->](tasks/threat-intelligence/index.md)

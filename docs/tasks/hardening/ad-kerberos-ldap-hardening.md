@@ -214,6 +214,7 @@ Get-WinEvent -FilterHashtable @{
 - [Fundamentals — Kerberos Protocol Mechanics](../../fundamentals/kerberos.md)
 - [Fundamentals — LDAP Protocol Architecture](../../fundamentals/identity/ldap.md)
 - [Threat Hunting — Kerberoasting & AS-REP Roasting](../threat-hunting/kerberoasting-asreproast-hunting.md)
+- [Windows LAPS & Admin Tiering](windows-laps-admin-tiering.md)
 - [Active Directory STIG Compliance](../assurance/ad-stig-compliance.md)
 - [Active Directory Domain Services Management](../administration/active-directory-domain-management.md)
 - [Windows Service Accounts with Least Privilege (assign the gMSA, ACLs, logon rights)](../administration/windows-service-accounts-least-privilege.md)

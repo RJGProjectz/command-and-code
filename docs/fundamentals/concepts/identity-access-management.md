@@ -74,6 +74,8 @@ AuditLogs
 | project TimeGenerated, InitiatedBy = tostring(InitiatedBy.user.userPrincipalName), Target = tostring(TargetResources[0].userPrincipalName), Role
 ```
 
+Full LAPS rollout and admin tiers: [Deploy Windows LAPS and admin tiering](../../tasks/hardening/windows-laps-admin-tiering.md).
+
 ## See it
 
 | Source | What you see |

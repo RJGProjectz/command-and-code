@@ -42,6 +42,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Certificate and PKI Management](certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
 | [Credential Rotation After a Compromise](../incident-response/credential-rotation-after-compromise.md) | Workflow | Active Directory, Windows Server, Linux, Entra ID, Azure | PowerShell, Bash, CMD | Incident Response, Administration |
 | [Delegated Administration Without Full Admin (JEA, sudo, polkit)](delegated-admin-jea-sudo-polkit.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
+| [Deploy Windows LAPS and Admin Tiering (Tier 0/1/2)](../hardening/windows-laps-admin-tiering.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration |
 | [DNS Client Resolution and Troubleshooting](dns-resolution-troubleshooting.md) | Workflow | Windows, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [Effective Permissions and Access Review (Windows and Linux)](../assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](../hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
