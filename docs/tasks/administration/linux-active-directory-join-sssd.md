@@ -204,7 +204,7 @@ cached logons stop working.
 - [ ] A user outside the allowed groups is denied (`sssctl user-checks ... -a acct`).
 - [ ] `sudo -l -U alice@ad.example.com` lists only what the group should have.
 - [ ] `/etc/krb5.keytab` and `/etc/sssd/sssd.conf` are `600 root:root` and watched by
-      file integrity monitoring.
+      [file integrity monitoring](../assurance/file-integrity-monitoring.md).
 - [ ] The AD groups used here are part of the
       [access review](../assurance/effective-permissions-access-review.md).
 

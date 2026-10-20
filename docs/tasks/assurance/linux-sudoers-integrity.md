@@ -79,6 +79,7 @@ Always edit with `visudo` (or `visudo -f /etc/sudoers.d/<file>`), which refuses 
 ## Related
 
 - [Linux Audit Daemon (auditd)](../../platforms/linux/auditd.md)
+- [File Integrity Monitoring (AIDE, SACL, Sysmon)](file-integrity-monitoring.md)
 - [Local User and Group Management](../administration/local-user-group-management.md)
 - [Service accounts: sudo and polkit rules for one service](../administration/linux-service-accounts-least-privilege.md)
 

@@ -22,6 +22,7 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |
 | [Cyber Threat Intelligence — Adversary Emulation & ATT&CK Profiling](../threat-intelligence/adversary-emulation-profiling.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | PowerShell, Bash, KQL, SPL | Threat Intelligence, Detection Engineering, Assurance |
 | [Effective Permissions and Access Review (Windows and Linux)](effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
+| [File Integrity Monitoring (AIDE, SACLs, Sysmon)](file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](../hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](../hardening/applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |
 | [Linux CIS Benchmark — Access Control, PAM & SSH Hardening](../hardening/linux-cis-access-pam-ssh.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |

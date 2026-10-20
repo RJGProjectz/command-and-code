@@ -196,7 +196,7 @@ find /home /root -name authorized_keys -path '*/.ssh/*' -exec wc -l {} +
 - [ ] Clients connect to a new server with no host key prompt; a host outside the `@cert-authority`
       pattern still prompts.
 - [ ] The CA private keys are offline or token-backed and their passphrase is in the owner's vault.
-- [ ] `/etc/ssh/user_ca.pub`, `auth_principals/` and the KRL are watched by file integrity monitoring.
+- [ ] `/etc/ssh/user_ca.pub`, `auth_principals/` and the KRL are watched by [file integrity monitoring](../assurance/file-integrity-monitoring.md).
 
 ATT&CK relevance: stolen SSH keys and certificates are used for **T1021.004** (Remote Services: SSH);
 an attacker who adds a CA to `TrustedUserCAKeys` gets persistence like **T1098.004** (Account
