@@ -108,6 +108,7 @@ sudo chown root:root /etc/cron.d/job
 - [Account Compromise workflow](../../tasks/incident-response/account-compromise.md)
 - [Windows users and groups](../windows/users-groups.md)
 - [Service accounts with least privilege](../../tasks/administration/linux-service-accounts-least-privilege.md)
+- [Effective permissions and access review](../../tasks/assurance/effective-permissions-access-review.md)
 
 ## Sources
 

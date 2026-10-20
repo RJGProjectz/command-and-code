@@ -42,6 +42,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Certificate and PKI Management](certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
 | [Credential Rotation After a Compromise](../incident-response/credential-rotation-after-compromise.md) | Workflow | Active Directory, Windows Server, Linux, Entra ID, Azure | PowerShell, Bash, CMD | Incident Response, Administration |
 | [DNS Client Resolution and Troubleshooting](dns-resolution-troubleshooting.md) | Workflow | Windows, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
+| [Effective Permissions and Access Review (Windows and Linux)](../assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](../hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](../hardening/applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |
 | [Host Firewall and Port Management](firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |

@@ -99,6 +99,7 @@ sudo -l
 ## Related concepts
 
 - [CIA triad and least privilege](cia-triad.md) · [Access control models](access-control-models.md) · [Identity and access management](identity-access-management.md) · [Processes, threads and handles](processes-threads.md)
+- Task: [Effective permissions and access review](../../tasks/assurance/effective-permissions-access-review.md) - who can read or write a file, key, share or service
 
 ## Sources
 
