@@ -73,3 +73,7 @@ repadmin /syncall /AdeP
 :: Verify Domain Controller locator service and Kerberos KDCS
 nltest /dsgetdc:corp.internal
 ```
+
+## Related
+
+- [Join Linux to Active Directory (realm, SSSD)](linux-active-directory-join-sssd.md)

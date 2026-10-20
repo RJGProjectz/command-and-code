@@ -48,6 +48,7 @@ Bash knowledge lives in two places:
 | [Host Firewall and Port Management](../../tasks/administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |
 | [Host Performance and System Resource Auditing](../../tasks/administration/performance-resource-auditing.md) | Workflow | Windows, Linux | PowerShell, Bash, Python | Administration, Troubleshooting |
 | [Investigation Playbook — Ransomware Host Isolation](../../tasks/incident-response/ransomware-host-isolation.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Incident Response |
+| [Join Linux to Active Directory (realm, SSSD)](../../tasks/administration/linux-active-directory-join-sssd.md) | Workflow | Linux, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Linux CIS Benchmark — Access Control, PAM & SSH Hardening](../../tasks/hardening/linux-cis-access-pam-ssh.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
 | [Linux CIS Benchmark — Comprehensive Auditd & Telemetry Baseline](../../tasks/hardening/linux-cis-auditd-logging.md) | Workflow | Linux | Bash | Hardening, Detection Engineering, Forensics |
 | [Linux CIS Benchmark — Filesystem Integrity & Service Hardening](../../tasks/hardening/linux-cis-filesystem-services.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |

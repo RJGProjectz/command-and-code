@@ -76,6 +76,7 @@ Every fundamental node provides:
 | [Investigation Workflow — Compromised Host Forensics in Splunk](../tasks/investigation/investigate-device-splunk.md) | Workflow | Splunk, Windows, Windows Server | SPL | Investigation, Forensics, Incident Response |
 | [Investigation Workflow — Compromised User Identity Triage in Splunk](../tasks/investigation/investigate-user-splunk.md) | Workflow | Splunk, Windows, Entra ID | SPL | Investigation, Incident Response |
 | [Investigation Workflow — Suspicious IP Address Analysis in Splunk](../tasks/investigation/investigate-ip-splunk.md) | Workflow | Splunk, Windows, Linux | SPL | Investigation, Threat Hunting |
+| [Join Linux to Active Directory (realm, SSSD)](../tasks/administration/linux-active-directory-join-sssd.md) | Workflow | Linux, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Linux CIS Benchmark — Access Control, PAM & SSH Hardening](../tasks/hardening/linux-cis-access-pam-ssh.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
 | [Linux CIS Benchmark — Comprehensive Auditd & Telemetry Baseline](../tasks/hardening/linux-cis-auditd-logging.md) | Workflow | Linux | Bash | Hardening, Detection Engineering, Forensics |
 | [Linux CIS Benchmark — Filesystem Integrity & Service Hardening](../tasks/hardening/linux-cis-filesystem-services.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |

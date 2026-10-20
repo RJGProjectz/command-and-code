@@ -327,6 +327,7 @@ nav:
                   - Store Service Secrets on Linux: tasks/administration/linux-service-secrets-storage.md
                   - Store Service Secrets on Windows: tasks/administration/windows-service-secrets-storage.md
                   - Manage Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
+                  - Join Linux to Active Directory (realm, SSSD): tasks/administration/linux-active-directory-join-sssd.md
               - Services, Software & Scheduling:
                   - Restart a Remote Service: tasks/administration/remote-service-restart.md
                   - Schedule Jobs (Task Scheduler, cron, timers): tasks/administration/scheduled-jobs-task-scheduler.md

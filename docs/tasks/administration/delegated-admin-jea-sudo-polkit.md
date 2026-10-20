@@ -237,6 +237,7 @@ journalctl -u polkit --since -10min                                    # polkit.
 
 - [Windows service accounts least privilege](windows-service-accounts-least-privilege.md)
 - [Linux service accounts least privilege](linux-service-accounts-least-privilege.md)
+- [Join Linux to Active Directory (realm, SSSD)](linux-active-directory-join-sssd.md)
 - [Local user and group administration](local-user-group-management.md)
 - [Users, groups and privilege](../../fundamentals/concepts/users-groups-permissions.md)
 
