@@ -40,7 +40,7 @@ A verifiable cross-walk indexing all adversary techniques, tactics, detection si
 ## 1. Executive Matrix Summary
 
 ```text
-TOTAL VALIDATED TECHNIQUES COVERED : 202 Enterprise Techniques
+TOTAL VALIDATED TECHNIQUES COVERED : 204 Enterprise Techniques
 OFFICIAL NAVIGATOR LAYER ARTIFACT  : site/mitre_attack_coverage.json
 TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 ```
@@ -75,6 +75,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1036.003`** | Rename Legitimate Utilities | Stealth | [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Hunting](../detection/s1ql/hunting.md) |
 | **`T1037`** | Boot or Logon Initialization Scripts | Persistence, Privilege Escalation | [Persistence Hunting](../platforms/gcp/persistence-hunting.md) · [Boot Startup Sequence](../fundamentals/concepts/boot-startup-sequence.md) |
 | **`T1040`** | Network Sniffing | Credential Access, Discovery | [Packet Sniffing](../fundamentals/concepts/packet-sniffing.md) · [Post Quantum Cryptography](../fundamentals/concepts/post-quantum-cryptography.md) · [Wifi Passphrase Attacks](../fundamentals/concepts/wifi-passphrase-attacks.md) · [Wifi Security](../fundamentals/concepts/wifi-security.md) |
+| **`T1041`** | Exfiltration Over C2 Channel | Exfiltration | [Per Service Egress Control](../tasks/hardening/per-service-egress-control.md) |
 | **`T1046`** | Network Service Discovery | Discovery | [Port Scanning](../fundamentals/concepts/port-scanning.md) |
 | **`T1047`** | Windows Management Instrumentation | Execution | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Windows Process Chains](../references/windows-process-chains.md) · [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) |
 | **`T1048`** | Exfiltration Over Alternative Protocol | Exfiltration | [Dns Tunneling](../detection/spl/dns-tunneling.md) |
@@ -95,7 +96,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1070`** | Indicator Removal | Stealth | [Shell Command History](../tasks/administration/shell-command-history.md) · [Files Directories](../platforms/windows/files-directories.md) · [Digital Forensics](../fundamentals/concepts/digital-forensics.md) · [File Systems](../fundamentals/concepts/file-systems.md) |
 | **`T1070.003`** | Clear Command History | Stealth | [Shell Command History](../tasks/administration/shell-command-history.md) |
 | **`T1070.006`** | Timestomp | Stealth | [File Integrity Monitoring](../tasks/assurance/file-integrity-monitoring.md) · [Files Directories](../platforms/windows/files-directories.md) · [File Systems](../fundamentals/concepts/file-systems.md) |
-| **`T1071`** | Application Layer Protocol | Command and Control | [Dns](../fundamentals/dns.md) · [Network Events](../detection/kql/network-events.md) · [Index](../detection/mitre-attack/index.md) · [Dns Tunneling](../detection/spl/dns-tunneling.md) |
+| **`T1071`** | Application Layer Protocol | Command and Control | [Dns](../fundamentals/dns.md) · [Per Service Egress Control](../tasks/hardening/per-service-egress-control.md) · [Network Events](../detection/kql/network-events.md) · [Index](../detection/mitre-attack/index.md) *(+1 more)* |
 | **`T1071.001`** | Web Protocols | Command and Control | [Network Dns](../detection/spl/network-dns.md) |
 | **`T1071.004`** | DNS | Command and Control | [Dns](../fundamentals/dns.md) · [Hunting](../detection/s1ql/hunting.md) · [Dns Tunneling](../detection/spl/dns-tunneling.md) · [Network Dns](../detection/spl/network-dns.md) |
 | **`T1078`** | Valid Accounts | Initial Access, Persistence, Privilege Escalation, Stealth | [Linux Service Accounts Least Privilege](../tasks/administration/linux-service-accounts-least-privilege.md) · [Windows Service Accounts Least Privilege](../tasks/administration/windows-service-accounts-least-privilege.md) · [Service Account Audit](../tasks/assurance/service-account-audit.md) · [Compromised Service Principal](../tasks/incident-response/compromised-service-principal.md) *(+8 more)* |
@@ -115,7 +116,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1098.003`** | Additional Cloud Roles | Persistence, Privilege Escalation | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Cloud Infrastructure Ephemeral Asset Hunting](../tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) · [Persistence Hunting](../platforms/aws/persistence-hunting.md) *(+3 more)* |
 | **`T1098.004`** | SSH Authorized Keys | Persistence, Privilege Escalation | [Ssh Certificate Authority](../tasks/administration/ssh-certificate-authority.md) · [File Integrity Monitoring](../tasks/assurance/file-integrity-monitoring.md) · [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) · [Persistence Hunting](../platforms/gcp/persistence-hunting.md) *(+2 more)* |
 | **`T1098.005`** | Device Registration | Persistence, Privilege Escalation | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Entra](../platforms/microsoft-365/entra.md) |
-| **`T1105`** | Ingress Tool Transfer | Command and Control | [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Process Events](../detection/kql/process-events.md) · [Hunting](../detection/s1ql/hunting.md) · [Powershell](../detection/spl/powershell.md) |
+| **`T1105`** | Ingress Tool Transfer | Command and Control | [Per Service Egress Control](../tasks/hardening/per-service-egress-control.md) · [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Process Events](../detection/kql/process-events.md) · [Hunting](../detection/s1ql/hunting.md) *(+1 more)* |
 | **`T1106`** | Native API | Execution | [Threat Actor Profiles](../references/threat-actor-profiles.md) |
 | **`T1110`** | Brute Force | Credential Access | [Authentication Mfa Sso](../fundamentals/concepts/authentication-mfa-sso.md) · [Cryptographic Attacks](../fundamentals/concepts/cryptographic-attacks.md) · [Hash Functions](../fundamentals/concepts/hash-functions.md) · [Password Attacks](../fundamentals/concepts/password-attacks.md) *(+5 more)* |
 | **`T1110.001`** | Password Guessing | Credential Access | [Password Attacks](../fundamentals/concepts/password-attacks.md) · [Hunting](../detection/s1ql/hunting.md) · [Brute Force](../detection/spl/brute-force.md) · [Windows Events](../detection/spl/windows-events.md) |
@@ -215,10 +216,11 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1564.008`** | Email Hiding Rules | Stealth | [Exchange](../platforms/microsoft-365/exchange.md) · [Index](../detection/mitre-attack/index.md) |
 | **`T1566`** | Phishing | Initial Access | [Phishing Email Triage](../tasks/incident-response/phishing-email-triage.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) · [Social Engineering](../fundamentals/concepts/social-engineering.md) · [Index](../detection/mitre-attack/index.md) |
 | **`T1566.001`** | Spearphishing Attachment | Initial Access | [Windows Cis Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md) · [Hunting](../detection/s1ql/hunting.md) · [Windows Events](../detection/spl/windows-events.md) |
-| **`T1567`** | Exfiltration Over Web Service | Exfiltration | [Persistence Hunting](../platforms/github/persistence-hunting.md) · [Anonymity Dark Web](../fundamentals/concepts/anonymity-dark-web.md) · [Privacy Laws](../fundamentals/concepts/privacy-laws.md) |
+| **`T1567`** | Exfiltration Over Web Service | Exfiltration | [Per Service Egress Control](../tasks/hardening/per-service-egress-control.md) · [Persistence Hunting](../platforms/github/persistence-hunting.md) · [Anonymity Dark Web](../fundamentals/concepts/anonymity-dark-web.md) · [Privacy Laws](../fundamentals/concepts/privacy-laws.md) |
 | **`T1567.002`** | Exfiltration to Cloud Storage | Exfiltration | [Threat Actor Profiles](../references/threat-actor-profiles.md) |
 | **`T1569`** | System Services | Execution | [Services Daemons](../fundamentals/concepts/services-daemons.md) |
 | **`T1569.002`** | Service Execution | Execution | [Services Daemons](../fundamentals/concepts/services-daemons.md) |
+| **`T1571`** | Community Technique | Execution | [Per Service Egress Control](../tasks/hardening/per-service-egress-control.md) |
 | **`T1573`** | Encrypted Channel | Command and Control | [Cryptography Fundamentals](../fundamentals/concepts/cryptography-fundamentals.md) |
 | **`T1574`** | Hijack Execution Flow | Execution, Stealth | [Windows Registry Security Keys](../references/windows-registry-security-keys.md) · [Environment Variables And Path](../tasks/administration/environment-variables-and-path.md) · [Windows Service Accounts Least Privilege](../tasks/administration/windows-service-accounts-least-privilege.md) · [Effective Permissions Access Review](../tasks/assurance/effective-permissions-access-review.md) *(+4 more)* |
 | **`T1574.006`** | Dynamic Linker Hijacking | Execution, Stealth | [Filesystem](../platforms/linux/filesystem.md) |

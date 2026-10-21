@@ -127,3 +127,8 @@ sudo iptables -L INPUT -v -n --line-numbers
 # Iptables: Block incoming traffic from malicious IP
 sudo iptables -I INPUT -s 198.51.100.25 -j DROP
 ```
+
+## Related
+
+- [Per-service egress control](../hardening/per-service-egress-control.md): outbound rules for one service (Windows service SID, nftables, systemd)
+- [Firewall default deny](../assurance/firewall-default-deny.md)

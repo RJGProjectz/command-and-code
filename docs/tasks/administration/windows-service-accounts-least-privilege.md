@@ -343,6 +343,7 @@ attacker are ATT&CK [T1078](https://attack.mitre.org/techniques/T1078/); weak se
 
 ## Related
 
+- [Per-service egress control](../hardening/per-service-egress-control.md): firewall rules bound to the service SID (`New-NetFirewallRule -Service`)
 - [Credential rotation after a compromise](../incident-response/credential-rotation-after-compromise.md): the incident-response order for rotating these accounts and secrets
 - [Service account audit script (NDJSON)](../assurance/service-account-audit.md): runs these review checks on every service, task, SPN user and gMSA
 - [Linux service accounts with least privilege](linux-service-accounts-least-privilege.md)

@@ -29,6 +29,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Linux CIS Benchmark — Comprehensive Auditd & Telemetry Baseline](linux-cis-auditd-logging.md) | Workflow | Linux | Bash | Hardening, Detection Engineering, Forensics |
 | [Linux CIS Benchmark — Filesystem Integrity & Service Hardening](linux-cis-filesystem-services.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
 | [Linux Service Accounts with Least Privilege](../administration/linux-service-accounts-least-privilege.md) | Workflow | Linux | Bash | Administration, Hardening |
+| [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](../administration/ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Store Service Secrets & Keys on Linux](../administration/linux-service-secrets-storage.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Store Service Secrets & Keys on Windows](../administration/windows-service-secrets-storage.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |

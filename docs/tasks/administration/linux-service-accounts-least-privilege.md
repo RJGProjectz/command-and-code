@@ -357,6 +357,7 @@ and alert on any interactive login by a service account: that is ATT&CK
 
 ## Related
 
+- [Per-service egress control](../hardening/per-service-egress-control.md): limit which addresses this account's service may reach (nftables `meta skuid`, systemd `IPAddressAllow=`)
 - [Credential rotation after a compromise](../incident-response/credential-rotation-after-compromise.md): the incident-response order for rotating these accounts and secrets
 - [Service account audit script (NDJSON)](../assurance/service-account-audit.md): shells, passwords, sudo grants and unit users on a whole host
 - [Windows service accounts with least privilege](windows-service-accounts-least-privilege.md)

@@ -87,6 +87,7 @@ Do not forget **IPv6**: a host with `INPUT DROP` for IPv4 and an empty `ip6table
 
 ## Related
 
+- [Per-service egress control](../hardening/per-service-egress-control.md)
 - [Firewall and Port Management](../administration/firewall-port-management.md)
 - [Windows Firewall](../../platforms/windows/firewall.md) · [Linux firewalls and nftables](../../platforms/linux/firewalls-nftables.md)
 - [SMB Lateral Movement](../incident-response/smb-lateral-movement.md)
