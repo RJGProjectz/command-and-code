@@ -55,6 +55,7 @@ tasks:
   Assurance: tasks/assurance/index.md
   Compliance: tasks/assurance/index.md
   Governance: tasks/assurance/index.md
+  Assessment: offensive/index.md
 
 types:
   - entry      # reference knowledge: commands, queries, configuration locations

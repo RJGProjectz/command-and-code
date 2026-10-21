@@ -258,6 +258,9 @@ nav:
           - Text Processing & findstr: languages/windows-cli/text-processing.md
           - Error Handling & Exit Codes: languages/windows-cli/error-handling.md
           - System32 Native Executables: languages/windows-cli/system32-toolkit.md
+  - Offensive:
+      - Overview: offensive/index.md
+      - Web Application Assessment: offensive/web-application-assessment.md
   - Detection:
       - Overview: detection/index.md
       - KQL:
