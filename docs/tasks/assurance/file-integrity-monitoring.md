@@ -253,6 +253,7 @@ changes), **T1548.003** (sudoers changes) and **T1070.006** (timestomping, Sysmo
 
 ## Related
 
+- [Linux posture scanners (Lynis, OpenSCAP, osquery)](linux-posture-scanners.md)
 - [Linux CIS auditd logging](../hardening/linux-cis-auditd-logging.md)
 - [Linux sudoers integrity](linux-sudoers-integrity.md)
 - [Deploy and tune Sysmon](../administration/sysmon-deployment-tuning.md)

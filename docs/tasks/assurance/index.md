@@ -27,6 +27,7 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](../hardening/applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |
 | [Linux CIS Benchmark — Access Control, PAM & SSH Hardening](../hardening/linux-cis-access-pam-ssh.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
 | [Linux CIS Benchmark — Filesystem Integrity & Service Hardening](../hardening/linux-cis-filesystem-services.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
+| [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |
 | [Windows CIS Benchmark — Advanced Audit Policy Baseline](../hardening/windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](../hardening/windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](../hardening/windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |

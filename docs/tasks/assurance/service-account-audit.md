@@ -193,6 +193,7 @@ with a stale, privileged SPN user, a gMSA with domain-wide retrievers and a loca
 
 ## Related
 
+- [Linux posture scanners](linux-posture-scanners.md): osquery queries for accounts, SSH keys, sudo rules and services
 - [Credential rotation after a compromise](../incident-response/credential-rotation-after-compromise.md): uses this audit as the dependency check before each rotation
 - [Windows service accounts with least privilege](../administration/windows-service-accounts-least-privilege.md) · [Linux service accounts with least privilege](../administration/linux-service-accounts-least-privilege.md)
 - [Windows service secrets](../administration/windows-service-secrets-storage.md) · [Linux service secrets](../administration/linux-service-secrets-storage.md)

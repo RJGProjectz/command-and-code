@@ -122,6 +122,7 @@ Linux only (CI).
 
 ## Related
 
+- [Linux posture scanners (Lynis, OpenSCAP, osquery)](../assurance/linux-posture-scanners.md): second opinion and how to reconcile oscap results with this tool
 - [Linux CIS filesystems & services](linux-cis-filesystem-services.md)
 - [Linux CIS auditd & telemetry baseline](linux-cis-auditd-logging.md)
 - [Linux CIS access control, PAM & SSH](linux-cis-access-pam-ssh.md)

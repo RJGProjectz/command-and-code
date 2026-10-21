@@ -392,6 +392,7 @@ nav:
               - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
               - File Integrity Monitoring (AIDE, SACL, Sysmon): tasks/assurance/file-integrity-monitoring.md
               - Effective Permissions & Access Review: tasks/assurance/effective-permissions-access-review.md
+              - Linux Posture Scanners (Lynis, OpenSCAP, osquery): tasks/assurance/linux-posture-scanners.md
               - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
               - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
               - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md

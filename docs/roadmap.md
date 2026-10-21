@@ -352,7 +352,7 @@ Microsoft Defender → Microsoft Graph → API → PowerShell / Python → Autom
 - [ ] Service account audit with NDJSON output, and credential rotation after compromise (WP-68, WP-71)
 - [x] Effective permissions and access review ([WP-69](tasks/assurance/effective-permissions-access-review.md)); delegated admin with JEA, sudoers and polkit ([WP-70](tasks/administration/delegated-admin-jea-sudo-polkit.md))
 - [x] Identity plumbing — Linux joined to AD ([WP-72](tasks/administration/linux-active-directory-join-sssd.md)), SSH certificate authority ([WP-73](tasks/administration/ssh-certificate-authority.md)), Windows LAPS and admin tiering ([WP-75](tasks/hardening/windows-laps-admin-tiering.md))
-- [ ] Detective and protective controls — file integrity monitoring ([WP-74](tasks/assurance/file-integrity-monitoring.md)), per-service egress rules ([WP-76](tasks/hardening/per-service-egress-control.md)), LUKS disk encryption ([WP-77](tasks/administration/linux-luks-disk-encryption.md)), posture scanners (WP-78)
+- [x] Detective and protective controls — file integrity monitoring ([WP-74](tasks/assurance/file-integrity-monitoring.md)), per-service egress rules ([WP-76](tasks/hardening/per-service-egress-control.md)), LUKS disk encryption ([WP-77](tasks/administration/linux-luks-disk-encryption.md)), posture scanners ([WP-78](tasks/assurance/linux-posture-scanners.md))
 
 **Constraints:** every command doc-checked against man pages or Microsoft Learn before `verified: true`; examples use placeholder account names and never real secrets; scripts default to read-only/`-WhatIf`.
 

@@ -32,6 +32,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Linux Service Accounts with Least Privilege](../administration/linux-service-accounts-least-privilege.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](../administration/ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
+| [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](../assurance/linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |
 | [Store Service Secrets & Keys on Linux](../administration/linux-service-secrets-storage.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Store Service Secrets & Keys on Windows](../administration/windows-service-secrets-storage.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
 | [User Lifecycle Management](../administration/user-lifecycle-management.md) | Workflow | Windows, Windows Server, Entra ID, Microsoft 365 | PowerShell | Administration, Hardening |
