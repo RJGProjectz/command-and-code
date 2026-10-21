@@ -38,6 +38,7 @@ Each tool page explains purpose, the problem it solves, inputs, outputs, depende
 | [CIS Block Monitor (Windows and Linux)](../tasks/hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Command & Code CLI Lookup Utility](lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../tasks/hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
+| [Passive Web OSINT Tool (one or many targets)](../offensive/passive-web-osint.md) | Tool | Linux | Bash | Assessment |
 | [PowerShell Toolbox](powershell.md) | Tool | Windows, Windows Server | PowerShell | Automation, Incident Response, Forensics, Investigation |
 | [Python Toolbox](python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
 | [Service Account Audit (Windows, Active Directory, Linux)](../tasks/assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |

@@ -260,6 +260,7 @@ nav:
           - System32 Native Executables: languages/windows-cli/system32-toolkit.md
   - Offensive:
       - Overview: offensive/index.md
+      - Passive Web OSINT (Tool): offensive/passive-web-osint.md
       - Web Application Assessment: offensive/web-application-assessment.md
       - Active Directory Enumeration: offensive/active-directory-enumeration.md
       - Network & Infrastructure Enumeration: offensive/network-infrastructure-enumeration.md
