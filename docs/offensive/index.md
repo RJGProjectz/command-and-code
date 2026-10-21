@@ -38,7 +38,13 @@ find are documented under [Reference → Web Applications & OWASP](../fundamenta
 <!-- cc:index tasks="Assessment" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Assess an LLM Application for Prompt Injection and Abuse](llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
+| [Enumerate a Linux Host and Identify Privilege-Escalation Paths](linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
+| [Enumerate a Windows Host and Identify Privilege-Escalation Paths](windows-host-enumeration-privesc.md) | Workflow | Windows | PowerShell | Assessment |
+| [Enumerate Active Directory for Users, Privileges and Attack Paths](active-directory-enumeration.md) | Workflow | Active Directory, Windows | PowerShell, Bash | Assessment |
+| [Enumerate an Internal Network and its Services](network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
+| [Enumerate Cloud Attack Surface across AWS, Azure and GCP](cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
 
 <!-- /cc:index -->
 

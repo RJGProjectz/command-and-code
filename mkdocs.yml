@@ -261,6 +261,12 @@ nav:
   - Offensive:
       - Overview: offensive/index.md
       - Web Application Assessment: offensive/web-application-assessment.md
+      - Active Directory Enumeration: offensive/active-directory-enumeration.md
+      - Network & Infrastructure Enumeration: offensive/network-infrastructure-enumeration.md
+      - Linux Host Enum & Privesc: offensive/linux-host-enumeration-privesc.md
+      - Windows Host Enum & Privesc: offensive/windows-host-enumeration-privesc.md
+      - LLM Application Assessment: offensive/llm-application-assessment.md
+      - Cloud Attack Surface Enumeration: offensive/cloud-attack-surface-enumeration.md
   - Detection:
       - Overview: detection/index.md
       - KQL:

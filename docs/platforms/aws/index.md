@@ -50,6 +50,7 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 <!-- cc:index platforms="AWS" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../../offensive/cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
 | [Amazon CloudWatch, Logs Insights & Athena](monitoring-logs.md) | Entry | AWS | Bash, Python | Investigation, Troubleshooting, Detection Engineering, Administration |
 | [Amazon EC2 & Systems Manager (Compute)](compute.md) | Entry | AWS | Bash, PowerShell | Administration, Investigation, Incident Response |
 | [Amazon Elastic Kubernetes Service (EKS)](kubernetes.md) | Entry | AWS | Bash | Administration, Hardening, Investigation, Incident Response |
