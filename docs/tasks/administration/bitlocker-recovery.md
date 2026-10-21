@@ -96,3 +96,7 @@ manage-bde -protectors -disable C: -RebootCount 1
 :: Re-enable BitLocker protection after maintenance
 manage-bde -protectors -enable C:
 ```
+
+## Related
+
+- [Encrypt Linux disks with LUKS2](linux-luks-disk-encryption.md): the Linux counterpart (TPM2, Clevis/Tang, recovery key, header backup)

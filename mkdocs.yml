@@ -347,6 +347,7 @@ nav:
                   - Manage Certificates & PKI: tasks/administration/certificate-and-pki-management.md
                   - Deploy TLS Certificates & Harden Web Servers: tasks/administration/tls-certificate-deployment.md
                   - Recover BitLocker Keys: tasks/administration/bitlocker-recovery.md
+                  - Encrypt Linux Disks (LUKS2, TPM2, Tang): tasks/administration/linux-luks-disk-encryption.md
                   - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
               - Cloud:
                   - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md

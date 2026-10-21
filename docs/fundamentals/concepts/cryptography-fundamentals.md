@@ -102,4 +102,5 @@ gpg --encrypt --recipient alice@example.com report.pdf
 
 ## Related concepts
 
+- [Encrypt Linux disks with LUKS2](../../tasks/administration/linux-luks-disk-encryption.md) · [BitLocker recovery](../../tasks/administration/bitlocker-recovery.md)
 - [Hash Functions](hash-functions.md) · [Digital Signatures](digital-signatures.md) · [Cryptographic Attacks](cryptographic-attacks.md) · [Post-Quantum Cryptography](post-quantum-cryptography.md)

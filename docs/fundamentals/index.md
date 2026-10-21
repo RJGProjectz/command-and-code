@@ -63,6 +63,7 @@ Every fundamental node provides:
 | [Deploy Windows LAPS and Admin Tiering (Tier 0/1/2)](../tasks/hardening/windows-laps-admin-tiering.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration |
 | [DNS Client Resolution and Troubleshooting](../tasks/administration/dns-resolution-troubleshooting.md) | Workflow | Windows, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [Effective Permissions and Access Review (Windows and Linux)](../tasks/assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
+| [Encrypt Linux Disks with LUKS2 (TPM2, Clevis/Tang, Key Slots, Header Backup)](../tasks/administration/linux-luks-disk-encryption.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Failed Authentication Investigation](../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](../tasks/hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](../tasks/hardening/applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |

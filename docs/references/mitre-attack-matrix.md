@@ -40,7 +40,7 @@ A verifiable cross-walk indexing all adversary techniques, tactics, detection si
 ## 1. Executive Matrix Summary
 
 ```text
-TOTAL VALIDATED TECHNIQUES COVERED : 204 Enterprise Techniques
+TOTAL VALIDATED TECHNIQUES COVERED : 208 Enterprise Techniques
 OFFICIAL NAVIGATOR LAYER ARTIFACT  : site/mitre_attack_coverage.json
 TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 ```
@@ -60,6 +60,9 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1003.002`** | Security Account Manager | Credential Access | [Windows Registry Security Keys](../references/windows-registry-security-keys.md) · [Windows Registry](../fundamentals/concepts/windows-registry.md) |
 | **`T1003.003`** | NTDS | Credential Access | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Credential Dumping](../fundamentals/concepts/credential-dumping.md) |
 | **`T1003.004`** | LSA Secrets | Credential Access | [Windows Registry Security Keys](../references/windows-registry-security-keys.md) · [Windows Service Secrets Storage](../tasks/administration/windows-service-secrets-storage.md) |
+| **`T1003.008`** | Community Technique | Execution | [Linux Luks Disk Encryption](../tasks/administration/linux-luks-disk-encryption.md) |
+| **`T1005`** | Data from Local System | Collection | [Linux Luks Disk Encryption](../tasks/administration/linux-luks-disk-encryption.md) |
+| **`T1006`** | Community Technique | Execution | [Linux Luks Disk Encryption](../tasks/administration/linux-luks-disk-encryption.md) |
 | **`T1007`** | System Service Discovery | Discovery | [Services Daemons](../fundamentals/concepts/services-daemons.md) |
 | **`T1012`** | Query Registry | Discovery | [Windows Registry](../fundamentals/concepts/windows-registry.md) |
 | **`T1014`** | Rootkit | Stealth | [Boot Startup Sequence](../fundamentals/concepts/boot-startup-sequence.md) · [Malware Types Analysis](../fundamentals/concepts/malware-types-analysis.md) |
@@ -148,7 +151,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1222`** | File and Directory Permissions Modification | Defense Impairment | [Access Control Models](../fundamentals/concepts/access-control-models.md) · [File Systems](../fundamentals/concepts/file-systems.md) |
 | **`T1484`** | Domain or Tenant Policy Modification | Privilege Escalation, Defense Impairment | [Cloud Identity Persistence Hunting](../tasks/threat-hunting/cloud-identity-persistence-hunting.md) · [Persistence Hunting](../platforms/aws/persistence-hunting.md) · [Persistence Hunting](../platforms/azure/persistence-hunting.md) · [Cloud Identity Rules](../detection/sigma/cloud-identity-rules.md) |
 | **`T1484.002`** | Trust Modification | Privilege Escalation, Defense Impairment | [Cloud Identity Persistence Hunting](../tasks/threat-hunting/cloud-identity-persistence-hunting.md) · [Persistence Hunting](../platforms/aws/persistence-hunting.md) · [Persistence Hunting](../platforms/azure/persistence-hunting.md) · [Persistence Hunting](../platforms/gcp/persistence-hunting.md) *(+1 more)* |
-| **`T1485`** | Data Destruction | Impact | [Keys Secrets](../platforms/aws/keys-secrets.md) · [Digital Forensics](../fundamentals/concepts/digital-forensics.md) |
+| **`T1485`** | Data Destruction | Impact | [Linux Luks Disk Encryption](../tasks/administration/linux-luks-disk-encryption.md) · [Keys Secrets](../platforms/aws/keys-secrets.md) · [Digital Forensics](../fundamentals/concepts/digital-forensics.md) |
 | **`T1486`** | Data Encrypted for Impact | Impact | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Ransomware Host Isolation](../tasks/incident-response/ransomware-host-isolation.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) · [Cryptography Fundamentals](../fundamentals/concepts/cryptography-fundamentals.md) *(+2 more)* |
 | **`T1489`** | Service Stop | Impact | [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) · [Services Daemons](../fundamentals/concepts/services-daemons.md) |
 | **`T1490`** | Inhibit System Recovery | Impact | [Threat Actor Profiles](../references/threat-actor-profiles.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) · [Digital Forensics](../fundamentals/concepts/digital-forensics.md) · [Ransomware](../fundamentals/concepts/ransomware.md) *(+1 more)* |
@@ -194,7 +197,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1550.002`** | Pass the Hash | Lateral Movement | [Windows Laps Admin Tiering](../tasks/hardening/windows-laps-admin-tiering.md) · [Credential Dumping](../fundamentals/concepts/credential-dumping.md) · [Hash Functions](../fundamentals/concepts/hash-functions.md) |
 | **`T1552`** | Unsecured Credentials | Credential Access | [Linux Service Secrets Storage](../tasks/administration/linux-service-secrets-storage.md) · [Windows Service Secrets Storage](../tasks/administration/windows-service-secrets-storage.md) · [Service Account Audit](../tasks/assurance/service-account-audit.md) · [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) *(+3 more)* |
 | **`T1552.001`** | Credentials In Files | Credential Access | [Linux Service Secrets Storage](../tasks/administration/linux-service-secrets-storage.md) · [Windows Service Secrets Storage](../tasks/administration/windows-service-secrets-storage.md) · [Service Account Audit](../tasks/assurance/service-account-audit.md) · [Persistence Hunting](../platforms/github/persistence-hunting.md) *(+2 more)* |
-| **`T1552.004`** | Community Technique | Execution | [Linux Service Secrets Storage](../tasks/administration/linux-service-secrets-storage.md) · [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) |
+| **`T1552.004`** | Community Technique | Execution | [Linux Luks Disk Encryption](../tasks/administration/linux-luks-disk-encryption.md) · [Linux Service Secrets Storage](../tasks/administration/linux-service-secrets-storage.md) · [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) |
 | **`T1553`** | Subvert Trust Controls | Defense Impairment | [Digital Signatures](../fundamentals/concepts/digital-signatures.md) |
 | **`T1553.002`** | Code Signing | Defense Impairment | [Digital Signatures](../fundamentals/concepts/digital-signatures.md) |
 | **`T1555`** | Credentials from Password Stores | Credential Access | [Windows Service Secrets Storage](../tasks/administration/windows-service-secrets-storage.md) · [Adversary Emulation Profiling](../tasks/threat-intelligence/adversary-emulation-profiling.md) · [Malware Types Analysis](../fundamentals/concepts/malware-types-analysis.md) · [Credential Access](../detection/kql/credential-access.md) |
@@ -209,6 +212,7 @@ TACTIC COVERAGE SPAN               : 15 of 15 Enterprise tactics
 | **`T1558.001`** | Golden Ticket | Credential Access | [Kerberos](../fundamentals/kerberos.md) · [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) · [Index](../detection/mitre-attack/index.md) |
 | **`T1558.003`** | Kerberoasting | Credential Access | [Kerberos](../fundamentals/kerberos.md) · [Service Account Audit](../tasks/assurance/service-account-audit.md) · [Ad Kerberos Ldap Hardening](../tasks/hardening/ad-kerberos-ldap-hardening.md) · [Credential Rotation After Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) *(+6 more)* |
 | **`T1558.004`** | AS-REP Roasting | Credential Access | [Kerberos](../fundamentals/kerberos.md) · [Kerberoasting Asreproast Hunting](../tasks/threat-hunting/kerberoasting-asreproast-hunting.md) · [Kerberoasting](../fundamentals/concepts/kerberoasting.md) |
+| **`T1561`** | Community Technique | Execution | [Linux Luks Disk Encryption](../tasks/administration/linux-luks-disk-encryption.md) |
 | **`T1562.002`** | Community Technique | Execution | [Windows Registry Security Keys](../references/windows-registry-security-keys.md) |
 | **`T1562.004`** | Community Technique | Execution | [Windows Registry Security Keys](../references/windows-registry-security-keys.md) |
 | **`T1564`** | Hide Artifacts | Stealth | [Exchange](../platforms/microsoft-365/exchange.md) · [File Systems](../fundamentals/concepts/file-systems.md) · [Index](../detection/mitre-attack/index.md) |

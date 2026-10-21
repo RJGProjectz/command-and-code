@@ -21,6 +21,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Delegated Administration Without Full Admin (JEA, sudo, polkit)](../administration/delegated-admin-jea-sudo-polkit.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
 | [Deploy Windows LAPS and Admin Tiering (Tier 0/1/2)](windows-laps-admin-tiering.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration |
 | [Effective Permissions and Access Review (Windows and Linux)](../assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
+| [Encrypt Linux Disks with LUKS2 (TPM2, Clevis/Tang, Key Slots, Header Backup)](../administration/linux-luks-disk-encryption.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |
 | [Host Firewall and Port Management](../administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |
