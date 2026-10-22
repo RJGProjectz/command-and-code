@@ -123,7 +123,8 @@ SLEEP="$(awk -v r="$RATE" 'BEGIN{printf "%.3f", 1.0/r}')"
 # --- Rate-limited, in-scope probe ------------------------------------------
 # Emits one NDJSON record per probe. Never follows redirects off-origin.
 probe() {
-    local path="$1" kind="${2:-rest}" url="$BASE/$path"
+    local path="$1" kind="${2:-rest}"
+    local url="$BASE/$path"
     if ! in_scope "$url"; then warn "off-scope, skipped: $url"; return; fi
 
     local hdr=(-A "$UA" --max-time "$CURL_TIMEOUT")
