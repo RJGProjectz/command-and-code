@@ -41,7 +41,7 @@
 # .NOTES
 #     Author: RJGProjectz
 #     Created: 2026-10-21T00:00:00Z
-#     Last Modified: 2026-10-21T00:00:00Z
+#     Last Modified: 2026-10-22T02:06:49Z
 #     security_domain: Application
 #     AUTHORIZED USE ONLY. Passive reconnaissance can still be restricted by law
 #     and by engagement scope. Only enumerate targets you own or are authorized
@@ -110,8 +110,8 @@ NDJSON="$OUTPUT_DIR/results.ndjson"
 : > "$NDJSON"
 log "output directory: $OUTPUT_DIR"
 
-# Safe third-party GET: fixed timeout, generic UA, never aimed at the target host.
-fetch() { curl -fsS --max-time "$CURL_TIMEOUT" -A "$UA" "$@" 2>/dev/null || true; }
+# Safe third-party GET: fixed timeout, generic UA, follow redirects, never aimed at the target host.
+fetch() { curl -fsSL --max-time "$CURL_TIMEOUT" -A "$UA" "$@" 2>/dev/null || true; }
 
 # normalize a URL/host into a bare domain
 to_domain() {
@@ -226,11 +226,11 @@ process_target() {
         --arg domain "$domain" \
         --arg scanned "$(date -Iseconds)" \
         --argjson ips "$(jq -Rsc 'split("\n") | map(select(length>0))' "$tdir/ips.txt")" \
-        --argjson dns "${dns_json:-{}}" \
-        --argjson whois "${whois_json:-{}}" \
+        --argjson dns "${dns_json:-"{}"}" \
+        --argjson whois "${whois_json:-"{}"}" \
         --argjson subdomain_count "${ct_count:-0}" \
         --argjson wayback_count "${wb_count:-0}" \
-        --argjson shodan "${shodan_json:-[]}" \
+        --argjson shodan "${shodan_json:-"[]"}" \
         '{domain:$domain, scanned:$scanned, ips:$ips, dns:$dns, registration:$whois,
           subdomain_count:$subdomain_count, wayback_count:$wayback_count, shodan:$shodan}' \
         >> "$NDJSON"
