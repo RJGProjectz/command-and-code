@@ -106,158 +106,222 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Platforms:
-      - Overview: platforms/index.md
-      - Windows:
-          - Overview: platforms/windows/index.md
-          - System Information: platforms/windows/system-information.md
-          - Windows 10/11: platforms/windows/windows-10-11.md
-          - Windows Server: platforms/windows/windows-server.md
-          - Processes: platforms/windows/processes.md
-          - Services: platforms/windows/services.md
-          - Networking & DNS: platforms/windows/networking.md
-          - Firewall: platforms/windows/firewall.md
-          - Storage & Disks: platforms/windows/storage-disks.md
-          - Event Logs: platforms/windows/event-logs.md
-          - Audit Policy & SACLs: platforms/windows/audit-policy.md
-          - Registry & Run Keys: platforms/windows/registry.md
-          - Scheduled Tasks: platforms/windows/scheduled-tasks.md
-          - Remote Access (WinRM & OpenSSH): platforms/windows/winrm-openssh.md
-          - Users & Groups: platforms/windows/users-groups.md
-          - Files & Permissions: platforms/windows/files-directories.md
-          - Installed Software: platforms/windows/software.md
-          - Microsoft Defender Antivirus: platforms/windows/defender.md
-          - WDAC & Exploit Protection: platforms/windows/wdac-exploit-guard.md
-          - Kernel & TCP/IP Tuning: platforms/windows/kernel-tuning.md
-          - Troubleshooting: platforms/windows/troubleshooting.md
-      - Linux:
-          - Overview: platforms/linux/index.md
-          - System Information: platforms/linux/system-information.md
-          - Distributions & Releases: platforms/linux/distros.md
-          - Processes: platforms/linux/processes.md
-          - Services (systemd): platforms/linux/systemd.md
-          - Networking & DNS: platforms/linux/networking.md
-          - Firewalls & nftables: platforms/linux/firewalls-nftables.md
-          - Storage & LVM: platforms/linux/storage-lvm.md
-          - Logs: platforms/linux/logs.md
-          - Auditd & Kernel Auditing: platforms/linux/auditd.md
-          - Startup Persistence & Autostart: platforms/linux/persistence.md
-          - Cron & Timers: platforms/linux/cron.md
-          - SSH: platforms/linux/ssh.md
-          - Terminal Sessions (tmux/screen): platforms/linux/terminal-sessions.md
-          - Users & Permissions: platforms/linux/users-permissions.md
-          - Filesystem: platforms/linux/filesystem.md
-          - Packages: platforms/linux/packages.md
-          - Antivirus & EDR: platforms/linux/antivirus-edr.md
-          - Security & MAC (SELinux/AppArmor): platforms/linux/selinux-apparmor.md
-          - Kernel Tuning (sysctl): platforms/linux/kernel-tuning.md
-          - Troubleshooting: platforms/linux/troubleshooting.md
-      - Microsoft 365:
-          - Overview: platforms/microsoft-365/index.md
-          - Defender XDR: platforms/microsoft-365/defender.md
-          - Entra ID: platforms/microsoft-365/entra.md
-          - Conditional Access: platforms/microsoft-365/conditional-access.md
-          - Intune: platforms/microsoft-365/intune.md
-          - Exchange Online: platforms/microsoft-365/exchange.md
-          - Audit Log (UAL) Investigation: platforms/microsoft-365/audit-log-investigation.md
-      - Azure:
-          - Overview: platforms/azure/index.md
-          - CLI & Authentication: platforms/azure/cli-authentication.md
-          - Resource Hierarchy & Inventory: platforms/azure/resource-hierarchy.md
-          - Identity & Access (RBAC): platforms/azure/identity-access.md
-          - Virtual Machines: platforms/azure/compute.md
-          - Networking: platforms/azure/networking.md
-          - Storage: platforms/azure/storage.md
-          - Audit Logging: platforms/azure/audit-logging.md
-          - Monitor & Log Analytics: platforms/azure/monitoring-logs.md
-          - Key Vault: platforms/azure/keys-secrets.md
-          - AKS: platforms/azure/kubernetes.md
-          - Defender for Cloud: platforms/azure/security-posture.md
-          - Policy & Locks: platforms/azure/policy-governance.md
-          - Incident Response: platforms/azure/incident-response.md
-          - Persistence & Hunting: platforms/azure/persistence-hunting.md
-          - Troubleshooting: platforms/azure/troubleshooting.md
-      - AWS:
-          - Overview: platforms/aws/index.md
-          - CLI & Authentication: platforms/aws/cli-authentication.md
-          - Organizations & Inventory: platforms/aws/resource-hierarchy.md
-          - IAM: platforms/aws/identity-access.md
-          - EC2 & Systems Manager: platforms/aws/compute.md
-          - VPC & Security Groups: platforms/aws/networking.md
-          - S3: platforms/aws/storage.md
-          - CloudTrail: platforms/aws/audit-logging.md
-          - CloudWatch & Athena: platforms/aws/monitoring-logs.md
-          - KMS & Secrets Manager: platforms/aws/keys-secrets.md
-          - EKS: platforms/aws/kubernetes.md
-          - GuardDuty & Security Hub: platforms/aws/security-posture.md
-          - SCPs & Config: platforms/aws/policy-governance.md
-          - Incident Response: platforms/aws/incident-response.md
-          - Persistence & Hunting: platforms/aws/persistence-hunting.md
-          - Troubleshooting: platforms/aws/troubleshooting.md
-      - Google Cloud:
-          - Overview: platforms/gcp/index.md
-          - CLI & Authentication: platforms/gcp/cli-authentication.md
-          - Resource Manager & Asset Inventory: platforms/gcp/resource-hierarchy.md
-          - Cloud IAM: platforms/gcp/identity-access.md
-          - Compute Engine & OS Login: platforms/gcp/compute.md
-          - VPC & Firewall Rules: platforms/gcp/networking.md
-          - Cloud Storage: platforms/gcp/storage.md
-          - Cloud Audit Logs: platforms/gcp/audit-logging.md
-          - Cloud Logging & BigQuery: platforms/gcp/monitoring-logs.md
-          - Cloud KMS & Secret Manager: platforms/gcp/keys-secrets.md
-          - GKE: platforms/gcp/kubernetes.md
-          - Security Command Center: platforms/gcp/security-posture.md
-          - Organization Policy: platforms/gcp/policy-governance.md
-          - Incident Response: platforms/gcp/incident-response.md
-          - Persistence & Hunting: platforms/gcp/persistence-hunting.md
-          - Troubleshooting: platforms/gcp/troubleshooting.md
-      - GitHub:
-          - Overview: platforms/github/index.md
-          - CLI & Authentication: platforms/github/cli-authentication.md
-          - Organizations & Access: platforms/github/identity-access.md
-          - Secrets, OIDC & Deploy Keys: platforms/github/keys-secrets.md
-          - Audit Log: platforms/github/audit-logging.md
-          - Security Posture: platforms/github/security-posture.md
-          - Persistence & Hunting: platforms/github/persistence-hunting.md
-          - Incident Response: platforms/github/incident-response.md
-          - Troubleshooting: platforms/github/troubleshooting.md
-          - "Git: Clone, Sync & Signing": platforms/github/repositories.md
-      - Virtualization:
-          - Overview: platforms/virtualization/index.md
-          - Hyper-V: platforms/virtualization/hyper-v.md
-          - VMware: platforms/virtualization/vmware.md
-          - Proxmox: platforms/virtualization/proxmox.md
-          - ESXi Forensics & Hardening: platforms/virtualization/esxi-forensics-hardening.md
-  - Shells:
-      - Overview: languages/index.md
-      - PowerShell:
-          - Overview: languages/powershell/index.md
-          - Fundamentals & Pitfalls: languages/powershell/fundamentals.md
-          - JSON & CSV: languages/powershell/json-csv.md
-          - REST APIs: languages/powershell/rest-apis.md
-          - Error Handling: languages/powershell/error-handling.md
-          - Automation & Remoting: languages/powershell/automation.md
-      - Bash:
-          - Overview: languages/bash/index.md
-          - Defensive Scripting: languages/bash/defensive-scripting.md
-          - Error Handling & Traps: languages/bash/error-handling-traps.md
-          - Text Processing: languages/bash/text-processing.md
-          - Networking & Sockets: languages/bash/networking-sockets.md
-          - Modern CLI Tools Ecosystem: languages/bash/cli-tools-ecosystem.md
-          - Scripting & Automation: languages/bash/automation.md
-      - Python:
-          - Overview: languages/python/index.md
-          - HTTP & APIs: languages/python/http-apis.md
-          - JSON & CSV: languages/python/json-csv.md
-          - Subprocess & Filesystem: languages/python/subprocess-filesystem.md
-          - Logging & Automation: languages/python/logging-automation.md
-      - CMD:
-          - Overview: languages/windows-cli/index.md
-          - Fundamentals & Syntax: languages/windows-cli/fundamentals.md
-          - Batch Defensive Scripting: languages/windows-cli/batch-scripting.md
-          - Text Processing & findstr: languages/windows-cli/text-processing.md
-          - Error Handling & Exit Codes: languages/windows-cli/error-handling.md
-          - System32 Native Executables: languages/windows-cli/system32-toolkit.md
+  - Foundations:
+      - Platforms:
+          - Overview: platforms/index.md
+          - Windows:
+              - Overview: platforms/windows/index.md
+              - System Information: platforms/windows/system-information.md
+              - Windows 10/11: platforms/windows/windows-10-11.md
+              - Windows Server: platforms/windows/windows-server.md
+              - Processes: platforms/windows/processes.md
+              - Services: platforms/windows/services.md
+              - Networking & DNS: platforms/windows/networking.md
+              - Firewall: platforms/windows/firewall.md
+              - Storage & Disks: platforms/windows/storage-disks.md
+              - Event Logs: platforms/windows/event-logs.md
+              - Audit Policy & SACLs: platforms/windows/audit-policy.md
+              - Registry & Run Keys: platforms/windows/registry.md
+              - Scheduled Tasks: platforms/windows/scheduled-tasks.md
+              - Remote Access (WinRM & OpenSSH): platforms/windows/winrm-openssh.md
+              - Users & Groups: platforms/windows/users-groups.md
+              - Files & Permissions: platforms/windows/files-directories.md
+              - Installed Software: platforms/windows/software.md
+              - Microsoft Defender Antivirus: platforms/windows/defender.md
+              - WDAC & Exploit Protection: platforms/windows/wdac-exploit-guard.md
+              - Kernel & TCP/IP Tuning: platforms/windows/kernel-tuning.md
+              - Troubleshooting: platforms/windows/troubleshooting.md
+          - Linux:
+              - Overview: platforms/linux/index.md
+              - System Information: platforms/linux/system-information.md
+              - Distributions & Releases: platforms/linux/distros.md
+              - Processes: platforms/linux/processes.md
+              - Services (systemd): platforms/linux/systemd.md
+              - Networking & DNS: platforms/linux/networking.md
+              - Firewalls & nftables: platforms/linux/firewalls-nftables.md
+              - Storage & LVM: platforms/linux/storage-lvm.md
+              - Logs: platforms/linux/logs.md
+              - Auditd & Kernel Auditing: platforms/linux/auditd.md
+              - Startup Persistence & Autostart: platforms/linux/persistence.md
+              - Cron & Timers: platforms/linux/cron.md
+              - SSH: platforms/linux/ssh.md
+              - Terminal Sessions (tmux/screen): platforms/linux/terminal-sessions.md
+              - Users & Permissions: platforms/linux/users-permissions.md
+              - Filesystem: platforms/linux/filesystem.md
+              - Packages: platforms/linux/packages.md
+              - Antivirus & EDR: platforms/linux/antivirus-edr.md
+              - Security & MAC (SELinux/AppArmor): platforms/linux/selinux-apparmor.md
+              - Kernel Tuning (sysctl): platforms/linux/kernel-tuning.md
+              - Troubleshooting: platforms/linux/troubleshooting.md
+          - Microsoft 365:
+              - Overview: platforms/microsoft-365/index.md
+              - Defender XDR: platforms/microsoft-365/defender.md
+              - Entra ID: platforms/microsoft-365/entra.md
+              - Conditional Access: platforms/microsoft-365/conditional-access.md
+              - Intune: platforms/microsoft-365/intune.md
+              - Exchange Online: platforms/microsoft-365/exchange.md
+              - Audit Log (UAL) Investigation: platforms/microsoft-365/audit-log-investigation.md
+          - Azure:
+              - Overview: platforms/azure/index.md
+              - CLI & Authentication: platforms/azure/cli-authentication.md
+              - Resource Hierarchy & Inventory: platforms/azure/resource-hierarchy.md
+              - Identity & Access (RBAC): platforms/azure/identity-access.md
+              - Virtual Machines: platforms/azure/compute.md
+              - Networking: platforms/azure/networking.md
+              - Storage: platforms/azure/storage.md
+              - Audit Logging: platforms/azure/audit-logging.md
+              - Monitor & Log Analytics: platforms/azure/monitoring-logs.md
+              - Key Vault: platforms/azure/keys-secrets.md
+              - AKS: platforms/azure/kubernetes.md
+              - Defender for Cloud: platforms/azure/security-posture.md
+              - Policy & Locks: platforms/azure/policy-governance.md
+              - Incident Response: platforms/azure/incident-response.md
+              - Persistence & Hunting: platforms/azure/persistence-hunting.md
+              - Troubleshooting: platforms/azure/troubleshooting.md
+          - AWS:
+              - Overview: platforms/aws/index.md
+              - CLI & Authentication: platforms/aws/cli-authentication.md
+              - Organizations & Inventory: platforms/aws/resource-hierarchy.md
+              - IAM: platforms/aws/identity-access.md
+              - EC2 & Systems Manager: platforms/aws/compute.md
+              - VPC & Security Groups: platforms/aws/networking.md
+              - S3: platforms/aws/storage.md
+              - CloudTrail: platforms/aws/audit-logging.md
+              - CloudWatch & Athena: platforms/aws/monitoring-logs.md
+              - KMS & Secrets Manager: platforms/aws/keys-secrets.md
+              - EKS: platforms/aws/kubernetes.md
+              - GuardDuty & Security Hub: platforms/aws/security-posture.md
+              - SCPs & Config: platforms/aws/policy-governance.md
+              - Incident Response: platforms/aws/incident-response.md
+              - Persistence & Hunting: platforms/aws/persistence-hunting.md
+              - Troubleshooting: platforms/aws/troubleshooting.md
+          - Google Cloud:
+              - Overview: platforms/gcp/index.md
+              - CLI & Authentication: platforms/gcp/cli-authentication.md
+              - Resource Manager & Asset Inventory: platforms/gcp/resource-hierarchy.md
+              - Cloud IAM: platforms/gcp/identity-access.md
+              - Compute Engine & OS Login: platforms/gcp/compute.md
+              - VPC & Firewall Rules: platforms/gcp/networking.md
+              - Cloud Storage: platforms/gcp/storage.md
+              - Cloud Audit Logs: platforms/gcp/audit-logging.md
+              - Cloud Logging & BigQuery: platforms/gcp/monitoring-logs.md
+              - Cloud KMS & Secret Manager: platforms/gcp/keys-secrets.md
+              - GKE: platforms/gcp/kubernetes.md
+              - Security Command Center: platforms/gcp/security-posture.md
+              - Organization Policy: platforms/gcp/policy-governance.md
+              - Incident Response: platforms/gcp/incident-response.md
+              - Persistence & Hunting: platforms/gcp/persistence-hunting.md
+              - Troubleshooting: platforms/gcp/troubleshooting.md
+          - GitHub:
+              - Overview: platforms/github/index.md
+              - CLI & Authentication: platforms/github/cli-authentication.md
+              - Organizations & Access: platforms/github/identity-access.md
+              - Secrets, OIDC & Deploy Keys: platforms/github/keys-secrets.md
+              - Audit Log: platforms/github/audit-logging.md
+              - Security Posture: platforms/github/security-posture.md
+              - Persistence & Hunting: platforms/github/persistence-hunting.md
+              - Incident Response: platforms/github/incident-response.md
+              - Troubleshooting: platforms/github/troubleshooting.md
+              - "Git: Clone, Sync & Signing": platforms/github/repositories.md
+          - Virtualization:
+              - Overview: platforms/virtualization/index.md
+              - Hyper-V: platforms/virtualization/hyper-v.md
+              - VMware: platforms/virtualization/vmware.md
+              - Proxmox: platforms/virtualization/proxmox.md
+              - ESXi Forensics & Hardening: platforms/virtualization/esxi-forensics-hardening.md
+      - Shells:
+          - Overview: languages/index.md
+          - PowerShell:
+              - Overview: languages/powershell/index.md
+              - Fundamentals & Pitfalls: languages/powershell/fundamentals.md
+              - JSON & CSV: languages/powershell/json-csv.md
+              - REST APIs: languages/powershell/rest-apis.md
+              - Error Handling: languages/powershell/error-handling.md
+              - Automation & Remoting: languages/powershell/automation.md
+          - Bash:
+              - Overview: languages/bash/index.md
+              - Defensive Scripting: languages/bash/defensive-scripting.md
+              - Error Handling & Traps: languages/bash/error-handling-traps.md
+              - Text Processing: languages/bash/text-processing.md
+              - Networking & Sockets: languages/bash/networking-sockets.md
+              - Modern CLI Tools Ecosystem: languages/bash/cli-tools-ecosystem.md
+              - Scripting & Automation: languages/bash/automation.md
+          - Python:
+              - Overview: languages/python/index.md
+              - HTTP & APIs: languages/python/http-apis.md
+              - JSON & CSV: languages/python/json-csv.md
+              - Subprocess & Filesystem: languages/python/subprocess-filesystem.md
+              - Logging & Automation: languages/python/logging-automation.md
+          - CMD:
+              - Overview: languages/windows-cli/index.md
+              - Fundamentals & Syntax: languages/windows-cli/fundamentals.md
+              - Batch Defensive Scripting: languages/windows-cli/batch-scripting.md
+              - Text Processing & findstr: languages/windows-cli/text-processing.md
+              - Error Handling & Exit Codes: languages/windows-cli/error-handling.md
+              - System32 Native Executables: languages/windows-cli/system32-toolkit.md
+      - Concepts:
+          - fundamentals/concepts/index.md
+          - "Governance & Principles":
+              - CIA Triad and Least Privilege: fundamentals/concepts/cia-triad.md
+              - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
+              - Risk Management, Policies and Compliance Audits: fundamentals/concepts/risk-management-governance.md
+              - Security Standards Map (ISO/IEC 27000 series, NIST SP 800): fundamentals/concepts/security-standards-map.md
+              - Privacy Laws and Data Protection (GDPR, CCPA, HIPAA): fundamentals/concepts/privacy-laws.md
+              - Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP): fundamentals/concepts/cyber-law.md
+              - Ethical Hacking, Ethics and Careers: fundamentals/concepts/ethical-hacking.md
+          - "Operating Systems":
+              - Processes, Threads and Handles: fundamentals/concepts/processes-threads.md
+              - Users, Groups and Privilege (SIDs, UIDs, UAC, sudo): fundamentals/concepts/users-groups-permissions.md
+              - File Systems (NTFS, ext4, XFS): fundamentals/concepts/file-systems.md
+              - Services and Daemons (Windows SCM, systemd): fundamentals/concepts/services-daemons.md
+              - Windows Registry (and the Linux /etc Equivalent): fundamentals/concepts/windows-registry.md
+              - Boot and Startup Sequence (UEFI to Logon): fundamentals/concepts/boot-startup-sequence.md
+          - "Network":
+              - OSI Model and TCP: fundamentals/concepts/osi-model-tcp.md
+              - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
+              - Proxy Servers: fundamentals/concepts/proxy-servers.md
+              - Port Scanning: fundamentals/concepts/port-scanning.md
+              - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
+              - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
+              - Man-in-the-Middle Attacks: fundamentals/concepts/man-in-the-middle.md
+              - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
+              - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
+          - "Wireless":
+              - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
+              - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
+              - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md
+          - "Identity & Access":
+              - Access Control Models (ACL, DAC, MAC, RBAC, ABAC): fundamentals/concepts/access-control-models.md
+              - Authentication, MFA, SSO and Federation: fundamentals/concepts/authentication-mfa-sso.md
+              - Identity and Access Management (IAM, PAM, Directory Services): fundamentals/concepts/identity-access-management.md
+              - Password Attacks and Defences (Spraying, Cracking, Wordlists): fundamentals/concepts/password-attacks.md
+              - Credential Dumping: fundamentals/concepts/credential-dumping.md
+              - Kerberoasting: fundamentals/concepts/kerberoasting.md
+              - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
+          - "Cryptography":
+              - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
+              - Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2): fundamentals/concepts/hash-functions.md
+              - Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP): fundamentals/concepts/digital-signatures.md
+              - Cryptographic Attacks and Cryptanalysis: fundamentals/concepts/cryptographic-attacks.md
+              - Zero-Knowledge Proofs, Homomorphic Encryption and Blockchain: fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md
+              - Quantum Computing and Security (Qubits, QKD): fundamentals/concepts/quantum-computing-security.md
+              - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
+          - "Threats & Intelligence":
+              - Threat Intelligence and the Cyber Kill Chain: fundamentals/concepts/threat-intelligence-kill-chain.md
+              - OSINT and Reconnaissance: fundamentals/concepts/osint.md
+              - Malware Types and Analysis (Spyware, RATs, Rootkits): fundamentals/concepts/malware-types-analysis.md
+              - Ransomware: fundamentals/concepts/ransomware.md
+              - Anonymity Networks and the Dark Web (Tor, I2P, Tails): fundamentals/concepts/anonymity-dark-web.md
+          - "Security Operations":
+              - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
+              - Vulnerability Assessment and Patch Management: fundamentals/concepts/vulnerability-management.md
+              - Digital Forensics and Incident Response (DFIR): fundamentals/concepts/digital-forensics.md
+              - Penetration Testing and Red Teaming (Methodology and Detection): fundamentals/concepts/penetration-testing.md
+              - Surveillance, Counter-Surveillance and Deception: fundamentals/concepts/surveillance-deception.md
+          - "Apps, Cloud & Endpoint":
+              - Secure SDLC, DevSecOps and Secure Coding: fundamentals/concepts/secure-sdlc-devsecops.md
+              - Cloud-Native Security (Containers, Kubernetes, Microservices): fundamentals/concepts/cloud-native-security.md
+              - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
   - Offensive:
       - Overview: offensive/index.md
       - Passive Web OSINT (Tool): offensive/passive-web-osint.md
@@ -268,269 +332,207 @@ nav:
       - Windows Host Enum & Privesc: offensive/windows-host-enumeration-privesc.md
       - LLM Application Assessment: offensive/llm-application-assessment.md
       - Cloud Attack Surface Enumeration: offensive/cloud-attack-surface-enumeration.md
-  - Detection:
-      - Overview: detection/index.md
-      - KQL:
-          - Overview: detection/kql/index.md
-          - Fundamentals: detection/kql/fundamentals.md
-          - Process Events: detection/kql/process-events.md
-          - Network Events: detection/kql/network-events.md
-          - File & Registry Events: detection/kql/file-registry-events.md
-          - Logons & Identity: detection/kql/logon-identity.md
-          - Credential Access: detection/kql/credential-access.md
-      - SPL:
-          - Overview: detection/spl/index.md
-          - Fundamentals & Optimization: detection/spl/fundamentals.md
-          - Windows Security Events: detection/spl/windows-events.md
-          - PowerShell: detection/spl/powershell.md
-          - Network & DNS: detection/spl/network-dns.md
-          - AMSI Bypass: detection/spl/amsi-bypass.md
-          - DNS Tunneling: detection/spl/dns-tunneling.md
-          - Azure RBAC Modification: detection/spl/azure-rbac-modification.md
-          - Brute Force: detection/spl/brute-force.md
-          - SMB Lateral Movement: detection/spl/lateral-movement-smb.md
-          - Agent Tampering: detection/spl/agent-tampering.md
-          - MFA Method Deletion: detection/spl/mfa-deletion.md
-      - S1QL:
-          - Overview: detection/s1ql/index.md
-          - Fundamentals: detection/s1ql/fundamentals.md
-          - Hunting Queries: detection/s1ql/hunting.md
-          - Defense Impairment: detection/s1ql/defense-evasion.md
-      - Sigma:
-          - Overview: detection/sigma/index.md
-          - Rule Examples: detection/sigma/examples.md
-          - Cloud Identity Rules: detection/sigma/cloud-identity-rules.md
-          - ARP Spoofing (DAI): detection/sigma/arp-spoofing-dai.md
-          - Network Flood (DoS): detection/sigma/dos-flood.md
-          - LLMNR / NBT-NS Poisoning: detection/sigma/llmnr-nbtns-poisoning.md
-          - Honeytoken Use: detection/sigma/honeytoken-access.md
-          - Unmanaged Mobile Access: detection/sigma/unmanaged-mobile-access.md
-          - CI/CD Secret Leak: detection/sigma/cicd-secret-leak.md
-          - Wi-Fi (WLAN-AutoConfig): detection/sigma/wlan-events.md
-          - Cryptomining: detection/sigma/cryptomining.md
-      - MITRE ATT&CK: detection/mitre-attack/index.md
-  - Tasks:
-      - Overview: tasks/index.md
-      - Operate:
-          - Administration:
-              - Overview: tasks/administration/index.md
-              - Command-Line Basics:
-                  - Set Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
-                  - Use Shell Command History: tasks/administration/shell-command-history.md
-                  - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
-                  - Search & Follow Logs by Keyword: tasks/administration/search-logs-by-keyword.md
-              - Files & Storage:
-                  - Find Files & Content: tasks/administration/file-search-discovery.md
-                  - Identify File Types: tasks/administration/identify-file-types.md
-                  - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
-                  - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
-                  - Partition & Mount Storage: tasks/administration/storage-partitioning-mounting.md
-                  - Audit Disk Space: tasks/administration/disk-space-audit.md
-                  - Purge Temporary Files: tasks/administration/temp-file-cleanup.md
-                  - Back Up & Restore: tasks/administration/backup-and-recovery.md
-              - Users, Groups & Service Accounts:
-                  - Manage Local Users & Groups: tasks/administration/local-user-group-management.md
-                  - Manage the User Lifecycle: tasks/administration/user-lifecycle-management.md
-                  - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
-                  - Windows Service Accounts (Least Privilege): tasks/administration/windows-service-accounts-least-privilege.md
-                  - Delegate Admin Tasks (JEA, sudo, polkit): tasks/administration/delegated-admin-jea-sudo-polkit.md
-                  - Store Service Secrets on Linux: tasks/administration/linux-service-secrets-storage.md
-                  - Store Service Secrets on Windows: tasks/administration/windows-service-secrets-storage.md
-                  - Manage Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
-                  - Join Linux to Active Directory (realm, SSSD): tasks/administration/linux-active-directory-join-sssd.md
-              - Services, Software & Scheduling:
-                  - Restart a Remote Service: tasks/administration/remote-service-restart.md
-                  - Schedule Jobs (Task Scheduler, cron, timers): tasks/administration/scheduled-jobs-task-scheduler.md
-                  - Manage Packages & Software: tasks/administration/package-software-management.md
-                  - Apply Updates & Maintenance: tasks/administration/system-maintenance-updates.md
-                  - Force a Group Policy Refresh: tasks/administration/group-policy-update.md
-                  - Audit Performance & Resources: tasks/administration/performance-resource-auditing.md
-              - Networking & Remote Access:
-                  - Configure Network Adapters & IPs: tasks/administration/network-adapter-ip-configuration.md
-                  - Manage Host Firewall & Ports: tasks/administration/firewall-port-management.md
-                  - Manage Network Services (DNS, DHCP): tasks/administration/network-services-management.md
-                  - Deploy SSH Keys: tasks/administration/ssh-key-deployment.md
-                  - Run an SSH Certificate Authority: tasks/administration/ssh-certificate-authority.md
-                  - Transfer Files Remotely (SCP/rsync): tasks/administration/remote-file-transfer.md
-                  - Deploy a WireGuard VPN Gateway: tasks/administration/wireguard-vpn-deployment.md
-              - Certificates, Encryption & Email:
-                  - Manage Certificates & PKI: tasks/administration/certificate-and-pki-management.md
-                  - Deploy TLS Certificates & Harden Web Servers: tasks/administration/tls-certificate-deployment.md
-                  - Recover BitLocker Keys: tasks/administration/bitlocker-recovery.md
-                  - Encrypt Linux Disks (LUKS2, TPM2, Tang): tasks/administration/linux-luks-disk-encryption.md
-                  - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
-              - Cloud:
-                  - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md
-          - Troubleshooting:
-              - Overview: tasks/troubleshooting/index.md
-              - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
-              - DNS Resolution Failures: tasks/administration/dns-resolution-troubleshooting.md
-              - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
-              - SSH Timeouts & Freezes: tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md
-              - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
-              - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
-              - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
-              - VPN & Remote Access Tunnels: tasks/troubleshooting/vpn-connectivity-troubleshooting.md
-              - Account Lockout & Bad Passwords: tasks/troubleshooting/account-lockout-troubleshooting.md
-              - File or Port in Use: tasks/troubleshooting/file-or-port-in-use.md
-              - Shares, Mounts & Containers at Boot: tasks/troubleshooting/services-shares-containers-boot-order.md
-          - Hardening:
-              - Overview: tasks/hardening/index.md
-              - Windows Security Baseline (CIS/NIST): tasks/hardening/windows-security-baseline.md
-              - Windows 11 CIS Audit Tool (L1/L2): tasks/hardening/windows-11-cis-audit-tool.md
-              - Windows Server CIS Audit (MS/DC): tasks/hardening/windows-server-cis-audit-tool.md
-              - Windows CIS User Rights & Account Policies: tasks/hardening/windows-cis-user-rights-assignment.md
-              - Windows CIS Advanced Audit Policy: tasks/hardening/windows-cis-advanced-audit-policy.md
-              - Windows CIS ASR & Credential Guard: tasks/hardening/windows-cis-attack-surface-reduction.md
-              - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
-              - Linux CIS Audit Tool (Ubuntu/RHEL): tasks/hardening/linux-cis-audit-tool.md
-              - CIS Block Monitor (Windows/Linux): tasks/hardening/cis-block-monitor.md
-              - CIS Hardening Lab Test (Before/After): tasks/hardening/cis-hardening-lab-test.md
-              - Linux CIS Filesystems & Services: tasks/hardening/linux-cis-filesystem-services.md
-              - Linux CIS Auditd & Telemetry Baseline: tasks/hardening/linux-cis-auditd-logging.md
-              - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md
-              - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
-              - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
-              - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md
-              - Windows LAPS & Admin Tiering: tasks/hardening/windows-laps-admin-tiering.md
-              - Per-Service Egress Control: tasks/hardening/per-service-egress-control.md
-          - Assurance:
-              - Overview: tasks/assurance/index.md
-              - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
-              - Active Directory STIG: tasks/assurance/ad-stig-compliance.md
-              - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md
-              - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
-              - File Integrity Monitoring (AIDE, SACL, Sysmon): tasks/assurance/file-integrity-monitoring.md
-              - Effective Permissions & Access Review: tasks/assurance/effective-permissions-access-review.md
-              - Linux Posture Scanners (Lynis, OpenSCAP, osquery): tasks/assurance/linux-posture-scanners.md
-              - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
-              - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
-              - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
-              - Service Account Audit: tasks/assurance/service-account-audit.md
-          - Automation:
-              - Overview: tasks/automation/index.md
-              - Automated IoC Enrichment: tasks/automation/automated-ioc-enrichment.md
-              - Automated Identity Containment: tasks/automation/automated-account-containment.md
-      - Detect:
-          - Detection Engineering:
-              - Overview: tasks/detection-engineering/index.md
-              - Deploy & Tune Sysmon: tasks/administration/sysmon-deployment-tuning.md
-              - Forward Events Centrally (WEF & rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
-              - Detection Development Lifecycle: tasks/detection-engineering/detection-development-lifecycle.md
-              - Alert Tuning & False Positives: tasks/detection-engineering/alert-tuning-false-positive-management.md
-          - Threat Hunting:
-              - Overview: tasks/threat-hunting/index.md
-              - Hypothesis-Driven Lifecycle Framework: tasks/threat-hunting/hypothesis-driven-hunting-framework.md
-              - Statistical Baselining & LFO Frequency: tasks/threat-hunting/statistical-baselining-frequency-analysis.md
-              - Cross-Platform Behavioral Telemetry: tasks/threat-hunting/cross-platform-behavioral-hunting.md
-              - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
-              - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md
-              - LOLBins Execution Hunting: tasks/threat-hunting/lolbins-execution-hunting.md
-              - Scheduled Task & Cron Persistence Review: tasks/threat-hunting/scheduled-task-persistence-review.md
-              - Cloud Identity & Ephemeral Asset Hunting: tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md
-              - Cloud Identity Persistence: tasks/threat-hunting/cloud-identity-persistence-hunting.md
-              - With Splunk:
-                  - Hypothesis-Driven Hunting: tasks/threat-hunting/splunk-threat-hunting.md
-          - Threat Intelligence:
-              - Overview: tasks/threat-intelligence/index.md
-              - STIX 2.1 & TAXII Feed Pipeline: tasks/threat-intelligence/stix-taxii-pipeline.md
-              - Adversary Emulation & ATT&CK Profiling: tasks/threat-intelligence/adversary-emulation-profiling.md
-              - IoC Lifecycle & Confidence Scoring: tasks/threat-intelligence/ioc-lifecycle-scoring.md
-      - Respond:
-          - Incident Response:
-              - Overview: tasks/incident-response/index.md
-              - Endpoint Triage: tasks/incident-response/endpoint-triage.md
-              - Suspicious PowerShell: tasks/incident-response/suspicious-powershell.md
-              - Suspicious Process: tasks/incident-response/suspicious-process.md
-              - Malware Triage: tasks/incident-response/malware-triage.md
-              - Account Compromise: tasks/incident-response/account-compromise.md
-              - Azure Resource Hijacking: tasks/incident-response/azure-resource-hijacking.md
-              - Compromised Service Principal: tasks/incident-response/compromised-service-principal.md
-              - SMB Lateral Movement: tasks/incident-response/smb-lateral-movement.md
-              - Phishing Email Triage: tasks/incident-response/phishing-email-triage.md
-              - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
-              - Automated Containment: tasks/incident-response/automated-containment.md
-              - Credential Rotation After Compromise: tasks/incident-response/credential-rotation-after-compromise.md
-          - Investigation:
-              - Overview: tasks/investigation/index.md
-              - Suspicious Service: tasks/investigation/suspicious-service.md
-              - Scheduled Task Investigation: tasks/investigation/scheduled-task-investigation.md
-              - Registry Persistence: tasks/investigation/registry-persistence.md
-              - Failed Authentication: tasks/investigation/failed-authentication.md
-              - Network Investigation: tasks/investigation/network-investigation.md
-              - Suspicious Outbound Connection: tasks/investigation/suspicious-outbound-connection.md
-              - With Splunk:
-                  - Suspicious IP Analysis: tasks/investigation/investigate-ip-splunk.md
-                  - Compromised Host Forensics: tasks/investigation/investigate-device-splunk.md
-                  - User Identity Triage: tasks/investigation/investigate-user-splunk.md
-          - Forensics:
-              - Overview: tasks/forensics/index.md
-              - Memory Acquisition & Volatility: tasks/forensics/memory-acquisition-analysis.md
-              - Windows Disk Artifacts Triage: tasks/forensics/windows-disk-artifacts.md
-              - Linux Live Response Forensics: tasks/forensics/linux-live-response-forensics.md
-  - Concepts:
-      - fundamentals/concepts/index.md
-      - "Governance & Principles":
-          - CIA Triad and Least Privilege: fundamentals/concepts/cia-triad.md
-          - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
-          - Risk Management, Policies and Compliance Audits: fundamentals/concepts/risk-management-governance.md
-          - Security Standards Map (ISO/IEC 27000 series, NIST SP 800): fundamentals/concepts/security-standards-map.md
-          - Privacy Laws and Data Protection (GDPR, CCPA, HIPAA): fundamentals/concepts/privacy-laws.md
-          - Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP): fundamentals/concepts/cyber-law.md
-          - Ethical Hacking, Ethics and Careers: fundamentals/concepts/ethical-hacking.md
-      - "Operating Systems":
-          - Processes, Threads and Handles: fundamentals/concepts/processes-threads.md
-          - Users, Groups and Privilege (SIDs, UIDs, UAC, sudo): fundamentals/concepts/users-groups-permissions.md
-          - File Systems (NTFS, ext4, XFS): fundamentals/concepts/file-systems.md
-          - Services and Daemons (Windows SCM, systemd): fundamentals/concepts/services-daemons.md
-          - Windows Registry (and the Linux /etc Equivalent): fundamentals/concepts/windows-registry.md
-          - Boot and Startup Sequence (UEFI to Logon): fundamentals/concepts/boot-startup-sequence.md
-      - "Network":
-          - OSI Model and TCP: fundamentals/concepts/osi-model-tcp.md
-          - MAC Addresses and Spoofing: fundamentals/concepts/mac-address-spoofing.md
-          - Proxy Servers: fundamentals/concepts/proxy-servers.md
-          - Port Scanning: fundamentals/concepts/port-scanning.md
-          - Packet Sniffing: fundamentals/concepts/packet-sniffing.md
-          - ARP Spoofing: fundamentals/concepts/arp-spoofing.md
-          - Man-in-the-Middle Attacks: fundamentals/concepts/man-in-the-middle.md
-          - Denial of Service (DoS and DDoS): fundamentals/concepts/denial-of-service.md
-          - Intrusion Detection and Prevention (IDS/IPS): fundamentals/concepts/ids-ips.md
-      - "Wireless":
-          - Wi-Fi Security (WEP, WPA, WPA2, WPA3): fundamentals/concepts/wifi-security.md
-          - Wi-Fi Deauthentication and Rogue Access Points: fundamentals/concepts/wifi-deauth-rogue-ap.md
-          - WPA/WPA2 Passphrase Attacks (Handshake Capture): fundamentals/concepts/wifi-passphrase-attacks.md
-      - "Identity & Access":
-          - Access Control Models (ACL, DAC, MAC, RBAC, ABAC): fundamentals/concepts/access-control-models.md
-          - Authentication, MFA, SSO and Federation: fundamentals/concepts/authentication-mfa-sso.md
-          - Identity and Access Management (IAM, PAM, Directory Services): fundamentals/concepts/identity-access-management.md
-          - Password Attacks and Defences (Spraying, Cracking, Wordlists): fundamentals/concepts/password-attacks.md
-          - Credential Dumping: fundamentals/concepts/credential-dumping.md
-          - Kerberoasting: fundamentals/concepts/kerberoasting.md
-          - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
-      - "Cryptography":
-          - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
-          - Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2): fundamentals/concepts/hash-functions.md
-          - Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP): fundamentals/concepts/digital-signatures.md
-          - Cryptographic Attacks and Cryptanalysis: fundamentals/concepts/cryptographic-attacks.md
-          - Zero-Knowledge Proofs, Homomorphic Encryption and Blockchain: fundamentals/concepts/zero-knowledge-homomorphic-blockchain.md
-          - Quantum Computing and Security (Qubits, QKD): fundamentals/concepts/quantum-computing-security.md
-          - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
-      - "Threats & Intelligence":
-          - Threat Intelligence and the Cyber Kill Chain: fundamentals/concepts/threat-intelligence-kill-chain.md
-          - OSINT and Reconnaissance: fundamentals/concepts/osint.md
-          - Malware Types and Analysis (Spyware, RATs, Rootkits): fundamentals/concepts/malware-types-analysis.md
-          - Ransomware: fundamentals/concepts/ransomware.md
-          - Anonymity Networks and the Dark Web (Tor, I2P, Tails): fundamentals/concepts/anonymity-dark-web.md
-      - "Security Operations":
-          - Security Information and Event Management (SIEM): fundamentals/concepts/siem.md
-          - Vulnerability Assessment and Patch Management: fundamentals/concepts/vulnerability-management.md
-          - Digital Forensics and Incident Response (DFIR): fundamentals/concepts/digital-forensics.md
-          - Penetration Testing and Red Teaming (Methodology and Detection): fundamentals/concepts/penetration-testing.md
-          - Surveillance, Counter-Surveillance and Deception: fundamentals/concepts/surveillance-deception.md
-      - "Apps, Cloud & Endpoint":
-          - Secure SDLC, DevSecOps and Secure Coding: fundamentals/concepts/secure-sdlc-devsecops.md
-          - Cloud-Native Security (Containers, Kubernetes, Microservices): fundamentals/concepts/cloud-native-security.md
-          - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
+  - Defensive:
+      - Detection:
+          - Overview: detection/index.md
+          - KQL:
+              - Overview: detection/kql/index.md
+              - Fundamentals: detection/kql/fundamentals.md
+              - Process Events: detection/kql/process-events.md
+              - Network Events: detection/kql/network-events.md
+              - File & Registry Events: detection/kql/file-registry-events.md
+              - Logons & Identity: detection/kql/logon-identity.md
+              - Credential Access: detection/kql/credential-access.md
+          - SPL:
+              - Overview: detection/spl/index.md
+              - Fundamentals & Optimization: detection/spl/fundamentals.md
+              - Windows Security Events: detection/spl/windows-events.md
+              - PowerShell: detection/spl/powershell.md
+              - Network & DNS: detection/spl/network-dns.md
+              - AMSI Bypass: detection/spl/amsi-bypass.md
+              - DNS Tunneling: detection/spl/dns-tunneling.md
+              - Azure RBAC Modification: detection/spl/azure-rbac-modification.md
+              - Brute Force: detection/spl/brute-force.md
+              - SMB Lateral Movement: detection/spl/lateral-movement-smb.md
+              - Agent Tampering: detection/spl/agent-tampering.md
+              - MFA Method Deletion: detection/spl/mfa-deletion.md
+          - S1QL:
+              - Overview: detection/s1ql/index.md
+              - Fundamentals: detection/s1ql/fundamentals.md
+              - Hunting Queries: detection/s1ql/hunting.md
+              - Defense Impairment: detection/s1ql/defense-evasion.md
+          - Sigma:
+              - Overview: detection/sigma/index.md
+              - Rule Examples: detection/sigma/examples.md
+              - Cloud Identity Rules: detection/sigma/cloud-identity-rules.md
+              - ARP Spoofing (DAI): detection/sigma/arp-spoofing-dai.md
+              - Network Flood (DoS): detection/sigma/dos-flood.md
+              - LLMNR / NBT-NS Poisoning: detection/sigma/llmnr-nbtns-poisoning.md
+              - Honeytoken Use: detection/sigma/honeytoken-access.md
+              - Unmanaged Mobile Access: detection/sigma/unmanaged-mobile-access.md
+              - CI/CD Secret Leak: detection/sigma/cicd-secret-leak.md
+              - Wi-Fi (WLAN-AutoConfig): detection/sigma/wlan-events.md
+              - Cryptomining: detection/sigma/cryptomining.md
+          - MITRE ATT&CK: detection/mitre-attack/index.md
+      - Tasks:
+          - Overview: tasks/index.md
+          - Operate:
+              - Administration:
+                  - Overview: tasks/administration/index.md
+                  - Command-Line Basics:
+                      - Set Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
+                      - Use Shell Command History: tasks/administration/shell-command-history.md
+                      - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
+                      - Search & Follow Logs by Keyword: tasks/administration/search-logs-by-keyword.md
+                  - Files & Storage:
+                      - Find Files & Content: tasks/administration/file-search-discovery.md
+                      - Identify File Types: tasks/administration/identify-file-types.md
+                      - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
+                      - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
+                      - Partition & Mount Storage: tasks/administration/storage-partitioning-mounting.md
+                      - Audit Disk Space: tasks/administration/disk-space-audit.md
+                      - Purge Temporary Files: tasks/administration/temp-file-cleanup.md
+                      - Back Up & Restore: tasks/administration/backup-and-recovery.md
+                  - Users, Groups & Service Accounts:
+                      - Manage Local Users & Groups: tasks/administration/local-user-group-management.md
+                      - Manage the User Lifecycle: tasks/administration/user-lifecycle-management.md
+                      - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
+                      - Windows Service Accounts (Least Privilege): tasks/administration/windows-service-accounts-least-privilege.md
+                      - Delegate Admin Tasks (JEA, sudo, polkit): tasks/administration/delegated-admin-jea-sudo-polkit.md
+                      - Store Service Secrets on Linux: tasks/administration/linux-service-secrets-storage.md
+                      - Store Service Secrets on Windows: tasks/administration/windows-service-secrets-storage.md
+                      - Manage Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
+                      - Join Linux to Active Directory (realm, SSSD): tasks/administration/linux-active-directory-join-sssd.md
+                  - Services, Software & Scheduling:
+                      - Restart a Remote Service: tasks/administration/remote-service-restart.md
+                      - Schedule Jobs (Task Scheduler, cron, timers): tasks/administration/scheduled-jobs-task-scheduler.md
+                      - Manage Packages & Software: tasks/administration/package-software-management.md
+                      - Apply Updates & Maintenance: tasks/administration/system-maintenance-updates.md
+                      - Force a Group Policy Refresh: tasks/administration/group-policy-update.md
+                      - Audit Performance & Resources: tasks/administration/performance-resource-auditing.md
+                  - Networking & Remote Access:
+                      - Configure Network Adapters & IPs: tasks/administration/network-adapter-ip-configuration.md
+                      - Manage Host Firewall & Ports: tasks/administration/firewall-port-management.md
+                      - Manage Network Services (DNS, DHCP): tasks/administration/network-services-management.md
+                      - Deploy SSH Keys: tasks/administration/ssh-key-deployment.md
+                      - Run an SSH Certificate Authority: tasks/administration/ssh-certificate-authority.md
+                      - Transfer Files Remotely (SCP/rsync): tasks/administration/remote-file-transfer.md
+                      - Deploy a WireGuard VPN Gateway: tasks/administration/wireguard-vpn-deployment.md
+                  - Certificates, Encryption & Email:
+                      - Manage Certificates & PKI: tasks/administration/certificate-and-pki-management.md
+                      - Deploy TLS Certificates & Harden Web Servers: tasks/administration/tls-certificate-deployment.md
+                      - Recover BitLocker Keys: tasks/administration/bitlocker-recovery.md
+                      - Encrypt Linux Disks (LUKS2, TPM2, Tang): tasks/administration/linux-luks-disk-encryption.md
+                      - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
+                  - Cloud:
+                      - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md
+              - Troubleshooting:
+                  - Overview: tasks/troubleshooting/index.md
+                  - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
+                  - DNS Resolution Failures: tasks/administration/dns-resolution-troubleshooting.md
+                  - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
+                  - SSH Timeouts & Freezes: tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md
+                  - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
+                  - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
+                  - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
+                  - VPN & Remote Access Tunnels: tasks/troubleshooting/vpn-connectivity-troubleshooting.md
+                  - Account Lockout & Bad Passwords: tasks/troubleshooting/account-lockout-troubleshooting.md
+                  - File or Port in Use: tasks/troubleshooting/file-or-port-in-use.md
+                  - Shares, Mounts & Containers at Boot: tasks/troubleshooting/services-shares-containers-boot-order.md
+              - Hardening:
+                  - Overview: tasks/hardening/index.md
+                  - Windows Security Baseline (CIS/NIST): tasks/hardening/windows-security-baseline.md
+                  - Windows 11 CIS Audit Tool (L1/L2): tasks/hardening/windows-11-cis-audit-tool.md
+                  - Windows Server CIS Audit (MS/DC): tasks/hardening/windows-server-cis-audit-tool.md
+                  - Windows CIS User Rights & Account Policies: tasks/hardening/windows-cis-user-rights-assignment.md
+                  - Windows CIS Advanced Audit Policy: tasks/hardening/windows-cis-advanced-audit-policy.md
+                  - Windows CIS ASR & Credential Guard: tasks/hardening/windows-cis-attack-surface-reduction.md
+                  - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
+                  - Linux CIS Audit Tool (Ubuntu/RHEL): tasks/hardening/linux-cis-audit-tool.md
+                  - CIS Block Monitor (Windows/Linux): tasks/hardening/cis-block-monitor.md
+                  - CIS Hardening Lab Test (Before/After): tasks/hardening/cis-hardening-lab-test.md
+                  - Linux CIS Filesystems & Services: tasks/hardening/linux-cis-filesystem-services.md
+                  - Linux CIS Auditd & Telemetry Baseline: tasks/hardening/linux-cis-auditd-logging.md
+                  - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md
+                  - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
+                  - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
+                  - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md
+                  - Windows LAPS & Admin Tiering: tasks/hardening/windows-laps-admin-tiering.md
+                  - Per-Service Egress Control: tasks/hardening/per-service-egress-control.md
+              - Assurance:
+                  - Overview: tasks/assurance/index.md
+                  - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
+                  - Active Directory STIG: tasks/assurance/ad-stig-compliance.md
+                  - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md
+                  - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
+                  - File Integrity Monitoring (AIDE, SACL, Sysmon): tasks/assurance/file-integrity-monitoring.md
+                  - Effective Permissions & Access Review: tasks/assurance/effective-permissions-access-review.md
+                  - Linux Posture Scanners (Lynis, OpenSCAP, osquery): tasks/assurance/linux-posture-scanners.md
+                  - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
+                  - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
+                  - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
+                  - Service Account Audit: tasks/assurance/service-account-audit.md
+              - Automation:
+                  - Overview: tasks/automation/index.md
+                  - Automated IoC Enrichment: tasks/automation/automated-ioc-enrichment.md
+                  - Automated Identity Containment: tasks/automation/automated-account-containment.md
+          - Detect:
+              - Detection Engineering:
+                  - Overview: tasks/detection-engineering/index.md
+                  - Deploy & Tune Sysmon: tasks/administration/sysmon-deployment-tuning.md
+                  - Forward Events Centrally (WEF & rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
+                  - Detection Development Lifecycle: tasks/detection-engineering/detection-development-lifecycle.md
+                  - Alert Tuning & False Positives: tasks/detection-engineering/alert-tuning-false-positive-management.md
+              - Threat Hunting:
+                  - Overview: tasks/threat-hunting/index.md
+                  - Hypothesis-Driven Lifecycle Framework: tasks/threat-hunting/hypothesis-driven-hunting-framework.md
+                  - Statistical Baselining & LFO Frequency: tasks/threat-hunting/statistical-baselining-frequency-analysis.md
+                  - Cross-Platform Behavioral Telemetry: tasks/threat-hunting/cross-platform-behavioral-hunting.md
+                  - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
+                  - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md
+                  - LOLBins Execution Hunting: tasks/threat-hunting/lolbins-execution-hunting.md
+                  - Scheduled Task & Cron Persistence Review: tasks/threat-hunting/scheduled-task-persistence-review.md
+                  - Cloud Identity & Ephemeral Asset Hunting: tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md
+                  - Cloud Identity Persistence: tasks/threat-hunting/cloud-identity-persistence-hunting.md
+                  - With Splunk:
+                      - Hypothesis-Driven Hunting: tasks/threat-hunting/splunk-threat-hunting.md
+              - Threat Intelligence:
+                  - Overview: tasks/threat-intelligence/index.md
+                  - STIX 2.1 & TAXII Feed Pipeline: tasks/threat-intelligence/stix-taxii-pipeline.md
+                  - Adversary Emulation & ATT&CK Profiling: tasks/threat-intelligence/adversary-emulation-profiling.md
+                  - IoC Lifecycle & Confidence Scoring: tasks/threat-intelligence/ioc-lifecycle-scoring.md
+          - Respond:
+              - Incident Response:
+                  - Overview: tasks/incident-response/index.md
+                  - Endpoint Triage: tasks/incident-response/endpoint-triage.md
+                  - Suspicious PowerShell: tasks/incident-response/suspicious-powershell.md
+                  - Suspicious Process: tasks/incident-response/suspicious-process.md
+                  - Malware Triage: tasks/incident-response/malware-triage.md
+                  - Account Compromise: tasks/incident-response/account-compromise.md
+                  - Azure Resource Hijacking: tasks/incident-response/azure-resource-hijacking.md
+                  - Compromised Service Principal: tasks/incident-response/compromised-service-principal.md
+                  - SMB Lateral Movement: tasks/incident-response/smb-lateral-movement.md
+                  - Phishing Email Triage: tasks/incident-response/phishing-email-triage.md
+                  - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
+                  - Automated Containment: tasks/incident-response/automated-containment.md
+                  - Credential Rotation After Compromise: tasks/incident-response/credential-rotation-after-compromise.md
+              - Investigation:
+                  - Overview: tasks/investigation/index.md
+                  - Suspicious Service: tasks/investigation/suspicious-service.md
+                  - Scheduled Task Investigation: tasks/investigation/scheduled-task-investigation.md
+                  - Registry Persistence: tasks/investigation/registry-persistence.md
+                  - Failed Authentication: tasks/investigation/failed-authentication.md
+                  - Network Investigation: tasks/investigation/network-investigation.md
+                  - Suspicious Outbound Connection: tasks/investigation/suspicious-outbound-connection.md
+                  - With Splunk:
+                      - Suspicious IP Analysis: tasks/investigation/investigate-ip-splunk.md
+                      - Compromised Host Forensics: tasks/investigation/investigate-device-splunk.md
+                      - User Identity Triage: tasks/investigation/investigate-user-splunk.md
+              - Forensics:
+                  - Overview: tasks/forensics/index.md
+                  - Memory Acquisition & Volatility: tasks/forensics/memory-acquisition-analysis.md
+                  - Windows Disk Artifacts Triage: tasks/forensics/windows-disk-artifacts.md
+                  - Linux Live Response Forensics: tasks/forensics/linux-live-response-forensics.md
   - Reference:
       - Overview: references/index.md
       - APIs:
