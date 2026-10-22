@@ -44,6 +44,12 @@
 #     ACTIVE: make one direct GET to each target to fingerprint the web stack
 #     (server, language, framework, CMS). Touches the target; off by default.
 #
+# .PARAMETER --wayback-timeout SEC
+#     Timeout in seconds for Wayback Machine CDX API query (default: 75).
+#
+# .PARAMETER --timeout SEC
+#     Timeout in seconds for standard third-party HTTP requests (default: 25).
+#
 # .EXAMPLE
 #     ./FUNC_BASH_GET_WEB_OSINT.sh example.com
 #     ./FUNC_BASH_GET_WEB_OSINT.sh -f targets.txt -o ./recon --format both
@@ -51,7 +57,7 @@
 # .NOTES
 #     Author: RJGProjectz
 #     Created: 2026-10-21T00:00:00Z
-#     Last Modified: 2026-10-22T02:15:52Z
+#     Last Modified: 2026-10-22T02:51:00Z
 #     security_domain: Application
 #     AUTHORIZED USE ONLY. Passive reconnaissance can still be restricted by law
 #     and by engagement scope. Only enumerate targets you own or are authorized
@@ -71,6 +77,7 @@ DO_WHOIS=true
 DO_DNS=true
 DO_FINGERPRINT=false
 CURL_TIMEOUT=25
+WAYBACK_TIMEOUT=75
 UA="Mozilla/5.0 (compatible; passive-osint/1.0)"
 TARGETS=()
 
@@ -80,7 +87,7 @@ log()  { printf '%b[%s] %s%b\n' "$CYAN"  "$(date -Iseconds)" "$*" "$NC" >&2; }
 warn() { printf '%b[%s] WARN %s%b\n' "$YELLOW" "$(date -Iseconds)" "$*" "$NC" >&2; }
 err()  { printf '%b[%s] ERROR %s%b\n' "$RED" "$(date -Iseconds)" "$*" "$NC" >&2; }
 
-usage() { sed -n '2,58p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
+usage() { sed -n '3,/^# ----/p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
 
 # --- Argument parsing -------------------------------------------------------
 while [[ $# -gt 0 ]]; do
@@ -93,6 +100,9 @@ while [[ $# -gt 0 ]]; do
         -o|--out)      OUTPUT_DIR="${2:-}"; shift 2 ;;
         --format)      FORMAT="${2:-text}"; shift 2 ;;
         --resolver)    RESOLVER="${2:-1.1.1.1}"; shift 2 ;;
+        --timeout)     CURL_TIMEOUT="${2:-25}"; shift 2 ;;
+        --wayback-timeout)
+                       WAYBACK_TIMEOUT="${2:-75}"; shift 2 ;;
         --no-ct)       DO_CT=false; shift ;;
         --no-wayback)  DO_WAYBACK=false; shift ;;
         --no-shodan)   DO_SHODAN=false; shift ;;
@@ -201,9 +211,37 @@ ct_subdomains() {
 
 wayback_urls() {
     local domain="$1" out="$2"
-    fetch "http://web.archive.org/cdx/search/cdx?url=*.$domain/*&output=text&fl=original&collapse=urlkey&limit=5000" \
-        | sort -u > "$out/wayback_urls.txt"
-    wc -l < "$out/wayback_urls.txt" | tr -d ' '
+    local wb_file="$out/wayback_urls.txt"
+    local raw=""
+
+    # Wayback CDX wildcard (*.domain/*) searches can take 30-60s or return transient
+    # 503/504 when archive.org's backend cluster is under heavy load.
+    # Use WAYBACK_TIMEOUT (default 75s) with transient error retry.
+    raw="$(curl -sSL --retry 2 --retry-delay 2 --max-time "$WAYBACK_TIMEOUT" -A "$UA" \
+            "http://web.archive.org/cdx/search/cdx?url=*.$domain/*&output=text&fl=original&collapse=urlkey&limit=5000" 2>/dev/null || true)"
+
+    # Discard HTML error responses (e.g. 504 Gateway Time-out or 503 from nginx)
+    if echo "$raw" | grep -qiE '<html|<head|504 gateway|503 service'; then
+        raw=""
+    fi
+
+    # Fallback: if wildcard query yielded no valid URLs, try base domain with smaller limit
+    if [[ -z "$raw" ]]; then
+        raw="$(curl -sSL --max-time 30 -A "$UA" \
+                "http://web.archive.org/cdx/search/cdx?url=$domain/*&output=text&fl=original&collapse=urlkey&limit=1000" 2>/dev/null || true)"
+        if echo "$raw" | grep -qiE '<html|<head|504 gateway|503 service'; then
+            raw=""
+        fi
+        if [[ -z "$raw" ]]; then
+            warn "wayback: query returned 0 URLs (archive.org CDX cluster is currently timing out / unavailable)"
+        else
+            warn "wayback: wildcard query timed out; fell back to base domain ($domain/*)"
+        fi
+    fi
+
+    # Extract only valid HTTP/HTTPS URLs
+    printf '%s\n' "$raw" | grep -E '^https?://' | sort -u > "$wb_file" || true
+    wc -l < "$wb_file" | tr -d ' '
 }
 
 shodan_internetdb() {
