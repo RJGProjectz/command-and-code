@@ -8,7 +8,7 @@ category: Tool
 security_domain: Application
 author: RJGProjectz
 date_created: 2026-10-21
-last_updated: 2026-10-21
+last_updated: 2026-10-22
 tags: [osint, passive-recon, reconnaissance, dns, whois, rdap, certificate-transparency, crt-sh, wayback, shodan, internetdb, subdomains, ndjson, bulk, web-enumeration]
 aliases: [passive web osint, passive recon script, enumerate website passively, bulk domain recon, crt.sh subdomains, wayback urls, shodan internetdb, dns whois recon tool, many targets osint, FUNC_BASH_GET_WEB_OSINT]
 difficulty: intermediate
@@ -17,14 +17,16 @@ verified: false
 
 # Passive Web OSINT Tool (one or many targets)
 > **Created**: 2026-10-21T00:00:00Z
-> **Last Modified**: 2026-10-21T00:00:00Z
+> **Last Modified**: 2026-10-22T02:15:52Z
 > **Author**: RJGProjectz
 
 > [!NOTE]
-> **Strictly passive.** `scripts/bash/FUNC_BASH_GET_WEB_OSINT.sh` never sends traffic to the target
-> host — it has no homepage GET, no `robots.txt` fetch, and no port scan. Every lookup queries a
-> third-party or public data source, so the target sees nothing. For **active** fingerprinting (nmap,
-> whatweb, nuclei) use [Web Application Assessment](web-application-assessment.md) instead.
+> **Passive by default.** `scripts/bash/FUNC_BASH_GET_WEB_OSINT.sh` sends no traffic to the target
+> host — no homepage GET, no `robots.txt` fetch, no port scan. Every lookup queries a third-party or
+> public data source, so the target sees nothing. The opt-in `--fingerprint` flag adds **one** direct
+> GET per target to infer the web stack (server, language, framework, CMS); it touches the target and
+> leaves the passive path, so it is off unless you ask for it. For a full **active** workflow (nmap,
+> whatweb, nuclei) use [Web Application Assessment](web-application-assessment.md).
 
 !!! danger "VERIFY BEFORE PRODUCTION USE"
     The script is written against the documented behaviour of its tools and public APIs and is
@@ -60,6 +62,9 @@ touching the target** and writes both a human summary and machine-readable NDJSO
 
 # Trim the noisy/slow sources, pin a resolver
 ./scripts/bash/FUNC_BASH_GET_WEB_OSINT.sh example.com --no-wayback --resolver 9.9.9.9
+
+# Add ACTIVE stack fingerprinting (one direct GET per target — leaves the passive path)
+./scripts/bash/FUNC_BASH_GET_WEB_OSINT.sh example.com --fingerprint
 ```
 
 | Flag | Effect |
@@ -69,6 +74,7 @@ touching the target** and writes both a human summary and machine-readable NDJSO
 | `--format text\|json\|both` | stdout format; NDJSON is always written to `results.ndjson` |
 | `--resolver IP` | Public DNS resolver to use (default `1.1.1.1`) |
 | `--no-ct` / `--no-wayback` / `--no-shodan` / `--no-whois` | Skip a source |
+| `--fingerprint` (alias `--active`) | **ACTIVE** — one direct GET per target to fingerprint the web stack (server/language/framework/CMS). Off by default; touches the target |
 | `-h, --help` | Usage |
 
 ## Output
@@ -84,7 +90,9 @@ webosint_<date>/
     ├── rdap.json  (or whois.txt)
     ├── subdomains.txt             # from Certificate Transparency
     ├── wayback_urls.txt
-    └── shodan_internetdb.ndjson
+    ├── shodan_internetdb.ndjson
+    ├── fp_headers.txt             # only with --fingerprint (response headers)
+    └── fp_body.html               # only with --fingerprint (homepage HTML)
 ```
 
 Each `results.ndjson` record has a stable schema:
@@ -98,7 +106,22 @@ Each `results.ndjson` record has a stable schema:
   "registration": { "registrar": null, "events": [], "nameservers": [] },
   "subdomain_count": 0,
   "wayback_count": 0,
-  "shodan": []
+  "shodan": [],
+  "fingerprint": {}
+}
+```
+
+With `--fingerprint`, the `fingerprint` object is populated from the single direct request, e.g.:
+
+```json
+{
+  "fingerprint": {
+    "url": "https://example.com/",
+    "http_code": "200",
+    "server": "Apache/2.4.57",
+    "powered_by": "PHP/8.2.12",
+    "technology": ["server: Apache/2.4.57", "x-powered-by: PHP/8.2.12", "WordPress"]
+  }
 }
 ```
 
@@ -118,8 +141,11 @@ HTTP.
 
 ## Notes
 
-- **Passive by design, not configuration.** There is deliberately no "also hit the target" switch — if
-  you need live fingerprinting, that belongs in the active workflow, which is noisy and in-scope-gated.
+- **Passive by default; active is explicit.** No source touches the target unless you pass
+  `--fingerprint`, which is the one step that does (a single GET per target). Everything else stays
+  third-party. For deeper, noisier live fingerprinting (nmap/whatweb/nuclei) use the active workflow.
+- **`--fingerprint` is in-scope-gated by you.** It leaves the passive path and will appear in the
+  target's logs, so only enable it against hosts you are authorized to probe directly.
 - **Rate and terms.** Bulk runs hit crt.sh / archive.org / Shodan repeatedly; keep target lists
   reasonable and respect each provider's limits. The per-request timeout is capped and failures degrade
   to empty rather than aborting the run.
