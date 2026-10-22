@@ -128,6 +128,7 @@ Contain, investigate and preserve evidence.
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](administration/tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
 | [Alert Tuning and False Positive Management](detection-engineering/alert-tuning-false-positive-management.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL | Detection Engineering, Investigation, Incident Response |
+| [Assess an LLM Application for Prompt Injection and Abuse](../offensive/llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Automated Active Directory and Cloud Identity Containment](automation/automated-account-containment.md) | Workflow | Active Directory, Entra ID, Microsoft 365, Windows Server | PowerShell, REST API | Automation, Incident Response, Administration |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](automation/automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |
@@ -147,7 +148,12 @@ Contain, investigate and preserve evidence.
 | [Effective Permissions and Access Review (Windows and Linux)](assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
 | [Encrypt Linux Disks with LUKS2 (TPM2, Clevis/Tang, Key Slots, Header Backup)](administration/linux-luks-disk-encryption.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Endpoint Triage](incident-response/endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
+| [Enumerate a Linux Host and Identify Privilege-Escalation Paths](../offensive/linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](../offensive/web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
+| [Enumerate a Windows Host and Identify Privilege-Escalation Paths](../offensive/windows-host-enumeration-privesc.md) | Workflow | Windows | PowerShell | Assessment |
+| [Enumerate Active Directory for Users, Privileges and Attack Paths](../offensive/active-directory-enumeration.md) | Workflow | Active Directory, Windows | PowerShell, Bash | Assessment |
+| [Enumerate an Internal Network and its Services](../offensive/network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
+| [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../offensive/cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
 | [Failed Authentication Investigation](investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [File Integrity Monitoring (AIDE, SACLs, Sysmon)](assurance/file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |

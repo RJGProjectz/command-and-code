@@ -33,6 +33,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](../../tasks/administration/tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](../../tasks/administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
 | [Alert Tuning and False Positive Management](../../tasks/detection-engineering/alert-tuning-false-positive-management.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL | Detection Engineering, Investigation, Incident Response |
+| [Assess an LLM Application for Prompt Injection and Abuse](../../offensive/llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](../../tasks/troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](../../tasks/automation/automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |
 | [Backup and Recovery Operations](../../tasks/administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
@@ -48,7 +49,9 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Effective Permissions and Access Review (Windows and Linux)](../../tasks/assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
 | [Encrypt Linux Disks with LUKS2 (TPM2, Clevis/Tang, Key Slots, Header Backup)](../../tasks/administration/linux-luks-disk-encryption.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Endpoint Triage](../../tasks/incident-response/endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
+| [Enumerate a Linux Host and Identify Privilege-Escalation Paths](../../offensive/linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](../../offensive/web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
+| [Enumerate an Internal Network and its Services](../../offensive/network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
 | [Failed Authentication Investigation](../../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [File Integrity Monitoring (AIDE, SACLs, Sysmon)](../../tasks/assurance/file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Host Firewall and Port Management](../../tasks/administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |
@@ -182,6 +185,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [CIS Block Monitor (Windows and Linux)](../../tasks/hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Command & Code CLI Lookup Utility](../../toolbox/lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../../tasks/hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
+| [Passive Web OSINT Tool (one or many targets)](../../offensive/passive-web-osint.md) | Tool | Linux | Bash | Assessment |
 | [Python Toolbox](../../toolbox/python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
 | [Service Account Audit (Windows, Active Directory, Linux)](../../tasks/assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Command Index — All Shells](../../references/command-index.md) | Reference | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting, Investigation |

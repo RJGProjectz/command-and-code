@@ -45,7 +45,11 @@ Bash knowledge lives in two places:
 | [Effective Permissions and Access Review (Windows and Linux)](../../tasks/assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
 | [Encrypt Linux Disks with LUKS2 (TPM2, Clevis/Tang, Key Slots, Header Backup)](../../tasks/administration/linux-luks-disk-encryption.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [Endpoint Triage](../../tasks/incident-response/endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
+| [Enumerate a Linux Host and Identify Privilege-Escalation Paths](../../offensive/linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](../../offensive/web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
+| [Enumerate Active Directory for Users, Privileges and Attack Paths](../../offensive/active-directory-enumeration.md) | Workflow | Active Directory, Windows | PowerShell, Bash | Assessment |
+| [Enumerate an Internal Network and its Services](../../offensive/network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
+| [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../../offensive/cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
 | [Failed Authentication Investigation](../../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [File Integrity Monitoring (AIDE, SACLs, Sysmon)](../../tasks/assurance/file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Host Firewall and Port Management](../../tasks/administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |
@@ -206,6 +210,7 @@ Bash knowledge lives in two places:
 | [Bash Toolbox](../../toolbox/bash.md) | Tool | Linux | Bash | Automation, Incident Response, Forensics, Investigation |
 | [CIS Block Monitor (Windows and Linux)](../../tasks/hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](../../tasks/hardening/linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
+| [Passive Web OSINT Tool (one or many targets)](../../offensive/passive-web-osint.md) | Tool | Linux | Bash | Assessment |
 | [Service Account Audit (Windows, Active Directory, Linux)](../../tasks/assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Cloud Incident Response Cheat Sheet (Printable)](../../references/cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |
 | [Command Index — All Shells](../../references/command-index.md) | Reference | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting, Investigation |
