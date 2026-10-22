@@ -34,6 +34,7 @@ Each tool page explains purpose, the problem it solves, inputs, outputs, depende
 <!-- cc:index type="tool" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [API Surface Recon Tool (scope- and rate-limit-aware)](../offensive/api-surface-recon-tool.md) | Tool | Linux | Bash | Assessment |
 | [Bash Toolbox](bash.md) | Tool | Linux | Bash | Automation, Incident Response, Forensics, Investigation |
 | [CIS Block Monitor (Windows and Linux)](../tasks/hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Command & Code CLI Lookup Utility](lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |

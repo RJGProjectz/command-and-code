@@ -395,6 +395,8 @@ nav:
       - Overview: offensive/index.md
       - Passive Web OSINT (Tool): offensive/passive-web-osint.md
       - Web Application Assessment: offensive/web-application-assessment.md
+      - Web API Assessment: offensive/web-api-assessment.md
+      - API Surface Recon (Tool): offensive/api-surface-recon-tool.md
       - Active Directory Enumeration: offensive/active-directory-enumeration.md
       - Network & Infrastructure Enumeration: offensive/network-infrastructure-enumeration.md
       - Linux Host Enum & Privesc: offensive/linux-host-enumeration-privesc.md
