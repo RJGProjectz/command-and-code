@@ -107,6 +107,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Foundations:
+      - Overview: foundations/index.md
       - Platforms:
           - Overview: platforms/index.md
           - Windows:
@@ -259,6 +260,74 @@ nav:
               - Text Processing & findstr: languages/windows-cli/text-processing.md
               - Error Handling & Exit Codes: languages/windows-cli/error-handling.md
               - System32 Native Executables: languages/windows-cli/system32-toolkit.md
+      - Operations:
+          - Administration:
+              - Overview: tasks/administration/index.md
+              - Command-Line Basics:
+                  - Set Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
+                  - Use Shell Command History: tasks/administration/shell-command-history.md
+                  - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
+                  - Search & Follow Logs by Keyword: tasks/administration/search-logs-by-keyword.md
+              - Files & Storage:
+                  - Find Files & Content: tasks/administration/file-search-discovery.md
+                  - Identify File Types: tasks/administration/identify-file-types.md
+                  - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
+                  - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
+                  - Partition & Mount Storage: tasks/administration/storage-partitioning-mounting.md
+                  - Audit Disk Space: tasks/administration/disk-space-audit.md
+                  - Purge Temporary Files: tasks/administration/temp-file-cleanup.md
+                  - Back Up & Restore: tasks/administration/backup-and-recovery.md
+              - Users, Groups & Service Accounts:
+                  - Manage Local Users & Groups: tasks/administration/local-user-group-management.md
+                  - Manage the User Lifecycle: tasks/administration/user-lifecycle-management.md
+                  - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
+                  - Windows Service Accounts (Least Privilege): tasks/administration/windows-service-accounts-least-privilege.md
+                  - Delegate Admin Tasks (JEA, sudo, polkit): tasks/administration/delegated-admin-jea-sudo-polkit.md
+                  - Store Service Secrets on Linux: tasks/administration/linux-service-secrets-storage.md
+                  - Store Service Secrets on Windows: tasks/administration/windows-service-secrets-storage.md
+                  - Manage Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
+                  - Join Linux to Active Directory (realm, SSSD): tasks/administration/linux-active-directory-join-sssd.md
+              - Services, Software & Scheduling:
+                  - Restart a Remote Service: tasks/administration/remote-service-restart.md
+                  - Schedule Jobs (Task Scheduler, cron, timers): tasks/administration/scheduled-jobs-task-scheduler.md
+                  - Manage Packages & Software: tasks/administration/package-software-management.md
+                  - Apply Updates & Maintenance: tasks/administration/system-maintenance-updates.md
+                  - Force a Group Policy Refresh: tasks/administration/group-policy-update.md
+                  - Audit Performance & Resources: tasks/administration/performance-resource-auditing.md
+              - Networking & Remote Access:
+                  - Configure Network Adapters & IPs: tasks/administration/network-adapter-ip-configuration.md
+                  - Manage Host Firewall & Ports: tasks/administration/firewall-port-management.md
+                  - Manage Network Services (DNS, DHCP): tasks/administration/network-services-management.md
+                  - Deploy SSH Keys: tasks/administration/ssh-key-deployment.md
+                  - Run an SSH Certificate Authority: tasks/administration/ssh-certificate-authority.md
+                  - Transfer Files Remotely (SCP/rsync): tasks/administration/remote-file-transfer.md
+                  - Deploy a WireGuard VPN Gateway: tasks/administration/wireguard-vpn-deployment.md
+              - Certificates, Encryption & Email:
+                  - Manage Certificates & PKI: tasks/administration/certificate-and-pki-management.md
+                  - Deploy TLS Certificates & Harden Web Servers: tasks/administration/tls-certificate-deployment.md
+                  - Recover BitLocker Keys: tasks/administration/bitlocker-recovery.md
+                  - Encrypt Linux Disks (LUKS2, TPM2, Tang): tasks/administration/linux-luks-disk-encryption.md
+                  - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
+              - Cloud:
+                  - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md
+          - Troubleshooting:
+              - Overview: tasks/troubleshooting/index.md
+              - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
+              - DNS Resolution Failures: tasks/administration/dns-resolution-troubleshooting.md
+              - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
+              - SSH Timeouts & Freezes: tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md
+              - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
+              - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
+              - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
+              - VPN & Remote Access Tunnels: tasks/troubleshooting/vpn-connectivity-troubleshooting.md
+              - Account Lockout & Bad Passwords: tasks/troubleshooting/account-lockout-troubleshooting.md
+              - File or Port in Use: tasks/troubleshooting/file-or-port-in-use.md
+              - Shares, Mounts & Containers at Boot: tasks/troubleshooting/services-shares-containers-boot-order.md
+          - Automation:
+              - Overview: tasks/automation/index.md
+              - Automated IoC Enrichment: tasks/automation/automated-ioc-enrichment.md
+              - Automated Identity Containment: tasks/automation/automated-account-containment.md
+          - All Tasks: tasks/index.md
       - Concepts:
           - fundamentals/concepts/index.md
           - "Governance & Principles":
@@ -333,6 +402,7 @@ nav:
       - LLM Application Assessment: offensive/llm-application-assessment.md
       - Cloud Attack Surface Enumeration: offensive/cloud-attack-surface-enumeration.md
   - Defensive:
+      - Overview: defensive/index.md
       - Detection:
           - Overview: detection/index.md
           - KQL:
@@ -374,165 +444,97 @@ nav:
               - Wi-Fi (WLAN-AutoConfig): detection/sigma/wlan-events.md
               - Cryptomining: detection/sigma/cryptomining.md
           - MITRE ATT&CK: detection/mitre-attack/index.md
-      - Tasks:
-          - Overview: tasks/index.md
-          - Operate:
-              - Administration:
-                  - Overview: tasks/administration/index.md
-                  - Command-Line Basics:
-                      - Set Environment Variables & PATH: tasks/administration/environment-variables-and-path.md
-                      - Use Shell Command History: tasks/administration/shell-command-history.md
-                      - Write Command Output to Files: tasks/administration/save-command-output-to-file.md
-                      - Search & Follow Logs by Keyword: tasks/administration/search-logs-by-keyword.md
-                  - Files & Storage:
-                      - Find Files & Content: tasks/administration/file-search-discovery.md
-                      - Identify File Types: tasks/administration/identify-file-types.md
-                      - Compare Files, Folders & Hashes: tasks/administration/compare-files-and-folders.md
-                      - Create & Extract Archives: tasks/administration/create-and-extract-archives.md
-                      - Partition & Mount Storage: tasks/administration/storage-partitioning-mounting.md
-                      - Audit Disk Space: tasks/administration/disk-space-audit.md
-                      - Purge Temporary Files: tasks/administration/temp-file-cleanup.md
-                      - Back Up & Restore: tasks/administration/backup-and-recovery.md
-                  - Users, Groups & Service Accounts:
-                      - Manage Local Users & Groups: tasks/administration/local-user-group-management.md
-                      - Manage the User Lifecycle: tasks/administration/user-lifecycle-management.md
-                      - Linux Service Accounts (Least Privilege): tasks/administration/linux-service-accounts-least-privilege.md
-                      - Windows Service Accounts (Least Privilege): tasks/administration/windows-service-accounts-least-privilege.md
-                      - Delegate Admin Tasks (JEA, sudo, polkit): tasks/administration/delegated-admin-jea-sudo-polkit.md
-                      - Store Service Secrets on Linux: tasks/administration/linux-service-secrets-storage.md
-                      - Store Service Secrets on Windows: tasks/administration/windows-service-secrets-storage.md
-                      - Manage Active Directory Domain Services: tasks/administration/active-directory-domain-management.md
-                      - Join Linux to Active Directory (realm, SSSD): tasks/administration/linux-active-directory-join-sssd.md
-                  - Services, Software & Scheduling:
-                      - Restart a Remote Service: tasks/administration/remote-service-restart.md
-                      - Schedule Jobs (Task Scheduler, cron, timers): tasks/administration/scheduled-jobs-task-scheduler.md
-                      - Manage Packages & Software: tasks/administration/package-software-management.md
-                      - Apply Updates & Maintenance: tasks/administration/system-maintenance-updates.md
-                      - Force a Group Policy Refresh: tasks/administration/group-policy-update.md
-                      - Audit Performance & Resources: tasks/administration/performance-resource-auditing.md
-                  - Networking & Remote Access:
-                      - Configure Network Adapters & IPs: tasks/administration/network-adapter-ip-configuration.md
-                      - Manage Host Firewall & Ports: tasks/administration/firewall-port-management.md
-                      - Manage Network Services (DNS, DHCP): tasks/administration/network-services-management.md
-                      - Deploy SSH Keys: tasks/administration/ssh-key-deployment.md
-                      - Run an SSH Certificate Authority: tasks/administration/ssh-certificate-authority.md
-                      - Transfer Files Remotely (SCP/rsync): tasks/administration/remote-file-transfer.md
-                      - Deploy a WireGuard VPN Gateway: tasks/administration/wireguard-vpn-deployment.md
-                  - Certificates, Encryption & Email:
-                      - Manage Certificates & PKI: tasks/administration/certificate-and-pki-management.md
-                      - Deploy TLS Certificates & Harden Web Servers: tasks/administration/tls-certificate-deployment.md
-                      - Recover BitLocker Keys: tasks/administration/bitlocker-recovery.md
-                      - Encrypt Linux Disks (LUKS2, TPM2, Tang): tasks/administration/linux-luks-disk-encryption.md
-                      - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
-                  - Cloud:
-                      - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md
-              - Troubleshooting:
-                  - Overview: tasks/troubleshooting/index.md
-                  - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
-                  - DNS Resolution Failures: tasks/administration/dns-resolution-troubleshooting.md
-                  - Linux Service Failure: tasks/troubleshooting/linux-service-failure.md
-                  - SSH Timeouts & Freezes: tasks/troubleshooting/ssh-connection-timeout-troubleshooting.md
-                  - High CPU & Runaway Procs: tasks/troubleshooting/high-cpu-troubleshooting.md
-                  - Disk Space & Inode Emergency: tasks/troubleshooting/disk-space-emergency.md
-                  - TLS/SSL Handshake Failures: tasks/troubleshooting/certificate-handshake-failure.md
-                  - VPN & Remote Access Tunnels: tasks/troubleshooting/vpn-connectivity-troubleshooting.md
-                  - Account Lockout & Bad Passwords: tasks/troubleshooting/account-lockout-troubleshooting.md
-                  - File or Port in Use: tasks/troubleshooting/file-or-port-in-use.md
-                  - Shares, Mounts & Containers at Boot: tasks/troubleshooting/services-shares-containers-boot-order.md
-              - Hardening:
-                  - Overview: tasks/hardening/index.md
-                  - Windows Security Baseline (CIS/NIST): tasks/hardening/windows-security-baseline.md
-                  - Windows 11 CIS Audit Tool (L1/L2): tasks/hardening/windows-11-cis-audit-tool.md
-                  - Windows Server CIS Audit (MS/DC): tasks/hardening/windows-server-cis-audit-tool.md
-                  - Windows CIS User Rights & Account Policies: tasks/hardening/windows-cis-user-rights-assignment.md
-                  - Windows CIS Advanced Audit Policy: tasks/hardening/windows-cis-advanced-audit-policy.md
-                  - Windows CIS ASR & Credential Guard: tasks/hardening/windows-cis-attack-surface-reduction.md
-                  - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
-                  - Linux CIS Audit Tool (Ubuntu/RHEL): tasks/hardening/linux-cis-audit-tool.md
-                  - CIS Block Monitor (Windows/Linux): tasks/hardening/cis-block-monitor.md
-                  - CIS Hardening Lab Test (Before/After): tasks/hardening/cis-hardening-lab-test.md
-                  - Linux CIS Filesystems & Services: tasks/hardening/linux-cis-filesystem-services.md
-                  - Linux CIS Auditd & Telemetry Baseline: tasks/hardening/linux-cis-auditd-logging.md
-                  - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md
-                  - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
-                  - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
-                  - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md
-                  - Windows LAPS & Admin Tiering: tasks/hardening/windows-laps-admin-tiering.md
-                  - Per-Service Egress Control: tasks/hardening/per-service-egress-control.md
-              - Assurance:
-                  - Overview: tasks/assurance/index.md
-                  - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
-                  - Active Directory STIG: tasks/assurance/ad-stig-compliance.md
-                  - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md
-                  - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
-                  - File Integrity Monitoring (AIDE, SACL, Sysmon): tasks/assurance/file-integrity-monitoring.md
-                  - Effective Permissions & Access Review: tasks/assurance/effective-permissions-access-review.md
-                  - Linux Posture Scanners (Lynis, OpenSCAP, osquery): tasks/assurance/linux-posture-scanners.md
-                  - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
-                  - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
-                  - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
-                  - Service Account Audit: tasks/assurance/service-account-audit.md
-              - Automation:
-                  - Overview: tasks/automation/index.md
-                  - Automated IoC Enrichment: tasks/automation/automated-ioc-enrichment.md
-                  - Automated Identity Containment: tasks/automation/automated-account-containment.md
-          - Detect:
-              - Detection Engineering:
-                  - Overview: tasks/detection-engineering/index.md
-                  - Deploy & Tune Sysmon: tasks/administration/sysmon-deployment-tuning.md
-                  - Forward Events Centrally (WEF & rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
-                  - Detection Development Lifecycle: tasks/detection-engineering/detection-development-lifecycle.md
-                  - Alert Tuning & False Positives: tasks/detection-engineering/alert-tuning-false-positive-management.md
-              - Threat Hunting:
-                  - Overview: tasks/threat-hunting/index.md
-                  - Hypothesis-Driven Lifecycle Framework: tasks/threat-hunting/hypothesis-driven-hunting-framework.md
-                  - Statistical Baselining & LFO Frequency: tasks/threat-hunting/statistical-baselining-frequency-analysis.md
-                  - Cross-Platform Behavioral Telemetry: tasks/threat-hunting/cross-platform-behavioral-hunting.md
-                  - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
-                  - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md
-                  - LOLBins Execution Hunting: tasks/threat-hunting/lolbins-execution-hunting.md
-                  - Scheduled Task & Cron Persistence Review: tasks/threat-hunting/scheduled-task-persistence-review.md
-                  - Cloud Identity & Ephemeral Asset Hunting: tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md
-                  - Cloud Identity Persistence: tasks/threat-hunting/cloud-identity-persistence-hunting.md
-                  - With Splunk:
-                      - Hypothesis-Driven Hunting: tasks/threat-hunting/splunk-threat-hunting.md
-              - Threat Intelligence:
-                  - Overview: tasks/threat-intelligence/index.md
-                  - STIX 2.1 & TAXII Feed Pipeline: tasks/threat-intelligence/stix-taxii-pipeline.md
-                  - Adversary Emulation & ATT&CK Profiling: tasks/threat-intelligence/adversary-emulation-profiling.md
-                  - IoC Lifecycle & Confidence Scoring: tasks/threat-intelligence/ioc-lifecycle-scoring.md
-          - Respond:
-              - Incident Response:
-                  - Overview: tasks/incident-response/index.md
-                  - Endpoint Triage: tasks/incident-response/endpoint-triage.md
-                  - Suspicious PowerShell: tasks/incident-response/suspicious-powershell.md
-                  - Suspicious Process: tasks/incident-response/suspicious-process.md
-                  - Malware Triage: tasks/incident-response/malware-triage.md
-                  - Account Compromise: tasks/incident-response/account-compromise.md
-                  - Azure Resource Hijacking: tasks/incident-response/azure-resource-hijacking.md
-                  - Compromised Service Principal: tasks/incident-response/compromised-service-principal.md
-                  - SMB Lateral Movement: tasks/incident-response/smb-lateral-movement.md
-                  - Phishing Email Triage: tasks/incident-response/phishing-email-triage.md
-                  - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
-                  - Automated Containment: tasks/incident-response/automated-containment.md
-                  - Credential Rotation After Compromise: tasks/incident-response/credential-rotation-after-compromise.md
-              - Investigation:
-                  - Overview: tasks/investigation/index.md
-                  - Suspicious Service: tasks/investigation/suspicious-service.md
-                  - Scheduled Task Investigation: tasks/investigation/scheduled-task-investigation.md
-                  - Registry Persistence: tasks/investigation/registry-persistence.md
-                  - Failed Authentication: tasks/investigation/failed-authentication.md
-                  - Network Investigation: tasks/investigation/network-investigation.md
-                  - Suspicious Outbound Connection: tasks/investigation/suspicious-outbound-connection.md
-                  - With Splunk:
-                      - Suspicious IP Analysis: tasks/investigation/investigate-ip-splunk.md
-                      - Compromised Host Forensics: tasks/investigation/investigate-device-splunk.md
-                      - User Identity Triage: tasks/investigation/investigate-user-splunk.md
-              - Forensics:
-                  - Overview: tasks/forensics/index.md
-                  - Memory Acquisition & Volatility: tasks/forensics/memory-acquisition-analysis.md
-                  - Windows Disk Artifacts Triage: tasks/forensics/windows-disk-artifacts.md
-                  - Linux Live Response Forensics: tasks/forensics/linux-live-response-forensics.md
+      - Harden & Assure:
+          - Hardening:
+              - Overview: tasks/hardening/index.md
+              - Windows Security Baseline (CIS/NIST): tasks/hardening/windows-security-baseline.md
+              - Windows 11 CIS Audit Tool (L1/L2): tasks/hardening/windows-11-cis-audit-tool.md
+              - Windows Server CIS Audit (MS/DC): tasks/hardening/windows-server-cis-audit-tool.md
+              - Windows CIS User Rights & Account Policies: tasks/hardening/windows-cis-user-rights-assignment.md
+              - Windows CIS Advanced Audit Policy: tasks/hardening/windows-cis-advanced-audit-policy.md
+              - Windows CIS ASR & Credential Guard: tasks/hardening/windows-cis-attack-surface-reduction.md
+              - Linux Security Baseline (CIS/NIST): tasks/hardening/linux-security-baseline.md
+              - Linux CIS Audit Tool (Ubuntu/RHEL): tasks/hardening/linux-cis-audit-tool.md
+              - CIS Block Monitor (Windows/Linux): tasks/hardening/cis-block-monitor.md
+              - CIS Hardening Lab Test (Before/After): tasks/hardening/cis-hardening-lab-test.md
+              - Linux CIS Filesystems & Services: tasks/hardening/linux-cis-filesystem-services.md
+              - Linux CIS Auditd & Telemetry Baseline: tasks/hardening/linux-cis-auditd-logging.md
+              - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md
+              - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
+              - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
+              - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md
+              - Windows LAPS & Admin Tiering: tasks/hardening/windows-laps-admin-tiering.md
+              - Per-Service Egress Control: tasks/hardening/per-service-egress-control.md
+          - Assurance:
+              - Overview: tasks/assurance/index.md
+              - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
+              - Active Directory STIG: tasks/assurance/ad-stig-compliance.md
+              - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md
+              - Linux Sudoers Integrity: tasks/assurance/linux-sudoers-integrity.md
+              - File Integrity Monitoring (AIDE, SACL, Sysmon): tasks/assurance/file-integrity-monitoring.md
+              - Effective Permissions & Access Review: tasks/assurance/effective-permissions-access-review.md
+              - Linux Posture Scanners (Lynis, OpenSCAP, osquery): tasks/assurance/linux-posture-scanners.md
+              - Firewall Default Deny: tasks/assurance/firewall-default-deny.md
+              - Azure External Guest Access: tasks/assurance/azure-guest-access-audit.md
+              - CISA SCuBA Baseline Compliance: tasks/assurance/cisa-scuba-compliance.md
+              - Service Account Audit: tasks/assurance/service-account-audit.md
+      - Detect:
+          - Detection Engineering:
+              - Overview: tasks/detection-engineering/index.md
+              - Deploy & Tune Sysmon: tasks/administration/sysmon-deployment-tuning.md
+              - Forward Events Centrally (WEF & rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
+              - Detection Development Lifecycle: tasks/detection-engineering/detection-development-lifecycle.md
+              - Alert Tuning & False Positives: tasks/detection-engineering/alert-tuning-false-positive-management.md
+          - Threat Hunting:
+              - Overview: tasks/threat-hunting/index.md
+              - Hypothesis-Driven Lifecycle Framework: tasks/threat-hunting/hypothesis-driven-hunting-framework.md
+              - Statistical Baselining & LFO Frequency: tasks/threat-hunting/statistical-baselining-frequency-analysis.md
+              - Cross-Platform Behavioral Telemetry: tasks/threat-hunting/cross-platform-behavioral-hunting.md
+              - Possible Lateral Movement: tasks/threat-hunting/lateral-movement.md
+              - Kerberoasting & AS-REP Roasting: tasks/threat-hunting/kerberoasting-asreproast-hunting.md
+              - LOLBins Execution Hunting: tasks/threat-hunting/lolbins-execution-hunting.md
+              - Scheduled Task & Cron Persistence Review: tasks/threat-hunting/scheduled-task-persistence-review.md
+              - Cloud Identity & Ephemeral Asset Hunting: tasks/threat-hunting/cloud-infrastructure-ephemeral-asset-hunting.md
+              - Cloud Identity Persistence: tasks/threat-hunting/cloud-identity-persistence-hunting.md
+              - With Splunk:
+                  - Hypothesis-Driven Hunting: tasks/threat-hunting/splunk-threat-hunting.md
+          - Threat Intelligence:
+              - Overview: tasks/threat-intelligence/index.md
+              - STIX 2.1 & TAXII Feed Pipeline: tasks/threat-intelligence/stix-taxii-pipeline.md
+              - Adversary Emulation & ATT&CK Profiling: tasks/threat-intelligence/adversary-emulation-profiling.md
+              - IoC Lifecycle & Confidence Scoring: tasks/threat-intelligence/ioc-lifecycle-scoring.md
+      - Respond:
+          - Incident Response:
+              - Overview: tasks/incident-response/index.md
+              - Endpoint Triage: tasks/incident-response/endpoint-triage.md
+              - Suspicious PowerShell: tasks/incident-response/suspicious-powershell.md
+              - Suspicious Process: tasks/incident-response/suspicious-process.md
+              - Malware Triage: tasks/incident-response/malware-triage.md
+              - Account Compromise: tasks/incident-response/account-compromise.md
+              - Azure Resource Hijacking: tasks/incident-response/azure-resource-hijacking.md
+              - Compromised Service Principal: tasks/incident-response/compromised-service-principal.md
+              - SMB Lateral Movement: tasks/incident-response/smb-lateral-movement.md
+              - Phishing Email Triage: tasks/incident-response/phishing-email-triage.md
+              - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
+              - Automated Containment: tasks/incident-response/automated-containment.md
+              - Credential Rotation After Compromise: tasks/incident-response/credential-rotation-after-compromise.md
+          - Investigation:
+              - Overview: tasks/investigation/index.md
+              - Suspicious Service: tasks/investigation/suspicious-service.md
+              - Scheduled Task Investigation: tasks/investigation/scheduled-task-investigation.md
+              - Registry Persistence: tasks/investigation/registry-persistence.md
+              - Failed Authentication: tasks/investigation/failed-authentication.md
+              - Network Investigation: tasks/investigation/network-investigation.md
+              - Suspicious Outbound Connection: tasks/investigation/suspicious-outbound-connection.md
+              - With Splunk:
+                  - Suspicious IP Analysis: tasks/investigation/investigate-ip-splunk.md
+                  - Compromised Host Forensics: tasks/investigation/investigate-device-splunk.md
+                  - User Identity Triage: tasks/investigation/investigate-user-splunk.md
+          - Forensics:
+              - Overview: tasks/forensics/index.md
+              - Memory Acquisition & Volatility: tasks/forensics/memory-acquisition-analysis.md
+              - Windows Disk Artifacts Triage: tasks/forensics/windows-disk-artifacts.md
+              - Linux Live Response Forensics: tasks/forensics/linux-live-response-forensics.md
   - Reference:
       - Overview: references/index.md
       - APIs:

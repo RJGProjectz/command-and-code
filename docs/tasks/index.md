@@ -7,9 +7,12 @@ type: index
 
 Start from what you are trying to accomplish. **Workflows** are ordered field procedures that link to the reference entries — they never duplicate the commands.
 
+Everyday operations sit under [Foundations](../foundations/index.md); the blue-team lanes (harden & assure,
+detect, respond) sit under [Defensive](../defensive/index.md). This page lists all of them.
+
 ## Operate
 
-Run, fix, harden and check systems.
+Run and fix systems.
 
 <div class="grid cards" markdown>
 
@@ -25,6 +28,20 @@ Run, fix, harden and check systems.
 
     Connectivity, failing services, reboots, policy and time problems.
 
+-   :material-robot-outline:{ .lg } **[Automation](automation/index.md)**
+
+    ---
+
+    Scripting patterns, APIs and toolbox scripts.
+
+</div>
+
+## Harden & assure
+
+Reduce the attack surface and prove the controls work.
+
+<div class="grid cards" markdown>
+
 -   :material-shield-lock-outline:{ .lg } **[Hardening](hardening/index.md)**
 
     ---
@@ -36,12 +53,6 @@ Run, fix, harden and check systems.
     ---
 
     Read-only compliance checks: STIG, SCuBA, EDR health, sudoers, default-deny firewalls.
-
--   :material-robot-outline:{ .lg } **[Automation](automation/index.md)**
-
-    ---
-
-    Scripting patterns, APIs and toolbox scripts.
 
 </div>
 
