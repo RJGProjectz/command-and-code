@@ -541,6 +541,7 @@ nav:
               - Memory Acquisition & Volatility: tasks/forensics/memory-acquisition-analysis.md
               - Windows Disk Artifacts Triage: tasks/forensics/windows-disk-artifacts.md
               - Linux Live Response Forensics: tasks/forensics/linux-live-response-forensics.md
+              - Network & PCAP Forensics: tasks/forensics/network-pcap-forensics.md
   - Reference:
       - Overview: references/index.md
       - APIs:

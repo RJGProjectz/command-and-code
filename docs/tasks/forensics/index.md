@@ -18,6 +18,7 @@ Evidence preservation and artifact analysis: exports, hashes, hives, snapshots, 
 | [Live Memory Acquisition and Volatility Analysis](memory-acquisition-analysis.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash, Python | Forensics, Incident Response, Investigation |
 | [Malware Triage](../incident-response/malware-triage.md) | Workflow | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Forensics |
 | [Microsoft Purview and Unified Audit Log (UAL) Investigation](../../platforms/microsoft-365/audit-log-investigation.md) | Workflow | Microsoft 365, Entra ID, Exchange Online | PowerShell | Investigation, Incident Response, Forensics |
+| [Network and PCAP Forensics](network-pcap-forensics.md) | Workflow | Linux | Bash, Python | Forensics, Investigation, Incident Response |
 | [AWS CloudTrail (Audit Logging)](../../platforms/aws/audit-logging.md) | Entry | AWS | Bash, Python | Investigation, Incident Response, Forensics, Hardening |
 | [AWS Incident Response & Forensics](../../platforms/aws/incident-response.md) | Entry | AWS | Bash | Incident Response, Forensics, Investigation |
 | [Azure Audit Logging (Activity Log & Diagnostic Settings)](../../platforms/azure/audit-logging.md) | Entry | Azure, Entra ID | Bash, PowerShell, KQL | Investigation, Incident Response, Forensics, Hardening |
