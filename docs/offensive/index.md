@@ -36,10 +36,10 @@ documented as **what to know and how to detect/harden**, never as attack tooling
 ### Stage 2 — Initial Access
 *Find and validate the ways in — exposed services, web/API weaknesses, weak credentials, people.*
 
-- [Enumerate a Web Application for Technology, Versions and Weaknesses](web-application-assessment.md) · [Assess an LLM Application for Prompt Injection and Abuse](llm-application-assessment.md)
+- [Enumerate a Web Application for Technology, Versions and Weaknesses](web-application-assessment.md) · [Assess an LLM Application for Prompt Injection and Abuse](llm-application-assessment.md) · [Assess Credential Strength — Authorized Password Spraying and Offline Hash Cracking](password-attacks-credential-cracking.md)
 - **Theory:** [Social Engineering](../fundamentals/concepts/social-engineering.md) · [Password Attacks](../fundamentals/concepts/password-attacks.md) · [Vulnerability Assessment & Patch Management](../fundamentals/concepts/vulnerability-management.md)
 - **Scope:** we document how to *identify* initial-access vectors; weaponized exploit payloads stay out of scope and inside a scoped engagement.
-- **Planned (WP-87):** Web API assessment (REST/GraphQL, authz/IDOR), password attacks & cracking, phishing/social-engineering ops (payload-free), mobile app assessment.
+- **Planned (WP-87):** phishing/social-engineering ops (payload-free), mobile app assessment.
 
 ### Stage 3 — Foothold & Command-and-Control (C2)
 *How an attacker persists and calls home — **covered for awareness and defense, not operation.***
@@ -72,6 +72,7 @@ documented as **what to know and how to detect/harden**, never as attack tooling
 | [Assess a Web API for Endpoints, Authorization Flaws and Abuse](web-api-assessment.md) | Workflow | Linux | Bash, HTTP | Assessment |
 | [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](wifi-wireless-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
+| [Assess Credential Strength — Authorized Password Spraying and Offline Hash Cracking](password-attacks-credential-cracking.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Linux Host and Identify Privilege-Escalation Paths](linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Windows Host and Identify Privilege-Escalation Paths](windows-host-enumeration-privesc.md) | Workflow | Windows | PowerShell | Assessment |

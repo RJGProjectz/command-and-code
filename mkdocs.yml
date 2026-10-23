@@ -398,6 +398,7 @@ nav:
       - Web Application Assessment: offensive/web-application-assessment.md
       - Web API Assessment: offensive/web-api-assessment.md
       - API Surface Recon (Tool): offensive/api-surface-recon-tool.md
+      - Password Attacks & Credential Cracking: offensive/password-attacks-credential-cracking.md
       - Active Directory Enumeration: offensive/active-directory-enumeration.md
       - Network & Infrastructure Enumeration: offensive/network-infrastructure-enumeration.md
       - Wi-Fi / Wireless Assessment: offensive/wifi-wireless-assessment.md
