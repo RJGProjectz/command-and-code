@@ -176,6 +176,7 @@ Contain, investigate and preserve evidence.
 | [Network Adapter and IP Configuration](administration/network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Investigation](investigation/network-investigation.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
 | [Network Services Management](administration/network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
+| [NGINX Web Server Hardening](hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Package and Software Lifecycle Management](administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
 | [Possible Lateral Movement](threat-hunting/lateral-movement.md) | Workflow | Windows, Windows Server, Microsoft Defender, Splunk | PowerShell, KQL, SPL | Threat Hunting, Incident Response, Investigation |
 | [Registry Persistence Investigation](investigation/registry-persistence.md) | Workflow | Windows, Microsoft Defender, SentinelOne | PowerShell, Windows CLI, KQL, S1QL | Investigation, Incident Response, Threat Hunting |

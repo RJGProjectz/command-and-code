@@ -59,6 +59,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Local User and Group Administration](local-user-group-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Adapter and IP Configuration](network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Services Management](network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
+| [NGINX Web Server Hardening](../hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](../hardening/per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |

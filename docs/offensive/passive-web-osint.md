@@ -158,6 +158,8 @@ HTTP.
 - [Web Application Assessment](web-application-assessment.md) — the **active** counterpart
 - [Cloud Attack Surface Enumeration](cloud-attack-surface-enumeration.md) — public cloud exposure
 - Reference: [OSINT & Reconnaissance](../fundamentals/concepts/osint.md) · [Port Scanning](../fundamentals/concepts/port-scanning.md)
+- Defensive counterpart: [Apache & PHP Hardening](../tasks/hardening/apache-php-web-server-hardening.md) · [NGINX Hardening](../tasks/hardening/nginx-web-server-hardening.md) — removing the banners `--fingerprint` reads
+- Detect it: [SPL — Web Attacks](../detection/spl/web-attacks.md) · [KQL — Web Attacks](../detection/kql/web-attacks.md)
 
 ## External Resources & White Papers
 

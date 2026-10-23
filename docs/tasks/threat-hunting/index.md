@@ -56,6 +56,7 @@ Hypothesis-driven searches for activity your detections have not alerted on.
 | [KQL Logon and Identity Hunting](../../detection/kql/logon-identity.md) | Entry | Microsoft Defender, Entra ID, Microsoft 365, Windows | KQL | Threat Hunting, Investigation, Incident Response, Detection Engineering |
 | [KQL Network Event Hunting](../../detection/kql/network-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Investigation, Detection Engineering, Incident Response |
 | [KQL Process Event Hunting](../../detection/kql/process-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Detection Engineering, Investigation, Incident Response |
+| [KQL — Web Attacks (SQLi, XSS, Path Traversal & Login Brute-Force)](../../detection/kql/web-attacks.md) | Entry | Azure | KQL | Detection Engineering, Threat Hunting |
 | [Linux Cron and Scheduled Jobs](../../platforms/linux/cron.md) | Entry | Linux | Bash | Incident Response, Investigation, Threat Hunting, Administration |
 | [Microsoft Defender XDR and Defender for Endpoint](../../platforms/microsoft-365/defender.md) | Entry | Microsoft 365, Microsoft Defender, Windows | PowerShell, KQL | Incident Response, Threat Hunting, Administration, Automation |
 | [Microsoft Graph API — Audit Sign-In Logs](../../apis/microsoft-graph/sign-in-logs.md) | Entry | Entra ID, Microsoft 365 | PowerShell, REST API | Investigation, Threat Hunting, Incident Response |
@@ -75,6 +76,7 @@ Hypothesis-driven searches for activity your detections have not alerted on.
 | [Splunk Detection — Suspicious DNS Tunneling Signatures](../../detection/spl/dns-tunneling.md) | Entry | Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Splunk Detection — Suspicious MFA Authentication Method Deletion](../../detection/spl/mfa-deletion.md) | Entry | Entra ID, Microsoft 365, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Splunk Detection — Suspicious SMB Administrative Share Access](../../detection/spl/lateral-movement-smb.md) | Entry | Windows, Windows Server, Splunk | SPL | Detection Engineering, Threat Hunting |
+| [Splunk Detection — Web Attacks (SQLi, XSS, Path Traversal & Login Brute-Force)](../../detection/spl/web-attacks.md) | Entry | Linux, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Windows Registry and Run Keys](../../platforms/windows/registry.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Forensics, Threat Hunting |
 | [Windows Scheduled Tasks](../../platforms/windows/scheduled-tasks.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Threat Hunting, Administration |
 | [Cross-Platform Equivalents](../../references/equivalents.md) | Reference | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting, Administration |

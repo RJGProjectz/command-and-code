@@ -224,7 +224,8 @@ page). This maps directly to the reporting phase in
 - [Port Scanning](../fundamentals/concepts/port-scanning.md)
 - [Penetration Testing & Red Teaming](../fundamentals/concepts/penetration-testing.md)
 - [Vulnerability Assessment & Patch Management](../fundamentals/concepts/vulnerability-management.md)
-- Defensive fixes: [OWASP Top 10 for Web Applications](../fundamentals/web-apps/owasp-web-top-10.md) · [HTTP Security Headers](../fundamentals/web-apps/http-security-headers.md)
+- Defensive fixes: [OWASP Top 10 for Web Applications](../fundamentals/web-apps/owasp-web-top-10.md) · [HTTP Security Headers](../fundamentals/web-apps/http-security-headers.md) · [Apache & PHP Hardening](../tasks/hardening/apache-php-web-server-hardening.md) · [NGINX Hardening](../tasks/hardening/nginx-web-server-hardening.md)
+- Detect it: [SPL — Web Attacks](../detection/spl/web-attacks.md) · [KQL — Web Attacks](../detection/kql/web-attacks.md) — how a defender sees these scans in the access/WAF log
 
 ## External Resources & White Papers
 

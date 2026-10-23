@@ -273,6 +273,7 @@ or point [Mozilla Observatory](https://developer.mozilla.org/en-US/observatory) 
 
 Hardening reduces the attack surface; monitoring catches what still gets tried.
 
+- **Web attacks (SQLi, XSS, traversal, login brute-force)** → [SPL — Web Attacks](../../detection/spl/web-attacks.md) and [KQL — Web Attacks](../../detection/kql/web-attacks.md): read the `access.log` / WAF log for injection and traversal payloads and login-endpoint bursts — the directives above block them, these searches alert on the attempt.
 - **Credential attacks against the login** → [SPL — Brute Force & Password Spray](../../detection/spl/brute-force.md): a spike of `401`/`403`/`302`-to-login from one source in the access log.
 - **Scanning & traversal probes** → alert on bursts of `404`/`403`, requests for `/.git/`, `/.env`, `.php~` and `/../` sequences in `access.log` — all of which the rules above already block but still signal targeting.
 - **Config drift** → file-integrity monitoring on `php.ini`, the hardening conf and the document root (see [Linux CIS — Filesystem Integrity & Service Hardening](linux-cis-filesystem-services.md)).
@@ -281,6 +282,8 @@ Hardening reduces the attack surface; monitoring catches what still gets tried.
 
 ## Related
 
+- [NGINX Web Server Hardening](nginx-web-server-hardening.md) — the NGINX counterpart to this page
+- [SPL — Web Attacks](../../detection/spl/web-attacks.md) · [KQL — Web Attacks](../../detection/kql/web-attacks.md) — the Detect-it for what this blocks
 - [HTTP Security Headers & Transport Hardening](../../fundamentals/web-apps/http-security-headers.md) — full header matrix, NGINX/IIS equivalents, audit scripts
 - [TLS/SSL Certificate Deployment & Web Server Hardening](../administration/tls-certificate-deployment.md) — the transport layer this page assumes
 - [OWASP Top 10 for Web Applications](../../fundamentals/web-apps/owasp-web-top-10.md) · [Cross-Site Scripting (XSS) & CSP](../../fundamentals/web-apps/xss-defense.md)
