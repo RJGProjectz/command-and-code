@@ -158,6 +158,7 @@ Contain, investigate and preserve evidence.
 | [Enumerate Active Directory for Users, Privileges and Attack Paths](../offensive/active-directory-enumeration.md) | Workflow | Active Directory, Windows | PowerShell, Bash | Assessment |
 | [Enumerate an Internal Network and its Services](../offensive/network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../offensive/cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
+| [Enumerate Container and Kubernetes Attack Surface — Exposed Runtimes, kubelet, API Server and RBAC](../offensive/container-kubernetes-attack-surface.md) | Workflow | Linux | Bash, Python | Assessment |
 | [Failed Authentication Investigation](investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [File Integrity Monitoring (AIDE, SACLs, Sysmon)](assurance/file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |

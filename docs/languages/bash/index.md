@@ -54,6 +54,7 @@ Bash knowledge lives in two places:
 | [Enumerate Active Directory for Users, Privileges and Attack Paths](../../offensive/active-directory-enumeration.md) | Workflow | Active Directory, Windows | PowerShell, Bash | Assessment |
 | [Enumerate an Internal Network and its Services](../../offensive/network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../../offensive/cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
+| [Enumerate Container and Kubernetes Attack Surface — Exposed Runtimes, kubelet, API Server and RBAC](../../offensive/container-kubernetes-attack-surface.md) | Workflow | Linux | Bash, Python | Assessment |
 | [Failed Authentication Investigation](../../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [File Integrity Monitoring (AIDE, SACLs, Sysmon)](../../tasks/assurance/file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Host Firewall and Port Management](../../tasks/administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |

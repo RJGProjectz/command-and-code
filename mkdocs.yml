@@ -406,6 +406,7 @@ nav:
       - Windows Host Enum & Privesc: offensive/windows-host-enumeration-privesc.md
       - LLM Application Assessment: offensive/llm-application-assessment.md
       - Cloud Attack Surface Enumeration: offensive/cloud-attack-surface-enumeration.md
+      - Container & Kubernetes Attack Surface: offensive/container-kubernetes-attack-surface.md
   - Defensive:
       - Overview: defensive/index.md
       - Detection:
