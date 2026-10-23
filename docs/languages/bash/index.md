@@ -33,6 +33,7 @@ Bash knowledge lives in two places:
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](../../tasks/administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
 | [Apache & PHP Web Server Hardening](../../tasks/hardening/apache-php-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Assess a Web API for Endpoints, Authorization Flaws and Abuse](../../offensive/web-api-assessment.md) | Workflow | Linux | Bash, HTTP | Assessment |
+| [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](../../offensive/wifi-wireless-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](../../tasks/troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Azure Cloud Infrastructure and Resource Administration](../../tasks/administration/cloud-azure-resource-management.md) | Workflow | Azure, Entra ID | PowerShell, Bash | Administration |
 | [Backup and Recovery Operations](../../tasks/administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |

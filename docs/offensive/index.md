@@ -30,8 +30,8 @@ documented as **what to know and how to detect/harden**, never as attack tooling
 ### Stage 1 — Reconnaissance
 *Gather OSINT, map the estate, and scan networks and public/internal entry points — passively first.*
 
-- [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) · [Passive Web OSINT Tool](passive-web-osint.md) · [Enumerate an Internal Network and its Services](network-infrastructure-enumeration.md) · [Enumerate Cloud Attack Surface across AWS, Azure and GCP](cloud-attack-surface-enumeration.md)
-- **Theory:** [OSINT & Reconnaissance](../fundamentals/concepts/osint.md) · [Port Scanning](../fundamentals/concepts/port-scanning.md) · [Packet Sniffing](../fundamentals/concepts/packet-sniffing.md)
+- [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) · [Passive Web OSINT Tool](passive-web-osint.md) · [Enumerate an Internal Network and its Services](network-infrastructure-enumeration.md) · [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](wifi-wireless-assessment.md) · [Enumerate Cloud Attack Surface across AWS, Azure and GCP](cloud-attack-surface-enumeration.md)
+- **Theory:** [OSINT & Reconnaissance](../fundamentals/concepts/osint.md) · [Port Scanning](../fundamentals/concepts/port-scanning.md) · [Packet Sniffing](../fundamentals/concepts/packet-sniffing.md) · [Wi-Fi Security](../fundamentals/concepts/wifi-security.md)
 
 ### Stage 2 — Initial Access
 *Find and validate the ways in — exposed services, web/API weaknesses, weak credentials, people.*
@@ -70,6 +70,7 @@ documented as **what to know and how to detect/harden**, never as attack tooling
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Assess a Web API for Endpoints, Authorization Flaws and Abuse](web-api-assessment.md) | Workflow | Linux | Bash, HTTP | Assessment |
+| [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](wifi-wireless-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Enumerate a Linux Host and Identify Privilege-Escalation Paths](linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
