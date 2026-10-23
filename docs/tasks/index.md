@@ -7,9 +7,12 @@ type: index
 
 Start from what you are trying to accomplish. **Workflows** are ordered field procedures that link to the reference entries — they never duplicate the commands.
 
+Everyday operations sit under [Foundations](../foundations/index.md); the blue-team lanes (harden & assure,
+detect, respond) sit under [Defensive](../defensive/index.md). This page lists all of them.
+
 ## Operate
 
-Run, fix, harden and check systems.
+Run and fix systems.
 
 <div class="grid cards" markdown>
 
@@ -25,6 +28,20 @@ Run, fix, harden and check systems.
 
     Connectivity, failing services, reboots, policy and time problems.
 
+-   :material-robot-outline:{ .lg } **[Automation](automation/index.md)**
+
+    ---
+
+    Scripting patterns, APIs and toolbox scripts.
+
+</div>
+
+## Harden & assure
+
+Reduce the attack surface and prove the controls work.
+
+<div class="grid cards" markdown>
+
 -   :material-shield-lock-outline:{ .lg } **[Hardening](hardening/index.md)**
 
     ---
@@ -36,12 +53,6 @@ Run, fix, harden and check systems.
     ---
 
     Read-only compliance checks: STIG, SCuBA, EDR health, sudoers, default-deny firewalls.
-
--   :material-robot-outline:{ .lg } **[Automation](automation/index.md)**
-
-    ---
-
-    Scripting patterns, APIs and toolbox scripts.
 
 </div>
 
@@ -117,7 +128,7 @@ Contain, investigate and preserve evidence.
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](administration/tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
 | [Alert Tuning and False Positive Management](detection-engineering/alert-tuning-false-positive-management.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL | Detection Engineering, Investigation, Incident Response |
-| [Apache & PHP Web Server Hardening](hardening/apache-php-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
+| [Assess a Web API for Endpoints, Authorization Flaws and Abuse](../offensive/web-api-assessment.md) | Workflow | Linux | Bash, HTTP | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](../offensive/llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Automated Active Directory and Cloud Identity Containment](automation/automated-account-containment.md) | Workflow | Active Directory, Entra ID, Microsoft 365, Windows Server | PowerShell, REST API | Automation, Incident Response, Administration |
@@ -176,7 +187,6 @@ Contain, investigate and preserve evidence.
 | [Network Adapter and IP Configuration](administration/network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Investigation](investigation/network-investigation.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
 | [Network Services Management](administration/network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
-| [NGINX Web Server Hardening](hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Package and Software Lifecycle Management](administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
 | [Possible Lateral Movement](threat-hunting/lateral-movement.md) | Workflow | Windows, Windows Server, Microsoft Defender, Splunk | PowerShell, KQL, SPL | Threat Hunting, Incident Response, Investigation |
 | [Registry Persistence Investigation](investigation/registry-persistence.md) | Workflow | Windows, Microsoft Defender, SentinelOne | PowerShell, Windows CLI, KQL, S1QL | Investigation, Incident Response, Threat Hunting |
