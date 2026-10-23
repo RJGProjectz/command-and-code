@@ -128,6 +128,7 @@ Contain, investigate and preserve evidence.
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](administration/tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
 | [Alert Tuning and False Positive Management](detection-engineering/alert-tuning-false-positive-management.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL | Detection Engineering, Investigation, Incident Response |
+| [Assess a Web API for Endpoints, Authorization Flaws and Abuse](../offensive/web-api-assessment.md) | Workflow | Linux | Bash, HTTP | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](../offensive/llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Automated Active Directory and Cloud Identity Containment](automation/automated-account-containment.md) | Workflow | Active Directory, Entra ID, Microsoft 365, Windows Server | PowerShell, REST API | Automation, Incident Response, Administration |
