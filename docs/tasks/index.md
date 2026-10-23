@@ -132,6 +132,7 @@ Contain, investigate and preserve evidence.
 | [Assess a Web API for Endpoints, Authorization Flaws and Abuse](../offensive/web-api-assessment.md) | Workflow | Linux | Bash, HTTP | Assessment |
 | [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](../offensive/wifi-wireless-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](../offensive/llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
+| [Assess Credential Strength — Authorized Password Spraying and Offline Hash Cracking](../offensive/password-attacks-credential-cracking.md) | Workflow | Linux | Bash | Assessment |
 | [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Automated Active Directory and Cloud Identity Containment](automation/automated-account-containment.md) | Workflow | Active Directory, Entra ID, Microsoft 365, Windows Server | PowerShell, REST API | Automation, Incident Response, Administration |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](automation/automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |

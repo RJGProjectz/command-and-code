@@ -37,6 +37,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Assess a Web API for Endpoints, Authorization Flaws and Abuse](../../offensive/web-api-assessment.md) | Workflow | Linux | Bash, HTTP | Assessment |
 | [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](../../offensive/wifi-wireless-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](../../offensive/llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
+| [Assess Credential Strength — Authorized Password Spraying and Offline Hash Cracking](../../offensive/password-attacks-credential-cracking.md) | Workflow | Linux | Bash | Assessment |
 | [Auditing Services, Share Mounts and Containers — Boot Order and the Common Failures](../../tasks/troubleshooting/services-shares-containers-boot-order.md) | Workflow | Linux, Proxmox | Bash | Troubleshooting, Administration, Assurance |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](../../tasks/automation/automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |
 | [Backup and Recovery Operations](../../tasks/administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
