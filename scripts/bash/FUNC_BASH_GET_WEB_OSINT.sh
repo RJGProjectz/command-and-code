@@ -12,8 +12,14 @@
 #       - Certificate Transparency (crt.sh)  -> subdomains + certificate history
 #       - Wayback Machine (CDX)  -> historical URLs and paths
 #       - Shodan InternetDB      -> open ports / CPEs / known CVEs per resolved IP
-#     The target host is never contacted directly: no homepage GET, no robots.txt,
-#     no port scan. This keeps the run strictly passive.
+#     By default the target host is never contacted directly: no homepage GET, no
+#     robots.txt, no port scan. This keeps the run strictly passive.
+#
+#     With --fingerprint (opt-in) the script additionally makes ONE direct GET to
+#     the target homepage to infer its server / language / framework / CMS from
+#     response headers, cookies and HTML (e.g. Apache, PHP, ASP.NET, WordPress).
+#     This single request DOES touch the target and leaves the passive path, so it
+#     is off unless you ask for it.
 #
 # .PARAMETER TARGET
 #     A domain, host, or URL (scheme/path are stripped). Repeatable.
@@ -34,6 +40,16 @@
 # .PARAMETER --no-ct | --no-wayback | --no-shodan | --no-whois
 #     Skip individual passive sources.
 #
+# .PARAMETER --fingerprint (alias --active)
+#     ACTIVE: make one direct GET to each target to fingerprint the web stack
+#     (server, language, framework, CMS). Touches the target; off by default.
+#
+# .PARAMETER --wayback-timeout SEC
+#     Timeout in seconds for Wayback Machine CDX API query (default: 75).
+#
+# .PARAMETER --timeout SEC
+#     Timeout in seconds for standard third-party HTTP requests (default: 25).
+#
 # .EXAMPLE
 #     ./FUNC_BASH_GET_WEB_OSINT.sh example.com
 #     ./FUNC_BASH_GET_WEB_OSINT.sh -f targets.txt -o ./recon --format both
@@ -41,7 +57,7 @@
 # .NOTES
 #     Author: RJGProjectz
 #     Created: 2026-10-21T00:00:00Z
-#     Last Modified: 2026-10-21T00:00:00Z
+#     Last Modified: 2026-10-22T02:51:00Z
 #     security_domain: Application
 #     AUTHORIZED USE ONLY. Passive reconnaissance can still be restricted by law
 #     and by engagement scope. Only enumerate targets you own or are authorized
@@ -59,7 +75,9 @@ DO_WAYBACK=true
 DO_SHODAN=true
 DO_WHOIS=true
 DO_DNS=true
+DO_FINGERPRINT=false
 CURL_TIMEOUT=25
+WAYBACK_TIMEOUT=75
 UA="Mozilla/5.0 (compatible; passive-osint/1.0)"
 TARGETS=()
 
@@ -69,7 +87,7 @@ log()  { printf '%b[%s] %s%b\n' "$CYAN"  "$(date -Iseconds)" "$*" "$NC" >&2; }
 warn() { printf '%b[%s] WARN %s%b\n' "$YELLOW" "$(date -Iseconds)" "$*" "$NC" >&2; }
 err()  { printf '%b[%s] ERROR %s%b\n' "$RED" "$(date -Iseconds)" "$*" "$NC" >&2; }
 
-usage() { sed -n '2,46p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
+usage() { sed -n '3,/^# ----/p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
 
 # --- Argument parsing -------------------------------------------------------
 while [[ $# -gt 0 ]]; do
@@ -82,10 +100,15 @@ while [[ $# -gt 0 ]]; do
         -o|--out)      OUTPUT_DIR="${2:-}"; shift 2 ;;
         --format)      FORMAT="${2:-text}"; shift 2 ;;
         --resolver)    RESOLVER="${2:-1.1.1.1}"; shift 2 ;;
+        --timeout)     CURL_TIMEOUT="${2:-25}"; shift 2 ;;
+        --wayback-timeout)
+                       WAYBACK_TIMEOUT="${2:-75}"; shift 2 ;;
         --no-ct)       DO_CT=false; shift ;;
         --no-wayback)  DO_WAYBACK=false; shift ;;
         --no-shodan)   DO_SHODAN=false; shift ;;
         --no-whois)    DO_WHOIS=false; shift ;;
+        --fingerprint|--active)
+                       DO_FINGERPRINT=true; shift ;;
         -h|--help)     usage 0 ;;
         -*)            err "unknown option: $1"; usage 1 ;;
         *)             TARGETS+=("$1"); shift ;;
@@ -110,8 +133,8 @@ NDJSON="$OUTPUT_DIR/results.ndjson"
 : > "$NDJSON"
 log "output directory: $OUTPUT_DIR"
 
-# Safe third-party GET: fixed timeout, generic UA, never aimed at the target host.
-fetch() { curl -fsS --max-time "$CURL_TIMEOUT" -A "$UA" "$@" 2>/dev/null || true; }
+# Safe third-party GET: fixed timeout, generic UA, follow redirects, never aimed at the target host.
+fetch() { curl -fsSL --max-time "$CURL_TIMEOUT" -A "$UA" "$@" 2>/dev/null || true; }
 
 # normalize a URL/host into a bare domain
 to_domain() {
@@ -125,15 +148,23 @@ to_domain() {
 dns_records() {
     local domain="$1" out="$2" rr
     have dig || { echo "{}"; return; }
-    local json="{}"
+    # Write each record type to its own file, then assemble the JSON in a single
+    # jq pass via --rawfile. (The previous per-iteration --argjson accumulation
+    # could crash with "invalid JSON text passed to --argjson".)
     for rr in A AAAA MX NS TXT SOA CAA; do
-        local vals
-        vals="$(dig +short "@$RESOLVER" "$domain" "$rr" 2>/dev/null | sed '/^$/d')"
-        printf '%s\n' "$vals" > "$out/dns_${rr}.txt"
-        json="$(jq -cn --arg rr "$rr" --arg v "$vals" \
-                '{($rr): ($v | split("\n") | map(select(length>0)))}' | jq -cs --argjson base "$json" '$base + .[0]')"
+        dig +short "@$RESOLVER" "$domain" "$rr" 2>/dev/null | sed '/^$/d' > "$out/dns_${rr}.txt"
     done
-    echo "$json"
+    jq -n \
+        --rawfile a    "$out/dns_A.txt" \
+        --rawfile aaaa "$out/dns_AAAA.txt" \
+        --rawfile mx   "$out/dns_MX.txt" \
+        --rawfile ns   "$out/dns_NS.txt" \
+        --rawfile txt  "$out/dns_TXT.txt" \
+        --rawfile soa  "$out/dns_SOA.txt" \
+        --rawfile caa  "$out/dns_CAA.txt" \
+        'def lines: split("\n") | map(select(length>0));
+         {A: ($a|lines), AAAA: ($aaaa|lines), MX: ($mx|lines), NS: ($ns|lines),
+          TXT: ($txt|lines), SOA: ($soa|lines), CAA: ($caa|lines)}'
 }
 
 resolve_ips() {
@@ -180,9 +211,37 @@ ct_subdomains() {
 
 wayback_urls() {
     local domain="$1" out="$2"
-    fetch "http://web.archive.org/cdx/search/cdx?url=*.$domain/*&output=text&fl=original&collapse=urlkey&limit=5000" \
-        | sort -u > "$out/wayback_urls.txt"
-    wc -l < "$out/wayback_urls.txt" | tr -d ' '
+    local wb_file="$out/wayback_urls.txt"
+    local raw=""
+
+    # Wayback CDX wildcard (*.domain/*) searches can take 30-60s or return transient
+    # 503/504 when archive.org's backend cluster is under heavy load.
+    # Use WAYBACK_TIMEOUT (default 75s) with transient error retry.
+    raw="$(curl -sSL --retry 2 --retry-delay 2 --max-time "$WAYBACK_TIMEOUT" -A "$UA" \
+            "http://web.archive.org/cdx/search/cdx?url=*.$domain/*&output=text&fl=original&collapse=urlkey&limit=5000" 2>/dev/null || true)"
+
+    # Discard HTML error responses (e.g. 504 Gateway Time-out or 503 from nginx)
+    if echo "$raw" | grep -qiE '<html|<head|504 gateway|503 service'; then
+        raw=""
+    fi
+
+    # Fallback: if wildcard query yielded no valid URLs, try base domain with smaller limit
+    if [[ -z "$raw" ]]; then
+        raw="$(curl -sSL --max-time 30 -A "$UA" \
+                "http://web.archive.org/cdx/search/cdx?url=$domain/*&output=text&fl=original&collapse=urlkey&limit=1000" 2>/dev/null || true)"
+        if echo "$raw" | grep -qiE '<html|<head|504 gateway|503 service'; then
+            raw=""
+        fi
+        if [[ -z "$raw" ]]; then
+            warn "wayback: query returned 0 URLs (archive.org CDX cluster is currently timing out / unavailable)"
+        else
+            warn "wayback: wildcard query timed out; fell back to base domain ($domain/*)"
+        fi
+    fi
+
+    # Extract only valid HTTP/HTTPS URLs
+    printf '%s\n' "$raw" | grep -E '^https?://' | sort -u > "$wb_file" || true
+    wc -l < "$wb_file" | tr -d ' '
 }
 
 shodan_internetdb() {
@@ -199,6 +258,61 @@ shodan_internetdb() {
     echo "$merged"
 }
 
+# --- ACTIVE fingerprint (opt-in; this is the ONLY step that touches the target)
+# Makes a single GET to the target's homepage and infers the server / language /
+# framework / CMS from response headers, cookies and the HTML. Enabled only with
+# --fingerprint, because it leaves the strictly-passive path and hits the host.
+fingerprint_target() {
+    local domain="$1" out="$2"
+    local hdr="$out/fp_headers.txt" body="$out/fp_body.html" result="" scheme
+    : > "$hdr"; : > "$body"
+    for scheme in https http; do
+        result="$(curl -sSL --max-time "$CURL_TIMEOUT" -A "$UA" \
+                     -D "$hdr" -o "$body" \
+                     -w '%{url_effective}\t%{http_code}' "$scheme://$domain/" 2>/dev/null)" \
+            && [[ -n "$result" ]] && break
+    done
+    if [[ -z "$result" ]]; then
+        warn "fingerprint: $domain unreachable over http/https"
+        echo '{}'; return
+    fi
+
+    local eff="${result%%$'\t'*}" code="${result##*$'\t'}"
+    local server powered aspnet gen cookies
+    server="$(grep -i  '^server:'             "$hdr" | tail -n1 | cut -d: -f2- | tr -d '\r' | xargs || true)"
+    powered="$(grep -i '^x-powered-by:'       "$hdr" | tail -n1 | cut -d: -f2- | tr -d '\r' | xargs || true)"
+    aspnet="$(grep -i  '^x-aspnet-version:'   "$hdr" | tail -n1 | cut -d: -f2- | tr -d '\r' | xargs || true)"
+    cookies="$(grep -i '^set-cookie:'         "$hdr" | cut -d: -f2- | tr -d '\r' | awk -F= '{print $1}' | xargs || true)"
+    gen="$(grep -ioE '<meta[^>]+name=["'\'']?generator["'\'']?[^>]*>' "$body" 2>/dev/null \
+            | grep -ioE 'content=["'\''][^"'\'']*' | head -n1 | sed -E 's/^content=["'\'']//' | xargs || true)"
+
+    # Heuristic technology list from the signals above.
+    local -a t=()
+    [[ -n "$server"  ]] && t+=("server: $server")
+    [[ -n "$powered" ]] && t+=("x-powered-by: $powered")
+    [[ -n "$aspnet"  ]] && t+=("ASP.NET $aspnet")
+    [[ -n "$gen"     ]] && t+=("generator: $gen")
+    grep -qi 'PHPSESSID'         <<<"$cookies"                && t+=("PHP (PHPSESSID cookie)")
+    grep -qi 'ASP.NET_SessionId' <<<"$cookies"                && t+=("ASP.NET (session cookie)")
+    grep -qi 'laravel_session'   <<<"$cookies"                && t+=("Laravel")
+    grep -qi 'JSESSIONID'        <<<"$cookies"                && t+=("Java/JSP (JSESSIONID)")
+    grep -qi 'ci_session'        <<<"$cookies"                && t+=("CodeIgniter")
+    grep -qiE 'wp-content|wp-includes|wp-json' "$body" 2>/dev/null && t+=("WordPress")
+    grep -qi  'Drupal'            "$body" 2>/dev/null         && t+=("Drupal")
+    grep -qi  'Joomla'            "$body" 2>/dev/null         && t+=("Joomla")
+    grep -qi  'cdn.shopify.com'   "$body" 2>/dev/null         && t+=("Shopify")
+    grep -qiE '/_next/|__NEXT_DATA__' "$body" 2>/dev/null     && t+=("Next.js")
+    grep -qiE 'ng-version|ng-app'  "$body" 2>/dev/null        && t+=("Angular")
+
+    local tech_json
+    tech_json="$(printf '%s\n' ${t[@]+"${t[@]}"} | sed '/^$/d' | sort -u | jq -Rnc '[inputs]')"
+    jq -cn \
+        --arg url "$eff" --arg code "$code" \
+        --arg server "$server" --arg powered "$powered" \
+        --argjson technology "${tech_json:-[]}" \
+        '{url:$url, http_code:$code, server:$server, powered_by:$powered, technology:$technology}'
+}
+
 # --- Per-target workflow ----------------------------------------------------
 process_target() {
     local raw_target="$1" domain tdir
@@ -207,7 +321,7 @@ process_target() {
     tdir="$OUTPUT_DIR/$domain"; mkdir -p "$tdir"
     log "==> $domain"
 
-    local ips_list dns_json="{}" whois_json="{}" ct_count=0 wb_count=0 shodan_json="[]"
+    local ips_list dns_json="{}" whois_json="{}" ct_count=0 wb_count=0 shodan_json="[]" fp_json="{}"
     ips_list="$(resolve_ips "$domain" || true)"
     printf '%s\n' "$ips_list" | sed '/^$/d' > "$tdir/ips.txt"
 
@@ -221,18 +335,25 @@ process_target() {
         shodan_json="$(shodan_internetdb "$tdir" $ips_list)"
     fi
 
+    if $DO_FINGERPRINT; then
+        warn "fingerprint: contacting $domain directly — ACTIVE, this leaves the passive path"
+        fp_json="$(fingerprint_target "$domain" "$tdir")"
+    fi
+
     # Assemble the structured record
     jq -cn \
         --arg domain "$domain" \
         --arg scanned "$(date -Iseconds)" \
         --argjson ips "$(jq -Rsc 'split("\n") | map(select(length>0))' "$tdir/ips.txt")" \
-        --argjson dns "${dns_json:-{}}" \
-        --argjson whois "${whois_json:-{}}" \
+        --argjson dns "${dns_json:-"{}"}" \
+        --argjson whois "${whois_json:-"{}"}" \
         --argjson subdomain_count "${ct_count:-0}" \
         --argjson wayback_count "${wb_count:-0}" \
-        --argjson shodan "${shodan_json:-[]}" \
+        --argjson shodan "${shodan_json:-"[]"}" \
+        --argjson fingerprint "${fp_json:-"{}"}" \
         '{domain:$domain, scanned:$scanned, ips:$ips, dns:$dns, registration:$whois,
-          subdomain_count:$subdomain_count, wayback_count:$wayback_count, shodan:$shodan}' \
+          subdomain_count:$subdomain_count, wayback_count:$wayback_count, shodan:$shodan,
+          fingerprint:$fingerprint}' \
         >> "$NDJSON"
 
     if [[ "$FORMAT" == "text" || "$FORMAT" == "both" ]]; then
@@ -246,12 +367,20 @@ process_target() {
             printf '  Shodan ports   : %s\n' "$(jq -r '.ports | join(",")' "$tdir/shodan_internetdb.ndjson" 2>/dev/null | paste -sd'; ' || echo '-')"
             printf '  Shodan CVEs    : %s\n' "$(jq -r '(.vulns // []) | join(",")' "$tdir/shodan_internetdb.ndjson" 2>/dev/null | sed '/^$/d' | paste -sd'; ' || echo '-')"
         fi
+        if $DO_FINGERPRINT; then
+            printf '  Server (active): %s\n' "$(jq -r '.server // "-" | if .=="" then "-" else . end' <<<"$fp_json" 2>/dev/null || echo '-')"
+            printf '  Technology     : %s\n' "$(jq -r '(.technology // []) | if length==0 then "-" else join(", ") end' <<<"$fp_json" 2>/dev/null || echo '-')"
+        fi
         echo
     fi
 }
 
 # --- Main -------------------------------------------------------------------
-log "passive web OSINT — ${#TARGETS[@]} target(s); sources never touch the target host"
+if $DO_FINGERPRINT; then
+    log "web OSINT — ${#TARGETS[@]} target(s); passive sources + ACTIVE fingerprint (one direct GET per target)"
+else
+    log "passive web OSINT — ${#TARGETS[@]} target(s); sources never touch the target host"
+fi
 for t in "${TARGETS[@]}"; do
     process_target "$t"
 done

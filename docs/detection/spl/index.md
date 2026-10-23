@@ -11,6 +11,7 @@ type: index
 | [Windows security events](windows-events.md) | authentication, process creation, services, tasks, account changes, log clearing, Defender |
 | [PowerShell](powershell.md) | 4104 script blocks, encoded commands, downgrade |
 | [Network and DNS](network-dns.md) | CIM network traffic, rare destinations, DNS, beaconing |
+| [Web attacks](web-attacks.md) | SQLi, XSS, path traversal and login brute-force from access/WAF logs |
 
 !!! note "Environment-specific"
     Splunk field names depend on the add-ons and rendering mode you deploy. Detection pages are marked **Unverified** until checked against your indexes — update `verified` and `last_verified` once tested.
@@ -63,6 +64,7 @@ type: index
 | [Splunk Detection — Suspicious DNS Tunneling Signatures](dns-tunneling.md) | Entry | Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Splunk Detection — Suspicious MFA Authentication Method Deletion](mfa-deletion.md) | Entry | Entra ID, Microsoft 365, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Splunk Detection — Suspicious SMB Administrative Share Access](lateral-movement-smb.md) | Entry | Windows, Windows Server, Splunk | SPL | Detection Engineering, Threat Hunting |
+| [Splunk Detection — Web Attacks (SQLi, XSS, Path Traversal & Login Brute-Force)](web-attacks.md) | Entry | Linux, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Cross-Platform Equivalents](../../references/equivalents.md) | Reference | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting, Administration |
 | [Knowledge Graph Efficacy & Operational Coverage Matrix](../../references/coverage-matrix.md) | Reference | Windows, Windows Server, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | PowerShell, Bash, Python, KQL, SPL, S1QL, REST API | Administration, Incident Response, Threat Hunting, Detection Engineering, Hardening, Assurance, Governance |
 | [MITRE ATT&CK® Enterprise Matrix & Navigator Coverage](../../references/mitre-attack-matrix.md) | Reference | Windows, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | KQL, SPL, S1QL, PowerShell, Bash | Detection Engineering, Incident Response, Threat Hunting, Hardening |

@@ -415,6 +415,7 @@ nav:
               - File & Registry Events: detection/kql/file-registry-events.md
               - Logons & Identity: detection/kql/logon-identity.md
               - Credential Access: detection/kql/credential-access.md
+              - Web Attacks: detection/kql/web-attacks.md
           - SPL:
               - Overview: detection/spl/index.md
               - Fundamentals & Optimization: detection/spl/fundamentals.md
@@ -425,6 +426,7 @@ nav:
               - DNS Tunneling: detection/spl/dns-tunneling.md
               - Azure RBAC Modification: detection/spl/azure-rbac-modification.md
               - Brute Force: detection/spl/brute-force.md
+              - Web Attacks: detection/spl/web-attacks.md
               - SMB Lateral Movement: detection/spl/lateral-movement-smb.md
               - Agent Tampering: detection/spl/agent-tampering.md
               - MFA Method Deletion: detection/spl/mfa-deletion.md
@@ -462,6 +464,8 @@ nav:
               - Linux CIS Filesystems & Services: tasks/hardening/linux-cis-filesystem-services.md
               - Linux CIS Auditd & Telemetry Baseline: tasks/hardening/linux-cis-auditd-logging.md
               - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md
+              - Apache & PHP Web Server Hardening: tasks/hardening/apache-php-web-server-hardening.md
+              - NGINX Web Server Hardening: tasks/hardening/nginx-web-server-hardening.md
               - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
               - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
               - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md

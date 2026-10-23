@@ -14,6 +14,7 @@ Used by **Microsoft Defender XDR advanced hunting** and **Microsoft Sentinel**.
 | [Network events](network-events.md) | `DeviceNetworkEvents` — listeners, outbound, beaconing, RDP, DNS |
 | [File and registry events](file-registry-events.md) | `DeviceFileEvents`, `DeviceRegistryEvents`, `DeviceEvents` — persistence |
 | [Logons and identity](logon-identity.md) | `DeviceLogonEvents`, `IdentityLogonEvents`, `SigninLogs`, `AuditLogs` |
+| [Web attacks](web-attacks.md) | SQLi, XSS, path traversal and login brute-force from App Gateway WAF / IIS logs |
 
 ## Everything tagged KQL
 
@@ -74,6 +75,7 @@ Used by **Microsoft Defender XDR advanced hunting** and **Microsoft Sentinel**.
 | [KQL Logon and Identity Hunting](logon-identity.md) | Entry | Microsoft Defender, Entra ID, Microsoft 365, Windows | KQL | Threat Hunting, Investigation, Incident Response, Detection Engineering |
 | [KQL Network Event Hunting](network-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Investigation, Detection Engineering, Incident Response |
 | [KQL Process Event Hunting](process-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Detection Engineering, Investigation, Incident Response |
+| [KQL — Web Attacks (SQLi, XSS, Path Traversal & Login Brute-Force)](web-attacks.md) | Entry | Azure | KQL | Detection Engineering, Threat Hunting |
 | [Microsoft Defender for Cloud (Posture & Alerts)](../../platforms/azure/security-posture.md) | Entry | Azure, Microsoft Defender | Bash, PowerShell, KQL | Assurance, Hardening, Investigation, Incident Response |
 | [Microsoft Defender XDR and Defender for Endpoint](../../platforms/microsoft-365/defender.md) | Entry | Microsoft 365, Microsoft Defender, Windows | PowerShell, KQL | Incident Response, Threat Hunting, Administration, Automation |
 | [Cross-Platform Equivalents](../../references/equivalents.md) | Reference | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting, Administration |
