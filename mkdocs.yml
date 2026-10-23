@@ -393,6 +393,7 @@ nav:
               - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
   - Offensive:
       - Overview: offensive/index.md
+      - OSINT & Active Recon: offensive/osint-active-recon.md
       - Passive Web OSINT (Tool): offensive/passive-web-osint.md
       - Web Application Assessment: offensive/web-application-assessment.md
       - Web API Assessment: offensive/web-api-assessment.md

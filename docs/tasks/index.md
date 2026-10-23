@@ -184,6 +184,7 @@ Contain, investigate and preserve evidence.
 | [Live Memory Acquisition and Volatility Analysis](forensics/memory-acquisition-analysis.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash, Python | Forensics, Incident Response, Investigation |
 | [Local User and Group Administration](administration/local-user-group-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Malware Triage](incident-response/malware-triage.md) | Workflow | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Forensics |
+| [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](../offensive/osint-active-recon.md) | Workflow | Linux | Bash | Assessment |
 | [Microsoft Purview and Unified Audit Log (UAL) Investigation](../platforms/microsoft-365/audit-log-investigation.md) | Workflow | Microsoft 365, Entra ID, Exchange Online | PowerShell | Investigation, Incident Response, Forensics |
 | [Network Adapter and IP Configuration](administration/network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Investigation](investigation/network-investigation.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
