@@ -30,8 +30,8 @@ documented as **what to know and how to detect/harden**, never as attack tooling
 ### Stage 1 — Reconnaissance
 *Gather OSINT, map the estate, and scan networks and public/internal entry points — passively first.*
 
-- [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) · [Passive Web OSINT Tool](passive-web-osint.md) · [Enumerate an Internal Network and its Services](network-infrastructure-enumeration.md) · [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](wifi-wireless-assessment.md) · [Enumerate Cloud Attack Surface across AWS, Azure and GCP](cloud-attack-surface-enumeration.md)
-- **Theory:** [OSINT & Reconnaissance](../fundamentals/concepts/osint.md) · [Port Scanning](../fundamentals/concepts/port-scanning.md) · [Packet Sniffing](../fundamentals/concepts/packet-sniffing.md) · [Wi-Fi Security](../fundamentals/concepts/wifi-security.md)
+- [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) · [Passive Web OSINT Tool](passive-web-osint.md) · [Enumerate an Internal Network and its Services](network-infrastructure-enumeration.md) · [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](wifi-wireless-assessment.md) · [Enumerate Cloud Attack Surface across AWS, Azure and GCP](cloud-attack-surface-enumeration.md) · [Enumerate Container and Kubernetes Attack Surface](container-kubernetes-attack-surface.md)
+- **Theory:** [OSINT & Reconnaissance](../fundamentals/concepts/osint.md) · [Port Scanning](../fundamentals/concepts/port-scanning.md) · [Packet Sniffing](../fundamentals/concepts/packet-sniffing.md) · [Wi-Fi Security](../fundamentals/concepts/wifi-security.md) · [Cloud-Native Security (Containers, Kubernetes)](../fundamentals/concepts/cloud-native-security.md)
 
 ### Stage 2 — Initial Access
 *Find and validate the ways in — exposed services, web/API weaknesses, weak credentials, people.*
@@ -79,6 +79,7 @@ documented as **what to know and how to detect/harden**, never as attack tooling
 | [Enumerate Active Directory for Users, Privileges and Attack Paths](active-directory-enumeration.md) | Workflow | Active Directory, Windows | PowerShell, Bash | Assessment |
 | [Enumerate an Internal Network and its Services](network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate Cloud Attack Surface across AWS, Azure and GCP](cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
+| [Enumerate Container and Kubernetes Attack Surface — Exposed Runtimes, kubelet, API Server and RBAC](container-kubernetes-attack-surface.md) | Workflow | Linux | Bash, Python | Assessment |
 | [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) | Workflow | Linux | Bash | Assessment |
 | [API Surface Recon Tool (scope- and rate-limit-aware)](api-surface-recon-tool.md) | Tool | Linux | Bash | Assessment |
 | [Passive Web OSINT Tool (one or many targets)](passive-web-osint.md) | Tool | Linux | Bash | Assessment |
