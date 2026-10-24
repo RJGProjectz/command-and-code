@@ -503,6 +503,7 @@ nav:
               - Deploy & Tune Sysmon: tasks/administration/sysmon-deployment-tuning.md
               - Forward Events Centrally (WEF & rsyslog): tasks/administration/centralized-log-forwarding-wef-rsyslog.md
               - Detection Development Lifecycle: tasks/detection-engineering/detection-development-lifecycle.md
+              - Detection-as-Code Pipeline: tasks/detection-engineering/detection-as-code-pipeline.md
               - Alert Tuning & False Positives: tasks/detection-engineering/alert-tuning-false-positive-management.md
           - Threat Hunting:
               - Overview: tasks/threat-hunting/index.md

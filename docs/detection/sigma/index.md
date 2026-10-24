@@ -69,6 +69,7 @@ Backend and pipeline names change between pySigma releases — `sigma list targe
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Detection Development Lifecycle (DDLC) and Testing](../../tasks/detection-engineering/detection-development-lifecycle.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL, Sigma, PowerShell | Detection Engineering, Threat Hunting, Incident Response |
+| [Detection-as-Code Pipeline (Version Control, CI Validation & Staged Deploy)](../../tasks/detection-engineering/detection-as-code-pipeline.md) | Workflow | Microsoft Defender, Splunk, SentinelOne, GitHub, Linux | Sigma, KQL, SPL, S1QL, Python, Bash | Detection Engineering, Automation, Assurance |
 | [Detection Rule — ARP Spoofing (DAI and arpwatch)](arp-spoofing-dai.md) | Entry | Linux, Splunk | Sigma, SPL, KQL | Detection Engineering, Threat Hunting |
 | [Detection Rule — CI/CD Secret Leak](cicd-secret-leak.md) | Entry | Splunk | Sigma, SPL, KQL | Detection Engineering, Incident Response |
 | [Detection Rule — Cryptomining (Resource Hijacking)](cryptomining.md) | Entry | Windows, Linux, Microsoft Defender | Sigma, KQL, SPL | Detection Engineering, Threat Hunting |
