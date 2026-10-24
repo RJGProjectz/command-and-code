@@ -151,6 +151,34 @@ Keep the request/response transcripts and `garak.txt` as evidence. For each find
 model's response), **severity** (weighted by what the connected tools can *do*), and **fix** (input
 provenance separation, output sanitization, least-privilege tools, human confirmation).
 
+## Detect it
+
+An LLM application is still reached over HTTP, so the probing above is **visible at the web layer** —
+the same requests drive detection content on the [Detection](../detection/index.md) tab. Pair each
+technique with what catches it:
+
+| Offensive technique here | Detect it with |
+| :--- | :--- |
+| Automated scanner traffic (`garak`/`pyrit`, §6) hitting the endpoint fast | [SPL — Web Attacks](../detection/spl/web-attacks.md) · [KQL — Web Attacks](../detection/kql/web-attacks.md) |
+| Bursts of anomalous / malformed prompts against the API (§2–§4) | [SPL — Network and DNS Hunting](../detection/spl/network-dns.md) · [KQL — Network Event Hunting](../detection/kql/network-events.md) |
+| Insecure output handling that pivots to XSS/SSRF in the surrounding app (§5) | [SPL — Web Attacks](../detection/spl/web-attacks.md) · [KQL — Web Attacks](../detection/kql/web-attacks.md) |
+
+A real user never sends hundreds of adversarial prompts a minute — that volume and shape is exactly what
+the defender hunts for.
+
+## Harden it
+
+Every finding on this page maps to a control:
+
+- **Treat model output as untrusted** (insecure output handling, §5) — encode and sanitize before it
+  reaches a browser or downstream system: [Cross-Site Scripting (XSS) Defense](../fundamentals/web-apps/xss-defense.md)
+  and [HTTP Security Headers](../fundamentals/web-apps/http-security-headers.md).
+- **Least-privilege tools and human confirmation** (excessive agency, §5) — scope what the connected
+  tools can do and gate state-changing actions: [Access Control Models (ACL, DAC, MAC, RBAC, ABAC)](../fundamentals/concepts/access-control-models.md).
+- **Separate instructions from retrieved data** (direct and indirect injection, §2/§4) — keep the system
+  prompt and user/tool-supplied content in distinct, provenance-tagged channels:
+  [Prompt Engineering](../fundamentals/ai-systems/prompt-engineering.md).
+
 ## Notes
 
 - **Agency sets severity.** A jailbroken chatbot that only talks is low impact; the same injection on

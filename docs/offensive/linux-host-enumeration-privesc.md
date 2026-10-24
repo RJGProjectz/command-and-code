@@ -150,6 +150,22 @@ Keep `linpeas.txt`, `suid.txt`, `sudo-l.txt`, `caps.txt`, and `pspy.txt` as evid
 path, write **what** (the misconfig), **where** (the exact binary/rule/file), **evidence** (the command
 output), **severity**, and **fix** — then remove any temporary files you dropped on the host.
 
+## Detect it
+
+The sweep is quiet, but the **exploitation** steps execute binaries and touch credential files — visible
+wherever host telemetry is collected, which is what drives the detection content on the
+[Detection](../detection/index.md) tab. The signal only exists if the host is logging, so this pairs with
+[Linux CIS — auditd Logging](../tasks/hardening/linux-cis-auditd-logging.md) as the telemetry source:
+
+| Offensive technique here | Detect it with |
+| :--- | :--- |
+| LinPEAS run, SUID abuse, `sudo`/capability misuse spawning shells (§1–§4) | [KQL — Process Event Hunting](../detection/kql/process-events.md) |
+| Cron/scheduled-job tampering you can influence (§5) | [KQL — File and Registry Event Hunting](../detection/kql/file-registry-events.md) |
+| Credential and SSH-key hunting across the filesystem (§6) | [KQL — Credential Access and Memory Dumping](../detection/kql/credential-access.md) |
+
+A normal user does not read `/etc/shadow`, enumerate every SUID binary, or grep the disk for `password`
+— those are the exact actions the defender hunts for once auditd is recording them.
+
 ## Notes
 
 - **Enumerate before you act.** The sweep is quiet; abusing a SUID binary or editing a cron script is

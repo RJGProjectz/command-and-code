@@ -211,6 +211,20 @@ Active reconnaissance is **noisy and visible** — the same steps drive detectio
 Passive OSINT (§1–§2) is, by design, **not** visible to the target — which is exactly why defenders
 must reduce their public footprint rather than hope to alarm on it.
 
+## Harden it
+
+Passive OSINT can't be alarmed on, so the defence is to **shrink what is discoverable**. Each recon
+output maps to a control:
+
+- **Close the exposed surface** (resolved hosts and open services, §2–§4) — inventory and shut unneeded
+  ports/endpoints: [Firewall & Port Management](../tasks/administration/firewall-port-management.md), and
+  reduce public cloud exposure with the [Azure Security Baseline](../tasks/hardening/cloud-azure-security-baseline.md)
+  / [AWS Security Baseline](../tasks/hardening/cloud-aws-security-baseline.md).
+- **Blunt the spoofing harvested identities enable** (emails and names, §5) — deploy SPF/DKIM/DMARC:
+  [Email Authentication Deployment (SPF/DKIM/DMARC)](../tasks/administration/email-authentication-deployment.md).
+- **Resolve dangling records** (subdomain-takeover candidates, §2) — the cloud baselines above cover
+  decommissioning orphaned endpoints that still have live DNS.
+
 ## Notes
 
 - **Passive before active, always.** §1–§2 cost the target nothing and often find most of the surface.
