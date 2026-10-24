@@ -153,6 +153,21 @@ misconfig / over-permission), **where** (ARN / resource ID / principal), **evide
 CLI output), **severity** (what the identity or exposure actually reaches), and **fix** (least
 privilege, block public access, enforce IMDSv2) — mapped to the cloud hardening baseline.
 
+## Detect it
+
+The authenticated enumeration above is **read-only but fully logged** — every describe/list call lands
+in CloudTrail / Azure Activity / Cloud Audit Logs, which is exactly what drives the cloud detection
+content on the [Detection](../detection/index.md) tab. Pair each technique with what catches it:
+
+| Offensive technique here | Detect it with |
+| :--- | :--- |
+| IAM/role enumeration and permission mapping (§3) | [Sigma — Cloud Identity Rules](../detection/sigma/cloud-identity-rules.md) · [SPL — Azure RBAC Modification](../detection/spl/azure-rbac-modification.md) |
+| Escalation paths that touch MFA or security settings (§4) | [SPL — MFA Deletion / Security-Control Tampering](../detection/spl/mfa-deletion.md) |
+| External exposure probing of public endpoints (§1) | [KQL — Network Event Hunting](../detection/kql/network-events.md) |
+
+Describe/list calls at enumeration volume, from a new principal or an unusual network, are the pattern
+the defender hunts for — which is why §0's coordinated window matters.
+
 ## Notes
 
 - **Read-only, logged, metered.** Prefer describe/list calls; every action lands in CloudTrail / Azure

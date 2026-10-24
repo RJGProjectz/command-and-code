@@ -134,6 +134,35 @@ Keep `winpeas.txt`, `powerup.txt`, and the raw command output as evidence. For e
 **what** (the misconfig), **where** (the service/privilege/key), **evidence** (the output line),
 **severity**, and **fix** — mapping to the CIS user-rights and service-hardening pages.
 
+## Detect it
+
+The enumeration tooling and the escalation primitives above are **heavily instrumented** — WinPEAS,
+token abuse and credential access are among the loudest things on a host, and they drive the detection
+content on the [Detection](../detection/index.md) tab. The signal depends on audit policy, so this pairs
+with [Windows CIS — Advanced Audit Policy](../tasks/hardening/windows-cis-advanced-audit-policy.md) as the
+telemetry source:
+
+| Offensive technique here | Detect it with |
+| :--- | :--- |
+| WinPEAS / PowerUp automated enumeration (§1) | [SPL — PowerShell Activity](../detection/spl/powershell.md) · [KQL — Process Event Hunting](../detection/kql/process-events.md) |
+| Token-privilege abuse — `SeImpersonate`/`SeDebug` (§2) | [KQL — Process Event Hunting](../detection/kql/process-events.md) · [SPL — Windows Security Events](../detection/spl/windows-events.md) |
+| Service creation / reconfiguration (§3) | [SPL — Windows Security Events](../detection/spl/windows-events.md) |
+| Stored-credential and LSASS access (§4) | [KQL — Credential Access and Memory Dumping](../detection/kql/credential-access.md) |
+
+A standard user never runs WinPEAS, flips `SeImpersonate`, or reads LSASS — those are the exact actions
+the defender hunts for once advanced audit policy is recording them.
+
+## Harden it
+
+Every finding on this page maps to a control:
+
+- **Lock down privileges and token rights** (§2) — remove unneeded `SeImpersonate`/`SeDebug`/`SeBackup`
+  grants: [Windows CIS — User Rights Assignment & Account Policies](../tasks/hardening/windows-cis-user-rights-assignment.md).
+- **Shrink the exploitable surface** (service misconfigurations, LOLBins, §1/§3) —
+  [Windows CIS — Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md).
+- **Make local admin credentials non-portable** (stored creds, autologon, §4) — randomise per host and
+  tier admin access: [Deploy Windows LAPS and Admin Tiering](../tasks/hardening/windows-laps-admin-tiering.md).
+
 ## Notes
 
 - **`whoami /priv` first.** `SeImpersonate`/`SeBackup`/`SeDebug` are the fastest wins and need no

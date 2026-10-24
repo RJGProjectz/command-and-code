@@ -256,6 +256,19 @@ catches it:
 A real client never walks `/orders/{id}` sequentially or flips tokens between requests — those are the
 exact patterns the defender hunts for.
 
+## Harden it
+
+Every finding on this page maps to a control:
+
+- **Enforce object- and function-level authorization server-side** (BOLA/BFLA, §4) — check ownership on
+  every request, never trust an ID from the client: [Access Control Models (ACL, DAC, MAC, RBAC, ABAC)](../fundamentals/concepts/access-control-models.md).
+- **Harden tokens and sessions** (auth model, §3) — short lifetimes, validated signatures/audience, no
+  secrets in the client: [Session Management & Cookie Security](../fundamentals/web-apps/session-management.md).
+- **Rate-limit and shield at the edge** (abuse exposure, §5) — put the API behind a hardened reverse
+  proxy that caps request rate and body size: [Nginx Web-Server Hardening](../tasks/hardening/nginx-web-server-hardening.md).
+- **Close the broader web classes** (injection, SSRF, headers surfaced in §1–§2) —
+  [OWASP Top 10 for Web Applications](../fundamentals/web-apps/owasp-web-top-10.md).
+
 ## Notes
 
 - **The UI is not the API.** Controls enforced in the front end mean nothing if the API re-checks
