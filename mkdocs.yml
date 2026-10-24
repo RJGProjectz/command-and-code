@@ -393,20 +393,23 @@ nav:
               - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
   - Offensive:
       - Overview: offensive/index.md
-      - OSINT & Active Recon: offensive/osint-active-recon.md
-      - Passive Web OSINT (Tool): offensive/passive-web-osint.md
-      - Web Application Assessment: offensive/web-application-assessment.md
-      - Web API Assessment: offensive/web-api-assessment.md
-      - API Surface Recon (Tool): offensive/api-surface-recon-tool.md
-      - Password Attacks & Credential Cracking: offensive/password-attacks-credential-cracking.md
-      - Active Directory Enumeration: offensive/active-directory-enumeration.md
-      - Network & Infrastructure Enumeration: offensive/network-infrastructure-enumeration.md
-      - Wi-Fi / Wireless Assessment: offensive/wifi-wireless-assessment.md
-      - Linux Host Enum & Privesc: offensive/linux-host-enumeration-privesc.md
-      - Windows Host Enum & Privesc: offensive/windows-host-enumeration-privesc.md
-      - LLM Application Assessment: offensive/llm-application-assessment.md
-      - Cloud Attack Surface Enumeration: offensive/cloud-attack-surface-enumeration.md
-      - Container & Kubernetes Attack Surface: offensive/container-kubernetes-attack-surface.md
+      - Stage 1 — Reconnaissance:
+          - OSINT & Active Recon: offensive/osint-active-recon.md
+          - Passive Web OSINT (Tool): offensive/passive-web-osint.md
+          - Network & Infrastructure Enumeration: offensive/network-infrastructure-enumeration.md
+          - Wi-Fi / Wireless Assessment: offensive/wifi-wireless-assessment.md
+          - Cloud Attack Surface Enumeration: offensive/cloud-attack-surface-enumeration.md
+          - Container & Kubernetes Attack Surface: offensive/container-kubernetes-attack-surface.md
+      - Stage 2 — Initial Access:
+          - Web Application Assessment: offensive/web-application-assessment.md
+          - Web API Assessment: offensive/web-api-assessment.md
+          - API Surface Recon (Tool): offensive/api-surface-recon-tool.md
+          - LLM Application Assessment: offensive/llm-application-assessment.md
+          - Password Attacks & Credential Cracking: offensive/password-attacks-credential-cracking.md
+      - Stage 4 — Lateral Movement & Privilege Escalation:
+          - Windows Host Enum & Privesc: offensive/windows-host-enumeration-privesc.md
+          - Linux Host Enum & Privesc: offensive/linux-host-enumeration-privesc.md
+          - Active Directory Enumeration: offensive/active-directory-enumeration.md
   - Defensive:
       - Overview: defensive/index.md
       - Detection:
