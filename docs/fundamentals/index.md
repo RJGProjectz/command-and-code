@@ -58,6 +58,7 @@ Every fundamental node provides:
 | [Certificate and PKI Management](../tasks/administration/certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
 | [CIS Hardening Lab Test (Before/After Diff and Run Checklist)](../tasks/hardening/cis-hardening-lab-test.md) | Workflow | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](../tasks/assurance/cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |
+| [Container & Kubernetes Hardening](../tasks/hardening/container-kubernetes-hardening.md) | Workflow | Linux | Bash | Hardening |
 | [Credential Rotation After a Compromise](../tasks/incident-response/credential-rotation-after-compromise.md) | Workflow | Active Directory, Windows Server, Linux, Entra ID, Azure | PowerShell, Bash, CMD | Incident Response, Administration |
 | [Cyber Threat Intelligence — IoC Ingestion, Aging & Confidence Scoring](../tasks/threat-intelligence/ioc-lifecycle-scoring.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | Python, PowerShell, Bash, KQL, SPL | Threat Intelligence, Detection Engineering, Investigation |
 | [Delegated Administration Without Full Admin (JEA, sudo, polkit)](../tasks/administration/delegated-admin-jea-sudo-polkit.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
