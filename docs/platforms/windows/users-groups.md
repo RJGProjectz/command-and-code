@@ -62,6 +62,25 @@ Get-ADUser -Filter 'Enabled -eq $true' -Properties LastLogonDate |
     Select-Object SamAccountName, LastLogonDate
 ```
 
+Find a user by partial/wildcard name, then list **all** of their groups (nested, not just the direct
+`MemberOf` attribute):
+
+```powershell
+# Wildcard lookup — -like against Name / DisplayName / SamAccountName
+Get-ADUser -Filter "Name -like '*smith*'" -Properties DisplayName, Mail, Enabled |
+    Select-Object SamAccountName, DisplayName, Enabled
+
+# ALL groups for a user, including nested group-in-group membership
+Get-ADPrincipalGroupMembership -Identity 'jsmith' | Select-Object Name, GroupCategory, GroupScope
+```
+
+!!! note "`MemberOf` is direct-only; `Get-ADPrincipalGroupMembership` is transitive"
+    The `MemberOf` attribute lists only the groups a user is a **direct** member of.
+    `Get-ADPrincipalGroupMembership` resolves **nested** membership (a group inside a group), which is
+    what you usually want when auditing effective access. For the cross-shell version of these
+    lookups (CMD `dsquery`/`net`, Linux `ldapsearch`, and the SIEM query side) see the
+    [Command Index — Identity and directory](../../references/command-index.md#identity-and-directory-active-directory-entra-id).
+
 !!! note "`-Filter` syntax"
     `Get-ADUser -Filter` uses its own PowerShell-like syntax inside a string. `'Enabled -eq $true'` works because the AD module expands the variable. `LastLogonDate` is replicated with up to ~14 days of lag by design — it is for stale-account checks, not precise timelines.
 

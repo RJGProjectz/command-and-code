@@ -112,6 +112,29 @@ options, output and caveats. For telemetry queries (KQL/SPL/S1QL) see [Cross-pla
 | Logged-on users | `query user` | `query user` | `who` · `w` | |
 | Change a password | `Set-LocalUser x -Password (Read-Host -AsSecureString)` | `net user x *` | `passwd x` | |
 
+## Identity and directory (Active Directory / Entra ID)
+
+Directory queries across every shell, plus the query-side (SIEM) equivalent. PowerShell uses the RSAT
+`ActiveDirectory` module; `dsquery`/`dsget` are the legacy CMD tools; `ldapsearch` works from Linux.
+Replace `DC=corp,DC=example` with your domain's base DN.
+
+| Job | PowerShell (AD module) | CMD (net / dsquery) | Bash (LDAP) | More |
+| :--- | :--- | :--- | :--- | :--- |
+| My identity and my groups | `whoami /all` · `Get-ADPrincipalGroupMembership $env:USERNAME` | `whoami /groups` · `gpresult /r` | `id` | [Windows users & groups](../platforms/windows/users-groups.md) |
+| Look up a domain user | `Get-ADUser jsmith -Properties *` | `net user jsmith /domain` · `dsquery user -samid jsmith` | `ldapsearch -x -b "DC=corp,DC=example" "(sAMAccountName=jsmith)"` | [AD domain management](../tasks/administration/active-directory-domain-management.md) |
+| **Find users by wildcard name** | `Get-ADUser -Filter "Name -like '*smith*'" -Properties DisplayName,Mail` | `dsquery user -name "*smith*"` | `ldapsearch -x -b "DC=corp,DC=example" "(cn=*smith*)" cn mail` | |
+| A user's **direct** groups | `(Get-ADUser jsmith -Properties MemberOf).MemberOf` | `net user jsmith /domain` (Group lines) | `ldapsearch -x -b "DC=corp,DC=example" "(sAMAccountName=jsmith)" memberOf` | |
+| A user's **all / nested** groups | `Get-ADPrincipalGroupMembership jsmith \| Select-Object Name` | `dsget user "<userDN>" -memberof -expand` | nested match: `(memberOf:1.2.840.113556.1.4.1941:=<groupDN>)` | [User lifecycle](../tasks/administration/user-lifecycle-management.md) |
+| Members of a group (recursive) | `Get-ADGroupMember "Domain Admins" -Recursive \| Select-Object Name,SamAccountName` | `net group "Domain Admins" /domain` · `dsget group "<groupDN>" -members -expand` | `ldapsearch -x -b "DC=corp,DC=example" "(memberOf=CN=Domain Admins,CN=Users,DC=corp,DC=example)"` | |
+| Enabled / disabled accounts | `Get-ADUser -Filter 'Enabled -eq $true'` · `... 'Enabled -eq $false'` | `dsquery user -disabled` | `(userAccountControl:1.2.840.113556.1.4.803:=2)` = disabled | |
+| Stale accounts (no recent logon) | `Get-ADUser -Filter 'LastLogonDate -lt $cut' -Properties LastLogonDate` | `dsquery user -inactive 8` | — | [AD domain management](../tasks/administration/active-directory-domain-management.md) |
+| Locked-out accounts | `Search-ADAccount -LockedOut` | — | — | |
+
+**Query side (SIEM) — the same identity questions on your own logs:**
+[Logons & Identity hunting (KQL)](../detection/kql/logon-identity.md) ·
+[Brute-force / spray correlation (SPL)](../detection/spl/brute-force.md). For AD **attack-path**
+enumeration (not just lookups), see [Active Directory Enumeration](../offensive/active-directory-enumeration.md).
+
 ## Networking
 
 | Job | PowerShell | CMD | Bash | More |
