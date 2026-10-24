@@ -316,10 +316,11 @@ Every finding on this page maps to a control:
   [Azure Kubernetes Service (AKS)](../platforms/azure/kubernetes.md) settings page.
 - **Block pod→metadata and lock down escape preconditions.** A network policy that denies pods egress to
   `169.254.169.254` closes the IMDS pivot (§6); admission control / Pod Security that forbids privileged and
-  host-mounting pods closes the escape preconditions (§7). A dedicated **container & Kubernetes hardening**
-  workflow (planned as the WP-90 defensive counterpart to this page) will carry the step-by-step controls;
-  until it lands, use the AKS baseline above and the [Cloud-Native Security](../fundamentals/concepts/cloud-native-security.md)
-  concept's *Detect it* / *Harden* links.
+  host-mounting pods closes the escape preconditions (§7). The dedicated, step-by-step controls — one
+  per finding on this page — are in
+  [Container & Kubernetes Hardening](../tasks/hardening/container-kubernetes-hardening.md), with the
+  AKS baseline above and the [Cloud-Native Security](../fundamentals/concepts/cloud-native-security.md)
+  concept's *Detect it* / *Harden* links for the surrounding context.
 
 ## Notes
 
@@ -341,7 +342,7 @@ Every finding on this page maps to a control:
 - [Offensive — Overview](index.md) — this is part of Stage 1 (Reconnaissance)
 - [Enumerate Cloud Attack Surface across AWS, Azure and GCP](cloud-attack-surface-enumeration.md) — the IaaS/identity layer beneath the cluster (IMDS/SSRF pivot continues there) · [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md)
 - Reference: [Cloud-Native Security (Containers, Kubernetes, Microservices)](../fundamentals/concepts/cloud-native-security.md) · [Penetration Testing & Red Teaming](../fundamentals/concepts/penetration-testing.md) · [Vulnerability Assessment & Patch Management](../fundamentals/concepts/vulnerability-management.md) · [Identity and Access Management](../fundamentals/concepts/identity-access-management.md)
-- Defensive counterparts: [Azure Kubernetes Service (AKS)](../platforms/azure/kubernetes.md) · [Azure Security Baseline](../tasks/hardening/cloud-azure-security-baseline.md) · a dedicated container/K8s **hardening** workflow is planned (WP-90)
+- Defensive counterparts: [Container & Kubernetes Hardening](../tasks/hardening/container-kubernetes-hardening.md) — the step-by-step control page for this surface · [Azure Kubernetes Service (AKS)](../platforms/azure/kubernetes.md) · [Azure Security Baseline](../tasks/hardening/cloud-azure-security-baseline.md)
 
 ## External Resources & White Papers
 
