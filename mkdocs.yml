@@ -406,10 +406,14 @@ nav:
           - API Surface Recon (Tool): offensive/api-surface-recon-tool.md
           - LLM Application Assessment: offensive/llm-application-assessment.md
           - Password Attacks & Credential Cracking: offensive/password-attacks-credential-cracking.md
+      - Stage 3 — Foothold & Command-and-Control:
+          - Foothold, C2 & Defense Evasion (Awareness): offensive/foothold-command-control.md
       - Stage 4 — Lateral Movement & Privilege Escalation:
           - Windows Host Enum & Privesc: offensive/windows-host-enumeration-privesc.md
           - Linux Host Enum & Privesc: offensive/linux-host-enumeration-privesc.md
           - Active Directory Enumeration: offensive/active-directory-enumeration.md
+      - Stage 5 — Actions on Objectives & Reporting:
+          - Actions on Objectives & Reporting (Awareness): offensive/actions-on-objectives-reporting.md
   - Defensive:
       - Overview: defensive/index.md
       - Detection:
