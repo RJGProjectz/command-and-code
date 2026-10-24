@@ -45,6 +45,7 @@ The topic names match the cloud platforms ([Azure](../azure/index.md), [AWS](../
 <!-- cc:index platforms="GitHub" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Detection-as-Code Pipeline (Version Control, CI Validation & Staged Deploy)](../../tasks/detection-engineering/detection-as-code-pipeline.md) | Workflow | Microsoft Defender, Splunk, SentinelOne, GitHub, Linux | Sigma, KQL, SPL, S1QL, Python, Bash | Detection Engineering, Automation, Assurance |
 | [Git: Clone, Sync a Fork, Branches, Rebase & Signed Commits](repositories.md) | Entry | GitHub | Bash | Administration, Automation, Troubleshooting |
 | [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
 | [GitHub Audit Log & Security Log](audit-logging.md) | Entry | GitHub | Bash | Investigation, Incident Response, Forensics, Hardening |
