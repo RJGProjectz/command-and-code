@@ -13,6 +13,7 @@ Scripts, APIs and patterns that turn repeated manual work into reliable tools.
 | --- | --- | --- | --- | --- |
 | [Automated Active Directory and Cloud Identity Containment](automated-account-containment.md) | Workflow | Active Directory, Entra ID, Microsoft 365, Windows Server | PowerShell, REST API | Automation, Incident Response, Administration |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |
+| [Detection-as-Code Pipeline (Version Control, CI Validation & Staged Deploy)](../detection-engineering/detection-as-code-pipeline.md) | Workflow | Microsoft Defender, Splunk, SentinelOne, GitHub, Linux | Sigma, KQL, SPL, S1QL, Python, Bash | Detection Engineering, Automation, Assurance |
 | [Incident Response — Automated Multi-Vector Containment Runbook](../incident-response/automated-containment.md) | Workflow | Windows, Microsoft 365, Entra ID, Microsoft Defender, SentinelOne | PowerShell | Incident Response, Automation |
 | [Scheduled Task and Cron Job Automation](../administration/scheduled-jobs-task-scheduler.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
 | [System Maintenance and Updates](../administration/system-maintenance-updates.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
