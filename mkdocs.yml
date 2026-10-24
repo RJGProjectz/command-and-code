@@ -474,6 +474,7 @@ nav:
               - Apache & PHP Web Server Hardening: tasks/hardening/apache-php-web-server-hardening.md
               - NGINX Web Server Hardening: tasks/hardening/nginx-web-server-hardening.md
               - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
+              - AWS Security Baseline (CIS/Security Hub): tasks/hardening/cloud-aws-security-baseline.md
               - Container & Kubernetes Hardening: tasks/hardening/container-kubernetes-hardening.md
               - AppLocker Application Control Phased Rollout: tasks/hardening/applocker-deployment-rollout.md
               - AD Kerberos & LDAP Protocol Hardening: tasks/hardening/ad-kerberos-ldap-hardening.md

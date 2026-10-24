@@ -55,6 +55,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [AWS KMS, Secrets Manager & Parameter Store](../../platforms/aws/keys-secrets.md) | Entry | AWS | Bash, Python | Administration, Hardening, Investigation, Incident Response |
 | [AWS Networking (VPC, Security Groups, Flow Logs)](../../platforms/aws/networking.md) | Entry | AWS | Bash | Administration, Troubleshooting, Investigation, Hardening |
 | [AWS SCPs, Config Rules & Governance](../../platforms/aws/policy-governance.md) | Entry | AWS | Bash | Hardening, Assurance, Administration, Governance |
+| [AWS Security Baseline — CIS AWS Foundations Benchmark & Security Hub](cloud-aws-security-baseline.md) | Entry | AWS | Bash | Hardening, Assurance, Governance |
 | [AWS Security Hub, GuardDuty & Inspector (Posture & Alerts)](../../platforms/aws/security-posture.md) | Entry | AWS | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [Azure & Entra ID Security Baseline — CIS Benchmark & NIST CSF 2.0](cloud-azure-security-baseline.md) | Entry | Azure, Entra ID, Microsoft 365 | PowerShell, Bash | Hardening, Assurance, Governance |
 | [Azure Audit Logging (Activity Log & Diagnostic Settings)](../../platforms/azure/audit-logging.md) | Entry | Azure, Entra ID | Bash, PowerShell, KQL | Investigation, Incident Response, Forensics, Hardening |

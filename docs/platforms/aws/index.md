@@ -64,6 +64,7 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [AWS Organizations, Accounts & Inventory](resource-hierarchy.md) | Entry | AWS | Bash, Python | Administration, Investigation, Assurance |
 | [AWS Persistence & Threat Hunting](persistence-hunting.md) | Entry | AWS | Bash, Python | Threat Hunting, Incident Response, Investigation, Detection Engineering |
 | [AWS SCPs, Config Rules & Governance](policy-governance.md) | Entry | AWS | Bash | Hardening, Assurance, Administration, Governance |
+| [AWS Security Baseline — CIS AWS Foundations Benchmark & Security Hub](../../tasks/hardening/cloud-aws-security-baseline.md) | Entry | AWS | Bash | Hardening, Assurance, Governance |
 | [AWS Security Hub, GuardDuty & Inspector (Posture & Alerts)](security-posture.md) | Entry | AWS | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [AWS Troubleshooting](troubleshooting.md) | Entry | AWS | Bash | Troubleshooting, Administration |
 | [Cloud Incident Response Cheat Sheet (Printable)](../../references/cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |

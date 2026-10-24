@@ -111,6 +111,7 @@ Bash knowledge lives in two places:
 | [AWS Organizations, Accounts & Inventory](../../platforms/aws/resource-hierarchy.md) | Entry | AWS | Bash, Python | Administration, Investigation, Assurance |
 | [AWS Persistence & Threat Hunting](../../platforms/aws/persistence-hunting.md) | Entry | AWS | Bash, Python | Threat Hunting, Incident Response, Investigation, Detection Engineering |
 | [AWS SCPs, Config Rules & Governance](../../platforms/aws/policy-governance.md) | Entry | AWS | Bash | Hardening, Assurance, Administration, Governance |
+| [AWS Security Baseline — CIS AWS Foundations Benchmark & Security Hub](../../tasks/hardening/cloud-aws-security-baseline.md) | Entry | AWS | Bash | Hardening, Assurance, Governance |
 | [AWS Security Hub, GuardDuty & Inspector (Posture & Alerts)](../../platforms/aws/security-posture.md) | Entry | AWS | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [AWS Troubleshooting](../../platforms/aws/troubleshooting.md) | Entry | AWS | Bash | Troubleshooting, Administration |
 | [Azure & Entra ID Security Baseline — CIS Benchmark & NIST CSF 2.0](../../tasks/hardening/cloud-azure-security-baseline.md) | Entry | Azure, Entra ID, Microsoft 365 | PowerShell, Bash | Hardening, Assurance, Governance |
