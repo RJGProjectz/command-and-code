@@ -104,6 +104,7 @@ Get-MgRiskyUser -Filter "riskState eq 'atRisk'" | Select-Object UserPrincipalNam
 
 ## Related
 
+- [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) — Microsoft Graph user/group queries, wildcard `$search`, transitive membership
 - [Account Compromise workflow](../../tasks/incident-response/account-compromise.md)
 - [Conditional Access](conditional-access.md)
 - [KQL sign-in and audit logs](../../detection/kql/logon-identity.md)

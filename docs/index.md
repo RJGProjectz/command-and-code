@@ -54,7 +54,7 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
     2. [Check the account](tasks/incident-response/account-compromise.md) — sign-ins, tokens, mailbox rules
     3. [Isolate the host](tasks/incident-response/ransomware-host-isolation.md) — contain before it spreads
 
--   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->187<!-- /cc:count --> entries</span>
+-   :material-magnify:{ .lg } **[Investigating a question](tasks/investigation/index.md)** <span class="cc-lane-count"><!-- cc:count tasks="Investigation" -->188<!-- /cc:count --> entries</span>
 
     ---
 
@@ -86,9 +86,9 @@ Pick the lane that matches the job in front of you. Each lane opens with the fir
 [Forensics · <!-- cc:count tasks="Forensics" -->53<!-- /cc:count -->](tasks/forensics/index.md)
 [Detection engineering · <!-- cc:count tasks="Detection Engineering" -->74<!-- /cc:count -->](tasks/detection-engineering/index.md)
 [Hardening · <!-- cc:count tasks="Hardening" -->168<!-- /cc:count -->](tasks/hardening/index.md)
-[Administration · <!-- cc:count tasks="Administration" -->190<!-- /cc:count -->](tasks/administration/index.md)
+[Administration · <!-- cc:count tasks="Administration" -->191<!-- /cc:count -->](tasks/administration/index.md)
 [Automation · <!-- cc:count tasks="Automation" -->58<!-- /cc:count -->](tasks/automation/index.md)
-[Assurance · <!-- cc:count tasks="Assurance" -->77<!-- /cc:count -->](tasks/assurance/index.md)
+[Assurance · <!-- cc:count tasks="Assurance" -->78<!-- /cc:count -->](tasks/assurance/index.md)
 [Threat intelligence · <!-- cc:count tasks="Threat Intelligence" -->11<!-- /cc:count -->](tasks/threat-intelligence/index.md)
 [All tasks](tasks/index.md)
 </div>

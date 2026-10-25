@@ -98,7 +98,11 @@ markdown_extensions:
   - pymdownx.snippets:
       base_path: [scripts]
       check_paths: true
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -654,6 +658,7 @@ nav:
           - "Printable: Linux Triage": references/linux-triage-cheat-sheet.md
           - "Printable: Cloud IR": references/cloud-ir-cheat-sheet.md
           - Command Index (All Shells): references/command-index.md
+          - Identity & Directory Query Cookbook: references/identity-directory-query-cookbook.md
           - Cross-Platform Equivalents: references/equivalents.md
           - Windows Event IDs: references/windows-event-ids.md
           - "Know Normal: Process Chains": references/windows-process-chains.md

@@ -114,6 +114,7 @@ Unlock-ADAccount -Identity '<USER>'
 ## Related
 
 - Concept: [Users, groups and privilege](../../fundamentals/concepts/users-groups-permissions.md)
+- [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) — wildcard lookup, direct vs nested groups, AD + Entra/Graph
 - [Account Compromise workflow](../../tasks/incident-response/account-compromise.md)
 - [Entra ID](../microsoft-365/entra.md)
 - [Linux users and permissions](../linux/users-permissions.md)
