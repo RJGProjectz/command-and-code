@@ -538,6 +538,8 @@ nav:
               - Ransomware Host Isolation: tasks/incident-response/ransomware-host-isolation.md
               - Automated Containment: tasks/incident-response/automated-containment.md
               - Credential Rotation After Compromise: tasks/incident-response/credential-rotation-after-compromise.md
+              - Eradication and Recovery: tasks/incident-response/eradication-and-recovery.md
+              - Post-Incident and Lessons Learned: tasks/incident-response/post-incident-lessons-learned.md
           - Investigation:
               - Overview: tasks/investigation/index.md
               - Suspicious Service: tasks/investigation/suspicious-service.md

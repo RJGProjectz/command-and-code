@@ -8,6 +8,8 @@ aliases: [Incident Response Plan (IRP), Incident Response Process]
 
 Confirm, scope, contain and recover from security incidents. Start with a workflow, then drop into the linked reference entries.
 
+These playbooks follow the **NIST SP 800-61** incident-response lifecycle: **Preparation** (Hardening, Assurance) → **Detection & Analysis** (triage and investigation) → **Containment** ([Automated Containment](automated-containment.md), [Ransomware Host Isolation](ransomware-host-isolation.md)) → **Eradication & Recovery** ([Eradication and Recovery](eradication-and-recovery.md)) → **Post-Incident Activity** ([Post-Incident and Lessons Learned](post-incident-lessons-learned.md)), which feeds back into Preparation.
+
 ## Workflows
 
 <!-- cc:index tasks="Incident Response" type="workflow" -->
@@ -20,6 +22,7 @@ Confirm, scope, contain and recover from security incidents. Start with a workfl
 | [Credential Rotation After a Compromise](credential-rotation-after-compromise.md) | Workflow | Active Directory, Windows Server, Linux, Entra ID, Azure | PowerShell, Bash, CMD | Incident Response, Administration |
 | [Detection Development Lifecycle (DDLC) and Testing](../detection-engineering/detection-development-lifecycle.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL, Sigma, PowerShell | Detection Engineering, Threat Hunting, Incident Response |
 | [Endpoint Triage](endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
+| [Eradication and Recovery](eradication-and-recovery.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Microsoft 365 | PowerShell, Bash | Incident Response, Administration, Hardening |
 | [Failed Authentication Investigation](../investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [Hunting Cloud Identity Persistence in Entra ID and Microsoft 365](../threat-hunting/cloud-identity-persistence-hunting.md) | Workflow | Entra ID, Microsoft 365, Azure, Microsoft Defender, Splunk | PowerShell, KQL, SPL | Threat Hunting, Incident Response, Investigation |
 | [Hunting Kerberoasting and AS-REP Roasting in Active Directory](../threat-hunting/kerberoasting-asreproast-hunting.md) | Workflow | Active Directory, Windows, Windows Server, Splunk, Microsoft Defender | PowerShell, KQL, SPL | Threat Hunting, Investigation, Incident Response |
@@ -38,6 +41,7 @@ Confirm, scope, contain and recover from security incidents. Start with a workfl
 | [Network and PCAP Forensics](../forensics/network-pcap-forensics.md) | Workflow | Linux | Bash, Python | Forensics, Investigation, Incident Response |
 | [Network Investigation](../investigation/network-investigation.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | PowerShell, Bash, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
 | [Possible Lateral Movement](../threat-hunting/lateral-movement.md) | Workflow | Windows, Windows Server, Microsoft Defender, Splunk | PowerShell, KQL, SPL | Threat Hunting, Incident Response, Investigation |
+| [Post-Incident Activity and Lessons Learned](post-incident-lessons-learned.md) | Workflow | Windows, Linux, Microsoft 365 | KQL | Incident Response, Detection Engineering, Hardening |
 | [Registry Persistence Investigation](../investigation/registry-persistence.md) | Workflow | Windows, Microsoft Defender, SentinelOne | PowerShell, Windows CLI, KQL, S1QL | Investigation, Incident Response, Threat Hunting |
 | [Scheduled Task and Cron Persistence Review (Windows, Linux, macOS)](../threat-hunting/scheduled-task-persistence-review.md) | Workflow | Windows, Windows Server, Linux, Microsoft Defender, Splunk | PowerShell, Windows CLI, Bash, KQL, SPL, MITRE ATT&CK | Threat Hunting, Investigation, Incident Response |
 | [Scheduled Task Investigation](../investigation/scheduled-task-investigation.md) | Workflow | Windows, Microsoft Defender, Splunk, SentinelOne | PowerShell, Windows CLI, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |

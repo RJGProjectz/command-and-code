@@ -59,6 +59,7 @@ Start with [Fundamentals and Pitfalls](fundamentals.md) — it covers the mistak
 | [Endpoint Triage](../../tasks/incident-response/endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
 | [Enumerate a Windows Host and Identify Privilege-Escalation Paths](../../offensive/windows-host-enumeration-privesc.md) | Workflow | Windows | PowerShell | Assessment |
 | [Enumerate Active Directory for Users, Privileges and Attack Paths](../../offensive/active-directory-enumeration.md) | Workflow | Active Directory, Windows | PowerShell, Bash | Assessment |
+| [Eradication and Recovery](../../tasks/incident-response/eradication-and-recovery.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Microsoft 365 | PowerShell, Bash | Incident Response, Administration, Hardening |
 | [Failed Authentication Investigation](../../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [File Integrity Monitoring (AIDE, SACLs, Sysmon)](../../tasks/assurance/file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](../../tasks/hardening/ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |

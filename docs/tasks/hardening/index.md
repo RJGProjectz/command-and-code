@@ -24,6 +24,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Deploy Windows LAPS and Admin Tiering (Tier 0/1/2)](windows-laps-admin-tiering.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration |
 | [Effective Permissions and Access Review (Windows and Linux)](../assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
 | [Encrypt Linux Disks with LUKS2 (TPM2, Clevis/Tang, Key Slots, Header Backup)](../administration/linux-luks-disk-encryption.md) | Workflow | Linux | Bash | Administration, Hardening |
+| [Eradication and Recovery](../incident-response/eradication-and-recovery.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Microsoft 365 | PowerShell, Bash | Incident Response, Administration, Hardening |
 | [Hardening — Active Directory Kerberos & LDAP Protocol Hardening](ad-kerberos-ldap-hardening.md) | Workflow | Windows Server, Active Directory | PowerShell | Hardening, Administration, Assurance |
 | [Hardening — AppLocker & Application Control Phased Enterprise Rollout](applocker-deployment-rollout.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration, Assurance |
 | [Host Firewall and Port Management](../administration/firewall-port-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Hardening |
@@ -33,6 +34,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Linux CIS Benchmark — Filesystem Integrity & Service Hardening](linux-cis-filesystem-services.md) | Workflow | Linux | Bash | Hardening, Assurance, Administration |
 | [Linux Service Accounts with Least Privilege](../administration/linux-service-accounts-least-privilege.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [NGINX Web Server Hardening](nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
+| [Post-Incident Activity and Lessons Learned](../incident-response/post-incident-lessons-learned.md) | Workflow | Windows, Linux, Microsoft 365 | KQL | Incident Response, Detection Engineering, Hardening |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](../administration/ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](../assurance/linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |

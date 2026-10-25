@@ -60,6 +60,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](../../offensive/web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate an Internal Network and its Services](../../offensive/network-infrastructure-enumeration.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate Container and Kubernetes Attack Surface — Exposed Runtimes, kubelet, API Server and RBAC](../../offensive/container-kubernetes-attack-surface.md) | Workflow | Linux | Bash, Python | Assessment |
+| [Eradication and Recovery](../../tasks/incident-response/eradication-and-recovery.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Microsoft 365 | PowerShell, Bash | Incident Response, Administration, Hardening |
 | [Failed Authentication Investigation](../../tasks/investigation/failed-authentication.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Splunk | PowerShell, Bash, KQL, SPL | Investigation, Incident Response, Troubleshooting |
 | [File Integrity Monitoring (AIDE, SACLs, Sysmon)](../../tasks/assurance/file-integrity-monitoring.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Assurance, Detection Engineering |
 | [Foothold, Command-and-Control & Defense Evasion — Awareness, Detection and Hardening](../../offensive/foothold-command-control.md) | Workflow | Windows, Linux | — | Assessment |
@@ -84,6 +85,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Network Services Management](../../tasks/administration/network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [NGINX Web Server Hardening](../../tasks/hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Package and Software Lifecycle Management](../../tasks/administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
+| [Post-Incident Activity and Lessons Learned](../../tasks/incident-response/post-incident-lessons-learned.md) | Workflow | Windows, Linux, Microsoft 365 | KQL | Incident Response, Detection Engineering, Hardening |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](../../tasks/hardening/per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](../../tasks/administration/ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](../../tasks/assurance/linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |
