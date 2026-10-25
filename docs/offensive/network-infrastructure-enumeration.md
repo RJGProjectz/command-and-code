@@ -134,6 +134,35 @@ Keep the nmap `-oA` output and per-protocol logs under `"$OUT"`. Summarize per f
 "SMB signing disabled on 12 hosts"), **where** (host list/CIDR), **evidence** (the tool line),
 **severity**, and **fix** (enable signing, change community strings, restrict exports, disable LLMNR).
 
+## Detect it
+
+Host discovery and version scans are expected noise, but at enumeration volume — plus the SMB/LDAP/SNMP
+sweeps and any Responder activity — they are visible wherever network and host telemetry is collected,
+which is what drives the detection content on the [Detection](../detection/index.md) tab:
+
+| Offensive technique here | Detect it with |
+| :--- | :--- |
+| Host discovery and port/service scanning (§1–§2) | [SPL — Network and DNS Activity](../detection/spl/network-dns.md) · [KQL — Network Event Hunting](../detection/kql/network-events.md) |
+| SMB enumeration, null sessions, relay-target discovery (§3) | [SPL — Lateral Movement over SMB](../detection/spl/lateral-movement-smb.md) |
+| LLMNR / NBT-NS / mDNS poisoning exposure (§5) | [Sigma — LLMNR / NBT-NS Poisoning](../detection/sigma/llmnr-nbtns-poisoning.md) |
+
+A single scan is easy to miss; a full subnet sweep plus SMB/LDAP enumeration from one source in a short
+window is the pattern the defender hunts for.
+
+## Harden it
+
+Each finding closes with a defensive control:
+
+- **Segment and control egress** (§1–§2) — a flat network is what makes a sweep productive; restrict
+  lateral reachability: [Per-service egress control](../tasks/hardening/per-service-egress-control.md).
+- **Enforce SMB signing and kill null sessions** (§3) — signing defeats the NTLM-relay path and
+  null/guest access leaks shares: [Windows Security Baseline](../tasks/hardening/windows-security-baseline.md).
+- **Lock down directory and device services** (§4) — remove anonymous LDAP binds and default SNMP
+  community strings and restrict NFS exports: [AD, Kerberos & LDAP Hardening](../tasks/hardening/ad-kerberos-ldap-hardening.md)
+  · [Linux CIS — Filesystem & Services](../tasks/hardening/linux-cis-filesystem-services.md).
+- **Disable LLMNR / NBT-NS** (§5) — remove the poisoning-prone legacy name resolution:
+  [Windows CIS — Attack Surface Reduction](../tasks/hardening/windows-cis-attack-surface-reduction.md).
+
 ## Notes
 
 - **Passive before active.** Discovery and version scans are expected noise; Responder in active mode
