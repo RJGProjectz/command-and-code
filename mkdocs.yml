@@ -406,6 +406,7 @@ nav:
           - API Surface Recon (Tool): offensive/api-surface-recon-tool.md
           - LLM Application Assessment: offensive/llm-application-assessment.md
           - Password Attacks & Credential Cracking: offensive/password-attacks-credential-cracking.md
+          - Phishing & Social-Engineering Simulation: offensive/phishing-social-engineering-ops.md
       - Stage 3 — Foothold & Command-and-Control:
           - Foothold, C2 & Defense Evasion (Awareness): offensive/foothold-command-control.md
       - Stage 4 — Lateral Movement & Privilege Escalation:
