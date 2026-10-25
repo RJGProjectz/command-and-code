@@ -186,6 +186,7 @@ Bash knowledge lives in two places:
 | [Google Compute Engine & OS Login](../../platforms/gcp/compute.md) | Entry | GCP | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Google Kubernetes Engine (GKE)](../../platforms/gcp/kubernetes.md) | Entry | GCP | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Identify File Types (Not by Extension)](../../tasks/administration/identify-file-types.md) | Entry | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Investigation, Forensics |
+| [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) | Entry | Active Directory, Entra ID, Windows Server, Linux | PowerShell, CMD, Bash, KQL, REST API | Administration, Investigation, Assurance |
 | [Incoming Webhooks for Slack & Microsoft Teams](../../apis/webhooks/slack-teams-webhooks.md) | Entry | Microsoft 365 | PowerShell, Bash, REST API | Automation, Incident Response |
 | [Linux Antivirus & Endpoint Detection (EDR)](../../platforms/linux/antivirus-edr.md) | Entry | Linux | Bash | Administration, Hardening, Incident Response |
 | [Linux Audit Daemon (auditd) & Kernel Telemetry](../../platforms/linux/auditd.md) | Entry | Linux | Bash | Forensics, Detection Engineering |

@@ -161,6 +161,7 @@ Commands and investigation techniques for common Linux distributions. Where Debi
 | [Fundamentals — Webhooks & Event-Driven Architecture](../../fundamentals/apis/webhooks-events.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Incident Response |
 | [Fundamentals — Zero Trust Network Microsegmentation](../../fundamentals/networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
 | [Identify File Types (Not by Extension)](../../tasks/administration/identify-file-types.md) | Entry | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Investigation, Forensics |
+| [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) | Entry | Active Directory, Entra ID, Windows Server, Linux | PowerShell, CMD, Bash, KQL, REST API | Administration, Investigation, Assurance |
 | [Linux Antivirus & Endpoint Detection (EDR)](antivirus-edr.md) | Entry | Linux | Bash | Administration, Hardening, Incident Response |
 | [Linux Audit Daemon (auditd) & Kernel Telemetry](auditd.md) | Entry | Linux | Bash | Forensics, Detection Engineering |
 | [Linux Cron and Scheduled Jobs](cron.md) | Entry | Linux | Bash | Incident Response, Investigation, Threat Hunting, Administration |

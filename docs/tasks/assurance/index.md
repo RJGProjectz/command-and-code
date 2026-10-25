@@ -63,6 +63,7 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | [Google Cloud Organization Policy & Governance](../../platforms/gcp/policy-governance.md) | Entry | GCP | Bash | Hardening, Assurance, Administration, Governance |
 | [Google Cloud Resource Hierarchy & Inventory](../../platforms/gcp/resource-hierarchy.md) | Entry | GCP | Bash | Administration, Investigation, Assurance |
 | [Google Cloud Storage (Buckets & Data Exposure)](../../platforms/gcp/storage.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Assurance |
+| [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) | Entry | Active Directory, Entra ID, Windows Server, Linux | PowerShell, CMD, Bash, KQL, REST API | Administration, Investigation, Assurance |
 | [Linux Security Baseline — CIS Benchmark & NIST CSF 2.0](../hardening/linux-security-baseline.md) | Entry | Linux | Bash | Hardening, Assurance, Administration |
 | [Microsoft Defender for Cloud (Posture & Alerts)](../../platforms/azure/security-posture.md) | Entry | Azure, Microsoft Defender | Bash, PowerShell, KQL | Assurance, Hardening, Investigation, Incident Response |
 | [Microsoft Graph API — Conditional Access Policies](../../apis/microsoft-graph/conditional-access.md) | Entry | Entra ID, Microsoft 365 | PowerShell, REST API | Administration, Hardening, Assurance |

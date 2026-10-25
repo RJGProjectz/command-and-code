@@ -147,6 +147,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Google Kubernetes Engine (GKE)](../../platforms/gcp/kubernetes.md) | Entry | GCP | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Hyper-V](../../platforms/virtualization/hyper-v.md) | Entry | Hyper-V, Windows Server | PowerShell | Administration, Incident Response, Forensics |
 | [Identify File Types (Not by Extension)](identify-file-types.md) | Entry | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Investigation, Forensics |
+| [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) | Entry | Active Directory, Entra ID, Windows Server, Linux | PowerShell, CMD, Bash, KQL, REST API | Administration, Investigation, Assurance |
 | [Intune](../../platforms/microsoft-365/intune.md) | Entry | Microsoft 365, Intune, Windows | PowerShell, Windows CLI | Administration, Troubleshooting, Incident Response |
 | [Linux Antivirus & Endpoint Detection (EDR)](../../platforms/linux/antivirus-edr.md) | Entry | Linux | Bash | Administration, Hardening, Incident Response |
 | [Linux Cron and Scheduled Jobs](../../platforms/linux/cron.md) | Entry | Linux | Bash | Incident Response, Investigation, Threat Hunting, Administration |

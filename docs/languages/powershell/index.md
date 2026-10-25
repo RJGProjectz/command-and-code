@@ -183,6 +183,7 @@ Start with [Fundamentals and Pitfalls](fundamentals.md) — it covers the mistak
 | [Google Cloud CLI, SDKs & Authentication](../../platforms/gcp/cli-authentication.md) | Entry | GCP | Bash, PowerShell, Python | Administration, Automation, Incident Response |
 | [Hyper-V](../../platforms/virtualization/hyper-v.md) | Entry | Hyper-V, Windows Server | PowerShell | Administration, Incident Response, Forensics |
 | [Identify File Types (Not by Extension)](../../tasks/administration/identify-file-types.md) | Entry | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Investigation, Forensics |
+| [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) | Entry | Active Directory, Entra ID, Windows Server, Linux | PowerShell, CMD, Bash, KQL, REST API | Administration, Investigation, Assurance |
 | [Incoming Webhooks for Slack & Microsoft Teams](../../apis/webhooks/slack-teams-webhooks.md) | Entry | Microsoft 365 | PowerShell, Bash, REST API | Automation, Incident Response |
 | [Intune](../../platforms/microsoft-365/intune.md) | Entry | Microsoft 365, Intune, Windows | PowerShell, Windows CLI | Administration, Troubleshooting, Incident Response |
 | [Microsoft Defender Antivirus](../../platforms/windows/defender.md) | Entry | Windows, Windows Server, Microsoft Defender | PowerShell, Windows CLI | Incident Response, Administration, Hardening, Troubleshooting |

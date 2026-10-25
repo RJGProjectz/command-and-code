@@ -116,7 +116,9 @@ options, output and caveats. For telemetry queries (KQL/SPL/S1QL) see [Cross-pla
 
 Directory queries across every shell, plus the query-side (SIEM) equivalent. PowerShell uses the RSAT
 `ActiveDirectory` module; `dsquery`/`dsget` are the legacy CMD tools; `ldapsearch` works from Linux.
-Replace `DC=corp,DC=example` with your domain's base DN.
+Replace `DC=corp,DC=example` with your domain's base DN. For the full recipes — including **Entra ID /
+Microsoft Graph** queries, direct-vs-nested group membership and the gotchas — see the
+[Identity & Directory Query Cookbook](identity-directory-query-cookbook.md).
 
 | Job | PowerShell (AD module) | CMD (net / dsquery) | Bash (LDAP) | More |
 | :--- | :--- | :--- | :--- | :--- |

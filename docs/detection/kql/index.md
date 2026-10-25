@@ -71,6 +71,7 @@ Used by **Microsoft Defender XDR advanced hunting** and **Microsoft Sentinel**.
 | [Detection Rule — Network Flood (DoS / DDoS)](../sigma/dos-flood.md) | Entry | Azure, Splunk | Sigma, KQL, SPL | Detection Engineering, Incident Response |
 | [Detection Rule — Unmanaged Mobile Access to Corporate Apps](../sigma/unmanaged-mobile-access.md) | Entry | Entra ID, Intune, Microsoft 365 | Sigma, KQL | Detection Engineering, Compliance |
 | [Detection Rules — Wi-Fi (WLAN-AutoConfig and Unknown Devices)](../sigma/wlan-events.md) | Entry | Windows, Windows Server | Sigma, KQL, SPL | Detection Engineering, Investigation |
+| [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) | Entry | Active Directory, Entra ID, Windows Server, Linux | PowerShell, CMD, Bash, KQL, REST API | Administration, Investigation, Assurance |
 | [KQL Credential Access and Memory Dumping Queries](credential-access.md) | Entry | Microsoft Defender, Windows, Windows Server | KQL | Threat Hunting, Detection Engineering, Incident Response |
 | [KQL File, Registry and Persistence Hunting](file-registry-events.md) | Entry | Microsoft Defender, Windows | KQL | Threat Hunting, Detection Engineering, Investigation |
 | [KQL Fundamentals](fundamentals.md) | Entry | Microsoft Defender, Microsoft 365 | KQL | Threat Hunting, Detection Engineering, Investigation |

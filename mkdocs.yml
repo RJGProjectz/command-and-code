@@ -654,6 +654,7 @@ nav:
           - "Printable: Linux Triage": references/linux-triage-cheat-sheet.md
           - "Printable: Cloud IR": references/cloud-ir-cheat-sheet.md
           - Command Index (All Shells): references/command-index.md
+          - Identity & Directory Query Cookbook: references/identity-directory-query-cookbook.md
           - Cross-Platform Equivalents: references/equivalents.md
           - Windows Event IDs: references/windows-event-ids.md
           - "Know Normal: Process Chains": references/windows-process-chains.md
