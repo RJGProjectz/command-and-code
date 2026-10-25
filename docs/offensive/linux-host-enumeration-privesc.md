@@ -166,6 +166,19 @@ wherever host telemetry is collected, which is what drives the detection content
 A normal user does not read `/etc/shadow`, enumerate every SUID binary, or grep the disk for `password`
 — those are the exact actions the defender hunts for once auditd is recording them.
 
+## Harden it
+
+Each escalation vector closes with a control from the Linux CIS hardening pages:
+
+- **Remove needless SUID/SGID and tighten `sudo`** (§2–§3) — strip the SUID bit from non-essential
+  binaries, scope `sudo` rules, and drop shell-escaping `NOPASSWD` grants:
+  [Linux CIS — Access, PAM & SSH](../tasks/hardening/linux-cis-access-pam-ssh.md).
+- **Lock down capabilities, cron and writable paths** (§4–§5) — remove `cap_setuid`/`cap_dac_override`
+  from interpreters and fix world-writable files referenced by root cron:
+  [Linux CIS — Filesystem & Services](../tasks/hardening/linux-cis-filesystem-services.md).
+- **Make the loud steps visible** — none of the above is detectable unless the host records it, so turn
+  on process and credential auditing: [Linux CIS — auditd Logging](../tasks/hardening/linux-cis-auditd-logging.md).
+
 ## Notes
 
 - **Enumerate before you act.** The sweep is quiet; abusing a SUID binary or editing a cron script is

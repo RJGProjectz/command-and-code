@@ -206,6 +206,36 @@ Keep the raw tool output under `"$OUT"` as evidence, then summarize per finding:
 page). This maps directly to the reporting phase in
 [Penetration Testing & Red Teaming](../fundamentals/concepts/penetration-testing.md).
 
+## Detect it
+
+Every step here sends traffic to the target, and the active scanners (content discovery, nikto, nuclei)
+are **loud** — a defender sees them in the access/WAF log, which is what drives the web detection content
+on the [Detection](../detection/index.md) tab:
+
+| Offensive technique here | Detect it with |
+| :--- | :--- |
+| Content/path discovery brute force — bursts of 404/403 (§4) | [SPL — Web Attacks](../detection/spl/web-attacks.md) · [KQL — Web Attacks](../detection/kql/web-attacks.md) |
+| Nikto / Nuclei scanning — known scanner URIs and user-agents (§5) | [SPL — Web Attacks](../detection/spl/web-attacks.md) · [KQL — Web Attacks](../detection/kql/web-attacks.md) |
+| HTTP fingerprinting and info-file probing (§2–§3) | [KQL — Web Attacks](../detection/kql/web-attacks.md) |
+
+A handful of requests blends in; hundreds of 404s from one source, scanner user-agents, or a
+`phpinfo.php` probe are the signatures the access/WAF-log rules fire on.
+
+## Harden it
+
+The weaknesses this page surfaces close with the web-server and application controls:
+
+- **Suppress version and banner disclosure** (§2–§3) — `expose_php = Off`, `ServerTokens Prod` /
+  `server_tokens off`, and remove forgotten `phpinfo.php` files:
+  [Apache & PHP Hardening](../tasks/hardening/apache-php-web-server-hardening.md) ·
+  [NGINX Hardening](../tasks/hardening/nginx-web-server-hardening.md).
+- **Fix the misconfigurations nikto/nuclei flag** (§5) — dangerous methods, exposed `.git`/backups,
+  default files and outdated components: [Apache & PHP Hardening](../tasks/hardening/apache-php-web-server-hardening.md)
+  plus the application controls in [OWASP Top 10 for Web Applications](../fundamentals/web-apps/owasp-web-top-10.md).
+- **Set the security headers and TLS baseline** (§6) — HSTS, CSP, `X-Content-Type-Options` and modern
+  TLS: [HTTP Security Headers](../fundamentals/web-apps/http-security-headers.md) ·
+  [TLS & SSL Cryptography](../fundamentals/networking/tls-ssl.md).
+
 ## Notes
 
 - **External ≠ internal by design.** Missing version banners, altered error pages, and blocked scans
@@ -224,8 +254,7 @@ page). This maps directly to the reporting phase in
 - [Port Scanning](../fundamentals/concepts/port-scanning.md)
 - [Penetration Testing & Red Teaming](../fundamentals/concepts/penetration-testing.md)
 - [Vulnerability Assessment & Patch Management](../fundamentals/concepts/vulnerability-management.md)
-- Defensive fixes: [OWASP Top 10 for Web Applications](../fundamentals/web-apps/owasp-web-top-10.md) · [HTTP Security Headers](../fundamentals/web-apps/http-security-headers.md) · [Apache & PHP Hardening](../tasks/hardening/apache-php-web-server-hardening.md) · [NGINX Hardening](../tasks/hardening/nginx-web-server-hardening.md)
-- Detect it: [SPL — Web Attacks](../detection/spl/web-attacks.md) · [KQL — Web Attacks](../detection/kql/web-attacks.md) — how a defender sees these scans in the access/WAF log
+- Defensive counterparts: [OWASP Top 10 for Web Applications](../fundamentals/web-apps/owasp-web-top-10.md) · [HTTP Security Headers](../fundamentals/web-apps/http-security-headers.md) · [Apache & PHP Hardening](../tasks/hardening/apache-php-web-server-hardening.md) · [NGINX Hardening](../tasks/hardening/nginx-web-server-hardening.md)
 
 ## External Resources & White Papers
 

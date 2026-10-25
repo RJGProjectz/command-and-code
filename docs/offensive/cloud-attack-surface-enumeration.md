@@ -168,6 +168,20 @@ content on the [Detection](../detection/index.md) tab. Pair each technique with 
 Describe/list calls at enumeration volume, from a new principal or an unusual network, are the pattern
 the defender hunts for — which is why §0's coordinated window matters.
 
+## Harden it
+
+Every exposure and over-permission on this page closes with a control in the cloud hardening baselines:
+
+- **Shut public exposure** (public buckets/blobs, open endpoints, §1) — account-wide Block Public Access
+  and private-by-default networking: [AWS Security Baseline](../tasks/hardening/cloud-aws-security-baseline.md)
+  · [Azure Security Baseline](../tasks/hardening/cloud-azure-security-baseline.md).
+- **Least-privilege identity** (wildcard grants and `iam:PassRole` chains, §3–§4) — remove `*:*` admin,
+  scope roles, and add permission boundaries and rotation: [AWS Security Baseline](../tasks/hardening/cloud-aws-security-baseline.md)
+  · [Azure Security Baseline](../tasks/hardening/cloud-azure-security-baseline.md).
+- **Close the SSRF → metadata pivot** (§4) — require IMDSv2 with a hop limit of 1 and block egress to
+  `169.254.169.254`: [AWS Security Baseline](../tasks/hardening/cloud-aws-security-baseline.md) ·
+  [SSRF Defense](../fundamentals/web-apps/ssrf-defense.md).
+
 ## Notes
 
 - **Read-only, logged, metered.** Prefer describe/list calls; every action lands in CloudTrail / Azure
