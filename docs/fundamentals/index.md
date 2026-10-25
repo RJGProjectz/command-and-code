@@ -223,6 +223,7 @@ Every fundamental node provides:
 | [Fundamentals — Webhooks & Event-Driven Architecture](apis/webhooks-events.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Incident Response |
 | [Fundamentals — Windows Process Architecture, Tokens & Handles](systems/windows-processes.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Investigation, Forensics |
 | [Fundamentals — Zero Trust Network Microsegmentation](networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
+| [GCP Security Baseline — CIS Google Cloud Foundations Benchmark & Security Command Center](../tasks/hardening/cloud-gcp-security-baseline.md) | Entry | GCP | Bash | Hardening, Assurance, Governance |
 | [Git: Clone, Sync a Fork, Branches, Rebase & Signed Commits](../platforms/github/repositories.md) | Entry | GitHub | Bash | Administration, Automation, Troubleshooting |
 | [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](../platforms/github/keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
 | [GitHub Audit Log & Security Log](../platforms/github/audit-logging.md) | Entry | GitHub | Bash | Investigation, Incident Response, Forensics, Hardening |

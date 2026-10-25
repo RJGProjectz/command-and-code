@@ -335,7 +335,7 @@ A vendor-neutral AWS CloudTrail/IAM detection page is a reasonable follow-up for
 ## Offensive counterpart & related
 
 - **Offensive counterpart:** [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../../offensive/cloud-attack-surface-enumeration.md) — the findings this page closes (public buckets, IAM over-permission, IMDS/SSRF).
-- [Azure & Entra ID Security Baseline](cloud-azure-security-baseline.md) — the Azure counterpart baseline.
+- [Azure & Entra ID Security Baseline](cloud-azure-security-baseline.md) · [GCP Security Baseline](cloud-gcp-security-baseline.md) — the sibling cloud baselines.
 - Reference: [Cloud-Native Security](../../fundamentals/concepts/cloud-native-security.md) · [Identity & Access Management](../../fundamentals/concepts/identity-access-management.md) · [SSRF defense](../../fundamentals/web-apps/ssrf-defense.md)
 - AWS platform depth: [IAM](../../platforms/aws/identity-access.md) · [CloudTrail](../../platforms/aws/audit-logging.md) · [S3 & Data Exposure](../../platforms/aws/storage.md) · [GuardDuty & Security Hub](../../platforms/aws/security-posture.md) · [SCPs & Config](../../platforms/aws/policy-governance.md) · [VPC & Networking](../../platforms/aws/networking.md) · [KMS & Secrets](../../platforms/aws/keys-secrets.md)
 - [Hardening — Overview](index.md)
