@@ -160,6 +160,7 @@ Bash knowledge lives in two places:
 | [Fundamentals — Virtual Memory, Paging, Stack & Heap](../../fundamentals/systems/memory-internals.md) | Entry | Windows, Linux | PowerShell, Bash | Forensics, Investigation |
 | [Fundamentals — VPN Protocols (IPsec vs SSL/TLS)](../../fundamentals/networking/vpn.md) | Entry | Windows, Linux | PowerShell, Bash | Troubleshooting, Hardening |
 | [Fundamentals — Zero Trust Network Microsegmentation](../../fundamentals/networking/microsegmentation.md) | Entry | Linux, Windows Server | Bash, PowerShell | Hardening, Assurance |
+| [GCP Security Baseline — CIS Google Cloud Foundations Benchmark & Security Command Center](../../tasks/hardening/cloud-gcp-security-baseline.md) | Entry | GCP | Bash | Hardening, Assurance, Governance |
 | [Git: Clone, Sync a Fork, Branches, Rebase & Signed Commits](../../platforms/github/repositories.md) | Entry | GitHub | Bash | Administration, Automation, Troubleshooting |
 | [GitHub Actions Secrets, Environments, OIDC & Deploy Keys](../../platforms/github/keys-secrets.md) | Entry | GitHub | Bash | Administration, Hardening, Investigation, Incident Response |
 | [GitHub Audit Log & Security Log](../../platforms/github/audit-logging.md) | Entry | GitHub | Bash | Investigation, Incident Response, Forensics, Hardening |

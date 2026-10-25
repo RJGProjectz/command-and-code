@@ -51,6 +51,7 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../../offensive/cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
+| [GCP Security Baseline — CIS Google Cloud Foundations Benchmark & Security Command Center](../../tasks/hardening/cloud-gcp-security-baseline.md) | Entry | GCP | Bash | Hardening, Assurance, Governance |
 | [Google Cloud Audit Logs](audit-logging.md) | Entry | GCP | Bash | Investigation, Incident Response, Forensics, Hardening |
 | [Google Cloud CLI, SDKs & Authentication](cli-authentication.md) | Entry | GCP | Bash, PowerShell, Python | Administration, Automation, Incident Response |
 | [Google Cloud IAM (Identity & Access)](identity-access.md) | Entry | GCP | Bash, Python | Administration, Hardening, Investigation, Incident Response |

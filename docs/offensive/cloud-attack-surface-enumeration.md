@@ -199,7 +199,7 @@ Every exposure and over-permission on this page closes with a control in the clo
 - [Web Application Assessment](web-application-assessment.md) — SSRF to IMDS
 - [Network & infrastructure enumeration](network-infrastructure-enumeration.md)
 - Reference: [Cloud-Native Security](../fundamentals/concepts/cloud-native-security.md) · [OSINT & Reconnaissance](../fundamentals/concepts/osint.md) · [Identity & Access Management](../fundamentals/concepts/identity-access-management.md)
-- Defensive counterparts: [Azure security baseline](../tasks/hardening/cloud-azure-security-baseline.md) · [SSRF defense](../fundamentals/web-apps/ssrf-defense.md)
+- Defensive counterparts: [Azure security baseline](../tasks/hardening/cloud-azure-security-baseline.md) · [AWS security baseline](../tasks/hardening/cloud-aws-security-baseline.md) · [GCP security baseline](../tasks/hardening/cloud-gcp-security-baseline.md) · [SSRF defense](../fundamentals/web-apps/ssrf-defense.md)
 
 ## External Resources & White Papers
 
