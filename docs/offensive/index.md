@@ -51,7 +51,8 @@ payloads.
     [Web Application Assessment](web-application-assessment.md) ·
     [Web API Assessment](web-api-assessment.md) · [API Surface Recon (Tool)](api-surface-recon-tool.md) ·
     [LLM Application Assessment](llm-application-assessment.md) ·
-    [Password Attacks & Credential Cracking](password-attacks-credential-cracking.md)
+    [Password Attacks & Credential Cracking](password-attacks-credential-cracking.md) ·
+    [Phishing & Social-Engineering Simulation](phishing-social-engineering-ops.md)
 
 -   :material-access-point:{ .lg } **[Stage 3 — Foothold & Command-and-Control](foothold-command-control.md)**
 
@@ -106,6 +107,7 @@ payloads.
 | [Enumerate Container and Kubernetes Attack Surface — Exposed Runtimes, kubelet, API Server and RBAC](container-kubernetes-attack-surface.md) | Workflow | Linux | Bash, Python | Assessment |
 | [Foothold, Command-and-Control & Defense Evasion — Awareness, Detection and Hardening](foothold-command-control.md) | Workflow | Windows, Linux | — | Assessment |
 | [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) | Workflow | Linux | Bash | Assessment |
+| [Run an Authorized Phishing Simulation — Measure Human and Technical Susceptibility](phishing-social-engineering-ops.md) | Workflow | Linux | Bash | Assessment |
 | [API Surface Recon Tool (scope- and rate-limit-aware)](api-surface-recon-tool.md) | Tool | Linux | Bash | Assessment |
 | [Passive Web OSINT Tool (one or many targets)](passive-web-osint.md) | Tool | Linux | Bash | Assessment |
 

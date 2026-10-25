@@ -81,6 +81,7 @@ Bash knowledge lives in two places:
 | [NGINX Web Server Hardening](../../tasks/hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Package and Software Lifecycle Management](../../tasks/administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](../../tasks/hardening/per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
+| [Run an Authorized Phishing Simulation — Measure Human and Technical Susceptibility](../../offensive/phishing-social-engineering-ops.md) | Workflow | Linux | Bash | Assessment |
 | [Run an SSH Certificate Authority (User and Host Certificates)](../../tasks/administration/ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](../../tasks/assurance/linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |
 | [Scheduled Task and Cron Job Automation](../../tasks/administration/scheduled-jobs-task-scheduler.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Automation |
