@@ -83,6 +83,7 @@ jobs:
               'tests/powershell/CisAudit.Tests.ps1',
               'tests/powershell/CisBlockEvents.Tests.ps1',
               'tests/powershell/CisReportDiff.Tests.ps1',
+              'tests/powershell/AdPosture.Tests.ps1',
               'tests/powershell/ScriptContract.Tests.ps1'
           )
           $config.Run.Exit = $true

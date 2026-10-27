@@ -219,8 +219,10 @@ Most entries show **PowerShell** first, with the native **Windows CLI** equivale
 | [Windows Troubleshooting Commands](troubleshooting.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Troubleshooting, Administration |
 | [Windows Users and Groups](users-groups.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Write Command Output to Files](../../tasks/administration/save-command-output-to-file.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Investigation, Automation |
+| [AD Environment Posture Audit - STIG / CIS / Best-Practice Crosswalk](../../tasks/assurance/ad-environment-posture-audit.md) | Tool | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
 | [CIS Block Monitor (Windows and Linux)](../../tasks/hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Command & Code CLI Lookup Utility](../../toolbox/lookup.md) | Tool | Windows, Linux | Python | Administration, Investigation |
+| [Posture Audit - One-Command Workstation, Server & AD Config Posture](../../tasks/assurance/posture-audit.md) | Tool | Windows, Windows Server, Active Directory | PowerShell | Assurance, Hardening, Administration |
 | [PowerShell Toolbox](../../toolbox/powershell.md) | Tool | Windows, Windows Server | PowerShell | Automation, Incident Response, Forensics, Investigation |
 | [Python Toolbox](../../toolbox/python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
 | [Service Account Audit (Windows, Active Directory, Linux)](../../tasks/assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
