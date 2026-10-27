@@ -134,10 +134,10 @@ Write-Verbose "Mode: $TargetEnvironment (read-only pull; no remoting, no code ex
 if (-not (Test-Path -LiteralPath $Destination)) { $null = New-Item -ItemType Directory -Path $Destination }
 $destRoot = (Resolve-Path -LiteralPath $Destination).Path
 
-$results = foreach ($asset in $Asset) {
-    $assetDest = Join-Path $destRoot $asset
+$results = foreach ($node in $Asset) {
+    $assetDest = Join-Path $destRoot $node
     if (-not (Test-Path -LiteralPath $assetDest)) { $null = New-Item -ItemType Directory -Path $assetDest }
-    $resolvedRemote = $RemotePath.Replace('{asset}', $asset)
+    $resolvedRemote = $RemotePath.Replace('{asset}', $node)
     $copied = 0
     $status = 'ok'
 
@@ -145,7 +145,7 @@ $results = foreach ($asset in $Asset) {
         switch ($Method) {
             'Local' {
                 if (-not (Test-Path -LiteralPath $resolvedRemote)) {
-                    Write-CollectLog "Asset '$asset': path '$resolvedRemote' not reachable - skipping." 'WARN'
+                    Write-CollectLog "Asset '$node': path '$resolvedRemote' not reachable - skipping." 'WARN'
                     $status = 'unreachable'
                 }
                 else {
@@ -153,7 +153,7 @@ $results = foreach ($asset in $Asset) {
                 }
             }
             'Smb' {
-                $unc = if ($resolvedRemote -like '\\*') { $resolvedRemote } else { "\\$asset\$resolvedRemote" }
+                $unc = if ($resolvedRemote -like '\\*') { $resolvedRemote } else { "\\$node\$resolvedRemote" }
                 $driveName = $null
                 try {
                     $searchRoot = $unc
@@ -163,7 +163,7 @@ $results = foreach ($asset in $Asset) {
                         $searchRoot = "${driveName}:\"
                     }
                     if (-not (Test-Path -LiteralPath $searchRoot)) {
-                        Write-CollectLog "Asset '$asset': share '$unc' not reachable - skipping." 'WARN'
+                        Write-CollectLog "Asset '$node': share '$unc' not reachable - skipping." 'WARN'
                         $status = 'unreachable'
                     }
                     else {
@@ -184,7 +184,7 @@ $results = foreach ($asset in $Asset) {
                 }
                 $remoteBase = $resolvedRemote.TrimEnd('/')
                 foreach ($pat in $Pattern) {
-                    $source = "{0}@{1}:{2}/{3}" -f $SshUser, $asset, $remoteBase, $pat
+                    $source = "{0}@{1}:{2}/{3}" -f $SshUser, $node, $remoteBase, $pat
                     # scp exits non-zero when a glob matches nothing; that is expected, so tolerate it.
                     & $scp.Source -q -p $source $assetDest 2>$null
                 }
@@ -193,15 +193,15 @@ $results = foreach ($asset in $Asset) {
         }
     }
     catch {
-        Write-CollectLog "Asset '$asset': $($_.Exception.Message)" 'ERROR'
+        Write-CollectLog "Asset '$node': $($_.Exception.Message)" 'ERROR'
         $status = 'error'
     }
 
     if ($status -eq 'ok') {
-        Write-CollectLog "Asset '$asset': $copied file(s) -> $assetDest"
+        Write-CollectLog "Asset '$node': $copied file(s) -> $assetDest"
     }
     [PSCustomObject]@{
-        Asset       = $asset
+        Asset       = $node
         Method      = $Method
         Status      = $status
         FilesCopied = $copied
