@@ -35,6 +35,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Linux Service Accounts with Least Privilege](../administration/linux-service-accounts-least-privilege.md) | Workflow | Linux | Bash | Administration, Hardening |
 | [NGINX Web Server Hardening](nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Post-Incident Activity and Lessons Learned](../incident-response/post-incident-lessons-learned.md) | Workflow | Windows, Linux, Microsoft 365 | KQL | Incident Response, Detection Engineering, Hardening |
+| [Posture Audit Lab - Bundle and Retrieve Reports Without WinRM](../assurance/posture-audit-lab-test.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell | Assurance, Hardening, Administration |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](../administration/ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](../assurance/linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |
@@ -139,8 +140,10 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Windows Security Baseline — CIS Benchmark & NIST CSF 2.0](windows-security-baseline.md) | Entry | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Services](../../platforms/windows/services.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
 | [Windows Users and Groups](../../platforms/windows/users-groups.md) | Entry | Windows, Windows Server | PowerShell, Windows CLI | Incident Response, Investigation, Administration, Hardening |
+| [AD Environment Posture Audit - STIG / CIS / Best-Practice Crosswalk](../assurance/ad-environment-posture-audit.md) | Tool | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
 | [CIS Block Monitor (Windows and Linux)](cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Linux CIS Benchmark Audit Tool (Ubuntu 24.04, RHEL 9)](linux-cis-audit-tool.md) | Tool | Linux | Bash | Hardening, Assurance, Administration |
+| [Posture Audit - One-Command Workstation, Server & AD Config Posture](../assurance/posture-audit.md) | Tool | Windows, Windows Server, Active Directory | PowerShell | Assurance, Hardening, Administration |
 | [Service Account Audit (Windows, Active Directory, Linux)](../assurance/service-account-audit.md) | Tool | Windows, Windows Server, Active Directory, Linux | PowerShell, Bash | Assurance, Hardening, Administration |
 | [Windows 11 CIS Benchmark Audit Tool (L1 / L2)](windows-11-cis-audit-tool.md) | Tool | Windows | PowerShell | Hardening, Assurance, Administration |
 | [Windows Server CIS Benchmark Audit (Member Server / Domain Controller)](windows-server-cis-audit-tool.md) | Tool | Windows Server, Active Directory | PowerShell, Python | Hardening, Assurance, Administration |

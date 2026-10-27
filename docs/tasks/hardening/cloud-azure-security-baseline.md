@@ -167,3 +167,31 @@ Found 1 policy/policies targeting legacy authentication protocols.
 `0` means no Conditional Access policy covers legacy protocols: IMAP/POP/SMTP basic auth bypasses MFA. For a found
 policy, also check `$legacyAuthPolicy | Select-Object DisplayName, State`: `enabledForReportingButNotEnforced` is
 report-only and blocks nothing.
+
+---
+
+## Roadmap - Azure posture audit (planned, WP-98)
+
+The on-premises side now has a one-command, read-only posture audit
+([Posture Audit](../assurance/posture-audit.md)) that grades a Windows workstation, a server and the
+Active Directory domain against CIS / STIG / best practice in a single run. The same model is planned
+for Azure: a read-only `Invoke-AzPostureAudit` built on `az` / Microsoft Graph / Azure Resource Graph,
+emitting the same result schema and the same **STIG-equivalent / CIS / best-practice crosswalk** per
+check, graded by a `-Bar` switch.
+
+It will grade against the **CIS Microsoft Azure Foundations Benchmark** and the **Microsoft Cloud
+Security Benchmark (MCSB)**, in phases:
+
+1. **Identity / Entra ID** - Conditional Access coverage, phishing-resistant MFA, privileged-role and
+   PIM posture, legacy-auth block (extends the query above), guest-access limits.
+2. **Subscriptions & governance** - Azure Policy assignment coverage, Defender for Cloud secure score,
+   and regulatory-compliance controls.
+3. **Data & network** - storage account public access and encryption, NSG inbound exposure, Key Vault
+   soft-delete / purge protection / RBAC.
+4. **Logging** - diagnostic settings, activity-log retention, and alerting coverage.
+
+Until then, the checks in this page and the related assurance pages
+([Azure NSG Compliance](../assurance/azure-nsg-compliance.md),
+[Azure External Guest Access](../assurance/azure-guest-access-audit.md),
+[CISA SCuBA Baseline Compliance](../assurance/cisa-scuba-compliance.md)) cover the same ground
+individually.

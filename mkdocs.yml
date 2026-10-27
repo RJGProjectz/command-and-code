@@ -492,6 +492,9 @@ nav:
               - Per-Service Egress Control: tasks/hardening/per-service-egress-control.md
           - Assurance:
               - Overview: tasks/assurance/index.md
+              - Posture Audit (Workstation/Server/AD): tasks/assurance/posture-audit.md
+              - AD Environment Posture (STIG/CIS/BP): tasks/assurance/ad-environment-posture-audit.md
+              - Posture Audit Lab (bundle & retrieve, no WinRM): tasks/assurance/posture-audit-lab-test.md
               - Azure NSG Compliance: tasks/assurance/azure-nsg-compliance.md
               - Active Directory STIG: tasks/assurance/ad-stig-compliance.md
               - Endpoint EDR Health: tasks/assurance/endpoint-edr-status.md

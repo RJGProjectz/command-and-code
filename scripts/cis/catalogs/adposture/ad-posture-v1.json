@@ -1,0 +1,282 @@
+{
+  "schema": "cc.adposture.catalog/1",
+  "name": "Active Directory Environment Posture",
+  "version": "1.0.0",
+  "generated": "2026-10-26T00:00:00Z",
+  "notice": "Domain-wide AD posture checks. Each check carries up to three framework expectations: DISA STIG (Windows Server / Active Directory Domain STIG), CIS (the Domain Controller profile of the CIS Microsoft Windows Server Benchmark), and documented best practice (Microsoft guidance). There is no standalone CIS Active Directory benchmark, so AD-only checks (delegation, Kerberoasting SPNs, LAPS, trusts, recycle bin) carry STIG and/or best practice and omit CIS. STIG rule identifiers are representative and MUST be confirmed against the STIG version your organisation is assessed against. Best practice is the minimum pass bar by default.",
+  "checks": [
+    {
+      "id": "AD-PW-01",
+      "title": "Minimum password length is 14 or more characters",
+      "category": "Password Policy",
+      "collector": "PasswordPolicy.MinPasswordLength",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000035", "expect": { "op": "range", "min": 14, "max": null } },
+        "cis": { "id": "1.1.4 (DC L1)", "expect": { "op": "range", "min": 14, "max": null } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "range", "min": 14, "max": null } }
+      }
+    },
+    {
+      "id": "AD-PW-02",
+      "title": "Enforce password history is 24 or more remembered",
+      "category": "Password Policy",
+      "collector": "PasswordPolicy.PasswordHistoryCount",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000030", "expect": { "op": "range", "min": 24, "max": null } },
+        "cis": { "id": "1.1.1 (DC L1)", "expect": { "op": "range", "min": 24, "max": null } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "range", "min": 24, "max": null } }
+      }
+    },
+    {
+      "id": "AD-PW-03",
+      "title": "Maximum password age is set, not 0 (STIG/BP: 60 or fewer; CIS: 365 or fewer)",
+      "category": "Password Policy",
+      "collector": "PasswordPolicy.MaxPasswordAgeDays",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000025", "expect": { "op": "range", "min": 1, "max": 60 } },
+        "cis": { "id": "1.1.2 (DC L1)", "expect": { "op": "range", "min": 1, "max": 365 } },
+        "bestPractice": { "source": "Microsoft / STIG", "expect": { "op": "range", "min": 1, "max": 60 } }
+      }
+    },
+    {
+      "id": "AD-PW-04",
+      "title": "Minimum password age is 1 or more days",
+      "category": "Password Policy",
+      "collector": "PasswordPolicy.MinPasswordAgeDays",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000020", "expect": { "op": "range", "min": 1, "max": null } },
+        "cis": { "id": "1.1.3 (DC L1)", "expect": { "op": "range", "min": 1, "max": null } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "range", "min": 1, "max": null } }
+      }
+    },
+    {
+      "id": "AD-PW-05",
+      "title": "Password complexity is enabled",
+      "category": "Password Policy",
+      "collector": "PasswordPolicy.ComplexityEnabled",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000040", "expect": { "op": "eq", "value": "True" } },
+        "cis": { "id": "1.1.5 (DC L1)", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AD-PW-06",
+      "title": "Store passwords using reversible encryption is disabled",
+      "category": "Password Policy",
+      "collector": "PasswordPolicy.ReversibleEncryptionEnabled",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000045", "expect": { "op": "eq", "value": "False" } },
+        "cis": { "id": "1.1.6 (DC L1)", "expect": { "op": "eq", "value": "False" } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "eq", "value": "False" } }
+      }
+    },
+    {
+      "id": "AD-LO-01",
+      "title": "Account lockout threshold is set, not 0 (STIG: 3 or fewer; CIS/BP: 5 or fewer)",
+      "category": "Account Lockout",
+      "collector": "Lockout.Threshold",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000010", "expect": { "op": "range", "min": 1, "max": 3 } },
+        "cis": { "id": "1.2.2 (DC L1)", "expect": { "op": "range", "min": 1, "max": 5 } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "range", "min": 1, "max": 5 } }
+      }
+    },
+    {
+      "id": "AD-LO-02",
+      "title": "Account lockout duration is 15 or more minutes",
+      "category": "Account Lockout",
+      "collector": "Lockout.DurationMinutes",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000005", "expect": { "op": "range", "min": 15, "max": null } },
+        "cis": { "id": "1.2.1 (DC L1)", "expect": { "op": "range", "min": 15, "max": null } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "range", "min": 15, "max": null } }
+      }
+    },
+    {
+      "id": "AD-LO-03",
+      "title": "Reset account lockout counter is 15 or more minutes",
+      "category": "Account Lockout",
+      "collector": "Lockout.ResetCounterMinutes",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000015", "expect": { "op": "range", "min": 15, "max": null } },
+        "cis": { "id": "1.2.3 (DC L1)", "expect": { "op": "range", "min": 15, "max": null } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "range", "min": 15, "max": null } }
+      }
+    },
+    {
+      "id": "AD-KRB-01",
+      "title": "krbtgt account password age is 180 days or fewer (rotate on schedule)",
+      "category": "Kerberos",
+      "collector": "Krbtgt.PasswordAgeDays",
+      "frameworks": {
+        "stig": { "id": "AD.0017", "expect": { "op": "range", "min": 0, "max": 180 } },
+        "bestPractice": { "source": "Microsoft krbtgt rotation guidance", "expect": { "op": "range", "min": 0, "max": 180 } }
+      }
+    },
+    {
+      "id": "AD-PRIV-01",
+      "title": "Schema Admins group is empty (populate only during a schema change)",
+      "category": "Privileged Access",
+      "collector": "Group.SchemaAdmins.Count",
+      "frameworks": {
+        "stig": { "id": "AD.0008", "expect": { "op": "range", "min": 0, "max": 0 } },
+        "bestPractice": { "source": "Microsoft Tier 0 guidance", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AD-PRIV-02",
+      "title": "Enterprise Admins membership is minimal (1 or fewer; empty for daily operations)",
+      "category": "Privileged Access",
+      "collector": "Group.EnterpriseAdmins.Count",
+      "frameworks": {
+        "stig": { "id": "AD.0009", "expect": { "op": "range", "min": 0, "max": 1 } },
+        "bestPractice": { "source": "Microsoft Tier 0 guidance", "expect": { "op": "range", "min": 0, "max": 1 } }
+      }
+    },
+    {
+      "id": "AD-PRIV-03",
+      "title": "Domain Admins membership is limited (5 or fewer; review informationally)",
+      "category": "Privileged Access",
+      "collector": "Group.DomainAdmins.Count",
+      "frameworks": {
+        "stig": { "id": "AD.0010", "expect": { "op": "range", "min": 1, "max": 5 } },
+        "bestPractice": { "source": "Microsoft Tier 0 guidance", "expect": { "op": "range", "min": 1, "max": 5 } }
+      }
+    },
+    {
+      "id": "AD-MAQ-01",
+      "title": "ms-DS-MachineAccountQuota is 0 (only admins may join computers)",
+      "category": "Domain Configuration",
+      "collector": "MachineAccountQuota",
+      "frameworks": {
+        "stig": { "id": "AD.0160", "expect": { "op": "eq", "value": "0" } },
+        "bestPractice": { "source": "Microsoft / community hardening", "expect": { "op": "eq", "value": "0" } }
+      }
+    },
+    {
+      "id": "AD-DFL-01",
+      "title": "Domain functional level is Windows Server 2016 or higher",
+      "category": "Domain Configuration",
+      "collector": "Domain.FunctionalLevel",
+      "frameworks": {
+        "bestPractice": { "source": "Microsoft supported functional levels", "expect": { "op": "range", "min": 7, "max": null } }
+      }
+    },
+    {
+      "id": "AD-RB-01",
+      "title": "Active Directory Recycle Bin is enabled",
+      "category": "Domain Configuration",
+      "collector": "RecycleBin.Enabled",
+      "frameworks": {
+        "bestPractice": { "source": "Microsoft AD Recycle Bin guidance", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AD-DEL-01",
+      "title": "No non-DC accounts are trusted for unconstrained delegation",
+      "category": "Delegation",
+      "collector": "Delegation.UnconstrainedNonDcCount",
+      "frameworks": {
+        "stig": { "id": "AD.0180", "expect": { "op": "range", "min": 0, "max": 0 } },
+        "bestPractice": { "source": "Microsoft delegation guidance", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AD-SPN-01",
+      "title": "No standard user accounts carry an SPN (Kerberoasting exposure; use gMSA)",
+      "category": "Kerberos",
+      "collector": "Spn.UserAccountsWithSpnCount",
+      "frameworks": {
+        "bestPractice": { "source": "gMSA / Kerberoasting guidance", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AD-STALE-01",
+      "title": "No enabled user accounts are inactive beyond the stale window",
+      "category": "Account Hygiene",
+      "collector": "Accounts.StaleEnabledUsersCount",
+      "frameworks": {
+        "stig": { "id": "WN-AC-000290", "expect": { "op": "range", "min": 0, "max": 0 } },
+        "bestPractice": { "source": "Account lifecycle hygiene", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AD-STALE-02",
+      "title": "No enabled computer accounts are inactive beyond the stale window",
+      "category": "Account Hygiene",
+      "collector": "Accounts.StaleEnabledComputersCount",
+      "frameworks": {
+        "bestPractice": { "source": "Account lifecycle hygiene", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AD-PWNE-01",
+      "title": "No enabled accounts have password-never-expires (review service accounts)",
+      "category": "Account Hygiene",
+      "collector": "Accounts.PasswordNeverExpiresEnabledCount",
+      "frameworks": {
+        "bestPractice": { "source": "Account lifecycle hygiene", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AD-GUEST-01",
+      "title": "Built-in Guest account (RID 501) is disabled",
+      "category": "Built-in Accounts",
+      "collector": "BuiltinGuest.Enabled",
+      "frameworks": {
+        "stig": { "id": "WN-SO-000010", "expect": { "op": "eq", "value": "False" } },
+        "cis": { "id": "2.3.1.x (DC L1)", "expect": { "op": "eq", "value": "False" } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "eq", "value": "False" } }
+      }
+    },
+    {
+      "id": "AD-ADMIN-01",
+      "title": "Built-in Administrator account (RID 500) has been renamed",
+      "category": "Built-in Accounts",
+      "collector": "BuiltinAdministrator.Renamed",
+      "frameworks": {
+        "stig": { "id": "WN-SO-000025", "expect": { "op": "eq", "value": "True" } },
+        "cis": { "id": "2.3.1.x (DC L1)", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "Microsoft / CIS", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AD-PU-01",
+      "title": "Protected Users group is populated with Tier 0 administrators",
+      "category": "Privileged Access",
+      "collector": "ProtectedUsers.Count",
+      "frameworks": {
+        "bestPractice": { "source": "Microsoft Protected Users guidance", "expect": { "op": "range", "min": 1, "max": null } }
+      }
+    },
+    {
+      "id": "AD-LAPS-01",
+      "title": "LAPS covers at least 95 percent of enabled computer accounts",
+      "category": "Privileged Access",
+      "collector": "Laps.ComputerCoveragePct",
+      "frameworks": {
+        "bestPractice": { "source": "Windows LAPS deployment guidance", "expect": { "op": "range", "min": 95, "max": null } }
+      }
+    },
+    {
+      "id": "AD-TRUST-01",
+      "title": "All external/forest trusts enforce SID filtering (quarantine)",
+      "category": "Trusts",
+      "collector": "Trusts.WithoutSidFilteringCount",
+      "frameworks": {
+        "stig": { "id": "AD.0200", "expect": { "op": "range", "min": 0, "max": 0 } },
+        "bestPractice": { "source": "Microsoft trust hardening", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AD-TS-01",
+      "title": "Tombstone lifetime is 180 or more days",
+      "category": "Domain Configuration",
+      "collector": "Tombstone.LifetimeDays",
+      "frameworks": {
+        "bestPractice": { "source": "Microsoft backup/restore guidance", "expect": { "op": "range", "min": 180, "max": null } }
+      }
+    }
+  ]
+}
