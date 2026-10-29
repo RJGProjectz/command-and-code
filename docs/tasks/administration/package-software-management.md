@@ -8,6 +8,7 @@ languages:
   - PowerShell
   - Bash
   - CMD
+  - Python
 tasks:
   - Administration
 verified: true
@@ -18,6 +19,11 @@ tags:
   - winget
   - apt
   - dnf
+  - zypper
+  - snap
+  - flatpak
+  - pip
+  - npm
   - software-inventory
   - updates
 ---
@@ -104,4 +110,138 @@ sudo dnf upgrade -y
 
 # Enumerate installed RPM packages
 rpm -qa | grep -E "kernel|sshd"
+```
+
+---
+
+## 3. SUSE / openSUSE (`zypper`)
+
+```bash
+# Refresh repository metadata
+sudo zypper refresh
+
+# Search for a package by name or keyword
+zypper search htop
+
+# Install a package
+sudo zypper install -y htop
+
+# Upgrade all installed packages
+sudo zypper update -y
+
+# List installed packages matching a pattern
+rpm -qa | grep -i openssh
+
+# Remove a package
+sudo zypper remove -y htop
+
+# Show available patches (security/recommended/optional)
+sudo zypper list-patches
+sudo zypper patch -y
+```
+
+---
+
+## 4. Universal Package Formats
+
+### Snap (Ubuntu / systemd-based distros)
+
+```bash
+# Search the Snap Store
+snap find "code"
+
+# Install a snap package
+sudo snap install code --classic
+
+# List installed snaps
+snap list
+
+# Refresh all installed snaps to latest channels
+sudo snap refresh
+
+# Remove a snap
+sudo snap remove code
+```
+
+### Flatpak (Flathub)
+
+```bash
+# Add the Flathub remote (first-time setup)
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Search for an application
+flatpak search "vlc"
+
+# Install from Flathub
+flatpak install flathub org.videolan.VLC -y
+
+# List installed Flatpaks
+flatpak list
+
+# Update all installed Flatpaks
+flatpak update -y
+
+# Remove a Flatpak
+flatpak uninstall org.videolan.VLC -y
+flatpak uninstall --unused -y   # purge orphaned runtimes
+```
+
+---
+
+## 5. Language Package Managers
+
+### Python (`pip` / `pip3`)
+
+```bash
+# Upgrade pip itself first
+python3 -m pip install --upgrade pip
+
+# Install a package into the current environment
+pip3 install requests
+
+# Install a specific version
+pip3 install "ansible==9.5.1"
+
+# List installed packages with versions
+pip3 list
+
+# Export installed packages to a requirements file
+pip3 freeze > requirements.txt
+
+# Install all packages from a requirements file
+pip3 install -r requirements.txt
+
+# Upgrade a specific package
+pip3 install --upgrade ansible
+
+# Uninstall
+pip3 uninstall -y requests
+```
+
+> **Prefer virtual environments** (`python3 -m venv .venv && source .venv/bin/activate`) to avoid polluting the system Python interpreter.
+
+### Node.js (`npm`)
+
+```bash
+# Install a package locally (project dependency)
+npm install lodash
+
+# Install a package globally (CLI tools)
+npm install -g http-server
+
+# List globally installed packages
+npm list -g --depth=0
+
+# Check for outdated packages
+npm outdated
+
+# Upgrade all packages in package.json within semver range
+npm update
+
+# Upgrade the npm CLI itself
+npm install -g npm@latest
+
+# Uninstall a package
+npm uninstall lodash
+npm uninstall -g http-server
 ```

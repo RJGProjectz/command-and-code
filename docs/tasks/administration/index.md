@@ -32,6 +32,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Administration — Remote Service Restart & Dependency Validation](remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Safe Temporary File Purging](temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — SSH Key Generation, Deployment & Best Practices](ssh-key-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
+| [Administration — SSH Tunneling & Port Forwarding](ssh-tunneling-port-forwarding.md) | Workflow | Linux, Windows | Bash | Administration |
 | [Administration — Sysmon Enterprise Deployment & Telemetry Tuning](sysmon-deployment-tuning.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Detection Engineering, Threat Hunting |
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
@@ -61,7 +62,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Network Adapter and IP Configuration](network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Services Management](network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [NGINX Web Server Hardening](../hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
-| [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
+| [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD, Python | Administration |
 | [Posture Audit Lab - Bundle and Retrieve Reports Without WinRM](../assurance/posture-audit-lab-test.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell | Assurance, Hardening, Administration |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](../hardening/per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
