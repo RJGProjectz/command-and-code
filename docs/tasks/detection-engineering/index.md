@@ -72,6 +72,9 @@ Build, test and tune detections in KQL, SPL, S1QL and Sigma.
 | [Splunk Detection — Suspicious MFA Authentication Method Deletion](../../detection/spl/mfa-deletion.md) | Entry | Entra ID, Microsoft 365, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Splunk Detection — Suspicious SMB Administrative Share Access](../../detection/spl/lateral-movement-smb.md) | Entry | Windows, Windows Server, Splunk | SPL | Detection Engineering, Threat Hunting |
 | [Splunk Detection — Web Attacks (SQLi, XSS, Path Traversal & Login Brute-Force)](../../detection/spl/web-attacks.md) | Entry | Linux, Splunk | SPL | Detection Engineering, Threat Hunting |
+| [WAF Fundamentals & Tuning](../hardening/waf-fundamentals-and-tuning.md) | Entry | Linux, AWS, Azure | Bash | Hardening, Assurance, Detection Engineering |
+| [Web Application Security Testing](../hardening/web-app-security-testing.md) | Entry | Linux, Windows | Bash, Python | Assurance, Detection Engineering, Hardening |
+| [Web Telemetry, Logging & Auditing Standards](../hardening/web-telemetry-logging-standards.md) | Entry | Linux, Windows, AWS, Azure | Bash, PowerShell | Hardening, Assurance, Detection Engineering, Governance |
 | [CIS Block Monitor (Windows and Linux)](../hardening/cis-block-monitor.md) | Tool | Windows, Linux | PowerShell, Bash | Hardening, Detection Engineering, Assurance |
 | [Knowledge Graph Efficacy & Operational Coverage Matrix](../../references/coverage-matrix.md) | Reference | Windows, Windows Server, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | PowerShell, Bash, Python, KQL, SPL, S1QL, REST API | Administration, Incident Response, Threat Hunting, Detection Engineering, Hardening, Assurance, Governance |
 | [MITRE ATT&CK Mapping](../../detection/mitre-attack/index.md) | Reference | Windows, Linux, Microsoft 365 | MITRE ATT&CK | Detection Engineering, Threat Hunting, Incident Response |

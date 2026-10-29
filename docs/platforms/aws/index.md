@@ -67,6 +67,9 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [AWS Security Baseline — CIS AWS Foundations Benchmark & Security Hub](../../tasks/hardening/cloud-aws-security-baseline.md) | Entry | AWS | Bash | Hardening, Assurance, Governance |
 | [AWS Security Hub, GuardDuty & Inspector (Posture & Alerts)](security-posture.md) | Entry | AWS | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [AWS Troubleshooting](troubleshooting.md) | Entry | AWS | Bash | Troubleshooting, Administration |
+| [Firewalls & Network Layer Controls](../../fundamentals/web-apps/firewall-and-network-controls.md) | Entry | Linux, Windows, AWS, Azure, GCP | Bash, PowerShell | Hardening, Assurance, Assessment |
+| [WAF Fundamentals & Tuning](../../tasks/hardening/waf-fundamentals-and-tuning.md) | Entry | Linux, AWS, Azure | Bash | Hardening, Assurance, Detection Engineering |
+| [Web Telemetry, Logging & Auditing Standards](../../tasks/hardening/web-telemetry-logging-standards.md) | Entry | Linux, Windows, AWS, Azure | Bash, PowerShell | Hardening, Assurance, Detection Engineering, Governance |
 | [Cloud Incident Response Cheat Sheet (Printable)](../../references/cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |
 
 <!-- /cc:index -->

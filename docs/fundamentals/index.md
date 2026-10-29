@@ -180,6 +180,7 @@ Every fundamental node provides:
 | [Exchange Online](../platforms/microsoft-365/exchange.md) | Entry | Microsoft 365, Exchange Online | PowerShell | Incident Response, Investigation, Administration |
 | [File or Port in Use — Find and Stop the Holder](../tasks/troubleshooting/file-or-port-in-use.md) | Entry | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Troubleshooting, Administration |
 | [Finding Files & Content Discovery](../tasks/administration/file-search-discovery.md) | Entry | Linux, Windows, Windows Server | Bash, PowerShell, CMD | Administration, Investigation, Forensics |
+| [Firewalls & Network Layer Controls](web-apps/firewall-and-network-controls.md) | Entry | Linux, Windows, AWS, Azure, GCP | Bash, PowerShell | Hardening, Assurance, Assessment |
 | [Fundamentals — Agentic AI Architectures & Tool Execution](agentic-ai.md) | Entry | Linux | Python | Automation, Hardening |
 | [Fundamentals — API Security & Error Handling](apis/security-error-handling.md) | Entry | Linux, Windows | REST API, PowerShell, Python | Automation, Administration, Hardening |
 | [Fundamentals — AppLocker & Application Control Baselines](systems/applocker.md) | Entry | Windows, Windows Server | PowerShell | Hardening, Administration |
@@ -248,6 +249,7 @@ Every fundamental node provides:
 | [Google Cloud VPC & Firewall Rules](../platforms/gcp/networking.md) | Entry | GCP | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Google Compute Engine & OS Login](../platforms/gcp/compute.md) | Entry | GCP | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Google Kubernetes Engine (GKE)](../platforms/gcp/kubernetes.md) | Entry | GCP | Bash | Administration, Hardening, Investigation, Incident Response |
+| [HTTP Protocol Mechanics & Browser Security Model](web-apps/http-protocol-mechanics.md) | Entry | Linux, Windows | Bash, PowerShell | Hardening, Assessment, Assurance |
 | [Hyper-V](../platforms/virtualization/hyper-v.md) | Entry | Hyper-V, Windows Server | PowerShell | Administration, Incident Response, Forensics |
 | [Identify File Types (Not by Extension)](../tasks/administration/identify-file-types.md) | Entry | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Investigation, Forensics |
 | [Identity & Directory Query Cookbook](../references/identity-directory-query-cookbook.md) | Entry | Active Directory, Entra ID, Windows Server, Linux | PowerShell, CMD, Bash, KQL, REST API | Administration, Investigation, Assurance |
@@ -304,6 +306,10 @@ Every fundamental node provides:
 | [Text Processing & findstr](../languages/windows-cli/text-processing.md) | Entry | Windows, Windows Server | CMD, Windows CLI | Investigation, Automation, Administration |
 | [VMware ESXi CLI Forensics and Ransomware Hardening](../platforms/virtualization/esxi-forensics-hardening.md) | Entry | VMware, Linux | Bash, PowerShell | Hardening, Incident Response, Forensics |
 | [VMware vSphere and ESXi](../platforms/virtualization/vmware.md) | Entry | VMware | PowerShell, Bash | Administration, Incident Response, Forensics |
+| [WAF Fundamentals & Tuning](../tasks/hardening/waf-fundamentals-and-tuning.md) | Entry | Linux, AWS, Azure | Bash | Hardening, Assurance, Detection Engineering |
+| [Web Application Security Testing](../tasks/hardening/web-app-security-testing.md) | Entry | Linux, Windows | Bash, Python | Assurance, Detection Engineering, Hardening |
+| [Web Server & Reverse Proxy Hardening](../tasks/hardening/web-server-reverse-proxy-hardening.md) | Entry | Linux | Bash | Hardening, Assurance, Assessment |
+| [Web Telemetry, Logging & Auditing Standards](../tasks/hardening/web-telemetry-logging-standards.md) | Entry | Linux, Windows, AWS, Azure | Bash, PowerShell | Hardening, Assurance, Detection Engineering, Governance |
 | [Windows 10 and 11 Version Notes](../platforms/windows/windows-10-11.md) | Entry | Windows | PowerShell | Administration, Troubleshooting |
 | [Windows Advanced Audit Policy & SACLs](../platforms/windows/audit-policy.md) | Entry | Windows, Windows Server | PowerShell, CMD | Hardening, Administration |
 | [Windows Defender Application Control (WDAC) & Exploit Guard](../platforms/windows/wdac-exploit-guard.md) | Entry | Windows, Windows Server | PowerShell | Hardening, Administration |

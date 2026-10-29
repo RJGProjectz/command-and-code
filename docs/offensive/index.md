@@ -108,6 +108,9 @@ payloads.
 | [Foothold, Command-and-Control & Defense Evasion — Awareness, Detection and Hardening](foothold-command-control.md) | Workflow | Windows, Linux | — | Assessment |
 | [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) | Workflow | Linux | Bash | Assessment |
 | [Run an Authorized Phishing Simulation — Measure Human and Technical Susceptibility](phishing-social-engineering-ops.md) | Workflow | Linux | Bash | Assessment |
+| [Firewalls & Network Layer Controls](../fundamentals/web-apps/firewall-and-network-controls.md) | Entry | Linux, Windows, AWS, Azure, GCP | Bash, PowerShell | Hardening, Assurance, Assessment |
+| [HTTP Protocol Mechanics & Browser Security Model](../fundamentals/web-apps/http-protocol-mechanics.md) | Entry | Linux, Windows | Bash, PowerShell | Hardening, Assessment, Assurance |
+| [Web Server & Reverse Proxy Hardening](../tasks/hardening/web-server-reverse-proxy-hardening.md) | Entry | Linux | Bash | Hardening, Assurance, Assessment |
 | [API Surface Recon Tool (scope- and rate-limit-aware)](api-surface-recon-tool.md) | Tool | Linux | Bash | Assessment |
 | [Passive Web OSINT Tool (one or many targets)](passive-web-osint.md) | Tool | Linux | Bash | Assessment |
 

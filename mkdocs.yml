@@ -482,6 +482,10 @@ nav:
               - Linux CIS Access Control, PAM & SSH: tasks/hardening/linux-cis-access-pam-ssh.md
               - Apache & PHP Web Server Hardening: tasks/hardening/apache-php-web-server-hardening.md
               - NGINX Web Server Hardening: tasks/hardening/nginx-web-server-hardening.md
+              - Web Server & Reverse Proxy Hardening: tasks/hardening/web-server-reverse-proxy-hardening.md
+              - WAF Fundamentals & Tuning: tasks/hardening/waf-fundamentals-and-tuning.md
+              - Web Telemetry, Logging & Auditing Standards: tasks/hardening/web-telemetry-logging-standards.md
+              - Web Application Security Testing: tasks/hardening/web-app-security-testing.md
               - Azure & Entra ID Security Baseline: tasks/hardening/cloud-azure-security-baseline.md
               - AWS Security Baseline (CIS/Security Hub): tasks/hardening/cloud-aws-security-baseline.md
               - GCP Security Baseline (CIS/Security Command Center): tasks/hardening/cloud-gcp-security-baseline.md
@@ -621,6 +625,8 @@ nav:
               - API Security & Error Handling: fundamentals/apis/security-error-handling.md
           - Web Applications & OWASP:
               - OWASP Top 10 for Web Applications: fundamentals/web-apps/owasp-web-top-10.md
+              - HTTP Protocol Mechanics & Browser Security: fundamentals/web-apps/http-protocol-mechanics.md
+              - Firewalls & Network Layer Controls: fundamentals/web-apps/firewall-and-network-controls.md
               - SQL Injection & Parameterization: fundamentals/web-apps/sql-injection.md
               - Cross-Site Scripting (XSS) & CSP: fundamentals/web-apps/xss-defense.md
               - Cross-Site Request Forgery (CSRF): fundamentals/web-apps/csrf-defense.md
