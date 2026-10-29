@@ -304,6 +304,7 @@ nav:
                   - Manage Network Services (DNS, DHCP): tasks/administration/network-services-management.md
                   - Deploy SSH Keys: tasks/administration/ssh-key-deployment.md
                   - Run an SSH Certificate Authority: tasks/administration/ssh-certificate-authority.md
+                  - SSH Tunneling & Port Forwarding: tasks/administration/ssh-tunneling-port-forwarding.md
                   - Transfer Files Remotely (SCP/rsync): tasks/administration/remote-file-transfer.md
                   - Deploy a WireGuard VPN Gateway: tasks/administration/wireguard-vpn-deployment.md
               - Certificates, Encryption & Email:
