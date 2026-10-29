@@ -314,6 +314,9 @@ nav:
                   - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
               - Cloud:
                   - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md
+              - Web Hosting:
+                  - Build & Host a Website (End-to-End): tasks/administration/website-build-and-hosting-guide.md
+                  - Homelab Mock Transaction System: tasks/administration/homelab-mock-transaction-system.md
           - Troubleshooting:
               - Overview: tasks/troubleshooting/index.md
               - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md
