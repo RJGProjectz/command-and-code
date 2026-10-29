@@ -170,27 +170,31 @@ report-only and blocks nothing.
 
 ---
 
-## Roadmap - Azure posture audit (planned, WP-98)
+## Azure posture audit (WP-98 — Phase 1 delivered)
 
-The on-premises side now has a one-command, read-only posture audit
+Phase 1 of the Azure posture audit is now available:
+**[Azure / Entra ID Identity Posture Audit](../assurance/azure-posture-audit.md)** —
+`scripts/powershell/Invoke-AzurePostureAudit.ps1` grades the Entra ID tenant against 17 identity
+checks from the **CIS Microsoft Azure Foundations Benchmark v3.0** and the **Microsoft Cloud
+Security Benchmark (MCSB)** v1.0, using the same result schema and `-Bar` switch as the on-premises
+posture engines.
+
+The on-premises side has a one-command, read-only posture audit
 ([Posture Audit](../assurance/posture-audit.md)) that grades a Windows workstation, a server and the
-Active Directory domain against CIS / STIG / best practice in a single run. The same model is planned
-for Azure: a read-only `Invoke-AzPostureAudit` built on `az` / Microsoft Graph / Azure Resource Graph,
-emitting the same result schema and the same **STIG-equivalent / CIS / best-practice crosswalk** per
-check, graded by a `-Bar` switch.
+Active Directory domain against CIS / STIG / best practice in a single run. Azure extends that model
+via `az` / Microsoft Graph / Azure Resource Graph.
 
-It will grade against the **CIS Microsoft Azure Foundations Benchmark** and the **Microsoft Cloud
-Security Benchmark (MCSB)**, in phases:
+**Phases**:
 
-1. **Identity / Entra ID** - Conditional Access coverage, phishing-resistant MFA, privileged-role and
-   PIM posture, legacy-auth block (extends the query above), guest-access limits.
-2. **Subscriptions & governance** - Azure Policy assignment coverage, Defender for Cloud secure score,
+1. **Identity / Entra ID** ✅ — Conditional Access coverage, MFA, privileged-role and PIM posture,
+   legacy-auth block, guest-access limits. See [Azure / Entra ID Identity Posture Audit](../assurance/azure-posture-audit.md).
+2. **Subscriptions & governance** — Azure Policy assignment coverage, Defender for Cloud secure score,
    and regulatory-compliance controls.
-3. **Data & network** - storage account public access and encryption, NSG inbound exposure, Key Vault
+3. **Data & network** — storage account public access and encryption, NSG inbound exposure, Key Vault
    soft-delete / purge protection / RBAC.
-4. **Logging** - diagnostic settings, activity-log retention, and alerting coverage.
+4. **Logging** — diagnostic settings, activity-log retention, and alerting coverage.
 
-Until then, the checks in this page and the related assurance pages
+Until Phases 2–4 are delivered, the checks in this page and the related assurance pages
 ([Azure NSG Compliance](../assurance/azure-nsg-compliance.md),
 [Azure External Guest Access](../assurance/azure-guest-access-audit.md),
 [CISA SCuBA Baseline Compliance](../assurance/cisa-scuba-compliance.md)) cover the same ground
