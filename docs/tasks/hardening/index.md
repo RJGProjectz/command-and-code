@@ -12,6 +12,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | --- | --- | --- | --- | --- |
 | [Administration — Centralized Event Forwarding Pipeline (WEF & Rsyslog TLS)](../administration/centralized-log-forwarding-wef-rsyslog.md) | Workflow | Windows Server, Windows, Linux | PowerShell, Bash | Administration, Detection Engineering, Hardening, Assurance |
 | [Administration — Email Authentication Deployment (SPF, DKIM & DMARC)](../administration/email-authentication-deployment.md) | Workflow | Linux, Microsoft 365 | Bash, PowerShell | Administration, Hardening, Investigation |
+| [Administration — Homelab Mock Transaction System Roadmap](../administration/homelab-mock-transaction-system.md) | Workflow | Linux | Bash, Python, REST API | Administration, Hardening |
 | [Administration — SSH Key Generation, Deployment & Best Practices](../administration/ssh-key-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](../administration/tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](../administration/wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
@@ -46,6 +47,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Service Accounts with Least Privilege](../administration/windows-service-accounts-least-privilege.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
+| [Administration — End-to-End Website Build & Hosting Guide](../administration/website-build-and-hosting-guide.md) | Entry | Linux | Bash | Administration, Hardening |
 | [Amazon Elastic Kubernetes Service (EKS)](../../platforms/aws/kubernetes.md) | Entry | AWS | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Amazon S3 & Data Exposure](../../platforms/aws/storage.md) | Entry | AWS | Bash | Administration, Hardening, Investigation, Incident Response |
 | [Assurance Check — Active Directory STIG Compliance](../assurance/ad-stig-compliance.md) | Entry | Windows Server, Active Directory | PowerShell | Assurance, Hardening |
