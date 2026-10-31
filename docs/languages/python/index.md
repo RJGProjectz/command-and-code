@@ -20,6 +20,7 @@ Python is the glue for API automation, data processing and cross-platform toolin
 <!-- cc:index languages="Python" -->
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
+| [Administration — Homelab Mock Transaction System Roadmap](../../tasks/administration/homelab-mock-transaction-system.md) | Workflow | Linux | Bash, Python, REST API | Administration, Hardening |
 | [Assess an LLM Application for Prompt Injection and Abuse](../../offensive/llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](../../tasks/automation/automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |
 | [Cyber Threat Intelligence — IoC Ingestion, Aging & Confidence Scoring](../../tasks/threat-intelligence/ioc-lifecycle-scoring.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | Python, PowerShell, Bash, KQL, SPL | Threat Intelligence, Detection Engineering, Investigation |
@@ -31,6 +32,7 @@ Python is the glue for API automation, data processing and cross-platform toolin
 | [Linux Live Response and Forensic Artifact Extraction](../../tasks/forensics/linux-live-response-forensics.md) | Workflow | Linux | Bash, Python | Forensics, Incident Response, Investigation |
 | [Live Memory Acquisition and Volatility Analysis](../../tasks/forensics/memory-acquisition-analysis.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash, Python | Forensics, Incident Response, Investigation |
 | [Network and PCAP Forensics](../../tasks/forensics/network-pcap-forensics.md) | Workflow | Linux | Bash, Python | Forensics, Investigation, Incident Response |
+| [Package and Software Lifecycle Management](../../tasks/administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD, Python | Administration |
 | [Amazon CloudWatch, Logs Insights & Athena](../../platforms/aws/monitoring-logs.md) | Entry | AWS | Bash, Python | Investigation, Troubleshooting, Detection Engineering, Administration |
 | [AWS CLI, SDKs & Authentication](../../platforms/aws/cli-authentication.md) | Entry | AWS | Bash, PowerShell, Python | Administration, Automation, Incident Response |
 | [AWS CloudTrail (Audit Logging)](../../platforms/aws/audit-logging.md) | Entry | AWS | Bash, Python | Investigation, Incident Response, Forensics, Hardening |

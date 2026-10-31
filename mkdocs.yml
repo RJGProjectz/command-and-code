@@ -304,6 +304,7 @@ nav:
                   - Manage Network Services (DNS, DHCP): tasks/administration/network-services-management.md
                   - Deploy SSH Keys: tasks/administration/ssh-key-deployment.md
                   - Run an SSH Certificate Authority: tasks/administration/ssh-certificate-authority.md
+                  - SSH Tunneling & Port Forwarding: tasks/administration/ssh-tunneling-port-forwarding.md
                   - Transfer Files Remotely (SCP/rsync): tasks/administration/remote-file-transfer.md
                   - Deploy a WireGuard VPN Gateway: tasks/administration/wireguard-vpn-deployment.md
               - Certificates, Encryption & Email:
@@ -314,6 +315,9 @@ nav:
                   - Deploy SPF, DKIM & DMARC: tasks/administration/email-authentication-deployment.md
               - Cloud:
                   - Manage Azure Resources: tasks/administration/cloud-azure-resource-management.md
+              - Web Hosting:
+                  - Build & Host a Website (End-to-End): tasks/administration/website-build-and-hosting-guide.md
+                  - Homelab Mock Transaction System: tasks/administration/homelab-mock-transaction-system.md
           - Troubleshooting:
               - Overview: tasks/troubleshooting/index.md
               - Windows Connectivity: tasks/troubleshooting/windows-connectivity.md

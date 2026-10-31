@@ -29,9 +29,11 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Administration — Disk Space Capacity Audit & Reporting](disk-space-audit.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Email Authentication Deployment (SPF, DKIM & DMARC)](email-authentication-deployment.md) | Workflow | Linux, Microsoft 365 | Bash, PowerShell | Administration, Hardening, Investigation |
 | [Administration — Group Policy Force Refresh & Diagnostic Audit](group-policy-update.md) | Workflow | Windows, Active Directory | PowerShell, CMD | Administration, Troubleshooting |
+| [Administration — Homelab Mock Transaction System Roadmap](homelab-mock-transaction-system.md) | Workflow | Linux | Bash, Python, REST API | Administration, Hardening |
 | [Administration — Remote Service Restart & Dependency Validation](remote-service-restart.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — Safe Temporary File Purging](temp-file-cleanup.md) | Workflow | Windows Server, Windows | PowerShell, CMD | Administration, Troubleshooting |
 | [Administration — SSH Key Generation, Deployment & Best Practices](ssh-key-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
+| [Administration — SSH Tunneling & Port Forwarding](ssh-tunneling-port-forwarding.md) | Workflow | Linux, Windows | Bash | Administration |
 | [Administration — Sysmon Enterprise Deployment & Telemetry Tuning](sysmon-deployment-tuning.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Detection Engineering, Threat Hunting |
 | [Administration — TLS/SSL Certificate Deployment & Web Server Hardening](tls-certificate-deployment.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Administration — WireGuard Secure VPN Gateway & Client Deployment](wireguard-vpn-deployment.md) | Workflow | Linux, Windows | Bash, PowerShell | Administration, Hardening, Troubleshooting |
@@ -62,7 +64,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Network Adapter and IP Configuration](network-adapter-ip-configuration.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration |
 | [Network Services Management](network-services-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [NGINX Web Server Hardening](../hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
-| [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD | Administration |
+| [Package and Software Lifecycle Management](package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD, Python | Administration |
 | [Posture Audit Lab - Bundle and Retrieve Reports Without WinRM](../assurance/posture-audit-lab-test.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell | Assurance, Hardening, Administration |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](../hardening/per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
@@ -78,6 +80,7 @@ Day-to-day systems and security administration: accounts, services, configuratio
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](../hardening/windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](../hardening/windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows Service Accounts with Least Privilege](windows-service-accounts-least-privilege.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Administration, Hardening |
+| [Administration — End-to-End Website Build & Hosting Guide](website-build-and-hosting-guide.md) | Entry | Linux | Bash | Administration, Hardening |
 | [Amazon CloudWatch, Logs Insights & Athena](../../platforms/aws/monitoring-logs.md) | Entry | AWS | Bash, Python | Investigation, Troubleshooting, Detection Engineering, Administration |
 | [Amazon EC2 & Systems Manager (Compute)](../../platforms/aws/compute.md) | Entry | AWS | Bash, PowerShell | Administration, Investigation, Incident Response |
 | [Amazon Elastic Kubernetes Service (EKS)](../../platforms/aws/kubernetes.md) | Entry | AWS | Bash | Administration, Hardening, Investigation, Incident Response |
