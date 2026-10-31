@@ -1,0 +1,212 @@
+{
+  "schema": "cc.azposture.catalog/1",
+  "name": "Azure / Entra ID Identity Posture — Phase 1 (Identity and Access Management)",
+  "version": "1.0.0",
+  "generated": "2026-10-29T00:00:00Z",
+  "notice": "Phase 1 identity and access management checks against the CIS Microsoft Azure Foundations Benchmark v3.0 and the Microsoft Cloud Security Benchmark v1.0 (MCSB). CIS section and recommendation numbers are indicative — confirm against the version your subscription's Defender for Cloud regulatory-compliance view enforces. MCSB control IDs reference the Microsoft Cloud Security Benchmark available at https://learn.microsoft.com/security/benchmark/azure/. Best practice is the minimum pass bar by default. Checks AZ-ID-01 and AZ-ID-02 together cover the 'Security Defaults or Conditional Access' requirement: a production tenant with Conditional Access deployed will intentionally fail AZ-ID-01 (SD disabled) but should pass AZ-ID-02..04. PIM checks (AZ-ID-12..15) require Azure AD P2 licensing and the PrivilegedAccess.Read.AzureAD permission; they report Error when the PIM API returns 403 or the role is not managed by PIM.",
+  "checks": [
+    {
+      "id": "AZ-ID-01",
+      "title": "Entra ID Security Defaults are enabled",
+      "category": "Security Defaults",
+      "collector": "Entra.SecurityDefaults.IsEnabled",
+      "remediation": "https://learn.microsoft.com/entra/fundamentals/security-defaults",
+      "frameworks": {
+        "cis": { "id": "1.1.1 (L1)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "IM-6", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS/MCSB — acceptable to fail when Conditional Access replaces Security Defaults", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AZ-ID-02",
+      "title": "At least one Conditional Access policy is enabled (CA deployed as SD replacement)",
+      "category": "Conditional Access",
+      "collector": "Entra.ConditionalAccess.EnabledPolicyCount",
+      "remediation": "https://learn.microsoft.com/entra/identity/conditional-access/overview",
+      "frameworks": {
+        "cis": { "id": "1.2.x (L1)", "expect": { "op": "range", "min": 1, "max": null } },
+        "mcsb": { "id": "IM-7", "expect": { "op": "range", "min": 1, "max": null } },
+        "bestPractice": { "source": "CIS/MCSB — required when Security Defaults is off", "expect": { "op": "range", "min": 1, "max": null } }
+      }
+    },
+    {
+      "id": "AZ-ID-03",
+      "title": "A Conditional Access policy requires MFA for all users",
+      "category": "Conditional Access",
+      "collector": "Entra.ConditionalAccess.HasMfaAllUsers",
+      "remediation": "https://learn.microsoft.com/entra/identity/conditional-access/howto-conditional-access-policy-all-users-mfa",
+      "frameworks": {
+        "cis": { "id": "1.2.3 (L1)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "IM-6", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AZ-ID-04",
+      "title": "A Conditional Access policy blocks legacy authentication protocols",
+      "category": "Conditional Access",
+      "collector": "Entra.ConditionalAccess.HasBlockLegacyAuth",
+      "remediation": "https://learn.microsoft.com/entra/identity/conditional-access/howto-conditional-access-policy-block-legacy",
+      "frameworks": {
+        "cis": { "id": "1.2.6 (L1)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "IM-7", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AZ-ID-05",
+      "title": "Guest user access is restricted (level 1 Limited or level 0 Restricted; not level 2 Default/Full)",
+      "category": "Guest and External Identities",
+      "collector": "Entra.GuestAccess.UserRoleLevel",
+      "remediation": "https://learn.microsoft.com/entra/identity/users/users-restrict-guest-permissions",
+      "frameworks": {
+        "cis": { "id": "1.11 (L1)", "expect": { "op": "range", "min": 0, "max": 1 } },
+        "mcsb": { "id": "PA-3", "expect": { "op": "range", "min": 0, "max": 1 } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "range", "min": 0, "max": 1 } }
+      }
+    },
+    {
+      "id": "AZ-ID-06",
+      "title": "Guest invitation is restricted to admins or the Guest Inviter role (not all users or disabled)",
+      "category": "Guest and External Identities",
+      "collector": "Entra.GuestAccess.AllowInvitesFrom",
+      "remediation": "https://learn.microsoft.com/entra/external-id/external-collaboration-settings-configure",
+      "frameworks": {
+        "cis": { "id": "1.12 / 1.13 (L1)", "expect": { "op": "in", "values": ["adminsAndGuestInviters", "admins", "none"] } },
+        "mcsb": { "id": "PA-3", "expect": { "op": "in", "values": ["adminsAndGuestInviters", "admins", "none"] } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "in", "values": ["adminsAndGuestInviters", "admins", "none"] } }
+      }
+    },
+    {
+      "id": "AZ-ID-07",
+      "title": "Users are not allowed to create new Azure AD tenants",
+      "category": "User Settings",
+      "collector": "Entra.Users.AllowedToCreateTenants",
+      "remediation": "https://learn.microsoft.com/entra/identity/users/users-default-permissions",
+      "frameworks": {
+        "cis": { "id": "1.10 (L1)", "expect": { "op": "eq", "value": "False" } },
+        "mcsb": { "id": "GS-1", "expect": { "op": "eq", "value": "False" } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "eq", "value": "False" } }
+      }
+    },
+    {
+      "id": "AZ-ID-08",
+      "title": "Users are not allowed to register applications",
+      "category": "User Settings",
+      "collector": "Entra.Users.AllowedToCreateApps",
+      "remediation": "https://learn.microsoft.com/entra/identity/role-based-access-control/delegate-app-roles",
+      "frameworks": {
+        "cis": { "id": "1.9 (L1)", "expect": { "op": "eq", "value": "False" } },
+        "mcsb": { "id": "IM-3", "expect": { "op": "eq", "value": "False" } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "eq", "value": "False" } }
+      }
+    },
+    {
+      "id": "AZ-ID-09",
+      "title": "User consent for apps accessing company data is disabled (legacy policy not assigned)",
+      "category": "User Settings",
+      "collector": "Entra.Users.LegacyConsentPolicyAssigned",
+      "remediation": "https://learn.microsoft.com/entra/identity/enterprise-apps/configure-user-consent",
+      "frameworks": {
+        "cis": { "id": "1.8 (L1)", "expect": { "op": "eq", "value": "False" } },
+        "mcsb": { "id": "PA-5", "expect": { "op": "eq", "value": "False" } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "eq", "value": "False" } }
+      }
+    },
+    {
+      "id": "AZ-ID-10",
+      "title": "Number of permanent Global Administrator role assignments is between 2 and 4",
+      "category": "Privileged Access",
+      "collector": "Entra.GlobalAdmin.UserCount",
+      "remediation": "https://learn.microsoft.com/entra/identity/role-based-access-control/best-practices",
+      "frameworks": {
+        "cis": { "id": "1.14.1 (L1)", "expect": { "op": "range", "min": 2, "max": 4 } },
+        "mcsb": { "id": "PA-1", "expect": { "op": "range", "min": 2, "max": 4 } },
+        "bestPractice": { "source": "CIS/MCSB", "expect": { "op": "range", "min": 2, "max": 4 } }
+      }
+    },
+    {
+      "id": "AZ-ID-11",
+      "title": "No external or guest users hold Global Administrator role assignments",
+      "category": "Privileged Access",
+      "collector": "Entra.GlobalAdmin.ExternalUserCount",
+      "remediation": "https://learn.microsoft.com/entra/identity/role-based-access-control/best-practices",
+      "frameworks": {
+        "mcsb": { "id": "PA-1", "expect": { "op": "range", "min": 0, "max": 0 } },
+        "bestPractice": { "source": "MCSB/Microsoft guidance", "expect": { "op": "range", "min": 0, "max": 0 } }
+      }
+    },
+    {
+      "id": "AZ-ID-12",
+      "title": "Privileged Identity Management (PIM) is in use for at least one privileged role",
+      "category": "Privileged Identity Management",
+      "collector": "Entra.PIM.EligibleAssignmentCount",
+      "remediation": "https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-getting-started",
+      "frameworks": {
+        "cis": { "id": "1.15.1 (L2)", "expect": { "op": "range", "min": 1, "max": null } },
+        "mcsb": { "id": "PA-7", "expect": { "op": "range", "min": 1, "max": null } },
+        "bestPractice": { "source": "CIS/MCSB — requires Azure AD P2", "expect": { "op": "range", "min": 1, "max": null } }
+      }
+    },
+    {
+      "id": "AZ-ID-13",
+      "title": "PIM Global Administrator activation requires MFA",
+      "category": "Privileged Identity Management",
+      "collector": "Entra.PIM.GlobalAdmin.RequireMfaOnActivation",
+      "remediation": "https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings",
+      "frameworks": {
+        "cis": { "id": "1.15.2 (L1)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "PA-7", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS/MCSB — requires Azure AD P2", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AZ-ID-14",
+      "title": "PIM Global Administrator activation requires a justification",
+      "category": "Privileged Identity Management",
+      "collector": "Entra.PIM.GlobalAdmin.RequireJustificationOnActivation",
+      "remediation": "https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings",
+      "frameworks": {
+        "cis": { "id": "1.15.3 (L1)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "PA-7", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS/MCSB — requires Azure AD P2", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AZ-ID-15",
+      "title": "PIM Global Administrator activation requires approval",
+      "category": "Privileged Identity Management",
+      "collector": "Entra.PIM.GlobalAdmin.RequireApprovalOnActivation",
+      "remediation": "https://learn.microsoft.com/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings",
+      "frameworks": {
+        "cis": { "id": "1.15.4 (L2)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "PA-7", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS/MCSB — requires Azure AD P2", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AZ-ID-16",
+      "title": "A Conditional Access policy is configured with a sign-in risk condition (requires Identity Protection P2)",
+      "category": "Identity Protection",
+      "collector": "Entra.ConditionalAccess.HasSignInRiskPolicy",
+      "remediation": "https://learn.microsoft.com/entra/identity/conditional-access/howto-conditional-access-policy-risk",
+      "frameworks": {
+        "cis": { "id": "1.5 (L2)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "IM-6", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS L2/MCSB — requires Azure AD P2 + Identity Protection", "expect": { "op": "eq", "value": "True" } }
+      }
+    },
+    {
+      "id": "AZ-ID-17",
+      "title": "A Conditional Access policy is configured with a user risk condition (requires Identity Protection P2)",
+      "category": "Identity Protection",
+      "collector": "Entra.ConditionalAccess.HasUserRiskPolicy",
+      "remediation": "https://learn.microsoft.com/entra/identity/conditional-access/howto-conditional-access-policy-risk-user",
+      "frameworks": {
+        "cis": { "id": "1.6 (L2)", "expect": { "op": "eq", "value": "True" } },
+        "mcsb": { "id": "IM-6", "expect": { "op": "eq", "value": "True" } },
+        "bestPractice": { "source": "CIS L2/MCSB — requires Azure AD P2 + Identity Protection", "expect": { "op": "eq", "value": "True" } }
+      }
+    }
+  ]
+}
