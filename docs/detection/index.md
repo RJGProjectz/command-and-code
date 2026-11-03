@@ -121,6 +121,7 @@ More side-by-side comparisons: [Cross-platform equivalents](../references/equiva
 | [Threat Actor Intelligence Profiles & TTP Reference Cards](../references/threat-actor-profiles.md) | Reference | Windows, Linux, Azure, Entra ID, Microsoft 365 | KQL, SPL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Detection Engineering |
 | [Windows Event ID Reference](../references/windows-event-ids.md) | Reference | Windows, Windows Server | PowerShell, SPL, KQL | Investigation, Incident Response, Detection Engineering, Forensics |
 | [Windows Process Parent/Child Chains — Know Normal](../references/windows-process-chains.md) | Reference | Windows, Windows Server | PowerShell, KQL, SPL | Investigation, Threat Hunting, Incident Response, Detection Engineering |
+| [Cyber Kill Chain](../fundamentals/concepts/cyber-kill-chain.md) | Concept | Windows, Linux | KQL | Threat Hunting, Detection Engineering, Incident Response |
 | [Intrusion Detection and Prevention (IDS/IPS)](../fundamentals/concepts/ids-ips.md) | Concept | Linux, Windows, Microsoft Defender | Bash, KQL | Detection Engineering, Threat Hunting, Hardening |
 | [Penetration Testing and Red Teaming (Methodology and Detection)](../fundamentals/concepts/penetration-testing.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Assurance, Threat Hunting, Detection Engineering |
 | [Security Information and Event Management (SIEM)](../fundamentals/concepts/siem.md) | Concept | Splunk, Microsoft Defender, Azure | SPL, KQL | Detection Engineering, Investigation, Threat Hunting |

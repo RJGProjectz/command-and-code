@@ -346,6 +346,7 @@ nav:
               - Privacy Laws and Data Protection (GDPR, CCPA, HIPAA): fundamentals/concepts/privacy-laws.md
               - Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP): fundamentals/concepts/cyber-law.md
               - Ethical Hacking, Ethics and Careers: fundamentals/concepts/ethical-hacking.md
+              - Data Classification (Sensitivity Tiers and Handling Rules): fundamentals/concepts/data-classification.md
           - "Operating Systems":
               - Processes, Threads and Handles: fundamentals/concepts/processes-threads.md
               - Users, Groups and Privilege (SIDs, UIDs, UAC, sudo): fundamentals/concepts/users-groups-permissions.md
@@ -374,6 +375,7 @@ nav:
               - Password Attacks and Defences (Spraying, Cracking, Wordlists): fundamentals/concepts/password-attacks.md
               - Credential Dumping: fundamentals/concepts/credential-dumping.md
               - Kerberoasting: fundamentals/concepts/kerberoasting.md
+              - Credential Theft (Pass-the-Hash, Pass-the-Ticket, NTLM Relay): fundamentals/concepts/credential-theft.md
               - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
           - "Cryptography":
               - Cryptography Fundamentals (Symmetric and Asymmetric Encryption): fundamentals/concepts/cryptography-fundamentals.md
@@ -385,6 +387,7 @@ nav:
               - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
           - "Threats & Intelligence":
               - Threat Intelligence and the Cyber Kill Chain: fundamentals/concepts/threat-intelligence-kill-chain.md
+              - Cyber Kill Chain (Phases, Defender Opportunities): fundamentals/concepts/cyber-kill-chain.md
               - OSINT and Reconnaissance: fundamentals/concepts/osint.md
               - Malware Types and Analysis (Spyware, RATs, Rootkits): fundamentals/concepts/malware-types-analysis.md
               - Ransomware: fundamentals/concepts/ransomware.md
@@ -398,6 +401,8 @@ nav:
           - "Apps, Cloud & Endpoint":
               - Secure SDLC, DevSecOps and Secure Coding: fundamentals/concepts/secure-sdlc-devsecops.md
               - Cloud-Native Security (Containers, Kubernetes, Microservices): fundamentals/concepts/cloud-native-security.md
+              - Shared Responsibility Model (IaaS, PaaS, SaaS): fundamentals/concepts/shared-responsibility-model.md
+              - Authentication and Authorization in Web Applications: fundamentals/concepts/authentication-authorization.md
               - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
   - Offensive:
       - Overview: offensive/index.md

@@ -39,14 +39,18 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Access Control Models (ACL, DAC, MAC, RBAC, ABAC)](access-control-models.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Administration, Assurance |
 | [Anonymity Networks and the Dark Web (Tor, I2P, Tails)](anonymity-dark-web.md) | Concept | Windows, Linux, Microsoft Defender | KQL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Investigation |
 | [ARP Spoofing](arp-spoofing.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Troubleshooting |
+| [Authentication and Authorization in Web Applications](authentication-authorization.md) | Concept | Linux, Windows | HTTP, REST API, Python | Assurance, Investigation, Hardening |
 | [Authentication, MFA, SSO and Federation](authentication-mfa-sso.md) | Concept | Windows, Entra ID, Microsoft 365 | PowerShell, KQL | Investigation, Hardening, Incident Response |
 | [Boot and Startup Sequence (UEFI to Logon)](boot-startup-sequence.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Troubleshooting |
 | [CIA Triad and Least Privilege](cia-triad.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [Cloud-Native Security (Containers, Kubernetes, Microservices)](cloud-native-security.md) | Concept | Linux, Azure | Bash, KQL | Hardening, Threat Hunting, Assurance |
 | [Credential Dumping](credential-dumping.md) | Concept | Windows, Microsoft Defender, Active Directory | PowerShell, KQL | Incident Response, Threat Hunting, Hardening |
+| [Credential Theft](credential-theft.md) | Concept | Windows, Active Directory | PowerShell, KQL | Incident Response, Threat Hunting, Hardening |
 | [Cryptographic Attacks and Cryptanalysis](cryptographic-attacks.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Threat Hunting, Hardening, Assurance |
 | [Cryptography Fundamentals (Symmetric and Asymmetric Encryption)](cryptography-fundamentals.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |
+| [Cyber Kill Chain](cyber-kill-chain.md) | Concept | Windows, Linux | KQL | Threat Hunting, Detection Engineering, Incident Response |
 | [Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP)](cyber-law.md) | Concept | Windows, Azure | PowerShell | Compliance, Assurance, Incident Response |
+| [Data Classification](data-classification.md) | Concept | Windows, Linux, Microsoft 365 | PowerShell, Bash | Governance, Compliance, Hardening |
 | [Defense in Depth and Secure Network Design](defense-in-depth.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Assurance |
 | [Denial of Service (DoS and DDoS)](denial-of-service.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Incident Response, Troubleshooting, Hardening |
 | [Digital Forensics and Incident Response (DFIR)](digital-forensics.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Incident Response, Investigation |
@@ -78,6 +82,7 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Security Information and Event Management (SIEM)](siem.md) | Concept | Splunk, Microsoft Defender, Azure | SPL, KQL | Detection Engineering, Investigation, Threat Hunting |
 | [Security Standards Map (ISO/IEC 27000 series, NIST SP 800)](security-standards-map.md) | Concept | Windows, Linux, Azure | PowerShell | Compliance, Assurance, Hardening |
 | [Services and Daemons (Windows SCM, systemd)](services-daemons.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Hardening |
+| [Shared Responsibility Model](shared-responsibility-model.md) | Concept | Azure, AWS, GCP | PowerShell, Bash | Hardening, Governance, Assurance |
 | [Social Engineering (Phishing, Vishing, Pretexting, Tailgating)](social-engineering.md) | Concept | Microsoft 365, Exchange Online, Microsoft Defender | KQL, PowerShell | Incident Response, Investigation, Hardening |
 | [Surveillance, Counter-Surveillance and Deception](surveillance-deception.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, KQL | Threat Hunting, Detection Engineering, Investigation |
 | [Threat Intelligence and the Cyber Kill Chain](threat-intelligence-kill-chain.md) | Concept | Windows, Microsoft Defender | KQL, PowerShell | Threat Intelligence, Threat Hunting, Detection Engineering |

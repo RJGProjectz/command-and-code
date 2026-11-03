@@ -71,5 +71,6 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [WAF Fundamentals & Tuning](../../tasks/hardening/waf-fundamentals-and-tuning.md) | Entry | Linux, AWS, Azure | Bash | Hardening, Assurance, Detection Engineering |
 | [Web Telemetry, Logging & Auditing Standards](../../tasks/hardening/web-telemetry-logging-standards.md) | Entry | Linux, Windows, AWS, Azure | Bash, PowerShell | Hardening, Assurance, Detection Engineering, Governance |
 | [Cloud Incident Response Cheat Sheet (Printable)](../../references/cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |
+| [Shared Responsibility Model](../../fundamentals/concepts/shared-responsibility-model.md) | Concept | Azure, AWS, GCP | PowerShell, Bash | Hardening, Governance, Assurance |
 
 <!-- /cc:index -->
