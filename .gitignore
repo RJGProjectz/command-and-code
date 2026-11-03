@@ -17,6 +17,9 @@ scratch/
 WebsiteThemeSource/
 tmp*/
 
+# PDF ingest: local ChromaDB store (never commit book text or embeddings)
+data/chromadb/
+
 # Internal Agent Operating & Governance Ledgers
 Audit/
 Standards/

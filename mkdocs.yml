@@ -394,11 +394,14 @@ nav:
               - Vulnerability Assessment and Patch Management: fundamentals/concepts/vulnerability-management.md
               - Digital Forensics and Incident Response (DFIR): fundamentals/concepts/digital-forensics.md
               - Penetration Testing and Red Teaming (Methodology and Detection): fundamentals/concepts/penetration-testing.md
+              - Purple Teaming: fundamentals/concepts/purple-teaming.md
               - Surveillance, Counter-Surveillance and Deception: fundamentals/concepts/surveillance-deception.md
           - "Apps, Cloud & Endpoint":
               - Secure SDLC, DevSecOps and Secure Coding: fundamentals/concepts/secure-sdlc-devsecops.md
               - Cloud-Native Security (Containers, Kubernetes, Microservices): fundamentals/concepts/cloud-native-security.md
               - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
+              - Supply Chain Attacks: fundamentals/concepts/supply-chain-attacks.md
+              - Adversarial Training for ML Model Robustness: fundamentals/concepts/adversarial-training.md
   - Offensive:
       - Overview: offensive/index.md
       - Stage 1 — Reconnaissance:
@@ -417,12 +420,14 @@ nav:
           - Phishing & Social-Engineering Simulation: offensive/phishing-social-engineering-ops.md
       - Stage 3 — Foothold & Command-and-Control:
           - Foothold, C2 & Defense Evasion (Awareness): offensive/foothold-command-control.md
+          - DLL Hijacking: offensive/dll-hijacking.md
       - Stage 4 — Lateral Movement & Privilege Escalation:
           - Windows Host Enum & Privesc: offensive/windows-host-enumeration-privesc.md
           - Linux Host Enum & Privesc: offensive/linux-host-enumeration-privesc.md
           - Active Directory Enumeration: offensive/active-directory-enumeration.md
       - Stage 5 — Actions on Objectives & Reporting:
           - Actions on Objectives & Reporting (Awareness): offensive/actions-on-objectives-reporting.md
+          - Covering Tracks — Evidence Removal: offensive/covering-tracks.md
   - Defensive:
       - Overview: defensive/index.md
       - Detection:
