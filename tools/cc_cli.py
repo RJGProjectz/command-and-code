@@ -442,7 +442,12 @@ def cmd_ask(args: argparse.Namespace) -> None:
         print(c_red("Ask a question, e.g.: cc ask how do I find public gcs buckets"))
         sys.exit(2)
 
-    results = ai_grounding.search(question, top_k=args.sources)
+    results = ai_grounding.search(
+        question,
+        top_k=args.sources,
+        skip_books=args.no_books,
+        books_only=args.books_only,
+    )
     if not results:
         print(c_amber("No matching pages in the knowledge base; nothing to ground an answer on."))
         sys.exit(1)
@@ -462,10 +467,14 @@ def cmd_ask(args: argparse.Namespace) -> None:
     cited = {int(n) for n in CITATION_RE.findall(answer or "")}
     print(c_bold("Sources:"))
     for i, (rec, score) in enumerate(results, 1):
-        page = cc.load_page(ROOT / rec["path"])
-        state = c_green("verified") if page.meta.get("verified") is True else c_amber("unverified")
         mark = c_cyan("cited") if i in cited else c_dim("not cited")
-        print(f"  [{i}] {rec['title']}  {c_dim(rec['path'])}  {state}  {mark}")
+        if rec.get("_source") == "book":
+            page_num = rec.get("page_num", "?")
+            print(f"  [{i}] {rec['title']}, p.{page_num}  {c_dim(rec['path'])}  {c_amber('book')}  {mark}")
+        else:
+            page = cc.load_page(ROOT / rec["path"])
+            state = c_green("verified") if page.meta.get("verified") is True else c_amber("unverified")
+            print(f"  [{i}] {rec['title']}  {c_dim(rec['path'])}  {state}  {mark}")
 
     if answer:
         invalid = sorted(n for n in cited if not 1 <= n <= len(results))
@@ -535,6 +544,8 @@ def main() -> None:
     p_ask.add_argument("-m", "--model", help="Ollama model (default: $CC_ASK_MODEL or the best installed local model)")
     p_ask.add_argument("--host", default=os.environ.get("OLLAMA_HOST_URL", "http://localhost:11434"), help="Ollama endpoint")
     p_ask.add_argument("--timeout", type=int, default=180, help="Seconds to wait for the answer (default: 180)")
+    p_ask.add_argument("--books-only", action="store_true", help="Query the book corpus only (skip site index)")
+    p_ask.add_argument("--no-books", action="store_true", help="Skip the book corpus; query site index only")
     p_ask.set_defaults(func=cmd_ask)
 
     if len(sys.argv) == 1:
