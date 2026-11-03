@@ -98,6 +98,8 @@ payloads.
 | [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](wifi-wireless-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Assess Credential Strength — Authorized Password Spraying and Offline Hash Cracking](password-attacks-credential-cracking.md) | Workflow | Linux | Bash | Assessment |
+| [Covering Tracks — Evidence Removal in Authorized Penetration Tests](covering-tracks.md) | Workflow | Windows, Linux | PowerShell, Bash, Windows CLI | Assessment |
+| [DLL Hijacking — Exploiting Windows DLL Search Order](dll-hijacking.md) | Workflow | Windows | PowerShell, Windows CLI | Assessment |
 | [Enumerate a Linux Host and Identify Privilege-Escalation Paths](linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Windows Host and Identify Privilege-Escalation Paths](windows-host-enumeration-privesc.md) | Workflow | Windows | PowerShell | Assessment |

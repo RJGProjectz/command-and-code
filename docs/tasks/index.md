@@ -146,6 +146,7 @@ Contain, investigate and preserve evidence.
 | [CIS Hardening Lab Test (Before/After Diff and Run Checklist)](hardening/cis-hardening-lab-test.md) | Workflow | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](assurance/cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |
 | [Container & Kubernetes Hardening](hardening/container-kubernetes-hardening.md) | Workflow | Linux | Bash | Hardening |
+| [Covering Tracks — Evidence Removal in Authorized Penetration Tests](../offensive/covering-tracks.md) | Workflow | Windows, Linux | PowerShell, Bash, Windows CLI | Assessment |
 | [Credential Rotation After a Compromise](incident-response/credential-rotation-after-compromise.md) | Workflow | Active Directory, Windows Server, Linux, Entra ID, Azure | PowerShell, Bash, CMD | Incident Response, Administration |
 | [Cyber Threat Intelligence — Adversary Emulation & ATT&CK Profiling](threat-intelligence/adversary-emulation-profiling.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | PowerShell, Bash, KQL, SPL | Threat Intelligence, Detection Engineering, Assurance |
 | [Cyber Threat Intelligence — IoC Ingestion, Aging & Confidence Scoring](threat-intelligence/ioc-lifecycle-scoring.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk | Python, PowerShell, Bash, KQL, SPL | Threat Intelligence, Detection Engineering, Investigation |
@@ -154,6 +155,7 @@ Contain, investigate and preserve evidence.
 | [Deploy Windows LAPS and Admin Tiering (Tier 0/1/2)](hardening/windows-laps-admin-tiering.md) | Workflow | Windows, Windows Server | PowerShell | Hardening, Administration |
 | [Detection Development Lifecycle (DDLC) and Testing](detection-engineering/detection-development-lifecycle.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL, Sigma, PowerShell | Detection Engineering, Threat Hunting, Incident Response |
 | [Detection-as-Code Pipeline (Version Control, CI Validation & Staged Deploy)](detection-engineering/detection-as-code-pipeline.md) | Workflow | Microsoft Defender, Splunk, SentinelOne, GitHub, Linux | Sigma, KQL, SPL, S1QL, Python, Bash | Detection Engineering, Automation, Assurance |
+| [DLL Hijacking — Exploiting Windows DLL Search Order](../offensive/dll-hijacking.md) | Workflow | Windows | PowerShell, Windows CLI | Assessment |
 | [DNS Client Resolution and Troubleshooting](administration/dns-resolution-troubleshooting.md) | Workflow | Windows, Linux | PowerShell, CMD, Bash | Administration, Troubleshooting |
 | [Effective Permissions and Access Review (Windows and Linux)](assurance/effective-permissions-access-review.md) | Workflow | Windows, Windows Server, Linux | PowerShell, CMD, Bash | Assurance, Hardening, Administration |
 | [Encrypt Linux Disks with LUKS2 (TPM2, Clevis/Tang, Key Slots, Header Backup)](administration/linux-luks-disk-encryption.md) | Workflow | Linux | Bash | Administration, Hardening |

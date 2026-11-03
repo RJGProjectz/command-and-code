@@ -37,6 +37,7 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Access Control Models (ACL, DAC, MAC, RBAC, ABAC)](access-control-models.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Administration, Assurance |
+| [Adversarial Training for ML Model Robustness](adversarial-training.md) | Concept | Linux, Windows | Python | Hardening, Detection Engineering, Threat Intelligence |
 | [Anonymity Networks and the Dark Web (Tor, I2P, Tails)](anonymity-dark-web.md) | Concept | Windows, Linux, Microsoft Defender | KQL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Investigation |
 | [ARP Spoofing](arp-spoofing.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Troubleshooting |
 | [Authentication, MFA, SSO and Federation](authentication-mfa-sso.md) | Concept | Windows, Entra ID, Microsoft 365 | PowerShell, KQL | Investigation, Hardening, Incident Response |
@@ -71,6 +72,7 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Privacy Laws and Data Protection (GDPR, CCPA, HIPAA)](privacy-laws.md) | Concept | Microsoft 365, Windows | PowerShell, KQL | Compliance, Incident Response, Assurance |
 | [Processes, Threads and Handles](processes-threads.md) | Concept | Windows, Linux | PowerShell, Bash | Incident Response, Investigation, Threat Hunting |
 | [Proxy Servers](proxy-servers.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Administration |
+| [Purple Teaming](purple-teaming.md) | Concept | Windows, Linux, Active Directory | PowerShell, Bash | Detection Engineering, Threat Hunting, Hardening, Incident Response |
 | [Quantum Computing and Security (Qubits, QKD)](quantum-computing-security.md) | Concept | Windows, Linux | PowerShell, Bash | Threat Intelligence, Assurance |
 | [Ransomware](ransomware.md) | Concept | Windows, Linux, VMware, SentinelOne | PowerShell, S1QL | Incident Response, Threat Hunting, Hardening |
 | [Risk Management, Policies and Compliance Audits](risk-management-governance.md) | Concept | Windows, Linux | PowerShell | Assurance, Compliance |
@@ -79,6 +81,7 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Security Standards Map (ISO/IEC 27000 series, NIST SP 800)](security-standards-map.md) | Concept | Windows, Linux, Azure | PowerShell | Compliance, Assurance, Hardening |
 | [Services and Daemons (Windows SCM, systemd)](services-daemons.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Hardening |
 | [Social Engineering (Phishing, Vishing, Pretexting, Tailgating)](social-engineering.md) | Concept | Microsoft 365, Exchange Online, Microsoft Defender | KQL, PowerShell | Incident Response, Investigation, Hardening |
+| [Supply Chain Attacks](supply-chain-attacks.md) | Concept | Linux, Windows, GitHub, AWS, Azure | Python, Bash, PowerShell | Threat Intelligence, Hardening, Detection Engineering, Incident Response |
 | [Surveillance, Counter-Surveillance and Deception](surveillance-deception.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, KQL | Threat Hunting, Detection Engineering, Investigation |
 | [Threat Intelligence and the Cyber Kill Chain](threat-intelligence-kill-chain.md) | Concept | Windows, Microsoft Defender | KQL, PowerShell | Threat Intelligence, Threat Hunting, Detection Engineering |
 | [Users, Groups and Privilege (SIDs, UIDs, UAC, sudo)](users-groups-permissions.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Hardening, Incident Response |
