@@ -75,18 +75,21 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Ransomware](ransomware.md) | Concept | Windows, Linux, VMware, SentinelOne | PowerShell, S1QL | Incident Response, Threat Hunting, Hardening |
 | [Risk Management, Policies and Compliance Audits](risk-management-governance.md) | Concept | Windows, Linux | PowerShell | Assurance, Compliance |
 | [Secure SDLC, DevSecOps and Secure Coding](secure-sdlc-devsecops.md) | Concept | Windows, Linux | PowerShell, Bash, Python | Hardening, Assurance, Automation |
+| [Security Controls](security-controls.md) | Concept | Windows, Linux | PowerShell, KQL | Hardening, Administration, Detection Engineering, Assessment |
 | [Security Information and Event Management (SIEM)](siem.md) | Concept | Splunk, Microsoft Defender, Azure | SPL, KQL | Detection Engineering, Investigation, Threat Hunting |
 | [Security Standards Map (ISO/IEC 27000 series, NIST SP 800)](security-standards-map.md) | Concept | Windows, Linux, Azure | PowerShell | Compliance, Assurance, Hardening |
 | [Services and Daemons (Windows SCM, systemd)](services-daemons.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Hardening |
 | [Social Engineering (Phishing, Vishing, Pretexting, Tailgating)](social-engineering.md) | Concept | Microsoft 365, Exchange Online, Microsoft Defender | KQL, PowerShell | Incident Response, Investigation, Hardening |
 | [Surveillance, Counter-Surveillance and Deception](surveillance-deception.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, KQL | Threat Hunting, Detection Engineering, Investigation |
 | [Threat Intelligence and the Cyber Kill Chain](threat-intelligence-kill-chain.md) | Concept | Windows, Microsoft Defender | KQL, PowerShell | Threat Intelligence, Threat Hunting, Detection Engineering |
+| [Threat Modeling](threat-modeling.md) | Concept | Windows, Linux | Python | Assessment, Hardening, Detection Engineering |
 | [Users, Groups and Privilege (SIDs, UIDs, UAC, sudo)](users-groups-permissions.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Hardening, Incident Response |
 | [Vulnerability Assessment and Patch Management](vulnerability-management.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Hardening, Assurance, Administration |
 | [Wi-Fi Deauthentication and Rogue Access Points](wifi-deauth-rogue-ap.md) | Concept | Windows, Linux | PowerShell, Bash | Threat Hunting, Investigation, Hardening |
 | [Wi-Fi Security (WEP, WPA, WPA2, WPA3)](wifi-security.md) | Concept | Windows, Linux | PowerShell, Bash, Windows CLI | Hardening, Investigation, Assurance |
 | [Windows Registry (and the Linux /etc Equivalent)](windows-registry.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Forensics, Threat Hunting |
 | [WPA/WPA2 Passphrase Attacks (Handshake Capture)](wifi-passphrase-attacks.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Investigation, Threat Hunting |
+| [Zero Trust Architecture](zero-trust.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, KQL | Hardening, Administration, Detection Engineering |
 | [Zero-Knowledge Proofs, Homomorphic Encryption and Blockchain](zero-knowledge-homomorphic-blockchain.md) | Concept | Windows, Linux | PowerShell, Bash | Threat Intelligence, Investigation |
 
 <!-- /cc:index -->

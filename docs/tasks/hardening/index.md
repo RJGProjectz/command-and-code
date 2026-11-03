@@ -38,6 +38,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [NGINX Web Server Hardening](nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Post-Incident Activity and Lessons Learned](../incident-response/post-incident-lessons-learned.md) | Workflow | Windows, Linux, Microsoft 365 | KQL | Incident Response, Detection Engineering, Hardening |
 | [Posture Audit Lab - Bundle and Retrieve Reports Without WinRM](../assurance/posture-audit-lab-test.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell | Assurance, Hardening, Administration |
+| [Privilege Escalation Techniques — Awareness, Detection and Hardening](../../offensive/privilege-escalation.md) | Workflow | Windows, Linux, Active Directory | — | Assessment, Hardening, Detection Engineering |
 | [Restrict Outbound Traffic per Service (Windows Firewall, nftables, systemd)](per-service-egress-control.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Hardening, Administration |
 | [Run an SSH Certificate Authority (User and Host Certificates)](../administration/ssh-certificate-authority.md) | Workflow | Linux, Windows, Windows Server | Bash, PowerShell | Administration, Hardening |
 | [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](../assurance/linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |
@@ -182,13 +183,16 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA)](../../fundamentals/concepts/post-quantum-cryptography.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |
 | [Ransomware](../../fundamentals/concepts/ransomware.md) | Concept | Windows, Linux, VMware, SentinelOne | PowerShell, S1QL | Incident Response, Threat Hunting, Hardening |
 | [Secure SDLC, DevSecOps and Secure Coding](../../fundamentals/concepts/secure-sdlc-devsecops.md) | Concept | Windows, Linux | PowerShell, Bash, Python | Hardening, Assurance, Automation |
+| [Security Controls](../../fundamentals/concepts/security-controls.md) | Concept | Windows, Linux | PowerShell, KQL | Hardening, Administration, Detection Engineering, Assessment |
 | [Security Standards Map (ISO/IEC 27000 series, NIST SP 800)](../../fundamentals/concepts/security-standards-map.md) | Concept | Windows, Linux, Azure | PowerShell | Compliance, Assurance, Hardening |
 | [Services and Daemons (Windows SCM, systemd)](../../fundamentals/concepts/services-daemons.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Hardening |
 | [Social Engineering (Phishing, Vishing, Pretexting, Tailgating)](../../fundamentals/concepts/social-engineering.md) | Concept | Microsoft 365, Exchange Online, Microsoft Defender | KQL, PowerShell | Incident Response, Investigation, Hardening |
+| [Threat Modeling](../../fundamentals/concepts/threat-modeling.md) | Concept | Windows, Linux | Python | Assessment, Hardening, Detection Engineering |
 | [Users, Groups and Privilege (SIDs, UIDs, UAC, sudo)](../../fundamentals/concepts/users-groups-permissions.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Hardening, Incident Response |
 | [Vulnerability Assessment and Patch Management](../../fundamentals/concepts/vulnerability-management.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Hardening, Assurance, Administration |
 | [Wi-Fi Deauthentication and Rogue Access Points](../../fundamentals/concepts/wifi-deauth-rogue-ap.md) | Concept | Windows, Linux | PowerShell, Bash | Threat Hunting, Investigation, Hardening |
 | [Wi-Fi Security (WEP, WPA, WPA2, WPA3)](../../fundamentals/concepts/wifi-security.md) | Concept | Windows, Linux | PowerShell, Bash, Windows CLI | Hardening, Investigation, Assurance |
 | [WPA/WPA2 Passphrase Attacks (Handshake Capture)](../../fundamentals/concepts/wifi-passphrase-attacks.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Investigation, Threat Hunting |
+| [Zero Trust Architecture](../../fundamentals/concepts/zero-trust.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, KQL | Hardening, Administration, Detection Engineering |
 
 <!-- /cc:index -->
