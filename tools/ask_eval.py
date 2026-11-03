@@ -27,6 +27,8 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 QUESTIONS = ROOT / "tests" / "eval" / "ask_questions.yml"
+BOOKS_QUESTIONS = ROOT / "tests" / "eval" / "ask_eval_books.json"
+BOOKS_DB = ROOT / "data" / "chromadb" / "books"
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
@@ -162,6 +164,51 @@ def print_report(report: dict, show_all: bool) -> None:
             print(f"         got: {', '.join(r['retrieved'][:3])}")
 
 
+def load_book_questions(path: Path = BOOKS_QUESTIONS) -> list[dict]:
+    """Load the book Q&A eval set (JSON list)."""
+    with path.open(encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def evaluate_books(questions: list[dict], k: int, search=ai_grounding.search) -> dict:
+    """Score book retrieval: did any top-k result come from the expected book?
+
+    A hit is any result with ``_source == "book"`` whose ``title`` contains
+    the ``expected_source`` value (case-insensitive substring match).
+    """
+    rows = []
+    for q in questions:
+        expected = q.get("expected_source", "")
+        results = search(q["question"], top_k=k, books_only=True)
+        hit_rank: int | None = None
+        for rank, (rec, _score) in enumerate(results, 1):
+            if rec.get("_source") == "book" and expected.lower() in rec.get("title", "").lower():
+                hit_rank = rank
+                break
+        rows.append({"id": q["id"], "question": q["question"],
+                     "expected_source": expected, "rank": hit_rank})
+
+    n = len(rows) or 1
+    summary = {
+        "questions": len(rows),
+        "k": k,
+        "hit_at_1": round(sum(1 for r in rows if r["rank"] == 1) / n, 3),
+        "hit_at_k": round(sum(1 for r in rows if r["rank"]) / n, 3),
+        "mrr": round(sum(1 / r["rank"] for r in rows if r["rank"]) / n, 3),
+    }
+    return {"summary": summary, "results": rows}
+
+
+def print_book_report(report: dict, show_all: bool = False) -> None:
+    s = report["summary"]
+    print(f"Books retrieval over {s['questions']} questions (top {s['k']}): "
+          f"hit@1 {s['hit_at_1']:.0%}  hit@{s['k']} {s['hit_at_k']:.0%}  MRR {s['mrr']:.2f}")
+    for r in report["results"]:
+        if not r["rank"] or show_all:
+            rank = f"rank {r['rank']}" if r["rank"] else "MISS"
+            print(f"  {r['id']} {rank:7} [{r['expected_source']}] {r['question']}")
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Score cc ask retrieval and citations against tests/eval/ask_questions.yml")
     parser.add_argument("-k", type=int, default=5, help="Retrieval depth scored as hit@k (default: 5)")
@@ -199,6 +246,20 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(report, indent=2))
     else:
         print_report(report, args.all)
+
+    # Books eval — runs only when the ChromaDB collection is populated
+    if BOOKS_DB.exists() and BOOKS_QUESTIONS.exists():
+        try:
+            book_qs = load_book_questions()
+            book_report = evaluate_books(book_qs, args.k)
+            if args.json:
+                print(json.dumps({"books": book_report}, indent=2))
+            else:
+                print()
+                print_book_report(book_report, args.all)
+        except Exception as exc:  # never let books eval break the site eval exit code
+            print(f"[!] Books eval skipped: {exc}", file=sys.stderr)
+
     return 1 if report["summary"]["hit_at_k"] < args.min_hit else 0
 
 

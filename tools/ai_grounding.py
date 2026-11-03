@@ -20,6 +20,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX_FILE = ROOT / "site" / "ai_knowledge_index.jsonl"
+DEFAULT_BOOKS_DB = ROOT / "data" / "chromadb" / "books"
+DEFAULT_EMBED_MODEL = "nomic-embed-text"
 
 
 def load_index() -> list[dict]:
@@ -130,18 +132,124 @@ def score_record(query: str, record: dict, idf: dict[str, float] | None = None) 
     return score_fields(query, record_fields(record), record.get("title", ""), idf)
 
 
-def search(query: str, top_k: int = 5) -> list[tuple[dict, float]]:
-    """Retrieves top scoring records from knowledge index."""
-    records = load_index()
-    all_fields = [record_fields(r) for r in records]
-    idf = term_weights(all_fields)
-    scored = []
-    for r, fields in zip(records, all_fields):
-        s = score_fields(query, fields, r.get("title", ""), idf)
-        if s > 0:
-            scored.append((r, s))
-    scored.sort(key=lambda x: x[1], reverse=True)
-    return scored[:top_k]
+def _get_embedding(
+    text: str,
+    model: str = DEFAULT_EMBED_MODEL,
+    host: str = "http://localhost:11434",
+) -> list[float] | None:
+    """Fetch an embedding vector from Ollama; returns None on any error."""
+    url = f"{host}/api/embeddings"
+    payload = json.dumps({"model": model, "prompt": text}).encode()
+    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.loads(resp.read().decode()).get("embedding")
+    except Exception:
+        return None
+
+
+def query_books(
+    query_embedding: list[float],
+    top_k: int = 5,
+    db_dir: Path | str | None = None,
+) -> list[tuple[dict, float]]:
+    """Query ChromaDB 'books' collection by embedding; returns [] when DB is absent.
+
+    Each returned record has ``_source == "book"`` and a ``summary`` field
+    containing the raw chunk text so ``build_cited_prompt`` works unchanged.
+    """
+    resolved = Path(db_dir) if db_dir is not None else DEFAULT_BOOKS_DB
+    if not resolved.exists():
+        return []
+
+    try:
+        import chromadb  # soft dependency; absent on CI
+    except ImportError:
+        return []
+
+    try:
+        client = chromadb.PersistentClient(path=str(resolved))
+        col = client.get_collection("books")
+        n_items = col.count()
+        if n_items == 0:
+            return []
+        results = col.query(
+            query_embeddings=[query_embedding],
+            n_results=min(top_k, n_items),
+            include=["documents", "metadatas", "distances"],
+        )
+    except Exception:
+        return []
+
+    out: list[tuple[dict, float]] = []
+    for doc, meta, dist in zip(
+        results["documents"][0],
+        results["metadatas"][0],
+        results["distances"][0],
+    ):
+        similarity = max(0.0, 1.0 - float(dist))
+        page_num = meta.get("page_num", 0)
+        title = meta.get("book_title", "Unknown Book")
+        filename = meta.get("filename", "")
+        rec = {
+            "title": title,
+            "path": f"_books/{filename}",
+            "page_num": page_num,
+            "filename": filename,
+            "summary": doc,   # chunk text — used by build_cited_prompt
+            "_source": "book",
+        }
+        out.append((rec, similarity))
+    return out
+
+
+def search(
+    query: str,
+    top_k: int = 5,
+    *,
+    skip_books: bool = False,
+    books_only: bool = False,
+    db_dir: Path | str | None = None,
+    embed_model: str = DEFAULT_EMBED_MODEL,
+    host: str = "http://localhost:11434",
+) -> list[tuple[dict, float]]:
+    """Retrieve top-k records from the site index and/or the book corpus.
+
+    When both sources are available their scores are normalised to [0, 1]
+    before merging so neither dominates by scale alone.
+    """
+    site_results: list[tuple[dict, float]] = []
+    book_results: list[tuple[dict, float]] = []
+
+    if not books_only:
+        records = load_index()
+        all_fields = [record_fields(r) for r in records]
+        idf = term_weights(all_fields)
+        scored = []
+        for r, fields in zip(records, all_fields):
+            s = score_fields(query, fields, r.get("title", ""), idf)
+            if s > 0:
+                scored.append((r, s))
+        scored.sort(key=lambda x: x[1], reverse=True)
+        site_results = scored[:top_k]
+
+    if not skip_books:
+        resolved_db = Path(db_dir) if db_dir is not None else DEFAULT_BOOKS_DB
+        if resolved_db.exists():
+            embedding = _get_embedding(query, model=embed_model, host=host)
+            if embedding:
+                book_results = query_books(embedding, top_k=top_k, db_dir=resolved_db)
+
+    if not site_results:
+        return book_results[:top_k]
+    if not book_results:
+        return site_results[:top_k]
+
+    # Normalise BM25 scores to [0, 1] so they can be merged with cosine scores
+    max_bm25 = max(s for _, s in site_results) or 1.0
+    normalised = [(r, s / max_bm25) for r, s in site_results]
+    merged = sorted(normalised + book_results, key=lambda x: x[1], reverse=True)
+    return merged[:top_k]
 
 
 def build_grounded_prompt(query: str, top_k: int = 3) -> str:
