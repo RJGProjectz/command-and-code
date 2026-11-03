@@ -1,0 +1,27 @@
+[
+  {
+    "id": "bq01",
+    "question": "what is the penetration testing methodology and reconnaissance phases",
+    "expected_source": "Penetration Testing"
+  },
+  {
+    "id": "bq02",
+    "question": "how to exploit buffer overflow vulnerabilities in memory",
+    "expected_source": "Hacking The Art Of Exploitation"
+  },
+  {
+    "id": "bq03",
+    "question": "metasploit framework modules and msfconsole payloads",
+    "expected_source": "Metasploit"
+  },
+  {
+    "id": "bq04",
+    "question": "web application sql injection and xss attack techniques",
+    "expected_source": "The Web Application Hackers Handbook"
+  },
+  {
+    "id": "bq05",
+    "question": "network traffic analysis and packet capture with wireshark",
+    "expected_source": "Network Security Assessment"
+  }
+]
