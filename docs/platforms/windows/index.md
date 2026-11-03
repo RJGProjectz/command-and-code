@@ -249,13 +249,17 @@ Most entries show **PowerShell** first, with the native **Windows CLI** equivale
 | [Access Control Models (ACL, DAC, MAC, RBAC, ABAC)](../../fundamentals/concepts/access-control-models.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Administration, Assurance |
 | [Anonymity Networks and the Dark Web (Tor, I2P, Tails)](../../fundamentals/concepts/anonymity-dark-web.md) | Concept | Windows, Linux, Microsoft Defender | KQL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Investigation |
 | [ARP Spoofing](../../fundamentals/concepts/arp-spoofing.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Troubleshooting |
+| [Authentication and Authorization in Web Applications](../../fundamentals/concepts/authentication-authorization.md) | Concept | Linux, Windows | HTTP, REST API, Python | Assurance, Investigation, Hardening |
 | [Authentication, MFA, SSO and Federation](../../fundamentals/concepts/authentication-mfa-sso.md) | Concept | Windows, Entra ID, Microsoft 365 | PowerShell, KQL | Investigation, Hardening, Incident Response |
 | [Boot and Startup Sequence (UEFI to Logon)](../../fundamentals/concepts/boot-startup-sequence.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Troubleshooting |
 | [CIA Triad and Least Privilege](../../fundamentals/concepts/cia-triad.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [Credential Dumping](../../fundamentals/concepts/credential-dumping.md) | Concept | Windows, Microsoft Defender, Active Directory | PowerShell, KQL | Incident Response, Threat Hunting, Hardening |
+| [Credential Theft](../../fundamentals/concepts/credential-theft.md) | Concept | Windows, Active Directory | PowerShell, KQL | Incident Response, Threat Hunting, Hardening |
 | [Cryptographic Attacks and Cryptanalysis](../../fundamentals/concepts/cryptographic-attacks.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Threat Hunting, Hardening, Assurance |
 | [Cryptography Fundamentals (Symmetric and Asymmetric Encryption)](../../fundamentals/concepts/cryptography-fundamentals.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |
+| [Cyber Kill Chain](../../fundamentals/concepts/cyber-kill-chain.md) | Concept | Windows, Linux | KQL | Threat Hunting, Detection Engineering, Incident Response |
 | [Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP)](../../fundamentals/concepts/cyber-law.md) | Concept | Windows, Azure | PowerShell | Compliance, Assurance, Incident Response |
+| [Data Classification](../../fundamentals/concepts/data-classification.md) | Concept | Windows, Linux, Microsoft 365 | PowerShell, Bash | Governance, Compliance, Hardening |
 | [Defense in Depth and Secure Network Design](../../fundamentals/concepts/defense-in-depth.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Assurance |
 | [Denial of Service (DoS and DDoS)](../../fundamentals/concepts/denial-of-service.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Incident Response, Troubleshooting, Hardening |
 | [Digital Forensics and Incident Response (DFIR)](../../fundamentals/concepts/digital-forensics.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Incident Response, Investigation |
