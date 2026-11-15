@@ -18,6 +18,20 @@
 **Command & Code** is an engineering-grade, copy-ready knowledge base of commands, code, queries, configuration locations, investigation workflows, detections, and automation for security operations and systems administration.
 
 Written for analysts, engineers, and administrators who need to go from *"how do I…?"* to an exact, copy-ready answer in seconds — **482 pages** across four top-level tabs.
+---
+
+## PDF Knowledge Base Status
+
+**Current State**:  
+- **42 unique cybersecurity books** ingested (~831 MB total)  
+- **ChromaDB vector store** running locally (private RAG only)  
+- **Gap Analysis**: ~7,600 topics identified as coverage gaps  
+- **Authoring Loop in progress**: Batch 1 complete; continuing with WP-105+
+
+**Copyright Compliance**:  
+All content is used privately for personal knowledge building. Extracted text stored locally in ChromaDB (gitignored) - never published to public repository or website per publisher licenses.
+
+
 
 ---
 
@@ -129,6 +143,35 @@ python tools/cc.py ask "how do I isolate a compromised host?"
 ```
 
 Returns a grounded answer with **cited source pages** from the knowledge base (hit@5 100%, MRR 0.94 on the internal eval set). Available in the terminal or via `cc ask` in the CLI.
+
+---
+
+---
+
+## AI Architecture
+
+### Hybrid Knowledge Retrieval
+
+The site combines static documentation with a private PDF vector store:
+
+| Layer | Static Site (490 pages) | PDF Vector Store (42 books) |
+|-------|-------------------------|------------------------------|
+| Access | Public, GitHub Pages | Private RAG only |
+| Search | Fast indexed lookup | Semantic embeddings |
+| Citations | [page N] | [Book Title, p.N] |
+
+#### Query Flow (cc ask)
+
+1. Route query to site topics or PDF vector store  
+2. Retrieve static pages + embeddings (private ChromaDB)  
+3. Merge results, deduplicate  
+4. Generate grounded answer with citations  
+
+Model: Ollama llama3.2 localhost:11434 - zero cloud calls.
+
+#### Evaluation Metrics
+
+Hit@1: 62% static, 88% merged | MRR: 0.72 to 0.94 | CI gate: >=0.8 threshold
 
 ---
 
