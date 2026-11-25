@@ -47,10 +47,12 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Cryptographic Attacks and Cryptanalysis](cryptographic-attacks.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Threat Hunting, Hardening, Assurance |
 | [Cryptography Fundamentals (Symmetric and Asymmetric Encryption)](cryptography-fundamentals.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |
 | [Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP)](cyber-law.md) | Concept | Windows, Azure | PowerShell | Compliance, Assurance, Incident Response |
+| [Data Protection and Encryption](data-protection-encryption.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, Python, Bash | Hardening, Governance, Assurance |
 | [Defense in Depth and Secure Network Design](defense-in-depth.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Assurance |
 | [Denial of Service (DoS and DDoS)](denial-of-service.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Incident Response, Troubleshooting, Hardening |
 | [Digital Forensics and Incident Response (DFIR)](digital-forensics.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Incident Response, Investigation |
 | [Digital Signatures and Non-repudiation (RSA, DSA, ECDSA, EdDSA, PGP)](digital-signatures.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Hardening, Forensics |
+| [Enterprise Security Architecture](enterprise-architecture.md) | Concept | Windows, Azure, AWS | PowerShell | Governance, Hardening, Assurance |
 | [Ethical Hacking, Ethics and Careers](ethical-hacking.md) | Concept | Windows, Linux | PowerShell, Bash | Assurance, Hardening |
 | [File Systems (NTFS, ext4, XFS)](file-systems.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Investigation, Hardening |
 | [Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2)](hash-functions.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Investigation, Threat Intelligence |
@@ -77,6 +79,7 @@ New concepts start from [`templates/concept.md`](https://github.com/RJGProjectz/
 | [Secure SDLC, DevSecOps and Secure Coding](secure-sdlc-devsecops.md) | Concept | Windows, Linux | PowerShell, Bash, Python | Hardening, Assurance, Automation |
 | [Security Controls](security-controls.md) | Concept | Windows, Linux | PowerShell, KQL | Hardening, Administration, Detection Engineering, Assessment |
 | [Security Information and Event Management (SIEM)](siem.md) | Concept | Splunk, Microsoft Defender, Azure | SPL, KQL | Detection Engineering, Investigation, Threat Hunting |
+| [Security Mitigation Strategies](mitigation-strategies.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, Bash, Python | Hardening, Governance, Detection Engineering |
 | [Security Standards Map (ISO/IEC 27000 series, NIST SP 800)](security-standards-map.md) | Concept | Windows, Linux, Azure | PowerShell | Compliance, Assurance, Hardening |
 | [Services and Daemons (Windows SCM, systemd)](services-daemons.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Threat Hunting, Hardening |
 | [Social Engineering (Phishing, Vishing, Pretexting, Tailgating)](social-engineering.md) | Concept | Microsoft 365, Exchange Online, Microsoft Defender | KQL, PowerShell | Incident Response, Investigation, Hardening |

@@ -33,6 +33,8 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | [NGINX Web Server Hardening](../hardening/nginx-web-server-hardening.md) | Workflow | Linux | Bash, HTTP | Hardening, Assurance, Administration |
 | [Posture Audit Lab - Bundle and Retrieve Reports Without WinRM](posture-audit-lab-test.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell | Assurance, Hardening, Administration |
 | [Scan Linux Host Posture with Lynis, OpenSCAP and osquery](linux-posture-scanners.md) | Workflow | Linux | Bash | Assurance, Hardening |
+| [Vulnerability Assessment](vulnerability-assessment.md) | Workflow | Windows, Linux, Azure | PowerShell, Bash, Python | Assurance, Governance |
+| [Vulnerability Scanning](vulnerability-scanning.md) | Workflow | Windows, Linux, Azure, AWS | Bash, PowerShell, Python | Assurance, Detection Engineering |
 | [Windows CIS Benchmark — Advanced Audit Policy Baseline](../hardening/windows-cis-advanced-audit-policy.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Detection Engineering, Assurance |
 | [Windows CIS Benchmark — Attack Surface Reduction (ASR) & Credential Guard](../hardening/windows-cis-attack-surface-reduction.md) | Workflow | Windows, Windows Server | PowerShell, CMD | Hardening, Assurance, Administration |
 | [Windows CIS Benchmark — User Rights Assignment & Account Policies](../hardening/windows-cis-user-rights-assignment.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD | Hardening, Assurance, Administration |
@@ -91,7 +93,9 @@ Automated checks, compliance scripts, and configuration audits to ensure endpoin
 | [Cryptographic Attacks and Cryptanalysis](../../fundamentals/concepts/cryptographic-attacks.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Threat Hunting, Hardening, Assurance |
 | [Cryptography Fundamentals (Symmetric and Asymmetric Encryption)](../../fundamentals/concepts/cryptography-fundamentals.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |
 | [Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP)](../../fundamentals/concepts/cyber-law.md) | Concept | Windows, Azure | PowerShell | Compliance, Assurance, Incident Response |
+| [Data Protection and Encryption](../../fundamentals/concepts/data-protection-encryption.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, Python, Bash | Hardening, Governance, Assurance |
 | [Defense in Depth and Secure Network Design](../../fundamentals/concepts/defense-in-depth.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Assurance |
+| [Enterprise Security Architecture](../../fundamentals/concepts/enterprise-architecture.md) | Concept | Windows, Azure, AWS | PowerShell | Governance, Hardening, Assurance |
 | [Ethical Hacking, Ethics and Careers](../../fundamentals/concepts/ethical-hacking.md) | Concept | Windows, Linux | PowerShell, Bash | Assurance, Hardening |
 | [Identity and Access Management (IAM, PAM, Directory Services)](../../fundamentals/concepts/identity-access-management.md) | Concept | Windows Server, Entra ID, Azure | PowerShell, KQL | Administration, Hardening, Assurance |
 | [Mobile Device and Application Security](../../fundamentals/concepts/mobile-security.md) | Concept | Intune, Microsoft 365 | PowerShell, KQL | Hardening, Assurance, Investigation |
