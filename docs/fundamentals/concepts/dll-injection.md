@@ -63,7 +63,7 @@ Shellcode injection follows a similar memory-write-and-thread pattern but inject
 
 ```bash
 cc find "process injection"
-cc view docs/fundamentals/concepts/dll-hijacking.md
+cc view docs/offensive/dll-hijacking.md
 cc view docs/tasks/threat-hunting/index.md
 ```
 
@@ -118,7 +118,7 @@ Injection leaves traces across multiple telemetry sources. The injector process 
 
 ## Related concepts
 
-- [DLL Hijacking](dll-hijacking.md)
-- [Privilege Escalation](../systems/index.md)
+- DLL Hijacking
+- [Privilege Escalation](../../offensive/privilege-escalation.md)
 - [Malware Types and Analysis](malware-types-analysis.md)
 - [Processes and Threads](processes-threads.md)

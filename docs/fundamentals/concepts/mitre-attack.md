@@ -125,5 +125,5 @@ Mapping detections to ATT&CK:
 
 - [Threat Intelligence and the Cyber Kill Chain](threat-intelligence-kill-chain.md)
 - [Threat Modeling](threat-modeling.md)
-- [Purple Teaming](purple-teaming.md)
+- Purple Teaming
 - [SIEM](siem.md)
