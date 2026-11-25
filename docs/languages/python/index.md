@@ -33,6 +33,8 @@ Python is the glue for API automation, data processing and cross-platform toolin
 | [Live Memory Acquisition and Volatility Analysis](../../tasks/forensics/memory-acquisition-analysis.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash, Python | Forensics, Incident Response, Investigation |
 | [Network and PCAP Forensics](../../tasks/forensics/network-pcap-forensics.md) | Workflow | Linux | Bash, Python | Forensics, Investigation, Incident Response |
 | [Package and Software Lifecycle Management](../../tasks/administration/package-software-management.md) | Workflow | Windows, Linux | PowerShell, Bash, CMD, Python | Administration |
+| [Vulnerability Assessment](../../tasks/assurance/vulnerability-assessment.md) | Workflow | Windows, Linux, Azure | PowerShell, Bash, Python | Assurance, Governance |
+| [Vulnerability Scanning](../../tasks/assurance/vulnerability-scanning.md) | Workflow | Windows, Linux, Azure, AWS | Bash, PowerShell, Python | Assurance, Detection Engineering |
 | [Amazon CloudWatch, Logs Insights & Athena](../../platforms/aws/monitoring-logs.md) | Entry | AWS | Bash, Python | Investigation, Troubleshooting, Detection Engineering, Administration |
 | [AWS CLI, SDKs & Authentication](../../platforms/aws/cli-authentication.md) | Entry | AWS | Bash, PowerShell, Python | Administration, Automation, Incident Response |
 | [AWS CloudTrail (Audit Logging)](../../platforms/aws/audit-logging.md) | Entry | AWS | Bash, Python | Investigation, Incident Response, Forensics, Hardening |
@@ -79,7 +81,9 @@ Python is the glue for API automation, data processing and cross-platform toolin
 | [Python Toolbox](../../toolbox/python.md) | Tool | Windows, Linux, Microsoft 365, SentinelOne | Python | Automation, Incident Response, Investigation |
 | [Windows Server CIS Benchmark Audit (Member Server / Domain Controller)](../../tasks/hardening/windows-server-cis-audit-tool.md) | Tool | Windows Server, Active Directory | PowerShell, Python | Hardening, Assurance, Administration |
 | [Knowledge Graph Efficacy & Operational Coverage Matrix](../../references/coverage-matrix.md) | Reference | Windows, Windows Server, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | PowerShell, Bash, Python, KQL, SPL, S1QL, REST API | Administration, Incident Response, Threat Hunting, Detection Engineering, Hardening, Assurance, Governance |
+| [Data Protection and Encryption](../../fundamentals/concepts/data-protection-encryption.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, Python, Bash | Hardening, Governance, Assurance |
 | [Secure SDLC, DevSecOps and Secure Coding](../../fundamentals/concepts/secure-sdlc-devsecops.md) | Concept | Windows, Linux | PowerShell, Bash, Python | Hardening, Assurance, Automation |
+| [Security Mitigation Strategies](../../fundamentals/concepts/mitigation-strategies.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, Bash, Python | Hardening, Governance, Detection Engineering |
 | [Threat Modeling](../../fundamentals/concepts/threat-modeling.md) | Concept | Windows, Linux | Python | Assessment, Hardening, Detection Engineering |
 
 <!-- /cc:index -->
