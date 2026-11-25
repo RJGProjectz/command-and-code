@@ -142,6 +142,7 @@ Contain, investigate and preserve evidence.
 | [Azure / Entra ID Identity Posture Audit](assurance/azure-posture-audit.md) | Workflow | Azure, Entra ID | PowerShell | Assurance, Hardening, Administration |
 | [Azure Cloud Infrastructure and Resource Administration](administration/cloud-azure-resource-management.md) | Workflow | Azure, Entra ID | PowerShell, Bash | Administration |
 | [Backup and Recovery Operations](administration/backup-and-recovery.md) | Workflow | Hyper-V, VMware, Proxmox, Windows Server, Linux | PowerShell, Bash | Administration, Forensics |
+| [Building an Incident Response Runbook](incident-response/incident-response-runbook.md) | Workflow | Windows, Linux, Azure, AWS | PowerShell, Bash | Incident Response |
 | [Certificate and PKI Management](administration/certificate-and-pki-management.md) | Workflow | Windows, Windows Server, Linux | PowerShell, Bash | Administration, Hardening |
 | [CIS Hardening Lab Test (Before/After Diff and Run Checklist)](hardening/cis-hardening-lab-test.md) | Workflow | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](assurance/cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |

@@ -55,5 +55,6 @@ The topic names match the cloud platforms ([Azure](../azure/index.md), [AWS](../
 | [GitHub Persistence & Threat Hunting](persistence-hunting.md) | Entry | GitHub | Bash | Threat Hunting, Incident Response, Investigation, Detection Engineering |
 | [GitHub Security Posture (Rulesets, Actions Policy, Dependabot, Secret & Code Scanning)](security-posture.md) | Entry | GitHub | Bash | Assurance, Hardening, Investigation, Incident Response |
 | [GitHub Troubleshooting (Auth, Push, Actions & OIDC Errors)](troubleshooting.md) | Entry | GitHub | Bash | Troubleshooting, Administration |
+| [Continuous Security in DevSecOps](../../fundamentals/concepts/devsecops-continuous-security.md) | Concept | Windows, Linux, GitHub, Azure, AWS | Python, Bash, PowerShell | Hardening, Detection Engineering, Automation |
 
 <!-- /cc:index -->
