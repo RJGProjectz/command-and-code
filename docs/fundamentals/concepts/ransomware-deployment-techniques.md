@@ -126,9 +126,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4648} |
 ## Related concepts
 
 - [Ransomware](ransomware.md)
-- [Credential Theft](credential-theft.md)
-- [Covering Tracks](covering-tracks.md)
-- [MITRE ATT&CK](mitre-attack.md)
+- Credential Theft
+- Covering Tracks
+- MITRE ATT&CK
 
 ## Citations
 

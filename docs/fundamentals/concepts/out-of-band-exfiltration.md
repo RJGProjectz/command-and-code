@@ -134,9 +134,9 @@ tree = ET.fromstring(xml_data)  # Safe: external entities and DTD loading disabl
 
 ## Related concepts
 
-- [Data Exfiltration](data-exfiltration.md)
-- [Supply Chain Attacks](supply-chain-attacks.md)
-- [Covering Tracks](covering-tracks.md)
+- [Data Exfiltration](../../offensive/data-exfiltration.md)
+- Supply Chain Attacks
+- Covering Tracks
 
 ## Citations
 

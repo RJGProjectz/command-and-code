@@ -118,14 +118,14 @@ A healthy pipeline shows a declining trend in open high/critical findings over s
 ## Detect it
 
 - Pipeline anomalies: [Detection Engineering](../../tasks/detection-engineering/index.md)
-- Supply chain threats: [Supply Chain Attacks](supply-chain-attacks.md)
+- Supply chain threats: Supply Chain Attacks
 - Runtime web attacks: [Threat Hunting](../../tasks/threat-hunting/index.md)
 - Harden: [Hardening](../../tasks/hardening/index.md)
 
 ## Related concepts
 
 - [Secure SDLC, DevSecOps and Secure Coding](secure-sdlc-devsecops.md)
-- [Supply Chain Attacks](supply-chain-attacks.md)
+- Supply Chain Attacks
 - [Vulnerability Management](vulnerability-management.md)
 - [Risk Management and Governance](risk-management-governance.md)
 
