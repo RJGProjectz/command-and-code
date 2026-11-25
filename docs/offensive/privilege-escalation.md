@@ -87,7 +87,7 @@ Detection: monitor for `4662` (Object operations — Directory Service access), 
 
 **Hardening:** audit ACLs with BloodHound in read-only mode periodically. Remove `GenericAll`, `WriteDACL`, and `GenericWrite` from non-administrative accounts. Enable Protected Users security group for privileged accounts.
 
-→ [Active Directory Enumeration](active-directory-enumeration.md#acl-and-dacl-enumeration)
+→ [Active Directory Enumeration](active-directory-enumeration.md#5-acl-and-delegation-abuse-paths)
 
 ---
 
@@ -135,10 +135,10 @@ Detection: event `4624` (logon type 3) originating from unusual parent processes
 
 ## Detect It
 
-- Detection: [Sigma rules for privilege escalation](../../detection/sigma/examples.md)
-- Hunt: [Threat Hunting workflow](../../tasks/threat-hunting/index.md)
-- Respond: [Incident Response workflow](../../tasks/incident-response/index.md)
-- Harden: [Hardening tasks](../../tasks/hardening/index.md)
+- Detection: [Sigma rules for privilege escalation](../detection/sigma/examples.md)
+- Hunt: [Threat Hunting workflow](../tasks/threat-hunting/index.md)
+- Respond: [Incident Response workflow](../tasks/incident-response/index.md)
+- Harden: [Hardening tasks](../tasks/hardening/index.md)
 
 ---
 
@@ -147,9 +147,9 @@ Detection: event `4624` (logon type 3) originating from unusual parent processes
 - [Windows Host Enum & Privesc](windows-host-enumeration-privesc.md)
 - [Linux Host Enum & Privesc](linux-host-enumeration-privesc.md)
 - [Active Directory Enumeration](active-directory-enumeration.md)
-- [Lateral Movement](../../tasks/threat-hunting/lateral-movement.md)
-- [Credential Dumping](../../fundamentals/concepts/credential-dumping.md)
-- [Kerberoasting](../../fundamentals/concepts/kerberoasting.md)
+- [Lateral Movement](../tasks/threat-hunting/lateral-movement.md)
+- [Credential Dumping](../fundamentals/concepts/credential-dumping.md)
+- [Kerberoasting](../fundamentals/concepts/kerberoasting.md)
 
 ## External Resources
 
