@@ -82,5 +82,6 @@ Python is the glue for API automation, data processing and cross-platform toolin
 | [Adversarial Training for ML Model Robustness](../../fundamentals/concepts/adversarial-training.md) | Concept | Linux, Windows | Python | Hardening, Detection Engineering, Threat Intelligence |
 | [Secure SDLC, DevSecOps and Secure Coding](../../fundamentals/concepts/secure-sdlc-devsecops.md) | Concept | Windows, Linux | PowerShell, Bash, Python | Hardening, Assurance, Automation |
 | [Supply Chain Attacks](../../fundamentals/concepts/supply-chain-attacks.md) | Concept | Linux, Windows, GitHub, AWS, Azure | Python, Bash, PowerShell | Threat Intelligence, Hardening, Detection Engineering, Incident Response |
+| [Threat Modeling](../../fundamentals/concepts/threat-modeling.md) | Concept | Windows, Linux | Python | Assessment, Hardening, Detection Engineering |
 
 <!-- /cc:index -->

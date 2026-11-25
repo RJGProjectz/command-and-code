@@ -100,5 +100,6 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [Security Information and Event Management (SIEM)](../../fundamentals/concepts/siem.md) | Concept | Splunk, Microsoft Defender, Azure | SPL, KQL | Detection Engineering, Investigation, Threat Hunting |
 | [Security Standards Map (ISO/IEC 27000 series, NIST SP 800)](../../fundamentals/concepts/security-standards-map.md) | Concept | Windows, Linux, Azure | PowerShell | Compliance, Assurance, Hardening |
 | [Supply Chain Attacks](../../fundamentals/concepts/supply-chain-attacks.md) | Concept | Linux, Windows, GitHub, AWS, Azure | Python, Bash, PowerShell | Threat Intelligence, Hardening, Detection Engineering, Incident Response |
+| [Zero Trust Architecture](../../fundamentals/concepts/zero-trust.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, KQL | Hardening, Administration, Detection Engineering |
 
 <!-- /cc:index -->

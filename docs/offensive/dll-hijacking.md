@@ -176,11 +176,11 @@ The clearest detection signal is a Sysmon Event ID 7 (Image Loaded) where the `I
 
 ## Detect it
 
-- Detection: [Sigma — Defense Evasion](../../detection/sigma/index.md)
-- Detection: [SPL — Windows Events](../../detection/spl/windows-events.md)
-- Hunt: [Threat Hunting](../../tasks/threat-hunting/index.md)
-- Respond: [Incident Response](../../tasks/incident-response/index.md)
-- Harden: [Hardening](../../tasks/hardening/index.md)
+- Detection: [Sigma — Defense Evasion](../detection/sigma/index.md)
+- Detection: [SPL — Windows Events](../detection/spl/windows-events.md)
+- Hunt: [Threat Hunting](../tasks/threat-hunting/index.md)
+- Respond: [Incident Response](../tasks/incident-response/index.md)
+- Harden: [Hardening](../tasks/hardening/index.md)
 - Related offensive: [Windows Host Enumeration & Privilege Escalation](windows-host-enumeration-privesc.md)
 
 ## Related concepts

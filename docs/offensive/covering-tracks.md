@@ -216,10 +216,10 @@ Defenders watching for unauthorized track covering will see:
 
 ## Detect it
 
-- Detection: [SPL — Windows Events](../../detection/spl/windows-events.md) (Event ID 1102 / 104 query)
-- Detection: [KQL — Logon & Identity](../../detection/kql/logon-identity.md)
-- Hunt: [Threat Hunting Workflow](../../tasks/threat-hunting/index.md)
-- Harden: [Hardening Tasks](../../tasks/hardening/index.md)
+- Detection: [SPL — Windows Events](../detection/spl/windows-events.md) (Event ID 1102 / 104 query)
+- Detection: [KQL — Logon & Identity](../detection/kql/logon-identity.md)
+- Hunt: [Threat Hunting Workflow](../tasks/threat-hunting/index.md)
+- Harden: [Hardening Tasks](../tasks/hardening/index.md)
 - Related offensive: [Foothold & C2](foothold-command-control.md)
 
 ## Related concepts
@@ -231,6 +231,6 @@ Defenders watching for unauthorized track covering will see:
 ## External Resources
 
 - [MITRE ATT&CK T1070 — Indicator Removal](https://attack.mitre.org/techniques/T1070/)
-- [MITRE ATT&CK T1070.001 — Clear Windows Event Logs](https://attack.mitre.org/techniques/T1070/001/)
+- [MITRE ATT&CK T1685.005 — Clear Windows Event Logs (formerly T1070.001)](https://attack.mitre.org/techniques/T1685/005/)
 - [MITRE ATT&CK T1070.003 — Clear Command History](https://attack.mitre.org/techniques/T1070/003/)
 - [NIST SP 800-115 — Technical Guide to Information Security Testing](https://csrc.nist.gov/publications/detail/sp/800-115/final)

@@ -72,5 +72,6 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [Web Telemetry, Logging & Auditing Standards](../../tasks/hardening/web-telemetry-logging-standards.md) | Entry | Linux, Windows, AWS, Azure | Bash, PowerShell | Hardening, Assurance, Detection Engineering, Governance |
 | [Cloud Incident Response Cheat Sheet (Printable)](../../references/cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |
 | [Supply Chain Attacks](../../fundamentals/concepts/supply-chain-attacks.md) | Concept | Linux, Windows, GitHub, AWS, Azure | Python, Bash, PowerShell | Threat Intelligence, Hardening, Detection Engineering, Incident Response |
+| [Zero Trust Architecture](../../fundamentals/concepts/zero-trust.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, KQL | Hardening, Administration, Detection Engineering |
 
 <!-- /cc:index -->
