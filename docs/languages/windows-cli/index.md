@@ -29,6 +29,8 @@ Native `cmd.exe` tools are indispensable: they execute in restricted shells, Win
 | Entry | Type | Platforms | Languages | Tasks |
 | --- | --- | --- | --- | --- |
 | [Active Directory Account Lockout & Bad Password Troubleshooting](../../tasks/troubleshooting/account-lockout-troubleshooting.md) | Workflow | Windows, Windows Server, Active Directory | PowerShell, CMD, Windows CLI | Troubleshooting, Administration |
+| [Covering Tracks — Evidence Removal in Authorized Penetration Tests](../../offensive/covering-tracks.md) | Workflow | Windows, Linux | PowerShell, Bash, Windows CLI | Assessment |
+| [DLL Hijacking — Exploiting Windows DLL Search Order](../../offensive/dll-hijacking.md) | Workflow | Windows | PowerShell, Windows CLI | Assessment |
 | [Registry Persistence Investigation](../../tasks/investigation/registry-persistence.md) | Workflow | Windows, Microsoft Defender, SentinelOne | PowerShell, Windows CLI, KQL, S1QL | Investigation, Incident Response, Threat Hunting |
 | [Scheduled Task and Cron Persistence Review (Windows, Linux, macOS)](../../tasks/threat-hunting/scheduled-task-persistence-review.md) | Workflow | Windows, Windows Server, Linux, Microsoft Defender, Splunk | PowerShell, Windows CLI, Bash, KQL, SPL, MITRE ATT&CK | Threat Hunting, Investigation, Incident Response |
 | [Scheduled Task Investigation](../../tasks/investigation/scheduled-task-investigation.md) | Workflow | Windows, Microsoft Defender, Splunk, SentinelOne | PowerShell, Windows CLI, KQL, SPL, S1QL | Investigation, Incident Response, Threat Hunting |
