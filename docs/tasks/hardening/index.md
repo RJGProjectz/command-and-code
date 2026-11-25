@@ -164,6 +164,7 @@ Configuration that reduces attack surface or improves visibility (logging, audit
 | [Authentication, MFA, SSO and Federation](../../fundamentals/concepts/authentication-mfa-sso.md) | Concept | Windows, Entra ID, Microsoft 365 | PowerShell, KQL | Investigation, Hardening, Incident Response |
 | [CIA Triad and Least Privilege](../../fundamentals/concepts/cia-triad.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance |
 | [Cloud-Native Security (Containers, Kubernetes, Microservices)](../../fundamentals/concepts/cloud-native-security.md) | Concept | Linux, Azure | Bash, KQL | Hardening, Threat Hunting, Assurance |
+| [Continuous Security in DevSecOps](../../fundamentals/concepts/devsecops-continuous-security.md) | Concept | Windows, Linux, GitHub, Azure, AWS | Python, Bash, PowerShell | Hardening, Detection Engineering, Automation |
 | [Credential Dumping](../../fundamentals/concepts/credential-dumping.md) | Concept | Windows, Microsoft Defender, Active Directory | PowerShell, KQL | Incident Response, Threat Hunting, Hardening |
 | [Cryptographic Attacks and Cryptanalysis](../../fundamentals/concepts/cryptographic-attacks.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Threat Hunting, Hardening, Assurance |
 | [Cryptography Fundamentals (Symmetric and Asymmetric Encryption)](../../fundamentals/concepts/cryptography-fundamentals.md) | Concept | Windows, Linux | PowerShell, Bash | Hardening, Assurance, Administration |

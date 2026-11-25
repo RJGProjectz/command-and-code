@@ -51,6 +51,7 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | --- | --- | --- | --- | --- |
 | [Azure / Entra ID Identity Posture Audit](../../tasks/assurance/azure-posture-audit.md) | Workflow | Azure, Entra ID | PowerShell | Assurance, Hardening, Administration |
 | [Azure Cloud Infrastructure and Resource Administration](../../tasks/administration/cloud-azure-resource-management.md) | Workflow | Azure, Entra ID | PowerShell, Bash | Administration |
+| [Building an Incident Response Runbook](../../tasks/incident-response/incident-response-runbook.md) | Workflow | Windows, Linux, Azure, AWS | PowerShell, Bash | Incident Response |
 | [CISA SCuBA Microsoft 365 and Azure Baseline Compliance](../../tasks/assurance/cisa-scuba-compliance.md) | Workflow | Microsoft 365, Azure, Entra ID | PowerShell | Assurance, Compliance, Hardening |
 | [Credential Rotation After a Compromise](../../tasks/incident-response/credential-rotation-after-compromise.md) | Workflow | Active Directory, Windows Server, Linux, Entra ID, Azure | PowerShell, Bash, CMD | Incident Response, Administration |
 | [Enumerate Cloud Attack Surface across AWS, Azure and GCP](../../offensive/cloud-attack-surface-enumeration.md) | Workflow | AWS, Azure, GCP | Bash, Python | Assessment |
@@ -93,6 +94,7 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [Threat Actor Intelligence Profiles & TTP Reference Cards](../../references/threat-actor-profiles.md) | Reference | Windows, Linux, Azure, Entra ID, Microsoft 365 | KQL, SPL, PowerShell, Bash | Threat Intelligence, Threat Hunting, Detection Engineering |
 | [Access Control Models (ACL, DAC, MAC, RBAC, ABAC)](../../fundamentals/concepts/access-control-models.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Administration, Assurance |
 | [Cloud-Native Security (Containers, Kubernetes, Microservices)](../../fundamentals/concepts/cloud-native-security.md) | Concept | Linux, Azure | Bash, KQL | Hardening, Threat Hunting, Assurance |
+| [Continuous Security in DevSecOps](../../fundamentals/concepts/devsecops-continuous-security.md) | Concept | Windows, Linux, GitHub, Azure, AWS | Python, Bash, PowerShell | Hardening, Detection Engineering, Automation |
 | [Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP)](../../fundamentals/concepts/cyber-law.md) | Concept | Windows, Azure | PowerShell | Compliance, Assurance, Incident Response |
 | [Defense in Depth and Secure Network Design](../../fundamentals/concepts/defense-in-depth.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Hardening, Assurance |
 | [Denial of Service (DoS and DDoS)](../../fundamentals/concepts/denial-of-service.md) | Concept | Windows, Linux, Azure | PowerShell, Bash | Incident Response, Troubleshooting, Hardening |

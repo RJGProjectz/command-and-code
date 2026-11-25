@@ -127,7 +127,7 @@ if (-not (Test-Path -LiteralPath $CatalogPath)) {
 }
 
 Write-Verbose "Mode: $TargetEnvironment (read-only; no Azure resource is changed)"
-Write-AuditLog "Azure identity posture audit — $TargetEnvironment (bar: $Bar)"
+Write-AuditLog "Azure identity posture audit - $TargetEnvironment (bar: $Bar)"
 Write-AuditLog "Catalog: $CatalogPath" 'INFO'
 
 # Load catalog.
@@ -165,7 +165,7 @@ foreach ($r in $rows | Where-Object Status -ne 'Pass') {
     $logLevel = if ($r.Status -eq 'Fail') { 'FAIL' } elseif ($r.Status -eq 'Error') { 'ERROR' } else { 'INFO' }
     Write-AuditLog "$($r.Id) $($r.Title) | expected: $($r.Expected) | actual: $($r.Actual)" $logLevel
 }
-Write-AuditLog ("Summary: {0} checks, {1} pass, {2} fail, {3} error, {4} n/a — score {5}%" -f
+Write-AuditLog ("Summary: {0} checks, {1} pass, {2} fail, {3} error, {4} n/a - score {5}%" -f
     $summary.total, $summary.pass, $summary.fail, $summary.error, $summary.notApplicable, $summary.scorePct)
 
 $report = [ordered]@{

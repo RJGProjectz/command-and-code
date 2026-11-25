@@ -43,7 +43,7 @@ Data exfiltration is the final objective in most financially motivated attacks. 
 
 Exfiltration sits at Phase 7 (Actions on Objectives) of the Cyber Kill Chain and maps to MITRE ATT&CK tactic **TA0010 — Exfiltration**.
 
-→ [Threat Intelligence and the Cyber Kill Chain](../../fundamentals/concepts/threat-intelligence-kill-chain.md)
+→ [Threat Intelligence and the Cyber Kill Chain](../fundamentals/concepts/threat-intelligence-kill-chain.md)
 → [Actions on Objectives & Reporting](actions-on-objectives-reporting.md)
 
 ---
@@ -83,7 +83,7 @@ Detection signals:
 - Low TTL responses or NX domain storms
 - Domains with no prior query history
 
-→ [SIEM detection for DNS tunneling](../../detection/spl/index.md)
+→ [SIEM detection for DNS tunneling](../detection/spl/index.md)
 
 ### ICMP Tunneling
 
@@ -141,10 +141,10 @@ Detection: TLS inspection at the proxy where legally and technically feasible; a
 
 ## Detect It
 
-- Detection: [KQL exfiltration rules](../../detection/kql/index.md)
-- Hunt: [Threat Hunting workflow](../../tasks/threat-hunting/index.md)
-- Respond: [Incident Response workflow](../../tasks/incident-response/index.md)
-- Harden: [Hardening tasks](../../tasks/hardening/index.md)
+- Detection: [KQL exfiltration rules](../detection/kql/index.md)
+- Hunt: [Threat Hunting workflow](../tasks/threat-hunting/index.md)
+- Respond: [Incident Response workflow](../tasks/incident-response/index.md)
+- Harden: [Hardening tasks](../tasks/hardening/index.md)
 
 ---
 
@@ -152,8 +152,8 @@ Detection: TLS inspection at the proxy where legally and technically feasible; a
 
 - [Actions on Objectives & Reporting](actions-on-objectives-reporting.md)
 - [Foothold, C2 & Defense Evasion](foothold-command-control.md)
-- [Threat Intelligence and the Cyber Kill Chain](../../fundamentals/concepts/threat-intelligence-kill-chain.md)
-- [Malware Types and Analysis](../../fundamentals/concepts/malware-types-analysis.md)
+- [Threat Intelligence and the Cyber Kill Chain](../fundamentals/concepts/threat-intelligence-kill-chain.md)
+- [Malware Types and Analysis](../fundamentals/concepts/malware-types-analysis.md)
 
 ## External Resources
 

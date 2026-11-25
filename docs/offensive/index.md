@@ -115,6 +115,7 @@ payloads.
 | [Web Server & Reverse Proxy Hardening](../tasks/hardening/web-server-reverse-proxy-hardening.md) | Entry | Linux | Bash | Hardening, Assurance, Assessment |
 | [API Surface Recon Tool (scope- and rate-limit-aware)](api-surface-recon-tool.md) | Tool | Linux | Bash | Assessment |
 | [Passive Web OSINT Tool (one or many targets)](passive-web-osint.md) | Tool | Linux | Bash | Assessment |
+| [Penetration Test Report Writing](../fundamentals/concepts/pentest-report-writing.md) | Concept | Windows, Linux | PowerShell, Bash, Python | Assessment |
 | [Security Controls](../fundamentals/concepts/security-controls.md) | Concept | Windows, Linux | PowerShell, KQL | Hardening, Administration, Detection Engineering, Assessment |
 | [Threat Modeling](../fundamentals/concepts/threat-modeling.md) | Concept | Windows, Linux | Python | Assessment, Hardening, Detection Engineering |
 

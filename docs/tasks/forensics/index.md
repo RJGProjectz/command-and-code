@@ -62,6 +62,7 @@ Evidence preservation and artifact analysis: exports, hashes, hives, snapshots, 
 | [File Systems (NTFS, ext4, XFS)](../../fundamentals/concepts/file-systems.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Investigation, Hardening |
 | [Hash Functions (MD5, SHA-1, SHA-2, SHA-3, BLAKE2)](../../fundamentals/concepts/hash-functions.md) | Concept | Windows, Linux | PowerShell, Bash | Forensics, Investigation, Threat Intelligence |
 | [Malware Types and Analysis (Spyware, RATs, Rootkits)](../../fundamentals/concepts/malware-types-analysis.md) | Concept | Windows, Linux, Microsoft Defender | PowerShell, Bash, KQL | Incident Response, Forensics, Threat Intelligence |
+| [Ransomware Deployment Techniques](../../fundamentals/concepts/ransomware-deployment-techniques.md) | Concept | Windows, Active Directory | PowerShell, Windows CLI | Incident Response, Forensics, Threat Hunting |
 | [Windows Registry (and the Linux /etc Equivalent)](../../fundamentals/concepts/windows-registry.md) | Concept | Windows, Linux | PowerShell, Bash | Investigation, Forensics, Threat Hunting |
 
 <!-- /cc:index -->
