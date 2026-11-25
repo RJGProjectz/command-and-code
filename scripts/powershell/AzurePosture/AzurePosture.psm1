@@ -225,7 +225,7 @@ function Get-AzurePostureContext {
     try {
         $null = Get-Command az -ErrorAction Stop
         $account = az account show 2>$null | ConvertFrom-Json
-        if (-not $account) { throw 'az account show returned no output — run az login first.' }
+        if (-not $account) { throw 'az account show returned no output - run az login first.' }
     }
     catch {
         throw "az CLI prerequisite check failed: $($_.Exception.Message)"
