@@ -342,6 +342,7 @@ nav:
               - CIA Triad and Least Privilege: fundamentals/concepts/cia-triad.md
               - Defense in Depth and Secure Network Design: fundamentals/concepts/defense-in-depth.md
               - Risk Management, Policies and Compliance Audits: fundamentals/concepts/risk-management-governance.md
+              - Change Management (Change Control, CCB, CAB): fundamentals/concepts/change-management.md
               - Security Standards Map (ISO/IEC 27000 series, NIST SP 800): fundamentals/concepts/security-standards-map.md
               - Privacy Laws and Data Protection (GDPR, CCPA, HIPAA): fundamentals/concepts/privacy-laws.md
               - Cyber Law (CFAA, ECPA, FISA, PATRIOT Act, SOX, FISMA, FedRAMP): fundamentals/concepts/cyber-law.md
@@ -373,6 +374,7 @@ nav:
               - Identity and Access Management (IAM, PAM, Directory Services): fundamentals/concepts/identity-access-management.md
               - Password Attacks and Defences (Spraying, Cracking, Wordlists): fundamentals/concepts/password-attacks.md
               - Credential Dumping: fundamentals/concepts/credential-dumping.md
+              - Credential Stuffing (Account Takeover): fundamentals/concepts/credential-stuffing.md
               - Kerberoasting: fundamentals/concepts/kerberoasting.md
               - Social Engineering (Phishing, Vishing, Pretexting, Tailgating): fundamentals/concepts/social-engineering.md
           - "Cryptography":
@@ -385,8 +387,10 @@ nav:
               - Post-Quantum Cryptography (ML-KEM, ML-DSA, SLH-DSA): fundamentals/concepts/post-quantum-cryptography.md
           - "Threats & Intelligence":
               - Threat Intelligence and the Cyber Kill Chain: fundamentals/concepts/threat-intelligence-kill-chain.md
+              - MITRE ATT&CK Framework: fundamentals/concepts/mitre-attack.md
               - OSINT and Reconnaissance: fundamentals/concepts/osint.md
               - Malware Types and Analysis (Spyware, RATs, Rootkits): fundamentals/concepts/malware-types-analysis.md
+              - DLL Injection (Process Injection): fundamentals/concepts/dll-injection.md
               - Ransomware: fundamentals/concepts/ransomware.md
               - Anonymity Networks and the Dark Web (Tor, I2P, Tails): fundamentals/concepts/anonymity-dark-web.md
           - "Security Operations":
@@ -400,6 +404,7 @@ nav:
               - Surveillance, Counter-Surveillance and Deception: fundamentals/concepts/surveillance-deception.md
           - "Apps, Cloud & Endpoint":
               - Secure SDLC, DevSecOps and Secure Coding: fundamentals/concepts/secure-sdlc-devsecops.md
+              - Secrets Management (Vault, Key Management, Rotation): fundamentals/concepts/secrets-management.md
               - Cloud-Native Security (Containers, Kubernetes, Microservices): fundamentals/concepts/cloud-native-security.md
               - Mobile Device and Application Security: fundamentals/concepts/mobile-security.md
   - Offensive:
