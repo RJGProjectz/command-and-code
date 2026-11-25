@@ -104,7 +104,7 @@ Get-AzVM | ForEach-Object {
 ## Detect it
 
 - Harden: [Cloud-Native Security](cloud-native-security.md)
-- Reference: [Azure / Entra ID Identity Posture Audit](../../platforms/azure/identity-posture-audit.md)
+- Reference: [Azure / Entra ID Identity Posture Audit](../../tasks/assurance/azure-posture-audit.md)
 - Governance: [Risk Management, Policies and Compliance Audits](risk-management-governance.md)
 
 ## Related concepts

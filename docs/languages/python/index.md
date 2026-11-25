@@ -81,5 +81,6 @@ Python is the glue for API automation, data processing and cross-platform toolin
 | [Knowledge Graph Efficacy & Operational Coverage Matrix](../../references/coverage-matrix.md) | Reference | Windows, Windows Server, Linux, Azure, Entra ID, Microsoft Defender, SentinelOne, Splunk | PowerShell, Bash, Python, KQL, SPL, S1QL, REST API | Administration, Incident Response, Threat Hunting, Detection Engineering, Hardening, Assurance, Governance |
 | [Authentication and Authorization in Web Applications](../../fundamentals/concepts/authentication-authorization.md) | Concept | Linux, Windows | HTTP, REST API, Python | Assurance, Investigation, Hardening |
 | [Secure SDLC, DevSecOps and Secure Coding](../../fundamentals/concepts/secure-sdlc-devsecops.md) | Concept | Windows, Linux | PowerShell, Bash, Python | Hardening, Assurance, Automation |
+| [Threat Modeling](../../fundamentals/concepts/threat-modeling.md) | Concept | Windows, Linux | Python | Assessment, Hardening, Detection Engineering |
 
 <!-- /cc:index -->
