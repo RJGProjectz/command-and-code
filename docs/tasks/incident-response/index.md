@@ -20,6 +20,7 @@ These playbooks follow the **NIST SP 800-61** incident-response lifecycle: **Pre
 | [Automated Active Directory and Cloud Identity Containment](../automation/automated-account-containment.md) | Workflow | Active Directory, Entra ID, Microsoft 365, Windows Server | PowerShell, REST API | Automation, Incident Response, Administration |
 | [Automated IoC Enrichment and Threat Intelligence Pipeline](../automation/automated-ioc-enrichment.md) | Workflow | Linux, Windows | PowerShell, Python, REST API | Automation, Incident Response, Investigation |
 | [Credential Rotation After a Compromise](credential-rotation-after-compromise.md) | Workflow | Active Directory, Windows Server, Linux, Entra ID, Azure | PowerShell, Bash, CMD | Incident Response, Administration |
+| [Data Exfiltration Techniques — Awareness, Detection and Hardening](../../offensive/data-exfiltration.md) | Workflow | Windows, Linux | — | Assessment, Detection Engineering, Incident Response |
 | [Detection Development Lifecycle (DDLC) and Testing](../detection-engineering/detection-development-lifecycle.md) | Workflow | Windows, Linux, Microsoft Defender, Splunk, SentinelOne | KQL, SPL, S1QL, Sigma, PowerShell | Detection Engineering, Threat Hunting, Incident Response |
 | [Endpoint Triage](endpoint-triage.md) | Workflow | Windows, Linux | PowerShell, Bash | Incident Response, Forensics |
 | [Eradication and Recovery](eradication-and-recovery.md) | Workflow | Windows, Windows Server, Linux, Entra ID, Microsoft 365 | PowerShell, Bash | Incident Response, Administration, Hardening |

@@ -98,6 +98,7 @@ payloads.
 | [Assess a Wi-Fi Network's Posture — Survey, Encryption and Rogue-AP Awareness](wifi-wireless-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Assess an LLM Application for Prompt Injection and Abuse](llm-application-assessment.md) | Workflow | Linux | Python, HTTP | Assessment |
 | [Assess Credential Strength — Authorized Password Spraying and Offline Hash Cracking](password-attacks-credential-cracking.md) | Workflow | Linux | Bash | Assessment |
+| [Data Exfiltration Techniques — Awareness, Detection and Hardening](data-exfiltration.md) | Workflow | Windows, Linux | — | Assessment, Detection Engineering, Incident Response |
 | [Enumerate a Linux Host and Identify Privilege-Escalation Paths](linux-host-enumeration-privesc.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Web Application for Technology, Versions and Weaknesses](web-application-assessment.md) | Workflow | Linux | Bash | Assessment |
 | [Enumerate a Windows Host and Identify Privilege-Escalation Paths](windows-host-enumeration-privesc.md) | Workflow | Windows | PowerShell | Assessment |
@@ -107,12 +108,15 @@ payloads.
 | [Enumerate Container and Kubernetes Attack Surface — Exposed Runtimes, kubelet, API Server and RBAC](container-kubernetes-attack-surface.md) | Workflow | Linux | Bash, Python | Assessment |
 | [Foothold, Command-and-Control & Defense Evasion — Awareness, Detection and Hardening](foothold-command-control.md) | Workflow | Windows, Linux | — | Assessment |
 | [Map an Organization's Attack Surface with OSINT and Active Reconnaissance](osint-active-recon.md) | Workflow | Linux | Bash | Assessment |
+| [Privilege Escalation Techniques — Awareness, Detection and Hardening](privilege-escalation.md) | Workflow | Windows, Linux, Active Directory | — | Assessment, Hardening, Detection Engineering |
 | [Run an Authorized Phishing Simulation — Measure Human and Technical Susceptibility](phishing-social-engineering-ops.md) | Workflow | Linux | Bash | Assessment |
 | [Firewalls & Network Layer Controls](../fundamentals/web-apps/firewall-and-network-controls.md) | Entry | Linux, Windows, AWS, Azure, GCP | Bash, PowerShell | Hardening, Assurance, Assessment |
 | [HTTP Protocol Mechanics & Browser Security Model](../fundamentals/web-apps/http-protocol-mechanics.md) | Entry | Linux, Windows | Bash, PowerShell | Hardening, Assessment, Assurance |
 | [Web Server & Reverse Proxy Hardening](../tasks/hardening/web-server-reverse-proxy-hardening.md) | Entry | Linux | Bash | Hardening, Assurance, Assessment |
 | [API Surface Recon Tool (scope- and rate-limit-aware)](api-surface-recon-tool.md) | Tool | Linux | Bash | Assessment |
 | [Passive Web OSINT Tool (one or many targets)](passive-web-osint.md) | Tool | Linux | Bash | Assessment |
+| [Security Controls](../fundamentals/concepts/security-controls.md) | Concept | Windows, Linux | PowerShell, KQL | Hardening, Administration, Detection Engineering, Assessment |
+| [Threat Modeling](../fundamentals/concepts/threat-modeling.md) | Concept | Windows, Linux | Python | Assessment, Hardening, Detection Engineering |
 
 <!-- /cc:index -->
 

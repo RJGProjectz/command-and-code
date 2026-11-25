@@ -176,12 +176,12 @@ carries:
 | Phase 3 | Storage / Network / Key Vault | Public access, Key Vault firewall, NSG defaults |
 | Phase 4 | Logging | Diagnostic settings, activity log retention, Sentinel workspace |
 
-See the roadmap section in [Azure Security Baseline](../../hardening/cloud-azure-security-baseline.md).
+See the roadmap section in [Azure Security Baseline](../hardening/cloud-azure-security-baseline.md).
 
 ## How the engine works
 
 The engine (`scripts/powershell/AzurePosture/AzurePosture.psm1`) follows the same pattern as the
-[AD posture engine](../../assurance/ad-environment-posture-audit.md):
+[AD posture engine](ad-environment-posture-audit.md):
 
 1. **`Get-AzurePostureContext`** — collects all facts with `az rest` Graph v1.0 calls into a
    `$context.Facts` hashtable; errors are recorded in `$context.Errors` so collection failures
@@ -226,7 +226,7 @@ a failure here does not stop the audit.
 
 - [Posture Audit (Workstation/Server/AD)](posture-audit.md) — Windows and AD posture umbrella
 - [AD Environment Posture Audit](ad-environment-posture-audit.md) — on-prem AD engine
-- [Azure Security Baseline](../../hardening/cloud-azure-security-baseline.md) — hardening controls
+- [Azure Security Baseline](../hardening/cloud-azure-security-baseline.md) — hardening controls
 - [Azure NSG Compliance](azure-nsg-compliance.md) — network security group audit
 - [Identity & Directory Query Cookbook](../../references/identity-directory-query-cookbook.md) — Entra ID Graph queries
 - [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure)
