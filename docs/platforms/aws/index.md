@@ -71,6 +71,10 @@ Every cloud uses the same topic set, so the Azure, AWS and GCP pages line up sid
 | [WAF Fundamentals & Tuning](../../tasks/hardening/waf-fundamentals-and-tuning.md) | Entry | Linux, AWS, Azure | Bash | Hardening, Assurance, Detection Engineering |
 | [Web Telemetry, Logging & Auditing Standards](../../tasks/hardening/web-telemetry-logging-standards.md) | Entry | Linux, Windows, AWS, Azure | Bash, PowerShell | Hardening, Assurance, Detection Engineering, Governance |
 | [Cloud Incident Response Cheat Sheet (Printable)](../../references/cloud-ir-cheat-sheet.md) | Reference | AWS, Azure, GCP | Bash, PowerShell | Incident Response, Investigation, Forensics |
+| [Change Management](../../fundamentals/concepts/change-management.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, Bash | Administration, Assurance, Hardening, Governance |
+| [Credential Stuffing](../../fundamentals/concepts/credential-stuffing.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, Bash, Python | Incident Response, Hardening, Detection Engineering, Threat Hunting |
+| [MITRE ATT&CK Framework](../../fundamentals/concepts/mitre-attack.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, KQL, Python | Threat Hunting, Detection Engineering, Threat Intelligence, Incident Response |
+| [Secrets Management](../../fundamentals/concepts/secrets-management.md) | Concept | Linux, Windows, AWS, Azure, GCP, GitHub | Bash, PowerShell, Python | Hardening, Administration, Assurance |
 | [Zero Trust Architecture](../../fundamentals/concepts/zero-trust.md) | Concept | Windows, Linux, Azure, AWS | PowerShell, KQL | Hardening, Administration, Detection Engineering |
 
 <!-- /cc:index -->
